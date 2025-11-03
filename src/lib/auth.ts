@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import { hash, verify } from '@node-rs/bcrypt';
 import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 
@@ -9,7 +9,7 @@ import { cookies } from 'next/headers';
  */
 export async function hashPassword(password: string): Promise<string> {
   const saltRounds = 10;
-  return await bcrypt.hash(password, saltRounds);
+  return await hash(password, saltRounds);
 }
 
 /**
@@ -22,7 +22,7 @@ export async function verifyPassword(
   password: string,
   hashedPassword: string
 ): Promise<boolean> {
-  return await bcrypt.compare(password, hashedPassword);
+  return await verify(password, hashedPassword);
 }
 
 // JWT session management

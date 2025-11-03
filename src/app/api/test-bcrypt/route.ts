@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
+import { hash, verify } from '@node-rs/bcrypt';
 
 export async function GET() {
   try {
-    console.log('Testing bcrypt...');
+    console.log('Testing @node-rs/bcrypt...');
 
     const password = 'lithodat2024';
-    const hash = await bcrypt.hash(password, 10);
-    console.log('Hash created:', hash);
+    const hashed = await hash(password, 10);
+    console.log('Hash created:', hashed);
 
-    const isValid = await bcrypt.compare(password, hash);
+    const isValid = await verify(password, hashed);
     console.log('Verification result:', isValid);
 
     return NextResponse.json({
