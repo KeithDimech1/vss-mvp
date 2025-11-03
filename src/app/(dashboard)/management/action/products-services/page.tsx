@@ -1,74 +1,33 @@
 import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
-import { jwtVerify } from 'jose';
 import { PrismaClient } from '@prisma/client';
 import ActionFormWrapper from '@/components/actions/ActionFormWrapper';
 import { getActionBySlug } from '@/lib/actions';
+import { requireManager } from '@/lib/server-auth';
 
 // Force this page to be dynamic (not cached)
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const prisma = new PrismaClient();
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'your-secret-key');
-
-async function getSession() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get('session');
-
-  if (!token) {
-    return null;
-  }
-
-  try {
-    const { payload } = await jwtVerify(token.value, JWT_SECRET);
-    return payload as { userId: string };
-  } catch (error) {
-    return null;
-  }
-}
 
 export default async function ProductsServicesActionPage() {
   console.log('[ACTION PAGE] Starting page render...');
 
-  // Verify session
-  const session = await getSession();
-  console.log('[ACTION PAGE] Session check:', { hasSession: !!session, userId: session?.userId });
-
-  if (!session) {
-    console.log('[ACTION PAGE] No session, redirecting to /login');
-    redirect('/login');
+  // Require manager authentication - throws if not authorized
+  let user;
+  try {
+    user = await requireManager();
+    console.log('[ACTION PAGE] ✅ Manager authorization passed:', user.username);
+  } catch (error: any) {
+    console.error('[ACTION PAGE] Authorization failed:', error.message);
+    if (error.message === 'UNAUTHORIZED') {
+      redirect('/login');
+    } else if (error.message === 'FORBIDDEN') {
+      redirect('/dashboard');
+    } else {
+      redirect('/login');
+    }
   }
-
-  // Get user and verify management team access
-  const user = await prisma.user.findUnique({
-    where: { id: session.userId },
-    select: { id: true, username: true, fullName: true, isManager: true }
-  });
-
-  console.log('[ACTION PAGE] User query result:', {
-    hasUser: !!user,
-    username: user?.username,
-    isManager: user?.isManager,
-    isManagerType: typeof user?.isManager
-  });
-
-  // Check if user exists and is a manager
-  if (!user) {
-    console.error('[ACTION PAGE AUTH] User not found, redirecting to /dashboard');
-    redirect('/dashboard');
-  }
-
-  if (!user.isManager) {
-    console.error('[ACTION PAGE AUTH] User is not a manager:', {
-      username: user.username,
-      isManager: user.isManager,
-      redirectingTo: '/dashboard'
-    });
-    redirect('/dashboard');
-  }
-
-  console.log('[ACTION PAGE] ✅ Authorization passed - access granted for:', user.username);
 
   // Get action metadata
   const actionMetadata = getActionBySlug('products-services');
