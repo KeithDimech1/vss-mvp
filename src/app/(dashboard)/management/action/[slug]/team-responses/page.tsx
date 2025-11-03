@@ -7,6 +7,7 @@ import { getActionBySlug } from '@/lib/actions';
 
 const prisma = new PrismaClient();
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'your-secret-key');
+const MANAGEMENT_TEAM = ['keith', 'fabian', 'wayne', 'moritz', 'vinko'];
 
 async function getSession() {
   const cookieStore = await cookies();
@@ -24,7 +25,14 @@ async function getSession() {
   }
 }
 
-export default async function TeamResponsesPage() {
+export default async function TeamResponsesPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await the params (required in Next.js 15+)
+  const { slug } = await params;
+
   // Verify session
   const session = await getSession();
   if (!session) {
@@ -42,14 +50,14 @@ export default async function TeamResponsesPage() {
   }
 
   // Get action metadata
-  const actionMetadata = getActionBySlug('products-services');
+  const actionMetadata = getActionBySlug(slug);
   if (!actionMetadata) {
     redirect('/management');
   }
 
   // Get the action item from database
   const actionItem = await prisma.actionItem.findUnique({
-    where: { actionSlug: 'products-services' }
+    where: { actionSlug: slug }
   });
 
   if (!actionItem) {
@@ -59,7 +67,9 @@ export default async function TeamResponsesPage() {
   // Get all management team members
   const managementMembers = await prisma.user.findMany({
     where: {
-      isManager: true
+      username: {
+        in: MANAGEMENT_TEAM
+      }
     },
     select: {
       id: true,
@@ -109,7 +119,7 @@ export default async function TeamResponsesPage() {
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <a
-          href="/management/action/products-services"
+          href={`/management/action/${slug}`}
           className="inline-flex items-center text-[#0D8BFF] hover:text-[#0A6FCC] mb-6 transition-colors"
         >
           <svg
@@ -125,7 +135,7 @@ export default async function TeamResponsesPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Action 1
+          Back to {actionMetadata.title}
         </a>
 
         {/* Header */}

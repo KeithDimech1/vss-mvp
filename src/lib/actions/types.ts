@@ -7,7 +7,10 @@ export type QuestionType =
   | 'dropdown'
   | 'date'
   | 'number'
-  | 'currency';
+  | 'currency'
+  | 'info' // Informational display (no input required)
+  | 'implementation_table' // Dynamic table with changes and time columns
+  | 'data_inventory_matrix'; // Matrix for data inventory (rows=datatypes, cols=regions)
 
 export interface QuestionOption {
   value: string;

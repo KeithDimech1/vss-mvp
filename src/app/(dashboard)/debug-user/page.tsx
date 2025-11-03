@@ -39,7 +39,6 @@ export default async function DebugUserPage() {
       id: true,
       username: true,
       fullName: true,
-      email: true,
       role: true,
       createdAt: true
     }
@@ -59,7 +58,6 @@ export default async function DebugUserPage() {
             <p><strong>ID:</strong> {user.id}</p>
             <p><strong>Username:</strong> {user.username}</p>
             <p><strong>Full Name:</strong> {user.fullName}</p>
-            <p><strong>Email:</strong> {user.email}</p>
             <p><strong>Role:</strong> {user.role}</p>
             <p><strong>Created:</strong> {user.createdAt.toLocaleString()}</p>
           </div>

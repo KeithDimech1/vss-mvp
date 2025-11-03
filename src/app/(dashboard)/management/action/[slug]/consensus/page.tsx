@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
 import { PrismaClient } from '@prisma/client';
-import TeamResponseView from '@/components/actions/TeamResponseView';
+import ConsensusBuilder from '@/components/actions/ConsensusBuilder';
 import { getActionBySlug } from '@/lib/actions';
 
 const prisma = new PrismaClient();
@@ -24,7 +24,14 @@ async function getSession() {
   }
 }
 
-export default async function TeamResponsesPage() {
+export default async function ConsensusPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await the params (required in Next.js 15+)
+  const { slug } = await params;
+
   // Verify session
   const session = await getSession();
   if (!session) {
@@ -42,31 +49,19 @@ export default async function TeamResponsesPage() {
   }
 
   // Get action metadata
-  const actionMetadata = getActionBySlug('products-services');
+  const actionMetadata = getActionBySlug(slug);
   if (!actionMetadata) {
     redirect('/management');
   }
 
   // Get the action item from database
   const actionItem = await prisma.actionItem.findUnique({
-    where: { actionSlug: 'products-services' }
+    where: { actionSlug: slug }
   });
 
   if (!actionItem) {
     redirect('/management');
   }
-
-  // Get all management team members
-  const managementMembers = await prisma.user.findMany({
-    where: {
-      isManager: true
-    },
-    select: {
-      id: true,
-      username: true,
-      fullName: true
-    }
-  });
 
   // Get all responses for this action
   const responses = await prisma.actionResponse.findMany({
@@ -91,25 +86,28 @@ export default async function TeamResponsesPage() {
     fullName: response.user.fullName || response.user.username,
     responses: response.responses as Record<string, any>,
     completed: response.completed,
-    submittedAt: response.submittedAt?.toISOString() || null,
-    updatedAt: response.updatedAt.toISOString()
+    submittedAt: response.submittedAt?.toISOString() || null
   }));
 
-  // Find non-respondents
-  const respondentIds = new Set(responses.map(r => r.userId));
-  const nonRespondents = managementMembers
-    .filter(member => !respondentIds.has(member.id))
-    .map(member => ({
-      username: member.username,
-      fullName: member.fullName || member.username
-    }));
+  // Get existing consensus (if any)
+  const consensus = await prisma.actionConsensus.findUnique({
+    where: { actionItemId: actionItem.id }
+  });
+
+  const existingConsensus = consensus ? {
+    consensusData: consensus.consensusData as Record<string, any>,
+    notes: consensus.notes || '',
+    resolved: consensus.resolved,
+    resolvedAt: consensus.resolvedAt?.toISOString() || null,
+    resolvedBy: consensus.resolvedBy
+  } : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <a
-          href="/management/action/products-services"
+          href={`/management/action/${slug}`}
           className="inline-flex items-center text-[#0D8BFF] hover:text-[#0A6FCC] mb-6 transition-colors"
         >
           <svg
@@ -125,25 +123,40 @@ export default async function TeamResponsesPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Action 1
+          Back to {actionMetadata.title}
         </a>
 
         {/* Header */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
           <h1 className="text-3xl font-bold text-[#2C3E7C] mb-2">
-            Team Responses: {actionMetadata.title}
+            Consensus Building: {actionMetadata.title}
           </h1>
           <p className="text-gray-600">
-            Review and compare responses from all management team members
+            Review team responses and build consensus on final decisions
           </p>
         </div>
 
-        {/* Team Response View */}
-        <TeamResponseView
+        {/* Consensus Builder */}
+        <ConsensusBuilder
           action={actionMetadata}
+          actionSlug={slug}
           teamResponses={teamResponses}
-          nonRespondents={nonRespondents}
+          existingConsensus={existingConsensus}
+          currentUserId={user.id}
         />
+
+        {/* Help Section */}
+        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="font-bold text-blue-900 mb-2">How to Build Consensus</h3>
+          <ul className="list-disc list-inside text-sm text-blue-800 space-y-1">
+            <li>Review each team member's responses by expanding the questions</li>
+            <li>Discuss differences and find common ground through team discussions</li>
+            <li>Enter the agreed-upon consensus decision for each question</li>
+            <li>Add overall notes about the discussion and any action items</li>
+            <li>Your changes auto-save every 30 seconds</li>
+            <li>Mark as "Resolved" when consensus is reached and finalized</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

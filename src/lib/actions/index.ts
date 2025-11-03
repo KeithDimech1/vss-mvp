@@ -1,13 +1,13 @@
 import { ActionMetadata } from './types';
-import { action1Metadata } from './action1-products-services';
+import { action1Metadata } from './action1-lithosurfer';
+import { action2Metadata } from './action2-lithodata';
+import { action3Metadata } from './action3-lithobuild';
 
 // Map of all actions by slug
 export const actionsBySlug: Record<string, ActionMetadata> = {
-  'products-services': action1Metadata,
-  // Future actions will be added here:
-  // 'unified-utopia': action2Metadata,
-  // 'setup-departments': action3Metadata,
-  // etc.
+  'lithosurfer': action1Metadata,
+  'lithodata': action2Metadata,
+  'lithobuild': action3Metadata,
 };
 
 // Get action by slug

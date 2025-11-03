@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import DebugAuthPanel from '@/components/DebugAuthPanel';
 
 interface SessionData {
   userId: string;
@@ -27,19 +26,14 @@ export default function DashboardLayout({
     // Fetch session from API
     const fetchSession = async () => {
       try {
-        console.log('[LAYOUT] Fetching session from:', window.location.pathname);
         const response = await fetch('/api/auth/session');
 
         if (!response.ok) {
-          console.log('[LAYOUT] Session response not OK, redirecting to /login');
           router.push('/login');
           return;
         }
 
         const data = await response.json();
-        console.log('[LAYOUT] Session data received:', data.user?.username, 'for path:', window.location.pathname);
-        console.log('[LAYOUT] Full session data:', data);
-        console.log('[LAYOUT] isManager in session:', data.user?.isManager, 'type:', typeof data.user?.isManager);
         setSession(data.user);
         setIsLoading(false);
       } catch (error) {
@@ -64,7 +58,6 @@ export default function DashboardLayout({
   };
 
   if (isLoading) {
-    console.log('[LAYOUT] Still loading session...');
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-gray-600">Loading...</div>
@@ -73,17 +66,11 @@ export default function DashboardLayout({
   }
 
   if (!session) {
-    console.log('[LAYOUT] No session found after loading, rendering null');
     return null;
   }
 
-  console.log('[LAYOUT] Rendering layout for user:', session.username, 'at:', window.location.pathname);
-  console.log('[LAYOUT] Session object in render:', session);
-  console.log('[LAYOUT] session.isManager value:', session.isManager, 'type:', typeof session.isManager);
-
   // Check if user is a manager (from database field)
   const isManager = session?.isManager || false;
-  console.log('[LAYOUT] isManager computed value:', isManager);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30">
@@ -163,7 +150,7 @@ export default function DashboardLayout({
                       href="/management/action/products-services"
                       className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white"
                     >
-                      Action 1: Products & Pricing
+                      Action 1: Products & Services
                     </Link>
                     <Link
                       href="/management/action/unified-utopia"
@@ -199,7 +186,7 @@ export default function DashboardLayout({
                       href="/management/action/realtime-intelligence"
                       className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
                     >
-                      Action 7: Realtime Intelligence System
+                      Action 7: Realtime Intelligence
                     </Link>
                   </div>
                 )}
@@ -248,9 +235,6 @@ export default function DashboardLayout({
         {/* Page Content */}
         <main className="p-8">{children}</main>
       </div>
-
-      {/* Debug Panel - Remove in production */}
-      <DebugAuthPanel />
     </div>
   );
 }

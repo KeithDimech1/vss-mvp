@@ -579,14 +579,21 @@ export default function ManagementDashboard() {
             <h2 className="text-4xl font-bold text-[#2C3E7C] mb-8">🚀 Action Dashboard</h2>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* Action 1 */}
+              {/* Action 1: Products & Services Strategy (consolidated) */}
               <a href="/management/action/products-services" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🛍️ Action 1</h3>
+                  <h3 className="text-lg font-bold text-[#2C3E7C]">🎯 Action 1</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Products, Services & Pricing</h4>
-                <p className="text-sm text-gray-600 mb-3">Define product portfolio and pricing framework before adding to utopia.</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Products & Services Strategy</h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  Define strategies for all three product lines: LithoSurfer (Three-Tier Product), LithoData (Three-Type Data Model), and LithoBuild (Consulting & Development).
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">🌊 LithoSurfer</span>
+                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">📊 LithoData</span>
+                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">🏗️ LithoBuild</span>
+                </div>
                 <div className="text-xs text-gray-500">Owner: Keith (Management Team)</div>
               </a>
 
@@ -604,7 +611,7 @@ export default function ManagementDashboard() {
               {/* Action 3 */}
               <a href="/management/action/setup-departments" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🏗️ Action 3</h3>
+                  <h3 className="text-lg font-bold text-[#2C3E7C]">🏢 Action 3</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Setup Three Departments</h4>
@@ -922,7 +929,7 @@ export default function ManagementDashboard() {
                   <div className="flex-shrink-0 w-24 text-sm font-semibold text-red-700">Week 2</div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 mb-1">Foundation Complete</h4>
-                    <p className="text-sm text-gray-700">Products defined, Utopia documented, Three departments established, Realtime Intelligence System operational (proper attenuators for System 1 → System 3)</p>
+                    <p className="text-sm text-gray-700">LithoSurfer, LithoData, and LithoBuild strategies defined (Actions 1-3), Utopia documented (Action 4), Three departments established (Action 5), Realtime Intelligence System operational (Action 9)</p>
                   </div>
                 </div>
 
@@ -958,11 +965,11 @@ export default function ManagementDashboard() {
               <div className="space-y-3 text-sm text-amber-900">
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
-                  <p><strong>Action 4 (OKRs)</strong> depends on completion of Actions 1, 2, and 3 to establish clear goals and structure</p>
+                  <p><strong>Action 6 (OKRs)</strong> depends on completion of Actions 1-5 to establish clear goals and structure</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
-                  <p><strong>Actions 5 & 6</strong> can run in parallel with Action 4 as they address different organizational needs</p>
+                  <p><strong>Actions 7 & 8</strong> can run in parallel with Action 6 as they address different organizational needs</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
@@ -1032,11 +1039,11 @@ export default function ManagementDashboard() {
             <div className="space-y-3">
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Immediate</div>
-                <div className="flex-1 text-sm text-gray-600">Actions 1, 2, 3, 7 (Next 2 weeks)</div>
+                <div className="flex-1 text-sm text-gray-600">Actions 1-5, 9 (Next 2 weeks)</div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Short-term</div>
-                <div className="flex-1 text-sm text-gray-600">Actions 4, 5, 6 (1-3 months)</div>
+                <div className="flex-1 text-sm text-gray-600">Actions 6, 7, 8 (1-3 months)</div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Medium-term</div>
@@ -1078,7 +1085,7 @@ export default function ManagementDashboard() {
         {/* Footer */}
         <footer className="text-center text-sm text-gray-500 pb-8">
           <p>Last Updated: November 3, 2025</p>
-          <p className="mt-2">Next Review: After completing Actions 1, 2, 3, and 7</p>
+          <p className="mt-2">Next Review: After completing Actions 1-5 and 9</p>
           <p className="mt-4 text-xs">Accessible to: Keith Dimech, Fabian Kohlmann, Wayne Noble, Moritz Theile, Vinko Novak</p>
         </footer>
       </div>

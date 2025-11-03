@@ -27,20 +27,13 @@ export interface SessionUser {
 export async function getServerSession(): Promise<{ userId: string } | null> {
   try {
     const cookieStore = await cookies();
-
-    // Debug: log ALL cookies
-    const allCookies = cookieStore.getAll();
-    console.log('[SERVER AUTH] All cookies available:', allCookies.map(c => ({ name: c.name, hasValue: !!c.value })));
-
     const sessionCookie = cookieStore.get('session');
 
     if (!sessionCookie) {
-      console.log('[SERVER AUTH] No session cookie found');
       return null;
     }
 
     const { payload } = await jwtVerify(sessionCookie.value, JWT_SECRET);
-    console.log('[SERVER AUTH] Session verified:', { userId: payload.userId });
     return payload as { userId: string };
   } catch (error) {
     console.error('[SERVER AUTH] Session verification failed:', error);
@@ -57,7 +50,6 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
     const session = await getServerSession();
 
     if (!session) {
-      console.log('[SERVER AUTH] No session, cannot get current user');
       return null;
     }
 
@@ -76,11 +68,6 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
       console.error('[SERVER AUTH] User not found for session:', session.userId);
       return null;
     }
-
-    console.log('[SERVER AUTH] Current user:', {
-      username: user.username,
-      isManager: user.isManager,
-    });
 
     return user;
   } catch (error) {
@@ -115,6 +102,5 @@ export async function requireManager(): Promise<SessionUser> {
     throw new Error('FORBIDDEN');
   }
 
-  console.log('[SERVER AUTH] ✅ Manager access granted:', user.username);
   return user;
 }
