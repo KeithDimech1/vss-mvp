@@ -4,13 +4,22 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Public routes that don't require authentication
-  const publicRoutes = ['/login', '/api/auth/login', '/api/auth/session'];
+  const publicRoutes = ['/login', '/api/auth/login', '/api/auth/session', '/api/auth/logout'];
 
   // Check if the current path is public
   const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
 
   // Get session cookie
   const sessionCookie = request.cookies.get('session');
+
+  // If accessing root, redirect based on auth status
+  if (pathname === '/') {
+    if (sessionCookie) {
+      return NextResponse.redirect(new URL('/dashboard', request.url));
+    } else {
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
+  }
 
   // If accessing a public route
   if (isPublicRoute) {

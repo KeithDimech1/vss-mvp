@@ -10,70 +10,166 @@ interface SessionData {
   role: string;
 }
 
+interface Assessment {
+  id: string;
+  completed: boolean;
+  submittedAt: string | null;
+  responses: Record<string, string>;
+}
+
 export default function DashboardPage() {
   const [session, setSession] = useState<SessionData | null>(null);
+  const [assessment, setAssessment] = useState<Assessment | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch session from API
-    const fetchSession = async () => {
+    // Fetch session and assessment from API
+    const fetchData = async () => {
       try {
-        const response = await fetch('/api/auth/session');
-        if (response.ok) {
-          const data = await response.json();
-          setSession(data.user);
+        const [sessionRes, assessmentRes] = await Promise.all([
+          fetch('/api/auth/session'),
+          fetch('/api/assessment')
+        ]);
+
+        if (sessionRes.ok) {
+          const sessionData = await sessionRes.json();
+          setSession(sessionData.user);
+        }
+
+        if (assessmentRes.ok) {
+          const assessmentData = await assessmentRes.json();
+          setAssessment(assessmentData.assessment);
         }
       } catch (error) {
-        console.error('Error fetching session:', error);
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchSession();
+    fetchData();
   }, []);
+
+  // Check if user is a manager
+  const managementTeam = ['keith', 'fabian', 'wayne', 'moritz', 'vinko'];
+  const isManager = session && managementTeam.includes(session.username);
+
+  const getAssessmentStatus = () => {
+    if (!assessment) {
+      return {
+        label: 'Not Started',
+        color: 'yellow',
+        action: 'Start Assessment',
+        link: '/assessment'
+      };
+    }
+    if (assessment.completed) {
+      return {
+        label: 'Completed',
+        color: 'green',
+        action: 'View Submission',
+        link: '/assessment/complete'
+      };
+    }
+    const responseCount = Object.keys(assessment.responses || {}).length;
+    return {
+      label: `In Progress (${responseCount}/10 questions)`,
+      color: 'blue',
+      action: 'Continue Assessment',
+      link: '/assessment'
+    };
+  };
+
+  const status = getAssessmentStatus();
 
   return (
     <div className="max-w-6xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+        <h1 className="text-4xl font-bold text-[#2C3E7C]">Dashboard</h1>
         <p className="mt-2 text-gray-600">
           Welcome to the Viable System Model Assessment Platform
         </p>
       </div>
 
-      {/* Progress Card */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Your Progress
-        </h2>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-blue-50 rounded-md">
-            <div>
-              <h3 className="font-medium text-gray-900">System 1 Assessment</h3>
-              <p className="text-sm text-gray-600">
-                Operations and implementation assessment
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
-                Not Started
-              </span>
-              <Link
-                href="/dashboard/assessment"
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Start Assessment
-              </Link>
+      {/* Management Access Card - Top Priority */}
+      {isManager && (
+        <Link href="/management">
+          <div className="bg-gradient-to-r from-[#0D8BFF] via-[#0D8BFF] to-[#2C3E7C] rounded-xl shadow-xl p-8 mb-8 cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">🏢</span>
+                  <h2 className="text-3xl font-bold text-white">Lithodat VSM Meeting</h2>
+                </div>
+                <p className="text-blue-100 text-lg mb-4">
+                  Strategic overview, action dashboard, and management insights
+                </p>
+                <div className="flex items-center gap-4 text-sm text-blue-200">
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    Management Team Only
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Last Updated: Nov 3, 2025
+                  </span>
+                </div>
+              </div>
+              <div className="ml-6">
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Link>
+      )}
+
+      {/* Progress Card - Hidden as per requirements */}
+      {/* <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border-t-4 border-[#0D8BFF]">
+        <h2 className="text-2xl font-bold text-[#2C3E7C] mb-6">
+          Your Progress
+        </h2>
+        {loading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-10 w-10 border-b-3 border-[#0D8BFF]"></div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 hover:shadow-md transition-shadow duration-300">
+              <div>
+                <h3 className="font-semibold text-[#2C3E7C] text-lg">System 1 Assessment</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  Operations and implementation assessment
+                </p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <span className={`px-4 py-2 bg-${status.color}-100 text-${status.color}-800 rounded-lg text-sm font-semibold shadow-sm`}>
+                  {status.label}
+                </span>
+                <Link
+                  href={status.link}
+                  className="px-6 py-3 bg-gradient-to-r from-[#0D8BFF] to-[#2C3E7C] text-white rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 font-medium"
+                >
+                  {status.action}
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </div> */}
 
       {/* Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+        <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#0D8BFF]">
+          <div className="flex items-center mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-[#0D8BFF] to-[#2C3E7C] rounded-xl flex items-center justify-center shadow-md">
               <svg
-                className="w-6 h-6 text-blue-600"
+                className="w-7 h-7 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -86,11 +182,11 @@ export default function DashboardPage() {
                 />
               </svg>
             </div>
-            <h3 className="ml-4 text-lg font-semibold text-gray-800">
+            <h3 className="ml-4 text-xl font-bold text-[#2C3E7C]">
               About System 1
             </h3>
           </div>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 leading-relaxed">
             System 1 in the Viable System Model represents the operational units
             that perform the primary activities of the organization. This
             assessment will evaluate how well these operations are structured and
@@ -98,11 +194,11 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+        <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-green-500">
+          <div className="flex items-center mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-md">
               <svg
-                className="w-6 h-6 text-green-600"
+                className="w-7 h-7 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -115,21 +211,21 @@ export default function DashboardPage() {
                 />
               </svg>
             </div>
-            <h3 className="ml-4 text-lg font-semibold text-gray-800">
+            <h3 className="ml-4 text-xl font-bold text-[#2C3E7C]">
               Next Steps
             </h3>
           </div>
-          <ul className="text-gray-600 text-sm space-y-2">
+          <ul className="text-gray-600 space-y-3 leading-relaxed">
             <li className="flex items-start">
-              <span className="mr-2">1.</span>
+              <span className="mr-3 font-semibold text-[#0D8BFF]">1.</span>
               <span>Complete the System 1 assessment questionnaire</span>
             </li>
             <li className="flex items-start">
-              <span className="mr-2">2.</span>
+              <span className="mr-3 font-semibold text-[#0D8BFF]">2.</span>
               <span>Review your responses before submission</span>
             </li>
             <li className="flex items-start">
-              <span className="mr-2">3.</span>
+              <span className="mr-3 font-semibold text-[#0D8BFF]">3.</span>
               <span>View aggregated team results (if admin)</span>
             </li>
           </ul>
@@ -138,13 +234,20 @@ export default function DashboardPage() {
 
       {/* User Info */}
       {session && (
-        <div className="mt-6 bg-gray-50 rounded-lg p-4 text-sm text-gray-600">
-          <p>
-            <strong>Logged in as:</strong> {session.fullName} ({session.username})
-          </p>
-          <p>
-            <strong>Role:</strong> {session.role}
-          </p>
+        <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 text-sm text-gray-700 border border-blue-100 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#0D8BFF] to-[#2C3E7C] rounded-full flex items-center justify-center text-white font-bold text-lg">
+              {session.fullName.charAt(0)}
+            </div>
+            <div>
+              <p className="font-semibold text-[#2C3E7C]">
+                {session.fullName} <span className="text-gray-500 font-normal">({session.username})</span>
+              </p>
+              <p className="text-gray-600 text-xs mt-1">
+                <strong>Role:</strong> {session.role === 'ADMIN' ? 'Administrator' : isManager ? 'Management Team Member' : 'Team Member'}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>

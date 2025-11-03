@@ -24,7 +24,15 @@ export async function GET() {
         username: true,
         fullName: true,
         role: true,
+        isManager: true,
       },
+    });
+
+    console.log('[SESSION API] User fetched from database:', {
+      username: user?.username,
+      isManager: user?.isManager,
+      isManagerType: typeof user?.isManager,
+      fullUser: user
     });
 
     if (!user) {
@@ -34,7 +42,10 @@ export async function GET() {
       );
     }
 
-    return NextResponse.json({ user }, { status: 200 });
+    const response = { user };
+    console.log('[SESSION API] Returning response:', JSON.stringify(response, null, 2));
+
+    return NextResponse.json(response, { status: 200 });
   } catch (error) {
     console.error('Session error:', error);
     return NextResponse.json(

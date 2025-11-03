@@ -76,6 +76,15 @@ export async function getSession(): Promise<{ userId: string; role: string } | n
 }
 
 /**
+ * Verify and get the current session from cookies
+ * Alias for getSession() to maintain API consistency
+ * @returns The session payload or null if no valid session
+ */
+export async function verifySession(): Promise<{ userId: string; role: string } | null> {
+  return await getSession();
+}
+
+/**
  * Delete the current session
  */
 export async function deleteSession(): Promise<void> {
