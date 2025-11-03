@@ -19,7 +19,7 @@ async function checkDatabase() {
     },
   });
   console.log('\n👥 User List:');
-  users.forEach((user) => {
+  users.forEach((user: { id: string; username: string; fullName: string; role: string }) => {
     console.log(`  - ${user.fullName} (@${user.username}) [${user.role}]`);
   });
 
@@ -41,7 +41,7 @@ async function checkDatabase() {
 
   if (assessments.length > 0) {
     console.log('\n📋 Assessment Details:');
-    assessments.forEach((assessment) => {
+    assessments.forEach((assessment: any) => {
       const responseCount = Object.keys(assessment.responses || {}).length;
       const status = assessment.completed ? '✅ Completed' : `🔄 Draft (${responseCount}/10)`;
       console.log(`  - ${assessment.user.fullName}: ${status}`);
