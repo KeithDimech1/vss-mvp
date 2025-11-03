@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import ActionFormWrapper from '@/components/actions/ActionFormWrapper';
 import { getActionBySlug } from '@/lib/actions';
 import { requireManager } from '@/lib/server-auth';
@@ -7,8 +7,6 @@ import { requireManager } from '@/lib/server-auth';
 // Force this page to be dynamic (not cached)
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-const prisma = new PrismaClient();
 
 export default async function ActionPage({
   params,

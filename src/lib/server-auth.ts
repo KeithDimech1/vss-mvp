@@ -5,9 +5,7 @@
 
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from './prisma';
 const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || 'vss-secret-key-change-in-production-2025'
 );

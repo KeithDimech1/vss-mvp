@@ -1,11 +1,9 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import ConsensusBuilder from '@/components/actions/ConsensusBuilder';
 import { getActionBySlug } from '@/lib/actions';
-
-const prisma = new PrismaClient();
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'your-secret-key');
 
 async function getSession() {
