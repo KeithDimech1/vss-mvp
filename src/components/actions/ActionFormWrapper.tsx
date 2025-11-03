@@ -22,6 +22,7 @@ export default function ActionFormWrapper({
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [responseExists, setResponseExists] = useState(Object.keys(initialResponses).length > 0);
 
   // Handle response change
   const handleResponseChange = useCallback((questionId: string, value: any) => {
@@ -41,7 +42,7 @@ export default function ActionFormWrapper({
     setSaveError(null);
 
     try {
-      const method = initialResponses && Object.keys(initialResponses).length > 0 ? 'PATCH' : 'POST';
+      const method = responseExists ? 'PATCH' : 'POST';
 
       const response = await fetch(`/api/actions/${actionId}/responses`, {
         method,
@@ -60,13 +61,14 @@ export default function ActionFormWrapper({
 
       setLastSaved(new Date());
       setHasUnsavedChanges(false);
+      setResponseExists(true); // Mark that response now exists
     } catch (error) {
       console.error('Auto-save error:', error);
       setSaveError('Failed to auto-save. Your changes may not be saved.');
     } finally {
       setIsSaving(false);
     }
-  }, [responses, hasUnsavedChanges, actionId, initialResponses]);
+  }, [responses, hasUnsavedChanges, actionId, responseExists]);
 
   // Set up auto-save interval (every 30 seconds)
   useEffect(() => {
@@ -105,7 +107,7 @@ export default function ActionFormWrapper({
         return;
       }
 
-      const method = initialResponses && Object.keys(initialResponses).length > 0 ? 'PATCH' : 'POST';
+      const method = responseExists ? 'PATCH' : 'POST';
 
       const response = await fetch(`/api/actions/${actionId}/responses`, {
         method,
@@ -124,6 +126,7 @@ export default function ActionFormWrapper({
 
       setLastSaved(new Date());
       setHasUnsavedChanges(false);
+      setResponseExists(true);
 
       // Show success message
       alert('Your responses have been submitted successfully!');
