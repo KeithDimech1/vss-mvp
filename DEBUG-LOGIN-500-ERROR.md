@@ -49,6 +49,25 @@ Changed all 14 files from using `new PrismaClient()` to singleton pattern from `
 ### 5. Removed basePath ✅
 Temporarily removed `basePath: "/vss/lithodat"` from next.config.ts because it was causing blank pages.
 
+## ROOT CAUSE IDENTIFIED ✅
+
+**Missing Prisma postinstall script!**
+
+The package.json was missing the `postinstall` script that runs `prisma generate`. Without this, the Prisma Client is not properly generated during the Vercel build process, causing all database queries to fail with runtime errors.
+
+### Fix Applied
+```json
+{
+  "scripts": {
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate"
+  }
+}
+```
+
+### Also Added
+Enhanced error logging in login route to show error details, name, and stack trace for debugging.
+
 ## Current Investigation
 
 ### Login API Route Location
