@@ -1,14 +1,14 @@
 import { PrismaClient } from '@prisma/client';
-import { hash } from '@node-rs/bcrypt';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
 async function main() {
   console.log('Starting database seed...');
 
-  // Hash passwords using @node-rs/bcrypt (compatible with Vercel)
-  const adminPassword = await hash('lithodat2024', 10);
-  const memberPassword = await hash('welcome2024', 10);
+  // Hash passwords using bcryptjs (pure JS, works in all environments)
+  const adminPassword = await bcrypt.hash('lithodat2024', 10);
+  const memberPassword = await bcrypt.hash('welcome2024', 10);
 
   // Create admin user (Keith)
   const keith = await prisma.user.upsert({

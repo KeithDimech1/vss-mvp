@@ -49,14 +49,18 @@ Changed all 14 files from using `new PrismaClient()` to singleton pattern from `
 ### 5. Removed basePath ✅
 Temporarily removed `basePath: "/vss/lithodat"` from next.config.ts because it was causing blank pages.
 
-## ROOT CAUSE IDENTIFIED ✅
+## ROOT CAUSE IDENTIFIED ✅ (UPDATED)
 
-**bcryptjs incompatibility with Vercel serverless!**
+**Native bcrypt bindings fail in Vercel serverless!**
 
-After testing with diagnostic endpoints, discovered that `bcryptjs` fails in Vercel's serverless environment. The library doesn't work properly with serverless functions.
+After extensive research and testing:
 
-### Fix Applied
-Replaced `bcryptjs` with `@node-rs/bcrypt`, a native Rust implementation that works properly in serverless environments:
+1. ❌ **bcryptjs** - Initially thought it failed, but research shows it's the RECOMMENDED solution
+2. ❌ **@node-rs/bcrypt** - Rust bindings fail in AWS Lambda (Vercel's underlying infrastructure)
+3. ✅ **bcryptjs** - Pure JavaScript, no native dependencies, works everywhere
+
+### Final Fix Applied
+Switched BACK to `bcryptjs` with proper runtime configuration:
 
 ```typescript
 // OLD (bcryptjs - fails in Vercel)
