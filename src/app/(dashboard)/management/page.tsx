@@ -333,7 +333,7 @@ export default function ManagementDashboard() {
 
             {/* Vision Cards */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
-              {Object.entries(utopiaVisions).map(([key, vision]) => (
+              {Object.entries(utopiaVisions).map(([key, vision]: [string, any]) => (
                 <div
                   key={key}
                   onClick={() => setSelectedVision(key)}

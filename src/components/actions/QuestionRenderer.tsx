@@ -304,7 +304,7 @@ export default function QuestionRenderer({
 
         return (
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 shadow-sm">
-            {parseInfoText(question.helpText)}
+            {parseInfoText(question.helpText || '')}
           </div>
         );
 
