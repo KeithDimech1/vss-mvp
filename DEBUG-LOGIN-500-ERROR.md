@@ -51,22 +51,29 @@ Temporarily removed `basePath: "/vss/lithodat"` from next.config.ts because it w
 
 ## ROOT CAUSE IDENTIFIED ✅
 
-**Missing Prisma postinstall script!**
+**bcryptjs incompatibility with Vercel serverless!**
 
-The package.json was missing the `postinstall` script that runs `prisma generate`. Without this, the Prisma Client is not properly generated during the Vercel build process, causing all database queries to fail with runtime errors.
+After testing with diagnostic endpoints, discovered that `bcryptjs` fails in Vercel's serverless environment. The library doesn't work properly with serverless functions.
 
 ### Fix Applied
-```json
-{
-  "scripts": {
-    "build": "prisma generate && next build",
-    "postinstall": "prisma generate"
-  }
-}
+Replaced `bcryptjs` with `@node-rs/bcrypt`, a native Rust implementation that works properly in serverless environments:
+
+```typescript
+// OLD (bcryptjs - fails in Vercel)
+import bcrypt from 'bcryptjs';
+const hash = await bcrypt.hash(password, 10);
+const isValid = await bcrypt.compare(password, hash);
+
+// NEW (@node-rs/bcrypt - works in Vercel)
+import { hash, verify } from '@node-rs/bcrypt';
+const hashed = await hash(password, 10);
+const isValid = await verify(password, hashed);
 ```
 
-### Also Added
-Enhanced error logging in login route to show error details, name, and stack trace for debugging.
+### Also Fixed
+- Added Prisma postinstall script: `"postinstall": "prisma generate"`
+- Enhanced error logging in login route
+- Created diagnostic test endpoints (/api/test-db and /api/test-bcrypt)
 
 ## Current Investigation
 
