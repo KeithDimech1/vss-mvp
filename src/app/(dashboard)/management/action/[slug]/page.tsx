@@ -16,6 +16,11 @@ export default async function ActionPage({
   // Await the params (required in Next.js 15+)
   const { slug } = await params;
 
+  // Redirect product-specific pages to the unified products-services page
+  if (['lithosurfer', 'lithodata', 'lithobuild'].includes(slug)) {
+    redirect('/management/action/products-services');
+  }
+
   // Require manager authentication - throws if not authorized
   let user;
   try {

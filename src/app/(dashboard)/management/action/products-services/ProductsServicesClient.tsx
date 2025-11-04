@@ -141,66 +141,37 @@ export default function ProductsServicesClient({
           />
         </div>
 
-        {/* Additional Actions */}
+        {/* Team Collaboration */}
         <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
           <h2 className="text-xl font-bold text-[#2C3E7C] mb-4">
             Team Collaboration
           </h2>
-          <div className="space-y-3">
-            <a
-              href={`/management/action/${selectedTab}/team-responses`}
-              className="block px-4 py-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-[#2C3E7C]">View Team Responses</p>
-                  <p className="text-sm text-gray-600">
-                    See what other management team members have submitted
-                  </p>
-                </div>
-                <svg
-                  className="w-5 h-5 text-[#0D8BFF]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+          <a
+            href={`/management/action/${selectedTab}/consensus`}
+            className="block px-4 py-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-semibold text-[#2C3E7C]">Build Consensus for {tabs.find(t => t.id === selectedTab)?.label || selectedTab}</p>
+                <p className="text-sm text-gray-600">
+                  View team responses and collaborate on final decisions for this product
+                </p>
               </div>
-            </a>
-
-            <a
-              href={`/management/action/${selectedTab}/consensus`}
-              className="block px-4 py-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-[#2C3E7C]">Build Consensus</p>
-                  <p className="text-sm text-gray-600">
-                    Collaborate on final decisions and action items
-                  </p>
-                </div>
-                <svg
-                  className="w-5 h-5 text-purple-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            </a>
-          </div>
+              <svg
+                className="w-5 h-5 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </a>
         </div>
       </div>
     </div>
