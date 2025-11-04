@@ -218,15 +218,15 @@ export default function DashboardPage() {
           <ul className="text-gray-600 space-y-3 leading-relaxed">
             <li className="flex items-start">
               <span className="mr-3 font-semibold text-[#0D8BFF]">1.</span>
-              <span>Complete the System 1 assessment questionnaire</span>
+              <span>Read VSM meeting notes</span>
             </li>
             <li className="flex items-start">
               <span className="mr-3 font-semibold text-[#0D8BFF]">2.</span>
-              <span>Review your responses before submission</span>
+              <span>Undertake Action 1 from the VSM meeting and complete</span>
             </li>
             <li className="flex items-start">
               <span className="mr-3 font-semibold text-[#0D8BFF]">3.</span>
-              <span>View aggregated team results (if admin)</span>
+              <span>Team meeting to build consensus</span>
             </li>
           </ul>
         </div>
