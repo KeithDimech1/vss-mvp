@@ -1,5 +1,19 @@
 import { ActionMetadata, ActionQuestion } from './types';
 
+/**
+ * IMPORTANT: Once users have submitted responses, DO NOT change question IDs!
+ *
+ * If you need to modify questions:
+ * - Changing question text, helpText, options: SAFE ✅
+ * - Adding new questions: SAFE ✅
+ * - Removing questions: Mark as optional or hide with conditional logic ⚠️
+ * - Changing question IDs: NEVER! Use migration script 🚫
+ *
+ * To rename a question ID, you MUST:
+ * 1. Create a database migration script to update existing responses
+ * 2. Update the question ID here
+ * 3. Deploy migration before deploying new code
+ */
 export const action1Questions: ActionQuestion[] = [
   // Overview
   {

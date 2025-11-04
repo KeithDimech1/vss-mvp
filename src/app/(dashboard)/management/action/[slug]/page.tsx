@@ -64,9 +64,30 @@ export default async function ActionPage({
   });
 
   // Convert Prisma Json type to plain JavaScript object for client component
-  const initialResponses = existingResponse?.responses
+  let initialResponses = existingResponse?.responses
     ? JSON.parse(JSON.stringify(existingResponse.responses))
     : {};
+
+  // Validate that stored response keys match current question IDs
+  if (Object.keys(initialResponses).length > 0) {
+    const currentQuestionIds = new Set(actionMetadata.questions.map(q => q.id));
+    const storedQuestionIds = Object.keys(initialResponses).filter(key => key !== 'timestamp');
+    const unmatchedKeys = storedQuestionIds.filter(key => !currentQuestionIds.has(key));
+
+    if (unmatchedKeys.length > 0) {
+      console.warn('[ACTION PAGE] Warning: Stored responses contain unrecognized question IDs:', unmatchedKeys);
+      console.warn('[ACTION PAGE] This may indicate question IDs were changed. Consider running a migration.');
+      console.warn('[ACTION PAGE] Current question IDs:', Array.from(currentQuestionIds));
+
+      // In development, you might want to throw an error
+      // In production, we'll just filter out unrecognized keys
+      initialResponses = Object.fromEntries(
+        Object.entries(initialResponses).filter(([key]) =>
+          currentQuestionIds.has(key) || key === 'timestamp'
+        )
+      );
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
