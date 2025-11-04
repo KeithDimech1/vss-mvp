@@ -142,12 +142,48 @@ export default function ConsensusBuilder({
       return '—';
     }
 
+    // Handle boolean values
+    if (typeof value === 'boolean') {
+      return value ? '✓' : '—';
+    }
+
+    // Handle arrays
+    if (Array.isArray(value)) {
+      if (value.length === 0) {
+        return '—';
+      }
+
+      // Handle array of objects - extract meaningful text
+      if (typeof value[0] === 'object' && value[0] !== null) {
+        return value.map(item => {
+          // Try to find a text/label/name field
+          return item.text || item.label || item.name || item.value || JSON.stringify(item);
+        }).join(', ');
+      }
+
+      // Handle simple array values
+      return value.join(', ');
+    }
+
+    // Handle object values
+    if (typeof value === 'object') {
+      // Try to extract meaningful text from common object structures
+      if (value.text) return value.text;
+      if (value.label) return value.label;
+      if (value.name) return value.name;
+      if (value.value) return value.value;
+
+      // If it's a complex object, stringify it nicely
+      try {
+        return JSON.stringify(value, null, 2);
+      } catch {
+        return String(value);
+      }
+    }
+
     switch (question.type) {
       case 'checkbox':
-        if (Array.isArray(value)) {
-          return value.join(', ');
-        }
-        return value.toString();
+        return value ? '✓' : '—';
 
       case 'currency':
         return `$${parseFloat(value).toLocaleString('en-US', { minimumFractionDigits: 0 })} USD`;
@@ -155,8 +191,12 @@ export default function ConsensusBuilder({
       case 'date':
         return new Date(value).toLocaleDateString();
 
+      case 'select':
+      case 'radio':
+        return String(value);
+
       default:
-        return value.toString();
+        return String(value);
     }
   };
 
