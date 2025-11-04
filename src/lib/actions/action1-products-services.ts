@@ -271,13 +271,10 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithodata_premium_pricing',
-    question: 'How should LithoData Premium be priced? Give 3-5 examples with pricing',
+    question: 'How should LithoData Premium be priced?',
     type: 'textarea',
     rows: 5,
-    placeholder: `Example:
-• "Western Australia Gold Geochemistry" - 50,000 samples - $5,000
-• "Global Rare Earth Elements" - 10,000 samples - $15,000
-• Per sample pricing, regional bundles, subscription options, etc.`,
+    placeholder: 'e.g., Geochemistry, Australia, $25,000 per year',
     required: true
   },
 
