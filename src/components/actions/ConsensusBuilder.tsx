@@ -142,6 +142,13 @@ export default function ConsensusBuilder({
       return '—';
     }
 
+    // Debug logging to understand data structure
+    if (question.type === 'implementation_table') {
+      console.log('Implementation table value:', JSON.stringify(value, null, 2));
+      console.log('Is array?', Array.isArray(value));
+      console.log('Value type:', typeof value);
+    }
+
     // Handle implementation_table type specifically
     if (question.type === 'implementation_table' && Array.isArray(value)) {
       return value
