@@ -63,7 +63,10 @@ export default async function ActionPage({
     }
   });
 
-  const initialResponses = existingResponse?.responses as Record<string, any> || {};
+  // Convert Prisma Json type to plain JavaScript object for client component
+  const initialResponses = existingResponse?.responses
+    ? JSON.parse(JSON.stringify(existingResponse.responses))
+    : {};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
