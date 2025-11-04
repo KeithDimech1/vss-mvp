@@ -12,6 +12,7 @@ export default function ProductsServicesActionPage() {
   const [selectedTab, setSelectedTab] = useState<ProductTab>('lithosurfer');
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
+  const [responsesByAction, setResponsesByAction] = useState<Record<string, any>>({});
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -39,6 +40,44 @@ export default function ProductsServicesActionPage() {
     checkAuth();
   }, [router]);
 
+  // Fetch existing responses for all three actions
+  useEffect(() => {
+    if (!userId) return;
+
+    const fetchResponses = async () => {
+      try {
+        // Use same IDs as defined in tabs array below
+        const tabs = [
+          { id: 'lithosurfer', actionId: 'cmhj3xgy60001s4l1cqyqryyd' },
+          { id: 'lithodata', actionId: 'cmhj3xgwc0000s4l15x97xke3' },
+          { id: 'lithobuild', actionId: 'cmhieazy7000ks4ejdmyz68yd' },
+        ];
+
+        const responses: Record<string, any> = {};
+
+        for (const tab of tabs) {
+          try {
+            const res = await fetch(`/api/actions/${tab.actionId}/responses`);
+            if (res.ok) {
+              const data = await res.json();
+              if (data.response && data.response.responses) {
+                responses[tab.id] = data.response.responses;
+              }
+            }
+          } catch (error) {
+            console.error(`Error fetching responses for ${tab.id}:`, error);
+          }
+        }
+
+        setResponsesByAction(responses);
+      } catch (error) {
+        console.error('Error fetching action responses:', error);
+      }
+    };
+
+    fetchResponses();
+  }, [userId]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -47,12 +86,13 @@ export default function ProductsServicesActionPage() {
     );
   }
 
+  // Define tabs with their corresponding action IDs from database
   const tabs = [
     {
       id: 'lithosurfer' as ProductTab,
       label: '🌊 LithoSurfer',
       subtitle: 'Three-Tier Product',
-      actionId: 'cmhieazy7000ks4ejdmyz68yd'
+      actionId: 'cmhj3xgy60001s4l1cqyqryyd'
     },
     {
       id: 'lithodata' as ProductTab,
@@ -64,7 +104,7 @@ export default function ProductsServicesActionPage() {
       id: 'lithobuild' as ProductTab,
       label: '🏗️ LithoBuild',
       subtitle: 'Consulting & Development',
-      actionId: 'cmhj3xgy60001s4l1cqyqryyd'
+      actionId: 'cmhieazy7000ks4ejdmyz68yd'
     },
   ];
 
@@ -140,7 +180,7 @@ export default function ProductsServicesActionPage() {
             action={currentActionMetadata}
             actionId={actionId}
             userId={userId!}
-            initialResponses={{}}
+            initialResponses={responsesByAction[selectedTab] || {}}
           />
         </div>
 
