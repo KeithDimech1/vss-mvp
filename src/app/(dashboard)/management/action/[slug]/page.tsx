@@ -63,10 +63,16 @@ export default async function ActionPage({
     }
   });
 
+  console.log('[ACTION PAGE] Found existing response:', !!existingResponse);
+  console.log('[ACTION PAGE] Response data:', existingResponse?.responses);
+
   // Convert Prisma Json type to plain JavaScript object for client component
   let initialResponses = existingResponse?.responses
     ? JSON.parse(JSON.stringify(existingResponse.responses))
     : {};
+
+  console.log('[ACTION PAGE] Initial responses to pass to form:', initialResponses);
+  console.log('[ACTION PAGE] Number of responses:', Object.keys(initialResponses).length);
 
   // Validate that stored response keys match current question IDs
   if (Object.keys(initialResponses).length > 0) {
