@@ -134,7 +134,7 @@ async function main() {
     {
       actionNumber: 7,
       actionSlug: 'realtime-intelligence',
-      title: 'Lithodat Realtime Intelligence System',
+      title: 'Lithodat Realtime Amplifiers and Attenuators',
       description: 'Build proper attenuators for System 1 → System 3 communication. Real-time visibility of operational performance enables effective management decisions.',
       priority: 'IMMEDIATE',
       owner: 'Management Team + Tech Leads',
