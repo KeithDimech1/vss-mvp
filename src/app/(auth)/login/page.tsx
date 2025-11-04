@@ -56,7 +56,7 @@ export default function LoginPage() {
             />
           </div>
           <h2 className="text-center text-2xl font-bold text-[#1B4332]">
-            VSS Assessment Platform
+            Viable System Strategy
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Sign in to your account
@@ -112,21 +112,6 @@ export default function LoginPage() {
             {isLoading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-
-        <div className="mt-6">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Test credentials</span>
-            </div>
-          </div>
-          <div className="mt-4 text-xs text-gray-600 space-y-1">
-            <p><strong>Admin:</strong> keith / lithodat2024</p>
-            <p><strong>Member:</strong> fabian / welcome2024</p>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ model User {
   username        String           @unique
   passwordHash    String
   fullName        String
+  email           String?
   role            Role             @default(MEMBER)
   isManager       Boolean          @default(false)
   createdAt       DateTime         @default(now())
