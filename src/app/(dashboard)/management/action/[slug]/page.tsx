@@ -46,44 +46,9 @@ export default async function ActionPage({
     redirect('/management');
   }
 
-  // Debug: Check what's in the database for this action
-  console.log('[ACTION PAGE] Looking for responses with:');
-  console.log('[ACTION PAGE]   - User ID:', user.id);
-  console.log('[ACTION PAGE]   - Action slug:', slug);
-  console.log('[ACTION PAGE]   - Action item ID:', actionItem.id);
-
   // Get user's existing responses for this action (if any)
-  const existingResponse = await prisma.actionResponse.findFirst({
-    where: {
-      actionItem: {
-        actionSlug: slug
-      },
-      userId: user.id
-    },
-    select: {
-      id: true,
-      responses: true,
-      completed: true,
-      submittedAt: true,
-      updatedAt: true,
-      actionItemId: true,
-      userId: true
-    }
-  });
-
-  console.log('[ACTION PAGE] Query result:', existingResponse ? 'FOUND' : 'NOT FOUND');
-  if (existingResponse) {
-    console.log('[ACTION PAGE] Response details:', {
-      id: existingResponse.id,
-      actionItemId: existingResponse.actionItemId,
-      userId: existingResponse.userId,
-      hasResponses: !!existingResponse.responses,
-      responsesType: typeof existingResponse.responses
-    });
-  }
-
-  // Try alternative query by actionItemId directly
-  const alternativeResponse = await prisma.actionResponse.findUnique({
+  // Use findUnique with the composite key for reliability
+  const existingResponse = await prisma.actionResponse.findUnique({
     where: {
       actionItemId_userId: {
         actionItemId: actionItem.id,
@@ -91,7 +56,6 @@ export default async function ActionPage({
       }
     },
     select: {
-      id: true,
       responses: true,
       completed: true,
       submittedAt: true,
@@ -99,11 +63,7 @@ export default async function ActionPage({
     }
   });
 
-  console.log('[ACTION PAGE] Alternative query result:', alternativeResponse ? 'FOUND' : 'NOT FOUND');
-
   const initialResponses = existingResponse?.responses as Record<string, any> || {};
-  console.log('[ACTION PAGE] Initial responses keys:', Object.keys(initialResponses));
-  console.log('[ACTION PAGE] Initial responses:', JSON.stringify(initialResponses, null, 2));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
