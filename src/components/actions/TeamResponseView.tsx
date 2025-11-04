@@ -219,7 +219,7 @@ export default function TeamResponseView({
                                   <span className="ml-1 text-green-600">✓</span>
                                 )}
                               </p>
-                              <p className="text-sm text-gray-900">
+                              <p className="text-sm text-gray-900 whitespace-pre-wrap">
                                 {formatResponse(question, member.responses[question.id])}
                               </p>
                             </div>
@@ -275,7 +275,7 @@ export default function TeamResponseView({
                       )}
                     </td>
                     {teamResponses.map(member => (
-                      <td key={member.userId} className="px-6 py-4 text-sm text-gray-700">
+                      <td key={member.userId} className="px-6 py-4 text-sm text-gray-700 whitespace-pre-wrap">
                         {formatResponse(question, member.responses[question.id])}
                       </td>
                     ))}
