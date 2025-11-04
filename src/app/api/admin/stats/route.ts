@@ -22,16 +22,8 @@ export async function GET() {
       );
     }
 
-    // Fetch all users with their assessments
+    // Fetch all users
     const users = await prisma.user.findMany({
-      include: {
-        assessments: {
-          orderBy: {
-            createdAt: 'desc'
-          },
-          take: 1  // Get the most recent assessment for each user
-        }
-      },
       orderBy: {
         fullName: 'asc'
       }
@@ -39,35 +31,23 @@ export async function GET() {
 
     // Calculate statistics
     const totalUsers = users.length;
-    const assessmentsStarted = users.filter(u => u.assessments.length > 0).length;
-    const assessmentsCompleted = users.filter(
-      u => u.assessments.length > 0 && u.assessments[0].completed
-    ).length;
-    const completionRate = totalUsers > 0
-      ? Math.round((assessmentsCompleted / totalUsers) * 100)
-      : 0;
+    const totalManagers = users.filter(u => u.isManager).length;
+    const totalStaff = totalUsers - totalManagers;
 
     // Format user data for the frontend
     const userData = users.map(user => ({
-      user: {
-        id: user.id,
-        username: user.username,
-        fullName: user.fullName,
-        role: user.role
-      },
-      assessment: user.assessments.length > 0 ? {
-        id: user.assessments[0].id,
-        completed: user.assessments[0].completed,
-        submittedAt: user.assessments[0].submittedAt?.toISOString() || null,
-        responses: user.assessments[0].responses as Record<string, string>
-      } : null
+      id: user.id,
+      username: user.username,
+      fullName: user.fullName,
+      role: user.role,
+      isManager: user.isManager,
+      createdAt: user.createdAt.toISOString()
     }));
 
     return NextResponse.json({
       totalUsers,
-      assessmentsStarted,
-      assessmentsCompleted,
-      completionRate,
+      totalManagers,
+      totalStaff,
       users: userData
     });
 

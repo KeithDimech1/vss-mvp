@@ -11,27 +11,20 @@ interface SessionData {
   role: string;
 }
 
-interface UserAssessment {
-  user: {
-    id: string;
-    username: string;
-    fullName: string;
-    role: string;
-  };
-  assessment: {
-    id: string;
-    completed: boolean;
-    submittedAt: string | null;
-    responses: Record<string, string>;
-  } | null;
+interface User {
+  id: string;
+  username: string;
+  fullName: string;
+  role: string;
+  isManager: boolean;
+  createdAt: string;
 }
 
 interface AdminStats {
   totalUsers: number;
-  assessmentsStarted: number;
-  assessmentsCompleted: number;
-  completionRate: number;
-  users: UserAssessment[];
+  totalManagers: number;
+  totalStaff: number;
+  users: User[];
 }
 
 export default function AdminDashboardPage() {
@@ -104,41 +97,18 @@ export default function AdminDashboardPage() {
     return null;
   }
 
-  const getStatusBadge = (user: UserAssessment) => {
-    if (!user.assessment) {
-      return (
-        <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">
-          Not Started
-        </span>
-      );
-    }
-    if (user.assessment.completed) {
-      return (
-        <span className="px-3 py-1 bg-green-100 text-green-800 rounded-lg text-sm font-medium">
-          ✓ Completed
-        </span>
-      );
-    }
-    const responseCount = Object.keys(user.assessment.responses || {}).length;
-    return (
-      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium">
-        In Progress ({responseCount}/10)
-      </span>
-    );
-  };
-
   return (
     <div className="max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-[#2C3E7C]">Admin Dashboard</h1>
         <p className="mt-2 text-gray-600">
-          System overview and team assessment progress
+          User management and team overview
         </p>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Total Users */}
         <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF]">
           <div className="flex items-center justify-between mb-2">
@@ -148,60 +118,32 @@ export default function AdminDashboardPage() {
             </svg>
           </div>
           <p className="text-4xl font-bold text-[#2C3E7C]">{stats.totalUsers}</p>
-          <p className="text-xs text-gray-500 mt-1">Team members</p>
+          <p className="text-xs text-gray-500 mt-1">Total team members</p>
         </div>
 
-        {/* Assessments Started */}
-        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Started</h3>
-            <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-          </div>
-          <p className="text-4xl font-bold text-[#2C3E7C]">{stats.assessmentsStarted}</p>
-          <p className="text-xs text-gray-500 mt-1">Assessments in progress</p>
-        </div>
-
-        {/* Assessments Completed */}
+        {/* Total Managers */}
         <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Completed</h3>
+            <h3 className="text-sm font-medium text-gray-600">Managers</h3>
             <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <p className="text-4xl font-bold text-[#2C3E7C]">{stats.assessmentsCompleted}</p>
-          <p className="text-xs text-gray-500 mt-1">Submissions received</p>
+          <p className="text-4xl font-bold text-[#2C3E7C]">{stats.totalManagers}</p>
+          <p className="text-xs text-gray-500 mt-1">Management team members</p>
         </div>
 
-        {/* Completion Rate */}
-        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-500">
+        {/* Total Staff */}
+        <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Completion Rate</h3>
-            <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            <h3 className="text-sm font-medium text-gray-600">Staff</h3>
+            <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <p className="text-4xl font-bold text-[#2C3E7C]">{stats.completionRate}%</p>
-          <p className="text-xs text-gray-500 mt-1">of total users</p>
+          <p className="text-4xl font-bold text-[#2C3E7C]">{stats.totalStaff}</p>
+          <p className="text-xs text-gray-500 mt-1">Regular staff members</p>
         </div>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-        <h3 className="text-lg font-semibold text-[#2C3E7C] mb-4">Overall Progress</h3>
-        <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
-          <div
-            className="bg-gradient-to-r from-[#0D8BFF] to-[#2C3E7C] h-full rounded-full transition-all duration-500 flex items-center justify-end pr-3"
-            style={{ width: `${stats.completionRate}%` }}
-          >
-            <span className="text-white text-sm font-bold">{stats.completionRate}%</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 mt-2">
-          {stats.assessmentsCompleted} of {stats.totalUsers} users have completed their assessment
-        </p>
       </div>
 
       {/* All Users Table */}
@@ -209,7 +151,7 @@ export default function AdminDashboardPage() {
         <div className="p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-[#2C3E7C]">All Team Members</h2>
           <p className="text-sm text-gray-600 mt-1">
-            Click on a user to view their detailed submission
+            View all users and their management status
           </p>
         </div>
 
@@ -227,72 +169,49 @@ export default function AdminDashboardPage() {
                   Role
                 </th>
                 <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                  Status
-                </th>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                  Submitted
-                </th>
-                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                  Actions
+                  Manager Status
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {stats.users.map((userAssessment) => (
-                <tr key={userAssessment.user.id} className="hover:bg-gray-50 transition-colors">
+              {stats.users.map((user) => (
+                <tr key={user.id} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-gradient-to-br from-[#0D8BFF] to-[#2C3E7C] rounded-full flex items-center justify-center text-white font-bold">
-                        {userAssessment.user.fullName.charAt(0)}
+                        {user.fullName.charAt(0)}
                       </div>
                       <div className="ml-3">
                         <p className="text-sm font-semibold text-gray-900">
-                          {userAssessment.user.fullName}
+                          {user.fullName}
                         </p>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <p className="text-sm text-gray-600">{userAssessment.user.username}</p>
+                    <p className="text-sm text-gray-600">{user.username}</p>
                   </td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 text-xs font-medium rounded ${
-                      userAssessment.user.role === 'ADMIN'
+                      user.role === 'ADMIN'
                         ? 'bg-red-100 text-red-800'
                         : 'bg-blue-100 text-blue-800'
                     }`}>
-                      {userAssessment.user.role}
+                      {user.role}
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    {getStatusBadge(userAssessment)}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600">
-                    {userAssessment.assessment?.submittedAt
-                      ? new Date(userAssessment.assessment.submittedAt).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })
-                      : '—'
-                    }
-                  </td>
-                  <td className="px-6 py-4">
-                    {userAssessment.assessment?.completed ? (
-                      <Link
-                        href={`/admin/submissions/${userAssessment.user.id}`}
-                        className="inline-flex items-center px-4 py-2 bg-[#0D8BFF] text-white rounded-lg hover:bg-[#2C3E7C] transition-colors text-sm font-medium"
-                      >
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    {user.isManager ? (
+                      <span className="px-3 py-1 bg-green-100 text-green-800 rounded-lg text-sm font-medium inline-flex items-center">
+                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
-                        View
-                      </Link>
+                        Manager
+                      </span>
                     ) : (
-                      <span className="text-sm text-gray-400">—</span>
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">
+                        Staff
+                      </span>
                     )}
                   </td>
                 </tr>
