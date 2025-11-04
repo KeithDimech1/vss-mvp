@@ -17,6 +17,9 @@ export default function ActionFormWrapper({
   userId,
   initialResponses = {}
 }: ActionFormWrapperProps) {
+  console.log('[ActionFormWrapper] Received initialResponses:', JSON.stringify(initialResponses, null, 2));
+  console.log('[ActionFormWrapper] Number of initial responses:', Object.keys(initialResponses).length);
+
   const [responses, setResponses] = useState<Record<string, any>>(initialResponses);
   const [isSaving, setIsSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);

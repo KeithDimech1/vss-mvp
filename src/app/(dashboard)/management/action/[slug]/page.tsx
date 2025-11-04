@@ -64,6 +64,11 @@ export default async function ActionPage({
 
   const initialResponses = existingResponse?.responses as Record<string, any> || {};
 
+  console.log('[ACTION PAGE] User ID:', user.id);
+  console.log('[ACTION PAGE] Action slug:', slug);
+  console.log('[ACTION PAGE] Found existing response:', !!existingResponse);
+  console.log('[ACTION PAGE] Initial responses:', JSON.stringify(initialResponses, null, 2));
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
