@@ -48,12 +48,12 @@ export default function ProductsServicesClient({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#C9A961]/10 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <a
           href="/management"
-          className="inline-flex items-center text-[#0D8BFF] hover:text-[#0A6FCC] mb-6 transition-colors"
+          className="inline-flex items-center text-[#C9A961] hover:text-[#0A6FCC] mb-6 transition-colors"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -73,7 +73,7 @@ export default function ProductsServicesClient({
 
         {/* Page Title */}
         <div className="mb-6">
-          <h1 className="text-4xl font-bold text-[#2C3E7C] mb-2">Action 1: Products & Services Strategy</h1>
+          <h1 className="text-4xl font-bold text-[#1B4332] mb-2">Action 1: Products & Services Strategy</h1>
           <p className="text-gray-600">Define strategies for all three product lines</p>
         </div>
 
@@ -118,12 +118,12 @@ export default function ProductsServicesClient({
                 onClick={() => setSelectedTab(tab.id as ProductTab)}
                 className={`flex-1 py-4 px-6 rounded-lg text-left transition-all duration-200 ${
                   selectedTab === tab.id
-                    ? 'bg-gradient-to-r from-[#0D8BFF] to-[#2C3E7C] text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white shadow-lg'
                     : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 <div className="font-bold text-lg mb-1">{tab.label}</div>
-                <div className={`text-sm ${selectedTab === tab.id ? 'text-blue-100' : 'text-gray-500'}`}>
+                <div className={`text-sm ${selectedTab === tab.id ? 'text-[#F5E6D3]' : 'text-gray-500'}`}>
                   {tab.subtitle}
                 </div>
               </button>
@@ -143,7 +143,7 @@ export default function ProductsServicesClient({
 
         {/* Team Collaboration */}
         <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-bold text-[#2C3E7C] mb-4">
+          <h2 className="text-xl font-bold text-[#1B4332] mb-4">
             Team Collaboration
           </h2>
           <a
@@ -152,7 +152,7 @@ export default function ProductsServicesClient({
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold text-[#2C3E7C]">Build Consensus for {tabs.find(t => t.id === selectedTab)?.label || selectedTab}</p>
+                <p className="font-semibold text-[#1B4332]">Build Consensus for {tabs.find(t => t.id === selectedTab)?.label || selectedTab}</p>
                 <p className="text-sm text-gray-600">
                   View team responses and collaborate on final decisions for this product
                 </p>

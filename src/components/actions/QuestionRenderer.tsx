@@ -50,7 +50,7 @@ export default function QuestionRenderer({
     if (question.section) {
       return (
         <div className="col-span-full mb-4 mt-8 first:mt-0">
-          <h3 className="text-2xl font-bold text-[#2C3E7C] border-b-2 border-[#0D8BFF] pb-2">
+          <h3 className="text-2xl font-bold text-[#1B4332] border-b-2 border-[#C9A961] pb-2">
             {question.section}
           </h3>
         </div>
@@ -89,7 +89,7 @@ export default function QuestionRenderer({
             value={value || ''}
             onChange={(e) => handleChange(e.target.value)}
             placeholder={question.placeholder}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
             required={question.required}
           />
         );
@@ -101,7 +101,7 @@ export default function QuestionRenderer({
             onChange={(e) => handleChange(e.target.value)}
             placeholder={question.placeholder}
             rows={question.rows || 3}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent resize-y"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
             required={question.required}
           />
         );
@@ -115,7 +115,7 @@ export default function QuestionRenderer({
             placeholder={question.placeholder}
             min={question.min}
             max={question.max}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
             required={question.required}
           />
         );
@@ -133,7 +133,7 @@ export default function QuestionRenderer({
               placeholder={question.placeholder}
               min={question.min || 0}
               max={question.max}
-              className="w-full pl-7 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent"
+              className="w-full pl-7 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
               required={question.required}
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -148,7 +148,7 @@ export default function QuestionRenderer({
             type="date"
             value={value || ''}
             onChange={(e) => handleChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
             required={question.required}
           />
         );
@@ -164,7 +164,7 @@ export default function QuestionRenderer({
               return (
                 <label
                   key={optionValue}
-                  className="flex items-start p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer transition-colors"
+                  className="flex items-start p-3 border border-gray-200 rounded-lg hover:bg-[#F5E6D3]/30 cursor-pointer transition-colors"
                 >
                   <input
                     type="radio"
@@ -172,7 +172,7 @@ export default function QuestionRenderer({
                     value={optionValue}
                     checked={value === optionValue}
                     onChange={(e) => handleChange(e.target.value)}
-                    className="mt-1 h-4 w-4 text-[#0D8BFF] border-gray-300 focus:ring-[#0D8BFF]"
+                    className="mt-1 h-4 w-4 text-[#C9A961] border-gray-300 focus:ring-[#C9A961]"
                     required={question.required}
                   />
                   <div className="ml-3">
@@ -199,7 +199,7 @@ export default function QuestionRenderer({
               return (
                 <label
                   key={optionValue}
-                  className="flex items-start p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer transition-colors"
+                  className="flex items-start p-3 border border-gray-200 rounded-lg hover:bg-[#F5E6D3]/30 cursor-pointer transition-colors"
                 >
                   <input
                     type="checkbox"
@@ -211,7 +211,7 @@ export default function QuestionRenderer({
                         : currentValues.filter((v: string) => v !== optionValue);
                       handleChange(newValues);
                     }}
-                    className="mt-1 h-4 w-4 text-[#0D8BFF] border-gray-300 rounded focus:ring-[#0D8BFF]"
+                    className="mt-1 h-4 w-4 text-[#C9A961] border-gray-300 rounded focus:ring-[#C9A961]"
                   />
                   <div className="ml-3">
                     <span className="text-sm font-medium text-gray-900">{optionLabel}</span>
@@ -230,7 +230,7 @@ export default function QuestionRenderer({
           <select
             value={value || ''}
             onChange={(e) => handleChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
             required={question.required}
           >
             <option value="">-- Select --</option>
@@ -263,7 +263,7 @@ export default function QuestionRenderer({
                 // If this is a header (odd index after split)
                 if (idx % 2 === 1) {
                   return (
-                    <div key={idx} className="font-bold text-base text-[#2C3E7C] mt-4 first:mt-0">
+                    <div key={idx} className="font-bold text-base text-[#1B4332] mt-4 first:mt-0">
                       {section.trim()}
                     </div>
                   );
@@ -282,7 +282,7 @@ export default function QuestionRenderer({
                       if (trimmedLine.startsWith('•')) {
                         return (
                           <div key={lineIdx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="text-[#0D8BFF] mt-0.5">•</span>
+                            <span className="text-[#C9A961] mt-0.5">•</span>
                             <span>{trimmedLine.substring(1).trim()}</span>
                           </div>
                         );
@@ -303,7 +303,7 @@ export default function QuestionRenderer({
         };
 
         return (
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 shadow-sm">
+          <div className="bg-gradient-to-r from-blue-50 to-[#C9A961]/10 border border-[#C9A961]/40 rounded-lg p-6 shadow-sm">
             {parseInfoText(question.helpText || '')}
           </div>
         );
@@ -359,7 +359,7 @@ export default function QuestionRenderer({
                               }}
                               placeholder={question.placeholder || '0'}
                               min="0"
-                              className="w-full px-2 py-1 border-none focus:ring-2 focus:ring-[#0D8BFF] rounded text-center"
+                              className="w-full px-2 py-1 border-none focus:ring-2 focus:ring-[#C9A961] rounded text-center"
                             />
                           </td>
                         );
@@ -397,7 +397,7 @@ export default function QuestionRenderer({
                   }}
                   placeholder={question.placeholder}
                   rows={2}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent resize-y text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y text-sm"
                 />
 
                 <select
@@ -407,7 +407,7 @@ export default function QuestionRenderer({
                     newRows[idx] = { ...newRows[idx], time: e.target.value };
                     handleChange(newRows);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent text-sm"
                 >
                   <option value="">-- Select --</option>
                   {question.options?.map((option) => {
@@ -445,7 +445,7 @@ export default function QuestionRenderer({
                 const newRows = [...rows, { change: '', time: '' }];
                 handleChange(newRows);
               }}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#0D8BFF] hover:bg-blue-50 rounded-lg transition-colors border border-[#0D8BFF]"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#C9A961] hover:bg-[#F5E6D3]/30 rounded-lg transition-colors border border-[#C9A961]"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />

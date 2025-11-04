@@ -81,12 +81,12 @@ export default function TeamResponseView({
     <div className="space-y-6">
       {/* Header Stats */}
       <div className="bg-white rounded-xl shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-[#2C3E7C] mb-4">Team Response Summary</h2>
+        <h2 className="text-2xl font-bold text-[#1B4332] mb-4">Team Response Summary</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-gray-50 rounded-lg p-4">
             <p className="text-sm text-gray-600">Total Members</p>
-            <p className="text-3xl font-bold text-[#2C3E7C]">{totalMembers}</p>
+            <p className="text-3xl font-bold text-[#1B4332]">{totalMembers}</p>
           </div>
 
           <div className="bg-green-50 rounded-lg p-4">
@@ -121,14 +121,14 @@ export default function TeamResponseView({
       {/* View Mode Toggle */}
       <div className="bg-white rounded-xl shadow-lg p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-[#2C3E7C]">Responses</h3>
+          <h3 className="text-xl font-bold text-[#1B4332]">Responses</h3>
 
           <div className="flex gap-2">
             <button
               onClick={() => setViewMode('summary')}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 viewMode === 'summary'
-                  ? 'bg-[#0D8BFF] text-white'
+                  ? 'bg-[#C9A961] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -138,7 +138,7 @@ export default function TeamResponseView({
               onClick={() => setViewMode('detailed')}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 viewMode === 'detailed'
-                  ? 'bg-[#0D8BFF] text-white'
+                  ? 'bg-[#C9A961] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -155,7 +155,7 @@ export default function TeamResponseView({
 
               return (
                 <div key={section} className="border-b border-gray-200 pb-6 last:border-0">
-                  <h4 className="text-lg font-bold text-[#2C3E7C] mb-4">{section}</h4>
+                  <h4 className="text-lg font-bold text-[#1B4332] mb-4">{section}</h4>
 
                   <div className="space-y-4">
                     {sectionQuestions.map(question => (
@@ -183,7 +183,7 @@ export default function TeamResponseView({
 
                         <button
                           onClick={() => setSelectedQuestion(question.id)}
-                          className="mt-2 text-sm text-[#0D8BFF] hover:text-[#0A6FCC] underline"
+                          className="mt-2 text-sm text-[#C9A961] hover:text-[#0A6FCC] underline"
                         >
                           View full details →
                         </button>
@@ -260,7 +260,7 @@ export default function TeamResponseView({
                 <>
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-bold text-[#2C3E7C]">
+                      <h3 className="text-2xl font-bold text-[#1B4332]">
                         {question.question}
                       </h3>
                       {question.section && (

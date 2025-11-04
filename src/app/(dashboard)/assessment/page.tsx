@@ -265,7 +265,7 @@ export default function AssessmentPage() {
         <button
           onClick={() => saveDraft(false)}
           disabled={saving}
-          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 disabled:opacity-50 transition-colors"
+          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-[#F5E6D3]/30 disabled:opacity-50 transition-colors"
         >
           {saving ? 'Saving...' : 'Save Draft'}
         </button>

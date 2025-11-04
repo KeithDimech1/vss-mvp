@@ -30,7 +30,7 @@ export default function DebugAuthPanel() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 bg-blue-100 border-2 border-blue-400 rounded-lg p-4 shadow-lg max-w-md z-50">
+    <div className="fixed bottom-4 right-4 bg-[#C9A961]/20 border-2 border-blue-400 rounded-lg p-4 shadow-lg max-w-md z-50">
       <h3 className="font-bold text-blue-900 mb-2">🔍 Debug Auth Panel</h3>
       <div className="text-xs text-blue-900 space-y-1">
         <p><strong>Username:</strong> {sessionData?.user?.username || 'N/A'}</p>

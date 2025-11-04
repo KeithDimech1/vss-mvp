@@ -229,15 +229,15 @@ export default function ManagementDashboard() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-3 border-[#0D8BFF]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-3 border-[#C9A961]"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
       {/* Hero Header */}
-      <div className="bg-gradient-to-r from-[#0D8BFF] via-[#0D8BFF] to-[#2C3E7C] text-white shadow-lg">
+      <div className="bg-gradient-to-r from-[#C9A961] via-[#C9A961] to-[#1B4332] text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="flex items-center justify-between">
             <div>
@@ -245,11 +245,11 @@ export default function ManagementDashboard() {
                 Management Access Only
               </div>
               <h1 className="text-5xl font-bold mb-3 tracking-tight">Lithodat VSM Meeting</h1>
-              <p className="text-blue-100 text-xl font-light">Strategic Overview & Action Dashboard</p>
+              <p className="text-[#F5E6D3] text-xl font-light">Strategic Overview & Action Dashboard</p>
             </div>
-            <div className="text-right text-sm text-blue-100 bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="text-right text-sm text-[#F5E6D3] bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="font-semibold">October 29, 2024</div>
-              <div className="text-blue-200">1h 55min workshop</div>
+              <div className="text-[#F5E6D3]/80">1h 55min workshop</div>
             </div>
           </div>
         </div>
@@ -257,8 +257,8 @@ export default function ManagementDashboard() {
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Key Insight Card */}
-        <div className="bg-white rounded-xl shadow-xl p-10 mb-10 border-l-4 border-[#0D8BFF] hover:shadow-2xl transition-shadow duration-300">
-          <h2 className="text-3xl font-bold text-[#2C3E7C] mb-4">🎯 Key Insight: We Are Aligned</h2>
+        <div className="bg-white rounded-xl shadow-xl p-10 mb-10 border-l-4 border-[#C9A961] hover:shadow-2xl transition-shadow duration-300">
+          <h2 className="text-3xl font-bold text-[#1B4332] mb-4">🎯 Key Insight: We Are Aligned</h2>
           <blockquote className="text-xl font-semibold text-gray-700 italic mb-4">
             "DATA, DATA and DATA" - Our unanimous strategic asset
           </blockquote>
@@ -276,7 +276,7 @@ export default function ManagementDashboard() {
                 onClick={() => setActiveSection('visions')}
                 className={`border-b-2 ${
                   activeSection === 'visions'
-                    ? 'border-[#00A5E3] text-[#00A5E3]'
+                    ? 'border-[#C9A961] text-[#C9A961]'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } py-4 px-1 text-sm font-medium transition-colors`}
               >
@@ -286,7 +286,7 @@ export default function ManagementDashboard() {
                 onClick={() => setActiveSection('systems')}
                 className={`border-b-2 ${
                   activeSection === 'systems'
-                    ? 'border-[#00A5E3] text-[#00A5E3]'
+                    ? 'border-[#C9A961] text-[#C9A961]'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } py-4 px-1 text-sm font-medium transition-colors`}
               >
@@ -296,7 +296,7 @@ export default function ManagementDashboard() {
                 onClick={() => setActiveSection('diagnosis')}
                 className={`border-b-2 ${
                   activeSection === 'diagnosis'
-                    ? 'border-[#00A5E3] text-[#00A5E3]'
+                    ? 'border-[#C9A961] text-[#C9A961]'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } py-4 px-1 text-sm font-medium transition-colors`}
               >
@@ -306,7 +306,7 @@ export default function ManagementDashboard() {
                 onClick={() => setActiveSection('actions')}
                 className={`border-b-2 ${
                   activeSection === 'actions'
-                    ? 'border-[#00A5E3] text-[#00A5E3]'
+                    ? 'border-[#C9A961] text-[#C9A961]'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } py-4 px-1 text-sm font-medium transition-colors`}
               >
@@ -316,7 +316,7 @@ export default function ManagementDashboard() {
                 onClick={() => setActiveSection('timeline')}
                 className={`border-b-2 ${
                   activeSection === 'timeline'
-                    ? 'border-[#00A5E3] text-[#00A5E3]'
+                    ? 'border-[#C9A961] text-[#C9A961]'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } py-4 px-1 text-sm font-medium transition-colors`}
               >
@@ -329,7 +329,7 @@ export default function ManagementDashboard() {
         {/* Utopia Visions & Alignment Section */}
         {activeSection === 'visions' && (
           <section className="mb-16">
-            <h2 className="text-4xl font-bold text-[#2C3E7C] mb-8">🔮 Utopia Alignment: Our Shared Vision</h2>
+            <h2 className="text-4xl font-bold text-[#1B4332] mb-8">🔮 Utopia Alignment: Our Shared Vision</h2>
 
             {/* Vision Cards */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
@@ -337,17 +337,17 @@ export default function ManagementDashboard() {
                 <div
                   key={key}
                   onClick={() => setSelectedVision(key)}
-                  className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                  className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
-                  <h3 className="text-xl font-bold text-[#2C3E7C] mb-3">{vision.name}: {vision.title}</h3>
+                  <h3 className="text-xl font-bold text-[#1B4332] mb-3">{vision.name}: {vision.title}</h3>
                   <div className="space-y-2 text-sm text-gray-600">
                     <p><strong>Platform:</strong> {vision.platform || vision.concept || vision.shortTerm}</p>
                     <p><strong>Philosophy:</strong> {vision.philosophy || vision.insight}</p>
                     <p><strong>Key Metric:</strong> {vision.revenue || vision.success || vision.opportunity}</p>
                     {vision.culture && <p><strong>Culture:</strong> {vision.culture}</p>}
                     {vision.scale && <p><strong>Scale:</strong> {vision.scale}</p>}
-                    <p className="text-xs italic pt-2 border-t text-[#0D8BFF]">{vision.quote}</p>
-                    <button className="mt-3 text-xs font-semibold text-[#0D8BFF] hover:text-[#2C3E7C] flex items-center gap-1">
+                    <p className="text-xs italic pt-2 border-t text-[#C9A961]">{vision.quote}</p>
+                    <button className="mt-3 text-xs font-semibold text-[#C9A961] hover:text-[#1B4332] flex items-center gap-1">
                       Click to expand <span>→</span>
                     </button>
                   </div>
@@ -408,7 +408,7 @@ export default function ManagementDashboard() {
         {/* Our System 1s Section */}
         {activeSection === 'systems' && (
           <section className="mb-16">
-            <h2 className="text-4xl font-bold text-[#2C3E7C] mb-4">🏗️ Our System 1s: Operating Units</h2>
+            <h2 className="text-4xl font-bold text-[#1B4332] mb-4">🏗️ Our System 1s: Operating Units</h2>
             <p className="text-gray-600 mb-8">
               These are our three primary viable systems - each capable of operating independently while contributing to our unified vision.
             </p>
@@ -417,16 +417,16 @@ export default function ManagementDashboard() {
               {/* LithoSurfer */}
               <div
                 onClick={() => setSelectedSystem('lithoSurfer')}
-                className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
-                <h3 className="text-lg font-bold text-[#2C3E7C] mb-3">{systemOnes.lithoSurfer.name}</h3>
+                <h3 className="text-lg font-bold text-[#1B4332] mb-3">{systemOnes.lithoSurfer.name}</h3>
                 <p className="text-sm text-gray-500 mb-3">{systemOnes.lithoSurfer.subtitle}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
                   {systemOnes.lithoSurfer.features.map((feature, idx) => (
                     <li key={idx}>• {feature}</li>
                   ))}
                 </ul>
-                <button className="mt-3 text-xs font-semibold text-[#0D8BFF] hover:text-[#2C3E7C] flex items-center gap-1">
+                <button className="mt-3 text-xs font-semibold text-[#C9A961] hover:text-[#1B4332] flex items-center gap-1">
                   Click to expand <span>→</span>
                 </button>
               </div>
@@ -436,7 +436,7 @@ export default function ManagementDashboard() {
                 onClick={() => setSelectedSystem('lithoBuild')}
                 className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-amber-500 hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
-                <h3 className="text-lg font-bold text-[#2C3E7C] mb-3">{systemOnes.lithoBuild.name}</h3>
+                <h3 className="text-lg font-bold text-[#1B4332] mb-3">{systemOnes.lithoBuild.name}</h3>
                 <p className="text-sm text-gray-500 mb-3">{systemOnes.lithoBuild.subtitle}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
                   {systemOnes.lithoBuild.features.map((feature, idx) => (
@@ -452,17 +452,17 @@ export default function ManagementDashboard() {
               {/* LithoData */}
               <div
                 onClick={() => setSelectedSystem('lithoData')}
-                className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#2C3E7C] hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#1B4332] hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
-                <h3 className="text-lg font-bold text-[#2C3E7C] mb-3">{systemOnes.lithoData.name}</h3>
+                <h3 className="text-lg font-bold text-[#1B4332] mb-3">{systemOnes.lithoData.name}</h3>
                 <p className="text-sm text-gray-500 mb-3">{systemOnes.lithoData.subtitle}</p>
                 <ul className="space-y-1 text-sm text-gray-600">
                   {systemOnes.lithoData.features.map((feature, idx) => (
                     <li key={idx}>• {feature}</li>
                   ))}
                 </ul>
-                <p className="mt-3 text-xs font-bold text-[#2C3E7C]">{systemOnes.lithoData.tagline}</p>
-                <button className="mt-2 text-xs font-semibold text-[#2C3E7C] hover:text-[#0D8BFF] flex items-center gap-1">
+                <p className="mt-3 text-xs font-bold text-[#1B4332]">{systemOnes.lithoData.tagline}</p>
+                <button className="mt-2 text-xs font-semibold text-[#1B4332] hover:text-[#C9A961] flex items-center gap-1">
                   Click to expand <span>→</span>
                 </button>
               </div>
@@ -473,7 +473,7 @@ export default function ManagementDashboard() {
         {/* Diagnosing the System Section */}
         {activeSection === 'diagnosis' && (
           <section className="mb-16">
-            <h2 className="text-4xl font-bold text-[#2C3E7C] mb-4">📊 Diagnosing the System</h2>
+            <h2 className="text-4xl font-bold text-[#1B4332] mb-4">📊 Diagnosing the System</h2>
             <p className="text-gray-600 mb-8">
               Analysis of our five VSM systems: Operations (System 1), Coordination (System 2), Optimization (System 3), Intelligence (System 4), and Policy (System 5).
             </p>
@@ -547,12 +547,12 @@ export default function ManagementDashboard() {
               </div>
 
               {/* VSM Framework Overview */}
-              <div className="bg-blue-50 rounded-lg shadow p-6 border-l-4 border-blue-500 mt-6">
-                <h3 className="text-lg font-bold text-blue-900 mb-3">Viable Systems Model Framework</h3>
+              <div className="bg-[#F5E6D3]/30 rounded-lg shadow p-6 border-l-4 border-[#C9A961] mt-6">
+                <h3 className="text-lg font-bold text-[#1B4332] mb-3">Viable Systems Model Framework</h3>
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <strong className="text-blue-800">Core Principles:</strong>
-                    <ul className="text-blue-900 space-y-1 mt-2">
+                    <strong className="text-[#0F2922]">Core Principles:</strong>
+                    <ul className="text-[#1B4332] space-y-1 mt-2">
                       <li>• <strong>Viability:</strong> Can survive both today and in the future</li>
                       <li>• <strong>Recursion:</strong> Systems within systems (fractal structure)</li>
                       <li>• <strong>Variety:</strong> Measure of system complexity</li>
@@ -560,8 +560,8 @@ export default function ManagementDashboard() {
                     </ul>
                   </div>
                   <div>
-                    <strong className="text-blue-800">Three Rules:</strong>
-                    <ul className="text-blue-900 space-y-1 mt-2 text-xs">
+                    <strong className="text-[#0F2922]">Three Rules:</strong>
+                    <ul className="text-[#1B4332] space-y-1 mt-2 text-xs">
                       <li>1. Managerial, operational and environmental varieties will balance - design with minimal damage to people and cost</li>
                       <li>2. Communication channels must be fast and wide enough to handle the information produced</li>
                       <li>3. Messages undergo 'transduction' - ensure clarity and requisite context</li>
@@ -576,13 +576,13 @@ export default function ManagementDashboard() {
         {/* Action Dashboard Section */}
         {activeSection === 'actions' && (
           <section className="mb-16">
-            <h2 className="text-4xl font-bold text-[#2C3E7C] mb-8">🚀 Action Dashboard</h2>
+            <h2 className="text-4xl font-bold text-[#1B4332] mb-8">🚀 Action Dashboard</h2>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {/* Action 1: Products & Services Strategy (consolidated) */}
-              <a href="/management/action/products-services" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <a href="/management/action/products-services" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🎯 Action 1</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Action 1</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Products & Services Strategy</h4>
@@ -590,17 +590,17 @@ export default function ManagementDashboard() {
                   Define strategies for all three product lines: LithoSurfer (Three-Tier Product), LithoData (Three-Type Data Model), and LithoBuild (Consulting & Development).
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">🌊 LithoSurfer</span>
-                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">📊 LithoData</span>
-                  <span className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded">🏗️ LithoBuild</span>
+                  <span className="px-2 py-1 text-xs bg-[#F5E6D3]/30 text-[#0F2922] rounded">🌊 LithoSurfer</span>
+                  <span className="px-2 py-1 text-xs bg-[#F5E6D3]/30 text-[#0F2922] rounded">📊 LithoData</span>
+                  <span className="px-2 py-1 text-xs bg-[#F5E6D3]/30 text-[#0F2922] rounded">🏗️ LithoBuild</span>
                 </div>
                 <div className="text-xs text-gray-500">Owner: Keith (Management Team)</div>
               </a>
 
               {/* Action 2 */}
-              <a href="/management/action/unified-utopia" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <a href="/management/action/unified-utopia" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🎯 Action 2</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Action 2</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Define Unified Utopia</h4>
@@ -609,9 +609,9 @@ export default function ManagementDashboard() {
               </a>
 
               {/* Action 3 */}
-              <a href="/management/action/setup-departments" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <a href="/management/action/setup-departments" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🏢 Action 3</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🏢 Action 3</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Setup Three Departments</h4>
@@ -622,8 +622,8 @@ export default function ManagementDashboard() {
               {/* Action 4 */}
               <a href="/management/action/okrs" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">📋 Action 4</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded">SHORT-TERM</span>
+                  <h3 className="text-lg font-bold text-[#1B4332]">📋 Action 4</h3>
+                  <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Implementation Plan (OKRs)</h4>
                 <p className="text-sm text-gray-600 mb-3">Create actionable roadmap with quarterly OKRs.</p>
@@ -633,8 +633,8 @@ export default function ManagementDashboard() {
               {/* Action 5 */}
               <a href="/management/action/intelligence" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">🔍 Action 5</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded">SHORT-TERM</span>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🔍 Action 5</h3>
+                  <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Build System 4 Intelligence</h4>
                 <p className="text-sm text-gray-600 mb-3">Address blind spots in market intelligence and CRM.</p>
@@ -644,8 +644,8 @@ export default function ManagementDashboard() {
               {/* Action 6 */}
               <a href="/management/action/career-paths" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">👥 Action 6</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded">SHORT-TERM</span>
+                  <h3 className="text-lg font-bold text-[#1B4332]">👥 Action 6</h3>
+                  <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Career Paths & Org Design</h4>
                 <p className="text-sm text-gray-600 mb-3">Create progression paths for scaling to 20+ staff.</p>
@@ -653,34 +653,34 @@ export default function ManagementDashboard() {
               </a>
 
               {/* Action 7 */}
-              <a href="/management/action/realtime-intelligence" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#0D8BFF] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <a href="/management/action/realtime-intelligence" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2C3E7C]">📊 Action 7</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">📊 Action 7</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Lithodat Realtime Intelligence System</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Lithodat Realtime Amplifiers and Attenuators</h4>
                 <p className="text-sm text-gray-600 mb-3">
                   Build proper attenuators for System 1 → System 3 communication. Real-time visibility of operational performance enables effective management decisions.
                 </p>
                 <div className="text-xs text-gray-700 mb-2 space-y-1">
                   <div className="flex items-start gap-1">
-                    <span className="text-[#0D8BFF]">•</span>
+                    <span className="text-[#C9A961]">•</span>
                     <span>Finance tracker & cash flow visibility</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="text-[#0D8BFF]">•</span>
+                    <span className="text-[#C9A961]">•</span>
                     <span>HR management & team capacity tool</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="text-[#0D8BFF]">•</span>
+                    <span className="text-[#C9A961]">•</span>
                     <span>LithoClean/LithoMine progress dashboards</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="text-[#0D8BFF]">•</span>
+                    <span className="text-[#C9A961]">•</span>
                     <span>LithoBuild program manager (online, auto-updated)</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="text-[#0D8BFF]">•</span>
+                    <span className="text-[#C9A961]">•</span>
                     <span className="italic">Additional needs identified during implementation</span>
                   </div>
                 </div>
@@ -695,7 +695,7 @@ export default function ManagementDashboard() {
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-4xl font-bold text-[#2C3E7C]">📅 Implementation Timeline</h2>
+                <h2 className="text-4xl font-bold text-[#1B4332]">📅 Implementation Timeline</h2>
                 <p className="text-gray-600 mt-2">
                   Estimated Gantt chart for action implementation - <span className="italic font-semibold text-amber-600">This is a working estimate and can be updated</span>
                 </p>
@@ -708,14 +708,14 @@ export default function ManagementDashboard() {
 
             {/* Timeline Legend */}
             <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-              <h3 className="text-lg font-bold text-[#2C3E7C] mb-4">Timeline Legend</h3>
+              <h3 className="text-lg font-bold text-[#1B4332] mb-4">Timeline Legend</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-red-500 rounded"></div>
                   <span className="text-sm text-gray-700">Immediate Priority (Weeks 1-2)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-blue-500 rounded"></div>
+                  <div className="w-4 h-4 bg-[#F5E6D3]/300 rounded"></div>
                   <span className="text-sm text-gray-700">Short-term (Months 1-3)</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -732,7 +732,7 @@ export default function ManagementDashboard() {
             {/* Gantt Chart */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               {/* Header with months */}
-              <div className="bg-gradient-to-r from-[#0D8BFF] to-[#2C3E7C] text-white p-4">
+              <div className="bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white p-4">
                 <div className="grid grid-cols-13 gap-2">
                   <div className="col-span-1 text-xs font-semibold">Actions</div>
                   <div className="col-span-12 grid grid-cols-12 gap-1 text-center text-xs">
@@ -756,7 +756,7 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 1</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 1</div>
                     <div className="text-xs text-gray-600">Products & Services</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -774,7 +774,7 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 2</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 2</div>
                     <div className="text-xs text-gray-600">Unified Utopia</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -792,7 +792,7 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 3</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 3</div>
                     <div className="text-xs text-gray-600">Three Departments</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -810,8 +810,8 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 7</div>
-                    <div className="text-xs text-gray-600">Realtime Intelligence</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 7</div>
+                    <div className="text-xs text-gray-600">Realtime Amplifiers and Attenuators</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
                     <div className="col-span-1 bg-red-500 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
@@ -828,12 +828,12 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 4</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 4</div>
                     <div className="text-xs text-gray-600">Implementation (OKRs)</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
                     <div className="h-8"></div>
-                    <div className="col-span-3 bg-blue-500 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
+                    <div className="col-span-3 bg-[#F5E6D3]/300 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
                       M1-3
                     </div>
                     {[...Array(8)].map((_, i) => (
@@ -847,12 +847,12 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 5</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 5</div>
                     <div className="text-xs text-gray-600">System 4 Intelligence</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
                     <div className="h-8"></div>
-                    <div className="col-span-3 bg-blue-500 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
+                    <div className="col-span-3 bg-[#F5E6D3]/300 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
                       M1-3
                     </div>
                     {[...Array(8)].map((_, i) => (
@@ -866,12 +866,12 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Action 6</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Action 6</div>
                     <div className="text-xs text-gray-600">Career Paths & Org Design</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
                     <div className="h-8"></div>
-                    <div className="col-span-3 bg-blue-500 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
+                    <div className="col-span-3 bg-[#F5E6D3]/300 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold">
                       M1-3
                     </div>
                     {[...Array(8)].map((_, i) => (
@@ -885,7 +885,7 @@ export default function ManagementDashboard() {
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Execute</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Execute</div>
                     <div className="text-xs text-gray-600">OKRs & Iteration</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -906,7 +906,7 @@ export default function ManagementDashboard() {
               <div className="p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#2C3E7C]">Scale</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Scale</div>
                     <div className="text-xs text-gray-600">20+ Staff Structure</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -923,18 +923,18 @@ export default function ManagementDashboard() {
 
             {/* Key Milestones */}
             <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-[#2C3E7C] mb-6">🎯 Key Milestones</h3>
+              <h3 className="text-xl font-bold text-[#1B4332] mb-6">🎯 Key Milestones</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-4 p-4 bg-red-50 rounded-lg">
                   <div className="flex-shrink-0 w-24 text-sm font-semibold text-red-700">Week 2</div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 mb-1">Foundation Complete</h4>
-                    <p className="text-sm text-gray-700">LithoSurfer, LithoData, and LithoBuild strategies defined (Actions 1-3), Utopia documented (Action 4), Three departments established (Action 5), Realtime Intelligence System operational (Action 9)</p>
+                    <p className="text-sm text-gray-700">LithoSurfer, LithoData, and LithoBuild strategies defined (Actions 1-3), Utopia documented (Action 4), Three departments established (Action 5), Realtime Amplifiers and Attenuators operational (Action 7)</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
-                  <div className="flex-shrink-0 w-24 text-sm font-semibold text-blue-700">Month 3</div>
+                <div className="flex items-start gap-4 p-4 bg-[#F5E6D3]/30 rounded-lg">
+                  <div className="flex-shrink-0 w-24 text-sm font-semibold text-[#0F2922]">Month 3</div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 mb-1">Systems Operational</h4>
                     <p className="text-sm text-gray-700">OKR framework implemented, System 4 intelligence gathering active, Career paths defined and communicated</p>
@@ -992,36 +992,36 @@ export default function ManagementDashboard() {
             </div>
 
             {/* Review Schedule */}
-            <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-blue-800 mb-4">📋 Review & Update Schedule</h3>
+            <div className="mt-8 bg-[#F5E6D3]/30 border border-[#C9A961]/40 rounded-xl shadow-lg p-6">
+              <h3 className="text-xl font-bold text-[#0F2922] mb-4">📋 Review & Update Schedule</h3>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">Weekly Reviews</h4>
-                  <ul className="space-y-1 text-blue-800">
+                  <h4 className="font-semibold text-[#1B4332] mb-2">Weekly Reviews</h4>
+                  <ul className="space-y-1 text-[#0F2922]">
                     <li>• Director meetings - immediate action progress</li>
                     <li>• Blockers and dependencies discussion</li>
                     <li>• Resource allocation adjustments</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">Monthly Reviews</h4>
-                  <ul className="space-y-1 text-blue-800">
+                  <h4 className="font-semibold text-[#1B4332] mb-2">Monthly Reviews</h4>
+                  <ul className="space-y-1 text-[#0F2922]">
                     <li>• Full management team - timeline assessment</li>
                     <li>• Milestone achievement review</li>
                     <li>• Timeline adjustments and re-estimation</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">Quarterly Reviews</h4>
-                  <ul className="space-y-1 text-blue-800">
+                  <h4 className="font-semibold text-[#1B4332] mb-2">Quarterly Reviews</h4>
+                  <ul className="space-y-1 text-[#0F2922]">
                     <li>• OKR cycle completion assessment</li>
                     <li>• Strategic alignment check</li>
                     <li>• Long-term timeline refinement</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">Update Protocol</h4>
-                  <ul className="space-y-1 text-blue-800">
+                  <h4 className="font-semibold text-[#1B4332] mb-2">Update Protocol</h4>
+                  <ul className="space-y-1 text-[#0F2922]">
                     <li>• Document all timeline changes with rationale</li>
                     <li>• Communicate updates to full team</li>
                     <li>• Track variance from original estimates</li>
@@ -1035,7 +1035,7 @@ export default function ManagementDashboard() {
         {/* Progress Timeline */}
         <section className="mb-12">
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-[#2E3192] mb-4">📈 Progress Timeline</h2>
+            <h2 className="text-2xl font-bold text-[#1B4332] mb-4">📈 Progress Timeline</h2>
             <div className="space-y-3">
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Immediate</div>
@@ -1059,7 +1059,7 @@ export default function ManagementDashboard() {
 
         {/* Key Quotes */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-[#2E3192] to-[#00A5E3] rounded-lg shadow-lg p-8 text-white">
+          <div className="bg-gradient-to-r from-[#1B4332] to-[#C9A961] rounded-lg shadow-lg p-8 text-white">
             <h2 className="text-2xl font-bold mb-6">💬 Key Quotes</h2>
             <div className="grid gap-4 md:grid-cols-2">
               <blockquote className="text-sm italic border-l-2 border-white pl-4">
@@ -1100,13 +1100,13 @@ export default function ManagementDashboard() {
             className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-gradient-to-r from-[#0D8BFF] to-[#2C3E7C] text-white p-6 rounded-t-xl">
+            <div className="sticky top-0 bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white p-6 rounded-t-xl">
               <div className="flex justify-between items-start">
                 <div>
                   <h2 className="text-3xl font-bold mb-2">
                     {utopiaVisions[selectedVision as keyof typeof utopiaVisions].name}: {utopiaVisions[selectedVision as keyof typeof utopiaVisions].title}
                   </h2>
-                  <p className="text-blue-100 italic">
+                  <p className="text-[#1B4332]-100 italic">
                     {utopiaVisions[selectedVision as keyof typeof utopiaVisions].quote}
                   </p>
                 </div>
@@ -1122,7 +1122,7 @@ export default function ManagementDashboard() {
             <div className="p-6 space-y-4">
               {Object.entries(utopiaVisions[selectedVision as keyof typeof utopiaVisions].details).map(([key, value]) => (
                 <div key={key} className="border-b border-gray-200 pb-4">
-                  <h3 className="font-semibold text-[#2C3E7C] mb-2 capitalize">
+                  <h3 className="font-semibold text-[#1B4332] mb-2 capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </h3>
                   {Array.isArray(value) ? (
@@ -1141,7 +1141,7 @@ export default function ManagementDashboard() {
             <div className="sticky bottom-0 bg-gray-50 p-4 rounded-b-xl border-t border-gray-200">
               <button
                 onClick={() => setSelectedVision(null)}
-                className="w-full px-6 py-3 bg-[#0D8BFF] text-white rounded-lg hover:bg-[#2C3E7C] transition-colors font-medium"
+                className="w-full px-6 py-3 bg-[#C9A961] text-white rounded-lg hover:bg-[#1B4332] transition-colors font-medium"
               >
                 Close
               </button>
@@ -1161,16 +1161,16 @@ export default function ManagementDashboard() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className={`sticky top-0 bg-gradient-to-r ${
-              selectedSystem === 'lithoSurfer' ? 'from-[#0D8BFF] to-[#2C3E7C]' :
+              selectedSystem === 'lithoSurfer' ? 'from-[#C9A961] to-[#1B4332]' :
               selectedSystem === 'lithoBuild' ? 'from-amber-500 to-amber-600' :
-              'from-[#2C3E7C] to-indigo-900'
+              'from-[#1B4332] to-indigo-900'
             } text-white p-6 rounded-t-xl`}>
               <div className="flex justify-between items-start">
                 <div>
                   <h2 className="text-3xl font-bold mb-2">
                     {systemOnes[selectedSystem as keyof typeof systemOnes].name}
                   </h2>
-                  <p className="text-blue-100">
+                  <p className="text-[#1B4332]-100">
                     {systemOnes[selectedSystem as keyof typeof systemOnes].subtitle}
                   </p>
                 </div>
@@ -1188,7 +1188,7 @@ export default function ManagementDashboard() {
                 if (key === 'subSystems' && typeof value === 'object') {
                   return (
                     <div key={key} className="border-b border-gray-200 pb-4">
-                      <h3 className="font-semibold text-[#2C3E7C] mb-2">Sub-Systems</h3>
+                      <h3 className="font-semibold text-[#1B4332] mb-2">Sub-Systems</h3>
                       {Object.entries(value as Record<string, string>).map(([subKey, subValue]) => (
                         <div key={subKey} className="ml-4 mb-2">
                           <strong className="text-gray-800 capitalize">{subKey}:</strong>
@@ -1201,7 +1201,7 @@ export default function ManagementDashboard() {
 
                 return (
                   <div key={key} className="border-b border-gray-200 pb-4">
-                    <h3 className="font-semibold text-[#2C3E7C] mb-2 capitalize">
+                    <h3 className="font-semibold text-[#1B4332] mb-2 capitalize">
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </h3>
                     {Array.isArray(value) ? (
@@ -1222,9 +1222,9 @@ export default function ManagementDashboard() {
               <button
                 onClick={() => setSelectedSystem(null)}
                 className={`w-full px-6 py-3 text-white rounded-lg transition-colors font-medium ${
-                  selectedSystem === 'lithoSurfer' ? 'bg-[#0D8BFF] hover:bg-[#2C3E7C]' :
+                  selectedSystem === 'lithoSurfer' ? 'bg-[#C9A961] hover:bg-[#1B4332]' :
                   selectedSystem === 'lithoBuild' ? 'bg-amber-500 hover:bg-amber-600' :
-                  'bg-[#2C3E7C] hover:bg-indigo-900'
+                  'bg-[#1B4332] hover:bg-indigo-900'
                 }`}
               >
                 Close

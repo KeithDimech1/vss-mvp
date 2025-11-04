@@ -115,12 +115,12 @@ export default async function ActionPage({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#C9A961]/10 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <a
           href="/management"
-          className="inline-flex items-center text-[#0D8BFF] hover:text-[#0A6FCC] mb-6 transition-colors"
+          className="inline-flex items-center text-[#C9A961] hover:text-[#0A6FCC] mb-6 transition-colors"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -177,23 +177,23 @@ export default async function ActionPage({
 
         {/* Additional Actions */}
         <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-bold text-[#2C3E7C] mb-4">
+          <h2 className="text-xl font-bold text-[#1B4332] mb-4">
             Team Collaboration
           </h2>
           <div className="space-y-3">
             <a
               href={`/management/action/${slug}/team-responses`}
-              className="block px-4 py-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
+              className="block px-4 py-3 bg-[#F5E6D3]/30 hover:bg-[#C9A961]/20 rounded-lg transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-[#2C3E7C]">View Team Responses</p>
+                  <p className="font-semibold text-[#1B4332]">View Team Responses</p>
                   <p className="text-sm text-gray-600">
                     See what other management team members have submitted
                   </p>
                 </div>
                 <svg
-                  className="w-5 h-5 text-[#0D8BFF]"
+                  className="w-5 h-5 text-[#C9A961]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -214,7 +214,7 @@ export default async function ActionPage({
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-[#2C3E7C]">Build Consensus</p>
+                  <p className="font-semibold text-[#1B4332]">Build Consensus</p>
                   <p className="text-sm text-gray-600">
                     Collaborate on final decisions and action items
                   </p>

@@ -178,7 +178,7 @@ export default function ActionFormWrapper({
     <div className="max-w-4xl mx-auto">
       {/* Header */}
       <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
-        <h1 className="text-3xl font-bold text-[#2C3E7C] mb-2">
+        <h1 className="text-3xl font-bold text-[#1B4332] mb-2">
           Action {action.actionNumber}: {action.title}
         </h1>
         <p className="text-gray-600 mb-4">{action.description}</p>
@@ -244,7 +244,7 @@ export default function ActionFormWrapper({
             <button
               type="submit"
               disabled={isSaving}
-              className="px-8 py-3 bg-[#0D8BFF] text-white rounded-lg hover:bg-[#0A6FCC] disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
+              className="px-8 py-3 bg-[#C9A961] text-white rounded-lg hover:bg-[#0A6FCC] disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
             >
               {isSaving ? 'Submitting...' : 'Submit Responses'}
             </button>
@@ -253,7 +253,7 @@ export default function ActionFormWrapper({
       </div>
 
       {/* Help Text */}
-      <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="mt-6 bg-[#F5E6D3]/30 border border-[#C9A961]/40 rounded-lg p-4">
         <p className="text-sm text-blue-800">
           <strong>Note:</strong> Your responses are automatically saved every 30 seconds.
           You can leave and come back to continue later. Click "Submit Responses" when you're done.

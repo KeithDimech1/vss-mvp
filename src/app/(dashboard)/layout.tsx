@@ -106,7 +106,7 @@ export default function DashboardLayout({
           {/* Assessment page hidden as per requirements */}
           {/* <Link
             href="/assessment"
-            className="block px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF] text-blue-200 hover:text-white"
+            className="block px-6 py-3 hover:bg-[#C9A961]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#C9A961] text-[#F5E6D3]/80 hover:text-white"
           >
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,7 +184,7 @@ export default function DashboardLayout({
                       href="/management/action/realtime-intelligence"
                       className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
-                      Action 7: Realtime Intelligence
+                      Action 7: Realtime Amplifiers and Attenuators
                     </Link>
                   </div>
                 )}

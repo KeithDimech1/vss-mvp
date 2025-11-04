@@ -104,7 +104,7 @@ export default function AssessmentCompletePage() {
       </div>
 
       {/* What's Next */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 mb-8">
+      <div className="bg-[#F5E6D3]/30 border border-[#C9A961]/40 rounded-lg p-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           What Happens Next?
         </h2>
@@ -176,7 +176,7 @@ export default function AssessmentCompletePage() {
         </Link>
         <Link
           href="/assessment/view"
-          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors text-center"
+          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-[#F5E6D3]/30 transition-colors text-center"
         >
           View My Responses
         </Link>

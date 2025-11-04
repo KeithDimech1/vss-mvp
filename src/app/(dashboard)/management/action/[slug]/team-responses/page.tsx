@@ -113,12 +113,12 @@ export default async function TeamResponsesPage({
     }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-[#C9A961]/10 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <a
           href={`/management/action/${slug}`}
-          className="inline-flex items-center text-[#0D8BFF] hover:text-[#0A6FCC] mb-6 transition-colors"
+          className="inline-flex items-center text-[#C9A961] hover:text-[#0A6FCC] mb-6 transition-colors"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -138,7 +138,7 @@ export default async function TeamResponsesPage({
 
         {/* Header */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
-          <h1 className="text-3xl font-bold text-[#2C3E7C] mb-2">
+          <h1 className="text-3xl font-bold text-[#1B4332] mb-2">
             Team Responses: {actionMetadata.title}
           </h1>
           <p className="text-gray-600">

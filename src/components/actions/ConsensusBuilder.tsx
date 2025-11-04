@@ -175,7 +175,7 @@ export default function ConsensusBuilder({
       <div className="bg-white rounded-xl shadow-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-2xl font-bold text-[#2C3E7C]">Build Consensus</h2>
+            <h2 className="text-2xl font-bold text-[#1B4332]">Build Consensus</h2>
             <p className="text-gray-600 mt-1">
               Review team responses and create consensus decisions
             </p>
@@ -249,7 +249,7 @@ export default function ConsensusBuilder({
       <div className="flex gap-2">
         <button
           onClick={expandAll}
-          className="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition-colors text-sm"
+          className="px-4 py-2 bg-[#C9A961]/20 text-blue-800 rounded-lg hover:bg-blue-200 transition-colors text-sm"
         >
           Expand All
         </button>
@@ -268,7 +268,7 @@ export default function ConsensusBuilder({
 
           return (
             <div key={section} className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-[#2C3E7C] mb-4 pb-2 border-b-2 border-[#0D8BFF]">
+              <h3 className="text-xl font-bold text-[#1B4332] mb-4 pb-2 border-b-2 border-[#C9A961]">
                 {section}
               </h3>
 
@@ -332,7 +332,7 @@ export default function ConsensusBuilder({
                               onChange={(e) => handleConsensusChange(question.id, e.target.value)}
                               placeholder="Enter the agreed-upon decision or consensus for this question..."
                               rows={3}
-                              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent resize-y"
+                              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
                             />
                           </div>
                         </div>
@@ -348,7 +348,7 @@ export default function ConsensusBuilder({
 
       {/* Overall Notes */}
       <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-[#2C3E7C] mb-4">Overall Notes & Discussion</h3>
+        <h3 className="text-xl font-bold text-[#1B4332] mb-4">Overall Notes & Discussion</h3>
         <textarea
           value={notes}
           onChange={(e) => {
@@ -357,7 +357,7 @@ export default function ConsensusBuilder({
           }}
           placeholder="Add any overall notes, discussion points, or action items here..."
           rows={6}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D8BFF] focus:border-transparent resize-y"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
         />
       </div>
 
