@@ -44,7 +44,7 @@ export default function ActionFormWrapper({
     try {
       const method = responseExists ? 'PATCH' : 'POST';
 
-      const response = await fetch(`/api/actions/${actionId}/responses`, {
+      let response = await fetch(`/api/actions/${actionId}/responses`, {
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -54,6 +54,24 @@ export default function ActionFormWrapper({
           completed: false // Auto-save doesn't mark as completed
         }),
       });
+
+      // If POST failed due to unique constraint, try PATCH instead
+      if (!response.ok && method === 'POST') {
+        const errorData = await response.json();
+        if (errorData.error?.includes('already exists') || response.status === 400) {
+          console.log('[AutoSave] Response exists, retrying with PATCH...');
+          response = await fetch(`/api/actions/${actionId}/responses`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              responses,
+              completed: false
+            }),
+          });
+        }
+      }
 
       if (!response.ok) {
         throw new Error('Failed to save responses');
@@ -109,7 +127,7 @@ export default function ActionFormWrapper({
 
       const method = responseExists ? 'PATCH' : 'POST';
 
-      const response = await fetch(`/api/actions/${actionId}/responses`, {
+      let response = await fetch(`/api/actions/${actionId}/responses`, {
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -119,6 +137,24 @@ export default function ActionFormWrapper({
           completed: true
         }),
       });
+
+      // If POST failed due to unique constraint, try PATCH instead
+      if (!response.ok && method === 'POST') {
+        const errorData = await response.json();
+        if (errorData.error?.includes('already exists') || response.status === 400) {
+          console.log('[Submit] Response exists, retrying with PATCH...');
+          response = await fetch(`/api/actions/${actionId}/responses`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              responses,
+              completed: true
+            }),
+          });
+        }
+      }
 
       if (!response.ok) {
         throw new Error('Failed to submit responses');
