@@ -208,11 +208,11 @@ export default function ConsensusBuilder({
     }
   };
 
-  // Get unique sections
+  // Get unique sections (excluding info-type questions which don't have responses)
   const sections = Array.from(
     new Set(
       action.questions
-        .filter(q => q.section)
+        .filter(q => q.section && q.type !== 'info')
         .map(q => q.section!)
     )
   );
@@ -312,7 +312,13 @@ export default function ConsensusBuilder({
       {/* Questions by Section */}
       <div className="space-y-6">
         {sections.map(section => {
-          const sectionQuestions = action.questions.filter(q => q.section === section);
+          // Filter out info-type questions - they don't have responses
+          const sectionQuestions = action.questions.filter(q => q.section === section && q.type !== 'info');
+
+          // Skip sections with no actual questions
+          if (sectionQuestions.length === 0) {
+            return null;
+          }
 
           return (
             <div key={section} className="bg-white rounded-xl shadow-lg p-6">

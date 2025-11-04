@@ -27,11 +27,11 @@ export default function TeamResponseView({
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'summary' | 'detailed'>('summary');
 
-  // Get unique sections
+  // Get unique sections (excluding info-type questions which don't have responses)
   const sections = Array.from(
     new Set(
       action.questions
-        .filter(q => q.section)
+        .filter(q => q.section && q.type !== 'info')
         .map(q => q.section!)
     )
   );
@@ -196,7 +196,13 @@ export default function TeamResponseView({
         {viewMode === 'summary' && (
           <div className="space-y-6">
             {sections.map(section => {
-              const sectionQuestions = action.questions.filter(q => q.section === section);
+              // Filter out info-type questions - they don't have responses
+              const sectionQuestions = action.questions.filter(q => q.section === section && q.type !== 'info');
+
+              // Skip sections with no actual questions
+              if (sectionQuestions.length === 0) {
+                return null;
+              }
 
               return (
                 <div key={section} className="border-b border-gray-200 pb-6 last:border-0">
@@ -266,7 +272,7 @@ export default function TeamResponseView({
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {action.questions.map((question, idx) => (
+                {action.questions.filter(q => q.type !== 'info').map((question, idx) => (
                   <tr key={question.id} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 text-sm text-gray-900 sticky left-0 bg-inherit z-10 max-w-xs">
                       <div className="font-semibold">{question.question}</div>
