@@ -174,23 +174,6 @@ export default function ActionFormWrapper({
     }
   };
 
-  // Calculate progress
-  const totalQuestions = action.questions.length;
-  const answeredQuestions = action.questions.filter(q => {
-    const hasValue = responses[q.id] !== undefined && responses[q.id] !== '' && responses[q.id] !== null;
-
-    // Don't count conditional questions that aren't shown
-    if (q.conditionalOn) {
-      const conditionMet = responses[q.conditionalOn.questionId] === q.conditionalOn.value ||
-        (Array.isArray(responses[q.conditionalOn.questionId]) &&
-          responses[q.conditionalOn.questionId]?.includes(q.conditionalOn.value));
-      return conditionMet && hasValue;
-    }
-
-    return hasValue;
-  }).length;
-  const progressPercentage = Math.round((answeredQuestions / totalQuestions) * 100);
-
   return (
     <div className="max-w-4xl mx-auto">
       {/* Header */}
@@ -200,46 +183,27 @@ export default function ActionFormWrapper({
         </h1>
         <p className="text-gray-600 mb-4">{action.description}</p>
 
-        {/* Status Bar */}
-        <div className="flex items-center justify-between text-sm">
-          <div className="flex items-center gap-4">
-            <span className="text-gray-600">
-              Progress: <span className="font-semibold text-[#0D8BFF]">{progressPercentage}%</span>
+        {/* Save Status */}
+        <div className="flex items-center justify-end text-sm">
+          {isSaving && (
+            <span className="text-amber-600 flex items-center gap-2">
+              <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Saving...
             </span>
-            <span className="text-gray-600">
-              {answeredQuestions} of {totalQuestions} questions answered
+          )}
+
+          {!isSaving && lastSaved && (
+            <span className="text-green-600">
+              Last saved: {lastSaved.toLocaleTimeString()}
             </span>
-          </div>
+          )}
 
-          <div className="flex items-center gap-2">
-            {isSaving && (
-              <span className="text-amber-600 flex items-center gap-2">
-                <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Saving...
-              </span>
-            )}
-
-            {!isSaving && lastSaved && (
-              <span className="text-green-600">
-                Last saved: {lastSaved.toLocaleTimeString()}
-              </span>
-            )}
-
-            {!isSaving && hasUnsavedChanges && (
-              <span className="text-amber-600">Unsaved changes</span>
-            )}
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mt-4 w-full bg-gray-200 rounded-full h-2">
-          <div
-            className="bg-[#0D8BFF] h-2 rounded-full transition-all duration-300"
-            style={{ width: `${progressPercentage}%` }}
-          />
+          {!isSaving && hasUnsavedChanges && (
+            <span className="text-amber-600">Unsaved changes</span>
+          )}
         </div>
       </div>
 
