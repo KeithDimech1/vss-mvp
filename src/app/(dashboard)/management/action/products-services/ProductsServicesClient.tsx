@@ -73,8 +73,8 @@ export default function ProductsServicesClient({
 
         {/* Page Title */}
         <div className="mb-6">
-          <h1 className="text-4xl font-bold text-[#1B4332] mb-2">Action 1: Products & Services Strategy</h1>
-          <p className="text-gray-600">Define strategies for all three product lines</p>
+          <h1 className="text-4xl font-bold text-[#1B4332] mb-2">Step 1: Products & Services Strategy</h1>
+          <p className="text-gray-600">Define strategies for all three product lines by completing each step below</p>
         </div>
 
         {/* Completion Status Banner */}
@@ -109,25 +109,48 @@ export default function ProductsServicesClient({
           </div>
         )}
 
-        {/* Three-Button Tab Selector */}
-        <div className="bg-white rounded-xl shadow-lg p-2 mb-6">
-          <div className="flex gap-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setSelectedTab(tab.id as ProductTab)}
-                className={`flex-1 py-4 px-6 rounded-lg text-left transition-all duration-200 ${
-                  selectedTab === tab.id
-                    ? 'bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white shadow-lg'
-                    : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                <div className="font-bold text-lg mb-1">{tab.label}</div>
-                <div className={`text-sm ${selectedTab === tab.id ? 'text-[#F5E6D3]' : 'text-gray-500'}`}>
-                  {tab.subtitle}
+        {/* Three-Button Tab Selector with Step Indicators */}
+        <div className="relative">
+          {/* Step Indicators */}
+          <div className="flex gap-2 mb-4">
+            {tabs.map((tab, index) => (
+              <div key={`step-${tab.id}`} className="flex-1 flex flex-col items-center">
+                {/* Step Badge */}
+                <div className="bg-[#C9A961] text-white px-4 py-2 rounded-lg shadow-md mb-2">
+                  <span className="font-bold text-sm">Step {index + 1}</span>
                 </div>
-              </button>
+                {/* Arrow pointing down */}
+                <svg
+                  className="w-6 h-6 text-[#C9A961]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 16l-6-6h12l-6 6z" />
+                </svg>
+              </div>
             ))}
+          </div>
+
+          {/* Tab Buttons */}
+          <div className="bg-white rounded-xl shadow-lg p-2">
+            <div className="flex gap-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setSelectedTab(tab.id as ProductTab)}
+                  className={`flex-1 py-4 px-6 rounded-lg text-left transition-all duration-200 ${
+                    selectedTab === tab.id
+                      ? 'bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white shadow-lg'
+                      : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="font-bold text-lg mb-1">{tab.label}</div>
+                  <div className={`text-sm ${selectedTab === tab.id ? 'text-[#F5E6D3]' : 'text-gray-500'}`}>
+                    {tab.subtitle}
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -579,10 +579,10 @@ export default function ManagementDashboard() {
             <h2 className="text-4xl font-bold text-[#1B4332] mb-8">🚀 Action Dashboard</h2>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* Action 1: Products & Services Strategy (consolidated) */}
+              {/* Step 1: Products & Services Strategy (consolidated) */}
               <a href="/management/action/products-services" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Action 1</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Step 1</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Products & Services Strategy</h4>
@@ -597,10 +597,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Keith (Management Team)</div>
               </a>
 
-              {/* Action 2 */}
+              {/* Step 2 */}
               <a href="/management/action/unified-utopia" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Action 2</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🎯 Step 2</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Define Unified Utopia</h4>
@@ -608,10 +608,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Management Team</div>
               </a>
 
-              {/* Action 3 */}
+              {/* Step 3 */}
               <a href="/management/action/setup-departments" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">🏢 Action 3</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🏢 Step 3</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Setup Three Departments</h4>
@@ -619,10 +619,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Management Team</div>
               </a>
 
-              {/* Action 4 */}
+              {/* Step 4 */}
               <a href="/management/action/okrs" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">📋 Action 4</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">📋 Step 4</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Implementation Plan (OKRs)</h4>
@@ -630,10 +630,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Keith & Vinko</div>
               </a>
 
-              {/* Action 5 */}
+              {/* Step 5 */}
               <a href="/management/action/intelligence" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">🔍 Action 5</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">🔍 Step 5</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Build System 4 Intelligence</h4>
@@ -641,10 +641,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Management Team</div>
               </a>
 
-              {/* Action 6 */}
+              {/* Step 6 */}
               <a href="/management/action/career-paths" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">👥 Action 6</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">👥 Step 6</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Career Paths & Org Design</h4>
@@ -652,10 +652,10 @@ export default function ManagementDashboard() {
                 <div className="text-xs text-gray-500">Owner: Management Team</div>
               </a>
 
-              {/* Action 7 */}
+              {/* Step 7 */}
               <a href="/management/action/realtime-intelligence" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#1B4332]">📊 Action 7</h3>
+                  <h3 className="text-lg font-bold text-[#1B4332]">📊 Step 7</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Lithodat Realtime Amplifiers and Attenuators</h4>
@@ -734,7 +734,7 @@ export default function ManagementDashboard() {
               {/* Header with months */}
               <div className="bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white p-4">
                 <div className="grid grid-cols-13 gap-2">
-                  <div className="col-span-1 text-xs font-semibold">Actions</div>
+                  <div className="col-span-1 text-xs font-semibold">Steps</div>
                   <div className="col-span-12 grid grid-cols-12 gap-1 text-center text-xs">
                     <div>Nov</div>
                     <div>Dec</div>
@@ -752,11 +752,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 1: Products & Services */}
+              {/* Step 1: Products & Services */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 1</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 1</div>
                     <div className="text-xs text-gray-600">Products & Services</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -770,11 +770,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 2: Unified Utopia */}
+              {/* Step 2: Unified Utopia */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 2</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 2</div>
                     <div className="text-xs text-gray-600">Unified Utopia</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -788,11 +788,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 3: Three Departments */}
+              {/* Step 3: Three Departments */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 3</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 3</div>
                     <div className="text-xs text-gray-600">Three Departments</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -806,11 +806,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 7: Realtime Intelligence System */}
+              {/* Step 7: Realtime Intelligence System */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 7</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 7</div>
                     <div className="text-xs text-gray-600">Realtime Amplifiers and Attenuators</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -824,11 +824,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 4: OKRs */}
+              {/* Step 4: OKRs */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 4</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 4</div>
                     <div className="text-xs text-gray-600">Implementation (OKRs)</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -843,11 +843,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 5: System 4 Intelligence */}
+              {/* Step 5: System 4 Intelligence */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 5</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 5</div>
                     <div className="text-xs text-gray-600">System 4 Intelligence</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -862,11 +862,11 @@ export default function ManagementDashboard() {
                 </div>
               </div>
 
-              {/* Action 6: Career Paths */}
+              {/* Step 6: Career Paths */}
               <div className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors">
                 <div className="grid grid-cols-13 gap-2 items-center">
                   <div className="col-span-1">
-                    <div className="text-sm font-semibold text-[#1B4332]">Action 6</div>
+                    <div className="text-sm font-semibold text-[#1B4332]">Step 6</div>
                     <div className="text-xs text-gray-600">Career Paths & Org Design</div>
                   </div>
                   <div className="col-span-12 grid grid-cols-12 gap-1">
@@ -929,7 +929,7 @@ export default function ManagementDashboard() {
                   <div className="flex-shrink-0 w-24 text-sm font-semibold text-red-700">Week 2</div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 mb-1">Foundation Complete</h4>
-                    <p className="text-sm text-gray-700">LithoSurfer, LithoData, and LithoBuild strategies defined (Actions 1-3), Utopia documented (Action 4), Three departments established (Action 5), Realtime Amplifiers and Attenuators operational (Action 7)</p>
+                    <p className="text-sm text-gray-700">LithoSurfer, LithoData, and LithoBuild strategies defined (Steps 1-3), Utopia documented (Step 4), Three departments established (Step 5), Realtime Amplifiers and Attenuators operational (Step 7)</p>
                   </div>
                 </div>
 
@@ -965,11 +965,11 @@ export default function ManagementDashboard() {
               <div className="space-y-3 text-sm text-amber-900">
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
-                  <p><strong>Action 6 (OKRs)</strong> depends on completion of Actions 1-5 to establish clear goals and structure</p>
+                  <p><strong>Step 6 (OKRs)</strong> depends on completion of Steps 1-5 to establish clear goals and structure</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
-                  <p><strong>Actions 7 & 8</strong> can run in parallel with Action 6 as they address different organizational needs</p>
+                  <p><strong>Steps 7 & 8</strong> can run in parallel with Step 6 as they address different organizational needs</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="font-semibold mt-0.5">•</span>
@@ -1039,11 +1039,11 @@ export default function ManagementDashboard() {
             <div className="space-y-3">
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Immediate</div>
-                <div className="flex-1 text-sm text-gray-600">Actions 1-5, 9 (Next 2 weeks)</div>
+                <div className="flex-1 text-sm text-gray-600">Steps 1-5, 9 (Next 2 weeks)</div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Short-term</div>
-                <div className="flex-1 text-sm text-gray-600">Actions 6, 7, 8 (1-3 months)</div>
+                <div className="flex-1 text-sm text-gray-600">Steps 6, 7, 8 (1-3 months)</div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-semibold text-gray-700">Medium-term</div>
@@ -1085,7 +1085,7 @@ export default function ManagementDashboard() {
         {/* Footer */}
         <footer className="text-center text-sm text-gray-500 pb-8">
           <p>Last Updated: November 3, 2025</p>
-          <p className="mt-2">Next Review: After completing Actions 1-5 and 9</p>
+          <p className="mt-2">Next Review: After completing Steps 1-5 and 9</p>
           <p className="mt-4 text-xs">Accessible to: Keith Dimech, Fabian Kohlmann, Wayne Noble, Moritz Theile, Vinko Novak</p>
         </footer>
       </div>
