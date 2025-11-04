@@ -7,7 +7,7 @@ export const action2Questions: ActionQuestion[] = [
     section: '2. LithoData: Three-Type Model Overview',
     question: 'LithoData Three-Type Overview',
     type: 'info',
-    helpText: `We propose organizing all data into three categories:
+    helpText: `We propose organizing all data into three tiers:
 
 **LithoData FREE**
 • Purpose: Open-source, publicly available geological data
@@ -16,19 +16,22 @@ export const action2Questions: ActionQuestion[] = [
 • Access: FREE for all LithoSurfer users (Free, Pro, Enterprise)
 • Quality: Validated and cleaned to meet minimum standards
 
-**LithoData PREMIUM** (LithoData's Commercial Data)
-• Purpose: LithoData's proprietary commercial data repository
-• Organization: Sold by DATA TYPE and REGION (granular access)
-• Sales Structure: Users purchase specific types (geochemistry, mineralogy) for specific regions
-• Pricing: Variable based on data type, region, and volume
-• Discounts: Pro users (10-20% off), Enterprise users (30-40% off)
+**LithoData COMMERCIAL** (Two Business Models)
+This tier includes paid commercial data with two distinct models:
 
-**LithoData COMMERCIAL** (Third-Party Data Packages)
-• Purpose: Allow other users/companies to sell their data through our platform
-• Organization: PACKAGE-based (not restricted to type or region)
-• Upload Model: Data owners upload packages that may contain multiple data types from any region
-• Pricing: Package owners set their own price
-• Revenue Model: LithoData takes 30% commission on sales
+**Model 1: Premium** (LithoData's Commercial Data)
+  • Purpose: LithoData's proprietary commercial data repository
+  • Organization: Sold by DATA TYPE and REGION (granular access)
+  • Sales Structure: Users purchase specific types (geochemistry, mineralogy) for specific regions
+  • Pricing: Variable based on data type, region, and volume
+  • Discounts: Pro users (10-20% off), Enterprise users (30-40% off)
+
+**Model 2: Exchange** (Third-Party Data Marketplace)
+  • Purpose: Allow other users/companies to sell their data through our platform
+  • Organization: PACKAGE-based (not restricted to type or region)
+  • Upload Model: Data owners upload packages that may contain multiple data types from any region
+  • Pricing: Package owners set their own price (different cost per package)
+  • Revenue Model: LithoData takes 30% commission on sales
 
 **LithoData PRIVATE**
 • Purpose: Customer's proprietary data uploaded and managed on platform
@@ -73,16 +76,17 @@ export const action2Questions: ActionQuestion[] = [
     required: true
   },
 
-  // LithoData PREMIUM
+  // LithoData COMMERCIAL - Model 1: Premium
   {
     id: 'lithodata_premium_info',
-    section: '2.2 LithoData Premium (Our Data)',
-    question: 'LithoData Premium - Quick Summary',
+    section: '2.2 LithoData Commercial - Model 1: Premium',
+    question: 'Commercial Model 1: Premium (LithoData\'s Data)',
     type: 'info',
     helpText: `**Purpose:** LithoData's proprietary commercial data repository
 **Organization:** Sold by data type and region (granular access)
 **Pricing:** Variable based on data type, region, and volume
-**Example:** User purchases "Gold Geochemistry" for "Western Australia"`
+**Example:** User purchases "Gold Geochemistry" for "Western Australia"
+**Note:** This is one of two business models within the Commercial tier`
   },
   {
     id: 'lithodata_premium_agreement',
@@ -135,17 +139,18 @@ export const action2Questions: ActionQuestion[] = [
     required: true
   },
 
-  // LithoData COMMERCIAL (Third-Party)
+  // LithoData COMMERCIAL - Model 2: Exchange
   {
     id: 'lithodata_commercial_info',
-    section: '2.3 LithoData Commercial (Third-Party Packages)',
-    question: 'LithoData Commercial - Quick Summary',
+    section: '2.3 LithoData Commercial - Model 2: Exchange',
+    question: 'Commercial Model 2: Exchange (Third-Party Marketplace)',
     type: 'info',
     helpText: `**Purpose:** Allow other users/companies to sell their data through our platform
 **Organization:** Package-based (not restricted by type or region)
 **Upload:** Data owners upload packages containing any data types from any regions
-**Pricing:** Package owners set their own price
-**Commission:** LithoData takes 30% of sale price`
+**Pricing:** Package owners set their own price (different cost per package)
+**Commission:** LithoData takes 30% of sale price
+**Note:** This is the second business model within the Commercial tier`
   },
   {
     id: 'lithodata_commercial_agreement',

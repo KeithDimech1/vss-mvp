@@ -19,7 +19,7 @@ export default function DashboardLayout({
 }) {
   const [session, setSession] = useState<SessionData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [actionsExpanded, setActionsExpanded] = useState(false);
+  const [vsmMeetingExpanded, setVsmMeetingExpanded] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -107,33 +107,21 @@ export default function DashboardLayout({
           </Link> */}
           {isManager && (
             <>
-              <Link
-                href="/management"
-                className="block px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF] text-blue-200 hover:text-white"
-              >
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span>VSM Meeting</span>
-                </div>
-              </Link>
-
-              {/* Actions Folder */}
+              {/* VSM Meeting Dropdown */}
               <div>
                 <button
-                  onClick={() => setActionsExpanded(!actionsExpanded)}
+                  onClick={() => setVsmMeetingExpanded(!vsmMeetingExpanded)}
                   className="w-full text-left px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF] text-blue-200 hover:text-white"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      <span>Actions</span>
+                      <span>VSM Meeting</span>
                     </div>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${actionsExpanded ? 'transform rotate-90' : ''}`}
+                      className={`w-4 h-4 transition-transform duration-200 ${vsmMeetingExpanded ? 'transform rotate-90' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -143,8 +131,8 @@ export default function DashboardLayout({
                   </div>
                 </button>
 
-                {/* Submenu */}
-                {actionsExpanded && (
+                {/* Action Items Submenu */}
+                {vsmMeetingExpanded && (
                   <div className="bg-[#1a2554]/50">
                     <Link
                       href="/management/action/products-services"
