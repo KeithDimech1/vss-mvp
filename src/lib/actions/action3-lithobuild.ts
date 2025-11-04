@@ -76,15 +76,23 @@ export const action3Questions: ActionQuestion[] = [
     required: true
   },
 
-  // Sunset Strategy
+  // Future Strategy
   {
-    id: 'lithobuild_sunset_strategy',
-    section: '3.4 Sunset Strategy',
-    question: 'What is the sunset strategy and timeline for LithoBuild?',
+    id: 'lithobuild_future_strategy',
+    section: '3.4 Future Strategy',
+    question: 'Where can LithoBuild services provide value in the future? What types of build projects should we pursue, or should we shut it down entirely?',
     type: 'textarea',
-    rows: 4,
-    placeholder: 'Target end date, transition plan, contract wind-down, replacement revenue milestones, etc.',
+    rows: 5,
+    placeholder: 'Consider: strategic build projects we should focus on, types of work that align with our core business, potential jobs to contract out, or reasons to sunset the service entirely.',
     required: true
+  },
+  {
+    id: 'lithobuild_contracting_opportunities',
+    question: 'Are there specific build projects we should contract out to partners?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., Specialized development work, infrastructure projects, services better handled by external teams, etc.',
+    required: false
   },
 
   // Additional Considerations

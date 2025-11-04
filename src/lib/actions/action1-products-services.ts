@@ -337,7 +337,47 @@ export const action1Questions: ActionQuestion[] = [
     id: 'lithodata_private_manual_cleaning',
     question: 'How should manual LithoClean services be priced?',
     type: 'dropdown',
-    options: ['$100-150/hour', '$150-200/hour', '$200-300/hour', 'Per-dataset fixed pricing', 'Project-based quotes'],
+    options: ['Per hour', 'Per data point/record', 'Per customer/project', 'Per dataset', 'Combination of pricing models', 'Other'],
+    required: true
+  },
+  {
+    id: 'lithodata_private_manual_cleaning_explanation',
+    question: 'Explain your pricing model choice',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'Provide details on rates, structure, and rationale (e.g., "$200-300/hour for complex datasets", "Tiered per-record pricing based on volume", etc.)',
+    required: true
+  },
+  {
+    id: 'lithodata_private_security_upgrades',
+    question: 'What security upgrades would we need to implement private data storage?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., End-to-end encryption, access controls, audit logs, compliance certifications (SOC2, ISO27001), etc.',
+    required: true
+  },
+  {
+    id: 'lithodata_private_contractual_updates',
+    question: 'What contractual updates would be required?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., Data ownership agreements, privacy policies, SLAs, liability clauses, NDA requirements, etc.',
+    required: true
+  },
+  {
+    id: 'lithodata_private_technology_upgrades',
+    question: 'What technology upgrades would be needed?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., Database isolation, backup systems, user authentication, API security, infrastructure scaling, etc.',
+    required: true
+  },
+  {
+    id: 'lithodata_private_ux_upgrades',
+    question: 'What UX/interface upgrades would be required?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., Private workspace UI, upload interfaces, data management dashboard, access control settings, etc.',
     required: true
   },
 
@@ -422,12 +462,20 @@ export const action1Questions: ActionQuestion[] = [
     required: true
   },
   {
-    id: 'lithobuild_sunset_strategy',
-    question: 'What is the sunset strategy and timeline for LithoBuild?',
+    id: 'lithobuild_future_strategy',
+    question: 'Where can LithoBuild services provide value in the future? What types of build projects should we pursue, or should we shut it down entirely?',
     type: 'textarea',
-    rows: 4,
-    placeholder: 'Target end date, transition plan, contract wind-down, replacement revenue milestones, etc.',
+    rows: 5,
+    placeholder: 'Consider: strategic build projects we should focus on, types of work that align with our core business, potential jobs to contract out, or reasons to sunset the service entirely.',
     required: true
+  },
+  {
+    id: 'lithobuild_contracting_opportunities',
+    question: 'Are there specific build projects we should contract out to partners?',
+    type: 'textarea',
+    rows: 3,
+    placeholder: 'e.g., Specialized development work, infrastructure projects, services better handled by external teams, etc.',
+    required: false
   },
 
   // ============================================================================
