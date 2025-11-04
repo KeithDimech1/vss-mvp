@@ -262,19 +262,11 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithodata_premium_inventory',
-    question: 'Current Data Inventory: How much data do we have for each type in each region?',
-    type: 'data_inventory_matrix',
-    helpText: 'Enter the number of samples/records for each combination of data type and region. Leave blank if no data available.',
-    placeholder: 'e.g., 50000',
-    options: [ // Data types (rows)
-      'Geochemistry',
-      'Isotopes',
-      'Geochronology',
-      'Thermochronology',
-      'Vitrinite Reflectance',
-      'Mineral Deposits'
-    ],
-    // Regions will be hardcoded in the renderer as columns
+    question: 'List all the DataTypes we have',
+    type: 'textarea',
+    rows: 5,
+    helpText: 'Please list all the data types available in your inventory (e.g., Geochemistry, Isotopes, Geochronology, etc.)',
+    placeholder: 'e.g., Geochemistry, Isotopes, Geochronology, Thermochronology, Vitrinite Reflectance, Mineral Deposits',
     required: false
   },
   {
