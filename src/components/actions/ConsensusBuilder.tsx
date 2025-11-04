@@ -142,6 +142,14 @@ export default function ConsensusBuilder({
       return '—';
     }
 
+    // Handle implementation_table type specifically
+    if (question.type === 'implementation_table' && Array.isArray(value)) {
+      return value
+        .filter(row => row.change || row.time) // Filter out empty rows
+        .map(row => `• ${row.change || '(no description)'}: ${row.time || '(no time)'}`)
+        .join('\n') || '—';
+    }
+
     // Handle boolean values
     if (typeof value === 'boolean') {
       return value ? '✓' : '—';
