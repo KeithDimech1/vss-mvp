@@ -48,23 +48,34 @@ export default async function ActionPage({
 
   // Get user's existing responses for this action (if any)
   // Use findUnique with the composite key for reliability
-  const existingResponse = await prisma.actionResponse.findUnique({
-    where: {
-      actionItemId_userId: {
-        actionItemId: actionItem.id,
-        userId: user.id
+  let existingResponse = null;
+  try {
+    existingResponse = await prisma.actionResponse.findUnique({
+      where: {
+        actionItemId_userId: {
+          actionItemId: actionItem.id,
+          userId: user.id
+        }
+      },
+      select: {
+        responses: true,
+        completed: true,
+        submittedAt: true,
+        updatedAt: true
       }
-    },
-    select: {
-      responses: true,
-      completed: true,
-      submittedAt: true,
-      updatedAt: true
-    }
-  });
+    });
 
-  console.log('[ACTION PAGE] Found existing response:', !!existingResponse);
-  console.log('[ACTION PAGE] Response data:', existingResponse?.responses);
+    console.log('[ACTION PAGE] Query successful');
+    console.log('[ACTION PAGE] Found existing response:', !!existingResponse);
+    console.log('[ACTION PAGE] Response data:', existingResponse?.responses);
+  } catch (error: any) {
+    console.error('[ACTION PAGE] Error fetching existing response:', error);
+    console.error('[ACTION PAGE] Error details:', {
+      message: error.message,
+      code: error.code,
+      meta: error.meta
+    });
+  }
 
   // Convert Prisma Json type to plain JavaScript object for client component
   let initialResponses = existingResponse?.responses
@@ -73,6 +84,9 @@ export default async function ActionPage({
 
   console.log('[ACTION PAGE] Initial responses to pass to form:', initialResponses);
   console.log('[ACTION PAGE] Number of responses:', Object.keys(initialResponses).length);
+  console.log('[ACTION PAGE] initialResponses type:', typeof initialResponses);
+  console.log('[ACTION PAGE] initialResponses is empty?:', Object.keys(initialResponses).length === 0);
+  console.log('[ACTION PAGE] Stringified initialResponses:', JSON.stringify(initialResponses).substring(0, 200));
 
   // Validate that stored response keys match current question IDs
   if (Object.keys(initialResponses).length > 0) {
