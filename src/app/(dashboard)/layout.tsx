@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface SessionData {
   userId: string;
@@ -73,18 +74,27 @@ export default function DashboardLayout({
   const isManager = session?.isManager || false;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
       {/* Sidebar */}
-      <div className="fixed inset-y-0 left-0 w-64 bg-gradient-to-b from-[#2C3E7C] to-[#1a2554] text-white shadow-2xl">
-        <div className="p-6 border-b border-white/10">
-          <h1 className="text-2xl font-bold tracking-tight">VSS Platform</h1>
-          <p className="text-sm text-blue-200 mt-1 font-light">Assessment System</p>
+      <div className="fixed inset-y-0 left-0 w-64 bg-gradient-to-b from-[#1B4332] to-[#0F2922] text-white shadow-2xl">
+        <div className="p-6 border-b border-white/10 flex flex-col items-center">
+          <div className="relative w-32 h-32 mb-3">
+            <Image
+              src="/clair-logo.png"
+              alt="Clair Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <h1 className="text-xl font-bold tracking-tight text-[#F5E6D3]">VSS Platform</h1>
+          <p className="text-sm text-[#C9A961] mt-1 font-light">Assessment System</p>
         </div>
 
         <nav className="mt-6">
           <Link
             href="/dashboard"
-            className="block px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF]"
+            className="block px-6 py-3 hover:bg-[#C9A961]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#C9A961]"
           >
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +121,7 @@ export default function DashboardLayout({
               <div>
                 <button
                   onClick={() => setVsmMeetingExpanded(!vsmMeetingExpanded)}
-                  className="w-full text-left px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF] text-blue-200 hover:text-white"
+                  className="w-full text-left px-6 py-3 hover:bg-[#C9A961]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#C9A961] text-[#F5E6D3]/80 hover:text-white"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -133,46 +143,46 @@ export default function DashboardLayout({
 
                 {/* Action Items Submenu */}
                 {vsmMeetingExpanded && (
-                  <div className="bg-[#1a2554]/50">
+                  <div className="bg-[#0F2922]/50">
                     <Link
                       href="/management/action/products-services"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white"
                     >
                       Action 1: Products & Services
                     </Link>
                     <Link
                       href="/management/action/unified-utopia"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 2: Unified Utopia
                     </Link>
                     <Link
                       href="/management/action/setup-departments"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 3: Setup Departments
                     </Link>
                     <Link
                       href="/management/action/okrs"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 4: Implementation Plan
                     </Link>
                     <Link
                       href="/management/action/intelligence"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 5: System 4 Intelligence
                     </Link>
                     <Link
                       href="/management/action/career-paths"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 6: Career Paths
                     </Link>
                     <Link
                       href="/management/action/realtime-intelligence"
-                      className="block px-6 py-2 pl-12 hover:bg-[#0D8BFF]/20 transition-all duration-200 text-sm text-blue-100 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
                     >
                       Action 7: Realtime Intelligence
                     </Link>
@@ -184,7 +194,7 @@ export default function DashboardLayout({
           {session.role === 'ADMIN' && (
             <Link
               href="/admin"
-              className="block px-6 py-3 hover:bg-[#0D8BFF]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#0D8BFF] text-blue-200 hover:text-white"
+              className="block px-6 py-3 hover:bg-[#C9A961]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#C9A961] text-[#F5E6D3]/80 hover:text-white"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,7 +214,7 @@ export default function DashboardLayout({
         <header className="bg-white shadow-md border-b border-gray-200">
           <div className="px-8 py-5 flex justify-between items-center">
             <div>
-              <h2 className="text-2xl font-semibold text-[#2C3E7C]">
+              <h2 className="text-2xl font-semibold text-[#1B4332]">
                 Welcome, {session.fullName}
               </h2>
               <p className="text-sm text-gray-500 mt-1">

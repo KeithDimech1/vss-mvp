@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -42,10 +43,19 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
-        <div>
-          <h2 className="text-center text-3xl font-bold text-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-[#1B4332]">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-2xl">
+        <div className="flex flex-col items-center">
+          <div className="relative w-48 h-48 mb-6">
+            <Image
+              src="/clair-logo.png"
+              alt="Clair Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <h2 className="text-center text-2xl font-bold text-[#1B4332]">
             VSS Assessment Platform
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -73,7 +83,7 @@ export default function LoginPage() {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#C9A961] focus:border-[#C9A961]"
               />
             </div>
 
@@ -89,7 +99,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#C9A961] focus:border-[#C9A961]"
               />
             </div>
           </div>
@@ -97,7 +107,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1B4332] hover:bg-[#0F2922] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C9A961] disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Signing in...' : 'Sign in'}
           </button>
