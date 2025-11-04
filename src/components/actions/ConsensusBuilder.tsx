@@ -199,8 +199,8 @@ export default function ConsensusBuilder({
       case 'date':
         return new Date(value).toLocaleDateString();
 
-      case 'select':
       case 'radio':
+      case 'dropdown':
         return String(value);
 
       default:

@@ -104,7 +104,6 @@ export default function TeamResponseView({
 
       case 'radio':
       case 'dropdown':
-      case 'select':
       case 'text':
         return String(value);
 
