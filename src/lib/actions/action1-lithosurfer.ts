@@ -47,6 +47,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_tier_agreement',
+    section: '1. LithoSurfer: Three-Tier Model Overview',
     question: 'Do you agree with this three-tier LithoSurfer model?',
     type: 'radio',
     options: [
@@ -60,6 +61,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_tier_concerns',
+    section: '1. LithoSurfer: Three-Tier Model Overview',
     question: 'Please explain your concerns or suggestions',
     type: 'textarea',
     rows: 3,
@@ -83,6 +85,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_free_tools',
+    section: '1.1 LithoSurfer Free',
     question: 'What tools, features, and data should Free users have access to?',
     type: 'textarea',
     rows: 4,
@@ -103,6 +106,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_pro_price',
+    section: '1.2 LithoSurfer Pro',
     question: 'What should the LithoSurfer Pro annual per-seat price be?',
     type: 'dropdown',
     options: ['$1,000 - $2,500', '$2,500 - $5,000', '$5,000 - $7,500', '$7,500 - $10,000', '$10,000+'],
@@ -111,6 +115,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_pro_data_limit',
+    section: '1.2 LithoSurfer Pro',
     question: 'What private data upload limit should Pro users have?',
     type: 'text',
     placeholder: 'e.g., 10GB, 1000 samples, 50 boreholes, etc.',
@@ -118,6 +123,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_pro_tools',
+    section: '1.2 LithoSurfer Pro',
     question: 'What tools and features should Pro users have (beyond Free)?',
     type: 'textarea',
     rows: 4,
@@ -138,6 +144,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_enterprise_price',
+    section: '1.3 LithoSurfer Enterprise',
     question: 'What should the base Enterprise annual price start at?',
     type: 'dropdown',
     options: ['$25,000 - $50,000', '$50,000 - $100,000', '$100,000 - $250,000', '$250,000+', 'Custom quotes only'],
@@ -146,6 +153,7 @@ export const action1Questions: ActionQuestion[] = [
   },
   {
     id: 'lithosurfer_enterprise_features',
+    section: '1.3 LithoSurfer Enterprise',
     question: 'What enterprise-specific features and benefits should be included?',
     type: 'textarea',
     rows: 4,

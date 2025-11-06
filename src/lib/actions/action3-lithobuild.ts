@@ -58,6 +58,7 @@ export const action3Questions: ActionQuestion[] = [
   },
   {
     id: 'lithobuild_capacity_limits',
+    section: '3.2 Resource Allocation',
     question: 'What % of company capacity should LithoBuild consume?',
     type: 'dropdown',
     options: ['10-25% (minimal)', '25-50% (moderate)', '50-75% (significant)', '75%+ (majority)'],
@@ -88,6 +89,7 @@ export const action3Questions: ActionQuestion[] = [
   },
   {
     id: 'lithobuild_contracting_opportunities',
+    section: '3.4 Future Strategy',
     question: 'Are there specific build projects we should contract out to partners?',
     type: 'textarea',
     rows: 3,

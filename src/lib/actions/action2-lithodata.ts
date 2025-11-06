@@ -42,6 +42,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_structure_agreement',
+    section: '2. LithoData: Three-Type Model Overview',
     question: 'Do you agree with this three-type LithoData structure?',
     type: 'radio',
     options: [
@@ -55,6 +56,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_structure_concerns',
+    section: '2. LithoData: Three-Type Model Overview',
     question: 'Please explain your concerns or suggestions',
     type: 'textarea',
     rows: 3,
@@ -90,6 +92,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_premium_agreement',
+    section: '2.2 LithoData Commercial - Model 1: Premium',
     question: 'Do you agree with selling LithoData Premium by data type and region?',
     type: 'radio',
     options: [
@@ -102,6 +105,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_premium_concerns',
+    section: '2.2 LithoData Commercial - Model 1: Premium',
     question: 'Please explain your concerns or suggestions',
     type: 'textarea',
     rows: 3,
@@ -113,6 +117,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_premium_inventory',
+    section: '2.2 LithoData Commercial - Model 1: Premium',
     question: 'List all the DataTypes we have',
     type: 'textarea',
     rows: 5,
@@ -122,6 +127,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_premium_pricing',
+    section: '2.2 LithoData Commercial - Model 1: Premium',
     question: 'How should LithoData Premium be priced?',
     type: 'textarea',
     rows: 5,
@@ -144,6 +150,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_commercial_agreement',
+    section: '2.3 LithoData Commercial - Model 2: Exchange',
     question: 'Do you agree with allowing third-party data sales through our platform with 30% commission?',
     type: 'radio',
     options: [
@@ -156,6 +163,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_commercial_concerns',
+    section: '2.3 LithoData Commercial - Model 2: Exchange',
     question: 'Please explain your concerns or suggestions',
     type: 'textarea',
     rows: 3,
@@ -167,6 +175,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_commercial_implementation',
+    section: '2.3 LithoData Commercial - Model 2: Exchange',
     question: 'What would be required to implement third-party data package uploads and sales?',
     type: 'textarea',
     rows: 4,
@@ -186,6 +195,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_manual_cleaning',
+    section: '2.4 LithoData Private',
     question: 'How should manual LithoClean services be priced?',
     type: 'dropdown',
     options: ['Per hour', 'Per data point/record', 'Per customer/project', 'Per dataset', 'Combination of pricing models', 'Other'],
@@ -193,6 +203,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_manual_cleaning_explanation',
+    section: '2.4 LithoData Private',
     question: 'Explain your pricing model choice',
     type: 'textarea',
     rows: 3,
@@ -201,6 +212,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_security_upgrades',
+    section: '2.4 LithoData Private',
     question: 'What security upgrades would we need to implement private data storage?',
     type: 'textarea',
     rows: 3,
@@ -209,6 +221,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_contractual_updates',
+    section: '2.4 LithoData Private',
     question: 'What contractual updates would be required?',
     type: 'textarea',
     rows: 3,
@@ -217,6 +230,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_technology_upgrades',
+    section: '2.4 LithoData Private',
     question: 'What technology upgrades would be needed?',
     type: 'textarea',
     rows: 3,
@@ -225,6 +239,7 @@ This tier includes paid commercial data with two distinct models:
   },
   {
     id: 'lithodata_private_ux_upgrades',
+    section: '2.4 LithoData Private',
     question: 'What UX/interface upgrades would be required?',
     type: 'textarea',
     rows: 3,
