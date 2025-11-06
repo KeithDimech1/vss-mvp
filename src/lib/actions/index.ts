@@ -3,6 +3,7 @@ import { action1Metadata } from './action1-lithosurfer';
 import { action2Metadata } from './action2-lithodata';
 import { action3Metadata } from './action3-lithobuild';
 import { unifiedUtopiaMetadata } from './action2-unified-utopia';
+import { setupDepartmentsMetadata } from './action3-setup-departments';
 
 // Map of all actions by slug
 export const actionsBySlug: Record<string, ActionMetadata> = {
@@ -10,6 +11,7 @@ export const actionsBySlug: Record<string, ActionMetadata> = {
   'lithodata': action2Metadata,
   'lithobuild': action3Metadata,
   'unified-utopia': unifiedUtopiaMetadata,
+  'setup-departments': setupDepartmentsMetadata,
 };
 
 // Get action by slug
