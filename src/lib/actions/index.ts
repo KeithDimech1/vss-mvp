@@ -4,6 +4,7 @@ import { action2Metadata } from './action2-lithodata';
 import { action3Metadata } from './action3-lithobuild';
 import { unifiedUtopiaMetadata } from './action2-unified-utopia';
 import { setupDepartmentsMetadata } from './action3-setup-departments';
+import { okrImplementationMetadata } from './action4-okr-implementation';
 
 // Map of all actions by slug
 export const actionsBySlug: Record<string, ActionMetadata> = {
@@ -12,6 +13,7 @@ export const actionsBySlug: Record<string, ActionMetadata> = {
   'lithobuild': action3Metadata,
   'unified-utopia': unifiedUtopiaMetadata,
   'setup-departments': setupDepartmentsMetadata,
+  'okr-implementation': okrImplementationMetadata,
 };
 
 // Get action by slug

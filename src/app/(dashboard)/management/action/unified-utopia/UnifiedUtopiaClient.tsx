@@ -105,11 +105,10 @@ export default function UnifiedUtopiaClient({
 
         {/* Action Form */}
         <ActionFormWrapper
-          actionMetadata={actionData.actionMetadata}
+          action={actionData.actionMetadata}
           actionId={actionData.actionId}
           initialResponses={actionData.initialResponses}
           userId={userId}
-          showQuestionNumbers={true}
         />
       </div>
     </div>
