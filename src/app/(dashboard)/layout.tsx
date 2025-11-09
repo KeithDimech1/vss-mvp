@@ -146,21 +146,30 @@ export default function DashboardLayout({
                   <div className="bg-[#0F2922]/50">
                     <Link
                       href="/management/action/products-services"
-                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
                     >
-                      Action 1: Products & Services
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                        <span>Action 1: Products & Services</span>
+                      </div>
                     </Link>
                     <Link
                       href="/management/action/unified-utopia"
-                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
                     >
-                      Action 2: Unified Utopia
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                        <span>Action 2: Unified Utopia</span>
+                      </div>
                     </Link>
                     <Link
                       href="/management/action/setup-departments"
-                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
                     >
-                      Action 3: Setup Departments
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                        <span>Action 3: Setup Departments</span>
+                      </div>
                     </Link>
                     <Link
                       href="/management/action/okrs"

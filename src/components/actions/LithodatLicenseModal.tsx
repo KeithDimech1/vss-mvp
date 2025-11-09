@@ -191,14 +191,6 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                       </tr>
                     </tbody>
                   </table>
-
-                  <div className="mt-3 bg-white border-l-4 border-amber-500 p-3 rounded">
-                    <p className="font-semibold text-gray-800 mb-1">Solution:</p>
-                    <p className="text-gray-700 text-sm">
-                      Add a separate quota tracking system (e.g., <code className="bg-gray-100 px-2 py-1 rounded">LicenseQuota</code> table or quota config in License table)
-                      that monitors usage and enforces limits independently from feature permissions.
-                    </p>
-                  </div>
                 </div>
 
                 <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
@@ -206,52 +198,32 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                   <p className="text-gray-700 mb-2">
                     Pro users get "1 reconstruction model or time-based usage" - this requires:
                   </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
                     <li>Usage tracking per tool</li>
                     <li>Time-based metering</li>
                     <li>Counter resets (monthly/annually)</li>
                   </ul>
-                  <div className="bg-white border-l-4 border-amber-500 p-3 rounded">
-                    <p className="font-semibold text-gray-800 mb-1">Solution:</p>
-                    <p className="text-gray-700 text-sm">
-                      Build a usage metering system separate from license permissions. License grants "Use Reconstruction Models" feature,
-                      but separate system tracks and limits usage.
-                    </p>
-                  </div>
                 </div>
 
                 <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
                   <h4 className="font-bold text-[#1B4332] mb-2">LithoData Discount Rates</h4>
-                  <p className="text-gray-700 mb-3">
+                  <p className="text-gray-700">
                     Pro (10-20% discount) and Enterprise (30-40% discount) pricing requires integration with payment/pricing system.
                   </p>
-                  <div className="bg-white border-l-4 border-amber-500 p-3 rounded">
-                    <p className="font-semibold text-gray-800 mb-1">Solution:</p>
-                    <p className="text-gray-700 text-sm">
-                      Store discount rates in License metadata or separate pricing config. Checkout system queries user's license tier
-                      and applies appropriate discount.
-                    </p>
-                  </div>
                 </div>
 
                 <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
                   <h4 className="font-bold text-[#1B4332] mb-2">Build Hours & Billable Services</h4>
-                  <p className="text-gray-700 mb-3">
+                  <p className="text-gray-700">
                     Enterprise customers get "build hours for custom tools" and "billable hours for cleaning services" - not feature-based permissions.
                   </p>
-                  <div className="bg-white border-l-4 border-amber-500 p-3 rounded">
-                    <p className="font-semibold text-gray-800 mb-1">Solution:</p>
-                    <p className="text-gray-700 text-sm">
-                      Separate service hours tracking system. License identifies Enterprise tier, but project management system tracks hours consumed.
-                    </p>
-                  </div>
                 </div>
               </div>
             </section>
 
-            {/* Implementation Summary */}
+            {/* Status */}
             <section className="bg-gradient-to-r from-blue-50 to-green-50 border-2 border-[#C9A961] rounded-lg p-6">
-              <h3 className="text-2xl font-bold text-[#1B4332] mb-4">Implementation Summary</h3>
+              <h3 className="text-2xl font-bold text-[#1B4332] mb-4">Status</h3>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -281,7 +253,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-amber-700 mb-2">Build Separate Systems For:</h4>
+                  <h4 className="font-bold text-amber-700 mb-2">Development Requirements Missing:</h4>
                   <ul className="space-y-1 text-sm text-gray-700">
                     <li className="flex items-start gap-2">
                       <span className="text-amber-600 mt-0.5">!</span>
