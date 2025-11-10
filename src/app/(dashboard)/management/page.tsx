@@ -322,6 +322,13 @@ export default function ManagementDashboard() {
               >
                 Implementation Timeline
               </button>
+              <a
+                href="/management/consensus"
+                className="border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 py-4 px-1 text-sm font-medium transition-colors flex items-center gap-1"
+              >
+                Build Consensus
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              </a>
             </nav>
           </div>
         </div>
@@ -580,10 +587,13 @@ export default function ManagementDashboard() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {/* Step 1: Products & Services Strategy (consolidated) */}
-              <a href="/management/action/products-services" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-[#1B4332]">🎯 Step 1</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  </div>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Products & Services Strategy</h4>
                 <p className="text-sm text-gray-600 mb-3">
@@ -594,30 +604,84 @@ export default function ManagementDashboard() {
                   <span className="px-2 py-1 text-xs bg-[#F5E6D3]/30 text-[#0F2922] rounded">📊 LithoData</span>
                   <span className="px-2 py-1 text-xs bg-[#F5E6D3]/30 text-[#0F2922] rounded">🏗️ LithoBuild</span>
                 </div>
-                <div className="text-xs text-gray-500">Owner: Keith (Management Team)</div>
-              </a>
+                <div className="text-xs text-gray-500 mb-4">Owner: Keith (Management Team)</div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-3 border-t border-gray-200">
+                  <a
+                    href="/management/action/products-services"
+                    className="flex-1 px-4 py-2 bg-[#C9A961] text-white text-sm font-semibold rounded-lg hover:bg-[#1B4332] transition-colors text-center"
+                  >
+                    Complete Action
+                  </a>
+                  <a
+                    href="/management/action/products-services/consensus"
+                    className="flex-1 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors text-center"
+                  >
+                    Build Consensus
+                  </a>
+                </div>
+              </div>
 
               {/* Step 2 */}
-              <a href="/management/action/unified-utopia" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-[#1B4332]">🎯 Step 2</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Define Unified Utopia</h4>
-                <p className="text-sm text-gray-600 mb-3">Resolve clashes and create coherent 2yr/5yr/10yr roadmap.</p>
-                <div className="text-xs text-gray-500">Owner: Management Team</div>
-              </a>
+                <h4 className="font-semibold text-gray-900 mb-2">Unified Utopia Vision</h4>
+                <p className="text-sm text-gray-600 mb-3">Build consensus on Lithodat's unified utopia vision across management team (25 questions).</p>
+                <div className="text-xs text-gray-500 mb-4">Owner: Management Team</div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-3 border-t border-gray-200">
+                  <a
+                    href="/management/action/unified-utopia"
+                    className="flex-1 px-4 py-2 bg-[#C9A961] text-white text-sm font-semibold rounded-lg hover:bg-[#1B4332] transition-colors text-center"
+                  >
+                    Complete Action
+                  </a>
+                  <a
+                    href="/management/action/unified-utopia/consensus"
+                    className="flex-1 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors text-center"
+                  >
+                    Build Consensus
+                  </a>
+                </div>
+              </div>
 
               {/* Step 3 */}
-              <a href="/management/action/setup-departments" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[#C9A961] hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-[#1B4332]">🏢 Step 3</h3>
-                  <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">IMMEDIATE</span>
+                  </div>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Setup Three Departments</h4>
-                <p className="text-sm text-gray-600 mb-3">Formalize LithoSurfer, LithoBuild, LithoData systems.</p>
-                <div className="text-xs text-gray-500">Owner: Management Team</div>
-              </a>
+                <p className="text-sm text-gray-600 mb-3">Formalize LithoSurfer, LithoBuild, LithoData systems with clear ownership and processes.</p>
+                <div className="text-xs text-gray-500 mb-4">Owner: Management Team</div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-3 border-t border-gray-200">
+                  <a
+                    href="/management/action/setup-departments"
+                    className="flex-1 px-4 py-2 bg-[#C9A961] text-white text-sm font-semibold rounded-lg hover:bg-[#1B4332] transition-colors text-center"
+                  >
+                    Complete Action
+                  </a>
+                  <a
+                    href="/management/action/setup-departments/consensus"
+                    className="flex-1 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors text-center"
+                  >
+                    Build Consensus
+                  </a>
+                </div>
+              </div>
 
               {/* Step 4 */}
               <a href="/management/action/okrs" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">

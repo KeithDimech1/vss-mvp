@@ -181,7 +181,7 @@ export default function ActionFormWrapper({
       {/* Header */}
       <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
         <h1 className="text-3xl font-bold text-[#1B4332] mb-2">
-          Step {action.actionNumber}: {action.title}
+          {action.title}
         </h1>
         <p className="text-gray-600 mb-4">{action.description}</p>
 

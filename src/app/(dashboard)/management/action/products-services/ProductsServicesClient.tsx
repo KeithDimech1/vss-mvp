@@ -73,7 +73,7 @@ export default function ProductsServicesClient({
 
         {/* Page Title */}
         <div className="mb-6">
-          <h1 className="text-4xl font-bold text-[#1B4332] mb-2">Step 1: Products & Services Strategy</h1>
+          <h1 className="text-4xl font-bold text-[#1B4332] mb-2">Action 1: Products & Services Strategy</h1>
           <p className="text-gray-600">Define strategies for all three product lines by completing each step below</p>
         </div>
 

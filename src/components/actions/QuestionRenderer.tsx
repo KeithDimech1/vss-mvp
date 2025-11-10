@@ -84,26 +84,42 @@ export default function QuestionRenderer({
     switch (question.type) {
       case 'text':
         return (
-          <input
-            type="text"
-            value={value || ''}
-            onChange={(e) => handleChange(e.target.value)}
-            placeholder={question.placeholder}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
-            required={question.required}
-          />
+          <div>
+            <input
+              type="text"
+              value={value || ''}
+              onChange={(e) => handleChange(e.target.value)}
+              placeholder={question.placeholder}
+              maxLength={question.maxLength}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
+              required={question.required}
+            />
+            {question.maxLength && (
+              <div className="text-xs text-gray-500 mt-1 text-right">
+                {(value || '').length} / {question.maxLength} characters
+              </div>
+            )}
+          </div>
         );
 
       case 'textarea':
         return (
-          <textarea
-            value={value || ''}
-            onChange={(e) => handleChange(e.target.value)}
-            placeholder={question.placeholder}
-            rows={question.rows || 3}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
-            required={question.required}
-          />
+          <div>
+            <textarea
+              value={value || ''}
+              onChange={(e) => handleChange(e.target.value)}
+              placeholder={question.placeholder}
+              rows={question.rows || 3}
+              maxLength={question.maxLength}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
+              required={question.required}
+            />
+            {question.maxLength && (
+              <div className="text-xs text-gray-500 mt-1 text-right">
+                {(value || '').length} / {question.maxLength} characters
+              </div>
+            )}
+          </div>
         );
 
       case 'number':
@@ -189,29 +205,42 @@ export default function QuestionRenderer({
 
       case 'checkbox':
         const currentValues = Array.isArray(value) ? value : [];
+        const maxSelections = question.maxSelections;
+        const selectionLimitReached = Boolean(maxSelections && currentValues.length >= maxSelections);
+
         return (
           <div className="space-y-2">
+            {maxSelections && (
+              <div className="text-sm text-gray-600 mb-3">
+                Select up to {maxSelections} options ({currentValues.length}/{maxSelections} selected)
+              </div>
+            )}
             {question.options?.map((option) => {
               const optionValue = typeof option === 'string' ? option : option.value;
               const optionLabel = typeof option === 'string' ? option : option.label;
               const optionDescription = typeof option === 'object' ? option.description : undefined;
+              const isChecked = currentValues.includes(optionValue);
+              const isDisabled = !isChecked && selectionLimitReached;
 
               return (
                 <label
                   key={optionValue}
-                  className="flex items-start p-3 border border-gray-200 rounded-lg hover:bg-[#F5E6D3]/30 cursor-pointer transition-colors"
+                  className={`flex items-start p-3 border border-gray-200 rounded-lg transition-colors ${
+                    isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F5E6D3]/30 cursor-pointer'
+                  }`}
                 >
                   <input
                     type="checkbox"
                     value={optionValue}
-                    checked={currentValues.includes(optionValue)}
+                    checked={isChecked}
+                    disabled={isDisabled}
                     onChange={(e) => {
                       const newValues = e.target.checked
                         ? [...currentValues, optionValue]
                         : currentValues.filter((v: string) => v !== optionValue);
                       handleChange(newValues);
                     }}
-                    className="mt-1 h-4 w-4 text-[#C9A961] border-gray-300 rounded focus:ring-[#C9A961]"
+                    className="mt-1 h-4 w-4 text-[#C9A961] border-gray-300 rounded focus:ring-[#C9A961] disabled:opacity-50"
                   />
                   <div className="ml-3">
                     <span className="text-sm font-medium text-gray-900">{optionLabel}</span>
@@ -452,6 +481,163 @@ export default function QuestionRenderer({
               </svg>
               Add More
             </button>
+          </div>
+        );
+
+      case 'ranking':
+        const rankedItems = Array.isArray(value) ? value : [];
+        const availableOptions = question.options || [];
+        const rankingLimit = question.rankingLimit || availableOptions.length;
+
+        // Get unranked options
+        const unrankedOptions = availableOptions.filter(opt => {
+          const optVal = typeof opt === 'string' ? opt : opt.value;
+          return !rankedItems.includes(optVal);
+        });
+
+        return (
+          <div className="space-y-4">
+            <div className="text-sm text-gray-600">
+              Drag to reorder your top {rankingLimit} choices (1 = highest priority)
+            </div>
+
+            {/* Ranked items */}
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-700 mb-2">Your Rankings:</div>
+              {rankedItems.slice(0, rankingLimit).map((item: string, index: number) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 p-3 bg-[#F5E6D3]/40 border-2 border-[#C9A961] rounded-lg"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 bg-[#C9A961] text-white rounded-full flex items-center justify-center font-bold">
+                    {index + 1}
+                  </div>
+                  <div className="flex-1 text-sm font-medium text-gray-900">{item}</div>
+                  <div className="flex gap-1">
+                    {index > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newRanked = [...rankedItems];
+                          [newRanked[index], newRanked[index - 1]] = [newRanked[index - 1], newRanked[index]];
+                          handleChange(newRanked);
+                        }}
+                        className="p-1 hover:bg-white rounded"
+                        title="Move up"
+                      >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                        </svg>
+                      </button>
+                    )}
+                    {index < rankedItems.length - 1 && index < rankingLimit - 1 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newRanked = [...rankedItems];
+                          [newRanked[index], newRanked[index + 1]] = [newRanked[index + 1], newRanked[index]];
+                          handleChange(newRanked);
+                        }}
+                        className="p-1 hover:bg-white rounded"
+                        title="Move down"
+                      >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newRanked = rankedItems.filter((_: string, i: number) => i !== index);
+                        handleChange(newRanked);
+                      }}
+                      className="p-1 hover:bg-red-50 rounded text-red-600"
+                      title="Remove"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+              {rankedItems.length === 0 && (
+                <div className="text-sm text-gray-500 italic p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
+                  Select items below to rank them
+                </div>
+              )}
+            </div>
+
+            {/* Available options */}
+            {unrankedOptions.length > 0 && rankedItems.length < rankingLimit && (
+              <div className="space-y-2">
+                <div className="text-sm font-semibold text-gray-700 mb-2">Available Options:</div>
+                {unrankedOptions.map((option) => {
+                  const optVal = typeof option === 'string' ? option : option.value;
+                  const optLabel = typeof option === 'string' ? option : option.label;
+
+                  return (
+                    <button
+                      key={optVal}
+                      type="button"
+                      onClick={() => {
+                        handleChange([...rankedItems, optVal]);
+                      }}
+                      className="w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-[#F5E6D3]/30 transition-colors"
+                    >
+                      <span className="text-sm text-gray-900">{optLabel}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+
+      case 'rating':
+        const ratingScale = question.ratingScale || 5;
+        const ratingOptions = question.options || [];
+        const ratingValues = value || {};
+
+        return (
+          <div className="space-y-4">
+            {ratingOptions.map((option: any) => {
+              const optVal = typeof option === 'string' ? option : option.value;
+              const optLabel = typeof option === 'string' ? option : option.label;
+              const currentRating = ratingValues[optVal] || 0;
+
+              return (
+                <div key={optVal} className="border border-gray-200 rounded-lg p-4">
+                  <div className="text-sm font-medium text-gray-900 mb-3">{optLabel}</div>
+                  <div className="flex items-center gap-2">
+                    {[...Array(ratingScale)].map((_, index) => {
+                      const ratingValue = index + 1;
+                      return (
+                        <button
+                          key={ratingValue}
+                          type="button"
+                          onClick={() => {
+                            const newRatings = { ...ratingValues, [optVal]: ratingValue };
+                            handleChange(newRatings);
+                          }}
+                          className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold transition-colors ${
+                            ratingValue <= currentRating
+                              ? 'bg-[#C9A961] border-[#C9A961] text-white'
+                              : 'border-gray-300 text-gray-400 hover:border-[#C9A961] hover:text-[#C9A961]'
+                          }`}
+                        >
+                          {ratingValue}
+                        </button>
+                      );
+                    })}
+                    <span className="ml-3 text-sm text-gray-600">
+                      {currentRating > 0 ? `${currentRating} / ${ratingScale}` : 'Not rated'}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         );
 

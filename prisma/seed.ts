@@ -89,8 +89,8 @@ async function main() {
     {
       actionNumber: 2,
       actionSlug: 'unified-utopia',
-      title: 'Define Unified Utopia',
-      description: 'Resolve clashes and create coherent 2yr/5yr/10yr roadmap.',
+      title: 'Unified Utopia Vision',
+      description: 'Build consensus on Lithodat\'s unified utopia vision across management team',
       priority: 'IMMEDIATE',
       owner: 'Management Team',
       status: 'not-started'
