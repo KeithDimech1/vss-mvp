@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-interface LithodatLicenseModalProps {
+interface LithodatLicenceModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicenseModalProps) {
+export default function LithodatLicenceModal({ isOpen, onClose }: LithodatLicenceModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -25,8 +25,8 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
           <div className="sticky top-0 bg-gradient-to-r from-[#1B4332] to-[#0A6FCC] text-white px-8 py-6 rounded-t-xl">
             <div className="flex items-start justify-between">
               <div>
-                <h2 className="text-3xl font-bold mb-2">Lithodat License System</h2>
-                <p className="text-[#F5E6D3]">How Free/Pro/Enterprise Maps to the License Schema</p>
+                <h2 className="text-3xl font-bold mb-2">Lithodat Licence System</h2>
+                <p className="text-[#F5E6D3]">How Free/Pro/Enterprise Maps to the Licence Schema</p>
               </div>
               <button
                 onClick={onClose}
@@ -44,7 +44,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
             {/* Introduction */}
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
               <p className="text-gray-700 leading-relaxed">
-                The <strong>current license schema</strong> (from license.md) is a flexible technical system that can support
+                The <strong>current licence schema</strong> (from licence.md) is a flexible technical system that can support
                 the <strong>Free/Pro/Enterprise tiers</strong> without any schema changes. Here's how they work together.
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                   <h4 className="font-bold text-[#1B4332] mb-2">Multi-Level Licensing</h4>
-                  <p className="text-gray-700 mb-3">The schema supports licenses at three levels, perfect for enterprise scenarios:</p>
+                  <p className="text-gray-700 mb-3">The schema supports licences at three levels, perfect for enterprise scenarios:</p>
 
                   <table className="w-full text-sm border-collapse">
                     <thead>
@@ -113,7 +113,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                       </tr>
                       <tr className="bg-green-50">
                         <td className="border border-green-200 px-3 py-2 font-semibold">Institution</td>
-                        <td className="border border-green-200 px-3 py-2">Company-wide licenses</td>
+                        <td className="border border-green-200 px-3 py-2">Company-wide licences</td>
                         <td className="border border-green-200 px-3 py-2">BHP purchases Enterprise for all staff</td>
                       </tr>
                       <tr>
@@ -126,7 +126,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                 </div>
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h4 className="font-bold text-[#1B4332] mb-2">License Duration & Auditing</h4>
+                  <h4 className="font-bold text-[#1B4332] mb-2">Licence Duration & Auditing</h4>
                   <p className="text-gray-700">
                     Built-in support for <code className="bg-white px-2 py-1 rounded text-sm">validFrom</code> / <code className="bg-white px-2 py-1 rounded text-sm">validTo</code> dates
                     and <code className="bg-white px-2 py-1 rounded text-sm">lastEditedTimestamp</code> / <code className="bg-white px-2 py-1 rounded text-sm">lastEditedBy</code> audit trails.
@@ -140,7 +140,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                     The <code className="bg-white px-2 py-1 rounded text-sm">getLicensedFeatures()</code> service already exists to:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Aggregate features from User + Institution + Community licenses</li>
+                    <li>Aggregate features from User + Institution + Community licences</li>
                     <li>Remove duplicates automatically</li>
                     <li>Provide both REST API and Java interfaces</li>
                     <li>Enable frontend to show/hide UI elements</li>
@@ -162,7 +162,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                 <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
                   <h4 className="font-bold text-[#1B4332] mb-2">Data Upload Quotas</h4>
                   <p className="text-gray-700 mb-3">
-                    The license schema handles <strong>WHAT you can do</strong> (features), but NOT <strong>HOW MUCH you can do</strong> (quotas).
+                    The licence schema handles <strong>WHAT you can do</strong> (features), but NOT <strong>HOW MUCH you can do</strong> (quotas).
                   </p>
 
                   <table className="w-full text-sm border-collapse">
@@ -177,7 +177,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                       <tr>
                         <td className="border border-amber-200 px-3 py-2 font-semibold">Free</td>
                         <td className="border border-amber-200 px-3 py-2">No uploads allowed</td>
-                        <td className="border border-amber-200 px-3 py-2 text-green-600">✓ License handles this</td>
+                        <td className="border border-amber-200 px-3 py-2 text-green-600">✓ Licence handles this</td>
                       </tr>
                       <tr className="bg-amber-50">
                         <td className="border border-amber-200 px-3 py-2 font-semibold">Pro</td>
@@ -239,7 +239,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-green-600 mt-0.5">✓</span>
-                      <span>License duration and expiration</span>
+                      <span>Licence duration and expiration</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-green-600 mt-0.5">✓</span>
@@ -247,7 +247,7 @@ export default function LithodatLicenseModal({ isOpen, onClose }: LithodatLicens
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-green-600 mt-0.5">✓</span>
-                      <span>Creating 3 license bundles (Free, Pro, Enterprise)</span>
+                      <span>Creating 3 licence bundles (Free, Pro, Enterprise)</span>
                     </li>
                   </ul>
                 </div>

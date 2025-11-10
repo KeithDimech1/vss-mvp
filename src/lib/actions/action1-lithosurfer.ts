@@ -30,7 +30,7 @@ export const action1Questions: ActionQuestion[] = [
 • Target Users: Individual explorers, students, hobbyists, evaluation users
 • Pricing: FREE
 
-**LithoSurfer PRO** (Per-Seat License)
+**LithoSurfer PRO** (Per-Seat Licence)
 • Purpose: Professional users who need to upload and manage their own data
 • Access: All Free features PLUS upload limited private data, unlimited free data uploads
 • Features: More advanced tools, discounted LithoData pricing, API access, automated LithoClean
@@ -99,7 +99,7 @@ export const action1Questions: ActionQuestion[] = [
     section: '1.2 LithoSurfer Pro',
     question: 'LithoSurfer Pro - Quick Summary',
     type: 'info',
-    helpText: `**Purpose:** Per-seat license for professional users who need to upload and manage their own data
+    helpText: `**Purpose:** Per-seat licence for professional users who need to upload and manage their own data
 **Access:** All Free features PLUS upload limited private data, unlimited free data uploads
 **Features:** More advanced tools, discounted LithoData pricing, API access, automated LithoClean
 **Pricing:** $1K-10K per seat annually`
@@ -110,7 +110,7 @@ export const action1Questions: ActionQuestion[] = [
     question: 'What should the LithoSurfer Pro annual per-seat price be?',
     type: 'dropdown',
     options: ['$1,000 - $2,500', '$2,500 - $5,000', '$5,000 - $7,500', '$7,500 - $10,000', '$10,000+'],
-    helpText: 'Annual per-seat license pricing',
+    helpText: 'Annual per-seat licence pricing',
     required: true
   },
   {

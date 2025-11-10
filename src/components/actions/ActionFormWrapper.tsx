@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ActionMetadata } from '@/lib/actions/types';
 import QuestionRenderer from './QuestionRenderer';
-import LithodatLicenseModal from './LithodatLicenseModal';
+import LithodatLicenceModal from './LithodatLicenceModal';
 
 interface ActionFormWrapperProps {
   action: ActionMetadata;
@@ -24,7 +24,7 @@ export default function ActionFormWrapper({
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [responseExists, setResponseExists] = useState(Object.keys(initialResponses).length > 0);
-  const [isLicenseModalOpen, setIsLicenseModalOpen] = useState(false);
+  const [isLicenceModalOpen, setIsLicenceModalOpen] = useState(false);
 
   // Handle response change
   const handleResponseChange = useCallback((questionId: string, value: any) => {
@@ -185,17 +185,17 @@ export default function ActionFormWrapper({
         </h1>
         <p className="text-gray-600 mb-4">{action.description}</p>
 
-        {/* Lithodat License Button - only show for LithoSurfer actions */}
+        {/* Lithodat Licence Button - only show for LithoSurfer actions */}
         {action.title.toLowerCase().includes('lithosurfer') && (
           <div className="mb-4">
             <button
-              onClick={() => setIsLicenseModalOpen(true)}
+              onClick={() => setIsLicenceModalOpen(true)}
               className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#1B4332] to-[#0A6FCC] text-white font-semibold rounded-lg hover:from-[#0A6FCC] hover:to-[#1B4332] transition-all shadow-md hover:shadow-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Lithodat License System
+              Lithodat Licence System
             </button>
           </div>
         )}
@@ -277,10 +277,10 @@ export default function ActionFormWrapper({
         </p>
       </div>
 
-      {/* Lithodat License Modal */}
-      <LithodatLicenseModal
-        isOpen={isLicenseModalOpen}
-        onClose={() => setIsLicenseModalOpen(false)}
+      {/* Lithodat Licence Modal */}
+      <LithodatLicenceModal
+        isOpen={isLicenceModalOpen}
+        onClose={() => setIsLicenceModalOpen(false)}
       />
     </div>
   );
