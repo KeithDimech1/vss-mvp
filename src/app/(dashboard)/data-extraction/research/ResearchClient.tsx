@@ -108,7 +108,13 @@ export default function ResearchClient({ language: initialLanguage }: ResearchCl
     toggleLang: { en: 'Español', es: 'English' }
   };
 
-  const t = (key: keyof typeof translations) => translations[key][language];
+  const t = (key: keyof typeof translations): any => {
+    const value = translations[key];
+    if (typeof value === 'object' && 'en' in value && 'es' in value) {
+      return value[language];
+    }
+    return value;
+  };
 
   return (
     <div className="max-w-7xl mx-auto">
