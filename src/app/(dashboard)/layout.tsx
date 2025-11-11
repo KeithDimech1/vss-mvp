@@ -21,6 +21,7 @@ export default function DashboardLayout({
   const [session, setSession] = useState<SessionData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [vsmMeetingExpanded, setVsmMeetingExpanded] = useState(false);
+  const [dataExtractionExpanded, setDataExtractionExpanded] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -72,6 +73,9 @@ export default function DashboardLayout({
 
   // Check if user is a manager (from database field)
   const isManager = session?.isManager || false;
+
+  // Check if user can access data extraction
+  const canAccessDataExtraction = ['juan', 'keith', 'fabian'].includes((session?.username || '').toLowerCase());
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
@@ -199,6 +203,66 @@ export default function DashboardLayout({
                 )}
               </div>
             </>
+          )}
+
+          {/* Data Extraction Review - Expandable for authorized users */}
+          {canAccessDataExtraction && (
+            <div>
+              <button
+                onClick={() => setDataExtractionExpanded(!dataExtractionExpanded)}
+                className="w-full text-left px-6 py-3 hover:bg-[#C9A961]/20 transition-all duration-200 border-l-4 border-transparent hover:border-[#C9A961] text-[#F5E6D3]/80 hover:text-white"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Data Extraction Review</span>
+                  </div>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-200 ${dataExtractionExpanded ? 'transform rotate-90' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+
+              {/* Data Extraction Submenu */}
+              {dataExtractionExpanded && (
+                <div className="bg-[#0F2922]/50">
+                  <Link
+                    href="/data-extraction/process"
+                    className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <span>Process Flow</span>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/data-extraction/questions"
+                    className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <span>Questions</span>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/data-extraction/research"
+                    className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <span>Research</span>
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
           )}
           {session.role === 'ADMIN' && (
             <Link

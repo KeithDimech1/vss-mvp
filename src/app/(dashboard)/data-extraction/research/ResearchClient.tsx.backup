@@ -1,0 +1,742 @@
+'use client';
+
+import { useState } from 'react';
+import {
+  researchSources,
+  aiTools,
+  promptTemplates,
+  aiIntegrationProposals,
+  trackingMetrics,
+  type AITool,
+  type PromptTemplate,
+  type AIIntegrationProposal
+} from '@/lib/data-extraction-research';
+
+interface ResearchClientProps {
+  language: 'en' | 'es';
+}
+
+export default function ResearchClient({ language: initialLanguage }: ResearchClientProps) {
+  const [language, setLanguage] = useState<'en' | 'es'>(initialLanguage);
+  const [activeTab, setActiveTab] = useState<'questions' | 'research'>('questions');
+  const [expandedProposal, setExpandedProposal] = useState<string | null>(null);
+  const [copiedPrompt, setCopiedPrompt] = useState<string | null>(null);
+
+  const toggleLanguage = () => {
+    setLanguage(lang => lang === 'en' ? 'es' : 'en');
+  };
+
+  const copyPrompt = async (promptId: string, text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopiedPrompt(promptId);
+    setTimeout(() => setCopiedPrompt(null), 2000);
+  };
+
+  const translations = {
+    title: {
+      en: 'AI-Powered Data Extraction',
+      es: 'Extracción de Datos con IA'
+    },
+    subtitle: {
+      en: 'Transform your geological data extraction workflow with AI',
+      es: 'Transforma tu flujo de trabajo de extracción de datos geológicos con IA'
+    },
+    tabs: {
+      questions: { en: 'Questions for Juan', es: 'Preguntas para Juan' },
+      research: { en: 'Research Findings', es: 'Hallazgos de Investigación' }
+    },
+    toggleLang: { en: 'Español', es: 'English' }
+  };
+
+  const t = (key: keyof typeof translations) => translations[key][language];
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-4xl font-bold text-[#1B4332]">{t('title')}</h1>
+          <p className="mt-2 text-gray-600">{t('subtitle')}</p>
+        </div>
+        <button
+          onClick={toggleLanguage}
+          className="px-6 py-3 bg-gradient-to-r from-[#C9A961] to-[#1B4332] text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium"
+        >
+          {t('toggleLang')}
+        </button>
+      </div>
+
+      {/* Tabs */}
+      <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
+        <div className="flex border-b border-gray-200">
+          {(['questions', 'research'] as const).map(tab => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`flex-1 px-6 py-4 font-medium transition-all duration-200 ${
+                activeTab === tab
+                  ? 'bg-gradient-to-r from-[#1B4332] to-[#2D5A45] text-white'
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              {translations.tabs[tab][language]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tab Content */}
+      {activeTab === 'research' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border-2 border-blue-200">
+            <h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+              <span>📚</span>
+              {language === 'en' ? 'Key Research Sources' : 'Fuentes de Investigación Clave'}
+            </h2>
+            <p className="text-blue-800 mb-4">
+              {language === 'en'
+                ? 'All recommendations below are based on peer-reviewed research and industry best practices from 2024-2025.'
+                : 'Todas las recomendaciones a continuación se basan en investigación revisada por pares y mejores prácticas de la industria de 2024-2025.'}
+            </p>
+          </div>
+
+          {researchSources.filter(source =>
+            source.title === "Geology AI: Trending Tools for Exploration Teams" ||
+            source.title === "Extracting Data from Maps: AI for Critical Mineral Assessment" ||
+            source.title === "Extracting Accurate Materials Data from Research Papers with LLMs"
+          ).map((source, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-[#1B4332] mb-2">{source.title}</h3>
+                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      {source.organization}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {source.year}
+                    </span>
+                  </div>
+                </div>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-[#1B4332] text-white rounded-lg hover:bg-[#2D5A45] transition-colors flex items-center gap-2"
+                >
+                  <span>{language === 'en' ? 'Read' : 'Leer'}</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h4 className="font-bold text-gray-900 mb-2">
+                  {language === 'en' ? 'Key Findings:' : 'Hallazgos Clave:'}
+                </h4>
+                <ul className="space-y-2">
+                  {source.keyFindings.map((finding, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700">
+                      <span className="text-[#C9A961] font-bold mt-1">•</span>
+                      <span>{finding}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === 'tools' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border-2 border-green-200">
+            <h2 className="text-2xl font-bold text-green-900 mb-2">
+              {language === 'en' ? 'Three AI Tools You Can Use Today' : 'Tres Herramientas de IA que Puedes Usar Hoy'}
+            </h2>
+            <p className="text-green-800 mb-3">
+              {language === 'en'
+                ? 'These three tools require only a personal login ($20/month each) and can be used immediately by Juan and the team. No API development needed.'
+                : 'Estas tres herramientas requieren solo un inicio de sesión personal ($20/mes cada una) y pueden ser utilizadas inmediatamente por Juan y el equipo. No se necesita desarrollo de API.'}
+            </p>
+            <div className="flex items-center gap-2 text-sm text-green-700 bg-green-100 px-4 py-2 rounded-lg">
+              <span className="text-lg">💡</span>
+              <span className="font-medium">
+                {language === 'en'
+                  ? 'Cost: ~$60/month for 3 tools per user vs. $15,000+ for enterprise specialized tools'
+                  : 'Costo: ~$60/mes por 3 herramientas por usuario vs. $15,000+ para herramientas empresariales especializadas'}
+              </span>
+            </div>
+          </div>
+
+          {aiTools.filter(tool => tool.accessMethod === 'Personal Login').map((tool, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className={`p-6 ${
+                tool.accessMethod === 'Personal Login'
+                  ? 'bg-gradient-to-r from-green-500 to-green-600'
+                  : 'bg-gradient-to-r from-gray-600 to-gray-700'
+              }`}>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{tool.name}</h3>
+                    <p className="text-white/90">{tool.provider} • {tool.type}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="px-4 py-2 bg-white/20 rounded-lg text-white font-bold">
+                      {tool.accessMethod}
+                    </div>
+                    <div className="mt-2 text-sm text-white/80">
+                      {tool.costModel}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                {/* Geological Use Case */}
+                <div className="bg-blue-50 rounded-lg p-4">
+                  <h4 className="font-bold text-blue-900 mb-2">
+                    {language === 'en' ? 'Geological Use Case:' : 'Caso de Uso Geológico:'}
+                  </h4>
+                  <p className="text-blue-800">{tool.geologicalUseCase}</p>
+                </div>
+
+                {/* Strengths & Limitations */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <h4 className="font-bold text-green-900 mb-2 flex items-center gap-2">
+                      <span>✅</span>
+                      {language === 'en' ? 'Strengths' : 'Fortalezas'}
+                    </h4>
+                    <ul className="space-y-1">
+                      {tool.strengths.map((strength, i) => (
+                        <li key={i} className="text-sm text-green-800 flex items-start gap-2">
+                          <span className="font-bold">•</span>
+                          <span>{strength}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-50 rounded-lg p-4">
+                    <h4 className="font-bold text-red-900 mb-2 flex items-center gap-2">
+                      <span>⚠️</span>
+                      {language === 'en' ? 'Limitations' : 'Limitaciones'}
+                    </h4>
+                    <ul className="space-y-1">
+                      {tool.limitations.map((limitation, i) => (
+                        <li key={i} className="text-sm text-red-800 flex items-start gap-2">
+                          <span className="font-bold">•</span>
+                          <span>{limitation}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Implementation Guide */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-bold text-gray-900 mb-2">
+                    {language === 'en' ? 'Implementation Guide:' : 'Guía de Implementación:'}
+                  </h4>
+                  <p className="text-gray-700">{tool.implementationGuide}</p>
+                </div>
+
+                {tool.url && (
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full px-6 py-3 bg-[#1B4332] text-white text-center rounded-lg hover:bg-[#2D5A45] transition-colors font-medium"
+                  >
+                    {language === 'en' ? 'Visit Website →' : 'Visitar Sitio Web →'}
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === 'prompts' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
+            <h2 className="text-2xl font-bold text-purple-900 mb-2">
+              {language === 'en' ? 'Proven Prompt Templates' : 'Plantillas de Prompts Probadas'}
+            </h2>
+            <p className="text-purple-800">
+              {language === 'en'
+                ? 'Copy-paste ready prompts based on peer-reviewed research. All templates include accuracy rates and implementation examples.'
+                : 'Prompts listos para copiar y pegar basados en investigación revisada por pares. Todas las plantillas incluyen tasas de precisión y ejemplos de implementación.'}
+            </p>
+          </div>
+
+          {promptTemplates.map((template, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="bg-gradient-to-r from-[#1B4332] to-[#2D5A45] p-6 text-white">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h3 className="text-2xl font-bold">{template.title}</h3>
+                    <p className="text-white/90 mt-1">{template.description}</p>
+                  </div>
+                  <span className="px-3 py-1 bg-white/20 rounded-full text-sm font-medium">
+                    {template.category}
+                  </span>
+                </div>
+                <div className="flex items-center gap-4 text-sm text-white/80 mt-3">
+                  <span>🤖 {template.tool}</span>
+                  {template.accuracyRate && <span>📊 {template.accuracyRate}</span>}
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                {/* Prompt */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-bold text-gray-900">
+                      {language === 'en' ? 'Prompt:' : 'Prompt:'}
+                    </h4>
+                    <button
+                      onClick={() => copyPrompt(template.id, template.prompt)}
+                      className="px-4 py-2 bg-[#C9A961] text-white rounded-lg hover:bg-[#1B4332] transition-colors flex items-center gap-2"
+                    >
+                      {copiedPrompt === template.id ? (
+                        <>
+                          <span>✓</span>
+                          <span>{language === 'en' ? 'Copied!' : 'Copiado!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          <span>{language === 'en' ? 'Copy' : 'Copiar'}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm whitespace-pre-wrap font-mono">
+                    {template.prompt}
+                  </pre>
+                </div>
+
+                {/* Example I/O */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      {language === 'en' ? 'Example Input:' : 'Ejemplo de Entrada:'}
+                    </h4>
+                    <div className="bg-blue-50 p-3 rounded-lg text-sm text-blue-900">
+                      {template.exampleInput}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      {language === 'en' ? 'Example Output:' : 'Ejemplo de Salida:'}
+                    </h4>
+                    <div className="bg-green-50 p-3 rounded-lg text-sm text-green-900 max-h-60 overflow-y-auto">
+                      <pre className="whitespace-pre-wrap font-mono text-xs">
+                        {template.exampleOutput}
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+
+                {template.source && (
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{language === 'en' ? 'Source:' : 'Fuente:'}</span>
+                    <a href={template.source} target="_blank" rel="noopener noreferrer" className="text-[#1B4332] hover:underline">
+                      {template.source}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === 'proposals' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 border-2 border-yellow-200">
+            <h2 className="text-2xl font-bold text-yellow-900 mb-2">
+              {language === 'en' ? 'AI Integration Proposals for LithoData' : 'Propuestas de Integración de IA para LithoData'}
+            </h2>
+            <p className="text-yellow-800">
+              {language === 'en'
+                ? 'Three actionable proposals with step-by-step implementation guides, cost estimates, and ROI projections.'
+                : 'Tres propuestas accionables con guías de implementación paso a paso, estimaciones de costos y proyecciones de ROI.'}
+            </p>
+          </div>
+
+          {aiIntegrationProposals.map((proposal, index) => (
+            <div key={proposal.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div
+                onClick={() => setExpandedProposal(expandedProposal === proposal.id ? null : proposal.id)}
+                className={`p-6 cursor-pointer transition-all duration-300 ${
+                  proposal.priority === 'High'
+                    ? 'bg-gradient-to-r from-red-500 to-orange-500'
+                    : proposal.priority === 'Medium'
+                    ? 'bg-gradient-to-r from-yellow-500 to-orange-500'
+                    : 'bg-gradient-to-r from-blue-500 to-purple-500'
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 bg-white/30 rounded-full text-white font-bold text-sm">
+                        PROPOSAL {index + 1}
+                      </span>
+                      <span className="px-3 py-1 bg-white/30 rounded-full text-white font-bold text-sm">
+                        {proposal.priority} PRIORITY
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{proposal.title}</h3>
+                    <p className="text-white/90">{proposal.description}</p>
+                    <div className="mt-3 flex items-center gap-4 text-sm text-white/80">
+                      <span>⏱️ {proposal.estimatedTimeSaving}</span>
+                      <span>💰 {proposal.estimatedCost}</span>
+                    </div>
+                  </div>
+                  <svg
+                    className={`w-8 h-8 text-white transition-transform duration-300 ${
+                      expandedProposal === proposal.id ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+
+              {expandedProposal === proposal.id && (
+                <div className="p-6 space-y-6">
+                  {/* AI Tools */}
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      {language === 'en' ? 'AI Tools Required:' : 'Herramientas de IA Requeridas:'}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {proposal.aiTools.map((tool, i) => (
+                        <span key={i} className="px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-sm font-medium">
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Benefits & Risks */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h4 className="font-bold text-green-900 mb-2">✅ {language === 'en' ? 'Benefits' : 'Beneficios'}</h4>
+                      <ul className="space-y-1">
+                        {proposal.benefits.map((benefit, i) => (
+                          <li key={i} className="text-sm text-green-800 flex items-start gap-2">
+                            <span>•</span>
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="bg-red-50 rounded-lg p-4">
+                      <h4 className="font-bold text-red-900 mb-2">⚠️ {language === 'en' ? 'Risks' : 'Riesgos'}</h4>
+                      <ul className="space-y-1">
+                        {proposal.risks.map((risk, i) => (
+                          <li key={i} className="text-sm text-red-800 flex items-start gap-2">
+                            <span>•</span>
+                            <span>{risk}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Implementation Steps */}
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-4">
+                      {language === 'en' ? 'Implementation Roadmap:' : 'Hoja de Ruta de Implementación:'}
+                    </h4>
+                    <div className="space-y-4">
+                      {proposal.implementation.map((step, i) => (
+                        <div key={i} className="border-l-4 border-[#C9A961] pl-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-[#C9A961] rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                              {step.step}
+                            </div>
+                            <div className="flex-1">
+                              <h5 className="font-bold text-gray-900">{step.title}</h5>
+                              <p className="text-sm text-gray-700 mt-1">{step.description}</p>
+                              <div className="mt-2 flex items-center gap-4 text-xs text-gray-600">
+                                <span>⏱️ {step.duration}</span>
+                                <span>👤 {step.owner}</span>
+                              </div>
+                              {step.resources.length > 0 && (
+                                <div className="mt-2">
+                                  <span className="text-xs text-gray-600">{language === 'en' ? 'Resources:' : 'Recursos:'} </span>
+                                  {step.resources.map((resource, j) => (
+                                    <span key={j}>
+                                      {resource.url ? (
+                                        <a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-xs text-[#1B4332] hover:underline">
+                                          {resource.title}
+                                        </a>
+                                      ) : (
+                                        <span className="text-xs text-gray-600">{resource.title}</span>
+                                      )}
+                                      {j < step.resources.length - 1 && ', '}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === 'tracking' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border-2 border-indigo-200">
+            <h2 className="text-2xl font-bold text-indigo-900 mb-2">
+              {language === 'en' ? 'Centralized Tracking & Management Dashboard' : 'Panel de Seguimiento y Gestión Centralizado'}
+            </h2>
+            <p className="text-indigo-800">
+              {language === 'en'
+                ? 'Key metrics and visualizations for management to track AI-assisted extraction productivity.'
+                : 'Métricas clave y visualizaciones para que la gerencia rastree la productividad de extracción asistida por IA.'}
+            </p>
+          </div>
+
+          {/* Metrics Categories */}
+          {trackingMetrics.categories.map((category, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-xl font-bold text-[#1B4332] mb-4">{category.name}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {category.metrics.map((metric, i) => (
+                  <div key={i} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <svg className="w-5 h-5 text-[#C9A961]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    <span className="text-sm text-gray-700">{metric}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Visualizations */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-bold text-[#1B4332] mb-4">
+              {language === 'en' ? 'Recommended Visualizations' : 'Visualizaciones Recomendadas'}
+            </h3>
+            <div className="space-y-3">
+              {trackingMetrics.visualizations.map((viz, index) => (
+                <div key={index} className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+                  <span className="text-2xl">📊</span>
+                  <span className="text-gray-700">{viz}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Reporting Cadence */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-bold text-[#1B4332] mb-4">
+              {language === 'en' ? 'Reporting Cadence' : 'Cadencia de Informes'}
+            </h3>
+            <div className="space-y-3">
+              {Object.entries(trackingMetrics.reportingCadence).map(([key, value]) => (
+                <div key={key} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <span className="px-3 py-1 bg-[#C9A961] text-white rounded-full text-xs font-bold uppercase">
+                    {key}
+                  </span>
+                  <span className="text-gray-700 flex-1">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Implementation Note */}
+          <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6">
+            <h4 className="font-bold text-yellow-900 mb-2 flex items-center gap-2">
+              <span>💡</span>
+              {language === 'en' ? 'Implementation Note' : 'Nota de Implementación'}
+            </h4>
+            <p className="text-yellow-800">
+              {language === 'en'
+                ? 'The tracking dashboard can be built as an extension to this existing VSS platform. See database schema in the research metadata file (data-extraction-research.ts) for the required tables: ExtractionSession, DataPoint, and AIUsageLog.'
+                : 'El panel de seguimiento se puede construir como una extensión de esta plataforma VSS existente. Consulte el esquema de base de datos en el archivo de metadatos de investigación (data-extraction-research.ts) para las tablas requeridas: ExtractionSession, DataPoint y AIUsageLog.'}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'questions' && (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-6 border-2 border-orange-200">
+            <h2 className="text-2xl font-bold text-orange-900 mb-2">
+              {language === 'en' ? 'AI Implementation Questions for Juan' : 'Preguntas de Implementación de IA para Juan'}
+            </h2>
+            <p className="text-orange-800">
+              {language === 'en'
+                ? 'Help us understand where AI could have the biggest impact on your extraction workflow. Your answers will guide our implementation strategy.'
+                : 'Ayúdanos a entender dónde la IA podría tener el mayor impacto en tu flujo de trabajo de extracción. Tus respuestas guiarán nuestra estrategia de implementación.'}
+            </p>
+          </div>
+
+          {/* Question 1 */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-3xl">1️⃣</span>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-[#1B4332] mb-2">
+                  {language === 'en'
+                    ? 'Which extraction step takes the most time and causes the most frustration?'
+                    : '¿Qué paso de extracción toma más tiempo y causa más frustración?'}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  {language === 'en'
+                    ? 'Think about the 8 steps you reviewed: Source ID, Acquisition, Assessment, Planning, Extraction, QC, Loading, Documentation'
+                    : 'Piensa en los 8 pasos que revisaste: ID de fuente, Adquisición, Evaluación, Planificación, Extracción, QC, Carga, Documentación'}
+                </p>
+                <textarea
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
+                  rows={4}
+                  placeholder={language === 'en'
+                    ? 'Example: "Data Extraction (Step 5) takes 60% of my time because I have to manually copy-paste values from PDFs into spreadsheets..."'
+                    : 'Ejemplo: "La Extracción de Datos (Paso 5) toma el 60% de mi tiempo porque tengo que copiar y pegar manualmente valores de PDFs a hojas de cálculo..."'}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Question 2 */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-3xl">2️⃣</span>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-[#1B4332] mb-2">
+                  {language === 'en'
+                    ? 'Can you describe a specific example where AI could help you extract data faster?'
+                    : '¿Puedes describir un ejemplo específico donde la IA podría ayudarte a extraer datos más rápido?'}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  {language === 'en'
+                    ? 'Be as specific as possible: What type of document? What data are you extracting? What makes it slow?'
+                    : 'Sé lo más específico posible: ¿Qué tipo de documento? ¿Qué datos estás extrayendo? ¿Qué lo hace lento?'}
+                </p>
+                <textarea
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
+                  rows={5}
+                  placeholder={language === 'en'
+                    ? 'Example: "I often work with USGS mineral reports (50-100 pages PDFs). They have tables with sample IDs, depths, and Au/Cu values. Currently I read through the whole report to find tables, then manually enter each row. If AI could extract all table data automatically and format it as CSV, that would save me 2-3 hours per report."'
+                    : 'Ejemplo: "A menudo trabajo con informes minerales de USGS (PDFs de 50-100 páginas). Tienen tablas con IDs de muestra, profundidades y valores de Au/Cu. Actualmente leo todo el informe para encontrar tablas, luego ingreso manualmente cada fila. Si la IA pudiera extraer todos los datos de la tabla automáticamente y formatearlos como CSV, eso me ahorraría 2-3 horas por informe."'}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Question 3 */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-3xl">3️⃣</span>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-[#1B4332] mb-2">
+                  {language === 'en'
+                    ? 'What concerns do you have about using AI for data extraction?'
+                    : '¿Qué preocupaciones tienes sobre usar IA para extracción de datos?'}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  {language === 'en'
+                    ? 'Common concerns: accuracy, learning curve, cost, data privacy, job security. What worries you most?'
+                    : 'Preocupaciones comunes: precisión, curva de aprendizaje, costo, privacidad de datos, seguridad laboral. ¿Qué te preocupa más?'}
+                </p>
+                <textarea
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
+                  rows={4}
+                  placeholder={language === 'en'
+                    ? 'Be honest about your concerns. We want to address them in the implementation plan...'
+                    : 'Sé honesto sobre tus preocupaciones. Queremos abordarlas en el plan de implementación...'}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Question 4 */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-3xl">4️⃣</span>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-[#1B4332] mb-2">
+                  {language === 'en'
+                    ? 'If you could design the perfect AI-assisted extraction workflow, what would it look like?'
+                    : 'Si pudieras diseñar el flujo de trabajo de extracción asistido por IA perfecto, ¿cómo sería?'}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  {language === 'en'
+                    ? 'Dream big! Describe your ideal workflow from receiving a document to having clean data in the database.'
+                    : '¡Sueña en grande! Describe tu flujo de trabajo ideal desde recibir un documento hasta tener datos limpios en la base de datos.'}
+                </p>
+                <textarea
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent"
+                  rows={6}
+                  placeholder={language === 'en'
+                    ? 'Example: "1. Upload PDF to platform. 2. AI automatically identifies all tables and extracts data. 3. AI suggests which database fields each column maps to. 4. I review and approve the mapping. 5. Data loads automatically with validation checks. 6. AI generates documentation summary. Total time: 15 minutes instead of 3 hours."'
+                    : 'Ejemplo: "1. Subir PDF a la plataforma. 2. La IA identifica automáticamente todas las tablas y extrae datos. 3. La IA sugiere a qué campos de base de datos se mapea cada columna. 4. Reviso y apruebo el mapeo. 5. Los datos se cargan automáticamente con verificaciones de validación. 6. La IA genera resumen de documentación. Tiempo total: 15 minutos en lugar de 3 horas."'}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Save Button */}
+          <div className="sticky bottom-0 bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-2xl">
+            <button className="w-full px-8 py-4 bg-gradient-to-r from-[#1B4332] to-[#C9A961] text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              {language === 'en' ? 'Save My Responses' : 'Guardar Mis Respuestas'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Navigation Buttons */}
+      <div className="flex flex-col sm:flex-row justify-between gap-4 mt-8">
+        <a
+          href="/data-extraction/process"
+          className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all duration-300 font-medium flex items-center gap-2"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          {language === 'en' ? 'Back to Process Visualization' : 'Volver a Visualización de Proceso'}
+        </a>
+        <a
+          href="/data-extraction/questions"
+          className="px-6 py-3 bg-gradient-to-r from-[#1B4332] to-[#C9A961] text-white rounded-lg hover:shadow-xl transition-all duration-300 font-medium flex items-center gap-2 hover:-translate-y-1"
+        >
+          {language === 'en' ? 'View Detailed Questions' : 'Ver Preguntas Detalladas'}
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}

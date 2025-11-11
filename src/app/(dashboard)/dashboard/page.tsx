@@ -54,6 +54,9 @@ export default function DashboardPage() {
   const managementTeam = ['keith', 'fabian', 'wayne', 'moritz', 'vinko'];
   const isManager = session && managementTeam.includes(session.username);
 
+  // Check if user can access data extraction review (Juan, Keith, or Fabian)
+  const canAccessDataExtraction = session && ['juan', 'keith', 'fabian'].includes(session.username);
+
   const getAssessmentStatus = () => {
     if (!assessment) {
       return {
@@ -129,6 +132,50 @@ export default function DashboardPage() {
         </Link>
       )}
 
+      {/* Data Extraction Review Card (Juan, Keith, Fabian) */}
+      {canAccessDataExtraction && (
+        <Link href="/data-extraction/process">
+          <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 rounded-xl shadow-xl p-8 mb-8 cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">⚙️</span>
+                  <h2 className="text-3xl font-bold text-white">Data Extraction Process Review</h2>
+                </div>
+                <p className="text-blue-50 text-lg mb-4">
+                  Interactive review of the LithoData extraction workflow - Provide feedback and answer diagnostic questions
+                </p>
+                <div className="flex items-center gap-4 text-sm text-blue-50/80">
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    Juan, Keith & Fabian
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                    English/Spanish
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    3 Pages: Process + Questions + Research
+                  </span>
+                </div>
+              </div>
+              <div className="ml-6">
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </Link>
+      )}
+
       {/* Progress Card - Hidden as per requirements */}
       {/* <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border-t-4 border-[#C9A961]">
         <h2 className="text-2xl font-bold text-[#1B4332] mb-6">
@@ -163,74 +210,6 @@ export default function DashboardPage() {
         )}
       </div> */}
 
-      {/* Info Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#C9A961]">
-          <div className="flex items-center mb-6">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#1B4332] to-[#C9A961] rounded-xl flex items-center justify-center shadow-md">
-              <svg
-                className="w-7 h-7 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-            </div>
-            <h3 className="ml-4 text-xl font-bold text-[#1B4332]">
-              About System 1
-            </h3>
-          </div>
-          <p className="text-gray-600 leading-relaxed">
-            System 1 in the Viable System Model represents the operational units
-            that perform the primary activities of the organization. This
-            assessment will evaluate how well these operations are structured and
-            functioning.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#1B4332]">
-          <div className="flex items-center mb-6">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#1B4332] to-[#0F2922] rounded-xl flex items-center justify-center shadow-md">
-              <svg
-                className="w-7 h-7 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="ml-4 text-xl font-bold text-[#1B4332]">
-              Next Steps
-            </h3>
-          </div>
-          <ul className="text-gray-600 space-y-3 leading-relaxed">
-            <li className="flex items-start">
-              <span className="mr-3 font-semibold text-[#C9A961]">1.</span>
-              <span>Read VSM meeting notes</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 font-semibold text-[#C9A961]">2.</span>
-              <span>Undertake Action 1 from the VSM meeting and complete</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 font-semibold text-[#C9A961]">3.</span>
-              <span>Team meeting to build consensus</span>
-            </li>
-          </ul>
-        </div>
-      </div>
 
       {/* User Info */}
       {session && (

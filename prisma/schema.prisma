@@ -41,55 +41,123 @@ model Assessment {
 
 // VSM Action Tracking Models
 model ActionItem {
-  id              String           @id @default(cuid())
-  actionNumber    Int              @unique // 1-7
-  actionSlug      String           @unique // e.g., "products-services"
-  title           String           // Display title
-  description     String?          // Optional description
-  priority        String           // "IMMEDIATE" or "SHORT-TERM"
-  owner           String           // Team member(s) responsible
-  status          String           @default("not-started") // not-started, in-progress, completed
-  dueDate         DateTime?
-  completedDate   DateTime?
-  createdAt       DateTime         @default(now())
-  updatedAt       DateTime         @updatedAt
+  id            String    @id @default(cuid())
+  actionNumber  Int       @unique // 1-7
+  actionSlug    String    @unique // e.g., "products-services"
+  title         String // Display title
+  description   String? // Optional description
+  priority      String // "IMMEDIATE" or "SHORT-TERM"
+  owner         String // Team member(s) responsible
+  status        String    @default("not-started") // not-started, in-progress, completed
+  dueDate       DateTime?
+  completedDate DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
   // Relations
-  responses       ActionResponse[]
-  consensus       ActionConsensus?
+  responses ActionResponse[]
+  consensus ActionConsensus?
 }
 
 model ActionResponse {
-  id              String     @id @default(cuid())
-  actionItemId    String
-  actionItem      ActionItem @relation(fields: [actionItemId], references: [id], onDelete: Cascade)
-  userId          String
-  user            User       @relation(fields: [userId], references: [id])
+  id           String     @id @default(cuid())
+  actionItemId String
+  actionItem   ActionItem @relation(fields: [actionItemId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User       @relation(fields: [userId], references: [id])
 
   // JSON structure to hold all question responses (flexible per action)
-  responses       Json
+  responses Json
 
-  completed       Boolean    @default(false)
-  submittedAt     DateTime?
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
+  completed   Boolean   @default(false)
+  submittedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@unique([actionItemId, userId]) // One response per user per action
 }
 
 model ActionConsensus {
-  id              String     @id @default(cuid())
-  actionItemId    String     @unique
-  actionItem      ActionItem @relation(fields: [actionItemId], references: [id], onDelete: Cascade)
+  id           String     @id @default(cuid())
+  actionItemId String     @unique
+  actionItem   ActionItem @relation(fields: [actionItemId], references: [id], onDelete: Cascade)
 
   // JSON structure for consensus data (varies by action)
-  consensusData   Json
+  consensusData Json
 
-  notes           String?    // Discussion notes
-  resolved        Boolean    @default(false)
-  resolvedAt      DateTime?
-  resolvedBy      String?    // User ID who marked as resolved
+  notes      String? // Discussion notes
+  resolved   Boolean   @default(false)
+  resolvedAt DateTime?
+  resolvedBy String? // User ID who marked as resolved
 
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Data Extraction Review System (Juan-specific)
+model DataExtractionProcess {
+  id           String   @id @default(cuid())
+  version      Int      @default(1)
+  processSteps Json // Array of process steps with flowchart data
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  feedbacks DataExtractionFeedback[]
+  questions DataExtractionQuestion[]
+}
+
+model DataExtractionFeedback {
+  id        String                @id @default(cuid())
+  processId String
+  process   DataExtractionProcess @relation(fields: [processId], references: [id], onDelete: Cascade)
+  userId    String // Should be Juan's user ID
+  stepId    String // Which step this feedback is for
+
+  // Feedback content
+  isCorrect       Boolean? // Does this sound correct?
+  questionAnswers Json? // Answers to quick questions for this step
+  comments        String? // Juan's comments (400 words) - only shown if isCorrect is false or null
+  language        String   @default("en") // "en" or "es"
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([processId, userId, stepId]) // One feedback per user per step
+}
+
+model DataExtractionQuestion {
+  id        String                @id @default(cuid())
+  processId String
+  process   DataExtractionProcess @relation(fields: [processId], references: [id], onDelete: Cascade)
+  userId    String // Should be Juan's user ID
+
+  // Question response data
+  responses   Json // Flexible structure for all question responses
+  completed   Boolean   @default(false)
+  submittedAt DateTime?
+  language    String    @default("en") // "en" or "es"
+
+  // Workspace links and references
+  workspaceLinks Json? // Array of Google Workspace/Workbench links
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([processId, userId]) // One set of responses per user per process
+}
+
+model DataExtractionResearch {
+  id        String   @id @default(cuid())
+  processId String // Process ID for the research (e.g., "data-extraction-2025")
+  userId    String // User who provided the answers
+
+  // AI Implementation Questions
+  answers  Json // Flexible structure for research questions (q1, q2, q3, q4)
+  language String   @default("en") // "en" or "es"
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, processId]) // One set of research answers per user per process
 }
