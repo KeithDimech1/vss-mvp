@@ -12,7 +12,8 @@ export type QuestionType =
   | 'implementation_table' // Dynamic table with changes and time columns
   | 'data_inventory_matrix' // Matrix for data inventory (rows=datatypes, cols=regions)
   | 'ranking' // Drag-and-drop ranking of options (top N)
-  | 'rating'; // Rating scale (1-5 stars or numbers)
+  | 'rating' // Rating scale (1-5 stars or numbers)
+  | 'selectable_tags'; // Clickable tags/chips that populate the consensus decision
 
 export interface QuestionOption {
   value: string;
@@ -40,6 +41,7 @@ export interface ActionQuestion {
     questionId: string;
     value: any;
   };
+  inheritSelectionsFrom?: string[]; // For selectable_tags - inherit selections from these question IDs (cascade)
 }
 
 export interface ActionMetadata {

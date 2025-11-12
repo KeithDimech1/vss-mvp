@@ -1,0 +1,672 @@
+
+==========================================================================
+ACTION 1 DETAILED RESPONSES - ALL THREE SUB-ACTIONS
+==========================================================================
+
+Generated: 11/6/2025, 4:09:25 PM
+
+
+##########################################################################
+# LITHOBUILD: CONSULTING & DEVELOPMENT STRATEGY
+# Slug: lithobuild
+##########################################################################
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Fabian Kohlmann (@fabian)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 5:14:14 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 5:14:14 PM
+
+RESPONSES:
+----------
+
+[lithobuild_funding_model]
+Wwe will also have some small capacity left for developments and build. We will always need to keep a teamm anyway for maintance and fixes and support. What we always need to rememebr is that by building those platfroms we actually build all our data pipel;ines, so we kind of are getting paid double. We are getting pisd for building the infrastrcuture and we are then getting paid in data as well! So double dipping. Hence I am not sure if we should ever completl;y phase it oput... exspecially withthe rise of AI I think we should actually focus on build that helps connecting machines directly to our system, as that is saomething AI will not be able to do. We should keep that going, as the community buidign and machine connections is something AI will not be able to achieve whereas data agregation is something it will achieve.
+
+[lithobuild_pricing_rates]
+For wayne and Moritz to determine but I think the price rtanges you rpovided here are already good. Priced per project. 
+
+[lithobuild_capacity_limits]
+25-50% (moderate)
+
+[lithobuild_future_strategy]
+As I mentinoed earleir. Everything which help building our data pipelines and machine connections HAVE to b pursued by us and need to be done in the future!
+
+[lithobuild_additional_notes]
+AS I said, phasing out will not work. We will need those build, focuing on machine connectiing even more
+
+
+[lithobuild_project_criteria]
+As long as we benefit for it and it helps building our data community and data pipelines. No bespoke builds from whcih we will achieve nothing in the end except for osme cash. Those onbes we should avoid
+
+[lithobuild_contracting_opportunities]
+Depoends on amount we could outsource some, problme is that may still suck a lot of our resournces as the external parties will need to be trained and guided. Not easy. Samll jobs yeeasy but a big build no chance. 
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Keith Dimech (@keith)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 2:24:54 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 2:24:54 PM
+
+RESPONSES:
+----------
+
+[lithobuild_funding_model]
+LithoBuild projects 'start up' and our teams are given certian amounts of time to work on it. the only other work outside of build we can do are on Surfer development or maintance, Database deveopment or maintainence or cleaning and mining in support of finding more data.
+
+[lithobuild_pricing_rates]
+Something to Consider: 
+
+LithoData team (mortiz, nirali and tarun): $1028.50 per day
+LithoSurfer team (wayne, Nora, Kimberlu): $984.89 per day
+LithoClean team (juan, christina, perla): $316.84 per day
+
+we should look to do a 4.5x metric and give each of these teams days they are needed on the project to fiture out. likely around 5000 per day to build.
+
+[lithobuild_capacity_limits]
+25-50% (moderate)
+
+[lithobuild_future_strategy]
+I think easy build projects or build projets that directly assist us in our Utopia vision. This might mean opneing up new markets (Enviro model) or getting lots more data or simply paying us a shit load of money.
+
+[lithobuild_additional_notes]
+Build is still our only revenue souce - we are reliant on getting a few more projects to assist in this - but keeping our eye on the ball
+
+[lithobuild_project_criteria]
+Currently we should be looking to do 25% of our work on build, moving toward almost none. there will still be projects that come up - however they have to help us or pay us a lot. for enterprise customers - we should look to throw in build costs to try and make more money,.
+
+[lithobuild_contracting_opportunities]
+We could find a firm who may want to do build projects for us - or if we are big enough have a team that is dedicated on winning and developing based off our database? Certainly when it comes to AI tools that are stand alone software - contractors may be the way.
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Wayne Noble (@wayne)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 10:02:46 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 10:02:46 PM
+
+RESPONSES:
+----------
+
+[lithobuild_funding_model]
+I think agreements should allow that functionality included in the out put can be used within the lithosurfer platform? or at least we leverage the learnings to create new features quickly.
+I think the ability to spin up a team quickly will be ideal for this - two experts from Lithodat running contractors.
+We don't want work to stop because we get a new project.  But we want to make sure it is delivered to our standards and time frames.
+
+[lithobuild_pricing_rates]
+I don't know the standard rates but I think we find out what the default rates are per country and add a 50 - 80% buffer on top.
+Teams will be based on the project but nominally 
+a project manager/ client interface
+some developers
+a UX person
+Some data people
+
+[lithobuild_capacity_limits]
+25-50% (moderate)
+
+[lithobuild_future_strategy]
+I think it is a viable entity - the ability to get projects done for universities and governments that can't deliver them is a great model.  
+I would like to see it stay in existence.  but perhaps be a stand alone group that is run as part of the wider company run as a workforce project delivery.  I think this model means that it will have its own projects and workers that do not eat in to the LD main projects.
+
+[lithobuild_additional_notes]
+I have always seen a spot for a stand alone "guns for hire" service for it projects for Universities and gov.  But this is probably destined to be a separate entity or department.  Although there are lots of these project teams out there I think we understand the university sector enough to make this interesting.
+
+Bust as I said this would need to be done out side of LD main work unless we are desparate
+
+[lithobuild_project_criteria]
+I think running IT projects for universities is a viable money maker but this would mean that lithobuild does all sorts of things.  This is worth considering but should be created as a separate workforce.
+Otherwise data projects around spatial data - I think not constraining the types is ideal.
+This may be a way of funding and retaining our developers during quiet times
+
+[lithobuild_contracting_opportunities]
+It depends - if we gat a very AI heavy request we don't have the expertise.
+Other project we would have to see.  A partner would have to be well vetted so that they are not a time/money/reputation problem
+
+
+
+##########################################################################
+# LITHODATA: THREE-TYPE DATA STRATEGY
+# Slug: lithodata
+##########################################################################
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Fabian Kohlmann (@fabian)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 5:00:39 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 5:00:39 PM
+
+RESPONSES:
+----------
+
+[lithodata_free_sources]
+For free data the cleaning standards and quality is in the responsibility of the data producer (uploader). HEnce all that data will be publicly availble and free. We only provide once in a while a dataset for free where we see fit. But even geological survey data that we have cleaned and standardised by our self using oour resources will fall under our commercial data sets. Unless the surveys upload their own data and clean them or pay us to do so they stay comemrcial. We would only then make them public if they do the work or pay us to do so. One thing we haven;t mentioned here at all but for what is a huge interest out there is the data quality ranking! We have already added a 5 star ranking system. We will base that one aroubd 5 sub paramters on whcih iwe will rank them. Ideally tmost of them can be automatically assigned, such as completness of meta data , accuracy of locations etc....
+
+[lithodata_implementation]
+[
+  {
+    "time": "",
+    "change": "question for moritz and wayne and vinko"
+  }
+]
+
+[lithodata_premium_pricing]
+Yers exactly. Ideally we will always push for a global Subscription but we need the granularity at least down to a specific level. Currently our finest level will be by LithoRegions whcih are more or less based on geological continetnal context. Starting to break them down by country or stae will get too fine grained I would say. Also it will then get very hard with pricing as it woul dneed to be adjusted depending on amount of data per area etc... Bigger is easier. Always. Let's try first with global and regions. If big interest will prersist form clients we can then think about breaking it down even further. but for that we would also need first much more data. With our curretn data amounts it doesn;t make sense to become too finegrained. 
+
+[lithodata_private_formats]
+ANy file can be uploaded as a file. But we would then think thoruyhg which filkes can be uploaded in and via our wizard (ETL) pipeline. At the moment oinly works wth our templateexcel files. But data that oculd be uploaded in cludes csv, LAS, shp etc, but they mayneed either mapping on the fly or we maybe canuse some AI help. Not sure. More for Moritz and Wayne to think about. 
+
+[lithodata_premium_agreement]
+Yes - this makes sense
+
+[lithodata_premium_inventory]
+Major & trace geochemistry, stable isotopes, mineral deposits, vitrinite reflectance, thermochronology, thermal histopry & exhumation rates, U-Pb, Ar-Ar and more coming soon such as Rb-Sr and Lu-Hf.
+
+[lithodata_private_ux_upgrades]
+Need our LithoGallery and new interface to shapow all data froma typoe including pre-viewing data. IMportant for marketplace!
+
+[lithodata_structure_agreement]
+Yes - this structure makes sense
+
+[lithodata_commercial_agreement]
+Yes - this makes sense
+
+[lithodata_private_manual_cleaning]
+Combination of pricing models
+
+[lithodata_commercial_implementation]
+Thats for Moritz and Wayne to decide., Again the data providers would benefit form our platform by helping finding and seeing their data but also by getting it suddenly into a subscription format which will help them plan better with ongoing income. 30% would be about right. Will also depend a bit on the typoe of data and size of data. So we may have some flexibility here as well. I don;t like the name Exchange. We are not exchanging data twhy not just call it MarketPlace or Forum or DataHub somehting like that...
+
+[lithodata_private_security_upgrades]
+Question for Vinko, but I think we should have also most in place. Anglo is already putting some of their data in. Iedally have ISO27001 certificate as well and maye some otheres and have  astrong cyber insurance should be then good for us to go. 
+
+[lithodata_private_contractual_updates]
+Only if requested. But I agree that we would bneed to have a number tht we can add to the contracts because sime clients may ask why subscribe, how much data growth per year etc... ideally we keep the num,ber as small as possible. I would say maybe aroubnd 5% to 10% groweht. Will get harder the bigger the dataset get. Good for us the more public data prover we will have as they will alreadymake sure that we will meet those limits. 
+
+[lithodata_private_technology_upgrades]
+More AI agents, more storage, bigger VMs and instances
+
+[lithodata_private_manual_cleaning_explanation]
+I would say it is a compbination. Per dataset but then also it will depend on the size of the dataset, how many points, how much meta data, images, locations provided (YorN), etc...
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Keith Dimech (@keith)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 2:02:47 PM
+Completed: ⚠️  No (Draft)
+Last Updated: 11/6/2025, 3:35:27 PM
+
+RESPONSES:
+----------
+
+[lithodata_free_sources]
+I think we should be focusing on government datasets - whatever we can get our hands on. large bulk data - the benefit of this is we can get more data points in, plus we can show the geosurverys what we can do. We will need to check permissions etc - but seems like the best way to get more data in that is public - quickly.
+
+[lithodata_implementation]
+[
+  {
+    "time": "1-3 months",
+    "change": "Adding security such as SSO"
+  },
+  {
+    "time": "3+ months",
+    "change": "Improving or upgrading ingestion pipelines"
+  },
+  {
+    "time": "1-3 months",
+    "change": "New private data interface"
+  },
+  {
+    "time": "2-4 weeks",
+    "change": "Do we need any database changes? back end RLS or Policies??"
+  },
+  {
+    "time": "3+ months",
+    "change": "LithoData Exchange - rebuild schema? UX changes? Financial impacts? "
+  },
+  {
+    "time": "1-3 months",
+    "change": "Lithodat Verification certification?"
+  },
+  {
+    "time": "",
+    "change": "I think EarthBank data packages that are bought should go back to the author directly - we should only have free data within the Ear"
+  }
+]
+
+[lithodata_premium_pricing]
+I think we should have set prices for Region and DataType, if we wanted to be even more complicated we could go down to subregion (i.e Western Australia vs Queensland, in the Australian Region) but this is probably not worth it for MVP.
+
+[lithodata_private_formats]
+We should have as many ingestions features from existing software and all big national and international lab output files - accessible via LithoSurfer Pro. This will make the ingestion quite simple. for more complex data we will need to undertake a manual process. Massive Question - how much do we care about the QAQC of private data??
+
+[lithodata_additional_notes]
+I want clarification on the Commercial side of the system - i see Commerical: Exchange as the biggest hurdle and furtherst away from our MVP
+
+[lithodata_premium_agreement]
+Yes - this makes sense
+
+[lithodata_premium_inventory]
+Geochemistry, Isotopes, Geochronology, Thermochronolgy, Vitrinite, Mineral Deposits
+
+[lithodata_private_ux_upgrades]
+I think UX changes such as who has access (maybe different departments with BHP cant see each others data). I think that we will need to have private data as packages so can restrict there. Private data needs to have a differnt UX to the current public data method. 
+
+How do we verify? do we care if it doesn't have quality - definitely we could have a lithodat verified tick or similar for commercial packages - they pay us to verify it?? any of our LithoData premium would be lithodat verified by our geoscientists. 
+
+[lithodata_structure_agreement]
+Yes - this structure makes sense
+
+[lithodata_commercial_agreement]
+Yes - this makes sense
+
+[lithodata_private_manual_cleaning]
+Combination of pricing models
+
+[lithodata_commercial_implementation]
+30% i pulled out of my bum - but it could be a case by case basis - if we have a desire to have thier data we can make a seperate agreement. It definetly should be done by package though. We could even pay them for it in the future and make it part of our LithoData Premium, or have a rental model if we think there is value.
+
+[lithodata_private_security_upgrades]
+Need vinko or moritz to figure this out - most major companies must have SSO for security.
+
+[lithodata_private_contractual_updates]
+Would need secure contracts between both parties - we cant be blamed for them making data public - perhaps there is no way to make data public without discussing with us.
+
+[lithodata_private_technology_upgrades]
+We would need to consider if we are allowed to backup private data into our backups? We will need to i guess.
+
+[lithodata_private_manual_cleaning_explanation]
+I think simply we need to know the data quality before we can price? but in the end we have a per day rate for LithoClean
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Wayne Noble (@wayne)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 9:47:58 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 9:47:58 PM
+
+RESPONSES:
+----------
+
+[lithodata_free_sources]
+Any public data already in the platform.  
+Perhaps some targeted data sets to keep users coming back (this needs to be advertised "new data from xxx now loaded". 
+Data from Earthbank by default will public (after publication).
+
+
+[lithodata_implementation]
+[
+  {
+    "time": "1-3 months",
+    "change": "new inteface"
+  },
+  {
+    "time": "1-3 months",
+    "change": "payment gateway ??"
+  },
+  {
+    "time": "2-4 weeks",
+    "change": "Legals and rules for selling"
+  },
+  {
+    "time": "2-4 weeks",
+    "change": "New improved interface for setting price and loading sellable data "
+  }
+]
+
+[lithodata_premium_pricing]
+I don't know 
+I think it needs to be priced in a way that it is tempting, if it is too high people will mine it themselves (assuming it is publicly available).  But some data we may just have.
+With the advent of better AI agents this product may disappear as it is cheaper to get a agent to fetch it.  At that stage most data will be public and it may have reduced value in our system.
+This is where additional features in the platforms may get users to go this path.
+
+
+[lithodata_private_formats]
+All the ones we currently have and any others as they come available (ai may be helpful here in rapid development).  We need some AI help here
+I think making all this dynamic is going to be ideal.
+ 
+
+[lithodata_additional_notes]
+Data quality is an interesting one - how much say do we / should we have in the data that is sold - is it sold as is or is it required that a standard be met.
+Are we just looking at new data or can someone sell a comilation of already existing data/public data.
+Can someone sell data we allow for free?
+
+
+[lithodata_premium_concerns]
+I think people may want all data from a region regardless of type.  I think giving " "Gold Geochemistry" for "Western Australia"" may mean work to filter and curate the data so we should not get too bespoked.  
+
+[lithodata_premium_agreement]
+Partially - needs refinement
+
+[lithodata_premium_inventory]
+I am sure you have it all
+GC, FT, UTHe, Vit, Isotopes, ArAr, UPb, Thermal histories, samples, moon and mars geochemistry
+I think this is infinitely expandable
+
+
+
+[lithodata_private_ux_upgrades]
+a commercial data portal or some way to display paid data in interface.
+a payment portal (hand off) or at least a way of invoicing or inquiring 
+a more complete way of adding and then pricing data for sellers
+
+[lithodata_structure_agreement]
+Yes - this structure makes sense
+
+[lithodata_commercial_agreement]
+Yes - this makes sense
+
+[lithodata_private_manual_cleaning]
+Combination of pricing models
+
+[lithodata_commercial_implementation]
+I think this is great.
+It will be interesting writing up the legals - can we sell this again??
+We will need to create a viewing engine.
+
+
+[lithodata_private_security_upgrades]
+I think data can be kept private now but any additional security will of course be welcomed - esp certifications.  
+making sure the API is secure would be a task for a white hat hacker
+
+[lithodata_private_contractual_updates]
+agreements with how the data is stored and retained, what happens to the data after, can we use it in our AI models???
+
+[lithodata_private_technology_upgrades]
+regional instances of AWS?
+implement the raspberryPi back up strategy
+
+
+[lithodata_private_manual_cleaning_explanation]
+I think it sometimes it makes sense to have a per hour price or a per point price.
+But I am sure that people will like to have a once off costing.
+
+
+
+
+##########################################################################
+# LITHOSURFER: THREE-TIER PRODUCT STRATEGY
+# Slug: lithosurfer
+##########################################################################
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Fabian Kohlmann (@fabian)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 4:10:41 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 4:10:41 PM
+
+RESPONSES:
+----------
+
+[lithosurfer_pro_price]
+$2,500 - $5,000
+
+[lithosurfer_pro_tools]
+Yes, I would include extra software and tools such as full plate reconstruction. Mayube also reconstruction as a servbice so thay they can reconstruct data without uploading, LithoChem for sure replacing IoGAS. Other special tools such as our new multi thermochronometer tool and other things we develop and keep for extra only...Fata discounts I don;t think makes sense here. Our data packages should always come with a number of licences anyway, so in case someopne subscribes for a data package we shoollud always include at least 1 to 3 licencens per data type subscribed to...
+
+[lithosurfer_free_tools]
+No API access is kind of not true as it has open REST APIs, but they wean't get the documentation and support. They most likely won't know about the API anyway....SHould be able to upload public data. but NOT Private data. Yes restrict tool but with PREVIEW so to tempt them to then buy next level. 
+
+[lithosurfer_implementation]
+[
+  {
+    "time": "",
+    "change": "Not sure. More for Mortiz and Wayne"
+  },
+  {
+    "time": "",
+    "change": ""
+  }
+]
+
+[lithosurfer_pro_data_limit]
+Depends I would say. Normal data upload hardly takes space, images will take a lot of space. So normal data I don;t know 100K samples? 10GB images or voluime in total. Can be expanded if needed...
+
+[lithosurfer_tier_agreement]
+Yes - this structure makes sense
+
+[lithosurfer_additional_notes]
+Not sure if the naming is good enough,. We have to be careful with Enterprise maybe. For example I think gov organisations may not like that too much. But maybe doenst matter actually! We have to keep in minf that most big companies have their very well established data management systems already in place, such as Acquire for all drill hole data, sample and also the geochem assay data. Or GeoBank from Micromine. We would just need to make sure that we don;t want to change things as our LithoSurfer adds to it and actually helps bringing all that data together and makes it usable and ML ready etc...
+
+[lithosurfer_enterprise_price]
+$50,000 - $100,000
+
+[lithosurfer_enterprise_features]
+LithoClean and Lithomine credits are good idea, just needd to be a reasonable amount. We also have to keep in mind that enterprise is not easy for big organisations as they usually buy tools per department or t eam, as they often have seperate budgets. Meaning we could sell to multiple teams if they need. Ideally yes, just one ENterrpise one, just not sure how doable that will be. Unliumited data for that price may also not be ideal. We would still need to put a reasonable limit in place. imagine they start uploading PTs of data, that will cost us more than what we get from them by far... All porices always have to be in USD anyway. Custom Skin cool! Maybe bigger discounts for data subscriptions. UNlimited support. Requests for indvidual, coporate dashboards etc...
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Keith Dimech (@keith)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 12:33:43 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 12:33:43 PM
+
+RESPONSES:
+----------
+
+[lithosurfer_pro_price]
+$7,500 - $10,000
+
+[lithosurfer_pro_tools]
+Most of our common tools are available. Restrictions for lithochem usage. Restrictions for the amount of private data. They upload one reconstruction model or a timer based how much time they spend on reconstruction models as we add more tools we can view or review that.
+
+[lithosurfer_free_tools]
+Anyone can access the surfer Free they will be able to see all the free data basically from AGN or any other Leather data free that we upload or our customers upload that is open source. They will be able to see the tools that we have such as swath to graphical analysis or lithochem but they won't be able to access them. They will get a banner or similar saying upgrade to pro no API access and definitely no private data.
+
+[lithosurfer_tier_concerns]
+This is obviously my design for Leather surfer. I believe that it has great potential but there are many snags and development changes that we will need to implement my concern is that we are not aligned and it will not be implemented as we agree upon or there will be conflict so hence we are doing this quiz.
+
+[lithosurfer_implementation]
+[
+  {
+    "time": "2-4 weeks",
+    "change": "Front End Changes for UX - customers to know the levels of access"
+  },
+  {
+    "time": "1-3 months",
+    "change": "Data must be displayed as data type or region."
+  },
+  {
+    "time": "1-3 months",
+    "change": "Packages remain in the backend as the primary collection model for the data i.e this is basically the project or the paper or the activity in which the starter is collected for that is the package but it will be within a data time or a data region. Packages removed as the viewer of the data"
+  },
+  {
+    "time": "1-3 months",
+    "change": "Adding a checkout feature to take payments"
+  },
+  {
+    "time": "1-3 months",
+    "change": "Adding in the gallery view or the preview of what data is available to purchase either our premium lethal data or customers commercial data"
+  },
+  {
+    "time": "1-3 months",
+    "change": "Single sign on and multi factor authentication enabled"
+  }
+]
+
+[lithosurfer_pro_data_limit]
+Sample restrictions package restrictions and gigabyte restrictions for images etc
+
+[lithosurfer_tier_agreement]
+Partially - agree with concept but needs refinement
+
+[lithosurfer_additional_notes]
+Biggest concern for me is that it is functional to start so I would want to get real customers to do trials and potentially get access and find bugs on our behalf. We could do this for free for them.
+
+The other concern is obviously security and ensuring that we have single sign on or we have multi factor authentication especially with our enterprise customers they will need a single sign on almost certainly.
+
+Very big warnings or a completely different UI to upload private data as opposed to public we never want to risk accidentally making our private customers data public
+
+[lithosurfer_enterprise_price]
+$50,000 - $100,000
+
+[lithosurfer_enterprise_features]
+Enterprise will always be specific to the user and their needs. Most enterprise set up will include Build build hours such as putting new skins on building automated ingestion tools for data types. Enterprise comes with a certain amount of billable hours for cleaning services. The example is if they've got reams of data they want cleaned and inserted as private data we can do that for them. Enterprise customers can share between their organisation. Enterprise customers can also get access to mining credits for LithoDat to go and find out they might wa.
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Moritz Theile (@moritz)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 6:21:05 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 6:21:05 PM
+
+RESPONSES:
+----------
+
+[lithosurfer_pro_price]
+$1,000 - $2,500
+
+[lithosurfer_pro_tools]
+This is quite flexible to manage via our licenses. 
+
+[lithosurfer_free_tools]
+As described above. 
+
+[lithosurfer_tier_concerns]
+Paritally the tiers don't reflect how the platform works, e.g. 
+
+'LithoSurfer Free': there is no restriction on private data upload or API use.
+
+'LithoSurfer PRO': what is automated LithoClean? There is no quota.
+
+'LithoSurfer ENTERPRISE': We have CSIRO and EarthBank on this level. They get their own portal and can have a community. A community is a group of institutions. They share e.g. a DOI prefix (AG for EarthChem).
+
+By now we have three tiers for private users, single institutions and multiple institutions.
+
+
+[lithosurfer_implementation]
+[
+  {
+    "time": "",
+    "change": ""
+  }
+]
+
+[lithosurfer_pro_data_limit]
+They don't have any. 
+
+[lithosurfer_tier_agreement]
+Partially - agree with concept but needs refinement
+
+[lithosurfer_additional_notes]
+We should perform a deep review of the system before defining the final products so the products align with what we have. 
+
+[lithosurfer_enterprise_price]
+Custom quotes only
+
+[lithosurfer_enterprise_features]
+Portal, multi institution set up, DOI minting
+
+
+
+--------------------------------------------------------------------------
+RESPONDENT: Wayne Noble (@wayne)
+--------------------------------------------------------------------------
+Submitted: 11/4/2025, 9:18:32 PM
+Completed: ✅ Yes
+Last Updated: 11/4/2025, 9:18:32 PM
+
+RESPONSES:
+----------
+
+[lithosurfer_pro_price]
+$2,500 - $5,000
+
+[lithosurfer_pro_tools]
+access to API, Paleo plate reconstructions, Contouring, swath profiles complex graphing, multi filter, custom layers, preferences and custom bookmarks.
+Some data load support and tech support.  
+API access but on a throttle for speed or requests
+I think the price can be flexible (lower that I suggest as the jump up may be just about API use and data storage)
+As mentioned some are these are already free so we need a strategy to roll them out or advance them.
+
+
+[lithosurfer_free_tools]
+I think just the base tools like view data and a basic dashboard.
+However what we need to consider is that we make some of these features free to use already so we would have to roll these back out of the free version of make more complex versions of the features to make the next tier interesting.
+
+
+[lithosurfer_implementation]
+[
+  {
+    "time": "3+ months",
+    "change": "AI integration for LLM and dynamic creation of content"
+  },
+  {
+    "time": "1-3 months",
+    "change": "API changes to allow different levels of access "
+  },
+  {
+    "time": "1-3 months",
+    "change": "New tools or advancing tools"
+  },
+  {
+    "time": "1-3 months",
+    "change": "Making the changes to allow different clearly defined versions, UX, design login and routing changes"
+  },
+  {
+    "time": "2-4 weeks",
+    "change": "Any licensing change needed to support the changes in version "
+  },
+  {
+    "time": "1-3 months",
+    "change": "Design updates to all versions and modenizing of the UI "
+  }
+]
+
+[lithosurfer_pro_data_limit]
+limits are not really a constrain so these can be generous.  But perhaps limits via data type ?  
+
+[lithosurfer_tier_agreement]
+Yes - this structure makes sense
+
+[lithosurfer_additional_notes]
+We don't know how to do AI and how we would use it
+Features that should/would be pro are already available free - how do we progress this
+The outside perception in some parts of the academic community see us as a entity just after making a profit (of course) and taking care not to shut out these users from the software / free data
+The Earthbank site and the fact that it already contains a rich feature list
+
+[lithosurfer_enterprise_price]
+$50,000 - $100,000
+
+[lithosurfer_enterprise_features]
+I think the price is a base and then a conversation.  Some companies like BHP may need special features or additional limits to data and access (like a on premise version).
+I think all the features we can think of.  There are lots of UI/Graphical tools we can add such as integration AI in LLM searching and questioning, dynamic dashboard, I think access to suggesting data to be mined.  I think this is where the use of AI can shine - and some of these features may have components that roll down to lower versions to act as a upgrade temptation.  Although the only real upgrade path is from free to Pro as the jump up to enterprise is too big.  So the pricing of Pro should reflect a jump that is not to great for users to be tempted.
+
+
+
+==========================================================================
+SUMMARY - WHO HAS RESPONDED TO WHAT
+==========================================================================
+
+RESPONDENT      | LithoSurfer | LithoData | LithoBuild
+----------------|-------------|-----------|------------
+keith           | ✅ Complete   | ⚠️  Draft      | ✅ Complete  
+fabian          | ✅ Complete   | ✅ Complete   | ✅ Complete  
+wayne           | ✅ Complete   | ✅ Complete   | ✅ Complete  
+moritz          | ✅ Complete   | ❌ No response | ❌ No response
+vinko           | ❌ No response | ❌ No response | ❌ No response
+
+==========================================================================
+
+
+
+✅ Full report saved to: ./action1-detailed-responses.txt
+

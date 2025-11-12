@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Submit</title>
+</head>
+<body>
+    <h1>Test Action 2 Response Submit</h1>
+    <button onclick="testSubmit()">Test Submit</button>
+    <button onclick="testAutoSave()">Test Auto-Save</button>
+    <pre id="result"></pre>
+
+    <script>
+        const actionId = 'cmhieb06b000ls4ejf5pyz8mp';
+
+        async function testAutoSave() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Testing auto-save (PATCH)...';
+
+            try {
+                const response = await fetch(`/api/actions/${actionId}/responses`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        responses: { q1_headcount: '30-50' },
+                        completed: false
+                    }),
+                });
+
+                const data = await response.json();
+                resultEl.textContent = `Status: ${response.status}\n` +
+                    `Response: ${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                resultEl.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function testSubmit() {
+            const resultEl = document.getElementById('result');
+            resultEl.textContent = 'Testing submit (PATCH with completed=true)...';
+
+            try {
+                const response = await fetch(`/api/actions/${actionId}/responses`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        responses: { q1_headcount: '30-50', q1_why: 'Test update' },
+                        completed: true
+                    }),
+                });
+
+                const data = await response.json();
+                resultEl.textContent = `Status: ${response.status}\n` +
+                    `Response: ${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                resultEl.textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

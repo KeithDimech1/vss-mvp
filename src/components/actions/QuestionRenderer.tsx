@@ -641,6 +641,68 @@ export default function QuestionRenderer({
           </div>
         );
 
+      case 'selectable_tags':
+        const currentValue = value || '';
+        const selectedTags = currentValue
+          .split(',')
+          .map((t: string) => t.trim())
+          .filter((t: string) => t);
+
+        const toggleTag = (tag: string) => {
+          let newTags: string[];
+          if (selectedTags.includes(tag)) {
+            // Remove tag
+            newTags = selectedTags.filter((t: string) => t !== tag);
+          } else {
+            // Add tag
+            newTags = [...selectedTags, tag];
+          }
+          // Join back to comma-separated string
+          handleChange(newTags.join(', '));
+        };
+
+        return (
+          <div className="space-y-3">
+            <p className="text-sm text-gray-600">
+              Click tags to select features:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {question.options?.map((option) => {
+                const optionLabel = typeof option === 'string' ? option : option.label || option.value;
+                const isSelected = selectedTags.includes(optionLabel);
+
+                return (
+                  <button
+                    key={optionLabel}
+                    type="button"
+                    onClick={() => toggleTag(optionLabel)}
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      isSelected
+                        ? 'bg-[#1B4332] text-white hover:bg-[#2D5F4A]'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+                    }`}
+                  >
+                    {optionLabel}
+                    {isSelected && <span className="ml-1">✓</span>}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-3">
+              <textarea
+                value={currentValue}
+                onChange={(e) => handleChange(e.target.value)}
+                placeholder="Selected features will appear here (or you can type manually)"
+                rows={3}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y text-sm"
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                You can also manually edit the text above if needed.
+              </p>
+            </div>
+          </div>
+        );
+
       default:
         return (
           <div className="text-red-500">

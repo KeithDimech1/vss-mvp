@@ -56,6 +56,50 @@ export default function ConsensusBuilder({
     setSaveError(null);
   }, []);
 
+  // Get inherited selections for cascade logic (Free → Pro → Enterprise)
+  const getInheritedSelections = useCallback((question: ActionQuestion): string[] => {
+    if (!question.inheritSelectionsFrom || question.inheritSelectionsFrom.length === 0) {
+      return [];
+    }
+
+    const inherited: string[] = [];
+    for (const sourceQuestionId of question.inheritSelectionsFrom) {
+      const sourceValue = consensusData[sourceQuestionId];
+      if (typeof sourceValue === 'string' && sourceValue.trim()) {
+        // Split by comma and trim each item
+        const items = sourceValue.split(',').map(item => item.trim()).filter(item => item);
+        inherited.push(...items);
+      } else if (Array.isArray(sourceValue)) {
+        inherited.push(...sourceValue);
+      }
+    }
+
+    // Remove duplicates
+    return Array.from(new Set(inherited));
+  }, [consensusData]);
+
+  // Toggle tag selection for selectable_tags question type
+  const toggleTagSelection = useCallback((questionId: string, tag: string) => {
+    const currentValue = consensusData[questionId] || '';
+    const currentTags = currentValue
+      .split(',')
+      .map(t => t.trim())
+      .filter(t => t);
+
+    let newTags: string[];
+    if (currentTags.includes(tag)) {
+      // Remove tag
+      newTags = currentTags.filter(t => t !== tag);
+    } else {
+      // Add tag
+      newTags = [...currentTags, tag];
+    }
+
+    // Join back to comma-separated string
+    const newValue = newTags.join(', ');
+    handleConsensusChange(questionId, newValue);
+  }, [consensusData, handleConsensusChange]);
+
   // Toggle question expansion
   const toggleQuestion = (questionId: string) => {
     setExpandedQuestions(prev => {
@@ -381,13 +425,79 @@ export default function ConsensusBuilder({
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Consensus Decision:
                             </label>
+
+                            {/* Selectable Tags for selectable_tags question type */}
+                            {question.type === 'selectable_tags' && question.options && (
+                              <div className="mb-3">
+                                <p className="text-xs text-gray-600 mb-2">
+                                  Click tags to add them to the decision:
+                                </p>
+                                <div className="flex flex-wrap gap-2 mb-3">
+                                  {(() => {
+                                    const options = Array.isArray(question.options)
+                                      ? question.options.map(opt =>
+                                          typeof opt === 'string' ? opt : opt.label || opt.value
+                                        )
+                                      : [];
+                                    const inheritedSelections = getInheritedSelections(question);
+                                    const currentValue = consensusData[question.id] || '';
+                                    const selectedTags = currentValue
+                                      .split(',')
+                                      .map(t => t.trim())
+                                      .filter(t => t);
+
+                                    return options.map((option) => {
+                                      const isInherited = inheritedSelections.includes(option);
+                                      const isSelected = selectedTags.includes(option) || isInherited;
+                                      const isDisabled = isInherited;
+
+                                      return (
+                                        <button
+                                          key={option}
+                                          type="button"
+                                          onClick={() => !isDisabled && toggleTagSelection(question.id, option)}
+                                          disabled={isDisabled}
+                                          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                                            isSelected
+                                              ? isInherited
+                                                ? 'bg-gray-400 text-white cursor-not-allowed'
+                                                : 'bg-[#1B4332] text-white hover:bg-[#2D5F4A]'
+                                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+                                          }`}
+                                          title={isInherited ? 'Automatically included from previous tier' : ''}
+                                        >
+                                          {option}
+                                          {isSelected && (
+                                            <span className="ml-1">
+                                              {isInherited ? '🔒' : '✓'}
+                                            </span>
+                                          )}
+                                        </button>
+                                      );
+                                    });
+                                  })()}
+                                </div>
+                                {getInheritedSelections(question).length > 0 && (
+                                  <p className="text-xs text-gray-500 italic mb-2">
+                                    🔒 = Automatically included from previous tier
+                                  </p>
+                                )}
+                              </div>
+                            )}
+
                             <textarea
                               value={consensusData[question.id] || ''}
                               onChange={(e) => handleConsensusChange(question.id, e.target.value)}
                               placeholder="Enter the agreed-upon decision or consensus for this question..."
                               rows={3}
                               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
+                              readOnly={question.type === 'selectable_tags'}
                             />
+                            {question.type === 'selectable_tags' && (
+                              <p className="text-xs text-gray-500 mt-1">
+                                Selected tags are automatically added above. You can manually edit if needed.
+                              </p>
+                            )}
                           </div>
                         </div>
                       )}
