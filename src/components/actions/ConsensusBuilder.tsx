@@ -83,13 +83,13 @@ export default function ConsensusBuilder({
     const currentValue = consensusData[questionId] || '';
     const currentTags = currentValue
       .split(',')
-      .map(t => t.trim())
-      .filter(t => t);
+      .map((t: string) => t.trim())
+      .filter((t: string) => t);
 
     let newTags: string[];
     if (currentTags.includes(tag)) {
       // Remove tag
-      newTags = currentTags.filter(t => t !== tag);
+      newTags = currentTags.filter((t: string) => t !== tag);
     } else {
       // Add tag
       newTags = [...currentTags, tag];
@@ -443,8 +443,8 @@ export default function ConsensusBuilder({
                                     const currentValue = consensusData[question.id] || '';
                                     const selectedTags = currentValue
                                       .split(',')
-                                      .map(t => t.trim())
-                                      .filter(t => t);
+                                      .map((t: string) => t.trim())
+                                      .filter((t: string) => t);
 
                                     return options.map((option) => {
                                       const isInherited = inheritedSelections.includes(option);
