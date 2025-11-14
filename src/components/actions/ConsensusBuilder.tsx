@@ -65,11 +65,18 @@ export default function ConsensusBuilder({
     const inherited: string[] = [];
     for (const sourceQuestionId of question.inheritSelectionsFrom) {
       const sourceValue = consensusData[sourceQuestionId];
-      if (typeof sourceValue === 'string' && sourceValue.trim()) {
-        // Split by comma and trim each item
+
+      // Handle new format: {selectedTags: [], notes: ''}
+      if (sourceValue && typeof sourceValue === 'object' && Array.isArray(sourceValue.selectedTags)) {
+        inherited.push(...sourceValue.selectedTags);
+      }
+      // Handle legacy string format
+      else if (typeof sourceValue === 'string' && sourceValue.trim()) {
         const items = sourceValue.split(',').map(item => item.trim()).filter(item => item);
         inherited.push(...items);
-      } else if (Array.isArray(sourceValue)) {
+      }
+      // Handle array format
+      else if (Array.isArray(sourceValue)) {
         inherited.push(...sourceValue);
       }
     }
@@ -80,11 +87,8 @@ export default function ConsensusBuilder({
 
   // Toggle tag selection for selectable_tags question type
   const toggleTagSelection = useCallback((questionId: string, tag: string) => {
-    const currentValue = consensusData[questionId] || '';
-    const currentTags = currentValue
-      .split(',')
-      .map((t: string) => t.trim())
-      .filter((t: string) => t);
+    const currentData = consensusData[questionId] || { selectedTags: [], notes: '' };
+    const currentTags = Array.isArray(currentData.selectedTags) ? currentData.selectedTags : [];
 
     let newTags: string[];
     if (currentTags.includes(tag)) {
@@ -95,8 +99,21 @@ export default function ConsensusBuilder({
       newTags = [...currentTags, tag];
     }
 
-    // Join back to comma-separated string
-    const newValue = newTags.join(', ');
+    // Store as object with selectedTags and notes
+    const newValue = {
+      selectedTags: newTags,
+      notes: currentData.notes || ''
+    };
+    handleConsensusChange(questionId, newValue);
+  }, [consensusData, handleConsensusChange]);
+
+  // Update notes for selectable_tags question type
+  const updateTagNotes = useCallback((questionId: string, notes: string) => {
+    const currentData = consensusData[questionId] || { selectedTags: [], notes: '' };
+    const newValue = {
+      selectedTags: Array.isArray(currentData.selectedTags) ? currentData.selectedTags : [],
+      notes: notes
+    };
     handleConsensusChange(questionId, newValue);
   }, [consensusData, handleConsensusChange]);
 
@@ -183,6 +200,21 @@ export default function ConsensusBuilder({
   // Format response for display
   const formatResponse = (question: ActionQuestion, value: any): string => {
     if (value === undefined || value === null || value === '') {
+      return '—';
+    }
+
+    // Handle selectable_tags format: {selectedTags: [], notes: ''}
+    if (question.type === 'selectable_tags' && typeof value === 'object' && value.selectedTags) {
+      const tags = Array.isArray(value.selectedTags) ? value.selectedTags.join(', ') : '';
+      const notes = value.notes || '';
+
+      if (tags && notes) {
+        return `${tags}\n${notes}`;
+      } else if (tags) {
+        return tags;
+      } else if (notes) {
+        return notes;
+      }
       return '—';
     }
 
@@ -422,17 +454,16 @@ export default function ConsensusBuilder({
 
                           {/* Consensus Input */}
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              Consensus Decision:
-                            </label>
-
-                            {/* Selectable Tags for selectable_tags question type */}
-                            {question.type === 'selectable_tags' && question.options && (
-                              <div className="mb-3">
+                            {question.type === 'selectable_tags' && question.options ? (
+                              // Selectable Tags with separate notes field
+                              <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                  Select Consensus Items:
+                                </label>
                                 <p className="text-xs text-gray-600 mb-2">
-                                  Click tags to add them to the decision:
+                                  Click tags to select consensus items:
                                 </p>
-                                <div className="flex flex-wrap gap-2 mb-3">
+                                <div className="flex flex-wrap gap-2 mb-4">
                                   {(() => {
                                     const options = Array.isArray(question.options)
                                       ? question.options.map(opt =>
@@ -440,11 +471,8 @@ export default function ConsensusBuilder({
                                         )
                                       : [];
                                     const inheritedSelections = getInheritedSelections(question);
-                                    const currentValue = consensusData[question.id] || '';
-                                    const selectedTags = currentValue
-                                      .split(',')
-                                      .map((t: string) => t.trim())
-                                      .filter((t: string) => t);
+                                    const currentData = consensusData[question.id] || { selectedTags: [], notes: '' };
+                                    const selectedTags = Array.isArray(currentData.selectedTags) ? currentData.selectedTags : [];
 
                                     return options.map((option) => {
                                       const isInherited = inheritedSelections.includes(option);
@@ -478,25 +506,58 @@ export default function ConsensusBuilder({
                                   })()}
                                 </div>
                                 {getInheritedSelections(question).length > 0 && (
-                                  <p className="text-xs text-gray-500 italic mb-2">
+                                  <p className="text-xs text-gray-500 italic mb-3">
                                     🔒 = Automatically included from previous tier
                                   </p>
                                 )}
-                              </div>
-                            )}
 
-                            <textarea
-                              value={consensusData[question.id] || ''}
-                              onChange={(e) => handleConsensusChange(question.id, e.target.value)}
-                              placeholder="Enter the agreed-upon decision or consensus for this question..."
-                              rows={3}
-                              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
-                              readOnly={question.type === 'selectable_tags'}
-                            />
-                            {question.type === 'selectable_tags' && (
-                              <p className="text-xs text-gray-500 mt-1">
-                                Selected tags are automatically added above. You can manually edit if needed.
-                              </p>
+                                {/* Show selected tags summary */}
+                                {(() => {
+                                  const currentData = consensusData[question.id] || { selectedTags: [], notes: '' };
+                                  const selectedTags = Array.isArray(currentData.selectedTags) ? currentData.selectedTags : [];
+                                  const inheritedSelections = getInheritedSelections(question);
+                                  const allSelected = [...new Set([...inheritedSelections, ...selectedTags])];
+
+                                  if (allSelected.length > 0) {
+                                    return (
+                                      <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                                        <p className="text-xs font-semibold text-green-800 mb-1">Selected Items:</p>
+                                        <p className="text-sm text-green-900">{allSelected.join(', ')}</p>
+                                      </div>
+                                    );
+                                  }
+                                  return null;
+                                })()}
+
+                                {/* Additional Notes */}
+                                <label className="block text-sm font-semibold text-gray-700 mb-2 mt-4">
+                                  Additional Notes / Context:
+                                </label>
+                                <textarea
+                                  value={(() => {
+                                    const currentData = consensusData[question.id] || { selectedTags: [], notes: '' };
+                                    return currentData.notes || '';
+                                  })()}
+                                  onChange={(e) => updateTagNotes(question.id, e.target.value)}
+                                  placeholder="Add any additional context, details, or notes about this consensus decision..."
+                                  rows={3}
+                                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
+                                />
+                              </div>
+                            ) : (
+                              // Regular textarea for non-selectable_tags questions
+                              <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                  Consensus Decision:
+                                </label>
+                                <textarea
+                                  value={consensusData[question.id] || ''}
+                                  onChange={(e) => handleConsensusChange(question.id, e.target.value)}
+                                  placeholder="Enter the agreed-upon decision or consensus for this question..."
+                                  rows={3}
+                                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C9A961] focus:border-transparent resize-y"
+                                />
+                              </div>
                             )}
                           </div>
                         </div>
