@@ -1,5 +1,9 @@
-import "dotenv/config";
+import { config } from "dotenv";
 import { defineConfig, env } from "prisma/config";
+
+// Load .env.local first (higher priority), then .env
+config({ path: ".env.local" });
+config({ path: ".env" });
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
@@ -9,5 +13,6 @@ export default defineConfig({
   engine: "classic",
   datasource: {
     url: env("DATABASE_URL"),
+    directUrl: env("DIRECT_URL"),
   },
 });

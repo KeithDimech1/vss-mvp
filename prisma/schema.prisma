@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -21,6 +22,18 @@ model User {
   createdAt       DateTime         @default(now())
   assessments     Assessment[]
   actionResponses ActionResponse[]
+
+  // Finance Dashboard Relations
+  assignedTasks   FinanceTask[]    @relation("AssignedTasks")
+  createdTasks    FinanceTask[]    @relation("CreatedTasks")
+  completedTasks  FinanceTask[]    @relation("CompletedTasks")
+  financeComments FinanceComment[] @relation("FinanceComments")
+  monthEndSummaries MonthEndSummary[] @relation("PreparedSummaries")
+
+  // HR Review Relations
+  feedbackSurvey  HRFeedbackSurvey? @relation("FeedbackSurveys")
+  goalSetting     HRGoalSetting?    @relation("GoalSettings")
+  interviewNotes  HRInterviewNote[] @relation("InterviewNotes")
 }
 
 enum Role {
@@ -160,4 +173,202 @@ model DataExtractionResearch {
   updatedAt DateTime @updatedAt
 
   @@unique([userId, processId]) // One set of research answers per user per process
+}
+
+// Finance Dashboard Models
+model FinanceTask {
+  id              String         @id @default(cuid())
+  title           String         // "Run payroll"
+  description     String?        // Full instructions
+  category        TaskCategory   // CRITICAL, DAILY, WEEKLY, MONTH_END
+  priority        TaskPriority   // HIGH, MEDIUM, LOW
+  dueDate         DateTime       // Specific date or relative (Day 3)
+  recurringRule   String?        // "MONTHLY_DAY_3", "WEEKLY_FRIDAY"
+  status          TaskStatus     @default(PENDING)
+  assignedToId    String?
+  assignedTo      User?          @relation("AssignedTasks", fields: [assignedToId], references: [id])
+  createdById     String
+  createdBy       User           @relation("CreatedTasks", fields: [createdById], references: [id])
+  completedAt     DateTime?
+  completedById   String?
+  completedBy     User?          @relation("CompletedTasks", fields: [completedById], references: [id])
+  comments        FinanceComment[]
+
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+enum TaskCategory {
+  CRITICAL        // Payroll, month-end deadlines
+  DAILY           // Dext checks
+  WEEKLY          // Bill payments
+  MONTH_END       // Final reconciliation
+  CUSTOM          // User-added tasks
+}
+
+enum TaskPriority {
+  HIGH            // Must complete today
+  MEDIUM          // Complete this week
+  LOW             // Complete this month
+}
+
+enum TaskStatus {
+  PENDING         // Not started
+  IN_PROGRESS     // Currently working on
+  COMPLETED       // Done
+  SNOOZED         // Postponed
+  OVERDUE         // Missed deadline
+}
+
+model FinanceComment {
+  id              String        @id @default(cuid())
+  content         String
+  taskId          String
+  task            FinanceTask   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  authorId        String
+  author          User          @relation("FinanceComments", fields: [authorId], references: [id])
+
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model FinanceMetric {
+  id                    String    @id @default(cuid())
+  date                  DateTime  @default(now())
+  month                 DateTime  // First day of the month for grouping
+  dextPublished         Int       // Number of items published
+  dextTotal             Int       // Total items in Dext
+  unreconciledLines     Int       // Bank lines not reconciled
+  unreconciledOld       Int       // Lines >5 days old
+  billsPaid             Int
+  billsDueThisWeek      Int
+  payrollCompleted      Boolean
+
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([month])
+}
+
+model MonthEndSummary {
+  id                  String    @id @default(cuid())
+  month               DateTime  // First day of the month
+  totalSpend          Decimal
+  spendByCategory     Json      // { payroll: 50000, software: 5000, ... }
+  variances           Json      // { category: variance, ... }
+  cashBalance         Decimal
+  upcomingExpenses    Json      // [{ expense, amount, dueDate }, ...]
+  issues              String?   // Freeform text
+  preparedById        String
+  preparedBy          User      @relation("PreparedSummaries", fields: [preparedById], references: [id])
+
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([month])
+}
+
+// HR Review System Models
+// Stores employee feedback survey responses (from Employee_Feedback_Survey_2025.csv)
+model HRFeedbackSurvey {
+  id              String   @id @default(cuid())
+  userId          String   // Link to User model
+  user            User     @relation("FeedbackSurveys", fields: [userId], references: [id])
+  timestamp       DateTime // Original survey submission timestamp
+
+  // Work Engagement Questions
+  enjoyedPart         String?  @db.Text // What's one part of your workweek you always enjoy?
+  lessOfPart          String?  @db.Text // What's one part you could happily do less of?
+  autonomyRating      Int?              // How much autonomy do you feel in your work? (1-10)
+  motivationRating    Int?              // How motivated do you feel starting the average workweek? (1-10)
+  teamConnection      Int?              // How connected do you feel to your team? (1-10)
+  wideLithodatConnection Int?           // How connected do you feel to the wider Lithodat Team? (1-10)
+  supportRating       Int?              // How supported do you feel in your day-to-day work? (1-10)
+
+  // Achievement & Recognition
+  proudAchievement    String?  @db.Text // What's something you've achieved this year that you're proud of?
+  wishRecognised      String?  @db.Text // What's one thing you wish more people recognised about your work?
+
+  // Tools & Collaboration
+  toolsEffectiveness  Int?              // How effective do you feel the technological tools you use daily are? (1-10)
+  collaborationEase   Int?              // How easy is it to collaborate across Lithodat's teams or functions? (1-10)
+  toolsUsed           String?  @db.Text // What tools or platforms do you use regularly?
+  aiUsageWorkflow     String?  @db.Text // How do you use AI assistants? Have you developed any workflows?
+  aiToolsToExplore    String?  @db.Text // Are there AI tools, workflows or software you'd like to explore?
+
+  // Process Improvement
+  inefficiencies      String?  @db.Text // Is there anything in the way we work that feels inefficient?
+  toolsCreated        String?  @db.Text // Have you developed any tools, scripts, or processes?
+  externalLearnings   String?  @db.Text // Is there something you've learned or experienced outside of Lithodat?
+
+  // Career Development
+  careerPathClarity   Int?              // How clear are you on your potential career path within the company? (1-10)
+  skillDevelopmentSupport Int?          // How supported do you feel in learning or developing new skills? (1-10)
+  skillToGrow         String?  @db.Text // What's a skill you'd like to grow or deepen this year?
+  rolesInterested     String?  @db.Text // Are there any roles, positions, or areas you're curious about?
+  growthSupport       String?  @db.Text // What would help you feel more encouraged or supported in your growth?
+
+  // Vision & Goals
+  greatYearVision     String?  @db.Text // In a sentence or two: What would a great year ahead look like for you?
+  excitedProjects     String?  @db.Text // Are there specific types of projects you'd be excited to tackle?
+  smallGoals          String?  @db.Text // What's one or two small goals or directions you'd love to explore?
+  additionalSharing   String?  @db.Text // Is there anything else you'd like to share?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([userId]) // One survey response per user
+  @@index([userId])
+}
+
+// Stores employee goal setting responses (from Annual Goal Setting form)
+model HRGoalSetting {
+  id                  String   @id @default(cuid())
+  userId              String   // Link to User model
+  user                User     @relation("GoalSettings", fields: [userId], references: [id])
+  timestamp           DateTime // Original form submission timestamp
+
+  // Professional Goals (3 max)
+  professionalGoal1Title       String?  @db.Text
+  professionalGoal1Description String?  @db.Text
+  professionalGoal2Title       String?  @db.Text
+  professionalGoal2Description String?  @db.Text
+  professionalGoal3Title       String?  @db.Text
+  professionalGoal3Description String?  @db.Text
+
+  // Personal Goal (Non-Work Related)
+  personalGoalTitle       String?  @db.Text
+  personalGoalDescription String?  @db.Text
+
+  // Check-in Preferences (multi-select)
+  checkInPreferences  Json?    // Array of strings: ["Mention in 1-on-1 meetings", "Quarterly check-in via email", etc.]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([userId]) // One goal setting response per user
+  @@index([userId])
+}
+
+// Stores employee interview notes (from Interview/ markdown files)
+model HRInterviewNote {
+  id              String   @id @default(cuid())
+  userId          String   // Link to User model
+  user            User     @relation("InterviewNotes", fields: [userId], references: [id])
+  interviewDate   DateTime // Date of the interview
+
+  // Interview Content
+  notes           String   @db.Text // Full markdown content of the interview notes
+  keyThemes       Json?            // Array of key themes extracted from the interview
+  actionItems     Json?            // Array of follow-up action items from the interview
+
+  // Metadata
+  interviewer     String?          // Who conducted the interview
+  interviewType   String?          // "Annual Review", "Performance Review", "Check-in", etc.
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
+  @@index([interviewDate])
 }
