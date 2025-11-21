@@ -595,6 +595,85 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
     }
   }
 
+  // Parse action items from interview notes
+  function parseActionItemsFromNotes(notes: string): string[] {
+    const actionItems: string[] = [];
+    const lines = notes.split('\n');
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+
+      // Look for patterns like:
+      // - **Name:** Will/Should/Must do something
+      // - **Name:** To do something
+      // - - **Name:** Will do something
+      const patterns = [
+        /^-?\s*\*\*([^*]+):\*\*\s+(.+)/,  // Matches: - **Keith Dimech:** Will send...
+        /^\*\*([^*]+):\*\*\s+(.+)/,       // Matches: **Keith Dimech:** Will send...
+      ];
+
+      for (const pattern of patterns) {
+        const match = trimmedLine.match(pattern);
+        if (match) {
+          const actionText = match[2].trim();
+          // Only include if it looks like an action (starts with action words)
+          if (/^(will|should|must|to|needs? to|going to)/i.test(actionText)) {
+            actionItems.push(actionText);
+          }
+          break;
+        }
+      }
+    }
+
+    return actionItems;
+  }
+
+  async function handleImportActionsFromNotes(interview: InterviewNote) {
+    const parsedActions = parseActionItemsFromNotes(interview.notes);
+
+    if (parsedActions.length === 0) {
+      alert('No action items found in the interview notes. Action items should be formatted like:\n\n**Name:** Will do something\n- **Name:** Should complete task');
+      return;
+    }
+
+    const confirmMessage = `Found ${parsedActions.length} action item(s) in the notes:\n\n${parsedActions.map((a, i) => `${i + 1}. ${a}`).join('\n')}\n\nImport these as action items?`;
+
+    if (!confirm(confirmMessage)) {
+      return;
+    }
+
+    try {
+      // Create all action items
+      let successCount = 0;
+      for (const description of parsedActions) {
+        const response = await fetch('/api/hr-action-items', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            description,
+            employeeId: interview.userId,
+            interviewNoteId: interview.id,
+            priority: 'MEDIUM',
+            status: 'PENDING',
+          }),
+        });
+
+        if (response.ok) {
+          successCount++;
+        }
+      }
+
+      if (successCount > 0) {
+        alert(`Successfully imported ${successCount} action item(s)!`);
+        // Refresh action items
+        await fetchActionItems(interview.id);
+      }
+    } catch (error) {
+      console.error('Error importing action items:', error);
+      alert('Failed to import action items');
+    }
+  }
+
   if (data.length === 0) {
     return (
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
@@ -650,12 +729,21 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
             <div className="mt-6 pt-4 border-t border-gray-200">
               <div className="flex items-center justify-between mb-3">
                 <h4 className="font-semibold text-gray-900">Action Items ({interviewActions.length})</h4>
-                <button
-                  onClick={() => setShowAddActionForm(showAddActionForm === interview.id ? null : interview.id)}
-                  className="text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-                >
-                  {showAddActionForm === interview.id ? 'Cancel' : '+ Add Action'}
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleImportActionsFromNotes(interview)}
+                    className="text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                    title="Import action items from interview notes"
+                  >
+                    📥 Import from Notes
+                  </button>
+                  <button
+                    onClick={() => setShowAddActionForm(showAddActionForm === interview.id ? null : interview.id)}
+                    className="text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    {showAddActionForm === interview.id ? 'Cancel' : '+ Add Action'}
+                  </button>
+                </div>
               </div>
 
               {/* Add Action Form */}
