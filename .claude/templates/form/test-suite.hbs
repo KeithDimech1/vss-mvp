@@ -1,0 +1,293 @@
+{{!--
+  Test Suite Template for Form Generation
+
+  This template generates Playwright E2E tests for a form.
+
+  Variables:
+    - formName: PascalCase form name (e.g., "HrReview", "FinanceAssessment")
+    - formSlug: kebab-case form slug (e.g., "hr-review", "finance-assessment")
+    - formTitle: Human-readable title (e.g., "HR Review", "Finance Assessment")
+    - formUrl: URL path to the form (e.g., "/hr-review", "/finance/assessment")
+    - requiresManager: boolean - if true, uses manager credentials for testing
+    - questions: array of question objects (for test data)
+    - createdAt: ISO timestamp
+
+  Generated: {{createdAt}}
+--}}
+import { test, expect } from '@playwright/test';
+
+/**
+ * {{formTitle}} - E2E Test Suite
+ *
+ * Tests the complete user flow for the {{formTitle}} form,
+ * including loading, auto-save, validation, and submission.
+ *
+ * Generated: {{createdAt}}
+ */
+
+// Test configuration
+const FORM_URL = '{{formUrl}}';
+const AUTO_SAVE_INTERVAL = 30000; // 30 seconds
+const FORM_TITLE = '{{formTitle}}';
+
+// Test credentials
+{{#if requiresManager}}
+const TEST_USER = {
+  username: process.env.TEST_MANAGER_USERNAME || 'manager',
+  password: process.env.TEST_MANAGER_PASSWORD || 'password123'
+};
+{{else}}
+const TEST_USER = {
+  username: process.env.TEST_USER_USERNAME || 'testuser',
+  password: process.env.TEST_USER_PASSWORD || 'password123'
+};
+{{/if}}
+
+// Test data for form responses
+const TEST_RESPONSES = {
+{{#each questions}}
+{{#if (eq this.type "text")}}
+  {{this.id}}: 'Test response for {{this.question}}',
+{{else if (eq this.type "textarea")}}
+  {{this.id}}: 'This is a longer test response for the question: {{this.question}}. It contains multiple sentences to simulate real user input.',
+{{else if (eq this.type "radio")}}
+  {{this.id}}: '{{#if this.options}}{{this.options.[0]}}{{else}}Option 1{{/if}}', // First option
+{{else if (eq this.type "checkbox")}}
+  {{this.id}}: [{{#if this.options}}'{{this.options.[0]}}'{{#if this.options.[1]}}, '{{this.options.[1]}}'{{/if}}{{else}}'Option 1', 'Option 2'{{/if}}], // Multiple selections
+{{else if (eq this.type "dropdown")}}
+  {{this.id}}: '{{#if this.options}}{{this.options.[0]}}{{else}}Option 1{{/if}}', // First option
+{{else if (eq this.type "number")}}
+  {{this.id}}: '42',
+{{else if (eq this.type "date")}}
+  {{this.id}}: '2025-12-31',
+{{else}}
+  {{this.id}}: 'Test value',
+{{/if}}
+{{/each}}
+};
+
+/**
+ * Helper function to login before tests
+ */
+async function login(page: any) {
+  await page.goto('/login');
+  await page.fill('input[name="username"]', TEST_USER.username);
+  await page.fill('input[name="password"]', TEST_USER.password);
+  await page.click('button[type="submit"]');
+  await page.waitForURL(/\/(?!login)/); // Wait for redirect away from login
+}
+
+/**
+ * Helper function to fill a question based on type
+ */
+async function fillQuestion(page: any, questionId: string, value: any, type: string) {
+  switch (type) {
+    case 'text':
+    case 'textarea':
+    case 'number':
+    case 'date':
+      await page.fill(`[name="${questionId}"], textarea[value*="${questionId}"], input[value*="${questionId}"]`, String(value));
+      break;
+
+    case 'radio':
+      await page.click(`input[type="radio"][name="${questionId}"][value="${value}"]`);
+      break;
+
+    case 'checkbox':
+      if (Array.isArray(value)) {
+        for (const option of value) {
+          await page.click(`input[type="checkbox"][value="${option}"]`);
+        }
+      }
+      break;
+
+    case 'dropdown':
+      await page.selectOption(`select`, value);
+      break;
+  }
+}
+
+// Test suite
+test.describe('{{formTitle}} Form', () => {
+  test.beforeEach(async ({ page }) => {
+    // Login before each test
+    await login(page);
+  });
+
+  test('should load the form page', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Check page title
+    await expect(page.locator('h1')).toContainText(FORM_TITLE);
+
+    // Check progress bar exists
+    await expect(page.locator('.bg-gray-200')).toBeVisible(); // Progress bar background
+
+    // Check first question is visible
+    await expect(page.locator('h2')).toBeVisible();
+  });
+
+  test('should navigate between questions', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Check "Previous" button is disabled on first question
+    const prevButton = page.locator('button:has-text("Previous")');
+    await expect(prevButton).toBeDisabled();
+
+    // Click "Next" to go to second question
+    await page.click('button:has-text("Next")');
+
+    // Check "Previous" button is now enabled
+    await expect(prevButton).toBeEnabled();
+
+    // Check progress indicator updated
+    await expect(page.locator('text=/Question 2 of/')).toBeVisible();
+  });
+
+  test('should save draft manually', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Fill in first question
+    const firstQuestion = {{#if questions}}TEST_RESPONSES['{{questions.[0].id}}']{{else}}'Test response'{{/if}};
+    await fillQuestion(page, {{#if questions}}'{{questions.[0].id}}'{{else}}'q1'{{/if}}, firstQuestion, {{#if questions}}'{{questions.[0].type}}'{{else}}'text'{{/if}});
+
+    // Click "Save Draft"
+    await page.click('button:has-text("Save Draft")');
+
+    // Wait for save confirmation
+    await expect(page.locator('text=/Last saved:/')).toBeVisible({ timeout: 5000 });
+  });
+
+  test('should auto-save after 30 seconds', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Fill in first question
+    const firstQuestion = {{#if questions}}TEST_RESPONSES['{{questions.[0].id}}']{{else}}'Test response'{{/if}};
+    await fillQuestion(page, {{#if questions}}'{{questions.[0].id}}'{{else}}'q1'{{/if}}, firstQuestion, {{#if questions}}'{{questions.[0].type}}'{{else}}'text'{{/if}});
+
+    // Wait for auto-save (30 seconds + buffer)
+    await page.waitForSelector('text=/Last saved:/', { timeout: 35000 });
+  });
+
+  test('should show validation error for missing required fields', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Navigate to last question without filling anything
+    const totalQuestions = {{#if questions}}{{questions.length}}{{else}}5{{/if}};
+    for (let i = 0; i < totalQuestions - 1; i++) {
+      await page.click('button:has-text("Next")');
+      await page.waitForTimeout(500); // Brief pause between clicks
+    }
+
+    // Try to submit without filling required fields
+    await page.click('button:has-text("Submit Form")');
+
+    // Check for validation error
+    await expect(page.locator('.bg-red-50, .text-red-800, [class*="error"]')).toBeVisible();
+  });
+
+  test('should complete full form submission flow', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Fill out all questions
+{{#each questions}}
+    // Question {{@index}}: {{this.question}}
+    await fillQuestion(page, '{{this.id}}', TEST_RESPONSES['{{this.id}}'], '{{this.type}}');
+{{#unless @last}}
+    await page.click('button:has-text("Next")');
+    await page.waitForTimeout(500);
+{{/unless}}
+{{/each}}
+
+    // Submit the form
+    await page.click('button:has-text("Submit Form")');
+
+    // Wait for success message or redirect
+    await expect(
+      page.locator('text=/submitted successfully|complete|thank you/i')
+    ).toBeVisible({ timeout: 10000 });
+  });
+
+  test('should persist data after page reload', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Fill in first question
+    const firstQuestion = {{#if questions}}TEST_RESPONSES['{{questions.[0].id}}']{{else}}'Test response that should persist'{{/if}};
+    await fillQuestion(page, {{#if questions}}'{{questions.[0].id}}'{{else}}'q1'{{/if}}, firstQuestion, {{#if questions}}'{{questions.[0].type}}'{{else}}'text'{{/if}});
+
+    // Save draft
+    await page.click('button:has-text("Save Draft")');
+    await expect(page.locator('text=/Last saved:/')).toBeVisible({ timeout: 5000 });
+
+    // Reload page
+    await page.reload();
+    await page.waitForSelector('h2');
+
+    // Check that the answer is still there
+    {{#if questions}}
+    {{#if (eq questions.[0].type "text")}}
+    await expect(page.locator('input[type="text"]')).toHaveValue(firstQuestion);
+    {{else if (eq questions.[0].type "textarea")}}
+    await expect(page.locator('textarea')).toHaveValue(firstQuestion);
+    {{else if (eq questions.[0].type "radio")}}
+    await expect(page.locator(`input[type="radio"][value="${firstQuestion}"]`)).toBeChecked();
+    {{/if}}
+    {{/if}}
+  });
+
+  test('should show unsaved changes indicator', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Fill in first question
+    const firstQuestion = {{#if questions}}TEST_RESPONSES['{{questions.[0].id}}']{{else}}'Test response'{{/if}};
+    await fillQuestion(page, {{#if questions}}'{{questions.[0].id}}'{{else}}'q1'{{/if}}, firstQuestion, {{#if questions}}'{{questions.[0].type}}'{{else}}'text'{{/if}});
+
+    // Check for "Unsaved changes" indicator
+    await expect(page.locator('text=/Unsaved changes/i')).toBeVisible();
+  });
+
+  test('should update progress indicator as questions are answered', async ({ page }) => {
+    await page.goto(FORM_URL);
+
+    // Wait for form to load
+    await page.waitForSelector('h2');
+
+    // Check initial progress
+    await expect(page.locator('text=/Question 1 of/')).toBeVisible();
+
+    // Fill in first question
+    const firstQuestion = {{#if questions}}TEST_RESPONSES['{{questions.[0].id}}']{{else}}'Test response'{{/if}};
+    await fillQuestion(page, {{#if questions}}'{{questions.[0].id}}'{{else}}'q1'{{/if}}, firstQuestion, {{#if questions}}'{{questions.[0].type}}'{{else}}'text'{{/if}});
+
+    // Move to next question
+    await page.click('button:has-text("Next")');
+
+    // Check progress updated
+    await expect(page.locator('text=/Question 2 of/')).toBeVisible();
+
+    // Check progress percentage increased
+    const progressText = await page.locator('text=/%/').textContent();
+    expect(progressText).toMatch(/\d+%/);
+  });
+});

@@ -1,0 +1,503 @@
+{{!--
+  Documentation Template for Form Generation
+
+  This template generates comprehensive documentation for a generated form.
+
+  Variables:
+    - formName: PascalCase form name (e.g., "HrReview", "FinanceAssessment")
+    - formSlug: kebab-case form slug (e.g., "hr-review", "finance-assessment")
+    - formTitle: Human-readable title (e.g., "HR Review", "Finance Assessment")
+    - formDescription: Description of the form
+    - formUrl: URL path to the form
+    - modelName: PascalCase Prisma model name
+    - requiresManager: boolean - if true, only managers can access
+    - hasUniqueConstraint: boolean
+    - questions: array of question objects
+    - createdAt: ISO timestamp
+    - formNumber: number (e.g., 01, 02, 03)
+
+  Generated: {{createdAt}}
+--}}
+# {{formTitle}} - Documentation
+
+**Form ID:** {{formSlug}}
+**Model:** {{modelName}}
+**Access:** {{#if requiresManager}}Manager Only{{else}}All Users{{/if}}
+**Generated:** {{createdAt}}
+
+---
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Questions](#questions)
+3. [Database Schema](#database-schema)
+4. [API Endpoints](#api-endpoints)
+5. [Frontend](#frontend)
+6. [Testing](#testing)
+7. [Usage](#usage)
+8. [Maintenance](#maintenance)
+
+---
+
+## Overview
+
+### Purpose
+
+{{formDescription}}
+
+### Key Features
+
+- **Auto-save:** Responses automatically saved every 30 seconds
+- **Draft Mode:** Users can save progress and return later
+- **Validation:** Required fields validated before submission
+- **Progress Tracking:** Visual progress bar and step indicators
+- **Responsive Design:** Works on desktop and mobile devices
+{{#if requiresManager}}
+- **Access Control:** Manager-only access via requireManager() middleware
+{{/if}}
+
+### Form Flow
+
+1. User navigates to `{{formUrl}}`
+{{#if requiresManager}}
+2. System verifies manager authentication
+{{else}}
+2. System verifies user authentication
+{{/if}}
+3. Form loads existing draft (if any)
+4. User answers questions step-by-step
+5. Responses auto-save every 30 seconds
+6. User can manually save draft at any time
+7. User submits completed form
+8. System validates all required fields
+9. Form marked as completed in database
+
+---
+
+## Questions
+
+This form contains **{{questions.length}} questions** organized as follows:
+
+{{#each questions}}
+### Q{{add @index 1}}: {{this.question}}
+
+- **ID:** `{{this.id}}`
+- **Type:** {{this.type}}
+{{#if this.required}}
+- **Required:** Yes
+{{else}}
+- **Required:** No
+{{/if}}
+{{#if this.section}}
+- **Section:** {{this.section}}
+{{/if}}
+{{#if this.helpText}}
+- **Help Text:** {{this.helpText}}
+{{/if}}
+{{#if this.placeholder}}
+- **Placeholder:** "{{this.placeholder}}"
+{{/if}}
+{{#if this.maxLength}}
+- **Max Length:** {{this.maxLength}} characters
+{{/if}}
+{{#if this.options}}
+- **Options:**
+{{#each this.options}}
+  - {{this}}
+{{/each}}
+{{/if}}
+{{#if this.conditionalOn}}
+- **Conditional:** Only shown if question `{{this.conditionalOn.questionId}}` = `{{this.conditionalOn.value}}`
+{{/if}}
+
+{{/each}}
+
+---
+
+## Database Schema
+
+### Model: {{modelName}}
+
+**Location:** `prisma/schema.prisma`
+
+```prisma
+model {{modelName}} {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  responses   Json
+  completed   Boolean   @default(false)
+  submittedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+{{#if hasUniqueConstraint}}
+
+  @@unique([userId]) // One response per user
+{{/if}}
+}
+```
+
+### Fields
+
+- **id** - Unique identifier (CUID)
+- **userId** - Foreign key to User model
+- **responses** - JSON object containing all question responses
+- **completed** - Boolean flag (false = draft, true = submitted)
+- **submittedAt** - Timestamp when form was submitted (null for drafts)
+- **createdAt** - Timestamp when record was created
+- **updatedAt** - Timestamp of last update (auto-updated)
+
+### Relationships
+
+- **User** - Many-to-one relationship with User model
+{{#if hasUniqueConstraint}}
+- **Unique Constraint** - Ensures one response per user
+{{/if}}
+
+### Migrations
+
+To apply this schema to the database:
+
+```bash
+# Generate Prisma client
+npx prisma generate
+
+# Create migration
+npx prisma migrate dev --name add-{{formSlug}}-form
+
+# Apply migration to production
+npx prisma migrate deploy
+```
+
+---
+
+## API Endpoints
+
+### Base Path: `/api/{{formSlug}}`
+
+**Location:** `src/app/api/{{formSlug}}/route.ts`
+
+### GET - Fetch User's Form Data
+
+**Endpoint:** `GET /api/{{formSlug}}`
+
+**Authentication:** Required{{#if requiresManager}} (Manager only){{/if}}
+
+**Response:**
+
+```json
+{
+  "form": {
+    "id": "clx123...",
+    "userId": "clx456...",
+    "responses": {
+      "q1_example": "User's answer",
+      "q2_example": "Another answer"
+    },
+    "completed": false,
+    "submittedAt": null,
+    "createdAt": "2025-11-20T10:00:00Z",
+    "updatedAt": "2025-11-20T10:15:00Z"
+  }
+}
+```
+
+**Status Codes:**
+- `200` - Success (form found)
+- `404` - Form not found (first time user)
+- `401` - Unauthorized
+{{#if requiresManager}}
+- `403` - Forbidden (not a manager)
+{{/if}}
+
+---
+
+### PATCH - Save Draft
+
+**Endpoint:** `PATCH /api/{{formSlug}}`
+
+**Authentication:** Required{{#if requiresManager}} (Manager only){{/if}}
+
+**Request Body:**
+
+```json
+{
+  "responses": {
+    "q1_example": "Updated answer",
+    "q2_example": "Another updated answer"
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "form": {
+    "id": "clx123...",
+    "completed": false,
+    "updatedAt": "2025-11-20T10:30:00Z"
+  }
+}
+```
+
+**Status Codes:**
+- `200` - Success
+- `400` - Bad request (invalid data)
+- `401` - Unauthorized
+{{#if requiresManager}}
+- `403` - Forbidden
+{{/if}}
+
+---
+
+### PUT - Submit Form
+
+**Endpoint:** `PUT /api/{{formSlug}}`
+
+**Authentication:** Required{{#if requiresManager}} (Manager only){{/if}}
+
+**Request Body:**
+
+```json
+{
+  "responses": {
+    "q1_example": "Final answer",
+    "q2_example": "Final answer 2"
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "form": {
+    "id": "clx123...",
+    "completed": true,
+    "submittedAt": "2025-11-20T10:45:00Z"
+  }
+}
+```
+
+**Validation:**
+- All required fields must be present
+- Field values must match expected types
+- Options must be valid (for radio/checkbox/dropdown)
+
+**Status Codes:**
+- `200` - Success
+- `400` - Validation failed
+- `401` - Unauthorized
+{{#if requiresManager}}
+- `403` - Forbidden
+{{/if}}
+
+---
+
+## Frontend
+
+### Page Component
+
+**Location:** `src/app{{formUrl}}/page.tsx`
+
+**Type:** Client Component (`'use client'`)
+
+**Features:**
+- Step-by-step question navigation
+- Auto-save every 30 seconds
+- Manual save draft button
+- Progress bar and indicators
+- Validation on submit
+- Loading states and error handling
+
+### Questions Definition
+
+**Location:** `src/lib/forms/{{formSlug}}-questions.ts`
+
+**Exports:**
+- `Question` interface
+- `questions` array
+- Helper functions: `getTotalQuestions`, `getQuestionById`, `validateResponses`
+
+### Styling
+
+Uses Tailwind CSS with the following color scheme:
+- Primary: Blue (`bg-blue-600`)
+- Success: Green (`bg-green-600`)
+- Error: Red (`bg-red-50`)
+- Neutral: Gray (`bg-gray-200`)
+
+---
+
+## Testing
+
+### E2E Tests
+
+**Location:** `tests/e2e/{{formSlug}}.spec.ts`
+
+**Framework:** Playwright
+
+**Test Coverage:**
+1. Form loading
+2. Question navigation
+3. Manual save draft
+4. Auto-save (30s interval)
+5. Validation errors
+6. Full submission flow
+7. Data persistence after reload
+8. Unsaved changes indicator
+9. Progress tracking
+10. Authentication{{#if requiresManager}} (manager only){{/if}}
+
+### Running Tests
+
+```bash
+# Install Playwright
+npm install -D @playwright/test
+
+# Run all tests
+npx playwright test
+
+# Run this form's tests only
+npx playwright test {{formSlug}}
+
+# Run tests in headed mode (see browser)
+npx playwright test {{formSlug}} --headed
+
+# Run tests in debug mode
+npx playwright test {{formSlug}} --debug
+```
+
+### Test Data
+
+Test credentials are configured via environment variables:
+{{#if requiresManager}}
+- `TEST_MANAGER_USERNAME` (default: "manager")
+- `TEST_MANAGER_PASSWORD` (default: "password123")
+{{else}}
+- `TEST_USER_USERNAME` (default: "testuser")
+- `TEST_USER_PASSWORD` (default: "password123")
+{{/if}}
+
+---
+
+## Usage
+
+### For End Users
+
+1. Navigate to `{{formUrl}}`
+{{#if requiresManager}}
+2. Log in with manager credentials
+{{else}}
+2. Log in with your credentials
+{{/if}}
+3. Answer questions at your own pace
+4. Form auto-saves every 30 seconds
+5. Click "Save Draft" to manually save progress
+6. Click "Next" to move between questions
+7. Click "Submit Form" when all questions are answered
+8. Confirm submission successful
+
+### For Developers
+
+#### Adding New Questions
+
+1. Edit `src/lib/forms/{{formSlug}}-questions.ts`
+2. Add question object to `questions` array
+3. Update tests if needed
+4. Test thoroughly before deploying
+
+#### Modifying Validation
+
+1. Edit validation logic in `src/lib/forms/{{formSlug}}-questions.ts` (`validateResponses` function)
+2. Update API route validation in `src/app/api/{{formSlug}}/route.ts`
+3. Add corresponding tests
+
+#### Changing Access Control
+
+{{#if requiresManager}}
+To change from manager-only to all users:
+1. Remove `requireManager()` import from page component
+2. Replace with `requireAuth()` for all authenticated users
+3. Update tests to use regular user credentials
+{{else}}
+To change from all users to manager-only:
+1. Import `requireManager()` in page component
+2. Replace `requireAuth()` calls with `requireManager()`
+3. Update tests to use manager credentials
+{{/if}}
+
+---
+
+## Maintenance
+
+### Viewing Submissions
+
+Query the database to view all submissions:
+
+```sql
+-- View all submissions
+SELECT * FROM "{{modelName}}"
+WHERE "completed" = true
+ORDER BY "submittedAt" DESC;
+
+-- View specific user's submission
+SELECT * FROM "{{modelName}}"
+WHERE "userId" = 'USER_ID_HERE';
+
+-- Count total submissions
+SELECT COUNT(*) FROM "{{modelName}}"
+WHERE "completed" = true;
+```
+
+### Common Issues
+
+**Issue:** Auto-save not working
+- **Solution:** Check browser console for errors, verify API endpoint is accessible
+
+**Issue:** Validation failing unexpectedly
+- **Solution:** Check question definitions match API validation logic
+
+**Issue:** Form data not persisting
+- **Solution:** Verify database connection, check Prisma client is generated
+
+**Issue:** Progress not showing correctly
+- **Solution:** Verify `questions.length` matches actual number of questions
+
+### Updating Form Structure
+
+**Non-breaking changes** (add optional questions):
+1. Add new questions to `questions` array
+2. Mark as `required: false`
+3. Deploy changes
+
+**Breaking changes** (remove/rename questions, change required status):
+1. Create database migration to handle existing data
+2. Update question definitions
+3. Update validation logic
+4. Update tests
+5. Communicate changes to users
+6. Deploy during maintenance window
+
+---
+
+## File Locations
+
+### Core Files
+- **Page:** `src/app{{formUrl}}/page.tsx`
+- **API:** `src/app/api/{{formSlug}}/route.ts`
+- **Questions:** `src/lib/forms/{{formSlug}}-questions.ts`
+- **Schema:** `prisma/schema.prisma` ({{modelName}} model)
+- **Tests:** `tests/e2e/{{formSlug}}.spec.ts`
+
+### Documentation
+- **This file:** `build-data/{{formNumber}} {{formSlug}}/documentation/{{formSlug}}-overview.md`
+- **Schema docs:** `build-data/{{formNumber}} {{formSlug}}/documentation/{{formSlug}}-schema.md`
+
+---
+
+**Generated by:** VSM Platform Form Generation System
+**Template Version:** 1.0
+**Generated:** {{createdAt}}

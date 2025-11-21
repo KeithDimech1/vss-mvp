@@ -1,0 +1,365 @@
+{{!--
+  API Route Template for Form Generation
+
+  Generates a complete Next.js API route with CRUD operations for form data.
+
+  Template Variables:
+  - formName: Form name in PascalCase (e.g., "UserProfile")
+  - formNameCamel: Form name in camelCase (e.g., "userProfile")
+  - formSlug: Form slug in kebab-case (e.g., "user-profile")
+  - modelName: Prisma model name in PascalCase (e.g., "UserProfile")
+  - description: Brief description of the form
+  - requiresManager: Boolean - if true, only managers can access
+  - hasUniqueConstraint: Boolean - if true, uses unique constraint pattern
+  - uniqueFields: Array of fields for unique constraint (e.g., ["userId", "formId"])
+
+  Generated Methods:
+  - GET: Fetch user's form data
+  - POST: Create/update form data (uses upsert)
+  - PATCH: Update draft (auto-save)
+  - PUT: Submit final form (mark as completed)
+--}}
+import { NextRequest, NextResponse } from 'next/server'
+{{#if requiresManager}}
+import { requireManager } from '@/lib/auth'
+{{else}}
+import { verifySession } from '@/lib/auth'
+{{/if}}
+import { prisma } from '@/lib/prisma'
+
+/**
+ * GET /api/{{formSlug}}
+ * Fetch the current user's {{description}}
+ */
+export async function GET(request: NextRequest) {
+  try {
+    // Verify session{{#if requiresManager}} (manager required){{/if}}
+    {{#if requiresManager}}
+    const session = await requireManager()
+    {{else}}
+    const session = await verifySession()
+    {{/if}}
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Find user's {{description}}
+    {{#if hasUniqueConstraint}}
+    const {{formNameCamel}} = await prisma.{{modelName}}.findUnique({
+      where: {
+        {{#each uniqueFields}}{{this}}{{#unless @last}}_{{/unless}}{{/each}}: {
+          {{#each uniqueFields}}
+          {{this}}: session.userId{{#unless @last}},{{/unless}}
+          {{/each}}
+        }
+      }
+    })
+    {{else}}
+    const {{formNameCamel}} = await prisma.{{modelName}}.findFirst({
+      where: {
+        userId: session.userId
+      },
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+    {{/if}}
+
+    if (!{{formNameCamel}}) {
+      return NextResponse.json({ {{formNameCamel}}: null }, { status: 200 })
+    }
+
+    return NextResponse.json({ {{formNameCamel}} }, { status: 200 })
+  } catch (error) {
+    console.error('GET /api/{{formSlug}} error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+/**
+ * POST /api/{{formSlug}}
+ * Create or update {{description}} (upsert pattern)
+ */
+export async function POST(request: NextRequest) {
+  try {
+    // Verify session{{#if requiresManager}} (manager required){{/if}}
+    {{#if requiresManager}}
+    const session = await requireManager()
+    {{else}}
+    const session = await verifySession()
+    {{/if}}
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Parse request body
+    const body = await request.json()
+    const { responses, completed = false } = body
+
+    if (!responses || typeof responses !== 'object') {
+      return NextResponse.json(
+        { error: 'Invalid request: responses object required' },
+        { status: 400 }
+      )
+    }
+
+    {{#if hasUniqueConstraint}}
+    // Use upsert to handle both create and update cases
+    const {{formNameCamel}} = await prisma.{{modelName}}.upsert({
+      where: {
+        {{#each uniqueFields}}{{this}}{{#unless @last}}_{{/unless}}{{/each}}: {
+          {{#each uniqueFields}}
+          {{this}}: session.userId{{#unless @last}},{{/unless}}
+          {{/each}}
+        }
+      },
+      update: {
+        responses: responses,
+        completed: completed,
+        submittedAt: completed ? new Date() : null,
+        updatedAt: new Date()
+      },
+      create: {
+        userId: session.userId,
+        responses: responses,
+        completed: completed,
+        submittedAt: completed ? new Date() : null
+      }
+    })
+    {{else}}
+    // Find existing form
+    const existing{{formName}} = await prisma.{{modelName}}.findFirst({
+      where: {
+        userId: session.userId
+      }
+    })
+
+    let {{formNameCamel}}
+
+    if (existing{{formName}}) {
+      // Update existing
+      {{formNameCamel}} = await prisma.{{modelName}}.update({
+        where: {
+          id: existing{{formName}}.id
+        },
+        data: {
+          responses: responses,
+          completed: completed,
+          submittedAt: completed ? new Date() : null,
+          updatedAt: new Date()
+        }
+      })
+    } else {
+      // Create new
+      {{formNameCamel}} = await prisma.{{modelName}}.create({
+        data: {
+          userId: session.userId,
+          responses: responses,
+          completed: completed,
+          submittedAt: completed ? new Date() : null
+        }
+      })
+    }
+    {{/if}}
+
+    return NextResponse.json({ {{formNameCamel}} }, { status: 201 })
+  } catch (error) {
+    console.error('POST /api/{{formSlug}} error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+/**
+ * PATCH /api/{{formSlug}}
+ * Update {{description}} (auto-save draft)
+ */
+export async function PATCH(request: NextRequest) {
+  try {
+    // Verify session{{#if requiresManager}} (manager required){{/if}}
+    {{#if requiresManager}}
+    const session = await requireManager()
+    {{else}}
+    const session = await verifySession()
+    {{/if}}
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Parse request body
+    const body = await request.json()
+    const { responses } = body
+
+    if (!responses || typeof responses !== 'object') {
+      return NextResponse.json(
+        { error: 'Invalid request: responses object required' },
+        { status: 400 }
+      )
+    }
+
+    {{#if hasUniqueConstraint}}
+    // Use upsert to handle both create and update cases
+    const {{formNameCamel}} = await prisma.{{modelName}}.upsert({
+      where: {
+        {{#each uniqueFields}}{{this}}{{#unless @last}}_{{/unless}}{{/each}}: {
+          {{#each uniqueFields}}
+          {{this}}: session.userId{{#unless @last}},{{/unless}}
+          {{/each}}
+        }
+      },
+      update: {
+        responses: responses,
+        updatedAt: new Date()
+      },
+      create: {
+        userId: session.userId,
+        responses: responses,
+        completed: false
+      }
+    })
+    {{else}}
+    // Find existing form
+    const existing{{formName}} = await prisma.{{modelName}}.findFirst({
+      where: {
+        userId: session.userId
+      }
+    })
+
+    let {{formNameCamel}}
+
+    if (existing{{formName}}) {
+      // Update existing
+      {{formNameCamel}} = await prisma.{{modelName}}.update({
+        where: {
+          id: existing{{formName}}.id
+        },
+        data: {
+          responses: responses,
+          updatedAt: new Date()
+        }
+      })
+    } else {
+      // Create new
+      {{formNameCamel}} = await prisma.{{modelName}}.create({
+        data: {
+          userId: session.userId,
+          responses: responses,
+          completed: false
+        }
+      })
+    }
+    {{/if}}
+
+    return NextResponse.json({ {{formNameCamel}} }, { status: 200 })
+  } catch (error) {
+    console.error('PATCH /api/{{formSlug}} error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+/**
+ * PUT /api/{{formSlug}}
+ * Submit {{description}} (mark as completed)
+ */
+export async function PUT(request: NextRequest) {
+  try {
+    // Verify session{{#if requiresManager}} (manager required){{/if}}
+    {{#if requiresManager}}
+    const session = await requireManager()
+    {{else}}
+    const session = await verifySession()
+    {{/if}}
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Parse request body
+    const body = await request.json()
+    const { responses } = body
+
+    if (!responses || typeof responses !== 'object') {
+      return NextResponse.json(
+        { error: 'Invalid request: responses object required' },
+        { status: 400 }
+      )
+    }
+
+    {{#if hasUniqueConstraint}}
+    // Use upsert to handle both create and update cases
+    const {{formNameCamel}} = await prisma.{{modelName}}.upsert({
+      where: {
+        {{#each uniqueFields}}{{this}}{{#unless @last}}_{{/unless}}{{/each}}: {
+          {{#each uniqueFields}}
+          {{this}}: session.userId{{#unless @last}},{{/unless}}
+          {{/each}}
+        }
+      },
+      update: {
+        responses: responses,
+        completed: true,
+        submittedAt: new Date(),
+        updatedAt: new Date()
+      },
+      create: {
+        userId: session.userId,
+        responses: responses,
+        completed: true,
+        submittedAt: new Date()
+      }
+    })
+    {{else}}
+    // Find existing form
+    const existing{{formName}} = await prisma.{{modelName}}.findFirst({
+      where: {
+        userId: session.userId
+      }
+    })
+
+    let {{formNameCamel}}
+
+    if (existing{{formName}}) {
+      // Update and mark as completed
+      {{formNameCamel}} = await prisma.{{modelName}}.update({
+        where: {
+          id: existing{{formName}}.id
+        },
+        data: {
+          responses: responses,
+          completed: true,
+          submittedAt: new Date(),
+          updatedAt: new Date()
+        }
+      })
+    } else {
+      // Create new and mark as completed
+      {{formNameCamel}} = await prisma.{{modelName}}.create({
+        data: {
+          userId: session.userId,
+          responses: responses,
+          completed: true,
+          submittedAt: new Date()
+        }
+      })
+    }
+    {{/if}}
+
+    return NextResponse.json({
+      {{formNameCamel}},
+      message: '{{formName}} submitted successfully'
+    }, { status: 200 })
+  } catch (error) {
+    console.error('PUT /api/{{formSlug}} error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}

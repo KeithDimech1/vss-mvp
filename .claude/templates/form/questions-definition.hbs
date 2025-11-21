@@ -1,0 +1,184 @@
+{{!--
+  Questions Definition Template for Form Generation
+
+  This template generates a TypeScript file containing the question definitions for a form.
+
+  Variables:
+    - formName: PascalCase form name (e.g., "HrReview", "FinanceAssessment")
+    - formTitle: Human-readable title (e.g., "HR Review", "Finance Assessment")
+    - formDescription: Description of the form
+    - questions: array of question objects with properties:
+      - id: string (e.g., "q1_name")
+      - question: string (the question text)
+      - type: string (text, textarea, radio, checkbox, dropdown, number, date, etc.)
+      - required: boolean
+      - placeholder: string (optional)
+      - helpText: string (optional)
+      - options: array of strings (for radio, checkbox, dropdown)
+      - maxLength: number (optional, for text inputs)
+      - section: string (optional, for grouping questions)
+    - createdAt: ISO timestamp
+
+  Generated: {{createdAt}}
+--}}
+/**
+ * {{formTitle}} - Question Definitions
+ *
+ * {{formDescription}}
+ *
+ * Generated: {{createdAt}}
+ */
+
+export interface Question {
+  id: string
+  question: string
+  type: 'text' | 'textarea' | 'radio' | 'checkbox' | 'dropdown' | 'number' | 'date' | 'currency' | 'info'
+  required?: boolean
+  placeholder?: string
+  helpText?: string
+  options?: string[]
+  maxLength?: number
+  section?: string
+  conditionalOn?: {
+    questionId: string
+    value: string | string[]
+  }
+}
+
+export const questions: Question[] = [
+{{#each questions}}
+  {
+    id: '{{this.id}}',
+    question: '{{this.question}}',
+    type: '{{this.type}}',
+{{#if this.required}}
+    required: {{this.required}},
+{{/if}}
+{{#if this.placeholder}}
+    placeholder: '{{this.placeholder}}',
+{{/if}}
+{{#if this.helpText}}
+    helpText: '{{this.helpText}}',
+{{/if}}
+{{#if this.options}}
+    options: [{{#each this.options}}'{{this}}'{{#unless @last}}, {{/unless}}{{/each}}],
+{{/if}}
+{{#if this.maxLength}}
+    maxLength: {{this.maxLength}},
+{{/if}}
+{{#if this.section}}
+    section: '{{this.section}}',
+{{/if}}
+{{#if this.conditionalOn}}
+    conditionalOn: {
+      questionId: '{{this.conditionalOn.questionId}}',
+      value: {{#if (isArray this.conditionalOn.value)}}[{{#each this.conditionalOn.value}}'{{this}}'{{#unless @last}}, {{/unless}}{{/each}}]{{else}}'{{this.conditionalOn.value}}'{{/if}}
+    },
+{{/if}}
+  }{{#unless @last}},{{/unless}}
+{{/each}}
+]
+
+/**
+ * Get total number of questions
+ */
+export const getTotalQuestions = () => questions.length
+
+/**
+ * Get question by ID
+ */
+export const getQuestionById = (id: string): Question | null => {
+  return questions.find(q => q.id === id) || null
+}
+
+/**
+ * Get question by index (0-based)
+ */
+export const getQuestionByIndex = (index: number): Question | null => {
+  return questions[index] || null
+}
+
+/**
+ * Get questions by section
+ */
+export const getQuestionsBySection = (section: string): Question[] => {
+  return questions.filter(q => q.section === section)
+}
+
+/**
+ * Get all unique sections
+ */
+export const getSections = (): string[] => {
+  const sections = questions
+    .filter(q => q.section)
+    .map(q => q.section as string)
+  return [...new Set(sections)]
+}
+
+/**
+ * Validate responses against question definitions
+ */
+export const validateResponses = (responses: Record<string, any>): {
+  isValid: boolean
+  missingRequired: Question[]
+  errors: string[]
+} => {
+  const missingRequired: Question[] = []
+  const errors: string[] = []
+
+  for (const question of questions) {
+    // Check required fields
+    if (question.required && !responses[question.id]) {
+      // Check if question should be shown (conditional logic)
+      let shouldShow = true
+      if (question.conditionalOn) {
+        const conditionValue = responses[question.conditionalOn.questionId]
+        const expectedValue = question.conditionalOn.value
+
+        if (Array.isArray(expectedValue)) {
+          shouldShow = expectedValue.includes(conditionValue)
+        } else if (Array.isArray(conditionValue)) {
+          shouldShow = conditionValue.includes(expectedValue)
+        } else {
+          shouldShow = conditionValue === expectedValue
+        }
+      }
+
+      if (shouldShow) {
+        missingRequired.push(question)
+        errors.push(`${question.question} is required`)
+      }
+    }
+
+    // Check maxLength
+    if (question.maxLength && responses[question.id]) {
+      const value = String(responses[question.id])
+      if (value.length > question.maxLength) {
+        errors.push(`${question.question} exceeds maximum length of ${question.maxLength} characters`)
+      }
+    }
+
+    // Check valid options for radio/checkbox/dropdown
+    if (question.options && responses[question.id]) {
+      const value = responses[question.id]
+      if (Array.isArray(value)) {
+        // Checkbox
+        const invalid = value.filter(v => !question.options?.includes(v))
+        if (invalid.length > 0) {
+          errors.push(`${question.question} contains invalid options: ${invalid.join(', ')}`)
+        }
+      } else {
+        // Radio/Dropdown
+        if (!question.options.includes(value)) {
+          errors.push(`${question.question} has invalid value: ${value}`)
+        }
+      }
+    }
+  }
+
+  return {
+    isValid: errors.length === 0,
+    missingRequired,
+    errors
+  }
+}

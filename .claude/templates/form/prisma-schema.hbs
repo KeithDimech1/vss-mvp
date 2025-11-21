@@ -1,0 +1,53 @@
+{{!--
+  Prisma Schema Template for Form Generation
+
+  This template generates a Prisma model for a new form in the VSM Platform.
+
+  Variables:
+    - modelName: PascalCase model name (e.g., "HrReview", "FinanceAssessment")
+    - formSlug: kebab-case form slug (e.g., "hr-review", "finance-assessment")
+    - description: Human-readable description of the form
+    - hasUniqueConstraint: boolean - if true, adds @@unique constraint for upsert pattern
+    - uniqueFields: array - fields to include in unique constraint (e.g., ["formId", "userId"])
+    - hasFormId: boolean - if true, adds formId field for multi-instance forms
+    - requiresManager: boolean - if true, adds manager-only access comment
+    - hasLanguageSupport: boolean - if true, adds language field
+    - createdAt: ISO timestamp when this model was generated
+
+  Patterns Supported:
+    1. Simple Pattern (hasUniqueConstraint=false): One submission per user (like Assessment)
+    2. Unique Pattern (hasUniqueConstraint=true): Multiple submissions with upsert (like ActionResponse)
+--}}
+
+// {{description}}
+{{#if requiresManager}}// Access: Manager-only
+{{/if}}// Generated: {{createdAt}}
+model {{modelName}} {
+  id          String    @id @default(cuid())
+{{#if hasFormId}}
+  formId      String    // Reference to specific form instance
+{{/if}}
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+
+  // Form response data (flexible JSON structure)
+  responses   Json
+
+  // Submission tracking
+  completed   Boolean   @default(false)
+  submittedAt DateTime?
+{{#if hasLanguageSupport}}
+
+  // Multi-language support
+  language    String    @default("en") // "en" or "es"
+{{/if}}
+
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+{{#if hasUniqueConstraint}}
+
+  // Unique constraint: One response per user{{#if hasFormId}} per form instance{{/if}}
+  @@unique([{{#each uniqueFields}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}])
+{{/if}}
+}

@@ -1,0 +1,442 @@
+{{!--
+  Page Component Template for Form Generation
+
+  This template generates a Next.js page component for a form.
+  It includes both server-side data fetching and client-side form logic.
+
+  Variables:
+    - formName: PascalCase form name (e.g., "HrReview", "FinanceAssessment")
+    - formSlug: kebab-case form slug (e.g., "hr-review", "finance-assessment")
+    - formTitle: Human-readable title (e.g., "HR Review", "Finance Assessment")
+    - formDescription: Description of the form
+    - modelName: PascalCase Prisma model name (matches formName usually)
+    - requiresManager: boolean - if true, uses requireManager() instead of requireAuth()
+    - hasUniqueConstraint: boolean - if true, query uses unique constraint pattern
+    - uniqueFields: array - fields for unique constraint (e.g., ["formId", "userId"])
+    - questionsImport: string - import path for questions file (e.g., "@/lib/forms/hr-review-questions")
+    - createdAt: ISO timestamp
+
+  Generated: {{createdAt}}
+--}}
+'use client'
+
+import { useState, useEffect, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
+import { questions } from '{{questionsImport}}'
+
+interface FormResponse {
+  [key: string]: any
+}
+
+export default function {{formName}}Page() {
+  const router = useRouter()
+  const [currentStep, setCurrentStep] = useState(0)
+  const [responses, setResponses] = useState<FormResponse>({})
+  const [formId, setFormId] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [lastSaved, setLastSaved] = useState<Date | null>(null)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+
+  const totalSteps = questions.length
+  const currentQuestion = questions[currentStep]
+  const isLastStep = currentStep === totalSteps - 1
+
+  // Load existing form data on mount
+  useEffect(() => {
+    const loadForm = async () => {
+      try {
+        const res = await fetch('/api/{{formSlug}}')
+        const data = await res.json()
+
+        if (data.form) {
+          setFormId(data.form.id)
+          setResponses(data.form.responses || {})
+
+          // If already completed, show completion message
+          if (data.form.completed) {
+            setError('This form has already been submitted.')
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load form:', err)
+        setError('Failed to load form data')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadForm()
+  }, [router])
+
+  // Auto-save every 30 seconds
+  useEffect(() => {
+    const autoSaveInterval = setInterval(() => {
+      if (hasUnsavedChanges && Object.keys(responses).length > 0) {
+        saveDraft(true) // silent save
+      }
+    }, 30000) // 30 seconds
+
+    return () => clearInterval(autoSaveInterval)
+  }, [responses, hasUnsavedChanges])
+
+  // Save draft function
+  const saveDraft = useCallback(async (silent = false) => {
+    if (!silent) setSaving(true)
+    setError(null)
+
+    try {
+      const res = await fetch('/api/{{formSlug}}', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ responses })
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to save draft')
+      }
+
+      const data = await res.json()
+      setFormId(data.form.id)
+      setLastSaved(new Date())
+      setHasUnsavedChanges(false)
+    } catch (err) {
+      console.error('Failed to save draft:', err)
+      if (!silent) {
+        setError('Failed to save draft. Please try again.')
+      }
+    } finally {
+      if (!silent) setSaving(false)
+    }
+  }, [responses])
+
+  // Handle answer change
+  const handleAnswerChange = (questionId: string, value: any) => {
+    setResponses(prev => ({
+      ...prev,
+      [questionId]: value
+    }))
+    setHasUnsavedChanges(true)
+  }
+
+  // Navigate to previous question
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1)
+    }
+  }
+
+  // Navigate to next question
+  const handleNext = async () => {
+    // Save before moving forward
+    if (hasUnsavedChanges) {
+      await saveDraft(true)
+    }
+
+    if (currentStep < totalSteps - 1) {
+      setCurrentStep(currentStep + 1)
+    }
+  }
+
+  // Submit form
+  const handleSubmit = async () => {
+    // Validate required fields
+    const missingRequired = questions
+      .filter(q => q.required && !responses[q.id])
+
+    if (missingRequired.length > 0) {
+      setError(`Please complete all required fields: ${missingRequired.map(q => q.question).join(', ')}`)
+      return
+    }
+
+    setSubmitting(true)
+    setError(null)
+
+    try {
+      const res = await fetch('/api/{{formSlug}}', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ responses })
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to submit form')
+      }
+
+      // Show success message
+      alert('Form submitted successfully!')
+
+      // Optionally redirect or reload
+      // router.push('/{{formSlug}}/complete')
+      router.refresh()
+    } catch (err) {
+      console.error('Failed to submit form:', err)
+      setError('Failed to submit form. Please try again.')
+      setSubmitting(false)
+    }
+  }
+
+  // Render question input based on type
+  const renderQuestionInput = () => {
+    switch (currentQuestion.type) {
+      case 'textarea':
+        return (
+          <textarea
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+            rows={8}
+            placeholder={currentQuestion.placeholder}
+            value={responses[currentQuestion.id] || ''}
+            onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+          />
+        )
+
+      case 'radio':
+        return (
+          <div className="space-y-3">
+            {currentQuestion.options?.map((option) => (
+              <label
+                key={option}
+                className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+              >
+                <input
+                  type="radio"
+                  name={currentQuestion.id}
+                  value={option}
+                  checked={responses[currentQuestion.id] === option}
+                  onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                />
+                <span className="ml-3 text-gray-700">{option}</span>
+              </label>
+            ))}
+          </div>
+        )
+
+      case 'checkbox':
+        return (
+          <div className="space-y-3">
+            {currentQuestion.options?.map((option) => {
+              const currentValues = responses[currentQuestion.id] || []
+              const isChecked = currentValues.includes(option)
+
+              return (
+                <label
+                  key={option}
+                  className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={(e) => {
+                      const newValues = e.target.checked
+                        ? [...currentValues, option]
+                        : currentValues.filter((v: string) => v !== option)
+                      handleAnswerChange(currentQuestion.id, newValues)
+                    }}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="ml-3 text-gray-700">{option}</span>
+                </label>
+              )
+            })}
+          </div>
+        )
+
+      case 'dropdown':
+        return (
+          <select
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            value={responses[currentQuestion.id] || ''}
+            onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+          >
+            <option value="">Select an option...</option>
+            {currentQuestion.options?.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        )
+
+      case 'number':
+        return (
+          <input
+            type="number"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder={currentQuestion.placeholder}
+            value={responses[currentQuestion.id] || ''}
+            onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+          />
+        )
+
+      case 'date':
+        return (
+          <input
+            type="date"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            value={responses[currentQuestion.id] || ''}
+            onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+          />
+        )
+
+      case 'text':
+      default:
+        return (
+          <input
+            type="text"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder={currentQuestion.placeholder}
+            value={responses[currentQuestion.id] || ''}
+            onChange={(e) => handleAnswerChange(currentQuestion.id, e.target.value)}
+            maxLength={currentQuestion.maxLength}
+          />
+        )
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading form...</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900">{{formTitle}}</h1>
+        <p className="mt-2 text-gray-600">{{formDescription}}</p>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-medium text-gray-700">
+            Question {currentStep + 1} of {totalSteps}
+          </span>
+          <span className="text-sm text-gray-500">
+            {Math.round(((currentStep + 1) / totalSteps) * 100)}% Complete
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div
+            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
+          ></div>
+        </div>
+      </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-red-800">{error}</p>
+        </div>
+      )}
+
+      {/* Question Card */}
+      <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            {currentQuestion.question}
+            {currentQuestion.required && <span className="text-red-500 ml-1">*</span>}
+          </h2>
+          {currentQuestion.helpText && (
+            <p className="text-sm text-gray-600 italic">
+              {currentQuestion.helpText}
+            </p>
+          )}
+        </div>
+
+        {/* Answer Input */}
+        <div className="mb-6">
+          {renderQuestionInput()}
+        </div>
+
+        {/* Save Status */}
+        {lastSaved && (
+          <div className="text-sm text-gray-500 text-right mb-4">
+            Last saved: {lastSaved.toLocaleTimeString()}
+          </div>
+        )}
+        {hasUnsavedChanges && !saving && (
+          <div className="text-sm text-amber-600 text-right mb-4">
+            Unsaved changes
+          </div>
+        )}
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex items-center justify-between">
+        <button
+          onClick={handlePrevious}
+          disabled={currentStep === 0}
+          className="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          Previous
+        </button>
+
+        <button
+          onClick={() => saveDraft(false)}
+          disabled={saving || !hasUnsavedChanges}
+          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 disabled:opacity-50 transition-colors"
+        >
+          {saving ? 'Saving...' : 'Save Draft'}
+        </button>
+
+        {!isLastStep ? (
+          <button
+            onClick={handleNext}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          >
+            Next
+          </button>
+        ) : (
+          <button
+            onClick={handleSubmit}
+            disabled={submitting}
+            className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+          >
+            {submitting ? 'Submitting...' : 'Submit Form'}
+          </button>
+        )}
+      </div>
+
+      {/* Progress Indicator Dots */}
+      <div className="mt-8 flex justify-center space-x-2">
+        {Array.from({ length: totalSteps }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentStep(index)}
+            className={`w-3 h-3 rounded-full transition-colors ${
+              index === currentStep
+                ? 'bg-blue-600'
+                : responses[questions[index].id]
+                ? 'bg-green-500'
+                : 'bg-gray-300'
+            }`}
+            aria-label={`Go to question ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Auto-save Notice */}
+      <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <p className="text-sm text-blue-800">
+          <strong>Note:</strong> Your responses are automatically saved every 30 seconds.
+          You can leave and come back to continue later.
+        </p>
+      </div>
+    </div>
+  )
+}
