@@ -34,6 +34,11 @@ model User {
   feedbackSurvey  HRFeedbackSurvey? @relation("FeedbackSurveys")
   goalSetting     HRGoalSetting?    @relation("GoalSettings")
   interviewNotes  HRInterviewNote[] @relation("InterviewNotes")
+
+  // HR Action Items Relations
+  employeeActions HRActionItem[]    @relation("EmployeeActions")
+  assignedActions HRActionItem[]    @relation("AssignedActions")
+  createdActions  HRActionItem[]    @relation("CreatedActions")
 }
 
 enum Role {
@@ -360,15 +365,72 @@ model HRInterviewNote {
   // Interview Content
   notes           String   @db.Text // Full markdown content of the interview notes
   keyThemes       Json?            // Array of key themes extracted from the interview
-  actionItems     Json?            // Array of follow-up action items from the interview
+  actionItems     Json?            // Array of follow-up action items from the interview (legacy - use HRActionItem table)
 
   // Metadata
   interviewer     String?          // Who conducted the interview
   interviewType   String?          // "Annual Review", "Performance Review", "Check-in", etc.
+
+  // Relations
+  hrActionItems   HRActionItem[]   @relation("InterviewActionItems")
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
   @@index([userId])
   @@index([interviewDate])
+}
+
+// HR Action Items - Follow-up actions from interviews or performance reviews
+model HRActionItem {
+  id                String           @id @default(cuid())
+  description       String           @db.Text // What needs to be done
+
+  // Employee this action is for
+  employeeId        String
+  employee          User             @relation("EmployeeActions", fields: [employeeId], references: [id], onDelete: Cascade)
+
+  // Manager responsible for this action
+  assignedToId      String?
+  assignedTo        User?            @relation("AssignedActions", fields: [assignedToId], references: [id])
+
+  // Optional link to interview note where this action originated
+  interviewNoteId   String?
+  interviewNote     HRInterviewNote? @relation("InterviewActionItems", fields: [interviewNoteId], references: [id], onDelete: SetNull)
+
+  // Action details
+  dueDate           DateTime?
+  status            HRActionStatus   @default(PENDING)
+  priority          HRActionPriority @default(MEDIUM)
+  notes             String?          @db.Text // Additional context or updates
+
+  // Who created this action item
+  createdById       String
+  createdBy         User             @relation("CreatedActions", fields: [createdById], references: [id])
+
+  // Completion tracking
+  completedAt       DateTime?
+
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([employeeId])
+  @@index([assignedToId])
+  @@index([interviewNoteId])
+  @@index([dueDate])
+  @@index([status])
+}
+
+enum HRActionStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum HRActionPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
 }

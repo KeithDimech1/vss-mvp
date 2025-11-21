@@ -3,11 +3,47 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+// Helper function to parse markdown and render formatted sections
+function parseMarkdownSections(markdown: string) {
+  const lines = markdown.split('\n');
+  const sections: { type: 'header' | 'text'; content: string }[] = [];
+
+  for (const line of lines) {
+    if (line.startsWith('## ')) {
+      // This is a header
+      sections.push({ type: 'header', content: line.replace('## ', '') });
+    } else if (line.trim()) {
+      // This is text content (not empty line)
+      sections.push({ type: 'text', content: line });
+    }
+  }
+
+  return sections;
+}
+
 interface User {
   id: string;
   username: string;
   fullName: string;
   isManager: boolean;
+}
+
+interface HRActionItem {
+  id: string;
+  description: string;
+  employeeId: string;
+  assignedToId: string | null;
+  interviewNoteId: string | null;
+  dueDate: string | null;
+  status: string;
+  priority: string;
+  notes: string | null;
+  completedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+  employee: User;
+  assignedTo: User | null;
+  createdBy: User;
 }
 
 interface FeedbackSurvey {
@@ -452,6 +488,113 @@ function GoalsSection({ data }: { data: GoalSetting[] }) {
 
 // Interviews Section Component
 function InterviewsSection({ data }: { data: InterviewNote[] }) {
+  const [actionItems, setActionItems] = useState<Record<string, HRActionItem[]>>({});
+  const [showAddActionForm, setShowAddActionForm] = useState<string | null>(null);
+  const [allManagers, setAllManagers] = useState<User[]>([]);
+  const [newAction, setNewAction] = useState({
+    description: '',
+    assignedToId: '',
+    dueDate: '',
+    priority: 'MEDIUM',
+  });
+
+  // Fetch managers and action items for interviews
+  useEffect(() => {
+    fetchManagers();
+    if (data.length > 0) {
+      data.forEach((interview) => {
+        fetchActionItems(interview.id);
+      });
+    }
+  }, [data]);
+
+  async function fetchManagers() {
+    try {
+      const response = await fetch('/api/hr-review');
+      if (response.ok) {
+        const hrData = await response.json();
+        const managers = hrData.allUsers?.filter((u: User) => u.isManager) || [];
+        setAllManagers(managers);
+      }
+    } catch (error) {
+      console.error('Error fetching managers:', error);
+    }
+  }
+
+  async function fetchActionItems(interviewNoteId: string) {
+    try {
+      const response = await fetch(`/api/hr-action-items?interviewNoteId=${interviewNoteId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setActionItems((prev) => ({
+          ...prev,
+          [interviewNoteId]: data.actionItems || [],
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching action items:', error);
+    }
+  }
+
+  async function handleCreateAction(interview: InterviewNote) {
+    if (!newAction.description.trim()) {
+      alert('Please enter an action description');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/hr-action-items', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          description: newAction.description,
+          employeeId: interview.userId,
+          assignedToId: newAction.assignedToId || null,
+          dueDate: newAction.dueDate || null,
+          priority: newAction.priority,
+          interviewNoteId: interview.id,
+        }),
+      });
+
+      if (response.ok) {
+        // Reset form
+        setNewAction({
+          description: '',
+          assignedToId: '',
+          dueDate: '',
+          priority: 'MEDIUM',
+        });
+        setShowAddActionForm(null);
+
+        // Refresh action items
+        await fetchActionItems(interview.id);
+      } else {
+        const error = await response.json();
+        alert(`Error: ${error.error}`);
+      }
+    } catch (error) {
+      console.error('Error creating action item:', error);
+      alert('Failed to create action item');
+    }
+  }
+
+  async function handleUpdateActionStatus(actionId: string, newStatus: string, interviewNoteId: string) {
+    try {
+      const response = await fetch(`/api/hr-action-items/${actionId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      });
+
+      if (response.ok) {
+        // Refresh action items
+        await fetchActionItems(interviewNoteId);
+      }
+    } catch (error) {
+      console.error('Error updating action item:', error);
+    }
+  }
+
   if (data.length === 0) {
     return (
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
@@ -462,34 +605,184 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
 
   return (
     <div className="space-y-6">
-      {data.map((interview) => (
-        <div key={interview.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          {/* Employee Header */}
-          <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">{interview.user.fullName}</h3>
-              <p className="text-sm text-gray-600">@{interview.user.username} {interview.user.isManager && '• Manager'}</p>
+      {data.map((interview) => {
+        const sections = parseMarkdownSections(interview.notes);
+        const interviewActions = actionItems[interview.id] || [];
+
+        return (
+          <div key={interview.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            {/* Employee Header */}
+            <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900">{interview.user.fullName}</h3>
+                <p className="text-sm text-gray-600">@{interview.user.username} {interview.user.isManager && '• Manager'}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-gray-500">
+                  {new Date(interview.interviewDate).toLocaleDateString()}
+                </p>
+                {interview.interviewType && (
+                  <p className="text-xs text-gray-400">{interview.interviewType}</p>
+                )}
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-500">
-                {new Date(interview.interviewDate).toLocaleDateString()}
-              </p>
-              {interview.interviewType && (
-                <p className="text-xs text-gray-400">{interview.interviewType}</p>
+
+            {/* Interview Notes with Formatted Sections */}
+            <div className="mb-6">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-3">
+                {sections.map((section, idx) => (
+                  <div key={idx}>
+                    {section.type === 'header' ? (
+                      <h4 className="text-lg font-bold text-blue-900 mt-4 mb-2 pb-2 border-b-2 border-blue-200">
+                        {section.content}
+                      </h4>
+                    ) : (
+                      <p className="text-sm text-gray-700 whitespace-pre-wrap">
+                        {section.content}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Items Section */}
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-semibold text-gray-900">Action Items ({interviewActions.length})</h4>
+                <button
+                  onClick={() => setShowAddActionForm(showAddActionForm === interview.id ? null : interview.id)}
+                  className="text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  {showAddActionForm === interview.id ? 'Cancel' : '+ Add Action'}
+                </button>
+              </div>
+
+              {/* Add Action Form */}
+              {showAddActionForm === interview.id && (
+                <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                      <textarea
+                        value={newAction.description}
+                        onChange={(e) => setNewAction({ ...newAction, description: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        rows={3}
+                        placeholder="What needs to be done?"
+                      />
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Assigned To</label>
+                        <select
+                          value={newAction.assignedToId}
+                          onChange={(e) => setNewAction({ ...newAction, assignedToId: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        >
+                          <option value="">Unassigned</option>
+                          {allManagers.map((manager) => (
+                            <option key={manager.id} value={manager.id}>
+                              {manager.fullName}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
+                        <input
+                          type="date"
+                          value={newAction.dueDate}
+                          onChange={(e) => setNewAction({ ...newAction, dueDate: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                        <select
+                          value={newAction.priority}
+                          onChange={(e) => setNewAction({ ...newAction, priority: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        >
+                          <option value="LOW">Low</option>
+                          <option value="MEDIUM">Medium</option>
+                          <option value="HIGH">High</option>
+                          <option value="URGENT">Urgent</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleCreateAction(interview)}
+                      className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                    >
+                      Create Action Item
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Action Items List */}
+              {interviewActions.length > 0 ? (
+                <div className="space-y-2">
+                  {interviewActions.map((action) => (
+                    <div
+                      key={action.id}
+                      className="p-3 bg-white border border-gray-200 rounded-lg hover:border-blue-300 transition-colors"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <select
+                              value={action.status}
+                              onChange={(e) => handleUpdateActionStatus(action.id, e.target.value, interview.id)}
+                              className={`text-xs px-2 py-1 rounded font-medium border ${
+                                action.status === 'COMPLETED'
+                                  ? 'bg-green-100 text-green-800 border-green-300'
+                                  : action.status === 'IN_PROGRESS'
+                                  ? 'bg-blue-100 text-blue-800 border-blue-300'
+                                  : action.status === 'CANCELLED'
+                                  ? 'bg-gray-100 text-gray-800 border-gray-300'
+                                  : 'bg-yellow-100 text-yellow-800 border-yellow-300'
+                              }`}
+                            >
+                              <option value="PENDING">Pending</option>
+                              <option value="IN_PROGRESS">In Progress</option>
+                              <option value="COMPLETED">Completed</option>
+                              <option value="CANCELLED">Cancelled</option>
+                            </select>
+                            <span className={`text-xs px-2 py-1 rounded font-medium ${
+                              action.priority === 'URGENT'
+                                ? 'bg-red-100 text-red-800'
+                                : action.priority === 'HIGH'
+                                ? 'bg-orange-100 text-orange-800'
+                                : action.priority === 'MEDIUM'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-gray-100 text-gray-800'
+                            }`}>
+                              {action.priority}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-900 mb-1">{action.description}</p>
+                          <div className="flex items-center gap-3 text-xs text-gray-600">
+                            {action.assignedTo && (
+                              <span>👤 {action.assignedTo.fullName}</span>
+                            )}
+                            {action.dueDate && (
+                              <span>📅 {new Date(action.dueDate).toLocaleDateString()}</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-gray-500 italic">No action items yet</p>
               )}
             </div>
           </div>
-
-          {/* Interview Notes */}
-          <div className="prose max-w-none">
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <pre className="whitespace-pre-wrap text-sm text-gray-700 font-sans">
-                {interview.notes}
-              </pre>
-            </div>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
