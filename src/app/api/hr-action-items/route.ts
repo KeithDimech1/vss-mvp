@@ -47,13 +47,17 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const employeeId = searchParams.get('employeeId');
     const assignedToId = searchParams.get('assignedToId');
+    const managerId = searchParams.get('managerId');
     const status = searchParams.get('status');
     const interviewNoteId = searchParams.get('interviewNoteId');
 
     // Build filter condition
     const where: any = {};
 
-    if (employeeId) {
+    if (managerId) {
+      // Filter by actions assigned TO this manager (the "For" field)
+      where.assignedToId = managerId;
+    } else if (employeeId) {
       where.employeeId = employeeId;
     }
 

@@ -46,12 +46,28 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const userId = searchParams.get('userId');
     const username = searchParams.get('username');
+    const managerId = searchParams.get('managerId');
     const section = searchParams.get('section') || 'all';
 
     // Build filter condition
-    let userFilter = {};
+    let userFilter: any = {};
+    let userIdList: string[] | undefined;
 
-    if (userId) {
+    if (managerId) {
+      // Get all employees managed by this manager
+      const managedEmployees = await prisma.userManager.findMany({
+        where: { managerId },
+        select: { employeeId: true },
+      });
+      userIdList = managedEmployees.map(e => e.employeeId);
+
+      if (userIdList.length > 0) {
+        userFilter = { id: { in: userIdList } };
+      } else {
+        // Manager has no employees, return empty results
+        userFilter = { id: 'none' };
+      }
+    } else if (userId) {
       userFilter = { id: userId };
     } else if (username) {
       userFilter = { username };

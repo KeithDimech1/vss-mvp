@@ -39,6 +39,10 @@ model User {
   employeeActions HRActionItem[]    @relation("EmployeeActions")
   assignedActions HRActionItem[]    @relation("AssignedActions")
   createdActions  HRActionItem[]    @relation("CreatedActions")
+
+  // Manager Relations
+  managedEmployees UserManager[]    @relation("ManagerRelation")
+  managers         UserManager[]    @relation("EmployeeRelation")
 }
 
 enum Role {
@@ -433,4 +437,18 @@ enum HRActionPriority {
   MEDIUM
   HIGH
   URGENT
+}
+
+// Manager-Employee relationships (many-to-many since some employees have multiple managers)
+model UserManager {
+  id         String   @id @default(cuid())
+  employeeId String
+  employee   User     @relation("EmployeeRelation", fields: [employeeId], references: [id], onDelete: Cascade)
+  managerId  String
+  manager    User     @relation("ManagerRelation", fields: [managerId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([employeeId, managerId])
+  @@index([employeeId])
+  @@index([managerId])
 }
