@@ -116,10 +116,12 @@ export default function HRReviewDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedUserId, setSelectedUserId] = useState<string>('all');
-  const [activeSection, setActiveSection] = useState<'feedback' | 'goals' | 'interviews'>('feedback');
+  const [activeSection, setActiveSection] = useState<'feedback' | 'goals' | 'interviews' | 'actions'>('feedback');
+  const [allActionItems, setAllActionItems] = useState<HRActionItem[]>([]);
 
   useEffect(() => {
     fetchData();
+    fetchAllActionItems();
   }, [selectedUserId]);
 
   async function fetchData() {
@@ -146,6 +148,23 @@ export default function HRReviewDashboard() {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function fetchAllActionItems() {
+    try {
+      const url = selectedUserId === 'all'
+        ? '/api/hr-action-items'
+        : `/api/hr-action-items?employeeId=${selectedUserId}`;
+
+      const response = await fetch(url);
+
+      if (response.ok) {
+        const result = await response.json();
+        setAllActionItems(result.actionItems || []);
+      }
+    } catch (error) {
+      console.error('Error fetching action items:', error);
     }
   }
 
@@ -272,6 +291,16 @@ export default function HRReviewDashboard() {
         >
           💬 Interview Notes ({filteredInterviews.length})
         </button>
+        <button
+          onClick={() => setActiveSection('actions')}
+          className={`px-6 py-3 font-medium transition-colors ${
+            activeSection === 'actions'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          ✅ Action Items ({allActionItems.length})
+        </button>
       </div>
 
       {/* Section Content */}
@@ -285,6 +314,13 @@ export default function HRReviewDashboard() {
 
       {activeSection === 'interviews' && (
         <InterviewsSection data={filteredInterviews} />
+      )}
+
+      {activeSection === 'actions' && (
+        <ActionItemsSection
+          data={allActionItems}
+          onRefresh={fetchAllActionItems}
+        />
       )}
     </div>
   );
@@ -952,6 +988,218 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+// Action Items Section Component
+function ActionItemsSection({ data, onRefresh }: { data: HRActionItem[]; onRefresh: () => void }) {
+  const [filterStatus, setFilterStatus] = useState<string>('all');
+  const [filterPriority, setFilterPriority] = useState<string>('all');
+
+  if (data.length === 0) {
+    return (
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
+        <p className="text-gray-600 mb-4">No action items found.</p>
+        <p className="text-sm text-gray-500">Action items from interview notes will appear here once imported.</p>
+      </div>
+    );
+  }
+
+  // Filter action items
+  const filteredData = data.filter((action) => {
+    if (filterStatus !== 'all' && action.status !== filterStatus) return false;
+    if (filterPriority !== 'all' && action.priority !== filterPriority) return false;
+    return true;
+  });
+
+  // Group by status
+  const groupedByStatus = {
+    PENDING: filteredData.filter(a => a.status === 'PENDING'),
+    IN_PROGRESS: filteredData.filter(a => a.status === 'IN_PROGRESS'),
+    COMPLETED: filteredData.filter(a => a.status === 'COMPLETED'),
+    CANCELLED: filteredData.filter(a => a.status === 'CANCELLED'),
+  };
+
+  async function handleUpdateAction(actionId: string, updates: any) {
+    try {
+      const response = await fetch(`/api/hr-action-items/${actionId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates),
+      });
+
+      if (response.ok) {
+        onRefresh();
+      }
+    } catch (error) {
+      console.error('Error updating action:', error);
+    }
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Filters */}
+      <div className="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
+        <div className="flex flex-wrap gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Status</label>
+            <select
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+            >
+              <option value="all">All Statuses</option>
+              <option value="PENDING">Pending</option>
+              <option value="IN_PROGRESS">In Progress</option>
+              <option value="COMPLETED">Completed</option>
+              <option value="CANCELLED">Cancelled</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Filter by Priority</label>
+            <select
+              value={filterPriority}
+              onChange={(e) => setFilterPriority(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+            >
+              <option value="all">All Priorities</option>
+              <option value="URGENT">Urgent</option>
+              <option value="HIGH">High</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="LOW">Low</option>
+            </select>
+          </div>
+          <div className="flex items-end">
+            <div className="text-sm text-gray-600">
+              Showing {filteredData.length} of {data.length} actions
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Action Items by Status */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Pending */}
+        {groupedByStatus.PENDING.length > 0 && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center">
+              <span className="inline-block w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+              Pending ({groupedByStatus.PENDING.length})
+            </h3>
+            <div className="space-y-3">
+              {groupedByStatus.PENDING.map((action) => (
+                <ActionItemCard key={action.id} action={action} onUpdate={handleUpdateAction} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* In Progress */}
+        {groupedByStatus.IN_PROGRESS.length > 0 && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center">
+              <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+              In Progress ({groupedByStatus.IN_PROGRESS.length})
+            </h3>
+            <div className="space-y-3">
+              {groupedByStatus.IN_PROGRESS.map((action) => (
+                <ActionItemCard key={action.id} action={action} onUpdate={handleUpdateAction} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Completed */}
+        {groupedByStatus.COMPLETED.length > 0 && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center">
+              <span className="inline-block w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+              Completed ({groupedByStatus.COMPLETED.length})
+            </h3>
+            <div className="space-y-3">
+              {groupedByStatus.COMPLETED.map((action) => (
+                <ActionItemCard key={action.id} action={action} onUpdate={handleUpdateAction} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Cancelled */}
+        {groupedByStatus.CANCELLED.length > 0 && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center">
+              <span className="inline-block w-3 h-3 rounded-full bg-gray-400 mr-2"></span>
+              Cancelled ({groupedByStatus.CANCELLED.length})
+            </h3>
+            <div className="space-y-3">
+              {groupedByStatus.CANCELLED.map((action) => (
+                <ActionItemCard key={action.id} action={action} onUpdate={handleUpdateAction} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Action Item Card Component
+function ActionItemCard({ action, onUpdate }: { action: HRActionItem; onUpdate: (id: string, updates: any) => void }) {
+  return (
+    <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+      <div className="flex items-start justify-between mb-2">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <select
+              value={action.status}
+              onChange={(e) => onUpdate(action.id, { status: e.target.value })}
+              className={`text-xs px-2 py-1 rounded font-medium border ${
+                action.status === 'COMPLETED'
+                  ? 'bg-green-100 text-green-800 border-green-300'
+                  : action.status === 'IN_PROGRESS'
+                  ? 'bg-blue-100 text-blue-800 border-blue-300'
+                  : action.status === 'CANCELLED'
+                  ? 'bg-gray-100 text-gray-800 border-gray-300'
+                  : 'bg-yellow-100 text-yellow-800 border-yellow-300'
+              }`}
+            >
+              <option value="PENDING">Pending</option>
+              <option value="IN_PROGRESS">In Progress</option>
+              <option value="COMPLETED">Completed</option>
+              <option value="CANCELLED">Cancelled</option>
+            </select>
+            <span className={`text-xs px-2 py-1 rounded font-medium ${
+              action.priority === 'URGENT'
+                ? 'bg-red-100 text-red-800'
+                : action.priority === 'HIGH'
+                ? 'bg-orange-100 text-orange-800'
+                : action.priority === 'MEDIUM'
+                ? 'bg-blue-100 text-blue-800'
+                : 'bg-gray-100 text-gray-800'
+            }`}>
+              {action.priority}
+            </span>
+          </div>
+          <p className="text-sm text-gray-900 mb-2">{action.description}</p>
+          <div className="flex flex-col gap-1 text-xs text-gray-600">
+            <div className="flex items-center gap-4">
+              <span>👤 For: {action.employee.fullName}</span>
+              {action.assignedTo && (
+                <span>✋ By: {action.assignedTo.fullName}</span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {action.dueDate && (
+                <span>📅 Due: {new Date(action.dueDate).toLocaleDateString()}</span>
+              )}
+              {action.completedAt && (
+                <span>✅ Done: {new Date(action.completedAt).toLocaleDateString()}</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
