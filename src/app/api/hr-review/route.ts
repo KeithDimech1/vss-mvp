@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { verifyAuth } from '@/lib/auth';
+import { verifySession } from '@/lib/auth';
 
 /**
  * GET /api/hr-review
@@ -15,17 +15,27 @@ import { verifyAuth } from '@/lib/auth';
  */
 export async function GET(request: NextRequest) {
   try {
-    // Verify authentication and check if user is a manager
-    const authUser = await verifyAuth(request);
+    // Verify authentication
+    const session = await verifySession();
 
-    if (!authUser) {
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized - Please log in' },
         { status: 401 }
       );
     }
 
-    if (!authUser.isManager && authUser.role !== 'ADMIN') {
+    // Get user details to check if they are a manager
+    const authUser = await prisma.user.findUnique({
+      where: { id: session.userId },
+      select: {
+        id: true,
+        role: true,
+        isManager: true,
+      },
+    });
+
+    if (!authUser || (!authUser.isManager && authUser.role !== 'ADMIN')) {
       return NextResponse.json(
         { error: 'Forbidden - Manager access required' },
         { status: 403 }
