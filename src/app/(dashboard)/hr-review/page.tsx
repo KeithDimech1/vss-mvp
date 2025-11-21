@@ -595,32 +595,36 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
     }
   }
 
-  // Parse action items from interview notes
-  function parseActionItemsFromNotes(notes: string): string[] {
-    const actionItems: string[] = [];
+  // Parse action items from interview notes - specifically from the "Action Items" section
+  function parseActionItemsFromNotes(notes: string): Array<{ person: string; action: string }> {
+    const actionItems: Array<{ person: string; action: string }> = [];
     const lines = notes.split('\n');
+
+    let inActionItemsSection = false;
 
     for (const line of lines) {
       const trimmedLine = line.trim();
 
-      // Look for patterns like:
-      // - **Name:** Will/Should/Must do something
-      // - **Name:** To do something
-      // - - **Name:** Will do something
-      const patterns = [
-        /^-?\s*\*\*([^*]+):\*\*\s+(.+)/,  // Matches: - **Keith Dimech:** Will send...
-        /^\*\*([^*]+):\*\*\s+(.+)/,       // Matches: **Keith Dimech:** Will send...
-      ];
+      // Check if we're entering the Action Items section
+      if (trimmedLine.toLowerCase() === '## action items') {
+        inActionItemsSection = true;
+        continue;
+      }
 
-      for (const pattern of patterns) {
-        const match = trimmedLine.match(pattern);
+      // Check if we're leaving the Action Items section (new ## header)
+      if (inActionItemsSection && trimmedLine.startsWith('## ') && !trimmedLine.toLowerCase().includes('action items')) {
+        inActionItemsSection = false;
+        continue;
+      }
+
+      // If we're in the Action Items section, parse the action items
+      if (inActionItemsSection && trimmedLine) {
+        // Match patterns like: - **Name:** Action text
+        const match = trimmedLine.match(/^-\s*\*\*([^*]+):\*\*\s+(.+)/);
         if (match) {
-          const actionText = match[2].trim();
-          // Only include if it looks like an action (starts with action words)
-          if (/^(will|should|must|to|needs? to|going to)/i.test(actionText)) {
-            actionItems.push(actionText);
-          }
-          break;
+          const person = match[1].trim();
+          const action = match[2].trim();
+          actionItems.push({ person, action });
         }
       }
     }
@@ -628,30 +632,96 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
     return actionItems;
   }
 
+  // Helper to get notes without the Action Items section (for clean display)
+  function getNotesWithoutActionItems(notes: string): string {
+    const lines = notes.split('\n');
+    const filteredLines: string[] = [];
+    let inActionItemsSection = false;
+    let skipNextEmptyLines = false;
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+
+      // Check if we're entering the Action Items section
+      if (trimmedLine.toLowerCase() === '## action items') {
+        inActionItemsSection = true;
+        skipNextEmptyLines = true;
+        continue;
+      }
+
+      // Check if we're leaving the Action Items section (new ## header)
+      if (inActionItemsSection && trimmedLine.startsWith('## ') && !trimmedLine.toLowerCase().includes('action items')) {
+        inActionItemsSection = false;
+        skipNextEmptyLines = false;
+        filteredLines.push(line);
+        continue;
+      }
+
+      // Skip lines in the Action Items section
+      if (inActionItemsSection) {
+        continue;
+      }
+
+      // Skip empty lines right after removing action items section
+      if (skipNextEmptyLines && !trimmedLine) {
+        continue;
+      } else {
+        skipNextEmptyLines = false;
+      }
+
+      filteredLines.push(line);
+    }
+
+    return filteredLines.join('\n');
+  }
+
   async function handleImportActionsFromNotes(interview: InterviewNote) {
     const parsedActions = parseActionItemsFromNotes(interview.notes);
 
     if (parsedActions.length === 0) {
-      alert('No action items found in the interview notes. Action items should be formatted like:\n\n**Name:** Will do something\n- **Name:** Should complete task');
+      alert('No action items found in the "## Action Items" section.\n\nExpected format:\n## Action Items\n- **Name:** Action description\n- **Another Name:** Another action');
       return;
     }
 
-    const confirmMessage = `Found ${parsedActions.length} action item(s) in the notes:\n\n${parsedActions.map((a, i) => `${i + 1}. ${a}`).join('\n')}\n\nImport these as action items?`;
+    const confirmMessage = `Found ${parsedActions.length} action item(s):\n\n${parsedActions.map((a, i) => `${i + 1}. ${a.person}: ${a.action}`).join('\n\n')}\n\nImport these as action items?`;
 
     if (!confirm(confirmMessage)) {
       return;
     }
 
     try {
+      // Fetch all users to map names to IDs
+      const usersResponse = await fetch('/api/hr-review');
+      if (!usersResponse.ok) {
+        throw new Error('Failed to fetch users');
+      }
+      const usersData = await usersResponse.json();
+      const allUsers = usersData.allUsers || [];
+
       // Create all action items
       let successCount = 0;
-      for (const description of parsedActions) {
+      const errors: string[] = [];
+
+      for (const { person, action } of parsedActions) {
+        // Find the user by full name (case insensitive)
+        const assignedUser = allUsers.find(
+          (u: User) => u.fullName.toLowerCase() === person.toLowerCase()
+        );
+
+        if (!assignedUser) {
+          errors.push(`User not found: ${person}`);
+          continue;
+        }
+
+        // The person mentioned is the one assigned to do the action
+        // The interview employee is who the action is about/for
         const response = await fetch('/api/hr-action-items', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            description,
-            employeeId: interview.userId,
+            description: action,
+            employeeId: interview.userId, // The employee being reviewed
+            assignedToId: assignedUser.id, // The person who will do the action
             interviewNoteId: interview.id,
             priority: 'MEDIUM',
             status: 'PENDING',
@@ -660,13 +730,22 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
 
         if (response.ok) {
           successCount++;
+        } else {
+          const errorData = await response.json();
+          errors.push(`Failed to create action for ${person}: ${errorData.error}`);
         }
       }
 
       if (successCount > 0) {
-        alert(`Successfully imported ${successCount} action item(s)!`);
+        let message = `Successfully imported ${successCount} action item(s)!`;
+        if (errors.length > 0) {
+          message += `\n\nErrors:\n${errors.join('\n')}`;
+        }
+        alert(message);
         // Refresh action items
         await fetchActionItems(interview.id);
+      } else if (errors.length > 0) {
+        alert(`Failed to import actions:\n\n${errors.join('\n')}`);
       }
     } catch (error) {
       console.error('Error importing action items:', error);
@@ -685,7 +764,9 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
   return (
     <div className="space-y-6">
       {data.map((interview) => {
-        const sections = parseMarkdownSections(interview.notes);
+        // Filter out the Action Items section from notes
+        const notesWithoutActions = getNotesWithoutActionItems(interview.notes);
+        const sections = parseMarkdownSections(notesWithoutActions);
         const interviewActions = actionItems[interview.id] || [];
 
         return (
@@ -706,7 +787,7 @@ function InterviewsSection({ data }: { data: InterviewNote[] }) {
               </div>
             </div>
 
-            {/* Interview Notes with Formatted Sections */}
+            {/* Interview Notes with Formatted Sections (excluding Action Items section) */}
             <div className="mb-6">
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-3">
                 {sections.map((section, idx) => (
