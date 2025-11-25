@@ -453,6 +453,82 @@ model UserManager {
   @@index([managerId])
 }
 
+// GDAC-SA Tender Tracker - Saudi Geological Survey RFQ Application (FORM-002)
+model GdacTenderTracker {
+  id                    String   @id @default(cuid())
+
+  // Strategic Decisions (Section 2)
+  applicationStructure  String?  // "solo" | "consortium"
+  consortiumPartners    String?  @db.Text // Partner organizations (one per line)
+  saudiEntityStatus     String?  // "existing_cr" | "need_entity" | "have_partner" | "need_partner"
+  etimadRegistration    String?  // "registered" | "in_progress" | "not_started" | "need_partner"
+  goNoGoDecision        String?  // "go" | "no_go" | "conditional"
+  goNoGoRationale       String?  @db.Text
+
+  // Legal Documents (Section 3) - Status: not_started | in_progress | obtained | uploaded
+  commercialRegCert     String?
+  zakatCert             String?
+  vatCert               String?
+  socialInsuranceCert   String?
+  chamberCommerceCert   String?
+  investmentLicense     String?
+  saudizationCert       String?
+  qualityCert           String?
+  hseCert               String?
+  allianceAgreement     String?
+
+  // Financial Documents (Section 4)
+  financialYear0        String?  // Status
+  financialYear1        String?
+  financialYear2        String?
+  cashRatio             Float?
+  currentRatio          Float?
+  quickRatio            Float?
+
+  // Application Forms (Section 5) - Status: not_started | in_progress | complete | reviewed | sealed
+  applicantInfoForm     String?
+  techCapabilitiesForm  String?
+  adminStaffForm        String?
+  professionalStaffForm String?
+  project1Form          String?
+  project2Form          String?
+  project3Form          String?
+  financialCapacityForm String?
+
+  // Quality Assurance (Section 6)
+  certsValidCheck       String?  // "not_checked" | "action_required" | "valid"
+  docsSealedCheck       String?  // "not_done" | "in_progress" | "complete"
+  pdfsSearchableCheck   String?  // "not_checked" | "needs_conversion" | "searchable"
+  formsElectronicCheck  String?  // "not_done" | "in_progress" | "complete"
+  noBlankFieldsCheck    String?  // "not_checked" | "issues_found" | "complete"
+  consistencyCheck      String?  // "not_checked" | "discrepancies" | "consistent"
+  managementReview      String?  // "not_scheduled" | "scheduled" | "in_progress" | "approved"
+  legalReview           String?
+  financeReview         String?
+
+  // Submission (Section 7)
+  packageCompiled       String?  // "not_started" | "in_progress" | "complete"
+  etimadTestUpload      String?  // "not_tested" | "failed" | "successful"
+  submissionStatus      String?  // "not_submitted" | "in_progress" | "awaiting" | "confirmed" | "failed"
+  submissionReference   String?
+  submissionDateTime    DateTime?
+  screenshotSaved       String?  // "not_done" | "saved"
+
+  // Contacts & Notes (Section 8)
+  sgsContactNotes       String?  @db.Text
+  etimadContactNotes    String?  @db.Text
+  internalNotes         String?  @db.Text
+  lessonsLearned        String?  @db.Text
+
+  // Metadata
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  lastUpdatedById       String?
+
+  @@index([submissionStatus])
+  @@index([goNoGoDecision])
+}
+
 // Product Tier Configuration - Editable tier data for LithoSurfer and LithoData
 model ProductTierConfig {
   id          String   @id @default(cuid())
