@@ -205,10 +205,13 @@ export default function DashboardLayout({
                       </div>
                     </Link>
                     <Link
-                      href="/management/action/okrs"
-                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-[#F5E6D3]/80 hover:text-white opacity-50 cursor-not-allowed"
+                      href="/management/action/okr-implementation"
+                      className="block px-6 py-2 pl-12 hover:bg-[#C9A961]/20 transition-all duration-200 text-sm text-white"
                     >
-                      Action 4: Implementation Plan
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                        <span>Action 4: Implementation Plan</span>
+                      </div>
                     </Link>
                     <Link
                       href="/management/action/intelligence"

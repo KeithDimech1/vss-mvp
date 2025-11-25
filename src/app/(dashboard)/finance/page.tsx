@@ -7,8 +7,8 @@ import CalendarView from '@/components/finance/CalendarView';
 
 export default function FinancePage() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [tasks, setTasks] = useState([]);
-  const [metrics, setMetrics] = useState(null);
+  const [tasks, setTasks] = useState<any[]>([]);
+  const [metrics, setMetrics] = useState<any>(null);
   const [readinessScore, setReadinessScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<'calendar' | 'list'>('list');

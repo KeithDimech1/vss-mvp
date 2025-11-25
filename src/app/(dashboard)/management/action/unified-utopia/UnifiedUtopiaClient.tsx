@@ -67,12 +67,24 @@ export default function UnifiedUtopiaClient({
         </div>
 
         {/* Quick Links */}
-        <div className="flex gap-4 mb-6">
+        <div className="flex flex-wrap gap-4 mb-6">
           <a
             href="/management/action/unified-utopia/team-responses"
             className="px-4 py-2 bg-white border-2 border-[#C9A961] text-[#C9A961] rounded-lg hover:bg-[#C9A961] hover:text-white transition-colors font-medium"
           >
-            📊 View Team Responses
+            View Team Responses
+          </a>
+          <a
+            href="/management/action/unified-utopia/lithosurfer"
+            className="px-4 py-2 bg-[#C9A961] text-white rounded-lg hover:bg-[#1B4332] transition-colors font-medium"
+          >
+            LithoSurfer Summary
+          </a>
+          <a
+            href="/management/action/unified-utopia/lithodata"
+            className="px-4 py-2 bg-[#1B4332] text-white rounded-lg hover:bg-[#C9A961] transition-colors font-medium"
+          >
+            LithoData Summary
           </a>
         </div>
 

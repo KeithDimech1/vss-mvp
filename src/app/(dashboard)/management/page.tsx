@@ -684,13 +684,13 @@ export default function ManagementDashboard() {
               </div>
 
               {/* Step 4 */}
-              <a href="/management/action/okrs" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <a href="/management/action/okr-implementation" className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-[#1B4332]">📋 Step 4</h3>
                   <span className="px-2 py-1 text-xs font-semibold text-[#1B4332]-600 bg-[#C9A961]/20 rounded">SHORT-TERM</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Implementation Plan (OKRs)</h4>
-                <p className="text-sm text-gray-600 mb-3">Create actionable roadmap with quarterly OKRs.</p>
+                <p className="text-sm text-gray-600 mb-3">Define OKR framework, timeline, and execution strategy.</p>
                 <div className="text-xs text-gray-500">Owner: Keith & Vinko</div>
               </a>
 

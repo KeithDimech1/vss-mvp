@@ -452,3 +452,34 @@ model UserManager {
   @@index([employeeId])
   @@index([managerId])
 }
+
+// Product Tier Configuration - Editable tier data for LithoSurfer and LithoData
+model ProductTierConfig {
+  id          String   @id @default(cuid())
+  productType String   // "lithosurfer" or "lithodata"
+  tierName    String   // "free", "pro", "enterprise" for LithoSurfer; "free", "premium", "marketplace" for LithoData
+
+  // Tier details
+  price           String?  // e.g., "$0", "$2,500 - $5,000/year", "30% Commission"
+  priceNote       String?  // e.g., "Pricing under debate"
+  target          String?  // Target customer description
+  source          String?  // For LithoData: data source description
+
+  // Features (stored as JSON arrays)
+  featuresIn      Json     // Array of { category: string, feature: string, note?: string }
+  featuresOut     Json     // Array of { category: string, feature: string, upgradePath?: string }
+
+  // Additional notes
+  restrictions    String?  @db.Text  // Restriction notes
+  keyDifferentiator String? @db.Text // Key selling point
+
+  // Metadata
+  lastEditedBy    String?  // User ID who last edited
+  lastEditedAt    DateTime @default(now())
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([productType, tierName])
+  @@index([productType])
+}

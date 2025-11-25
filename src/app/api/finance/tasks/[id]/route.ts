@@ -6,9 +6,10 @@ const prisma = new PrismaClient();
 // PATCH /api/finance/tasks/[id] - Update a task
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const { status, completedById } = body;
 
@@ -34,7 +35,7 @@ export async function PATCH(
     }
 
     const task = await prisma.financeTask.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData,
       include: {
         assignedTo: {
@@ -88,11 +89,12 @@ export async function PATCH(
 // DELETE /api/finance/tasks/[id] - Delete a task
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     await prisma.financeTask.delete({
-      where: { id: params.id },
+      where: { id },
     });
 
     return NextResponse.json({ success: true });
