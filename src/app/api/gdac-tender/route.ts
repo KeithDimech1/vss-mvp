@@ -1,20 +1,19 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 // GET - Retrieve the GDAC tender tracker data
 export async function GET() {
   try {
-    const session = await getServerSession(authOptions);
+    const session = await getSession();
 
-    if (!session?.user?.id) {
+    if (!session?.userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Check if user is a manager
     const user = await prisma.user.findUnique({
-      where: { id: session.user.id },
+      where: { id: session.userId },
       select: { isManager: true, role: true },
     });
 
@@ -33,7 +32,7 @@ export async function GET() {
     if (!tracker) {
       tracker = await prisma.gdacTenderTracker.create({
         data: {
-          lastUpdatedById: session.user.id,
+          lastUpdatedById: session.userId,
         },
       });
     }
@@ -51,15 +50,15 @@ export async function GET() {
 // PUT - Update the GDAC tender tracker
 export async function PUT(request: Request) {
   try {
-    const session = await getServerSession(authOptions);
+    const session = await getSession();
 
-    if (!session?.user?.id) {
+    if (!session?.userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Check if user is a manager
     const user = await prisma.user.findUnique({
-      where: { id: session.user.id },
+      where: { id: session.userId },
       select: { isManager: true, role: true },
     });
 
@@ -85,7 +84,7 @@ export async function PUT(request: Request) {
       where: { id },
       data: {
         ...updateData,
-        lastUpdatedById: session.user.id,
+        lastUpdatedById: session.userId,
       },
     });
 

@@ -6,3 +6,7 @@
 !errors/**
 !.gitignore
 ideas/
+
+# Track gdac-tender for deployment
+!06 gdac-tender/
+!06 gdac-tender/**

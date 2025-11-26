@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 // Types
@@ -92,7 +91,6 @@ const REVIEW_STATUS_OPTIONS = [
 ];
 
 export default function GdacTenderPage() {
-  const { data: session, status: authStatus } = useSession();
   const router = useRouter();
   const [tracker, setTracker] = useState<TrackerData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -125,22 +123,19 @@ export default function GdacTenderPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch tracker data
+  // Fetch tracker data on mount
   useEffect(() => {
-    if (authStatus === "unauthenticated") {
-      router.push("/login");
-      return;
-    }
-
-    if (authStatus === "authenticated") {
-      fetchTracker();
-    }
-  }, [authStatus, router]);
+    fetchTracker();
+  }, []);
 
   const fetchTracker = async () => {
     try {
       const response = await fetch("/api/gdac-tender");
       if (!response.ok) {
+        if (response.status === 401) {
+          router.push("/login");
+          return;
+        }
         if (response.status === 403) {
           setError("Access denied. Manager role required.");
           return;
