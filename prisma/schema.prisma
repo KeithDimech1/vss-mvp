@@ -454,18 +454,98 @@ model UserManager {
 }
 
 // GDAC-SA Tender Tracker - Saudi Geological Survey RFQ Application (FORM-002)
+// All step fields use status: "not_started" | "in_progress" | "blocked" | "complete"
 model GdacTenderTracker {
   id                    String   @id @default(cuid())
 
-  // Strategic Decisions (Section 2)
-  applicationStructure  String?  // "solo" | "consortium"
-  consortiumPartners    String?  @db.Text // Partner organizations (one per line)
-  saudiEntityStatus     String?  // "existing_cr" | "need_entity" | "have_partner" | "need_partner"
-  etimadRegistration    String?  // "registered" | "in_progress" | "not_started" | "need_partner"
-  goNoGoDecision        String?  // "go" | "no_go" | "conditional"
-  goNoGoRationale       String?  @db.Text
+  // 1. Saudi Entity & Registration
+  step_saudi_entity     String?  // Establish Saudi Entity or Partner
+  step_commercial_reg   String?  // Obtain Commercial Registration (CR)
+  step_etimad_register  String?  // Register on Etimad Platform
+  step_etimad_verify    String?  // Complete Etimad Verification
+  step_tender_access    String?  // Access Tender on Etimad
 
-  // Legal Documents (Section 3) - Status: not_started | in_progress | obtained | uploaded
+  // 2. Mandatory Certificates
+  step_zakat_cert       String?  // Zakat and Income Certificate
+  step_social_insurance String?  // Social Insurance Certificate (GOSI)
+  step_chamber_commerce String?  // Chamber of Commerce Membership
+  step_saudization      String?  // Saudization Certificate (Nitaqat/Taqat)
+  step_vat_cert         String?  // VAT Registration Certificate
+
+  // 3. Technical Certificates
+  step_iso_9001         String?  // ISO 9001 Quality Management
+  step_iso_27001        String?  // ISO 27001 Information Security
+  step_hse_cert         String?  // HSE Certificate
+
+  // 4. Financial Documents
+  step_fin_year0        String?  // Audited Financial Statements - Year 2024
+  step_fin_year1        String?  // Audited Financial Statements - Year 2023
+  step_fin_year2        String?  // Audited Financial Statements - Year 2022
+  step_bank_letter      String?  // Bank Solvency Letter
+  step_calc_ratios      String?  // Calculate Financial Ratios
+
+  // 5. Technical Capability Evidence
+  step_company_profile  String?  // Company Profile Document
+  step_org_chart        String?  // Organization Chart
+  step_cv_admin         String?  // CVs - Administrative Staff (10 people)
+  step_cv_technical     String?  // CVs - Technical Staff (20 people)
+  step_project1         String?  // Similar Project Reference #1
+  step_project2         String?  // Similar Project Reference #2
+  step_project3         String?  // Similar Project Reference #3
+
+  // 6. Etimad Forms (Download & Complete)
+  step_form_applicant   String?  // Form: Applicant Information
+  step_form_tech_cap    String?  // Form: Technical & Administrative Capabilities
+  step_form_admin_staff String?  // Form: Administrative Staff Experience
+  step_form_prof_staff  String?  // Form: Professional Staff Experience
+  step_form_project1    String?  // Form: Similar Project #1
+  step_form_project2    String?  // Form: Similar Project #2
+  step_form_project3    String?  // Form: Similar Project #3
+  step_form_financial   String?  // Form: Financial Capacity Criteria
+
+  // 7. Consortium Documents (If Applicable)
+  step_alliance_agreement String?  // Alliance/Consortium Agreement
+  step_partner_auth     String?  // Partner Authorization Letters
+  step_partner_certs    String?  // Partner Certificates & Documents
+
+  // 8. Quality Assurance Checks
+  step_qa_expiry        String?  // QA: Verify No Expired Certificates
+  step_qa_sealed        String?  // QA: All Documents Company-Sealed
+  step_qa_pdf           String?  // QA: PDFs are Searchable
+  step_qa_electronic    String?  // QA: Forms Electronically Completed
+  step_qa_blanks        String?  // QA: No Blank Required Fields
+  step_qa_consistent    String?  // QA: Information Consistent
+
+  // 9. Internal Reviews
+  step_review_technical String?  // Technical Review Complete
+  step_review_legal     String?  // Legal Review Complete
+  step_review_finance   String?  // Finance Review Complete
+  step_review_management String?  // Management Approval
+
+  // 10. Submission Preparation
+  step_compile_package  String?  // Compile Final Document Package
+  step_test_upload      String?  // Test Upload to Etimad
+  step_backup_files     String?  // Backup All Files
+
+  // 11. Final Submission
+  step_submit_etimad    String?  // Submit on Etimad Platform
+  step_get_confirmation String?  // Obtain Confirmation Number
+  step_screenshot       String?  // Screenshot Submission Confirmation
+  step_notify_team      String?  // Notify Team of Submission
+
+  // Contacts & Notes
+  sgsContactNotes       String?  @db.Text
+  etimadContactNotes    String?  @db.Text
+  internalNotes         String?  @db.Text
+  lessonsLearned        String?  @db.Text
+
+  // Legacy fields (kept for backwards compatibility)
+  applicationStructure  String?
+  consortiumPartners    String?  @db.Text
+  saudiEntityStatus     String?
+  etimadRegistration    String?
+  goNoGoDecision        String?
+  goNoGoRationale       String?  @db.Text
   commercialRegCert     String?
   zakatCert             String?
   vatCert               String?
@@ -476,16 +556,12 @@ model GdacTenderTracker {
   qualityCert           String?
   hseCert               String?
   allianceAgreement     String?
-
-  // Financial Documents (Section 4)
-  financialYear0        String?  // Status
+  financialYear0        String?
   financialYear1        String?
   financialYear2        String?
   cashRatio             Float?
   currentRatio          Float?
   quickRatio            Float?
-
-  // Application Forms (Section 5) - Status: not_started | in_progress | complete | reviewed | sealed
   applicantInfoForm     String?
   techCapabilitiesForm  String?
   adminStaffForm        String?
@@ -494,31 +570,21 @@ model GdacTenderTracker {
   project2Form          String?
   project3Form          String?
   financialCapacityForm String?
-
-  // Quality Assurance (Section 6)
-  certsValidCheck       String?  // "not_checked" | "action_required" | "valid"
-  docsSealedCheck       String?  // "not_done" | "in_progress" | "complete"
-  pdfsSearchableCheck   String?  // "not_checked" | "needs_conversion" | "searchable"
-  formsElectronicCheck  String?  // "not_done" | "in_progress" | "complete"
-  noBlankFieldsCheck    String?  // "not_checked" | "issues_found" | "complete"
-  consistencyCheck      String?  // "not_checked" | "discrepancies" | "consistent"
-  managementReview      String?  // "not_scheduled" | "scheduled" | "in_progress" | "approved"
+  certsValidCheck       String?
+  docsSealedCheck       String?
+  pdfsSearchableCheck   String?
+  formsElectronicCheck  String?
+  noBlankFieldsCheck    String?
+  consistencyCheck      String?
+  managementReview      String?
   legalReview           String?
   financeReview         String?
-
-  // Submission (Section 7)
-  packageCompiled       String?  // "not_started" | "in_progress" | "complete"
-  etimadTestUpload      String?  // "not_tested" | "failed" | "successful"
-  submissionStatus      String?  // "not_submitted" | "in_progress" | "awaiting" | "confirmed" | "failed"
+  packageCompiled       String?
+  etimadTestUpload      String?
+  submissionStatus      String?
   submissionReference   String?
   submissionDateTime    DateTime?
-  screenshotSaved       String?  // "not_done" | "saved"
-
-  // Contacts & Notes (Section 8)
-  sgsContactNotes       String?  @db.Text
-  etimadContactNotes    String?  @db.Text
-  internalNotes         String?  @db.Text
-  lessonsLearned        String?  @db.Text
+  screenshotSaved       String?
 
   // Metadata
   createdAt             DateTime @default(now())

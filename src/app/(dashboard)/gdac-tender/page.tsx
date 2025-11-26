@@ -6,89 +6,99 @@ import { useRouter } from "next/navigation";
 // Types
 interface TrackerData {
   id: string;
-  applicationStructure: string | null;
-  consortiumPartners: string | null;
-  saudiEntityStatus: string | null;
-  etimadRegistration: string | null;
-  goNoGoDecision: string | null;
-  goNoGoRationale: string | null;
-  commercialRegCert: string | null;
-  zakatCert: string | null;
-  vatCert: string | null;
-  socialInsuranceCert: string | null;
-  chamberCommerceCert: string | null;
-  investmentLicense: string | null;
-  saudizationCert: string | null;
-  qualityCert: string | null;
-  hseCert: string | null;
-  allianceAgreement: string | null;
-  financialYear0: string | null;
-  financialYear1: string | null;
-  financialYear2: string | null;
-  cashRatio: number | null;
-  currentRatio: number | null;
-  quickRatio: number | null;
-  applicantInfoForm: string | null;
-  techCapabilitiesForm: string | null;
-  adminStaffForm: string | null;
-  professionalStaffForm: string | null;
-  project1Form: string | null;
-  project2Form: string | null;
-  project3Form: string | null;
-  financialCapacityForm: string | null;
-  certsValidCheck: string | null;
-  docsSealedCheck: string | null;
-  pdfsSearchableCheck: string | null;
-  formsElectronicCheck: string | null;
-  noBlankFieldsCheck: string | null;
-  consistencyCheck: string | null;
-  managementReview: string | null;
-  legalReview: string | null;
-  financeReview: string | null;
-  packageCompiled: string | null;
-  etimadTestUpload: string | null;
-  submissionStatus: string | null;
-  submissionReference: string | null;
-  submissionDateTime: string | null;
-  screenshotSaved: string | null;
-  sgsContactNotes: string | null;
-  etimadContactNotes: string | null;
-  internalNotes: string | null;
-  lessonsLearned: string | null;
-  updatedAt: string;
+  // Step tracking - all steps stored as JSON strings in generic fields
+  [key: string]: string | number | null;
 }
 
 // Deadline: 24 December 2025
 const DEADLINE = new Date("2025-12-24T23:59:59+03:00"); // Saudi Arabia timezone UTC+3
 
 // Status options
-const DOCUMENT_STATUS_OPTIONS = [
+const STEP_STATUS_OPTIONS = [
   { value: "not_started", label: "Not Started", color: "bg-gray-200 text-gray-700" },
   { value: "in_progress", label: "In Progress", color: "bg-yellow-200 text-yellow-800" },
-  { value: "obtained", label: "Obtained", color: "bg-blue-200 text-blue-800" },
-  { value: "uploaded", label: "Uploaded", color: "bg-green-200 text-green-800" },
-];
-
-const FORM_STATUS_OPTIONS = [
-  { value: "not_started", label: "Not Started", color: "bg-gray-200 text-gray-700" },
-  { value: "in_progress", label: "In Progress", color: "bg-yellow-200 text-yellow-800" },
-  { value: "complete", label: "Complete", color: "bg-blue-200 text-blue-800" },
-  { value: "reviewed", label: "Reviewed", color: "bg-purple-200 text-purple-800" },
-  { value: "sealed", label: "Sealed", color: "bg-green-200 text-green-800" },
-];
-
-const QA_STATUS_OPTIONS = [
-  { value: "not_checked", label: "Not Checked", color: "bg-gray-200 text-gray-700" },
-  { value: "issues_found", label: "Issues Found", color: "bg-red-200 text-red-800" },
+  { value: "blocked", label: "Blocked", color: "bg-red-200 text-red-800" },
   { value: "complete", label: "Complete", color: "bg-green-200 text-green-800" },
 ];
 
-const REVIEW_STATUS_OPTIONS = [
-  { value: "not_scheduled", label: "Not Scheduled", color: "bg-gray-200 text-gray-700" },
-  { value: "scheduled", label: "Scheduled", color: "bg-yellow-200 text-yellow-800" },
-  { value: "in_progress", label: "In Progress", color: "bg-blue-200 text-blue-800" },
-  { value: "approved", label: "Approved", color: "bg-green-200 text-green-800" },
-];
+// All required steps organized by category
+const REQUIRED_STEPS = {
+  "1. Saudi Entity & Registration": [
+    { id: "step_saudi_entity", label: "Establish Saudi Entity or Partner", help: "Foreign companies cannot register on Etimad directly - need Saudi CR" },
+    { id: "step_commercial_reg", label: "Obtain Commercial Registration (CR)", help: "From Ministry of Commerce - required for Etimad" },
+    { id: "step_etimad_register", label: "Register on Etimad Platform", help: "portal.etimad.sa - requires Saudi CR" },
+    { id: "step_etimad_verify", label: "Complete Etimad Verification", help: "May take 3-5 business days" },
+    { id: "step_tender_access", label: "Access Tender on Etimad", help: "RFQ #251140007625 - verify you can see and download documents" },
+  ],
+  "2. Mandatory Certificates": [
+    { id: "step_zakat_cert", label: "Zakat and Income Certificate", help: "From GAZT (Zakat, Tax & Customs Authority) - must be valid" },
+    { id: "step_social_insurance", label: "Social Insurance Certificate (GOSI)", help: "From General Organization for Social Insurance" },
+    { id: "step_chamber_commerce", label: "Chamber of Commerce Membership", help: "Active membership certificate" },
+    { id: "step_saudization", label: "Saudization Certificate (Nitaqat/Taqat)", help: "From Ministry of Human Resources - shows compliance" },
+    { id: "step_vat_cert", label: "VAT Registration Certificate", help: "From GAZT - if VAT registered" },
+  ],
+  "3. Technical Certificates": [
+    { id: "step_iso_9001", label: "ISO 9001 Quality Management", help: "Quality Management System certification" },
+    { id: "step_iso_27001", label: "ISO 27001 Information Security", help: "Information Security Management - important for data projects" },
+    { id: "step_hse_cert", label: "HSE Certificate", help: "Health, Safety & Environment certification" },
+  ],
+  "4. Financial Documents": [
+    { id: "step_fin_year0", label: "Audited Financial Statements - Year 2024", help: "Most recent fiscal year - audited by licensed auditor" },
+    { id: "step_fin_year1", label: "Audited Financial Statements - Year 2023", help: "Previous fiscal year" },
+    { id: "step_fin_year2", label: "Audited Financial Statements - Year 2022", help: "Two years prior" },
+    { id: "step_bank_letter", label: "Bank Solvency Letter", help: "Letter from bank confirming financial standing" },
+    { id: "step_calc_ratios", label: "Calculate Financial Ratios", help: "Cash ratio, current ratio, quick ratio - 40% of financial score" },
+  ],
+  "5. Technical Capability Evidence": [
+    { id: "step_company_profile", label: "Company Profile Document", help: "Comprehensive company overview, history, capabilities" },
+    { id: "step_org_chart", label: "Organization Chart", help: "Current organizational structure" },
+    { id: "step_cv_admin", label: "CVs - Administrative Staff (10 people)", help: "Key administrative and management personnel" },
+    { id: "step_cv_technical", label: "CVs - Technical Staff (20 people)", help: "AI/ML, Data Science, Geoscience, GIS specialists" },
+    { id: "step_project1", label: "Similar Project Reference #1", help: "Completed project with client reference letter" },
+    { id: "step_project2", label: "Similar Project Reference #2", help: "Completed project with client reference letter" },
+    { id: "step_project3", label: "Similar Project Reference #3", help: "Completed project with client reference letter" },
+  ],
+  "6. Etimad Forms (Download & Complete)": [
+    { id: "step_form_applicant", label: "Form: Applicant Information", help: "Download from Etimad, complete electronically" },
+    { id: "step_form_tech_cap", label: "Form: Technical & Administrative Capabilities", help: "Demonstrates technical competency" },
+    { id: "step_form_admin_staff", label: "Form: Administrative Staff Experience", help: "10 key personnel details" },
+    { id: "step_form_prof_staff", label: "Form: Professional Staff Experience", help: "20 technical personnel details" },
+    { id: "step_form_project1", label: "Form: Similar Project #1", help: "Project details matching tender requirements" },
+    { id: "step_form_project2", label: "Form: Similar Project #2", help: "Project details matching tender requirements" },
+    { id: "step_form_project3", label: "Form: Similar Project #3", help: "Project details matching tender requirements" },
+    { id: "step_form_financial", label: "Form: Financial Capacity Criteria", help: "Financial ratios and capacity declaration" },
+  ],
+  "7. Consortium Documents (If Applicable)": [
+    { id: "step_alliance_agreement", label: "Alliance/Consortium Agreement", help: "Legally binding agreement between partners" },
+    { id: "step_partner_auth", label: "Partner Authorization Letters", help: "Each partner authorizes lead bidder" },
+    { id: "step_partner_certs", label: "Partner Certificates & Documents", help: "All partners need same certificates as lead" },
+  ],
+  "8. Quality Assurance Checks": [
+    { id: "step_qa_expiry", label: "QA: Verify No Expired Certificates", help: "All certs must be valid through tender period" },
+    { id: "step_qa_sealed", label: "QA: All Documents Company-Sealed", help: "Official company stamp/seal on all docs" },
+    { id: "step_qa_pdf", label: "QA: PDFs are Searchable", help: "Not scanned images - must be text-searchable" },
+    { id: "step_qa_electronic", label: "QA: Forms Electronically Completed", help: "No handwritten entries" },
+    { id: "step_qa_blanks", label: "QA: No Blank Required Fields", help: "All mandatory fields completed" },
+    { id: "step_qa_consistent", label: "QA: Information Consistent", help: "Same info across all forms and documents" },
+  ],
+  "9. Internal Reviews": [
+    { id: "step_review_technical", label: "Technical Review Complete", help: "Technical team signs off on capability claims" },
+    { id: "step_review_legal", label: "Legal Review Complete", help: "Legal team reviews all commitments" },
+    { id: "step_review_finance", label: "Finance Review Complete", help: "Finance confirms all financial data" },
+    { id: "step_review_management", label: "Management Approval", help: "Final management sign-off to proceed" },
+  ],
+  "10. Submission Preparation": [
+    { id: "step_compile_package", label: "Compile Final Document Package", help: "All documents in correct order per Etimad requirements" },
+    { id: "step_test_upload", label: "Test Upload to Etimad", help: "Try uploading before deadline - verify file sizes work" },
+    { id: "step_backup_files", label: "Backup All Files", help: "Save to SharePoint/Google Drive as backup" },
+  ],
+  "11. Final Submission": [
+    { id: "step_submit_etimad", label: "Submit on Etimad Platform", help: "Final submission before 24 Dec 2025 deadline" },
+    { id: "step_get_confirmation", label: "Obtain Confirmation Number", help: "Save Etimad confirmation/receipt number" },
+    { id: "step_screenshot", label: "Screenshot Submission Confirmation", help: "Visual proof of successful submission" },
+    { id: "step_notify_team", label: "Notify Team of Submission", help: "Inform all stakeholders submission complete" },
+  ],
+};
 
 export default function GdacTenderPage() {
   const router = useRouter();
@@ -98,6 +108,7 @@ export default function GdacTenderPage() {
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>("overview");
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(Object.keys(REQUIRED_STEPS)));
 
   // Calculate countdown
   useEffect(() => {
@@ -178,76 +189,22 @@ export default function GdacTenderPage() {
 
   // Calculate progress
   const calculateProgress = () => {
-    if (!tracker) return { overall: 0, sections: {} };
+    if (!tracker) return { overall: 0, byCategory: {} as Record<string, { completed: number; total: number }> };
 
-    const sections: Record<string, { completed: number; total: number }> = {
-      strategy: { completed: 0, total: 5 },
-      legalDocs: { completed: 0, total: 10 },
-      financialDocs: { completed: 0, total: 6 },
-      forms: { completed: 0, total: 8 },
-      qa: { completed: 0, total: 9 },
-      submission: { completed: 0, total: 5 },
-    };
+    const byCategory: Record<string, { completed: number; total: number }> = {};
+    let totalCompleted = 0;
+    let totalSteps = 0;
 
-    // Strategy
-    if (tracker.applicationStructure) sections.strategy.completed++;
-    if (tracker.saudiEntityStatus) sections.strategy.completed++;
-    if (tracker.etimadRegistration) sections.strategy.completed++;
-    if (tracker.goNoGoDecision) sections.strategy.completed++;
-    if (tracker.goNoGoRationale) sections.strategy.completed++;
-
-    // Legal Documents
-    const legalFields = [
-      "commercialRegCert", "zakatCert", "vatCert", "socialInsuranceCert",
-      "chamberCommerceCert", "investmentLicense", "saudizationCert",
-      "qualityCert", "hseCert", "allianceAgreement"
-    ];
-    legalFields.forEach((field) => {
-      if (tracker[field as keyof TrackerData] === "uploaded") sections.legalDocs.completed++;
+    Object.entries(REQUIRED_STEPS).forEach(([category, steps]) => {
+      const categoryCompleted = steps.filter(step => tracker[step.id] === "complete").length;
+      byCategory[category] = { completed: categoryCompleted, total: steps.length };
+      totalCompleted += categoryCompleted;
+      totalSteps += steps.length;
     });
-
-    // Financial
-    if (tracker.financialYear0 === "uploaded") sections.financialDocs.completed++;
-    if (tracker.financialYear1 === "uploaded") sections.financialDocs.completed++;
-    if (tracker.financialYear2 === "uploaded") sections.financialDocs.completed++;
-    if (tracker.cashRatio) sections.financialDocs.completed++;
-    if (tracker.currentRatio) sections.financialDocs.completed++;
-    if (tracker.quickRatio) sections.financialDocs.completed++;
-
-    // Forms
-    const formFields = [
-      "applicantInfoForm", "techCapabilitiesForm", "adminStaffForm",
-      "professionalStaffForm", "project1Form", "project2Form",
-      "project3Form", "financialCapacityForm"
-    ];
-    formFields.forEach((field) => {
-      const val = tracker[field as keyof TrackerData];
-      if (val === "sealed" || val === "reviewed") sections.forms.completed++;
-    });
-
-    // QA
-    const qaFields = [
-      "certsValidCheck", "docsSealedCheck", "pdfsSearchableCheck",
-      "formsElectronicCheck", "noBlankFieldsCheck", "consistencyCheck",
-      "managementReview", "legalReview", "financeReview"
-    ];
-    qaFields.forEach((field) => {
-      const val = tracker[field as keyof TrackerData];
-      if (val === "complete" || val === "approved") sections.qa.completed++;
-    });
-
-    // Submission
-    if (tracker.packageCompiled === "complete") sections.submission.completed++;
-    if (tracker.etimadTestUpload === "successful") sections.submission.completed++;
-    if (tracker.submissionStatus === "confirmed") sections.submission.completed += 2;
-    if (tracker.screenshotSaved === "saved") sections.submission.completed++;
-
-    const totalCompleted = Object.values(sections).reduce((a, b) => a + b.completed, 0);
-    const totalItems = Object.values(sections).reduce((a, b) => a + b.total, 0);
 
     return {
-      overall: Math.round((totalCompleted / totalItems) * 100),
-      sections,
+      overall: totalSteps > 0 ? Math.round((totalCompleted / totalSteps) * 100) : 0,
+      byCategory,
     };
   };
 
@@ -261,19 +218,17 @@ export default function GdacTenderPage() {
     return "bg-green-500";
   };
 
-  // Current phase
-  const getCurrentPhase = () => {
-    const now = new Date();
-    const startDate = new Date("2025-11-26");
-    const daysSinceStart = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-
-    if (daysSinceStart < 7) return { week: 1, name: "Strategy & Registration" };
-    if (daysSinceStart < 14) return { week: 2, name: "Document Collection" };
-    if (daysSinceStart < 21) return { week: 3, name: "Form Completion" };
-    return { week: 4, name: "QA & Submission" };
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(category)) {
+        next.delete(category);
+      } else {
+        next.add(category);
+      }
+      return next;
+    });
   };
-
-  const phase = getCurrentPhase();
 
   if (loading) {
     return (
@@ -321,15 +276,11 @@ export default function GdacTenderPage() {
             </div>
           </div>
 
-          {/* Phase & Progress */}
+          {/* Progress Bar */}
           <div className="mt-4 flex flex-col md:flex-row gap-4">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
-              <span className="text-blue-800 font-medium">
-                Week {phase.week}: {phase.name}
-              </span>
-            </div>
             <div className="flex-1">
               <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-600">Overall Progress:</span>
                 <div className="flex-1 bg-gray-200 rounded-full h-3">
                   <div
                     className="bg-blue-600 rounded-full h-3 transition-all duration-500"
@@ -352,13 +303,8 @@ export default function GdacTenderPage() {
           <nav className="flex space-x-1 overflow-x-auto py-2">
             {[
               { id: "overview", label: "Overview" },
-              { id: "strategy", label: "Strategy" },
-              { id: "legal", label: "Legal Docs" },
-              { id: "financial", label: "Financial" },
-              { id: "forms", label: "Forms" },
-              { id: "qa", label: "QA" },
-              { id: "submission", label: "Submission" },
-              { id: "notes", label: "Notes" },
+              { id: "steps", label: "Required Steps" },
+              { id: "notes", label: "Notes & Contacts" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -404,48 +350,28 @@ export default function GdacTenderPage() {
               </div>
             </div>
 
-            {/* Section Progress */}
+            {/* Category Progress */}
             <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-4">Section Progress</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  { key: "strategy", label: "Strategy", icon: "1" },
-                  { key: "legalDocs", label: "Legal Docs", icon: "2" },
-                  { key: "financialDocs", label: "Financial", icon: "3" },
-                  { key: "forms", label: "Forms", icon: "4" },
-                  { key: "qa", label: "QA", icon: "5" },
-                  { key: "submission", label: "Submission", icon: "6" },
-                ].map((section) => {
-                  const sectionProgress = progress.sections[section.key as keyof typeof progress.sections];
-                  const pct = sectionProgress
-                    ? Math.round((sectionProgress.completed / sectionProgress.total) * 100)
-                    : 0;
+              <h2 className="text-lg font-semibold mb-4">Progress by Category</h2>
+              <div className="space-y-3">
+                {Object.entries(REQUIRED_STEPS).map(([category]) => {
+                  const catProgress = progress.byCategory[category] || { completed: 0, total: 0 };
+                  const pct = catProgress.total > 0 ? Math.round((catProgress.completed / catProgress.total) * 100) : 0;
                   return (
                     <div
-                      key={section.key}
-                      className="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors"
-                      onClick={() =>
-                        setActiveSection(
-                          section.key === "legalDocs" ? "legal" :
-                          section.key === "financialDocs" ? "financial" : section.key
-                        )
-                      }
+                      key={category}
+                      className="cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors"
+                      onClick={() => setActiveSection("steps")}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold text-sm">
-                          {section.icon}
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium">{section.label}</div>
-                          <div className="text-xs text-gray-500">
-                            {sectionProgress?.completed || 0}/{sectionProgress?.total || 0}
-                          </div>
-                        </div>
-                        <div className="text-lg font-bold text-blue-600">{pct}%</div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-gray-700">{category}</span>
+                        <span className="text-sm text-gray-500">
+                          {catProgress.completed}/{catProgress.total} ({pct}%)
+                        </span>
                       </div>
-                      <div className="mt-2 bg-gray-200 rounded-full h-2">
+                      <div className="bg-gray-200 rounded-full h-2">
                         <div
-                          className="bg-blue-600 rounded-full h-2 transition-all"
+                          className={`rounded-full h-2 transition-all ${pct === 100 ? 'bg-green-500' : 'bg-blue-600'}`}
                           style={{ width: `${pct}%` }}
                         ></div>
                       </div>
@@ -476,477 +402,98 @@ export default function GdacTenderPage() {
           </div>
         )}
 
-        {/* Strategy Section */}
-        {activeSection === "strategy" && tracker && (
-          <div className="bg-white rounded-lg border p-6">
-            <h2 className="text-lg font-semibold mb-6">Strategic Decisions (Week 1)</h2>
-            <div className="space-y-6">
-              {/* Application Structure */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Application Structure *
-                </label>
-                <div className="flex gap-4">
-                  {[
-                    { value: "solo", label: "Solo Bid (single entity)" },
-                    { value: "consortium", label: "Consortium/Alliance" },
-                  ].map((opt) => (
-                    <label
-                      key={opt.value}
-                      className={`flex items-center gap-2 px-4 py-3 rounded-lg border cursor-pointer transition-colors ${
-                        tracker.applicationStructure === opt.value
-                          ? "border-blue-500 bg-blue-50"
-                          : "border-gray-200 hover:border-gray-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="applicationStructure"
-                        value={opt.value}
-                        checked={tracker.applicationStructure === opt.value}
-                        onChange={(e) => updateField("applicationStructure", e.target.value)}
-                        className="text-blue-600"
-                      />
-                      <span className="text-sm">{opt.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
+        {/* Required Steps Section */}
+        {activeSection === "steps" && tracker && (
+          <div className="space-y-4">
+            {Object.entries(REQUIRED_STEPS).map(([category, steps]) => {
+              const catProgress = progress.byCategory[category] || { completed: 0, total: 0 };
+              const pct = catProgress.total > 0 ? Math.round((catProgress.completed / catProgress.total) * 100) : 0;
+              const isExpanded = expandedCategories.has(category);
 
-              {/* Consortium Partners (conditional) */}
-              {tracker.applicationStructure === "consortium" && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Consortium Partners
-                  </label>
-                  <textarea
-                    value={tracker.consortiumPartners || ""}
-                    onChange={(e) => updateField("consortiumPartners", e.target.value)}
-                    placeholder="One partner per line with role description"
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-              )}
-
-              {/* Saudi Entity Status */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Saudi Entity Status *
-                </label>
-                <select
-                  value={tracker.saudiEntityStatus || ""}
-                  onChange={(e) => updateField("saudiEntityStatus", e.target.value || null)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select...</option>
-                  <option value="existing_cr">Existing Saudi entity (CR registered)</option>
-                  <option value="need_entity">Need to establish Saudi entity</option>
-                  <option value="have_partner">Have Saudi partner/JV</option>
-                  <option value="need_partner">Need to find Saudi partner</option>
-                </select>
-                <p className="text-xs text-gray-500 mt-1">
-                  Foreign companies cannot register on Etimad directly
-                </p>
-              </div>
-
-              {/* Etimad Registration */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Etimad Platform Registration *
-                </label>
-                <select
-                  value={tracker.etimadRegistration || ""}
-                  onChange={(e) => updateField("etimadRegistration", e.target.value || null)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select...</option>
-                  <option value="registered">Already registered and verified</option>
-                  <option value="in_progress">Registration in progress</option>
-                  <option value="not_started">Not yet started</option>
-                  <option value="need_partner">Need Saudi partner for registration</option>
-                </select>
-              </div>
-
-              {/* Go/No-Go Decision */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Go/No-Go Decision *
-                </label>
-                <div className="flex gap-4 flex-wrap">
-                  {[
-                    { value: "go", label: "GO - Proceeding", color: "border-green-500 bg-green-50" },
-                    { value: "no_go", label: "NO-GO - Not proceeding", color: "border-red-500 bg-red-50" },
-                    { value: "conditional", label: "CONDITIONAL", color: "border-yellow-500 bg-yellow-50" },
-                  ].map((opt) => (
-                    <label
-                      key={opt.value}
-                      className={`flex items-center gap-2 px-4 py-3 rounded-lg border cursor-pointer transition-colors ${
-                        tracker.goNoGoDecision === opt.value ? opt.color : "border-gray-200 hover:border-gray-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="goNoGoDecision"
-                        value={opt.value}
-                        checked={tracker.goNoGoDecision === opt.value}
-                        onChange={(e) => updateField("goNoGoDecision", e.target.value)}
-                        className="text-blue-600"
-                      />
-                      <span className="text-sm">{opt.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Rationale */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Go/No-Go Rationale *
-                </label>
-                <textarea
-                  value={tracker.goNoGoRationale || ""}
-                  onChange={(e) => updateField("goNoGoRationale", e.target.value)}
-                  placeholder="Document capability assessment, financial capacity, strategic fit..."
-                  rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Legal Documents Section */}
-        {activeSection === "legal" && tracker && (
-          <div className="bg-white rounded-lg border p-6">
-            <h2 className="text-lg font-semibold mb-6">Legal Documents (Week 2)</h2>
-            <div className="space-y-4">
-              {[
-                { field: "commercialRegCert", label: "Commercial Registration Certificate", required: true },
-                { field: "zakatCert", label: "Zakat and Income Certificate", required: true },
-                { field: "vatCert", label: "VAT Certificate", required: false, help: "Required only if VAT registered" },
-                { field: "socialInsuranceCert", label: "Social Insurance Certificate", required: true },
-                { field: "chamberCommerceCert", label: "Chamber of Commerce Certificate", required: true },
-                { field: "investmentLicense", label: "Investment License (Foreign Bidders)", required: false, help: "From Ministry of Investment (MISA)" },
-                { field: "saudizationCert", label: "Saudization Certificate (Taqat)", required: true },
-                { field: "qualityCert", label: "Quality Certificate (ISO 9001)", required: true },
-                { field: "hseCert", label: "HSE Certificate", required: true },
-                { field: "allianceAgreement", label: "Alliance Agreement", required: false, conditional: tracker.applicationStructure === "consortium" },
-              ].filter(doc => !doc.conditional || doc.conditional).map((doc) => (
-                <div key={doc.field} className="flex items-center justify-between py-3 border-b last:border-0">
-                  <div>
-                    <span className="font-medium text-sm">
-                      {doc.label} {doc.required && <span className="text-red-500">*</span>}
-                    </span>
-                    {doc.help && <p className="text-xs text-gray-500">{doc.help}</p>}
-                  </div>
-                  <select
-                    value={tracker[doc.field as keyof TrackerData] as string || "not_started"}
-                    onChange={(e) => updateField(doc.field, e.target.value)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                      DOCUMENT_STATUS_OPTIONS.find(
-                        (o) => o.value === (tracker[doc.field as keyof TrackerData] || "not_started")
-                      )?.color || "bg-gray-200"
-                    }`}
+              return (
+                <div key={category} className="bg-white rounded-lg border overflow-hidden">
+                  {/* Category Header */}
+                  <button
+                    onClick={() => toggleCategory(category)}
+                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
                   >
-                    {DOCUMENT_STATUS_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+                    <div className="flex items-center gap-4">
+                      <svg
+                        className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                      <h2 className="text-lg font-semibold text-gray-900">{category}</h2>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className={`text-sm font-medium ${pct === 100 ? 'text-green-600' : 'text-gray-500'}`}>
+                        {catProgress.completed}/{catProgress.total}
+                      </span>
+                      <div className="w-24 bg-gray-200 rounded-full h-2">
+                        <div
+                          className={`rounded-full h-2 transition-all ${pct === 100 ? 'bg-green-500' : 'bg-blue-600'}`}
+                          style={{ width: `${pct}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  </button>
 
-        {/* Financial Documents Section */}
-        {activeSection === "financial" && tracker && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-6">Financial Documents (Week 2)</h2>
-              <div className="space-y-4">
-                {[
-                  { field: "financialYear0", label: "Financial Statements Year 0 (Current)" },
-                  { field: "financialYear1", label: "Financial Statements Year -1" },
-                  { field: "financialYear2", label: "Financial Statements Year -2" },
-                ].map((doc) => (
-                  <div key={doc.field} className="flex items-center justify-between py-3 border-b last:border-0">
-                    <span className="font-medium text-sm">{doc.label} <span className="text-red-500">*</span></span>
-                    <select
-                      value={tracker[doc.field as keyof TrackerData] as string || "not_started"}
-                      onChange={(e) => updateField(doc.field, e.target.value)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                        DOCUMENT_STATUS_OPTIONS.find(
-                          (o) => o.value === (tracker[doc.field as keyof TrackerData] || "not_started")
-                        )?.color || "bg-gray-200"
-                      }`}
-                    >
-                      {DOCUMENT_STATUS_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
+                  {/* Steps List */}
+                  {isExpanded && (
+                    <div className="border-t">
+                      {steps.map((step, idx) => (
+                        <div
+                          key={step.id}
+                          className={`flex items-center justify-between px-6 py-3 ${idx !== steps.length - 1 ? 'border-b' : ''}`}
+                        >
+                          <div className="flex-1 pr-4">
+                            <div className="flex items-center gap-2">
+                              {tracker[step.id] === "complete" ? (
+                                <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                              ) : tracker[step.id] === "blocked" ? (
+                                <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                </svg>
+                              ) : tracker[step.id] === "in_progress" ? (
+                                <svg className="w-5 h-5 text-yellow-500 flex-shrink-0 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                                </svg>
+                              ) : (
+                                <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0"></div>
+                              )}
+                              <span className={`font-medium text-sm ${tracker[step.id] === "complete" ? 'text-green-700' : 'text-gray-700'}`}>
+                                {step.label}
+                              </span>
+                            </div>
+                            {step.help && (
+                              <p className="text-xs text-gray-500 mt-1 ml-7">{step.help}</p>
+                            )}
+                          </div>
+                          <select
+                            value={(tracker[step.id] as string) || "not_started"}
+                            onChange={(e) => updateField(step.id, e.target.value)}
+                            className={`px-3 py-1.5 rounded-lg text-sm font-medium min-w-[120px] ${
+                              STEP_STATUS_OPTIONS.find(o => o.value === (tracker[step.id] || "not_started"))?.color || "bg-gray-200"
+                            }`}
+                          >
+                            {STEP_STATUS_OPTIONS.map((opt) => (
+                              <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
                       ))}
-                    </select>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-6">Financial Ratios</h2>
-              <p className="text-sm text-gray-500 mb-4">
-                These ratios contribute to 40% of the financial score
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Cash Ratio (40% weight)
-                  </label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={tracker.cashRatio || ""}
-                    onChange={(e) => updateField("cashRatio", e.target.value ? parseFloat(e.target.value) : null)}
-                    placeholder="Cash / Current Liabilities"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Higher is better</p>
+                    </div>
+                  )}
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Ratio (30% weight)
-                  </label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={tracker.currentRatio || ""}
-                    onChange={(e) => updateField("currentRatio", e.target.value ? parseFloat(e.target.value) : null)}
-                    placeholder="Current Assets / Current Liabilities"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Above 1.5 is good</p>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Quick Ratio (30% weight)
-                  </label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={tracker.quickRatio || ""}
-                    onChange={(e) => updateField("quickRatio", e.target.value ? parseFloat(e.target.value) : null)}
-                    placeholder="(Cash + Receivables) / Current Liabilities"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Shows short-term liquidity</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Application Forms Section */}
-        {activeSection === "forms" && tracker && (
-          <div className="bg-white rounded-lg border p-6">
-            <h2 className="text-lg font-semibold mb-6">Application Forms (Week 3)</h2>
-            <div className="space-y-4">
-              {[
-                { field: "applicantInfoForm", label: "Applicant Information Form" },
-                { field: "techCapabilitiesForm", label: "Technical & Administrative Capabilities Form" },
-                { field: "adminStaffForm", label: "Administrative Staff Experience Form (10 people)" },
-                { field: "professionalStaffForm", label: "Professional Staff Experience Form (20 people)", help: "AI/ML, Data Science, Geoscience, GIS specialists" },
-                { field: "project1Form", label: "Similar Projects Form - Project 1" },
-                { field: "project2Form", label: "Similar Projects Form - Project 2" },
-                { field: "project3Form", label: "Similar Projects Form - Project 3" },
-                { field: "financialCapacityForm", label: "Financial Capacity Criteria Form" },
-              ].map((doc) => (
-                <div key={doc.field} className="flex items-center justify-between py-3 border-b last:border-0">
-                  <div>
-                    <span className="font-medium text-sm">{doc.label} <span className="text-red-500">*</span></span>
-                    {doc.help && <p className="text-xs text-gray-500">{doc.help}</p>}
-                  </div>
-                  <select
-                    value={tracker[doc.field as keyof TrackerData] as string || "not_started"}
-                    onChange={(e) => updateField(doc.field, e.target.value)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                      FORM_STATUS_OPTIONS.find(
-                        (o) => o.value === (tracker[doc.field as keyof TrackerData] || "not_started")
-                      )?.color || "bg-gray-200"
-                    }`}
-                  >
-                    {FORM_STATUS_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* QA Section */}
-        {activeSection === "qa" && tracker && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-6">Document Quality Checks (Week 4)</h2>
-              <div className="space-y-4">
-                {[
-                  { field: "certsValidCheck", label: "All Certificates Valid (Not Expired)" },
-                  { field: "docsSealedCheck", label: "All Documents Company-Sealed" },
-                  { field: "pdfsSearchableCheck", label: "All PDFs Searchable Format" },
-                  { field: "formsElectronicCheck", label: "All Forms Electronically Completed" },
-                  { field: "noBlankFieldsCheck", label: "No Blank Required Fields" },
-                  { field: "consistencyCheck", label: "Information Consistent Across Forms" },
-                ].map((doc) => (
-                  <div key={doc.field} className="flex items-center justify-between py-3 border-b last:border-0">
-                    <span className="font-medium text-sm">{doc.label} <span className="text-red-500">*</span></span>
-                    <select
-                      value={tracker[doc.field as keyof TrackerData] as string || "not_checked"}
-                      onChange={(e) => updateField(doc.field, e.target.value)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                        QA_STATUS_OPTIONS.find(
-                          (o) => o.value === (tracker[doc.field as keyof TrackerData] || "not_checked")
-                        )?.color || "bg-gray-200"
-                      }`}
-                    >
-                      {QA_STATUS_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-6">Internal Reviews</h2>
-              <div className="space-y-4">
-                {[
-                  { field: "managementReview", label: "Management Review" },
-                  { field: "legalReview", label: "Legal Review" },
-                  { field: "financeReview", label: "Finance Review" },
-                ].map((doc) => (
-                  <div key={doc.field} className="flex items-center justify-between py-3 border-b last:border-0">
-                    <span className="font-medium text-sm">{doc.label} <span className="text-red-500">*</span></span>
-                    <select
-                      value={tracker[doc.field as keyof TrackerData] as string || "not_scheduled"}
-                      onChange={(e) => updateField(doc.field, e.target.value)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                        REVIEW_STATUS_OPTIONS.find(
-                          (o) => o.value === (tracker[doc.field as keyof TrackerData] || "not_scheduled")
-                        )?.color || "bg-gray-200"
-                      }`}
-                    >
-                      {REVIEW_STATUS_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Submission Section */}
-        {activeSection === "submission" && tracker && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg border p-6">
-              <h2 className="text-lg font-semibold mb-6">Submission Status (Week 4)</h2>
-              <div className="space-y-6">
-                <div className="flex items-center justify-between py-3 border-b">
-                  <span className="font-medium text-sm">Final Document Package Compiled <span className="text-red-500">*</span></span>
-                  <select
-                    value={tracker.packageCompiled || "not_started"}
-                    onChange={(e) => updateField("packageCompiled", e.target.value)}
-                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-200"
-                  >
-                    <option value="not_started">Not Started</option>
-                    <option value="in_progress">In Progress</option>
-                    <option value="complete">Complete</option>
-                  </select>
-                </div>
-
-                <div className="flex items-center justify-between py-3 border-b">
-                  <span className="font-medium text-sm">Etimad Test Upload <span className="text-red-500">*</span></span>
-                  <select
-                    value={tracker.etimadTestUpload || "not_tested"}
-                    onChange={(e) => updateField("etimadTestUpload", e.target.value)}
-                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-200"
-                  >
-                    <option value="not_tested">Not Tested</option>
-                    <option value="failed">Test Failed - Troubleshooting</option>
-                    <option value="successful">Test Successful</option>
-                  </select>
-                </div>
-
-                <div className="flex items-center justify-between py-3 border-b">
-                  <span className="font-medium text-sm">Final Submission Status <span className="text-red-500">*</span></span>
-                  <select
-                    value={tracker.submissionStatus || "not_submitted"}
-                    onChange={(e) => updateField("submissionStatus", e.target.value)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                      tracker.submissionStatus === "confirmed"
-                        ? "bg-green-200 text-green-800"
-                        : tracker.submissionStatus === "failed"
-                        ? "bg-red-200 text-red-800"
-                        : "bg-gray-200"
-                    }`}
-                  >
-                    <option value="not_submitted">Not Submitted</option>
-                    <option value="in_progress">Submission In Progress</option>
-                    <option value="awaiting">Submitted - Awaiting Confirmation</option>
-                    <option value="confirmed">Submitted - Confirmed</option>
-                    <option value="failed">Submission Failed - Retry Required</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Etimad Confirmation Reference
-                  </label>
-                  <input
-                    type="text"
-                    value={tracker.submissionReference || ""}
-                    onChange={(e) => updateField("submissionReference", e.target.value)}
-                    placeholder="ETM-XXXX-XXXX"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Actual Submission Date/Time
-                  </label>
-                  <input
-                    type="datetime-local"
-                    value={tracker.submissionDateTime ? new Date(tracker.submissionDateTime).toISOString().slice(0, 16) : ""}
-                    onChange={(e) => updateField("submissionDateTime", e.target.value ? new Date(e.target.value).toISOString() : null)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-
-                <div className="flex items-center justify-between py-3 border-b">
-                  <span className="font-medium text-sm">Submission Screenshot Saved</span>
-                  <select
-                    value={tracker.screenshotSaved || "not_done"}
-                    onChange={(e) => updateField("screenshotSaved", e.target.value)}
-                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-200"
-                  >
-                    <option value="not_done">Not Done</option>
-                    <option value="saved">Saved to SharePoint/Drive</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         )}
 
@@ -959,7 +506,7 @@ export default function GdacTenderPage() {
                 Dr. Wadee Kashghari - TI-RGP@sgs.gov.sa - +966-2 6195000 ext. 5222
               </p>
               <textarea
-                value={tracker.sgsContactNotes || ""}
+                value={(tracker.sgsContactNotes as string) || ""}
                 onChange={(e) => updateField("sgsContactNotes", e.target.value)}
                 placeholder="Record any communications with SGS..."
                 rows={4}
@@ -973,7 +520,7 @@ export default function GdacTenderPage() {
                 19990 (local) | +966-11-515-2666 (intl) | ecare@etimad.sa
               </p>
               <textarea
-                value={tracker.etimadContactNotes || ""}
+                value={(tracker.etimadContactNotes as string) || ""}
                 onChange={(e) => updateField("etimadContactNotes", e.target.value)}
                 placeholder="Record any communications with Etimad support..."
                 rows={4}
@@ -984,7 +531,7 @@ export default function GdacTenderPage() {
             <div className="bg-white rounded-lg border p-6">
               <h2 className="text-lg font-semibold mb-4">Internal Notes & Issues</h2>
               <textarea
-                value={tracker.internalNotes || ""}
+                value={(tracker.internalNotes as string) || ""}
                 onChange={(e) => updateField("internalNotes", e.target.value)}
                 placeholder="Document any issues, blockers, or important notes for team coordination..."
                 rows={6}
@@ -995,7 +542,7 @@ export default function GdacTenderPage() {
             <div className="bg-white rounded-lg border p-6">
               <h2 className="text-lg font-semibold mb-4">Lessons Learned</h2>
               <textarea
-                value={tracker.lessonsLearned || ""}
+                value={(tracker.lessonsLearned as string) || ""}
                 onChange={(e) => updateField("lessonsLearned", e.target.value)}
                 placeholder="Document lessons learned for future tenders (complete after submission)..."
                 rows={4}
