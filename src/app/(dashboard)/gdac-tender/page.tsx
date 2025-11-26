@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 // Types
 interface TrackerData {
   id: string;
-  // Step tracking - all steps stored as JSON strings in generic fields
   [key: string]: string | number | null;
 }
 
@@ -21,83 +20,105 @@ const STEP_STATUS_OPTIONS = [
   { value: "complete", label: "Complete", color: "bg-green-200 text-green-800" },
 ];
 
-// All required steps organized by category
+// All required steps organized by category - VERIFIED against actual RFQ #251140007625
 const REQUIRED_STEPS = {
-  "1. Saudi Entity & Registration": [
-    { id: "step_saudi_entity", label: "Establish Saudi Entity or Partner", help: "Foreign companies cannot register on Etimad directly - need Saudi CR" },
-    { id: "step_commercial_reg", label: "Obtain Commercial Registration (CR)", help: "From Ministry of Commerce - required for Etimad" },
-    { id: "step_etimad_register", label: "Register on Etimad Platform", help: "portal.etimad.sa - requires Saudi CR" },
-    { id: "step_etimad_verify", label: "Complete Etimad Verification", help: "May take 3-5 business days" },
-    { id: "step_tender_access", label: "Access Tender on Etimad", help: "RFQ #251140007625 - verify you can see and download documents" },
-  ],
-  "2. Mandatory Certificates": [
-    { id: "step_zakat_cert", label: "Zakat and Income Certificate", help: "From GAZT (Zakat, Tax & Customs Authority) - must be valid" },
-    { id: "step_social_insurance", label: "Social Insurance Certificate (GOSI)", help: "From General Organization for Social Insurance" },
-    { id: "step_chamber_commerce", label: "Chamber of Commerce Membership", help: "Active membership certificate" },
-    { id: "step_saudization", label: "Saudization Certificate (Nitaqat/Taqat)", help: "From Ministry of Human Resources - shows compliance" },
-    { id: "step_vat_cert", label: "VAT Registration Certificate", help: "From GAZT - if VAT registered" },
-  ],
-  "3. Technical Certificates": [
-    { id: "step_iso_9001", label: "ISO 9001 Quality Management", help: "Quality Management System certification" },
-    { id: "step_iso_27001", label: "ISO 27001 Information Security", help: "Information Security Management - important for data projects" },
-    { id: "step_hse_cert", label: "HSE Certificate", help: "Health, Safety & Environment certification" },
-  ],
-  "4. Financial Documents": [
-    { id: "step_fin_year0", label: "Audited Financial Statements - Year 2024", help: "Most recent fiscal year - audited by licensed auditor" },
-    { id: "step_fin_year1", label: "Audited Financial Statements - Year 2023", help: "Previous fiscal year" },
-    { id: "step_fin_year2", label: "Audited Financial Statements - Year 2022", help: "Two years prior" },
-    { id: "step_bank_letter", label: "Bank Solvency Letter", help: "Letter from bank confirming financial standing" },
-    { id: "step_calc_ratios", label: "Calculate Financial Ratios", help: "Cash ratio, current ratio, quick ratio - 40% of financial score" },
-  ],
-  "5. Technical Capability Evidence": [
-    { id: "step_company_profile", label: "Company Profile Document", help: "Comprehensive company overview, history, capabilities" },
-    { id: "step_org_chart", label: "Organization Chart", help: "Current organizational structure" },
-    { id: "step_cv_admin", label: "CVs - Administrative Staff (10 people)", help: "Key administrative and management personnel" },
-    { id: "step_cv_technical", label: "CVs - Technical Staff (20 people)", help: "AI/ML, Data Science, Geoscience, GIS specialists" },
-    { id: "step_project1", label: "Similar Project Reference #1", help: "Completed project with client reference letter" },
-    { id: "step_project2", label: "Similar Project Reference #2", help: "Completed project with client reference letter" },
-    { id: "step_project3", label: "Similar Project Reference #3", help: "Completed project with client reference letter" },
-  ],
-  "6. Etimad Forms (Download & Complete)": [
-    { id: "step_form_applicant", label: "Form: Applicant Information", help: "Download from Etimad, complete electronically" },
-    { id: "step_form_tech_cap", label: "Form: Technical & Administrative Capabilities", help: "Demonstrates technical competency" },
-    { id: "step_form_admin_staff", label: "Form: Administrative Staff Experience", help: "10 key personnel details" },
-    { id: "step_form_prof_staff", label: "Form: Professional Staff Experience", help: "20 technical personnel details" },
-    { id: "step_form_project1", label: "Form: Similar Project #1", help: "Project details matching tender requirements" },
-    { id: "step_form_project2", label: "Form: Similar Project #2", help: "Project details matching tender requirements" },
-    { id: "step_form_project3", label: "Form: Similar Project #3", help: "Project details matching tender requirements" },
-    { id: "step_form_financial", label: "Form: Financial Capacity Criteria", help: "Financial ratios and capacity declaration" },
-  ],
-  "7. Consortium Documents (If Applicable)": [
-    { id: "step_alliance_agreement", label: "Alliance/Consortium Agreement", help: "Legally binding agreement between partners" },
-    { id: "step_partner_auth", label: "Partner Authorization Letters", help: "Each partner authorizes lead bidder" },
-    { id: "step_partner_certs", label: "Partner Certificates & Documents", help: "All partners need same certificates as lead" },
-  ],
-  "8. Quality Assurance Checks": [
-    { id: "step_qa_expiry", label: "QA: Verify No Expired Certificates", help: "All certs must be valid through tender period" },
-    { id: "step_qa_sealed", label: "QA: All Documents Company-Sealed", help: "Official company stamp/seal on all docs" },
-    { id: "step_qa_pdf", label: "QA: PDFs are Searchable", help: "Not scanned images - must be text-searchable" },
-    { id: "step_qa_electronic", label: "QA: Forms Electronically Completed", help: "No handwritten entries" },
-    { id: "step_qa_blanks", label: "QA: No Blank Required Fields", help: "All mandatory fields completed" },
-    { id: "step_qa_consistent", label: "QA: Information Consistent", help: "Same info across all forms and documents" },
-  ],
-  "9. Internal Reviews": [
-    { id: "step_review_technical", label: "Technical Review Complete", help: "Technical team signs off on capability claims" },
-    { id: "step_review_legal", label: "Legal Review Complete", help: "Legal team reviews all commitments" },
-    { id: "step_review_finance", label: "Finance Review Complete", help: "Finance confirms all financial data" },
-    { id: "step_review_management", label: "Management Approval", help: "Final management sign-off to proceed" },
-  ],
-  "10. Submission Preparation": [
-    { id: "step_compile_package", label: "Compile Final Document Package", help: "All documents in correct order per Etimad requirements" },
-    { id: "step_test_upload", label: "Test Upload to Etimad", help: "Try uploading before deadline - verify file sizes work" },
-    { id: "step_backup_files", label: "Backup All Files", help: "Save to SharePoint/Google Drive as backup" },
-  ],
-  "11. Final Submission": [
-    { id: "step_submit_etimad", label: "Submit on Etimad Platform", help: "Final submission before 24 Dec 2025 deadline" },
-    { id: "step_get_confirmation", label: "Obtain Confirmation Number", help: "Save Etimad confirmation/receipt number" },
-    { id: "step_screenshot", label: "Screenshot Submission Confirmation", help: "Visual proof of successful submission" },
-    { id: "step_notify_team", label: "Notify Team of Submission", help: "Inform all stakeholders submission complete" },
-  ],
+  "1. Eligibility & Registration": {
+    description: "Critical first steps - foreign bidders MUST have Saudi registration to submit via Etimad",
+    link: "https://portal.etimad.sa",
+    steps: [
+      { id: "step_app_structure", label: "Decide: Solo bid or Consortium?", help: "If consortium, need alliance agreement" },
+      { id: "step_misa_register", label: "Register with Ministry of Investment (MISA)", help: "Required for foreign bidders - obtain investment license", link: "https://misa.gov.sa" },
+      { id: "step_etimad_register", label: "Register on Etimad Platform", help: "Saudi government procurement portal - requires Saudi CR", link: "https://portal.etimad.sa" },
+      { id: "step_etimad_verify", label: "Verify Etimad Account", help: "May take 3-5 business days to verify" },
+      { id: "step_locate_rfq", label: "Locate RFQ #251140007625 on Etimad", help: "Confirm you can see and access the tender" },
+    ],
+  },
+  "2. Required Certificates (Pass/Fail)": {
+    description: "All certificates must be VALID (not expired) - missing any = automatic disqualification",
+    link: null,
+    steps: [
+      { id: "step_commercial_reg", label: "Commercial Registration Certificate", help: "Valid certificate from Ministry of Commerce", required: true },
+      { id: "step_zakat_cert", label: "Zakat and Income Certificate", help: "From GAZT (Zakat, Tax & Customs Authority)", required: true },
+      { id: "step_vat_cert", label: "VAT Certificate", help: "Only required if your company is VAT registered", required: false },
+      { id: "step_gosi_cert", label: "Social Insurance Certificate (GOSI)", help: "From General Organization for Social Insurance", required: true },
+      { id: "step_chamber_cert", label: "Chamber of Commerce Certificate", help: "Valid membership certificate", required: true },
+      { id: "step_investment_license", label: "Investment License (Foreign Bidders)", help: "From MISA - required for non-Saudi entities", required: false },
+      { id: "step_saudization_cert", label: "Saudization Certificate (Taqat)", help: "Shows Nitaqat compliance from Ministry of HR", required: true },
+    ],
+  },
+  "3. Quality & HSE Certificates (20% of Technical Score)": {
+    description: "Quality Assurance = 10%, HSE = 10% of technical evaluation",
+    link: null,
+    steps: [
+      { id: "step_quality_cert", label: "Quality Policy/Certificate", help: "ISO 9001 or equivalent quality management certification - 10% weight", required: true },
+      { id: "step_hse_cert", label: "HSE Policy/Certificate", help: "Health, Safety & Environment certification - 10% weight", required: true },
+    ],
+  },
+  "4. Financial Documents (40% of Total Score)": {
+    description: "Financial ratios calculated from these statements determine 40% of your score",
+    link: null,
+    steps: [
+      { id: "step_fin_year0", label: "Audited Financial Statements - Current Year", help: "Most recent fiscal year approved by auditor", required: true },
+      { id: "step_fin_year1", label: "Audited Financial Statements - Year -1", help: "Previous fiscal year", required: true },
+      { id: "step_fin_year2", label: "Audited Financial Statements - Year -2", help: "Two years prior", required: true },
+      { id: "step_extract_data", label: "Extract Financial Data for Ratios", help: "Current Assets, Cash, Receivables, Current Liabilities (3 years each)" },
+    ],
+  },
+  "5. Consortium Documents (If Applicable)": {
+    description: "Only required if applying as an alliance/consortium",
+    link: null,
+    steps: [
+      { id: "step_alliance_agreement", label: "Alliance Agreement", help: "Formal agreement between all consortium partners", required: false },
+      { id: "step_partner_docs", label: "All Partners: Same Certificates Required", help: "Each partner needs their own valid certificates" },
+    ],
+  },
+  "6. Complete Application Forms": {
+    description: "All forms must be completed electronically (no handwriting) - download from Etimad",
+    link: null,
+    steps: [
+      { id: "step_form_applicant", label: "Form: Applicant Information", help: "Company name, capital, CR, address, ownership structure, representative" },
+      { id: "step_form_tech_admin", label: "Form: Technical & Administrative Capabilities", help: "Years experience, projects executed, performance scores, employee counts" },
+      { id: "step_form_admin_staff", label: "Form: Administrative Staff Experience", help: "10 key administrative personnel with name, function, specialization, years" },
+      { id: "step_form_prof_staff", label: "Form: Professional Staff Experience", help: "20 technical personnel - AI/ML, Data Science, Geoscience, GIS specialists" },
+      { id: "step_form_project1", label: "Form: Similar Project #1", help: "Project from last 5 years with name, scope, client, value, dates, reference contact" },
+      { id: "step_form_project2", label: "Form: Similar Project #2", help: "Another relevant project with full details and reference" },
+      { id: "step_form_project3", label: "Form: Similar Project #3", help: "Third project reference with contact details" },
+      { id: "step_form_financial", label: "Form: Financial Capacity Criteria", help: "Financial ratios and capacity declaration" },
+    ],
+  },
+  "7. Quality Assurance Checks": {
+    description: "Pre-submission verification - any issue here = disqualification risk",
+    link: null,
+    steps: [
+      { id: "step_qa_seals", label: "All Documents Stamped with Company Seal", help: "Official company stamp on every document" },
+      { id: "step_qa_expiry", label: "All Certificates Valid (Not Expired)", help: "Check expiry dates on all certificates" },
+      { id: "step_qa_searchable", label: "All Documents in Searchable PDF Format", help: "NOT scanned images - must be text-searchable" },
+      { id: "step_qa_electronic", label: "All Forms Filled Electronically", help: "No handwritten entries allowed" },
+      { id: "step_qa_complete", label: "All Required Fields Completed", help: "No blank mandatory fields" },
+      { id: "step_qa_consistent", label: "Information Consistent Across All Forms", help: "Same data everywhere - no contradictions" },
+      { id: "step_qa_concise", label: "Only Requested Information Included", help: "No extra materials - concise with clear illustrations" },
+    ],
+  },
+  "8. Submission via Etimad": {
+    description: "MUST submit via Etimad platform before 24 December 2025 - no other method accepted",
+    link: "https://portal.etimad.sa",
+    steps: [
+      { id: "step_compile_package", label: "Compile All Documents into Single Package", help: "Organize all documents as required by Etimad" },
+      { id: "step_final_review", label: "Final Review of All Materials", help: "Last check before submission" },
+      { id: "step_test_upload", label: "Test Upload Capability", help: "Verify you can upload files - check size limits" },
+      { id: "step_submit", label: "Upload Complete Application Package", help: "Submit via Etimad before deadline" },
+      { id: "step_verify_submit", label: "Verify Successful Submission", help: "Confirm upload completed successfully" },
+      { id: "step_save_receipt", label: "Save Confirmation/Receipt", help: "Screenshot and save submission confirmation" },
+    ],
+  },
+  "9. Post-Submission": {
+    description: "After submission - monitor and respond to any queries",
+    link: null,
+    steps: [
+      { id: "step_monitor_queries", label: "Monitor Etimad for Queries", help: "Check regularly for any clarification requests" },
+      { id: "step_await_results", label: "Await Qualification Results", help: "Need 70% minimum score to proceed to RFP stage" },
+    ],
+  },
 };
 
 export default function GdacTenderPage() {
@@ -195,11 +216,11 @@ export default function GdacTenderPage() {
     let totalCompleted = 0;
     let totalSteps = 0;
 
-    Object.entries(REQUIRED_STEPS).forEach(([category, steps]) => {
-      const categoryCompleted = steps.filter(step => tracker[step.id] === "complete").length;
-      byCategory[category] = { completed: categoryCompleted, total: steps.length };
+    Object.entries(REQUIRED_STEPS).forEach(([category, data]) => {
+      const categoryCompleted = data.steps.filter(step => tracker[step.id] === "complete").length;
+      byCategory[category] = { completed: categoryCompleted, total: data.steps.length };
       totalCompleted += categoryCompleted;
-      totalSteps += steps.length;
+      totalSteps += data.steps.length;
     });
 
     return {
@@ -261,7 +282,7 @@ export default function GdacTenderPage() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">GDAC-SA Tender Tracker</h1>
               <p className="text-sm text-gray-500">
-                RFQ #251140007625 | Saudi Geological Survey
+                RFQ #251140007625 | Saudi Geological Survey | Min 70% to qualify
               </p>
             </div>
 
@@ -347,6 +368,39 @@ export default function GdacTenderPage() {
                   <span className="text-gray-500">Submission:</span>
                   <span className="ml-2 font-medium">Etimad Platform Only</span>
                 </div>
+                <div>
+                  <span className="text-gray-500">Minimum Score:</span>
+                  <span className="ml-2 font-medium">70% to qualify for RFP stage</span>
+                </div>
+                <div>
+                  <span className="text-gray-500">Technical Contact:</span>
+                  <span className="ml-2 font-medium">TI-RGP@sgs.gov.sa</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Scoring Breakdown */}
+            <div className="bg-white rounded-lg border p-6">
+              <h2 className="text-lg font-semibold mb-4">Evaluation Criteria</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-medium text-gray-900 mb-3">Technical/Administrative (60%)</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between"><span>Previous Experience</span><span className="font-medium">40%</span></div>
+                    <div className="flex justify-between"><span>Existing Obligations</span><span className="font-medium">20%</span></div>
+                    <div className="flex justify-between"><span>Human Resources</span><span className="font-medium">20%</span></div>
+                    <div className="flex justify-between"><span>Quality Assurance</span><span className="font-medium">10%</span></div>
+                    <div className="flex justify-between"><span>HSE</span><span className="font-medium">10%</span></div>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900 mb-3">Financial (40%)</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between"><span>Cash Ratio</span><span className="font-medium">40%</span></div>
+                    <div className="flex justify-between"><span>Current Ratio</span><span className="font-medium">30%</span></div>
+                    <div className="flex justify-between"><span>Quick Ratio</span><span className="font-medium">30%</span></div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -354,7 +408,7 @@ export default function GdacTenderPage() {
             <div className="bg-white rounded-lg border p-6">
               <h2 className="text-lg font-semibold mb-4">Progress by Category</h2>
               <div className="space-y-3">
-                {Object.entries(REQUIRED_STEPS).map(([category]) => {
+                {Object.entries(REQUIRED_STEPS).map(([category, data]) => {
                   const catProgress = progress.byCategory[category] || { completed: 0, total: 0 };
                   const pct = catProgress.total > 0 ? Math.round((catProgress.completed / catProgress.total) * 100) : 0;
                   return (
@@ -395,7 +449,7 @@ export default function GdacTenderPage() {
                   <h3 className="font-medium text-gray-900">Etimad Support (24/7)</h3>
                   <p className="text-sm text-gray-600 mt-1">Phone: 19990 (local) | +966-11-515-2666</p>
                   <p className="text-sm text-blue-600">ecare@etimad.sa</p>
-                  <p className="text-sm text-gray-500">@etimadsa on X</p>
+                  <a href="https://portal.etimad.sa" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 underline">portal.etimad.sa</a>
                 </div>
               </div>
             </div>
@@ -405,7 +459,7 @@ export default function GdacTenderPage() {
         {/* Required Steps Section */}
         {activeSection === "steps" && tracker && (
           <div className="space-y-4">
-            {Object.entries(REQUIRED_STEPS).map(([category, steps]) => {
+            {Object.entries(REQUIRED_STEPS).map(([category, data]) => {
               const catProgress = progress.byCategory[category] || { completed: 0, total: 0 };
               const pct = catProgress.total > 0 ? Math.round((catProgress.completed / catProgress.total) * 100) : 0;
               const isExpanded = expandedCategories.has(category);
@@ -417,18 +471,21 @@ export default function GdacTenderPage() {
                     onClick={() => toggleCategory(category)}
                     className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 flex-1 min-w-0">
                       <svg
-                        className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+                        className={`w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ${isExpanded ? 'rotate-90' : ''}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                      <h2 className="text-lg font-semibold text-gray-900">{category}</h2>
+                      <div className="text-left min-w-0">
+                        <h2 className="text-lg font-semibold text-gray-900">{category}</h2>
+                        <p className="text-sm text-gray-500 truncate">{data.description}</p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-shrink-0 ml-4">
                       <span className={`text-sm font-medium ${pct === 100 ? 'text-green-600' : 'text-gray-500'}`}>
                         {catProgress.completed}/{catProgress.total}
                       </span>
@@ -441,13 +498,30 @@ export default function GdacTenderPage() {
                     </div>
                   </button>
 
+                  {/* Category Description & Link */}
+                  {isExpanded && data.link && (
+                    <div className="px-6 py-2 bg-blue-50 border-t border-b">
+                      <a
+                        href={data.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {data.link}
+                      </a>
+                    </div>
+                  )}
+
                   {/* Steps List */}
                   {isExpanded && (
                     <div className="border-t">
-                      {steps.map((step, idx) => (
+                      {data.steps.map((step, idx) => (
                         <div
                           key={step.id}
-                          className={`flex items-center justify-between px-6 py-3 ${idx !== steps.length - 1 ? 'border-b' : ''}`}
+                          className={`flex items-center justify-between px-6 py-3 ${idx !== data.steps.length - 1 ? 'border-b' : ''}`}
                         >
                           <div className="flex-1 pr-4">
                             <div className="flex items-center gap-2">
@@ -468,11 +542,29 @@ export default function GdacTenderPage() {
                               )}
                               <span className={`font-medium text-sm ${tracker[step.id] === "complete" ? 'text-green-700' : 'text-gray-700'}`}>
                                 {step.label}
+                                {'required' in step && step.required === false && (
+                                  <span className="ml-2 text-xs text-gray-400">(if applicable)</span>
+                                )}
                               </span>
                             </div>
-                            {step.help && (
-                              <p className="text-xs text-gray-500 mt-1 ml-7">{step.help}</p>
-                            )}
+                            <div className="ml-7 mt-1 flex items-center gap-2">
+                              {step.help && (
+                                <p className="text-xs text-gray-500">{step.help}</p>
+                              )}
+                              {'link' in step && step.link && (
+                                <a
+                                  href={step.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xs text-blue-600 hover:underline flex items-center gap-1"
+                                >
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                  </svg>
+                                  Link
+                                </a>
+                              )}
+                            </div>
                           </div>
                           <select
                             value={(tracker[step.id] as string) || "not_started"}
@@ -494,6 +586,25 @@ export default function GdacTenderPage() {
                 </div>
               );
             })}
+
+            {/* Disqualification Warning */}
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <h3 className="font-semibold text-red-800 flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                Automatic Disqualification If:
+              </h3>
+              <ul className="mt-2 text-sm text-red-700 list-disc list-inside space-y-1">
+                <li>Missing required documents</li>
+                <li>Expired certificates</li>
+                <li>Incomplete forms</li>
+                <li>Late submission (after 24/12/2025)</li>
+                <li>Incorrect or inconsistent information</li>
+                <li>Non-searchable PDF documents</li>
+                <li>Submission not via Etimad platform</li>
+              </ul>
+            </div>
           </div>
         )}
 
@@ -517,7 +628,7 @@ export default function GdacTenderPage() {
             <div className="bg-white rounded-lg border p-6">
               <h2 className="text-lg font-semibold mb-4">Etimad Support Contact Notes</h2>
               <p className="text-sm text-gray-500 mb-3">
-                19990 (local) | +966-11-515-2666 (intl) | ecare@etimad.sa
+                19990 (local) | +966-11-515-2666 (intl) | ecare@etimad.sa | <a href="https://portal.etimad.sa" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">portal.etimad.sa</a>
               </p>
               <textarea
                 value={(tracker.etimadContactNotes as string) || ""}
