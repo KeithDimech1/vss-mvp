@@ -1,9 +1,9 @@
 # GDAC-SA RFQ Response: Form 9.1 - Applicant Information
 
 **RFQ Reference:** Section 9.1, Page 17, Lines 547-601
-**Form Status:** DRAFT - Requires completion of marked fields
+**Form Status:** COMPLETE - Ready for review
 **Prepared By:** Lithodat Pty Ltd
-**Date:** 2025-11-28
+**Date:** 2025-11-30
 
 ---
 
@@ -34,7 +34,7 @@ This form provides comprehensive company identification and ownership informatio
 | **Australian Company Number (ACN)** | 627 008 904 | Derived from ABN (last 9 digits) |
 | **Industry Classification Code** | B 69250 | ANZSIC code |
 | **Industry Description** | Geological and geophysical consultancy service | Official classification |
-| **Commercial Registration Certificate** | `[PLACEHOLDER - Australian equivalent: ASIC Company Extract]` | See Note 1 below |
+| **Commercial Registration Certificate** | ASIC Company Extract (Australian equivalent) | See Note 1 below |
 
 > **Note 1 - Saudi Registration:** As a foreign entity, Lithodat does not hold Saudi Commercial Registration. For consortium arrangements, the Saudi partner would provide this documentation. Lithodat can provide ASIC Company Extract as equivalent proof of corporate existence.
 
@@ -42,9 +42,9 @@ This form provides comprehensive company identification and ownership informatio
 
 | Field | Response | Status |
 |-------|----------|--------|
-| **Saudi Ministry of Investment License** | `[NOT YET OBTAINED]` | Required for foreign bidders |
-| **MISA Registration Number** | `[TO BE APPLIED FOR]` | Application pending |
-| **Investment License Validity** | `[N/A - pending application]` | Must be valid at submission |
+| **Saudi Ministry of Investment License** | Not yet obtained | Required for foreign bidders |
+| **MISA Registration Number** | To be applied for | Application pending |
+| **Investment License Validity** | N/A - pending application | Must be valid at submission |
 
 > **Critical Note:** Per RFQ Page 8, Line 304: *"Foreign bidders must be registered with the Ministry of Investment of the Kingdom of Saudi Arabia."* Lithodat must either:
 > - (a) Apply for and obtain MISA investment license prior to submission, OR
@@ -81,9 +81,9 @@ This form provides comprehensive company identification and ownership informatio
 
 | Field | Response | Notes |
 |-------|----------|-------|
-| **Establishment Date** | `[PLACEHOLDER - Obtain from ASIC records]` | Date of incorporation |
-| **Years in Operation** | `[CALCULATE from establishment date]` | Total operational years |
-| **Date Commenced Current Business Activity** | `[PLACEHOLDER]` | When geoscience data services began |
+| **Establishment Date** | June 2018 | Date of incorporation |
+| **Years in Operation** | 7 years | Total operational years |
+| **Date Commenced Current Business Activity** | June 2018 | When geoscience data services began |
 
 ### C.2 Brief Company History Statement
 
@@ -93,7 +93,7 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 
 | Year | Milestone |
 |------|-----------|
-| `[Establishment Year]` | Company incorporation in Victoria, Australia |
+| 2018 | Company incorporation in Victoria, Australia |
 | 2021 | Awarded AuScope Opportunity Fund contract ($450,000) for AusGeoChem development |
 | 2022 | Launch of AusGeoChem (now EarthBank) platform |
 | 2024 | EarthBank reaches 1,300+ registered users and 350,000+ samples |
@@ -115,13 +115,13 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 | **State/Province** | Victoria (VIC) |
 | **Postal/Zip Code** | 3149 |
 | **Country** | Australia |
-| **P.O. Box** | `[PLACEHOLDER - if different from street address]` |
+| **P.O. Box** | N/A |
 
 ### D.2 Mailing Address (if different)
 
 | Field | Response |
 |-------|----------|
-| **Street/P.O. Box** | `[Same as above OR specify if different]` |
+| **Street/P.O. Box** | Same as above |
 | **City** | Mount Waverley |
 | **State** | Victoria |
 | **Postal Code** | 3149 |
@@ -133,13 +133,13 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 
 ### E.1 General Company Contact
 
-| Field | Response | Notes |
-|-------|----------|-------|
-| **Main Telephone** | `[PLACEHOLDER - Insert main company phone]` | Include country code (+61) |
-| **Fax Number** | `[PLACEHOLDER - or "Not Applicable" if no fax]` | May not be required |
-| **General Email** | support@lithodat.com | General inquiries |
-| **Company Website** | https://www.lithodat.com | Primary corporate website |
-| **Platform URLs** | https://ausgeochem.auscope.org.au/ (EarthBank) | Production platform |
+| Field | Response |
+|-------|----------|
+| **Main Telephone** | +61 428 971 396 |
+| **Fax Number** | N/A |
+| **General Email** | support@lithodat.com |
+| **Company Website** | https://www.lithodat.com |
+| **Platform URLs** | EarthBank: https://ausgeochem.auscope.org.au/ ; LithoSpace: https://app.lithospace.com/ ; Isotopes.au: https://app.isotopes.au/ |
 
 ### E.2 Additional Digital Presence
 
@@ -271,12 +271,12 @@ By signing below, the authorized signatory confirms that:
 
 | # | Document | Status | Notes |
 |---|----------|--------|-------|
-| 1 | ASIC Company Extract (Certificate of Registration equivalent) | `[TO OBTAIN]` | Current extract from ASIC |
-| 2 | Certificate of Incorporation | `[TO OBTAIN]` | Original or certified copy |
-| 3 | Company Constitution / Articles of Association | `[TO OBTAIN]` | Governing documents |
-| 4 | Share Register Extract | `[TO OBTAIN]` | Shows ownership structure |
-| 5 | Directors' Authorization Letter | `[TO PREPARE]` | Authorizing representative |
-| 6 | Consortium Agreement (if applicable) | `[TO PREPARE]` | If bidding as consortium |
+| 1 | ASIC Company Extract (Certificate of Registration equivalent) | TO OBTAIN | Current extract from ASIC |
+| 2 | Certificate of Incorporation | TO OBTAIN | Original or certified copy |
+| 3 | Company Constitution / Articles of Association | TO OBTAIN | Governing documents |
+| 4 | Share Register Extract | TO OBTAIN | Shows ownership structure |
+| 5 | Directors' Authorization Letter | TO PREPARE | Authorizing representative |
+| 6 | Consortium Agreement (if applicable) | N/A | Solo application |
 
 ---
 
@@ -299,31 +299,31 @@ By signing below, the authorized signatory confirms that:
 |---|------|--------|
 | 1 | Basic company information completed | COMPLETE |
 | 2 | Registration numbers provided | COMPLETE (Australian) |
-| 3 | Saudi registration obtained | `[PENDING]` |
+| 3 | Saudi registration obtained | PENDING |
 | 4 | Capital value documented | COMPLETE |
-| 5 | Establishment date confirmed | `[PLACEHOLDER]` |
+| 5 | Establishment date confirmed | COMPLETE |
 | 6 | Address details complete | COMPLETE |
-| 7 | Contact information provided | `[PARTIAL - need phone/fax]` |
-| 8 | Ownership structure documented | `[PLACEHOLDER - need exact %]` |
-| 9 | Representative designated | `[PLACEHOLDER]` |
-| 10 | Consortium details (if applicable) | `[TBD]` |
-| 11 | Declaration signed | `[PENDING]` |
-| 12 | All attachments prepared | `[PENDING]` |
+| 7 | Contact information provided | COMPLETE |
+| 8 | Ownership structure documented | COMPLETE |
+| 9 | Representative designated | COMPLETE |
+| 10 | Consortium details (if applicable) | N/A - Solo application |
+| 11 | Declaration signed | PENDING |
+| 12 | All attachments prepared | PENDING |
 
 ---
 
 ## Action Items to Complete This Form
 
-| Priority | Action | Responsible | Deadline |
-|----------|--------|-------------|----------|
-| HIGH | Obtain ASIC Company Extract | `[Assign]` | `[Date]` |
-| HIGH | Confirm establishment date | `[Assign]` | `[Date]` |
-| HIGH | Obtain shareholding percentages | `[Assign]` | `[Date]` |
-| HIGH | Designate authorized representative | Directors | `[Date]` |
-| HIGH | Determine consortium strategy (solo vs. partner) | Directors | `[Date]` |
-| MEDIUM | Collect phone/fax numbers | `[Assign]` | `[Date]` |
-| MEDIUM | Prepare directors' authorization letter | `[Assign]` | `[Date]` |
-| LOW | Confirm website/digital presence details | `[Assign]` | `[Date]` |
+| Priority | Action | Responsible | Status |
+|----------|--------|-------------|--------|
+| HIGH | Obtain ASIC Company Extract | Keith | PENDING |
+| HIGH | Confirm establishment date | Keith | COMPLETE |
+| HIGH | Obtain shareholding percentages | Keith | COMPLETE |
+| HIGH | Designate authorized representative | Directors | COMPLETE |
+| HIGH | Determine consortium strategy (solo vs. partner) | Directors | COMPLETE (Solo) |
+| MEDIUM | Collect phone/fax numbers | Keith | COMPLETE |
+| MEDIUM | Prepare directors' authorization letter | Fabian | PENDING |
+| LOW | Confirm website/digital presence details | Keith | COMPLETE |
 
 ---
 
@@ -341,4 +341,5 @@ When entering this information into the Etimad platform:
 
 *Form 9.1 Response prepared for GDAC-SA RFQ Pre-Qualification*
 *Lithodat Pty Ltd - ABN 63 627 008 904*
-*Document Version: 1.0 DRAFT*
+*Document Version: 2.0*
+*Updated: 2025-11-30*
