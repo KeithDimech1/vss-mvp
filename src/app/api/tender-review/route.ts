@@ -156,7 +156,7 @@ export async function PUT(request: Request) {
   }
 }
 
-// DELETE - Delete a comment (only the reviewer can delete their own comment)
+// DELETE - Delete a comment or all comments (admin only for bulk delete)
 export async function DELETE(request: Request) {
   try {
     const session = await getSession();
@@ -167,7 +167,28 @@ export async function DELETE(request: Request) {
 
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
+    const deleteAll = searchParams.get("all") === "true";
 
+    // Check if user is admin
+    const user = await prisma.user.findUnique({
+      where: { id: session.userId },
+      select: { role: true },
+    });
+
+    // Bulk delete all comments (admin only)
+    if (deleteAll) {
+      if (user?.role !== "ADMIN") {
+        return NextResponse.json(
+          { error: "Only admins can delete all comments" },
+          { status: 403 }
+        );
+      }
+
+      const result = await prisma.tenderReviewComment.deleteMany({});
+      return NextResponse.json({ success: true, deletedCount: result.count });
+    }
+
+    // Single comment delete
     if (!id) {
       return NextResponse.json(
         { error: "Comment id is required" },
@@ -186,12 +207,6 @@ export async function DELETE(request: Request) {
         { status: 404 }
       );
     }
-
-    // Check if user is admin or the comment owner
-    const user = await prisma.user.findUnique({
-      where: { id: session.userId },
-      select: { role: true },
-    });
 
     if (existingComment.reviewerId !== session.userId && user?.role !== "ADMIN") {
       return NextResponse.json(
