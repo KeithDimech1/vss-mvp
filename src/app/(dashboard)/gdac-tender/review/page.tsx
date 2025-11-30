@@ -1149,8 +1149,8 @@ export default function TenderReviewPage() {
                   );
                 })}
 
-                {/* AI Section - Separate from LithoSpace */}
-                {selectedForm.id === "FORM-9.5" && aiSectionContent && (
+                {/* AI Section - Standalone Infographic */}
+                {selectedForm.id === "FORM-9.5" && (
                   <div className="border-2 border-indigo-300 rounded-lg overflow-hidden bg-indigo-50/30">
                     <div
                       className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-100 to-purple-100 cursor-pointer"
@@ -1167,21 +1167,14 @@ export default function TenderReviewPage() {
                         </svg>
                         <h3 className="font-semibold text-indigo-800">AI and Advanced Analytics Capabilities</h3>
                         <span className="text-xs bg-indigo-200 text-indigo-800 px-2 py-0.5 rounded-full">
-                          Standalone Section
+                          Infographic
                         </span>
                       </div>
                     </div>
 
                     {showAISection && (
-                      <div className="px-4 py-4 bg-white space-y-6">
-                        {/* AI Infographic */}
+                      <div className="p-4 bg-white">
                         <AIInfographic />
-
-                        {/* AI Section Content */}
-                        <div
-                          className="prose prose-sm max-w-none text-gray-700"
-                          dangerouslySetInnerHTML={{ __html: renderMarkdown(aiSectionContent, placeholders, () => {}, 'ai-section') }}
-                        />
                       </div>
                     )}
                   </div>
