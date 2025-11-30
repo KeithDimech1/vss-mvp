@@ -801,7 +801,7 @@ export default function TenderReviewPage() {
                                 {/* Subsection Header with Comment Button */}
                                 <div className="flex items-center justify-between mb-2">
                                   <h4 className="font-bold text-gray-900">
-                                    {subsection.id} {subsection.title}
+                                    {subsection.title}
                                     {hasProfiles && (
                                       <span className="ml-2 text-xs font-normal text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full">
                                         {subsection.profiles!.length} profiles
