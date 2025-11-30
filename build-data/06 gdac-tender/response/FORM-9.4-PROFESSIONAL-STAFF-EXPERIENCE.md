@@ -532,15 +532,47 @@ The following academic collaborators work with Lithodat and contribute domain ex
 | RMIT Collaborators | RMIT University | Planetary Science | LithoSpace Partner |
 | UniMelb Collaborators | University of Melbourne | Geoscience | Research Partner |
 
-### E.2 Key Peer-Reviewed Authors
+### E.2 Key Peer-Reviewed Publications
 
-Staff who have contributed to peer-reviewed publications:
+Lithodat staff have contributed to the following peer-reviewed publications:
 
-| Name | Publication | Year | Topic |
-|------|-------------|------|-------|
-| Fabian Kohlmann | Chemical Geology | 2025 | EarthBank FAIR geochemistry framework |
-| Moritz Theile | Chemical Geology | 2025 | EarthBank FAIR geochemistry framework |
-| Wayne Noble | Chemical Geology | 2025 | EarthBank FAIR geochemistry framework |
+#### Scientific Reports / Nature (Cited by 12)
+| Year | Title | Authors | Journal |
+|------|-------|---------|---------|
+| 2023 | A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data | SC Boone, F Kohlmann, **W Noble**, M Theile, et al. | Scientific Reports (Nature) |
+
+#### Geostandards and Geoanalytical Research / Wiley (Cited by 26)
+| Year | Title | Authors | Journal |
+|------|-------|---------|---------|
+| 2022 | AusGeochem: An open platform for geochemical data preservation, dissemination and synthesis | Nixon et al., M Theile, Y Gréau, G Florin, **W Noble**, et al. | Geostandards and Geoanalytical Research (Wiley) |
+
+#### EGU General Assembly
+| Year | Title | Authors | Conference |
+|------|-------|---------|------------|
+| 2025 | Deep-Time Digital Twins: Integrating LithoPlates with the EarthBank Platform | F Kohlmann, **W Noble**, X Qin, J Higton, et al. | EGU General Assembly 2025 |
+| 2023 | From Fieldwork to Publication with AusGeochem: An Open end-to-end Solution for managing FAIR Sample Based Geoscience Data | M Theile, **W Noble**, R Beucher, et al. | EGU General Assembly 2023 |
+| 2022 | From Field Application to Publication: An end-to-end Solution for FAIR Geoscience Data | M Theile, **W Noble**, R Beucher, et al. | EGU General Assembly 2022 |
+| 2022 | The AuScope Geochemistry Network: Facilitating Better Organisation, Coordination and Ability to Share Data | et al., F Kohlmann, M Theile, **W Noble**, et al. | EGU General Assembly 2022 |
+| 2021 | AusGeochem and Big Data Analytics in Low-Temperature Thermochronology | et al., F Kohlmann, M Theile, **W Noble**, et al. | EGU General Assembly 2021 |
+
+#### Goldschmidt Conference
+| Year | Title | Authors | Conference |
+|------|-------|---------|------------|
+| 2022 | Opening the full Potential of Geochemical Big Data utilising AusGeochem | **W Noble**, F Kohlmann, AM Prent, S Boone, et al. | Goldschmidt 2022 |
+| 2022 | The AuScope Geochemistry Laboratory Network Project and the Building of the AusGeochem Data Repository | et al., AM Prent, S Boone, Y Greau, **W Noble**, et al. | Goldschmidt 2022 |
+
+#### Preprints
+| Year | Title | Authors | Platform |
+|------|-------|---------|----------|
+| 2022 | PREPRINT: A global platform solution for Big Data in low-temperature thermochronology | SC Boone, F Kohlmann, **W Noble**, M Theile, R Beucher, et al. | EarthArXiv |
+
+### E.3 Publication Summary by Author
+
+| Staff Member | Role | Publications | Citations |
+|--------------|------|--------------|-----------|
+| **Dr. Fabian Kohlmann** | Managing Director | 10+ | 38+ |
+| **Dr. Wayne Noble** | CIO | 10+ | 38+ |
+| **Moritz Theile** | Software Architect | 10+ | 38+ |
 
 ---
 

@@ -1,12 +1,18 @@
-# Ignore everything in build-data by default
-*
+# ===========================================
+# BUILD-DATA - CRITICAL PROJECT DOCUMENTATION
+# ===========================================
+# NEVER DELETE THESE FOLDERS
+# They contain essential project documentation,
+# learning materials, and response drafts
+# ===========================================
 
-# But track errors/ directory for error tracking
-!errors/
-!errors/**
-!.gitignore
-ideas/
+# Ignore OS files
+.DS_Store
+**/.DS_Store
 
-# Track gdac-tender for deployment
-!06 gdac-tender/
-!06 gdac-tender/**
+# Ignore temporary files
+*.tmp
+*.bak
+*~
+
+# Everything else is TRACKED
