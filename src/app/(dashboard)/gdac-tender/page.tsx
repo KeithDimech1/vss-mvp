@@ -326,18 +326,29 @@ export default function GdacTenderPage() {
               { id: "overview", label: "Overview" },
               { id: "steps", label: "Required Steps" },
               { id: "notes", label: "Notes & Contacts" },
+              { id: "review", label: "Review Responses", href: "/gdac-tender/review" },
             ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveSection(tab.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
-                  activeSection === tab.id
-                    ? "bg-blue-100 text-blue-700"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-              >
-                {tab.label}
-              </button>
+              'href' in tab && tab.href ? (
+                <a
+                  key={tab.id}
+                  href={tab.href}
+                  className="px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors bg-purple-100 text-purple-700 hover:bg-purple-200"
+                >
+                  {tab.label}
+                </a>
+              ) : (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveSection(tab.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+                    activeSection === tab.id
+                      ? "bg-blue-100 text-blue-700"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              )
             ))}
           </nav>
         </div>
