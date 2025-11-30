@@ -1,0 +1,877 @@
+Qualification Request
+Advanced analytics platform for the
+Geological Data Center in the Kingdom
+of Saudi Arabia
+Saudi Geological Survey
+P.O. Box 54141
+Jeddah 21514.
+Saudi Arabia
+
+Request for Qualification of the Geological Data Analysis Center
+Advanced Analytics Platform
+
+Call for Pre-Qualification
+The Saudi Geological Survey (SGS) intends to implement a new Advanced
+Analytics Platform project as a first step in the development of the new Saudi
+Center for Geoscience Data Analytics (GDAC-SA), which is prominent among the
+objectives of Saudi Arabia's Vision 2030 as it seeks to diversify the Kingdom's
+economy through the mineral resources sector. The Saudi Geological Survey
+(SGS) is pleased to invite you to participate in the pre-qualification process for
+the Advanced Analytics Platform project of the Saudi Center for Geological
+Science Data Analysis (GDAC-SA).
+The purpose of this RFQ is to assess the capabilities of potential bidders for the Saudi
+Geoscience Data Analytics Center's AI platform. Qualified bidders will then be invited to
+move from the RFP stage to the RFP stage. Due to the complex nature of the RFP/RFP
+process, bidders can apply in consortia to meet all the requirements.
+The SGS invites you to submit Request for Qualifications (RFQ) to complete the
+qualification requirements and participate in the bidding process for this project. In order
+for the application to be considered, the application must meet all the required elements
+contained in this qualification application form and submit all required documents and
+certificates, as any lack of documentation may result in the disqualification of the
+application.
+
+Request for Qualification for the Proposal of the Geological
+Data Analysis Center Platform
+Contents:
+CALL FOR PRE-QUALIFICATION.................................................................................2
+Introduction: ..........................................................................................................................2
+Vision of the Geological Data Analysis Center Platform ....................................................4
+The first phase of the artificial intelligence platform of the Saudi Center for Geological Data
+Analysis: the proof of concept phase ........................................................................................... 5
+The Second Phase of the Artificial Intelligence Platform at the Saudi Center for Geological
+Data Analysis: Exploration Prospects Phase .............................................................................. 6
+Phase III of the Artificial Intelligence Platform of the Saudi Center for Geological Data
+Analysis: Integration of Geoscience Data .................................................................................... 6
+Phase IV: Cumulative Impact Analysis ......................................................................................... 7
+Integration of Stages 1-4 ............................................................................................................... 7
+
+Competition Dates..................................................................................................................8
+Required Documents and Licenses .....................................................................................8
+Government Entity Representative ......................................................................................9
+
+SECTION TWO: GENERAL CONDITIONS ................................................................... 10
+SECTION THREE: PRESENTATION ............................................................................ 11
+How to submit proposals .................................................................................................... 11
+Application Instructions...................................................................................................... 11
+
+SECTION FOUR: EVALUATION OF PROPOSALS ......................................................... 13
+Criteria for evaluating proposals ........................................................................................ 13
+Geological Survey General Program Rights...................................................................... 15
+Confidentiality and Conflicts of Interest ............................................................................ 15
+Compliance with laws ......................................................................................................... 15
+Award Mechanism ................................................................................................................ 16
+
+SECTION FIVE - QUALIFICATION APPLICATIONS FORMS .......................................... 17
+Applicant Information Form ................................................................................................ 17
+Administrative Staff Experience Model .............................................................................. 19
+Professional Staff Experience Model ................................................................................. 20
+Experience in similar projects ............................................................................................ 21
+Financial Capacity Criteria.................................................................................................. 23
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+ABBREVIATIONS ..................................................................................................... 24
+
+1
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Section One: Introduction
+Introduction:
+In April 2016, the Kingdom of Saudi Arabia officially announced the "Saudi Vision 2030"
+(hereinafter referred to as "Vision 2030") and the "National Transformation Plan", which aspires
+to diversify the Saudi economy, with digitalization and artificial intelligence as the most important
+elements of this transformation. As Saudi Arabia strives to be among the top 15 countries in AI,
+among the top 10 countries with open-source data, and among the top 20 contributors to
+research and innovation globally by 2030, Saudi Arabia's development goals are to achieve its
+economic transformation, in part, through the further development of the big data and artificial
+intelligence industries.
+The Saudi Geological Survey is one of the entities of the Ministry of Industry and Mineral
+Resources, which is the main entity for the creation and storage of geological data and providing
+access to it in the Kingdom, as the Kingdom of Saudi Arabia in general has not yet been
+sufficiently explored in terms of solid minerals, and there are many untapped opportunities in
+the mining sector in the Kingdom of Saudi Arabia, as the Arabian Shield area located within the
+Kingdom of Saudi Arabia, which extends over an area of 600,000 square kilometers, is
+considered a major source of precious and essential minerals. More than 90 species and at
+least 15 of them are commercially viable.
+
+Critical
+Minerals
+
+Cobalt
+
+Platinum - Group
+
+Copper
+
+Titanium
+
+Graphite
+
+Tungsten
+
+Iron
+
+Heavy REE
+
+Lithium
+
+Light REE
+
+Nickel
+
+Uranium
+
+Manganese
+
+Vanadium
+
+Strategic
+Minerals
+Aluminum
+
+Molybdenum
+
+Arsenic
+
+Niobium
+
+Barium
+
+Phosphate
+
+Beryllium
+
+Silicon
+
+Chromium
+
+Sulfur
+
+Fluorspar
+
+Tantalum
+
+Gallium
+
+Tin
+
+Gold
+Magnesium
+
+Zinc
+
+Shape 1: Critical and strategic minerals
+
+2
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+The Saudi Geological Survey has received approval to establish a Geological Data Analysis
+Center that will be powered by an AI/Big Data Analytics Platform. The platform will enable the
+transformation of data and analytics related to geological exploration as well as the
+environmental and social impacts associated with mining, and the Geological Data Analysis
+Center will also develop geoscientific laboratories to produce the data required for the analytical
+requirements of the center. A new research and training institute will be established to be a
+catalyst for pioneering research and building capacity within the Kingdom, and a state-of-theart facility dedicated to this purpose will be built on the Geological Survey campus.
+
+Shape 2: The four components of the platform
+
+3
+
+Request for Qualification for the Proposal of the Geological Data Analysis Center
+Platform
+Vision of the Geological Data Analysis Center Platform
+The Geological Data Analysis Center should primarily support mineral exploration as a core objective of Vision 2030, and mineral
+exploration will be considered as the main purpose and product of the Center. As shown in Figure 2, the AI platform must be able to
+grow and evolve to keep pace with the broad research interests of the Geological Data Analysis Center in order to advance the
+research and AI goals in Saudi Arabia.
+
+Shape 3: Vision of the Saudi Center for Geological Data Analysis Platform
+
+4
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+The AI platform must be able to perform data transformations related to exploration geology
+and its analysis, assess the environmental and social impact of mining, and the analytics
+platform provider must be able to deliver and enable world-class AI and analytics applications.
+The first and second phases of the development of the Geological Data Analysis Center and
+its capabilities will be related to the integration of geological data, mineral exploration and
+prospecting, as the identification of high-potential mineral resources that are often hidden and
+extremely deep makes the field of exploration a highly complex science because of its diverse
+methods and data, including reports, geochemistry, geophysics, remote sensing, geology,
+drilling records, etc., in addition to many analytical features, such as the possibility of the
+presence of minerals, rocks, and structures. and variable metals, and others. Each type of data
+and every geological feature helps tell a possible story of what the Earth is hiding. However,
+the primary goal of mineral exploration analytics is the ability to aggregate this data, normalize
+it and model multiple important features as they are likely to be productive from a given
+geographic location.
+
+The first phase: the proof of concept phase
+To achieve the goals of the Geological Data Analysis Center for Mineral Exploration, the AI
+platform will be developed by integrating a wide range of data types, creating engineering
+features from different forms of data. Most of this data will be at the national and regional levels
+and contain aggregations of data and gaps, including structured and unstructured data, some
+of which are without metadata including the locations of this data which is mostly obtained from
+the National Geological Database (NGD) and the National Information Center (NIC). The phase
+will require the Proponent also has the ability to integrate complex features from different types
+of data – such as natural language processing, image analysis, and/or the development of new
+algorithms. A large amount of new geological data is currently being collected, such as detailed
+geological maps and geochemistry, which will be part of the required data conversion. The
+Proponent that is subsequently awarded the scope of a specific area within the Kingdom to
+implement an initial pilot project for exploratory forecasting. Upon successful completion of the
+
+5
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+proof-of-concept model, subsequent phases begin. The winner will also be given a period not
+exceeding one year to implement the proof-of-concept model.
+The AI platform should be able to integrate new data from internal and external sources within
+the first phase and subsequent phases as the first phase is essentially aimed at creating the
+underlying data ecosystem that should exist in a single geospatial analytics platform, and this
+will require proponents to create a data structure based on the core features associated with
+geology. The data warehouse then fills this underlying data using a combination of techniques
+such as natural language processing and feature engineering, which supports the operation of
+the Geological Data Analysis Center. The proponent that is subsequently awarded the scope
+of a specific area within the Kingdom to implement an initial pilot project for exploratory
+forecasting. Upon successful completion of the proof-of-concept model, subsequent phases
+begin. The winner will also be given a period not exceeding one year to implement the proofof-concept model.
+
+The Second Phase of the Artificial Intelligence Platform at the Saudi Center
+for Geological Data Analysis: Exploration Prospects Phase
+The second step is designed to support the Saudi Geological Survey (SGS) and the Geological
+Data Analysis Center (GDAC) by providing them with advanced AI-based tools to enhance their
+capabilities to perform advanced geological analyses at the level of resources, commodities or
+sediment types. To achieve this goal, the platform must include a range of ready-made
+analytical methods, as well as capabilities that allow for the rapid development of new analysis
+methods, as well as the ability to build advanced taxonomic models that mimic mineral systems
+It identifies important characteristics for the discovery of new deposits.
+
+Phase III of the Artificial Intelligence Platform of the Saudi Center for
+Geological Data Analysis: Integration of Geoscience Data
+As part of the vision of the Geological Data Analysis Center, the Saudi Geological Survey aims
+to create an AI platform that can continue to grow and expand to cover other geoscience-related
+implications, and as in Phase 1, Phase 3 will focus on creating a more expansive data
+6
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+integration environment. Starting with other geoscience-related topics, the GDAC's AI platform
+will integrate the data into one unified data structure – all based on geospatial and the tools
+and techniques used in the first phase, and integrate other secondary analytical topics and
+industry categories as described above.
+
+Phase IV: Cumulative Impact Analysis
+Like most complex analytical challenges, changes to the natural environment from various
+factors have intentional and unintended effects on human, environmental, and economic
+systems, and these effects rarely come from just one source, and it is often other factors such
+as time, duration, concentration, and a combination of factors that cause the effects on complex
+systems. Cumulative effects research typically involves monitoring and analyzing multiple
+variables over time to assess how different factors interact and the changes they bring about
+in the ecosystem under study. This can include studying changes in the built environment,
+biodiversity, ecosystem function, water quality and other indicators of ecosystem health. By
+understanding how different factors interact and accumulate over time, cumulative impact
+research can help make decisions about how to manage and mitigate the impact of human
+activities on the environment. More detailed information will be provided during the RFP
+process.
+
+Integration of Stages 1-4
+Enabling Saudi Arabia's strategy to develop the mining sector as a third economic pillar is a
+strategic necessity centered on the capabilities of the Geological Data Analysis Center,
+particularly through its AI platform. The four components of the development of the AI platform
+of the Saudi Center for Geoscience Data Analysis are formed through four primary objectives:
+developing the analytical model by type of commodity or mineral resources, generating new
+targets, developing extracted resources and environmental assessment of high-potential
+resources of them.
+
+7
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Competition Dates
+The deadline for receiving the qualification application proposals is set in the (Etimad) platform.
+
+Required Documents and Licenses
+The following certificates and documents must be submitted numbered and attested with the
+company's seal. Official and legal documents include:
+1. Valid Commercial Registration Certificate
+2. Valid Zakat and Income Certificate as well as VAT Certificate if registered.
+3. Valid certificate from the General Organization for Social Insurance.
+4. Valid Chamber of Commerce Certificate.
+5. A valid investment license if the competitor is licensed under the Foreign Investment
+Regulation.
+(Foreign bidders must be registered with the Ministry of Investment of the Kingdom of
+Saudi Arabia.)
+6. Valid certificate of achievement of the Emiratization rate of Saudi cadres (Saudization
+/ Taqat certificate).
+7. Valid quality policy/certificate and HSE policy/certificate.
+8. When applying for an alliance, a copy of the alliance agreement must be submitted.
+9. The approved financial statements of the entity's budget during the past three years.
+10. Company information and required registration certificates: Yes/No
+
+8
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Government Entity Representative
+Technical inquiries regarding this qualification application form should be sent in writing to:
+
+Dr. Wadee Kashghari, Owner of the Regional Geological Program initiative
+Office Phone: +966-2 6195000 ext. 5222
+Email: TI-RGP@sgs.gov.sa
+
+9
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+
+Section Two: General Conditions
+The purpose of the Request for Qualifications (RFQ) is to provide the opportunity for
+companies or consortiums with experience and qualification to implement the Advanced
+Analytics Platform project of the Saudi Center for Geological Science Data Analysis.
+Eligible companies are invited to submit their bids (financial and technical) for the Saudi
+Center for Geoscience Data Analysis (GDAC-SA) Advanced Analytics Platform briefly
+described here based on the Proposal and Specification Booklet (RFP), which will be sent to
+the qualified bidders.
+The bidder can be either a single company/entity or a group of interested and qualified entities.
+In the case of an alliance, qualification applications must be submitted to all members of that
+alliance, including all partners and subcontractors. To be considered for the qualification process,
+the bidder must provide the following:
+1. A brief statement of the company/entity, its history and any related projects
+implemented in the last five years.
+2. Formal agreements between trade alliance partners as well as subcontractors.
+
+10
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+
+Section Three: Presentation
+How to submit proposals
+The offer must be submitted in a single batch of documents.
+
+Application Instructions
+Please read and follow the following instructions: Any violation of any of the following
+instructions will result in disqualification. The application shall be submitted to the Saudi
+Geological Survey in a correct form by an authorized person as follows:
+1. The application must be submitted in advance in either Arabic and/or English and in
+accordance with the requirements set out in this qualification application form. All
+documents must be in a searchable format.
+2. One contact administrator shall be identified, stating their job title and all contact details.
+3. The presentation should contain concise written materials and illustrations to allow for
+a deeper understanding and clearer assessment of the applicant's abilities. Only the
+information required in the qualification application will be provided, and additional
+information that is not required will be discarded when included in the application.
+4. A complete, searchable structured digital copy of the qualification applications must
+be submitted via the platform before the deadline for submitting the pre-qualification
+application.
+5. Applications will not be received after the deadline, and the applicant will be disqualified.
+6. All attachments and forms must be filled out electronically.
+7. All copies of official documents must be stamped with the applicant's seal to prove
+the accuracy of the information received.
+8. If the attached forms are not filled out with the correct information, the applicant will
+be disqualified.
+9. Failure to provide the necessary data and documents in full, or failure to fill in the
+11
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+required data in the mentioned annexes, will result in disqualification from the
+competition.
+10. The results of the qualification will be announced on the tenders and procurement
+platform, and if this is not possible, it will be announced on the official website of the
+Geological Survey.
+11. Excluded competitors can inquire about the reasons for disqualification by contacting
+the entity's representative.
+12. All documents submitted are the property of the Geological Survey and will not be
+returned to the bidders once submitted.
+
+12
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+
+Section Four: Evaluation of Proposals
+Criteria for evaluating proposals
+All applications for qualification are evaluated electronically through the Etimad platform, and
+the total score for the evaluation of the qualification application must exceed 70% of the total
+to be eligible to receive the RFP and participate in the bidding process. Technical and
+administrative capacities constitute 60 per cent, and financial capacities 40 per cent of the
+total grade. The Geological Survey reserves the right to use evaluation criteria (whether
+subjective or objective) based on the Government Tenders and Procurement System.
+
+13
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Table 1a: Technical and administrative criteria for evaluation.
+Conclusion
+
+Yes/No
+
+Technical and
+Administrative Criteria
+for Evaluation
+Company
+Information
+and
+Required
+Registration Certificates
+
+Number
+1
+
+%40
+
+Previous Experience
+
+2
+
+%10
+
+Quality Assurance
+
+3
+
+%10
+
+Ensuring Environmental, Health and Safety
+
+4
+
+%20
+
+Existing contractual obligations
+
+5
+
+20%
+
+Human Resources
+
+6
+
+100%
+
+Total
+Figure 6: Technical and Management Evaluation Criteria
+
+Table 1b: Financial evaluation criteria
+Grade
+
+%40
+
+Financial Evaluation
+Criteria
+Cash Ratio (Cash & Cash
+(Equivalents/Working Liabilities
+
+Number
+1
+
+%30
+
+Turnover Ratio (Current Assets/Current
+(Liabilities
+
+2
+
+30%
+
+Quick Liquidity Ratio (Cash & Cash
+/ (Equivalents + Accounts Receivable
+Current Liabilities
+
+3
+
+100%
+
+Total
+Figure 7: Financial Evaluation Criteria
+
+14
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Review and Selection
+The Geological Survey will notify the successful applicants for the qualification assessment, and the
+results of the evaluation of the successful bidders will be published on the platform.
+
+Geological Survey General Program Rights
+Failure to comply with any of the requirements of this qualification application will result in the
+disqualification of the applicant. Notwithstanding anything else in this RFP, the Geological Survey
+has the right to change the dates, attachments, deadlines, and requirements described in this RFP,
+including the exclusion of applicants or the cancellation of the RFP process entirely.
+
+Confidentiality and Conflicts of Interest
+By submitting this qualification application, the applicant undertakes to maintain the confidentiality of
+any information or data obtained during the qualification process and not to disclose any such
+information to any third party during the application period, without obtaining written permission from
+the Geological Survey.
+The applicant must promptly disclose in writing any potential conflict of interest to the Geological
+Survey, which will consider the nature of the applicant's responsibilities and the degree of the conflict
+that was likely or manifest and determine the manner that the applicant should take to address such
+conflict of interest.
+
+Compliance with laws
+The Winning Bidder agrees to comply with and be bound by all applicable laws, acts, statutes, rules,
+regulations, ordinances, codes, privileges, treaties, agreements, directives, provisions, injunctions,
+declarations, ordinances, decrees, or other laws of any kind whatsoever of any applicable
+governmental body, authority, agency, court, committee, or any applicable judicial body.
+
+15
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Award Mechanism
+In order to ensure clarity and transparency in the procurement process, it is important to
+determine the mechanism by which contracts are awarded at the end of the competition
+process, to this end, this Request for Qualifications (RFQ) serves as the initial stage of a
+two-tier selection process. During the evaluation of qualification submissions, bidders who
+meet and exceed the established qualification criteria for the subsequent stage—the
+Request for Proposals (RFP)—will be notified. The RFP stage provides an opportunity for
+the selected bidders to submit additional details, and serves as a more in-depth
+exploration of each bidder’s capabilities and proposed solutions, thereby enabling a
+comprehensive assessment to ensure the selection of the most suitable candidate for
+contract award. Accordingly, participation in the RFP stage is contingent upon successfully
+passing the qualification requirements during this RFQ stage..
+
+16
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+
+Section Five - Qualification Applications Forms
+Applicant Information Form
+Advanced
+Value of
+applicant's
+capital
+
+the
+
+Date
+Function
+
+Name
+of
+the
+applicant
+(company/institution)
+
+Commercial
+Registration
+Number
+Name of the person responsible
+
+Address
+Street
+Zip code
+Fax
+Establishment
+Date
+
+City
+P.O. Box
+Phone
+Email
+Site
+
+Company Ownership
+Partnership
+Percentage
+
+Nationality
+
+Owners/Partners
+
+Company Representative Information
+
+Mobile:
+
+Telephone
+
+Name
+Job Title
+Phone
+Email
+
+Figure 7: Applicant Information Form
+
+17
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Technical and administrative capabilities
+Technical and Administrative Capabilities
+Previous Work Experience
+Number of years of experience in the field of project
+Number of similar projects executed in the last three years
+Average results of performance evaluations in previous
+projects with government agencies in the field of project
+
+Quality
+What are the quality assurance standards? (provide
+evidence)
+
+Environment, Health and Safety
+What are the quality assurance
+environmental, health and safety?
+
+standards
+
+for
+
+Existing contractual liabilities
+Number of existing projects
+Value of existing projects
+
+Human Resources
+Number of employees
+Number of Saudi employees
+Percentage of Saudi employees
+Figure 8: Technical and managerial capacities
+
+18
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Administrative Staff Experience Model
+Describe the experiences of the applicant's administrative staff as follows:
+Specialization /
+Number of years
+Area of
+Function
+Name
+#
+of experience
+Expertise
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Figure 9: Experience of administrative staff
+
+19
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Professional Staff Experience Model
+The expertise of the applicant's technical staff is as follows:
+Number of years
+Specialization/
+Function
+Name
+of experience
+Area of Expertise
+
+#
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+Figure 10: Professional Staff Experience
+
+20
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Experience in similar projects
+Write details of three similar projects that have been implemented over the past
+five years as follows:
+soap
+The first project
+oper
+a
+Project Name
+1
+Project Location
+2
+Project Content
+3
+Project Owner
+4
+Contract Value
+5
+Contract Duration
+6
+Start Date
+7
+Delivery Date
+8
+Name of the person responsible
+9
+Contact information for the
+10
+person in charge
+Email of the person in charge
+11
+soap
+The second project
+oper
+a
+Project Name
+1
+Project Location
+2
+Project Content
+3
+Project Owner
+4
+Contract Value
+Contract Duration
+6
+Start Date
+7
+Delivery Date
+8
+Name of the person responsible
+9
+Contact information for the
+10
+person in charge
+Email of the person in charge
+11
+soap
+The third project
+oper
+a
+Project Name
+1
+Project Location
+2
+Project Content
+3
+Project Owner
+4
+Contract Value
+5
+Contract Duration
+6
+21
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+Start Date
+Delivery Date
+Name of the person responsible
+Contact information for the
+person in charge
+Email of the person in charge
+
+7
+8
+9
+10
+11
+
+Figure 11: Experience in similar projects
+
+22
+
+‫‪Request for Qualification for the Proposal of the Geological Data‬‬
+‫‪Analysis Center Platform‬‬
+‫‪Financial Capacity Criteria‬‬
+
+‫القدرات المالية‬
+‫البيانات المالية‬
+‫البيانات المالية آلخر ‪ 3‬سنوات مالية‬
+‫بيان الميزانية العمومية‬
+‫األصول المتداولة‬
+‫النقدية ومكافئات النقدية‬
+‫الحسابات مستحقة القبض‬
+‫االلتزامات المتداولة‬
+‫مؤشرات األداء المالية‬
+‫نسبة النقدية )النقدية ومكافئات النقدية\االلتزامات المتداولة(‬
+‫نسبة التداول )األصول المتداولة\االلتزامات المتداولة(‬
+‫نسبة السيولة السريعة ))النقدية ومكافئات النقدية‪+‬الحسابات المستحقة القبض(‪/‬االلتزامات المتداولة(‬
+‫المرفقات‬
+‫البيانات المالية آلخر ‪ 3‬سنوات مالية للمتقدم بالتأهيل )ليس للشركة األم أو الشركات التابعة(‬
+
+‫‪0‬‬
+
+‫‪-1‬‬
+
+‫‪-2‬‬
+
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+‫!‪#DIV/0‬‬
+
+‫‪Shape 124: criteria Capacity Finance‬‬
+
+‫)‪Note: Forms must be filled out based on what is required on the website (Etimad platform‬‬
+
+‫‪23‬‬
+
+Request for Qualification for the Proposal of the Geological Data
+Analysis Center Platform
+
+Abbreviations
+The following standard abbreviations are used in the Terms and Conditions booklet, and other
+abbreviations are defined when they are mentioned in the manual.
+
+Explain
+
+Icon
+
+Saudi Center for Geological Data Analysis GDAC-SA
+Level of Application Services ASL
+Expenditure Efficiency and Government Projects Authority EXPRO
+General Authority for Survey and Geospatial Information GEOSA
+GIS GIS
+Instructions for Bidders ITB
+Saudi Arabia KSA
+Switch Label Protocols MPLS
+National Drilling Library NCL
+National Geological Database NGD
+National Information Center NIC
+Quality Assurance / Quality Control QA/QC
+Terms & Specifications Brochure RFP
+General Program of the Geological Survey RGP
+Research and Training Institute RTI
+Saudi National Reference System SANSRS
+Department of Scientific Data Analysis SDAD
+Saudi Data and Artificial Intelligence Authority SDAIA
+Saudi Geological Survey SGS
+Virtual Private Network
+
+VPN
+Shape 5: abbreviations
+
+24
+
+
