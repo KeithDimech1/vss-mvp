@@ -562,6 +562,25 @@ enum TenderCommentStatus {
   WONT_FIX     // Intentionally not addressing
 }
 
+// GDAC Tender Placeholder Values - Editable placeholder fields in tender forms
+model TenderPlaceholder {
+  id              String   @id @default(cuid())
+  formId          String   // e.g., "FORM-9.1", "FORM-9.5", etc.
+  placeholderId   String   // Unique identifier for the placeholder (e.g., "prof-mcinnes-email")
+  originalText    String   // The original placeholder text (e.g., "[PLACEHOLDER - Obtain from Prof. McInnes]")
+  currentValue    String   @db.Text // The current value (starts as originalText, updated by users)
+
+  // Tracking
+  lastEditedById  String?
+  lastEditedAt    DateTime @default(now())
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([formId, placeholderId])
+  @@index([formId])
+}
+
 // Product Tier Configuration - Editable tier data for LithoSurfer and LithoData
 model ProductTierConfig {
   id          String   @id @default(cuid())

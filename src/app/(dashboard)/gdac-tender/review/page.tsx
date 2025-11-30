@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import AIInfographic from "@/components/tender/AIInfographic";
 
 // Types
 interface ReviewComment {
@@ -18,6 +19,14 @@ interface ReviewComment {
   };
   createdAt: string;
   updatedAt: string;
+}
+
+interface TenderPlaceholder {
+  id: string;
+  formId: string;
+  placeholderId: string;
+  originalText: string;
+  currentValue: string;
 }
 
 interface ParsedPersonnelProfile {
@@ -65,14 +74,30 @@ const STATUS_STYLES = {
   WONT_FIX: { bg: "bg-gray-100", text: "text-gray-800", label: "Won't Fix" },
 };
 
+// Placeholder patterns to detect
+const PLACEHOLDER_PATTERNS = [
+  /\[PLACEHOLDER[^\]]*\]/gi,
+  /\[NEEDS INFO[^\]]*\]/gi,
+  /\[TO REQUEST[^\]]*\]/gi,
+  /\[TO VERIFY[^\]]*\]/gi,
+  /\[TO PREPARE[^\]]*\]/gi,
+  /\[TO BE SIGNED[^\]]*\]/gi,
+  /\[TO BE COMPLETED[^\]]*\]/gi,
+  /\[TO BE AFFIXED[^\]]*\]/gi,
+  /\[CONFIRM[^\]]*\]/gi,
+  /\[OPTIONAL[^\]]*\]/gi,
+];
+
 // Parse markdown content into sections and subsections
-function parseMarkdownSections(content: string): ParsedSection[] {
+function parseMarkdownSections(content: string): { sections: ParsedSection[], aiSection: string | null } {
   const sections: ParsedSection[] = [];
   const lines = content.split('\n');
   let currentSection: ParsedSection | null = null;
   let currentSubsection: ParsedSubsection | null = null;
   let currentProfile: ParsedPersonnelProfile | null = null;
   let profileCounter = 0;
+  let aiSectionContent: string[] = [];
+  let inAISection = false;
 
   // Main sections to exclude from review (## level)
   const excludedSections = [
@@ -84,7 +109,6 @@ function parseMarkdownSections(content: string): ParsedSection[] {
     'Form Overview',
     'Summary Comparison',
     'Relevance to GDAC',
-    'AI and Advanced Analytics',
     'Declaration',
     'Project Selection Rationale',
   ];
@@ -99,6 +123,23 @@ function parseMarkdownSections(content: string): ParsedSection[] {
   ];
 
   for (const line of lines) {
+    // Check for AI section start
+    if (line.match(/^## AI and Advanced Analytics/i)) {
+      inAISection = true;
+      aiSectionContent.push(line);
+      continue;
+    }
+
+    // If we're in AI section, capture content until next ## header
+    if (inAISection) {
+      if (line.match(/^## [^A]/) || line.match(/^---$/)) {
+        inAISection = false;
+      } else {
+        aiSectionContent.push(line);
+        continue;
+      }
+    }
+
     // Match section headers:
     // - ## Section A: Company Identification (Forms 9.1-9.4)
     // - # PROJECT 1: LithoSurfer (Form 9.5 - note single #)
@@ -210,9 +251,8 @@ function parseMarkdownSections(content: string): ParsedSection[] {
           currentSection.subsections.push(currentSubsection);
         }
 
-        // Create a new subsection with project number prefix
-        // e.g., "2.desc" for PROJECT 2: Detailed Project Description
-        const subsectionId = `${currentSection.letter}.${subsectionTitle.toLowerCase().replace(/\s+/g, '-').substring(0, 10)}`;
+        // Create a new subsection - use clean title for ID
+        const subsectionId = `${currentSection.letter}-${subsectionTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 20)}`;
 
         currentSubsection = {
           id: subsectionId,
@@ -265,7 +305,7 @@ function parseMarkdownSections(content: string): ParsedSection[] {
         // Save current subsection and create new one for this #### header
         currentSection.subsections.push(currentSubsection);
 
-        const subsectionId = `${currentSection.letter}.${subTitle.toLowerCase().replace(/\s+/g, '-').substring(0, 12)}`;
+        const subsectionId = `${currentSection.letter}-${subTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 20)}`;
 
         currentSubsection = {
           id: subsectionId,
@@ -297,16 +337,74 @@ function parseMarkdownSections(content: string): ParsedSection[] {
     sections.push(currentSection);
   }
 
-  return sections;
+  return {
+    sections,
+    aiSection: aiSectionContent.length > 0 ? aiSectionContent.join('\n') : null
+  };
+}
+
+// Generate a unique placeholder ID from the original text
+function generatePlaceholderId(originalText: string, context: string): string {
+  const cleanText = originalText
+    .replace(/[\[\]]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .substring(0, 30);
+  const contextClean = context
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .substring(0, 20);
+  return `${contextClean}-${cleanText}`;
+}
+
+// Detect if text contains placeholders
+function hasPlaceholder(text: string): boolean {
+  return PLACEHOLDER_PATTERNS.some(pattern => pattern.test(text));
+}
+
+// Extract all placeholders from text
+function extractPlaceholders(text: string, context: string): { id: string; original: string; start: number; end: number }[] {
+  const placeholders: { id: string; original: string; start: number; end: number }[] = [];
+
+  for (const pattern of PLACEHOLDER_PATTERNS) {
+    const regex = new RegExp(pattern.source, 'gi');
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      placeholders.push({
+        id: generatePlaceholderId(match[0], context),
+        original: match[0],
+        start: match.index,
+        end: match.index + match[0].length,
+      });
+    }
+  }
+
+  return placeholders;
 }
 
 // Simple markdown to HTML converter for tables and basic formatting
-function renderMarkdown(content: string): string {
-  // Escape HTML
+function renderMarkdown(content: string, placeholders: Map<string, TenderPlaceholder>, onEditPlaceholder: (id: string, original: string) => void, context: string): string {
+  // Escape HTML first
   let html = content
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+
+  // Replace placeholders with editable spans
+  for (const pattern of PLACEHOLDER_PATTERNS) {
+    html = html.replace(new RegExp(pattern.source, 'gi'), (match) => {
+      const placeholderId = generatePlaceholderId(match, context);
+      const placeholder = placeholders.get(placeholderId);
+      const displayValue = placeholder?.currentValue || match;
+      const isModified = placeholder && placeholder.currentValue !== placeholder.originalText;
+
+      return `<span class="inline-block px-2 py-0.5 rounded cursor-pointer transition-colors ${
+        isModified
+          ? 'bg-green-100 border border-green-300 text-green-800 hover:bg-green-200'
+          : 'bg-blue-100 border border-blue-300 text-blue-800 hover:bg-blue-200'
+      }" data-placeholder-id="${placeholderId}" data-original="${match.replace(/"/g, '&quot;')}" title="Click to edit">${displayValue}</span>`;
+    });
+  }
 
   // Convert markdown tables
   const tableRegex = /\|(.+)\|\n\|[-| :]+\|\n((?:\|.+\|\n?)+)/g;
@@ -374,14 +472,19 @@ export default function TenderReviewPage() {
   const [selectedForm, setSelectedForm] = useState<TenderForm>(TENDER_FORMS[0]);
   const [formContent, setFormContent] = useState<string>("");
   const [parsedSections, setParsedSections] = useState<ParsedSection[]>([]);
+  const [aiSectionContent, setAiSectionContent] = useState<string | null>(null);
   const [comments, setComments] = useState<ReviewComment[]>([]);
+  const [placeholders, setPlaceholders] = useState<Map<string, TenderPlaceholder>>(new Map());
   const [saving, setSaving] = useState(false);
   const [editingSubsection, setEditingSubsection] = useState<string | null>(null); // e.g., "A.1"
   const [editingComment, setEditingComment] = useState<string>("");
+  const [editingPlaceholder, setEditingPlaceholder] = useState<{ id: string; original: string } | null>(null);
+  const [placeholderValue, setPlaceholderValue] = useState<string>("");
   const [currentUser, setCurrentUser] = useState<{ id: string; fullName: string } | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [expandedToolbars, setExpandedToolbars] = useState<Set<string>>(new Set()); // Section letters with open toolbars
   const [expandedProfiles, setExpandedProfiles] = useState<Set<string>>(new Set()); // Profile IDs like "B.2.1"
+  const [showAISection, setShowAISection] = useState(false);
 
   // Fetch current user session
   useEffect(() => {
@@ -409,8 +512,9 @@ export default function TenderReviewPage() {
         const data = await response.json();
         const content = data.content || "";
         setFormContent(content);
-        const sections = parseMarkdownSections(content);
+        const { sections, aiSection } = parseMarkdownSections(content);
         setParsedSections(sections);
+        setAiSectionContent(aiSection);
         // Expand first section by default
         if (sections.length > 0) {
           setExpandedSections(new Set([sections[0].id]));
@@ -418,10 +522,12 @@ export default function TenderReviewPage() {
       } else {
         setFormContent("");
         setParsedSections([]);
+        setAiSectionContent(null);
       }
     } catch {
       setFormContent("");
       setParsedSections([]);
+      setAiSectionContent(null);
     }
   }, []);
 
@@ -445,12 +551,30 @@ export default function TenderReviewPage() {
     }
   }, [router]);
 
+  // Fetch placeholders for the selected form
+  const fetchPlaceholders = useCallback(async (formId: string) => {
+    try {
+      const response = await fetch(`/api/tender-review/placeholders?formId=${formId}`);
+      if (response.ok) {
+        const data = await response.json();
+        const placeholderMap = new Map<string, TenderPlaceholder>();
+        (data.placeholders || []).forEach((p: TenderPlaceholder) => {
+          placeholderMap.set(p.placeholderId, p);
+        });
+        setPlaceholders(placeholderMap);
+      }
+    } catch (err) {
+      console.error("Error fetching placeholders:", err);
+    }
+  }, []);
+
   // Load form content and comments when form changes
   useEffect(() => {
     setLoading(true);
     fetchFormContent(selectedForm);
     fetchComments(selectedForm.id);
-  }, [selectedForm, fetchFormContent, fetchComments]);
+    fetchPlaceholders(selectedForm.id);
+  }, [selectedForm, fetchFormContent, fetchComments, fetchPlaceholders]);
 
   // Toggle section expansion
   const toggleSection = (sectionId: string) => {
@@ -535,6 +659,42 @@ export default function TenderReviewPage() {
     }
   };
 
+  // Save a placeholder value
+  const savePlaceholder = async (placeholderId: string, originalText: string, newValue: string) => {
+    setSaving(true);
+    try {
+      const response = await fetch("/api/tender-review/placeholders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formId: selectedForm.id,
+          placeholderId,
+          originalText,
+          currentValue: newValue,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save placeholder");
+      }
+
+      const data = await response.json();
+      setPlaceholders(prev => {
+        const next = new Map(prev);
+        next.set(placeholderId, data.placeholder);
+        return next;
+      });
+
+      setEditingPlaceholder(null);
+      setPlaceholderValue("");
+    } catch (err) {
+      console.error("Error saving placeholder:", err);
+      setError("Failed to save placeholder");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   // Update comment status
   const updateCommentStatus = async (commentId: string, status: string) => {
     try {
@@ -581,7 +741,7 @@ export default function TenderReviewPage() {
 
   // Get all comments for a section (all its subsections)
   const getSectionComments = (sectionLetter: string): ReviewComment[] => {
-    return comments.filter(c => c.sectionId.startsWith(sectionLetter + "."));
+    return comments.filter(c => c.sectionId.startsWith(sectionLetter + ".") || c.sectionId.startsWith(sectionLetter + "-"));
   };
 
   // Get my comment for a subsection
@@ -602,6 +762,18 @@ export default function TenderReviewPage() {
       addressed: comments.filter(c => c.status === "ADDRESSED").length,
       resolved: comments.filter(c => c.status === "RESOLVED").length,
     };
+  };
+
+  // Handle placeholder click
+  const handlePlaceholderClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.dataset.placeholderId) {
+      const placeholderId = target.dataset.placeholderId;
+      const original = target.dataset.original || "";
+      const placeholder = placeholders.get(placeholderId);
+      setEditingPlaceholder({ id: placeholderId, original });
+      setPlaceholderValue(placeholder?.currentValue || original);
+    }
   };
 
   const stats = getCommentStats();
@@ -683,14 +855,67 @@ export default function TenderReviewPage() {
         </div>
       )}
 
+      {/* Placeholder Edit Modal */}
+      {editingPlaceholder && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Edit Placeholder</h3>
+            <p className="text-sm text-gray-500 mb-4">
+              Original: <code className="bg-gray-100 px-1 rounded">{editingPlaceholder.original}</code>
+            </p>
+            <input
+              type="text"
+              value={placeholderValue}
+              onChange={(e) => setPlaceholderValue(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Enter the actual value..."
+              autoFocus
+            />
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={() => {
+                  setEditingPlaceholder(null);
+                  setPlaceholderValue("");
+                }}
+                className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => savePlaceholder(editingPlaceholder.id, editingPlaceholder.original, placeholderValue)}
+                disabled={saving}
+                className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
+              >
+                {saving ? "Saving..." : "Save"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Content - Split Layout */}
       <div className="flex h-[calc(100vh-180px)]">
         {/* Left Panel - Form Content */}
-        <div className="w-1/2 border-r bg-white overflow-y-auto">
+        <div className="w-1/2 border-r bg-white overflow-y-auto" onClick={handlePlaceholderClick}>
           <div className="p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               {selectedForm.title}
             </h2>
+
+            {/* Placeholder Legend */}
+            <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="flex items-center gap-4 text-sm">
+                <span className="text-slate-600 font-medium">Legend:</span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="inline-block px-2 py-0.5 bg-blue-100 border border-blue-300 text-blue-800 rounded text-xs">Placeholder</span>
+                  <span className="text-slate-500">= Needs info</span>
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="inline-block px-2 py-0.5 bg-green-100 border border-green-300 text-green-800 rounded text-xs">Filled</span>
+                  <span className="text-slate-500">= Updated</span>
+                </span>
+              </div>
+            </div>
 
             {parsedSections.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
@@ -832,7 +1057,7 @@ export default function TenderReviewPage() {
                                 {!hasProfiles && (
                                   <div
                                     className="prose prose-sm max-w-none text-gray-700"
-                                    dangerouslySetInnerHTML={{ __html: renderMarkdown(subsection.content) }}
+                                    dangerouslySetInnerHTML={{ __html: renderMarkdown(subsection.content, placeholders, () => {}, subsection.id) }}
                                   />
                                 )}
 
@@ -878,7 +1103,7 @@ export default function TenderReviewPage() {
                                               </span>
                                               {hasProfileComments && (
                                                 <span className="text-xs bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full">
-                                                  💬
+                                                  has comments
                                                 </span>
                                               )}
                                             </div>
@@ -906,7 +1131,7 @@ export default function TenderReviewPage() {
                                             <div className="px-4 py-3 bg-white">
                                               <div
                                                 className="prose prose-sm max-w-none text-gray-700"
-                                                dangerouslySetInnerHTML={{ __html: renderMarkdown(profile.content) }}
+                                                dangerouslySetInnerHTML={{ __html: renderMarkdown(profile.content, placeholders, () => {}, profile.id) }}
                                               />
                                             </div>
                                           )}
@@ -923,6 +1148,44 @@ export default function TenderReviewPage() {
                     </div>
                   );
                 })}
+
+                {/* AI Section - Separate from LithoSpace */}
+                {selectedForm.id === "FORM-9.5" && aiSectionContent && (
+                  <div className="border-2 border-indigo-300 rounded-lg overflow-hidden bg-indigo-50/30">
+                    <div
+                      className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-100 to-purple-100 cursor-pointer"
+                      onClick={() => setShowAISection(!showAISection)}
+                    >
+                      <div className="flex items-center gap-3">
+                        <svg
+                          className={`w-5 h-5 text-indigo-600 transition-transform ${showAISection ? "rotate-90" : ""}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                        <h3 className="font-semibold text-indigo-800">AI and Advanced Analytics Capabilities</h3>
+                        <span className="text-xs bg-indigo-200 text-indigo-800 px-2 py-0.5 rounded-full">
+                          Standalone Section
+                        </span>
+                      </div>
+                    </div>
+
+                    {showAISection && (
+                      <div className="px-4 py-4 bg-white space-y-6">
+                        {/* AI Infographic */}
+                        <AIInfographic />
+
+                        {/* AI Section Content */}
+                        <div
+                          className="prose prose-sm max-w-none text-gray-700"
+                          dangerouslySetInnerHTML={{ __html: renderMarkdown(aiSectionContent, placeholders, () => {}, 'ai-section') }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -994,7 +1257,7 @@ export default function TenderReviewPage() {
                     // Check subsections
                     const sub = section.subsections.find(s => s.id === comment.sectionId);
                     if (sub) {
-                      subsectionTitle = `${sub.id} ${sub.title}`;
+                      subsectionTitle = sub.title;
                       break;
                     }
                     // Check profiles within B.2
