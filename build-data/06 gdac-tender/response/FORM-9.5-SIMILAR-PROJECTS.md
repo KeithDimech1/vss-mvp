@@ -57,11 +57,11 @@ The following three projects have been selected as they demonstrate direct relev
 |-------|----------|
 | **3. Project Content** | See detailed description below |
 
-### Detailed Project Description
+### 1.2.1 Detailed Project Description
 
 **EarthBank** (formerly AusGeochem) is a national FAIR (Findable, Accessible, Interoperable, Reusable) data platform for geochemistry research, developed by Lithodat for the AuScope Geochemistry Network (AGN) under NCRIS funding.
 
-### 1. Lithodat Partnership with AGN
+### 1.2.2 Lithodat Partnership with AGN
 
 The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists from Curtin University, University of Melbourne, and Macquarie University. Lithodat was selected as the technology partner to build the platform.
 
@@ -78,7 +78,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - **10+ university partners:** ANU, Melbourne, UWA, UQ, Adelaide, Monash, Tasmania, Wollongong, James Cook
 - **International standards bodies:** IGSN e.V., Mindat
 
-### 2. Project Objectives
+### 1.2.3 Project Objectives
 
 - Create Australia's first unified geochemistry data repository
 - Implement FAIR data principles for geoscience research
@@ -87,7 +87,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - Support DOI and IGSN minting for data citation
 - Build infrastructure for critical minerals exploration and climate research
 
-### 3. Technical Scope Delivered
+### 1.2.4 Technical Scope Delivered
 
 | Component | Description |
 |-----------|-------------|
@@ -106,7 +106,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 | **Data Import** | Upload templates and bulk import functionality |
 | **Export Tools** | Shapefile export for GIS applications |
 
-### 4. Key Achievements
+### 1.2.5 Key Achievements
 - **350,000+ samples** registered on platform
 - **1,300+ users** from research, policy, and industry sectors
 - **15+ months collaborative development** with 28 specialists across 4 Expert Advisory Groups
@@ -119,7 +119,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - **International partnerships** with EarthScope (USA) and EPOS (Europe) - MOUs signed December 2024
 - **Global rebrand to EarthBank** (April 2025) - addressing international partners' hesitancy with Australian-specific naming
 
-### 5. Technologies Used
+### 1.2.6 Technologies Used
 | Category | Technologies |
 |----------|--------------|
 | Frontend | React, TypeScript, Leaflet/OpenLayers |
@@ -170,7 +170,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 | **11. Email** | `[PLACEHOLDER - Obtain from Prof. McInnes]` |
 | **Phone** | `[PLACEHOLDER - Obtain from Prof. McInnes]` |
 
-### Alternative Client Contact
+### 1.5.1 Alternative Client Contact
 
 | Field | Response |
 |-------|----------|
@@ -245,18 +245,18 @@ Relevance to GDAC-SA:
 |-------|----------|
 | **3. Project Content** | See detailed description below |
 
-### Detailed Project Description
+### 2.2.1 Detailed Project Description
 
 **Isotopes.au** is a national digital platform for standardising, ingesting, and querying isotopic data from multiple Australian institutions, developed by Lithodat in partnership with CSIRO, ANSTO, Geoscience Australia, and NMI.
 
-#### Project Objectives
+#### 2.2.2 Project Objectives
 - Develop national platform for harmonising isotope data from diverse institutional sources
 - Validate unified schema and isotope ontology for environmental science
 - Enable FAIR data publication for isotopic measurements
 - Support automated and user-guided data ingestion workflows
 - Reduce duplication and improve interoperability for research
 
-#### Technical Scope Delivered
+#### 2.2.3 Technical Scope Delivered
 
 | Component | Description |
 |-----------|-------------|
@@ -268,7 +268,7 @@ Relevance to GDAC-SA:
 | **FAIR Compliance** | Metadata enrichment, machine-readable publication |
 | **Multi-Isotope Support** | Stable isotopes (δ¹³C, δ¹⁸O, δ²H, δ¹⁵N), radiogenic (Sr, Nd, Pb) |
 
-#### R&D Experiments Conducted
+#### 2.2.4 R&D Experiments Conducted
 
 | Experiment | Objective | Result |
 |------------|-----------|--------|
@@ -276,14 +276,14 @@ Relevance to GDAC-SA:
 | **Experiment 002: Wizard Benchmarking** | Compare manual wizard vs automated adapter performance | 93-96% field mapping accuracy |
 | **Experiment 003: Ontology Validation** | Validate ontology across diverse Australian datasets | 97% match rate after 3 iterations |
 
-#### Key Achievements
+#### 2.2.5 Key Achievements
 - **97% ontology match rate** across 250+ field mappings
 - **93-96% accuracy** in import wizard field mapping
 - **6 institutional sources** integrated (CSIRO, ANSTO, GA, NMI, universities)
 - **37 new terms** added to ontology through validation process
 - **Hybrid ingestion model** validated (automated + wizard)
 
-#### Technologies Used
+#### 2.2.6 Technologies Used
 | Category | Technologies |
 |----------|--------------|
 | Frontend | React, TypeScript |
@@ -336,7 +336,7 @@ Relevance to GDAC-SA:
 | **11. Email** | `[PLACEHOLDER]` |
 | **Phone** | `[PLACEHOLDER]` |
 
-### Alternative Client Contacts
+### 2.5.1 Alternative Client Contacts
 
 | Agency | Contact | Email |
 |--------|---------|-------|
@@ -405,18 +405,18 @@ Relevance to GDAC-SA:
 |-------|----------|
 | **3. Project Content** | See detailed description below |
 
-### Detailed Project Description
+### 3.2.1 Detailed Project Description
 
 **LithoSpace** is the world's first spatial platform for geochemical data from the Moon and Mars, developed by Lithodat in partnership with RMIT University and the University of Melbourne.
 
-#### Project Objectives
+#### 3.2.2 Project Objectives
 - Create unified schema for planetary geochemistry data
 - Integrate data from 25+ lunar and Martian missions (1967-2025)
 - Enable cross-mission comparison and analysis
 - Develop spatial visualization for extraterrestrial geochemistry
 - Support future Mars Sample Return integration
 
-#### Technical Scope Delivered
+#### 3.2.3 Technical Scope Delivered
 
 | Component | Description |
 |-----------|-------------|
@@ -428,7 +428,7 @@ Relevance to GDAC-SA:
 | **Cross-Mission Dashboards** | Interactive comparison across missions |
 | **Schema Documentation** | Comprehensive literature review validating novel approach |
 
-#### R&D Experiments Conducted
+#### 3.2.4 R&D Experiments Conducted
 
 | Experiment | Objective | Result |
 |------------|-----------|--------|
@@ -436,7 +436,7 @@ Relevance to GDAC-SA:
 | **Experiment 002: Mars Comparison Dashboard** | Visualize heterogeneous Mars rover data | All rovers harmonized, positive RMIT reviews |
 | **Experiment 003: Literature Review & Schema Justification** | Confirm no existing unified schema exists | Novel schema validated as world-first |
 
-#### Missions Integrated
+#### 3.2.5 Missions Integrated
 
 **Lunar Missions:**
 | Mission | Year | Agency | Status |
@@ -456,7 +456,7 @@ Relevance to GDAC-SA:
 | Curiosity (MSL) | 2012-present | NASA | Ingested |
 | Perseverance | 2021-present | NASA | Ingested |
 
-#### Key Achievements
+#### 3.2.6 Key Achievements
 - **World's first** unified schema for lunar and Martian geochemistry
 - **25+ missions** integrated spanning 1967-2025
 - **<1% deviation** from reference values for harmonized data
@@ -464,7 +464,7 @@ Relevance to GDAC-SA:
 - **Future-proof design** for Mars Sample Return integration
 - **Schema validated** through comprehensive literature review
 
-#### Technologies Used
+#### 3.2.7 Technologies Used
 | Category | Technologies |
 |----------|--------------|
 | Data Pipeline | RMarkdown, Python |
@@ -515,7 +515,7 @@ Relevance to GDAC-SA:
 | **11. Email** | `[PLACEHOLDER]` |
 | **Phone** | `[PLACEHOLDER]` |
 
-### Alternative Contact
+### 3.5.1 Alternative Contact
 
 | Field | Response |
 |-------|----------|
@@ -600,7 +600,7 @@ Relevance to GDAC-SA:
 
 ## AI and Advanced Analytics Capabilities Demonstrated
 
-### Why These Projects Enable AI/ML for GDAC-SA
+### AI.1 Why These Projects Enable AI/ML for GDAC-SA
 
 Lithodat's three reference projects demonstrate the **"Clean Data First"** approach essential for AI/ML applications in geoscience:
 
@@ -638,7 +638,7 @@ Lithodat's three reference projects demonstrate the **"Clean Data First"** appro
 └─────────────────┘       └─────────────────┘       └─────────────────┘
 ```
 
-### AI-Ready Features Demonstrated in Each Project
+### AI.2 AI-Ready Features Demonstrated in Each Project
 
 | Project | AI-Enabling Feature | Technical Implementation | GDAC-SA Application |
 |---------|---------------------|-------------------------|---------------------|
@@ -651,7 +651,7 @@ Lithodat's three reference projects demonstrate the **"Clean Data First"** appro
 | **LithoSpace** | Cross-mission integration | Unified schema for 25+ missions | Pattern recognition across diverse datasets |
 | **LithoSpace** | Reference alignment | <1% deviation from published values | High-quality training data with provenance |
 
-### AI Team Integration with Reference Projects
+### AI.3 AI Team Integration with Reference Projects
 
 | Team Member | AI Expertise | Application to Reference Projects |
 |-------------|--------------|-----------------------------------|
@@ -661,7 +661,7 @@ Lithodat's three reference projects demonstrate the **"Clean Data First"** appro
 | **Wayne Noble** | Scalable architecture | Built infrastructure that can handle AI workloads at scale |
 | **Keith Dimech** | Quality systems | Ensures data meets audit standards required for trusted AI models |
 
-### AI Applications Enabled for GDAC-SA
+### AI.4 AI Applications Enabled for GDAC-SA
 
 Based on demonstrated capabilities from reference projects:
 
@@ -674,7 +674,7 @@ Based on demonstrated capabilities from reference projects:
 | **Data Quality Scoring** | Validation rules | Isotopes.au: Schema validation | Automatic quality assessment |
 | **Pattern Recognition** | Cross-dataset queries | LithoSpace: Multi-mission comparison | Discover relationships across large datasets |
 
-### Quantified AI-Ready Metrics from Reference Projects
+### AI.5 Quantified AI-Ready Metrics from Reference Projects
 
 | Metric | Value | AI Relevance |
 |--------|-------|--------------|
@@ -702,7 +702,7 @@ Based on demonstrated capabilities from reference projects:
 | ✅ DONE | Team integration with projects | AI team roles mapped to reference projects |
 | ✅ DONE | Comment sections added | Internal notes for each project |
 
-### Remaining Actions
+### Action.1 Remaining Actions
 
 | Priority | Action | Responsible | Status |
 |----------|--------|-------------|--------|
@@ -714,7 +714,7 @@ Based on demonstrated capabilities from reference projects:
 | **MEDIUM** | Compile supporting evidence package | Keith Dimech | `[TO PREPARE]` |
 | **LOW** | Prepare project summary presentations | Marketing | `[OPTIONAL]` |
 
-### Contact Information Needed
+### Action.2 Contact Information Needed
 
 | Project | Contact Name | Email | Phone |
 |---------|--------------|-------|-------|
