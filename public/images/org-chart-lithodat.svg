@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="boardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d5a87;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="execGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="specialistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="devGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="800" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e293b">GDAC-SA Project Organizational Structure</text>
+
+  <!-- Board of Directors -->
+  <rect x="400" y="55" width="300" height="50" rx="8" fill="url(#boardGrad)" filter="url(#shadow)"/>
+  <text x="550" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="white">BOARD OF DIRECTORS</text>
+  <text x="550" y="94" text-anchor="middle" font-size="10" fill="#cbd5e1">Fabian (55%) | Wayne (11%) | Moritz (21%)</text>
+
+  <!-- Connecting lines from Board -->
+  <line x1="550" y1="105" x2="550" y2="125" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="125" x2="900" y2="125" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="125" x2="200" y2="145" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="550" y1="125" x2="550" y2="145" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="900" y1="125" x2="900" y2="145" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- CEO - Fabian -->
+  <rect x="100" y="145" width="200" height="75" rx="8" fill="url(#boardGrad)" filter="url(#shadow)"/>
+  <text x="200" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Dr. Fabian Kohlmann</text>
+  <text x="200" y="186" text-anchor="middle" font-size="10" fill="#93c5fd">CEO &amp; Managing Director</text>
+  <text x="200" y="200" text-anchor="middle" font-size="9" fill="#cbd5e1">15+ yrs | PhD Geosciences</text>
+  <text x="200" y="214" text-anchor="middle" font-size="8" fill="#94a3b8">Strategic Direction</text>
+
+  <!-- CIO - Wayne -->
+  <rect x="450" y="145" width="200" height="75" rx="8" fill="url(#boardGrad)" filter="url(#shadow)"/>
+  <text x="550" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Wayne Noble</text>
+  <text x="550" y="186" text-anchor="middle" font-size="10" fill="#93c5fd">CIO / Development Lead</text>
+  <text x="550" y="200" text-anchor="middle" font-size="9" fill="#cbd5e1">25+ yrs | Enterprise Systems</text>
+  <text x="550" y="214" text-anchor="middle" font-size="8" fill="#94a3b8">Technical Leadership</text>
+
+  <!-- Lead Developer - Moritz -->
+  <rect x="800" y="145" width="200" height="75" rx="8" fill="url(#boardGrad)" filter="url(#shadow)"/>
+  <text x="900" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Gerd Moritz Theile</text>
+  <text x="900" y="186" text-anchor="middle" font-size="10" fill="#93c5fd">Director / Lead Developer</text>
+  <text x="900" y="200" text-anchor="middle" font-size="9" fill="#cbd5e1">25+ yrs | PostgreSQL</text>
+  <text x="900" y="214" text-anchor="middle" font-size="8" fill="#94a3b8">LithoSurfer Architect</text>
+
+  <!-- Line from CEO to Project Director -->
+  <line x1="200" y1="220" x2="200" y2="270" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Project Director (Keith) -->
+  <rect x="100" y="270" width="200" height="75" rx="8" fill="url(#execGrad)" filter="url(#shadow)"/>
+  <text x="200" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Keith Dimech</text>
+  <text x="200" y="311" text-anchor="middle" font-size="10" fill="#e0f2fe">Project Director (GDAC-SA)</text>
+  <text x="200" y="325" text-anchor="middle" font-size="9" fill="#bae6fd">15+ yrs | eMBA | HSEQ</text>
+  <text x="200" y="339" text-anchor="middle" font-size="8" fill="#7dd3fc">Project Delivery &amp; Compliance</text>
+
+  <!-- Specialist Contractors Section -->
+  <line x1="200" y1="345" x2="200" y2="365" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="365" x2="235" y2="365" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="235" y1="365" x2="235" y2="380" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Specialist header box -->
+  <rect x="10" y="380" width="450" height="25" rx="4" fill="#e2e8f0"/>
+  <text x="235" y="397" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">Specialist Contractors &amp; Team Leads</text>
+
+  <!-- Lines to 5 specialists -->
+  <line x1="235" y1="405" x2="235" y2="425" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="50" y1="425" x2="420" y2="425" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="50" y1="425" x2="50" y2="450" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="142" y1="425" x2="142" y2="450" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="235" y1="425" x2="235" y2="450" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="327" y1="425" x2="327" y2="450" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="420" y1="425" x2="420" y2="450" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Behnam - x=5 to x=95 (width 90) -->
+  <rect x="5" y="450" width="90" height="85" rx="6" fill="url(#specialistGrad)" filter="url(#shadow)"/>
+  <text x="50" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Dr. Behnam</text>
+  <text x="50" y="481" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Sadeghi</text>
+  <text x="50" y="496" text-anchor="middle" font-size="6" fill="#e9d5ff">ML Technical</text>
+  <text x="50" y="506" text-anchor="middle" font-size="6" fill="#e9d5ff">Advisor</text>
+  <text x="50" y="520" text-anchor="middle" font-size="5" fill="#c4b5fd">15+ yrs | CSIRO</text>
+
+  <!-- Pedro - x=97 to x=187 (width 90) -->
+  <rect x="97" y="450" width="90" height="85" rx="6" fill="url(#specialistGrad)" filter="url(#shadow)"/>
+  <text x="142" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Pedro Nogueira</text>
+  <text x="142" y="481" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Ferreira</text>
+  <text x="142" y="496" text-anchor="middle" font-size="6" fill="#e9d5ff">AI Software</text>
+  <text x="142" y="506" text-anchor="middle" font-size="6" fill="#e9d5ff">Dev Lead</text>
+  <text x="142" y="520" text-anchor="middle" font-size="5" fill="#c4b5fd">25+ yrs | Oxford</text>
+
+  <!-- Dr. Qusay Abeed - x=189 to x=279 (width 90) -->
+  <rect x="189" y="450" width="90" height="85" rx="6" fill="url(#specialistGrad)" filter="url(#shadow)"/>
+  <text x="234" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Dr. Qusay</text>
+  <text x="234" y="481" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Abeed</text>
+  <text x="234" y="496" text-anchor="middle" font-size="6" fill="#e9d5ff">Sr. Geological</text>
+  <text x="234" y="506" text-anchor="middle" font-size="6" fill="#e9d5ff">Consultant</text>
+  <text x="234" y="520" text-anchor="middle" font-size="5" fill="#c4b5fd">17+ yrs | Halliburton</text>
+
+  <!-- Vinko - x=281 to x=371 (width 90) -->
+  <rect x="281" y="450" width="90" height="85" rx="6" fill="url(#specialistGrad)" filter="url(#shadow)"/>
+  <text x="326" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Vinko Novak</text>
+  <text x="326" y="496" text-anchor="middle" font-size="6" fill="#e9d5ff">Head of Data</text>
+  <text x="326" y="506" text-anchor="middle" font-size="6" fill="#e9d5ff">Security</text>
+  <text x="326" y="520" text-anchor="middle" font-size="5" fill="#c4b5fd">Security &amp; Compliance</text>
+
+  <!-- Juan - x=373 to x=463 (width 90) -->
+  <rect x="373" y="450" width="90" height="85" rx="6" fill="url(#execGrad)" filter="url(#shadow)"/>
+  <text x="418" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Juan Baca</text>
+  <text x="418" y="496" text-anchor="middle" font-size="6" fill="#e0f2fe">LATAM Ops</text>
+  <text x="418" y="506" text-anchor="middle" font-size="6" fill="#e0f2fe">Manager</text>
+  <text x="418" y="520" text-anchor="middle" font-size="5" fill="#bae6fd">Data Quality | Mexico</text>
+
+  <!-- Wayne's Team - Frontend -->
+  <line x1="550" y1="220" x2="550" y2="270" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="475" y="270" width="150" height="30" rx="4" fill="#e2e8f0"/>
+  <text x="550" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">Frontend Team</text>
+
+  <line x1="550" y1="300" x2="550" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="490" y1="330" x2="610" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="490" y1="330" x2="490" y2="350" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="610" y1="330" x2="610" y2="350" stroke="#94a3b8" stroke-width="2"/>
+
+  <rect x="430" y="350" width="120" height="75" rx="4" fill="url(#devGrad)" filter="url(#shadow)"/>
+  <text x="490" y="375" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Xinyan Zhang</text>
+  <text x="490" y="395" text-anchor="middle" font-size="9" fill="#d1fae5">Frontend Developer</text>
+  <text x="490" y="412" text-anchor="middle" font-size="8" fill="#a7f3d0">React, TypeScript</text>
+
+  <rect x="550" y="350" width="120" height="75" rx="4" fill="url(#devGrad)" filter="url(#shadow)"/>
+  <text x="610" y="375" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Lujia Yang</text>
+  <text x="610" y="395" text-anchor="middle" font-size="9" fill="#d1fae5">Frontend Developer</text>
+  <text x="610" y="412" text-anchor="middle" font-size="8" fill="#a7f3d0">React, TypeScript</text>
+
+  <!-- Moritz's Team - Backend -->
+  <line x1="900" y1="220" x2="900" y2="270" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="825" y="270" width="150" height="30" rx="4" fill="#e2e8f0"/>
+  <text x="900" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">Backend Team</text>
+
+  <line x1="900" y1="300" x2="900" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="840" y1="330" x2="960" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="840" y1="330" x2="840" y2="350" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="960" y1="330" x2="960" y2="350" stroke="#94a3b8" stroke-width="2"/>
+
+  <rect x="780" y="350" width="120" height="75" rx="4" fill="url(#devGrad)" filter="url(#shadow)"/>
+  <text x="840" y="375" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Tarun Sengar</text>
+  <text x="840" y="395" text-anchor="middle" font-size="9" fill="#d1fae5">Backend Developer</text>
+  <text x="840" y="412" text-anchor="middle" font-size="8" fill="#a7f3d0">Java, AWS</text>
+
+  <rect x="900" y="350" width="120" height="75" rx="4" fill="url(#devGrad)" filter="url(#shadow)"/>
+  <text x="960" y="370" text-anchor="middle" font-size="9" font-weight="bold" fill="white">Nirali</text>
+  <text x="960" y="383" text-anchor="middle" font-size="9" font-weight="bold" fill="white">Dudharejiya</text>
+  <text x="960" y="402" text-anchor="middle" font-size="9" fill="#d1fae5">Backend Developer</text>
+  <text x="960" y="418" text-anchor="middle" font-size="8" fill="#a7f3d0">Java, Liquibase</text>
+
+  <!-- Legend -->
+  <rect x="750" y="580" width="300" height="140" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="900" y="605" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">Legend</text>
+
+  <rect x="770" y="620" width="20" height="14" rx="3" fill="url(#boardGrad)"/>
+  <text x="800" y="632" font-size="10" fill="#475569">Board / Directors</text>
+
+  <rect x="770" y="645" width="20" height="14" rx="3" fill="url(#execGrad)"/>
+  <text x="800" y="657" font-size="10" fill="#475569">Executive / Team Lead</text>
+
+  <rect x="770" y="670" width="20" height="14" rx="3" fill="url(#specialistGrad)"/>
+  <text x="800" y="682" font-size="10" fill="#475569">Specialist Contractors</text>
+
+  <rect x="770" y="695" width="20" height="14" rx="3" fill="url(#devGrad)"/>
+  <text x="800" y="707" font-size="10" fill="#475569">Developers</text>
+
+  <!-- Footer -->
+  <text x="550" y="765" text-anchor="middle" font-size="10" fill="#94a3b8">Lithodat Pty Ltd - GDAC-SA Advanced Analytics Platform Team</text>
+  <text x="550" y="783" text-anchor="middle" font-size="9" fill="#cbd5e1">Advanced Analytics Platform for the Geological Data Center in the Kingdom of Saudi Arabia</text>
+</svg>

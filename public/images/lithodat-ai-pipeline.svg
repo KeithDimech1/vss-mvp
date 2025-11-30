@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+
+    <linearGradient id="rawGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+
+    <linearGradient id="cleanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+
+    <linearGradient id="arrowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+
+    <linearGradient id="arrowGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+
+    <linearGradient id="expertiseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05">
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="white" stroke-width="0.5"/>
+    </pattern>
+    <rect width="900" height="500" fill="url(#grid)"/>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">LITHODAT AI-READY DATA PIPELINE</text>
+  <text x="450" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Transforming Raw Geoscience Data into AI-Ready Intelligence</text>
+
+  <!-- Pipeline Flow - Three Main Boxes -->
+
+  <!-- RAW DATA Box -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="110" width="220" height="220" rx="16" fill="#1e293b" stroke="url(#rawGrad)" stroke-width="3"/>
+    <rect x="50" y="110" width="220" height="50" rx="16" fill="url(#rawGrad)"/>
+    <rect x="50" y="145" width="220" height="15" fill="url(#rawGrad)"/>
+  </g>
+  <text x="160" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">RAW DATA</text>
+
+  <!-- Raw data items -->
+  <g font-family="Arial, sans-serif" font-size="13" fill="#e2e8f0">
+    <circle cx="75" cy="185" r="4" fill="#ef4444"/>
+    <text x="88" y="189">Heterogeneous sources</text>
+    <circle cx="75" cy="215" r="4" fill="#ef4444"/>
+    <text x="88" y="219">Multi-format legacy data</text>
+    <circle cx="75" cy="245" r="4" fill="#ef4444"/>
+    <text x="88" y="249">Inconsistent schemas</text>
+    <circle cx="75" cy="275" r="4" fill="#ef4444"/>
+    <text x="88" y="279">Missing metadata</text>
+    <circle cx="75" cy="305" r="4" fill="#ef4444"/>
+    <text x="88" y="309">Quality unknowns</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g filter="url(#glow)">
+    <path d="M 280 220 L 330 220" stroke="url(#arrowGrad1)" stroke-width="4" fill="none"/>
+    <polygon points="330,220 318,212 318,228" fill="#22c55e"/>
+  </g>
+  <text x="305" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">LITHODAT</text>
+  <text x="305" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">PROCESS</text>
+
+  <!-- CLEAN DATA Box -->
+  <g filter="url(#shadow)">
+    <rect x="340" y="110" width="220" height="220" rx="16" fill="#1e293b" stroke="url(#cleanGrad)" stroke-width="3"/>
+    <rect x="340" y="110" width="220" height="50" rx="16" fill="url(#cleanGrad)"/>
+    <rect x="340" y="145" width="220" height="15" fill="url(#cleanGrad)"/>
+  </g>
+  <text x="450" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">CLEAN DATA</text>
+
+  <!-- Clean data items -->
+  <g font-family="Arial, sans-serif" font-size="13" fill="#e2e8f0">
+    <circle cx="365" cy="185" r="4" fill="#22c55e"/>
+    <text x="378" y="189">FAIR-compliant</text>
+    <circle cx="365" cy="215" r="4" fill="#22c55e"/>
+    <text x="378" y="219">Validated schemas</text>
+    <circle cx="365" cy="245" r="4" fill="#22c55e"/>
+    <text x="378" y="249">Quality assured</text>
+    <circle cx="365" cy="275" r="4" fill="#22c55e"/>
+    <text x="378" y="279">Ontology-mapped</text>
+    <circle cx="365" cy="305" r="4" fill="#22c55e"/>
+    <text x="378" y="309">Complete metadata</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g filter="url(#glow)">
+    <path d="M 570 220 L 620 220" stroke="url(#arrowGrad2)" stroke-width="4" fill="none"/>
+    <polygon points="620,220 608,212 608,228" fill="#3b82f6"/>
+  </g>
+  <text x="595" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">AI</text>
+  <text x="595" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">READY</text>
+
+  <!-- AI/ANALYTICS Box -->
+  <g filter="url(#shadow)">
+    <rect x="630" y="110" width="220" height="220" rx="16" fill="#1e293b" stroke="url(#aiGrad)" stroke-width="3"/>
+    <rect x="630" y="110" width="220" height="50" rx="16" fill="url(#aiGrad)"/>
+    <rect x="630" y="145" width="220" height="15" fill="url(#aiGrad)"/>
+  </g>
+  <text x="740" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">AI / ANALYTICS</text>
+
+  <!-- AI items -->
+  <g font-family="Arial, sans-serif" font-size="13" fill="#e2e8f0">
+    <circle cx="655" cy="185" r="4" fill="#3b82f6"/>
+    <text x="668" y="189">Machine Learning</text>
+    <circle cx="655" cy="215" r="4" fill="#3b82f6"/>
+    <text x="668" y="219">Pattern Detection</text>
+    <circle cx="655" cy="245" r="4" fill="#3b82f6"/>
+    <text x="668" y="249">Uncertainty Quantification</text>
+    <circle cx="655" cy="275" r="4" fill="#3b82f6"/>
+    <text x="668" y="279">Predictive Models</text>
+    <circle cx="655" cy="305" r="4" fill="#3b82f6"/>
+    <text x="668" y="309">Prospectivity Mapping</text>
+  </g>
+
+  <!-- Lithodat Expertise Banner -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="360" width="700" height="60" rx="12" fill="#1e293b" stroke="url(#expertiseGrad)" stroke-width="2"/>
+  </g>
+  <text x="450" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#a855f7">LITHODAT EXPERTISE</text>
+  <text x="450" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">Data Harmonization + Domain Knowledge + Geoscience Standards</text>
+
+  <!-- Result Banner -->
+  <g filter="url(#shadow)">
+    <rect x="150" y="435" width="600" height="45" rx="10" fill="url(#expertiseGrad)"/>
+  </g>
+  <text x="450" y="464" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">RESULT: AI models trained on trustworthy, structured geoscience data</text>
+
+  <!-- Decorative elements - data flow particles -->
+  <g opacity="0.6">
+    <circle cx="290" cy="210" r="3" fill="#fbbf24">
+      <animate attributeName="cx" values="290;320;290" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="295" cy="225" r="2" fill="#fbbf24">
+      <animate attributeName="cx" values="295;325;295" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="580" cy="215" r="3" fill="#fbbf24">
+      <animate attributeName="cx" values="580;610;580" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="585" cy="230" r="2" fill="#fbbf24">
+      <animate attributeName="cx" values="585;615;585" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Stats/Numbers at bottom corners -->
+  <g font-family="Arial, sans-serif" fill="#64748b" font-size="11">
+    <text x="50" y="490">Proven with 350,000+ samples</text>
+    <text x="750" y="490" text-anchor="end">1,300+ users worldwide</text>
+  </g>
+
+</svg>
