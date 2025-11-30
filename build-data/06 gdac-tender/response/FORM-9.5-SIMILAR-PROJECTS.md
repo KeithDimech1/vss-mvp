@@ -61,7 +61,7 @@ The following three projects have been selected as they demonstrate direct relev
 
 **EarthBank** (formerly AusGeochem) is a national FAIR (Findable, Accessible, Interoperable, Reusable) data platform for geochemistry research, developed by Lithodat for the AuScope Geochemistry Network (AGN) under NCRIS funding.
 
-### Lithodat Partnership with AGN
+### 1. Lithodat Partnership with AGN
 
 The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists from Curtin University, University of Melbourne, and Macquarie University. Lithodat was selected as the technology partner to build the platform.
 
@@ -78,7 +78,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - **10+ university partners:** ANU, Melbourne, UWA, UQ, Adelaide, Monash, Tasmania, Wollongong, James Cook
 - **International standards bodies:** IGSN e.V., Mindat
 
-### Project Objectives
+### 2. Project Objectives
 
 - Create Australia's first unified geochemistry data repository
 - Implement FAIR data principles for geoscience research
@@ -87,7 +87,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - Support DOI and IGSN minting for data citation
 - Build infrastructure for critical minerals exploration and climate research
 
-### Technical Scope Delivered
+### 3. Technical Scope Delivered
 
 | Component | Description |
 |-----------|-------------|
@@ -106,7 +106,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 | **Data Import** | Upload templates and bulk import functionality |
 | **Export Tools** | Shapefile export for GIS applications |
 
-### Key Achievements
+### 4. Key Achievements
 - **350,000+ samples** registered on platform
 - **1,300+ users** from research, policy, and industry sectors
 - **15+ months collaborative development** with 28 specialists across 4 Expert Advisory Groups
@@ -119,7 +119,7 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 - **International partnerships** with EarthScope (USA) and EPOS (Europe) - MOUs signed December 2024
 - **Global rebrand to EarthBank** (April 2025) - addressing international partners' hesitancy with Australian-specific naming
 
-### Technologies Used
+### 5. Technologies Used
 | Category | Technologies |
 |----------|--------------|
 | Frontend | React, TypeScript, Leaflet/OpenLayers |
