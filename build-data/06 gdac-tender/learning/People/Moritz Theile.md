@@ -1,60 +1,111 @@
 # Moritz Theile
 
-**Software Architect - Lithodat Pty Ltd**
+**Software Architect**
+
+## Contact
+- **Phone:** +49 163 3345395
+- **Email:** theile@mtheile.com
+- **Website:** www.mtheile.com
 
 ## Current Position
-- **Software Architect** - Lithodat Pty Ltd (Feb 2019 - Present, ~6 years 10 months)
-- **Employment Type:** Full-time
-- **Location:** Melbourne, Victoria, Australia (based in Greater Munich Metropolitan Area, Germany)
+- **CTO** - Lithodat Pty Ltd (2019 - Present)
+- **Self-Employed Software Architect** - MTheile.com (2011 - Present)
+- **Location:** Greater Munich Metropolitan Area, Germany
 
-## About
-"Always building things that WORK. Earlier with Lego, now with people and technology. I love solving problems in a structured way."
+## Profile
+
+Delivering IT solutions that actually work. Starting with analysis, ending with thought-through systems.
 
 ## Professional Experience
 
 ### Lithodat Pty Ltd
-**Software Architect** (Feb 2019 - Present, ~6 years 10 months)
-- Full-time software architecture role
-- Leading technical architecture for Lithodat's data platforms
-- Based in Melbourne, Victoria, Australia
+**CTO** (2019 - Present)
 
-### Independent IT Consultant
-**IT Consultant** (Jul 2012 - Present, ~13 years 5 months)
-- Munich and surrounding area, Germany
-- Independent consulting services
+- Architect and Lead Developer
+- Building IT Infrastructure
+- Developer Onboarding and Team Building
+
+---
+
+### MTheile.com
+**Self-Employed Software Architect** (2011 - Present)
+
+**Projects:**
+- **HotelOrga** - Hotel Management Platform
+- **TeamTable** - Generic Database
+- **MonaStack** - Technology Stack
+- **Cutworks** - Ordering system for laser-cut metal parts
+- **Docsafe** - Consulting and Development project at Swisscom
+
+---
+
+### 4Soft
+**Project Manager** (2007 - 2011)
+
+**Projects:**
+- **DynSBatch** - Bulk data processing software
+- **BeteiligungsIntegrator** - Interface for investment funds
+- **DWH4OSPlus** - Framework for data analysis
+- **WAC Manager** - Portfolio management software
+
+---
+
+### Macquarie University, Australia
+**Java Developer** (2005 - 2006)
+
+**Projects:**
+- **MAMS** - Meta Access Management System for Australian Higher Education
+- **Autograph** - A Shibboleth extension
+
+---
 
 ## Education
 
-### Technical University of Munich
-**Studies** (1998 - 2004)
-- Technical education at one of Germany's leading technical universities
+### Technical University of Munich (TUM)
+**Computational Science** (1998 - 2004)
 
-## Core Expertise
+### Adalbert-Stifter Gymnasium
+**Highschool Graduation (Abitur)** (1987 - 1997)
 
-### Technical Skills
-- **Software Architecture:** System design and technical leadership
-- **Java:** Core development language
-- **Software Development:** Full-stack development capabilities
+### Hoover Highschool, Fresno, CA
+**Exchange Student** (1994 - 1995)
 
-### Professional Skills
-- Structured problem-solving
-- Technical leadership
-- System design and architecture
-- Long-term strategic planning
+---
+
+## Skills
+
+### Technologies
+- **Backend & Frontend:** SQL, Java, Spring Boot, JS/TS, React, AWS, Maven and other
+- **Data Modeling and Analysis:** UML, Tableau, ELK and other
+
+### Professional
+- Agile Methodologies
+- Problem Solving
+- Communication
+- Creativity
+- Leadership
+
+---
 
 ## Shareholding in Lithodat
 - **Share Class:** A
 - **Total Shares Held:** 210
 - **Name on Record:** Gerd Moritz Theile
-- **Address:** Muenchen, Germany
+- **Address:** Munich, Germany
 
-## Relevance to Lithodat
+---
+
+## Relevance to Lithodat / GDAC Tender
 
 Moritz Theile is a founding member and key technical leader at Lithodat:
 
-1. **Founding Technical Architect:** One of the original founders, designing Lithodat's technical infrastructure from the ground up
-2. **Long-Term Commitment:** Nearly 7 years of continuous contribution to Lithodat's technical development
-3. **Significant Shareholder:** Second-largest shareholder (210 shares) demonstrating long-term investment in company success
-4. **German Engineering Excellence:** Technical University of Munich education brings rigorous engineering methodology
-5. **Consulting Background:** Over 13 years of independent IT consulting experience
-6. **Core Platform Development:** Responsible for the architectural foundations of Lithodat's data platforms including LithoSurfer
+1. **CTO & Lead Architect:** Chief Technology Officer responsible for all technical architecture and infrastructure
+2. **Full-Stack Expertise:** Strong skills across backend (Java, Spring Boot, SQL) and frontend (React, JS/TS)
+3. **Cloud & Infrastructure:** AWS experience for scalable platform deployment
+4. **Long-Term Commitment:** Over 6 years continuous contribution to Lithodat's technical development
+5. **Significant Shareholder:** Second-largest shareholder (210 shares) demonstrating long-term investment
+6. **German Engineering Excellence:** Technical University of Munich (Computational Science) education
+7. **International Experience:** Java development at Macquarie University, Australia (Higher Education systems)
+8. **Project Management:** 4 years leading software projects at 4Soft including data processing and analytics frameworks
+9. **Entrepreneurial:** Successfully running independent software architecture consultancy since 2011
+10. **Data Analytics:** Experience with data modeling, analysis tools (Tableau, ELK), and data processing systems

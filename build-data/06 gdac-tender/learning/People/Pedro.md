@@ -1,4 +1,4 @@
-# Pedro [Surname]
+# Pedro Henrique Candido Ferreira
 
 **Technology Strategist & AI/ML Expert | Enterprise Transformation Leader**
 
