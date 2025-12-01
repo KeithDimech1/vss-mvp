@@ -3,7 +3,7 @@
 **RFQ Reference:** Section 9.1, Page 17, Lines 547-601
 **Form Status:** COMPLETE - Ready for review
 **Prepared By:** Lithodat Pty Ltd
-**Date:** 2025-11-30
+**Date:** 2025-12-02
 
 ---
 
@@ -104,7 +104,7 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 
 | Year | Milestone |
 |------|-----------|
-| 2017 | Company incorporation in Victoria, Australia (December) |
+| 2018 | Company incorporation in Victoria, Australia (June) |
 | 2021 | Awarded AuScope Opportunity Fund contract ($450,000) for AusGeoChem development |
 | 2022 | Launch of AusGeoChem (now EarthBank) platform |
 | 2024 | EarthBank reaches 1,300+ registered users and 350,000+ samples |
@@ -127,7 +127,18 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 
 ## Section D: Registered Address
 
-### D.1 Principal Business Address
+### D.1 Registered Office (Legal Address)
+
+| Field | Response |
+|-------|----------|
+| **Registered Agent** | Scott Partners Pty Ltd |
+| **Street Address** | Suite 1, Level 2, 2-6 Glenferrie Road |
+| **Suburb/City** | Malvern |
+| **State/Province** | Victoria (VIC) |
+| **Postal/Zip Code** | 3144 |
+| **Country** | Australia |
+
+### D.2 Principal Place of Business
 
 | Field | Response |
 |-------|----------|
@@ -138,17 +149,24 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 | **Country** | Australia |
 | **P.O. Box** | N/A |
 
-### D.2 Mailing Address (if different)
+### D.3 Mailing Address
 
 | Field | Response |
 |-------|----------|
-| **Street/P.O. Box** | Same as above |
+| **Street/P.O. Box** | 94 Stephensons Road |
 | **City** | Mount Waverley |
 | **State** | Victoria |
 | **Postal Code** | 3149 |
 | **Country** | Australia |
 
 ---
+
+## Section E: Contact Information
+
+
+
+
+
 
 ## Section E: Contact Information
 
@@ -181,38 +199,38 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 |-------|----------|
 | **Ownership Type** | Privately held (Pty Ltd) |
 | **Number of Shareholders** | 5 |
-| **Foreign Ownership Percentage** | 31% (German 21%, UK 10%) |
-| **Ultimate Beneficial Owner(s)** | Fabian Kohlmann (55%), Gerd Moritz Theile (21%), Wayne Noble (11%) |
+| **Foreign Ownership Percentage** | 32% (German 24%, UK 8%) |
+| **Ultimate Beneficial Owner(s)** | Fabian Kohlmann (50.1%), Gerd Moritz Theile (24.0%), Wayne Noble (14.9%) |
 
 ### F.2 Shareholders/Partners Table
 
 | # | Owner/Partner Name | Shares Held | Ownership % | Fully Paid | Beneficially Held | Nationality |
 |---|-------------------|-------------|-------------|------------|-------------------|-------------|
-| 1 | **Fabian Kohlmann** | 550 | 55.0% | Yes | Yes | Australian |
-| 2 | **Gerd Moritz Theile** | 210 | 21.0% | Yes | Yes | German |
-| 3 | **Wayne Peter Noble** | 110 | 11.0% | Yes | Yes | Australian |
-| 4 | **Nilesh Ambadas Vyavahare** | 100 | 10.0% | Yes | Yes | United Kingdom |
+| 1 | **Fabian Kohlmann** | 501 | 50.1% | Yes | Yes | Australian |
+| 2 | **Gerd Moritz Theile** | 240 | 24.0% | Yes | Yes | German |
+| 3 | **Wayne Peter Noble** | 149 | 14.9% | Yes | Yes | Australian |
+| 4 | **Nilesh Ambadas Vyavahare** | 80 | 8.0% | Yes | Yes | United Kingdom |
 | 5 | **Romain Beucher** | 30 | 3.0% | Yes | No | Australian |
 | | **Total** | **1,000** | **100%** | | | |
 
-**Share Class:** A (Ordinary Shares)
+**Share Class:** A (CLASS A SHARES)
 
-> **Source:** ASIC Company Extract - Current shareholder register
+> **Source:** ASIC Company Extract dated 2025 - Current shareholder register
 
 ### F.3 Directors and Officers
 
-| # | Name | Position | Nationality | Shareholding | Address |
-|---|------|----------|-------------|--------------|---------|
-| 1 | Fabian Kohlmann | Director / Public Officer | Australian | 55% (550 shares) | 94 Stephensons Road, Mount Waverley VIC 3149 |
-| 2 | Gerd Moritz Theile | Director | German | 21% (210 shares) | Harthauser Str. 71A, 81545 Muenchen, Germany |
-| 3 | Wayne Peter Noble | Director | Australian | 11% (110 shares) | 176 Lum Road, Wheelers Hill VIC 3150 |
+| # | Name | Position | Appointed | Nationality | Shareholding | Address |
+|---|------|----------|-----------|-------------|--------------|---------|
+| 1 | **Fabian Kohlmann** | Director (Managing Director) | 01-04-2019 | Australian | 50.1% (501 shares) | 94 Stephensons Road, Mount Waverley VIC 3149, Australia |
+| 2 | **Gerd Moritz Walter Theile** | Director (Operations Director) | 24-04-2020 | German | 24.0% (240 shares) | Harthauser Str. 71A, 81545 Munich, Germany |
+| 3 | **Wayne Peter Noble** | Director (Technical Director) | 05-01-2021 | Australian | 14.9% (149 shares) | 176 Lum Road, Wheelers Hill VIC 3150, Australia |
 
 ### F.4 Non-Director Shareholders
 
-| # | Name | Shareholding | Address |
-|---|------|--------------|---------|
-| 1 | Nilesh Ambadas Vyavahare | 10% (100 shares) | 1 Subble Close, United Kingdom |
-| 2 | Romain Beucher | 3% (30 shares) | App 22 Judith Wright Court, Liversidge St, Acton ACT 2601 |
+| # | Name | Shareholding | Beneficially Held | Address |
+|---|------|--------------|-------------------|---------|
+| 1 | Nilesh Ambadas Vyavahare | 8.0% (80 shares) | Yes | 1 Subble Close, United Kingdom |
+| 2 | Romain Beucher | 3.0% (30 shares) | No | 22 Judith Wright Court, Liversidge St, Acton ACT 2601, Australia |
 
 ---
 
@@ -232,7 +250,7 @@ Lithodat Pty Ltd is an Australian technology company specializing in the develop
 |-------|----------|
 | **Business Phone** | +61 481 977 499 |
 | **Mobile Phone** | +61 481 977 499 |
-| **Email Address** | fabian.kohlmann@lithodat.com |
+| **Email Address** | keith.dimech@lithodat.com |
 | **Preferred Contact Method** | Email |
 
 ### G.3 Alternative Contact (if primary unavailable)
@@ -401,5 +419,5 @@ When entering this information into the Etimad platform:
 
 *Form 9.1 Response prepared for GDAC-SA RFQ Pre-Qualification*
 *Lithodat Pty Ltd - ABN 63 627 008 904*
-*Document Version: 2.0*
-*Updated: 2025-11-30*
+*Document Version: 2.1*
+*Updated: 2025-12-02*

@@ -3,7 +3,7 @@
 **RFQ Reference:** Section 9.3, Page 19, Lines 641-661
 **Form Status:** COMPLETE - Restructured to separate Admin from Technical staff
 **Prepared By:** Lithodat Pty Ltd
-**Date:** 2025-11-30
+**Date:** 2025-12-02
 
 ---
 
@@ -49,7 +49,7 @@ This form documents the experience of Lithodat's administrative staff as require
 | **Executive** | COO & Project Director (GDAC-SA) | Keith Dimech | CEO |
 | **Team Lead** | LATAM Operations Manager | Juan Baca | COO |
 | **Specialist** | ML Technical Advisor | Dr. Behnam Sadeghi | Project Director |
-| **Specialist** | AI Software Development Lead | Pedro Nogueira Ferreira | Project Director |
+| **Specialist** | AI Software Development Lead | Pedro Henrique Candido Ferreira | Project Director |
 | **Specialist** | Head of Data Security | Vinko Novak | Project Director |
 | **Developer** | Frontend Developer | Xinyan Zhang | CIO (Wayne) |
 | **Developer** | Frontend Developer | Lujia Yang | CIO (Wayne) |
@@ -85,9 +85,9 @@ This form documents the experience of Lithodat's administrative staff as require
 |-------|---------|
 | **Name** | Dr. Fabian Kohlmann |
 | **Current Position** | Managing Director, Public Officer |
-| **Shareholding** | 55% (550 of 1,000 shares) |
-| **Address** | 94 Stephensons Road, Mount Waverley VIC 3149 |
-| **Position Since** | January 2020 (6 years as MD) |
+| **Shareholding** | 50.1% (501 of 1,000 shares) |
+| **Address** | 94 Stephensons Road, Mount Waverley VIC 3149, Australia |
+| **Director Since** | 01-04-2019 |
 | **Total Years Experience** | 15+ years |
 | **Education** | PhD in Geosciences, University of Melbourne (2005-2010) |
 
@@ -123,10 +123,10 @@ This form documents the experience of Lithodat's administrative staff as require
 | Field | Details |
 |-------|---------|
 | **Name** | Dr. Wayne Peter Noble |
-| **Current Position** | CIO / Executive Director |
-| **Shareholding** | 11% (110 of 1,000 shares) |
-| **Address** | 176 Lum Road, Wheelers Hill VIC 3150 |
-| **Position Since** | December 2018 (7 years) |
+| **Current Position** | CIO / Technical Director |
+| **Shareholding** | 14.9% (149 of 1,000 shares) |
+| **Address** | 176 Lum Road, Wheelers Hill VIC 3150, Australia |
+| **Director Since** | 05-01-2021 |
 | **Total Years Experience** | 25+ years |
 | **Education** | PhD Geology, La Trobe University (1992-1998); Graduate Diploma Computer Science (with Distinction), RMIT University (2003-2006); BSc (Hon), La Trobe University (1988-1992) |
 
@@ -168,12 +168,12 @@ This form documents the experience of Lithodat's administrative staff as require
 
 | Field | Details |
 |-------|---------|
-| **Name** | Gerd Moritz Theile |
-| **Current Position** | Director / Lead Developer / Software Architect |
-| **Shareholding** | 21% (210 of 1,000 shares) |
-| **Address** | Harthauser Str. 71A, 81545 Muenchen, Germany |
+| **Name** | Gerd Moritz Walter Theile |
+| **Current Position** | Director / Lead Developer / Software Architect (Operations Director) |
+| **Shareholding** | 24.0% (240 of 1,000 shares) |
+| **Address** | Harthauser Str. 71A, 81545 Munich, Germany |
 | **Nationality** | German |
-| **Position Since** | February 2019 (Founding member) |
+| **Director Since** | 24-04-2020 |
 | **Total Years Experience** | 25+ years |
 | **Education** | Technical University of Munich (1998-2004) |
 
@@ -422,17 +422,17 @@ Lithodat's approach to AI leverages our core expertise in clean, structured data
 | German | Dr. Fabian Kohlmann, Moritz Theile | Native |
 | Mandarin Chinese | Xinyan Zhang, Lujia Yang | Native |
 | Gujarati/Hindi | Tarun Sengar, Nirali Dudharejiya | Native |
-| Spanish | Pedro Nogueira Ferreira, Juan Baca, Perla Luque, Alejandra Bedoya, Raul Lugo | Native |
-| Portuguese | Pedro Nogueira Ferreira | Native |
+| Spanish | Pedro Henrique Candido Ferreira, Juan Baca, Perla Luque, Alejandra Bedoya, Raul Lugo | Native |
+| Portuguese | Pedro Henrique Candido Ferreira | Native |
 | Farsi | Behnam Sadeghi | Native |
-| Arabic | Dr. Qusay Abeed | Native |
+| Arabic | Dr. Qusay Abeed (PhD RWTH Aachen, Halliburton Senior Geochemist) | Native (Iraqi) |
 
 ### F.3 Geographic Experience
 
 | Region | Experience |
 |--------|------------|
 | **Australia** | Primary operations - NCRIS, CSIRO, major infrastructure projects |
-| **Middle East** | Saudi Arabia proposal developed; regional interest in geoscience data |
+| **Middle East** | Saudi Arabia proposal developed; Dr. Qusay Abeed (native Arabic speaker) with extensive Mesopotamian Basin expertise (Iraq); Halliburton petroleum systems experience across North Africa and Middle East |
 | **Europe** | Director based in Germany; EGU conference participation |
 | **USA** | Behnam's Fulbright at Stanford/Carnegie provides US research network |
 | **Global** | International user base on EarthBank platform |
@@ -511,5 +511,5 @@ The following information must be provided to complete this form:
 
 *Form 9.3 Response prepared for GDAC-SA RFQ Pre-Qualification*
 *Lithodat Pty Ltd - ABN 63 627 008 904*
-*Document Version: 3.0 - Restructured to separate Administrative from Technical staff*
-*Updated: 2025-11-30*
+*Document Version: 3.1 - Restructured to separate Administrative from Technical staff*
+*Updated: 2025-12-02*
