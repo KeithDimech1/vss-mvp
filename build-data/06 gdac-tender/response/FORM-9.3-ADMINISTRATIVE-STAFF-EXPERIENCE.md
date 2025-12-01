@@ -470,11 +470,13 @@ I hereby certify that all information provided regarding administrative staff ex
 
 | Field | Entry |
 |-------|-------|
-| **Name** | `[PLACEHOLDER]` |
-| **Title** | `[PLACEHOLDER]` |
+| **Name** | Keith Dimech |
+| **Title** | Chief Operating Officer |
 | **Signature** | `[TO BE SIGNED]` |
-| **Date** | `[PLACEHOLDER]` |
+| **Date** | `[TO BE COMPLETED AT SUBMISSION]` |
 | **Company Seal** | `[TO BE AFFIXED]` |
+
+**Authorized Signatory:** Dr. Fabian Kohlmann (Managing Director)
 
 ---
 

@@ -86,9 +86,9 @@ This form demonstrates Lithodat's technical and administrative capabilities for 
 
 | # | Project Name | Client | Year | Value | Relevance |
 |---|-------------|--------|------|-------|-----------|
-| 1 | **EarthBank (AusGeoChem)** | AuScope Geochemistry Network | 2021-Present | $450K initial + ongoing | National geoscience data platform - DIRECT MATCH |
-| 2 | **Isotopes.au** | CSIRO, ANSTO, GA, NMI consortium | 2024-2028 | $300K total | Multi-agency isotope data infrastructure |
-| 3 | **LithoSpace** | RMIT University, Univ. of Melbourne | 2024-Present | R&D investment | Planetary geochemistry analytics platform |
+| 1 | **EarthBank (AusGeoChem)** | AuScope Geochemistry Network | 2019-Present | $2.9M AUD | National geoscience data platform - DIRECT MATCH |
+| 2 | **Isotopes.au** | CSIRO, ANSTO, GA, NMI consortium | 2023-2025 | $400K AUD | Multi-agency isotope data infrastructure |
+| 3 | **NRCan Thermochronology** | Natural Resources Canada | 2021-2023 | $400K AUD | National thermochronology data model - DELIVERED |
 
 > **Detailed project descriptions provided in Form 9.5**
 
@@ -107,13 +107,14 @@ This form demonstrates Lithodat's technical and administrative capabilities for 
 |--------------------|---------------------------------|
 | **Large-scale data management** | EarthBank: 350,000+ samples, 1,300+ users |
 | **Multi-source data integration** | Isotopes.au: 6 institutional data sources harmonized |
-| **Cross-mission data harmonization** | LithoSpace: 25+ planetary missions integrated (1967-2025) |
-| **Schema design for heterogeneous data** | Novel schemas for geochemistry, isotopes, planetary science |
+| **National data standardisation** | NRCan: 100% Canadian legacy thermochronology data standardised |
+| **Schema design for heterogeneous data** | Novel schemas for geochemistry, isotopes, thermochronology |
 | **Ontology development** | Isotopes.au: 250+ field mappings, 97% match rate |
 | **Analytics dashboards** | EarthBank: Interactive dashboards, LithoPlates reconstruction |
 | **API development** | REST APIs across all platforms |
 | **FAIR data compliance** | Core expertise - peer-reviewed publication (Chemical Geology 2025) |
-| **Government/institutional partnerships** | AuScope/NCRIS, CSIRO, ANSTO, GA, NMI |
+| **Government/institutional partnerships** | AuScope/NCRIS, CSIRO, ANSTO, GA, NMI, NRCan (Canada) |
+| **International experience** | NRCan Thermochronology project - delivered for Canadian federal government |
 
 ### B.6 AI and Machine Learning Capability - Clean Data Foundation
 

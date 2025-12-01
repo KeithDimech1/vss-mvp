@@ -89,18 +89,39 @@ This form provides comprehensive company identification and ownership informatio
 
 Lithodat Pty Ltd is an Australian technology company specializing in the development of cloud-based geoscience data management platforms. The company was established to address the critical need for FAIR (Findable, Accessible, Interoperable, Reusable) data infrastructure in the geosciences sector.
 
+**Core Competencies:**
+
+| Competency | Description |
+|------------|-------------|
+| **Geoscience Data Platforms** | Design and development of national-scale geochemistry databases |
+| **FAIR Data Infrastructure** | Implementation of FAIR principles for research data management |
+| **Data Harmonization** | Integration of heterogeneous data from multiple institutional sources |
+| **Schema Design** | Development of custom ontologies and controlled vocabularies |
+| **Cloud-Native Solutions** | AWS-based scalable infrastructure for geoscience applications |
+| **Analytics & Visualization** | Interactive mapping, dashboards, and analytical tools |
+
 **Key Milestones:**
 
 | Year | Milestone |
 |------|-----------|
-| 2018 | Company incorporation in Victoria, Australia |
+| 2017 | Company incorporation in Victoria, Australia (December) |
 | 2021 | Awarded AuScope Opportunity Fund contract ($450,000) for AusGeoChem development |
 | 2022 | Launch of AusGeoChem (now EarthBank) platform |
 | 2024 | EarthBank reaches 1,300+ registered users and 350,000+ samples |
+| 2024 | MOUs signed with EarthScope (USA) and EPOS (Europe) - December |
 | 2024-2025 | Isotopes.au R&D project commenced ($300,000 budget) |
 | 2025 | Peer-reviewed publication in Chemical Geology journal |
 | 2025 | EarthBank rebrand announced at EGU General Assembly |
-| 2025 | Revenue exceeds AUD $1.19 million |
+| 2025 | Revenue exceeds AUD $1.19 million (62.8% CAGR over 3 years) |
+
+**Key Achievements:**
+
+- **EarthBank Platform**: National geochemistry infrastructure with 350,000+ samples, 1,300+ users
+- **Government Partnerships**: NCRIS/AuScope, CSIRO, ANSTO, Geoscience Australia, NMI
+- **International Recognition**: MOUs with EarthScope (USA) and EPOS (Europe) - December 2024
+- **Peer-Reviewed Publication**: Chemical Geology 2025 - EarthBank FAIR framework
+- **Revenue Growth**: 62.8% CAGR over 3 years to $1.19M (FY2025)
+- **R&D Investment**: $484,303 (FY2025) - 40.6% of revenue
 
 ---
 
@@ -277,6 +298,45 @@ By signing below, the authorized signatory confirms that:
 | 4 | Share Register Extract | TO OBTAIN | Shows ownership structure |
 | 5 | Directors' Authorization Letter | TO PREPARE | Authorizing representative |
 | 6 | Consortium Agreement (if applicable) | N/A | Solo application |
+
+---
+
+## Insurance Coverage
+
+| Insurance Type | Provider | Coverage | Annual Premium |
+|----------------|----------|----------|----------------|
+| **Business Insurance** | KBI Insurance | Comprehensive (Public Liability, Professional Indemnity, Business Assets) | $19,756.97 |
+| **Travel Insurance** | KBI Insurance | International business travel | $1,629.07 |
+| **Vehicle Insurance** | AAMI | Business vehicle | $2,136.69 |
+| **Workers Compensation** | Allianz/WorkSafe | Statutory | $475.55 |
+| **Audit Shield** | Insura | Tax audit protection | $362.70 |
+
+**Total Annual Insurance Investment:** ~$24,361 AUD
+
+---
+
+## Tax and Accounting Information
+
+| Field | Response |
+|-------|----------|
+| **Tax Agent** | Scott Partners Pty Ltd |
+| **Agent Reference** | 80789000 |
+| **Primary Contact** | Harneet Gidda |
+| **GST Registered** | Yes |
+| **R&D Tax Incentive** | Eligible (43.5% refundable offset) |
+| **Bank** | Commonwealth Bank of Australia |
+| **Account Type** | Business Transaction Account |
+
+---
+
+## Legal Counsel
+
+| Field | Response |
+|-------|----------|
+| **IP/Commercial Law** | Sharon Givoni Consulting |
+| **Principal** | Sharon Givoni |
+| **Specialization** | Intellectual Property, Trademarks, Commercial Agreements |
+| **Website** | https://sharongivoni.com.au |
 
 ---
 
