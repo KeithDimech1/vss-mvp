@@ -98,7 +98,7 @@
 
   <!-- Pedro - x=97 to x=187 (width 90) -->
   <rect x="97" y="450" width="90" height="85" rx="6" fill="url(#specialistGrad)" filter="url(#shadow)"/>
-  <text x="142" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Pedro Nogueira</text>
+  <text x="142" y="470" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Pedro Candido</text>
   <text x="142" y="481" text-anchor="middle" font-size="7" font-weight="bold" fill="white">Ferreira</text>
   <text x="142" y="496" text-anchor="middle" font-size="6" fill="#e9d5ff">AI Software</text>
   <text x="142" y="506" text-anchor="middle" font-size="6" fill="#e9d5ff">Dev Lead</text>
