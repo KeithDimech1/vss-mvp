@@ -1,6 +1,6 @@
 # Lithodat Pty Ltd - Financial Statements Index
 
-**Extraction Date:** 2025-11-28
+**Last Updated:** 2025-12-02
 **Source Directory:** `build-data/06 gdac-tender/learning/Finanical Statements/`
 **Purpose:** GDAC Tender Submission Reference Documentation
 
@@ -10,22 +10,60 @@
 
 | Field | Value |
 |-------|-------|
-| **Company Name** | Lithodat Pty Ltd |
+| **Company Name** | LITHODAT PTY. LTD. |
+| **ACN** | 627 008 904 |
 | **ABN** | 63 627 008 904 |
 | **TFN** | 452 382 055 |
+| **Date Registered** | 25-06-2018 |
+| **Next Review Date** | 25-06-2026 |
+| **Company Type** | Australian Proprietary Company |
+| **Company Status** | Registered |
 | **Industry Code** | B 69250 |
 | **Industry Description** | Geological and geophysical consultancy service |
-| **Business Address** | 94 Stephensons Rd, Mount Waverley, VIC 3149 |
 | **Entity Type** | Australian Private Company (Limited by Shares) |
 | **Reporting Status** | Non-Reporting Entity (Special Purpose Financial Statements) |
 
-### Directors
+### Registered Office
 
-| Name | Role |
-|------|------|
-| Fabian Kohlmann | Director / Public Officer |
-| Gerd Moritz Walter Theile | Director |
-| Wayne Noble | Director |
+| Field | Value |
+|-------|-------|
+| **Agent** | Scott Partners Pty Ltd |
+| **Address** | Suite 1, Level 2, 2-6 Glenferrie Road |
+| **City/State** | Malvern VIC 3144 |
+| **Country** | Australia |
+
+### Principal Place of Business
+
+| Field | Value |
+|-------|-------|
+| **Address** | 94 Stephensons Road |
+| **City/State** | Mount Waverley VIC 3149 |
+| **Country** | Australia |
+
+### Directors (Officeholders)
+
+| Name | Full Legal Name | Position | Appointed | Address |
+|------|-----------------|----------|-----------|---------|
+| **Dr. Fabian Kohlmann** | KOHLMANN, FABIAN | Director (Managing Director) | 01-04-2019 | 94 Stephensons Road, Mount Waverley VIC 3149, Australia |
+| **Moritz Theile** | THEILE, GERD MORITZ WALTER | Director (Operations Director) | 24-04-2020 | Harthauser Str. 71A, 81545 Munich, Germany |
+| **Wayne Noble** | NOBLE, WAYNE PETER | Director (Technical Director) | 05-01-2021 | 176 Lum Road, Wheelers Hill VIC 3150, Australia |
+
+### Share Structure
+
+| Share Class | Description | Number Issued | Total Amount Paid |
+|-------------|-------------|---------------|-------------------|
+| A | CLASS A SHARES | 1,000 | $1,000.00 |
+
+### Shareholders
+
+| Shareholder | Shares Held | Percentage | Address |
+|-------------|-------------|------------|---------|
+| **KOHLMANN, FABIAN** | 501 | 50.1% | 94 Stephensons Road, Mount Waverley VIC 3149 |
+| **THEILE, GERD MORITZ** | 240 | 24.0% | Harthauser Str. 71A, 81545 Munich, Germany |
+| **NOBLE, WAYNE PETER** | 149 | 14.9% | 176 Lum Road, Wheelers Hill VIC 3150 |
+| **VYAVAHARE, NILESH AMBADAS** | 80 | 8.0% | 1 Subble Close, United Kingdom |
+| **BEUCHER, ROMAIN** | 30 | 3.0% | 22 Judith Wright Court, Acton ACT 2601 |
+| **TOTAL** | **1,000** | **100%** | |
 
 ### Tax Agent
 
@@ -179,11 +217,25 @@ FY2023 → FY2025: 128.4% CAGR in Net Assets
 ## File Locations
 
 - **Master Index**: `INDEX.md` (this file)
+- **Company Details (ASIC)**: `Lithodat-Company-Details-2025.md`
 - **FY2023 Detailed Extraction**: `FY2023-EXTRACTION.md`
 - **FY2024 Detailed Extraction**: `FY2024-EXTRACTION.md`
 - **FY2025 Detailed Extraction**: `FY2025-EXTRACTION.md`
-- **Source PDFs**: Same directory (12 files)
+- **Source PDFs**: Same directory
+
+### Additional Corporate Documents
+
+| Document | Description |
+|----------|-------------|
+| `Lithodat company details 2025.pdf` | ASIC Company Extract (source for company details) |
+| `Lithodat-Company-Details-2025.md` | Text extraction of ASIC company details |
+| `25Jun2022 ASIC Company Statement.pdf` | Historical ASIC company statement |
+| `Evidence of Authority - Lithodat Pty Ltd.pdf` | Evidence of authority document |
+| `Letter of Authorization - LEI Registration.pdf` | LEI registration authorization |
+| `Lithodat_Pty_Ltd_certificate (1).pdf` | Company certificate |
+| `Lithodat_Pty_Ltd_certificate (2).pdf` | Company certificate (copy) |
 
 ---
 
 *Generated for GDAC Tender Submission - Lithodat Pty Ltd*
+*Last Updated: 2025-12-02*
