@@ -30,7 +30,7 @@ This form documents the experience of Lithodat's professional/technical staff as
 | **Total Technical Staff (Delivery Team)** | 13 (in B.1 table) |
 | **Technical Leadership (Management)** | 5 (Fabian, Wayne, Moritz, Keith, Juan - see Form 9.3) |
 | **Software Developers** | 4 (2 Frontend, 2 Backend) |
-| **AI/ML Specialists** | 2 (Dr. Behnam Sadeghi, Pedro Nogueira Ferreira) |
+| **AI/ML Specialists** | 2 (Dr. Behnam Sadeghi, Pedro Henrique Candido Ferreira) |
 | **Geoscience Specialists** | 3 (Dr. Qusay Abeed - Petroleum/CCUS, Dr. Fun Meeuws - Thermochronology, Dr. Alejandra Bedoya - Geochronology) |
 | **Planetary Science** | 1 (Benjamin Dib - LithoSpace) |
 | **Data Security** | 1 (Vinko Novak) |
@@ -53,7 +53,7 @@ This form documents the experience of Lithodat's professional/technical staff as
 | **Executive** | Project Director (GDAC-SA) | Keith Dimech | CEO | Project Delivery, HSEQ, Compliance |
 | **Team Lead** | LATAM Operations Manager | Juan Baca | Project Director | Data Quality, LATAM Team |
 | **Specialist** | ML Technical Advisor | Dr. Behnam Sadeghi | Project Director | ML Strategy, Algorithm Design |
-| **Specialist** | AI Software Development Lead | Pedro Nogueira Ferreira | Project Director | Enterprise AI Implementation |
+| **Specialist** | AI Software Development Lead | Pedro Henrique Candido Ferreira | Project Director | Enterprise AI Implementation |
 | **Specialist** | Senior Geological Consultant | Dr. Qusay Abeed | Project Director | Petroleum Systems, CO2 Storage |
 | **Specialist** | Head of Data Security | Vinko Novak | Project Director | Security Architecture |
 | **Developer** | Frontend Developer | Xinyan Zhang | CIO (Wayne) | React, TypeScript, UI/UX |
@@ -70,8 +70,8 @@ This form documents the experience of Lithodat's professional/technical staff as
 | # | Name | Function | Specialization / Area of Expertise | Years of Experience |
 |---|------|----------|-----------------------------------|---------------------|
 | 1 | **Dr. Behnam Sadeghi** | Machine Learning Technical Advisor | Machine Learning, Geospatial AI, Python Development (PyImpetus, PyMiner), Mathematical Geosciences, Critical Minerals | 15+ years |
-| 2 | **Pedro Nogueira Ferreira** | AI Software Development Lead | AI/ML Strategy & Implementation, Enterprise Cloud Architecture (Azure/AWS), Digital Transformation, Backend Migrations | 25+ years |
-| 3 | **Dr. Qusay Abeed** | Senior Geological Consultant | Petroleum Geochemistry, Basin Modelling, CO2 Storage (CCUS), Petroleum Systems Analysis, Arabic Speaker | 17+ years |
+| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | AI/ML Strategy & Implementation, Enterprise Cloud Architecture (Azure/AWS), Digital Transformation, Backend Migrations | 25+ years |
+| 3 | **Dr. Qusay Abeed** | Senior Geological Consultant | Petroleum Geochemistry, Basin Modelling (Permedia), CO2 Storage (CCUS), Petroleum Systems Analysis, Mesopotamian Basin Expert, Native Arabic Speaker, C++ Development, Agile Scrum Master | 17+ years |
 | 4 | **Vinko Novak** | Head of Data Security | Data Security, Information Protection, Compliance, Security Architecture | 10+ years |
 | 5 | **Xinyan Zhang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | 3+ years |
 | 6 | **Lujia Yang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | 3+ years |
@@ -226,36 +226,53 @@ The following personnel are the core technical delivery team for GDAC-SA, listed
 |-------|---------|
 | **Current Position** | Senior Geological Consultant / Petroleum Geochemist |
 | **Engagement Type** | External Consultant / Technical Advisor |
+| **Location** | Oxford, United Kingdom |
+| **Languages** | English (Fluent), Arabic (Native) |
 | **Total Years Experience** | 17+ years |
-| **Education** | PhD Petroleum Geochemistry & Basin Modelling, RWTH Aachen University (2012, magna cum laude); MSc Petroleum Geology, University of Baghdad (2006); BSc Geology, University of Baghdad (2002) |
+| **Education** | PhD Petroleum Geochemistry & Basin Modelling, RWTH Aachen University (2008-2012, magna cum laude); MSc Petroleum Geology, University of Baghdad (2002-2006, 81.91%); BSc Geology/Earth Science, University of Baghdad (1998-2002, 71.7%) |
 
 **Technical Expertise:**
 | Category | Competencies |
 |----------|--------------|
-| **Petroleum Systems** | Basin modelling, source rock characterization, oil-source correlation, petroleum geochemistry |
+| **Petroleum Systems** | Basin modelling, source rock characterization, oil-source correlation, petroleum geochemistry, biomarkers, molecular geochemistry |
 | **CO2 Storage (CCUS)** | Carbon capture, utilisation and storage technologies, CO2 geological storage assessment |
 | **Software Development** | C++, Permedia petroleum systems software, basin modelling tools |
-| **Seismic Interpretation** | Petroleum systems integration with seismic data, structural analysis |
-| **Global Experience** | South America, Central America, North Africa, USA (Lower 48), Middle East including Iraq |
+| **Seismic Interpretation** | Petroleum systems integration with seismic data, structural analysis, log interpretation |
+| **Project Management** | Agile/Scrum (Scrum Master at Halliburton), R&D leadership |
+| **Global Experience** | South America, Central America, North Africa, USA (Lower 48), Middle East (Mesopotamian Basin, Iraq) |
 
 **Professional Experience:**
 | Period | Role | Organization | Focus |
 |--------|------|--------------|-------|
-| 2017-Present | Permedia CO2 Team Agile Scrum Master | Landmark Software (Halliburton) | Basin modelling & CO2 storage technology development |
-| 2020-Present | Petroleum Geochemist / Permedia Lead QA | Halliburton | Petroleum systems quality assurance |
-| 2013-2020 | Petroleum Geochemist / Systems Lead | Exploration Insights, Landmark | Global petroleum systems data & interpretation maps |
-| 2012-2013 | Post-Doctoral Researcher | RWTH Aachen University | Mesopotamian Basin petroleum systems |
-| 2008-2012 | Research Associate | RWTH Aachen University | PhD research on petroleum geochemistry |
-| 2006-2008 | Researcher & Exploration Instructor | Tikrit University | Organic geochemistry, thermal history |
+| Mar 2017 - Present | Permedia CO2 Team Agile Scrum Master | Landmark Software (Halliburton), Oxford UK | Basin modelling & CO2 storage technology development, Hybrid work |
+| Mar 2020 - Present | Petroleum Geochemist Senior / Permedia Lead QA | Halliburton, UK | Petroleum systems quality assurance, DSG Petroleum Systems Lead |
+| Oct 2013 - Mar 2020 | Petroleum Geochemist / Petroleum Systems Lead | Exploration Insights, Landmark, Halliburton, Abingdon UK | Global petroleum systems data & interpretation maps (6.5 years) |
+| Oct 2012 - Oct 2013 | Post-Doctoral Researcher | RWTH Aachen University, Germany | Mesopotamian Basin petroleum systems, seismic interpretation |
+| Oct 2008 - Oct 2012 | Research Associate | RWTH Aachen University, Germany | PhD research on petroleum geochemistry (4 years) |
+| Nov 2006 - May 2008 | Researcher & Exploration Instructor | Tikrit University, Iraq | Organic geochemistry, thermal/burial history, basin modelling (1.5 years) |
 
 **Key Achievements:**
 - Lead developer of technologies for basin modelling and CO2 storage at Halliburton
-- Created Global Petroleum Systems Interpretations Maps for major petroleum basins
-- PhD research on the Mesopotamian Basin of Iraq - one of the world's largest petroleum systems
+- Created Global Petroleum Systems Interpretations Maps for South America, Central America, North Africa, Lower 48 (USA), and Middle East
+- PhD research on the Mesopotamian Basin of Iraq - one of the world's largest petroleum systems (magna cum laude)
 - Expert in organic geochemistry of petroleum and source rocks
+- Agile Scrum Master leading technology development teams at Halliburton
+- Former colleague of Dr. Fabian Kohlmann at Halliburton (established relationship)
+
+**Value for GDAC-SA Project:**
+| Value Proposition | Details |
+|-------------------|---------|
+| **Native Arabic Speaker** | Direct communication with Saudi Geological Survey stakeholders without translation barriers |
+| **Middle East Geology Expertise** | Deep understanding of regional petroleum systems including Mesopotamian Basin |
+| **Halliburton Connection** | Former colleague of Dr. Fabian Kohlmann - established working relationship |
+| **CCUS Knowledge** | Aligns with Saudi Arabia's sustainability initiatives and Vision 2030 |
+| **Global Petroleum Systems** | Created interpretation maps for diverse regions including Middle East |
+| **Basin Modelling** | Essential expertise for geological data platform development |
+| **Software Development** | C++ skills enable technical integration with platform development team |
+| **Agile/Scrum Leadership** | Project management experience for GDAC-SA delivery |
 
 **AI/Data Relevance:**
-> Dr. Abeed's expertise in **petroleum systems modelling and CO2 storage** directly supports GDAC-SA's advanced analytics capabilities for the Saudi geological sector. His experience with global petroleum data systems and software development (C++, Permedia) enables integration of basin modelling tools with the platform.
+> Dr. Abeed's expertise in **petroleum systems modelling and CO2 storage** directly supports GDAC-SA's advanced analytics capabilities for the Saudi geological sector. His experience with global petroleum data systems and software development (C++, Permedia) enables integration of basin modelling tools with the platform. His native Arabic language capability provides invaluable communication with SGS stakeholders.
 
 ---
 
@@ -486,7 +503,7 @@ Lithodat's technical team delivers AI-ready geoscience platforms through a **"Cl
 | **Regression** | Dr. Behnam Sadeghi | Expert | Grade estimation, element prediction |
 | **Spatial Analysis** | Dr. Behnam Sadeghi | Expert (PyMiner creator) | Mineral prospectivity mapping |
 | **Deep Learning** | Dr. Behnam Sadeghi | Proficient (CNN, RNN, GAN) | Image analysis, pattern recognition |
-| **AI/ML Implementation** | Pedro Nogueira Ferreira (AI Software Development Lead) | Expert (25+ years) | Enterprise AI solution delivery |
+| **AI/ML Implementation** | Pedro Henrique Candido Ferreira (AI Software Development Lead) | Expert (25+ years) | Enterprise AI solution delivery |
 | **Database Architecture** | Moritz Theile (Lead Developer) | Expert (25+ years PostgreSQL, LithoSurfer) | Scalable data infrastructure for AI workloads |
 | **Data Security** | Vinko Novak (Head of Data Security) | Expert | Security architecture, compliance |
 | **Data Quality Systems** | Juan Baca (Data Quality Lead) | Expert | Data validation, quality assurance |
@@ -582,15 +599,15 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 
 | Skill | Essential for GDAC-SA? | Staff Count | Proficiency | Key Staff |
 |-------|------------------------|-------------|-------------|-----------|
-| Cloud Platform (AWS) | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, Pedro Nogueira Ferreira, development team |
-| Python Development | Yes | 3+ | Expert | Dr. Sadeghi (packages), Pedro Nogueira Ferreira, Dr. Kohlmann |
+| Cloud Platform (AWS) | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, Pedro Henrique Candido Ferreira, development team |
+| Python Development | Yes | 3+ | Expert | Dr. Sadeghi (packages), Pedro Henrique Candido Ferreira, Dr. Kohlmann |
 | Database Design (PostgreSQL) | Yes | 4+ | Expert | Moritz Theile (25+ yrs), Keith Dimech, Wayne Noble, Dr. Kohlmann |
 | REST API Development | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, Nirali Dudharejiya, development team |
 | Data Integration/ETL | Yes | 4+ | Expert | Dr. Kohlmann, Keith Dimech, Dr. Sadeghi, Juan Baca |
 | Geoscience Domain | Yes | 4+ | Expert | Dr. Kohlmann, Dr. Sadeghi, Dr. Qusay Abeed, Keith Dimech |
 | Frontend (React/Next.js/TypeScript) | Yes | 3+ | Expert | Wayne Noble, Xinyan Zhang, Lujia Yang |
 | Backend (Java) | Yes | 3+ | Expert | Moritz Theile, Tarun Sengar, Nirali Dudharejiya |
-| Machine Learning | Beneficial | 2+ | Expert | Dr. Sadeghi (58+ publications, 3 packages), Pedro Nogueira Ferreira |
+| Machine Learning | Beneficial | 2+ | Expert | Dr. Sadeghi (58+ publications, 3 packages), Pedro Henrique Candido Ferreira |
 | GIS/Spatial Systems | Yes | 3+ | Expert | Dr. Sadeghi (PyMiner), Keith Dimech, Juan Baca |
 | Petroleum Systems/CCUS | Beneficial | 1 | Expert | Dr. Qusay Abeed (17+ yrs, Halliburton) |
 | Arabic Language | Beneficial | 1 | Native | Dr. Qusay Abeed (Native Arabic speaker) |
@@ -602,7 +619,7 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 |--------------------|-----------------|--------|---------|
 | PhD (Geosciences/Engineering) | 3 | Active | Dr. Kohlmann (UniMelb), Dr. Sadeghi (UNSW), Dr. Qusay Abeed (RWTH Aachen) |
 | Executive MBA | 1 | Completed (2025) | Keith Dimech (RMIT) |
-| Oxford AI Certification | 1 | Active | Pedro Nogueira Ferreira |
+| Oxford AI Certification | 1 | Active | Pedro Henrique Candido Ferreira |
 | BSc/MSc Geology/Geophysics | 3 | Active | Keith Dimech (UniMelb), Fabian Kohlmann (UniMelb), Dr. Qusay Abeed (Baghdad) |
 | ISO 9001/14001 | 1 | Active | Keith Dimech (audit experience) |
 | Agile/Scrum | 2+ | Active | Wayne Noble (10+ years), Dr. Qusay Abeed (Scrum Master at Halliburton) |
@@ -624,8 +641,8 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 | **COO, Project Director & HSEQ** | Keith Dimech | Delivery management, compliance, government liaison, HSEQ |
 | **Lead Developer** | Gerd Moritz Theile | PostgreSQL architecture, LithoSurfer lead, backend team leadership |
 | **Machine Learning Technical Advisor** | Dr. Behnam Sadeghi | Machine learning strategy, algorithm development, analytics |
-| **AI Software Development Lead** | Pedro Nogueira Ferreira | Enterprise AI/ML implementation, cloud architecture |
-| **Senior Geological Consultant** | Dr. Qusay Abeed | Petroleum systems, basin modelling, CO2 storage (CCUS) |
+| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Enterprise AI/ML implementation, cloud architecture |
+| **Senior Geological Consultant** | Dr. Qusay Abeed | Petroleum systems, basin modelling, CO2 storage (CCUS), Arabic stakeholder liaison, Middle East geology expertise |
 | **Head of Data Security** | Vinko Novak | Data security, compliance, information protection |
 | **Data Quality Lead / LATAM Ops** | Juan Baca | Database quality assurance, data validation, LATAM team |
 | **Frontend Developer** | Xinyan Zhang | React, TypeScript, UI/UX implementation |
@@ -652,7 +669,8 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 | **Gerd Moritz Theile** | Lead Developer | 50% | PostgreSQL database architecture, LithoSurfer lead |
 | **Keith Dimech** | COO, Project Director & HSEQ | 100% | Delivery management, quality assurance, compliance, HSEQ |
 | **Dr. Behnam Sadeghi** | ML Technical Advisor | 30% (contract) | ML strategy, algorithm selection, analytics design |
-| **Pedro Nogueira Ferreira** | AI Software Dev Lead | 40% (contract) | Enterprise AI/ML implementation, cloud architecture |
+| **Pedro Henrique Candido Ferreira** | AI Software Dev Lead | 40% (contract) | Enterprise AI/ML implementation, cloud architecture |
+| **Dr. Qusay Abeed** | Senior Geological Consultant | 30% (contract) | Petroleum systems expertise, Arabic stakeholder communication, Middle East geology, CCUS alignment with Vision 2030 |
 | **Vinko Novak** | Head of Data Security | 30% | Data security architecture, compliance |
 | **Juan Baca** | Data Quality Lead | 40% | Data validation, quality assurance |
 
@@ -679,7 +697,7 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 | Dr. Behnam Sadeghi | 2023 IAMG Vistelius Research Award | 2023 |
 | Dr. Behnam Sadeghi | Fulbright Fellowship - Stanford University | 2022-2023 |
 | Dr. Behnam Sadeghi | CSIRO Research Fellow Appointment | 2024 |
-| Pedro Nogueira Ferreira | Oxford AI Certification | 2024 |
+| Pedro Henrique Candido Ferreira | Oxford AI Certification | 2024 |
 | Dr. Qusay Abeed | Permedia CO2 Team Lead - Halliburton | 2020-Present |
 
 ---
@@ -726,7 +744,7 @@ I hereby certify that all information provided regarding professional staff expe
 | ✅ DONE | Gerd Moritz Theile profile | 25+ years, PostgreSQL, LithoSurfer architect |
 | ✅ DONE | Keith Dimech profile | 15+ years, eMBA RMIT, COO/Project Director |
 | ✅ DONE | Dr. Behnam Sadeghi profile | 15+ years, CSIRO, Vistelius Award, AI/ML |
-| ✅ DONE | Pedro Nogueira Ferreira profile | 25+ years, Oxford AI, Enterprise AI Lead |
+| ✅ DONE | Pedro Henrique Candido Ferreira profile | 25+ years, Oxford AI, Enterprise AI Lead |
 | ✅ DONE | Dr. Qusay Abeed profile | 17+ years, Halliburton, Petroleum Systems/CCUS |
 | ✅ DONE | Vinko Novak profile | Head of Data Security |
 | ✅ DONE | Juan Baca profile | 10+ years, Data Quality Lead, LATAM Ops |

@@ -199,7 +199,7 @@ Lithodat confirms:
 | **Gerd Moritz Theile** | Lead Developer | TU Munich | 25+ years |
 | **Keith Dimech** | COO/HSEQ | eMBA (RMIT), BSc Geophysics (UniMelb) | 15+ years |
 | **Dr. Behnam Sadeghi** | ML Advisor | PhD Mining Eng (UNSW), Fulbright Fellow | 15+ years |
-| **Pedro Nogueira Ferreira** | AI Lead | Oxford AI Certification | 25+ years |
+| **Pedro Henrique Candido Ferreira** | AI Lead | Oxford AI Certification | 25+ years |
 | **Dr. Qusay Abeed** | Geology Consultant | PhD Petroleum Geochemistry (RWTH Aachen) | 17+ years |
 
 ### E.3 Language Capabilities

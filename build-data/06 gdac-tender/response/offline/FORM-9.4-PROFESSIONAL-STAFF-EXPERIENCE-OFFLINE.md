@@ -13,7 +13,7 @@
 | # | Name | Function | Specialization / Area of Expertise | Years of Experience |
 |---|------|----------|-----------------------------------|---------------------|
 | 1 | **Dr. Behnam Sadeghi** | Machine Learning Technical Advisor | Machine Learning, Geospatial AI, Python Development (PyImpetus, PyMiner), Mathematical Geosciences, Critical Minerals | 15+ years |
-| 2 | **Pedro Nogueira Ferreira** | AI Software Development Lead | AI/ML Strategy & Implementation, Enterprise Cloud Architecture (Azure/AWS), Digital Transformation, Backend Migrations | 25+ years |
+| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | AI/ML Strategy & Implementation, Enterprise Cloud Architecture (Azure/AWS), Digital Transformation, Backend Migrations | 25+ years |
 | 3 | **Dr. Qusay Abeed** | Senior Geological Consultant | Petroleum Geochemistry, Basin Modelling, CO2 Storage (CCUS), Petroleum Systems Analysis, Arabic Speaker | 17+ years |
 | 4 | **Vinko Novak** | Head of Data Security | Data Security, Information Protection, Compliance, Security Architecture | 10+ years |
 | 5 | **Xinyan Zhang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | 3+ years |
@@ -130,7 +130,7 @@
 
 ---
 
-#### Pedro Nogueira Ferreira - AI Software Development Lead
+#### Pedro Henrique Candido Ferreira - AI Software Development Lead
 
 | Field | Details |
 |-------|---------|
@@ -333,12 +333,12 @@
 
 | Skill | Staff Count | Proficiency | Key Staff |
 |-------|-------------|-------------|-----------|
-| Cloud Platform (AWS) | 4+ | Expert | Wayne Noble, Tarun Sengar, Pedro Ferreira |
-| Python Development | 3+ | Expert | Dr. Sadeghi, Pedro Ferreira, Dr. Kohlmann |
+| Cloud Platform (AWS) | 4+ | Expert | Wayne Noble, Tarun Sengar, Pedro Henrique Candido Ferreira |
+| Python Development | 3+ | Expert | Dr. Sadeghi, Pedro Henrique Candido Ferreira, Dr. Kohlmann |
 | Database (PostgreSQL) | 4+ | Expert | Moritz Theile, Wayne Noble, Keith Dimech |
 | REST API Development | 4+ | Expert | Wayne Noble, Tarun Sengar, Nirali Dudharejiya |
 | Frontend (React/TypeScript) | 3+ | Expert | Wayne Noble, Xinyan Zhang, Lujia Yang |
-| Machine Learning | 2+ | Expert | Dr. Sadeghi, Pedro Ferreira |
+| Machine Learning | 2+ | Expert | Dr. Sadeghi, Pedro Henrique Candido Ferreira |
 | Geoscience Domain | 4+ | Expert | Dr. Kohlmann, Dr. Sadeghi, Dr. Abeed, Keith Dimech |
 
 ---
@@ -385,7 +385,7 @@ I hereby certify that all information provided regarding professional staff expe
 |---------|----------|
 | **Staff Table** | Expanded to 13 professional/technical staff with specializations |
 | **Dr. Behnam Sadeghi** | Added full profile: CSIRO Research Fellow, 2023 Vistelius Award, Fulbright Fellow, PyImpetus/PyMiner creator |
-| **Pedro Nogueira Ferreira** | Added AI Lead profile: Oxford AI Certification, 25+ years enterprise experience |
+| **Pedro Henrique Candido Ferreira** | Added AI Lead profile: Oxford AI Certification, 25+ years enterprise experience |
 | **Dr. Qusay Abeed** | Added Senior Geological Consultant: Arabic speaker, RWTH Aachen PhD, Halliburton Permedia team |
 | **Vinko Novak** | Added Head of Data Security role |
 | **Development Team** | Added 4 developers: Xinyan Zhang, Lujia Yang, Tarun Sengar, Nirali Dudharejiya |

@@ -3,7 +3,7 @@
 **RFQ Reference:** Section 9.2, Page 18, Lines 607-635
 **Form Status:** DRAFT - Requires verification of marked fields
 **Prepared By:** Lithodat Pty Ltd
-**Date:** 2025-11-28
+**Date:** 2025-12-02
 
 ---
 
@@ -137,7 +137,7 @@ Lithodat's core differentiator is our **"Clean Data First"** methodology. Raw ge
 | **Feature Selection** | Dr. Behnam Sadeghi - Machine Learning Technical Advisor (PyImpetus creator) | Identify geochemically significant variables |
 | **Classification** | Dr. Sadeghi (58+ publications, CSIRO) | Rock type/lithology classification |
 | **Prospectivity Mapping** | Dr. Sadeghi (PyMiner toolkit) | Mineral exploration targeting |
-| **AI/ML Implementation** | Pedro Nogueira Ferreira - AI Software Development Lead (25+ years) | Enterprise AI/ML solution delivery |
+| **AI/ML Implementation** | Pedro Henrique Candido Ferreira - AI Software Development Lead (25+ years) | Enterprise AI/ML solution delivery |
 | **Database Architecture** | Moritz Theile - Lead Developer (25+ years PostgreSQL, LithoSurfer) | Enterprise-grade data infrastructure |
 | **Geoscience Schema** | Dr. Fabian Kohlmann (EarthBank) | Domain-appropriate data modeling |
 | **Compliance Systems** | Keith Dimech (government projects) | Audit-ready data management |
@@ -380,8 +380,8 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | Function | Count | Key Personnel | Key Skills |
 |----------|-------|---------------|------------|
 | **Executive/Directors** | 4 | Dr. Fabian Kohlmann (MD), Wayne Noble (CIO), Moritz Theile (Director), Keith Dimech (COO) | Company leadership, technical direction, operations |
-| **Software Development** | 2+ | Moritz Theile (Lead Developer), Pedro Nogueira Ferreira (AI Software Development Lead) | Full-stack development, cloud architecture, API design, PostgreSQL |
-| **AI/ML Engineering** | 2+ | Dr. Behnam Sadeghi (ML Technical Advisor), Pedro Nogueira Ferreira (AI Software Development Lead) | Machine learning, AI strategy, enterprise AI implementation |
+| **Software Development** | 2+ | Moritz Theile (Lead Developer), Pedro Henrique Candido Ferreira (AI Software Development Lead) | Full-stack development, cloud architecture, API design, PostgreSQL |
+| **AI/ML Engineering** | 2+ | Dr. Behnam Sadeghi (ML Technical Advisor), Pedro Henrique Candido Ferreira (AI Software Development Lead) | Machine learning, AI strategy, enterprise AI implementation |
 | **Data Science/Engineering** | 2+ | Dr. Behnam Sadeghi, Juan Baca (Data Quality Lead) | Data modeling, ML, schema design, ETL, analytics, data quality |
 | **Geoscience Domain Experts** | 3+ | Dr. Kohlmann (thermochronology), Dr. Sadeghi (mathematical geosciences), Juan Baca (cartography, well logs) | Geochemistry, geochronology, earth sciences |
 | **Project Management** | 1+ | Keith Dimech (COO, Project Director & HSEQ) | Project delivery, client management, government liaison, HSEQ |
@@ -395,9 +395,9 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | **PhD** | 2 confirmed | Dr. Fabian Kohlmann (UniMelb Geosciences), Dr. Behnam Sadeghi (UNSW Mining/Data Analytics) |
 | **Executive MBA** | 1 | Keith Dimech (RMIT Executive MBA, 2025) |
 | **Masters Degree** | 1+ | Dr. Sadeghi (MSc Economic Geology) |
-| **Bachelor Degree** | 3+ confirmed | Keith Dimech (BSc Hons Geophysics), Dr. Kohlmann (BSc Geosciences), Pedro Nogueira Ferreira (Engineer's Degree, Computer Science - University of Lisbon) |
+| **Bachelor Degree** | 3+ confirmed | Keith Dimech (BSc Hons Geophysics), Dr. Kohlmann (BSc Geosciences), Pedro Henrique Candido Ferreira (Engineer's Degree, Computer Science - University of Lisbon) |
 | **Professional Awards** | 2 | Dr. Sadeghi (2023 IAMG Vistelius Award, Fulbright Fellowship), Keith Dimech (2024 AWA Innovation Award) |
-| **Professional Certifications** | 2+ | Pedro Nogueira Ferreira (Leveraging Data and AI for Sustainable Business Impact - Oxford University Smith School, 2024), Vinko Novak (Data Security certifications) |
+| **Professional Certifications** | 2+ | Pedro Henrique Candido Ferreira (Leveraging Data and AI for Sustainable Business Impact - Oxford University Smith School, 2024), Vinko Novak (Data Security certifications) |
 
 ### F.5 Key Technical Competencies
 
@@ -438,11 +438,11 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | **Project Director (GDAC-SA)** | Keith Dimech | Australia | Employee (COO) | 15+ years, ESQ systems in high-risk construction |
 | **Development Lead** | Wayne Noble | Australia | Employee (CIO, 11% shareholder) | 25+ years, MYOB enterprise scale |
 | **Machine Learning Technical Advisor** | Dr. Behnam Sadeghi | Australia | Contractor (CSIRO Research Fellow) | 15+ years, Vistelius Award winner |
-| **AI Software Development Lead** | Pedro Nogueira Ferreira | Portugal | Contractor | 25+ years, Enterprise AI/ML solutions |
+| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Portugal | Contractor | 25+ years, Enterprise AI/ML solutions |
 | **Lead Developer** | Gerd Moritz Theile | Germany | Employee (Director, 21% shareholder) | 25+ years PostgreSQL, Lead Architect of LithoSurfer |
 | **Head of Data Security** | Vinko Novak | Australia | Employee/Contractor | Data security and compliance |
 | **Data Quality Lead** | Juan Baca | Mexico | Employee (Lithodat México) | Database consulting, well log analysis, cartography |
-| **Primary Geological Consultant** | Dr. Qusay Abeed | United Kingdom | Contractor (Halliburton Senior Geoscientist) | 18+ years, PhD Basin Modelling, Arabic Speaker |
+| **Primary Geological Consultant** | Dr. Qusay Abeed | United Kingdom | Contractor (Halliburton Senior Geoscientist) | 17+ years, PhD Petroleum Geochemistry & Basin Modelling (RWTH Aachen, magna cum laude), Permedia CO2 Team Scrum Master, Native Arabic Speaker |
 | **Saudi Liaison** | `[Via Consortium Partner]` | Saudi Arabia | Partner staff | `[NEEDS INFO: Saudi partner]` |
 | **On-Site Support** | `[Via Consortium Partner]` | Saudi Arabia | Partner staff | `[NEEDS INFO: Saudi partner]` |
 
@@ -560,5 +560,5 @@ Search this document for `[NEEDS INFO]` to find all gaps:
 
 *Form 9.2 Response prepared for GDAC-SA RFQ Pre-Qualification*
 *Lithodat Pty Ltd - ABN 63 627 008 904*
-*Document Version: 2.0 DRAFT - Updated 2025-11-28*
+*Document Version: 2.1 - Updated 2025-12-02*
 *Leadership profiles complete; AI/Clean data messaging added; supporting documents pending*
