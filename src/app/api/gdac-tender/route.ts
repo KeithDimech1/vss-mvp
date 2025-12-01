@@ -11,15 +11,19 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Check if user is a manager
+    // Check if user has access (managers, admins, or specific users)
     const user = await prisma.user.findUnique({
       where: { id: session.userId },
-      select: { isManager: true, role: true },
+      select: { isManager: true, role: true, username: true },
     });
 
-    if (!user?.isManager && user?.role !== "ADMIN") {
+    // Allow access for managers, admins, or specific usernames
+    const allowedUsernames = ['qusay'];
+    const hasAccess = user?.isManager || user?.role === "ADMIN" || allowedUsernames.includes(user?.username?.toLowerCase() || '');
+
+    if (!hasAccess) {
       return NextResponse.json(
-        { error: "Access denied. Manager role required." },
+        { error: "Access denied. You do not have permission to view this page." },
         { status: 403 }
       );
     }
@@ -56,15 +60,19 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Check if user is a manager
+    // Check if user has access (managers, admins, or specific users)
     const user = await prisma.user.findUnique({
       where: { id: session.userId },
-      select: { isManager: true, role: true },
+      select: { isManager: true, role: true, username: true },
     });
 
-    if (!user?.isManager && user?.role !== "ADMIN") {
+    // Allow access for managers, admins, or specific usernames
+    const allowedUsernames = ['qusay'];
+    const hasAccess = user?.isManager || user?.role === "ADMIN" || allowedUsernames.includes(user?.username?.toLowerCase() || '');
+
+    if (!hasAccess) {
       return NextResponse.json(
-        { error: "Access denied. Manager role required." },
+        { error: "Access denied. You do not have permission to edit this page." },
         { status: 403 }
       );
     }
