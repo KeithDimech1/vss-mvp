@@ -71,16 +71,19 @@ This form demonstrates Lithodat's technical and administrative capabilities for 
 
 ### B.2 Specific Experience Areas
 
-| Experience Domain | Years | Description |
-|-------------------|-------|-------------|
-| Geoscience Data Platform Development | 4+ | EarthBank/AusGeoChem platform for AuScope (2021-present) |
-| FAIR Data Implementation | 4+ | Implementing Findable, Accessible, Interoperable, Reusable principles |
-| Scientific Data Schema Design | 4+ | Custom schemas for geochemistry, isotopes, planetary science |
-| Government Data Infrastructure | 4+ | NCRIS-funded national infrastructure (AuScope) |
-| Multi-Agency Data Integration | 3+ | Isotopes.au (CSIRO, ANSTO, GA, NMI integration) |
-| Cloud-Based Analytics Platforms | 4+ | AWS-hosted browser-native applications |
-| API Development (REST) | 4+ | Machine-to-machine interoperability |
-| Spatial/GIS Data Systems | 4+ | LithoPlates paleoreconstruction, mapping tools |
+| Experience Domain | Years | Description | Key Personnel |
+|-------------------|-------|-------------|---------------|
+| Geoscience Data Platform Development | 15+ | EarthBank/AusGeoChem (2021-present), Halliburton TTH database (2014-2018), LithoSurfer | Fabian (15+ yrs), Wayne (25+ yrs), Moritz (25+ yrs) |
+| FAIR Data Implementation | 10+ | Implementing Findable, Accessible, Interoperable, Reusable principles across multiple platforms | Fabian (10+ yrs), Wayne (10+ yrs) |
+| Scientific Data Schema Design | 25+ | Custom schemas for geochemistry, isotopes, planetary science, PostgreSQL architecture | Moritz (25+ yrs PostgreSQL), Wayne (PhD Geology + CS), Fabian (PhD Geosciences) |
+| Government Data Infrastructure | 15+ | NCRIS-funded national infrastructure (AuScope), $5B+ government projects | Keith (15+ yrs govt infrastructure), Fabian (NCRIS partnerships) |
+| Multi-Agency Data Integration | 10+ | Isotopes.au (CSIRO, ANSTO, GA, NMI), Halliburton global petroleum systems | Fabian (Halliburton), Qusay (17+ yrs petroleum systems) |
+| Cloud-Based Analytics Platforms | 20+ | AWS-hosted applications, enterprise cloud architecture, MYOB transformation | Wayne (25+ yrs), Pedro (25+ yrs Azure/AWS) |
+| API Development (REST) | 20+ | Machine-to-machine interoperability, enterprise systems integration | Wayne (25+ yrs), Moritz (25+ yrs), Vinko (10+ yrs) |
+| Spatial/GIS Data Systems | 15+ | LithoPlates paleoreconstruction, mapping tools, environmental GIS | Fabian (15+ yrs), Keith (15+ yrs environmental GIS) |
+| Petroleum Systems & Basin Modelling | 17+ | Global petroleum systems maps, Permedia software, CO2 storage | Qusay (17+ yrs Halliburton), Fabian (Halliburton 2014-2018) |
+| Database Security & Compliance | 10+ | Data security architecture, information protection, compliance frameworks | Vinko (10+ yrs), Keith (15+ yrs HSEQ compliance) |
+| Environmental Data Systems | 15+ | ESDAT chemical databases, carbon accounting, contaminated land assessment | Keith (15+ yrs major infrastructure projects) |
 
 ### B.3 Similar Projects Executed in Last Three Years
 
@@ -137,7 +140,7 @@ Lithodat's core differentiator is our **"Clean Data First"** methodology. Raw ge
 | **Feature Selection** | Dr. Behnam Sadeghi - Machine Learning Technical Advisor (PyImpetus creator) | Identify geochemically significant variables |
 | **Classification** | Dr. Sadeghi (58+ publications, CSIRO) | Rock type/lithology classification |
 | **Prospectivity Mapping** | Dr. Sadeghi (PyMiner toolkit) | Mineral exploration targeting |
-| **AI/ML Implementation** | Pedro Henrique Candido Ferreira - AI Software Development Lead (25+ years) | Enterprise AI/ML solution delivery |
+| **AI/ML Implementation** | Pedro Henrique Candido Ferreira - AI Software Development Lead | Enterprise AI/ML solution delivery |
 | **Database Architecture** | Moritz Theile - Lead Developer (25+ years PostgreSQL, LithoSurfer) | Enterprise-grade data infrastructure |
 | **Geoscience Schema** | Dr. Fabian Kohlmann (EarthBank) | Domain-appropriate data modeling |
 | **Compliance Systems** | Keith Dimech (government projects) | Audit-ready data management |
@@ -395,9 +398,9 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | **PhD** | 2 confirmed | Dr. Fabian Kohlmann (UniMelb Geosciences), Dr. Behnam Sadeghi (UNSW Mining/Data Analytics) |
 | **Executive MBA** | 1 | Keith Dimech (RMIT Executive MBA, 2025) |
 | **Masters Degree** | 1+ | Dr. Sadeghi (MSc Economic Geology) |
-| **Bachelor Degree** | 3+ confirmed | Keith Dimech (BSc Hons Geophysics), Dr. Kohlmann (BSc Geosciences), Pedro Henrique Candido Ferreira (Engineer's Degree, Computer Science - University of Lisbon) |
+| **Bachelor Degree** | 2+ confirmed | Keith Dimech (BSc Hons Geophysics), Dr. Kohlmann (BSc Geosciences) |
 | **Professional Awards** | 2 | Dr. Sadeghi (2023 IAMG Vistelius Award, Fulbright Fellowship), Keith Dimech (2024 AWA Innovation Award) |
-| **Professional Certifications** | 2+ | Pedro Henrique Candido Ferreira (Leveraging Data and AI for Sustainable Business Impact - Oxford University Smith School, 2024), Vinko Novak (Data Security certifications) |
+| **Professional Certifications** | 1+ | Vinko Novak (Data Security certifications) |
 
 ### F.5 Key Technical Competencies
 
@@ -438,7 +441,7 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | **Project Director (GDAC-SA)** | Keith Dimech | Australia | Employee (COO) | 15+ years, ESQ systems in high-risk construction |
 | **Development Lead** | Wayne Noble | Australia | Employee (CIO, 11% shareholder) | 25+ years, MYOB enterprise scale |
 | **Machine Learning Technical Advisor** | Dr. Behnam Sadeghi | Australia | Contractor (CSIRO Research Fellow) | 15+ years, Vistelius Award winner |
-| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Portugal | Contractor | 25+ years, Enterprise AI/ML solutions |
+| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Portugal | Contractor | Technology & AI/ML Expert |
 | **Lead Developer** | Gerd Moritz Theile | Germany | Employee (Director, 21% shareholder) | 25+ years PostgreSQL, Lead Architect of LithoSurfer |
 | **Head of Data Security** | Vinko Novak | Australia | Employee/Contractor | Data security and compliance |
 | **Data Quality Lead** | Juan Baca | Mexico | Employee (Lithodat México) | Database consulting, well log analysis, cartography |

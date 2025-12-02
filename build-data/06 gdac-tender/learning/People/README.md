@@ -25,7 +25,7 @@ This directory contains profiles of key personnel at Lithodat Pty Ltd.
 | Name | Role | Organization | Key Expertise |
 |------|------|--------------|---------------|
 | **Dr. Behnam Sadeghi** | Research Fellow / Consultant | CSIRO / Independent | Mathematical Geosciences, Data Analytics, Critical Minerals |
-| **Pedro Henrique Candido Ferreira** | Technology Strategist | External | AI/ML, Cloud (Azure/AWS), Enterprise Transformation |
+| **Pedro Henrique Candido Ferreira** | AI Software Development Lead | External | Technology & AI/ML Strategy |
 | **Juan Baca** | Data Specialist | External | Geoscience Data |
 | **Qusay Abeed** | Consultant | External | Geoscience |
 
@@ -59,7 +59,7 @@ Based on company records (image.png):
 
 ### External Consultants
 - **[behnam.md](./behnam.md)** - Dr. Behnam Sadeghi (Research Fellow / Consultant)
-- **[Pedro.md](./Pedro.md)** - Pedro Henrique Candido Ferreira (Technology Strategist)
+- **[Pedro.md](./Pedro.md)** - Pedro Henrique Candido Ferreira (AI Software Development Lead)
 - **[juan baca.md](./juan%20baca.md)** - Juan Baca (Data Specialist)
 - **[qusay abeed.md](./qusay%20abeed.md)** - Qusay Abeed (Consultant)
 

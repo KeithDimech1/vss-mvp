@@ -42,9 +42,9 @@ export async function GET(request: Request) {
     // Build path to the response files
     const filePath = path.join(
       process.cwd(),
-      "build-data",
-      "06 gdac-tender",
-      "response",
+      "src",
+      "content",
+      "tender-forms",
       filename
     );
 

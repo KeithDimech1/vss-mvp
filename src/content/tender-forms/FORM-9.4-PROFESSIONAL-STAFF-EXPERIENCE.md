@@ -70,7 +70,7 @@ This form documents the experience of Lithodat's professional/technical staff as
 | # | Name | Function | Specialization / Area of Expertise | Years of Experience |
 |---|------|----------|-----------------------------------|---------------------|
 | 1 | **Dr. Behnam Sadeghi** | Machine Learning Technical Advisor | Machine Learning, Geospatial AI, Python Development (PyImpetus, PyMiner), Mathematical Geosciences, Critical Minerals | 15+ years |
-| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | AI/ML Strategy & Implementation, Enterprise Cloud Architecture (Azure/AWS), Digital Transformation, Backend Migrations | 25+ years |
+| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | Technology & AI/ML Strategy | - |
 | 3 | **Dr. Qusay Abeed** | Senior Geological Consultant | Petroleum Geochemistry, Basin Modelling (Permedia), CO2 Storage (CCUS), Petroleum Systems Analysis, Mesopotamian Basin Expert, Native Arabic Speaker, C++ Development, Agile Scrum Master | 17+ years |
 | 4 | **Vinko Novak** | Head of Data Security | Data Security, Information Protection, Compliance, Security Architecture | 10+ years |
 | 5 | **Xinyan Zhang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | 3+ years |
@@ -503,7 +503,7 @@ Lithodat's technical team delivers AI-ready geoscience platforms through a **"Cl
 | **Regression** | Dr. Behnam Sadeghi | Expert | Grade estimation, element prediction |
 | **Spatial Analysis** | Dr. Behnam Sadeghi | Expert (PyMiner creator) | Mineral prospectivity mapping |
 | **Deep Learning** | Dr. Behnam Sadeghi | Proficient (CNN, RNN, GAN) | Image analysis, pattern recognition |
-| **AI/ML Implementation** | Pedro Henrique Candido Ferreira (AI Software Development Lead) | Expert (25+ years) | Enterprise AI solution delivery |
+| **AI/ML Implementation** | Pedro Henrique Candido Ferreira (AI Software Development Lead) | Expert | Enterprise AI solution delivery |
 | **Database Architecture** | Moritz Theile (Lead Developer) | Expert (25+ years PostgreSQL, LithoSurfer) | Scalable data infrastructure for AI workloads |
 | **Data Security** | Vinko Novak (Head of Data Security) | Expert | Security architecture, compliance |
 | **Data Quality Systems** | Juan Baca (Data Quality Lead) | Expert | Data validation, quality assurance |
@@ -599,8 +599,8 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 
 | Skill | Essential for GDAC-SA? | Staff Count | Proficiency | Key Staff |
 |-------|------------------------|-------------|-------------|-----------|
-| Cloud Platform (AWS) | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, Pedro Henrique Candido Ferreira, development team |
-| Python Development | Yes | 3+ | Expert | Dr. Sadeghi (packages), Pedro Henrique Candido Ferreira, Dr. Kohlmann |
+| Cloud Platform (AWS) | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, development team |
+| Python Development | Yes | 3+ | Expert | Dr. Sadeghi (packages), Dr. Kohlmann, development team |
 | Database Design (PostgreSQL) | Yes | 4+ | Expert | Moritz Theile (25+ yrs), Keith Dimech, Wayne Noble, Dr. Kohlmann |
 | REST API Development | Yes | 4+ | Expert | Wayne Noble, Tarun Sengar, Nirali Dudharejiya, development team |
 | Data Integration/ETL | Yes | 4+ | Expert | Dr. Kohlmann, Keith Dimech, Dr. Sadeghi, Juan Baca |
@@ -619,7 +619,7 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 |--------------------|-----------------|--------|---------|
 | PhD (Geosciences/Engineering) | 3 | Active | Dr. Kohlmann (UniMelb), Dr. Sadeghi (UNSW), Dr. Qusay Abeed (RWTH Aachen) |
 | Executive MBA | 1 | Completed (2025) | Keith Dimech (RMIT) |
-| Oxford AI Certification | 1 | Active | Pedro Henrique Candido Ferreira |
+| AI/ML Expertise | 1 | Active | Pedro Henrique Candido Ferreira |
 | BSc/MSc Geology/Geophysics | 3 | Active | Keith Dimech (UniMelb), Fabian Kohlmann (UniMelb), Dr. Qusay Abeed (Baghdad) |
 | ISO 9001/14001 | 1 | Active | Keith Dimech (audit experience) |
 | Agile/Scrum | 2+ | Active | Wayne Noble (10+ years), Dr. Qusay Abeed (Scrum Master at Halliburton) |
@@ -669,7 +669,7 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 | **Gerd Moritz Theile** | Lead Developer | 50% | PostgreSQL database architecture, LithoSurfer lead |
 | **Keith Dimech** | COO, Project Director & HSEQ | 100% | Delivery management, quality assurance, compliance, HSEQ |
 | **Dr. Behnam Sadeghi** | ML Technical Advisor | 30% (contract) | ML strategy, algorithm selection, analytics design |
-| **Pedro Henrique Candido Ferreira** | AI Software Dev Lead | 40% (contract) | Enterprise AI/ML implementation, cloud architecture |
+| **Pedro Henrique Candido Ferreira** | AI Software Dev Lead | 40% (contract) | Technology & AI/ML strategy |
 | **Dr. Qusay Abeed** | Senior Geological Consultant | 30% (contract) | Petroleum systems expertise, Arabic stakeholder communication, Middle East geology, CCUS alignment with Vision 2030 |
 | **Vinko Novak** | Head of Data Security | 30% | Data security architecture, compliance |
 | **Juan Baca** | Data Quality Lead | 40% | Data validation, quality assurance |
@@ -697,7 +697,7 @@ Lithodat staff have contributed to the following peer-reviewed publications:
 | Dr. Behnam Sadeghi | 2023 IAMG Vistelius Research Award | 2023 |
 | Dr. Behnam Sadeghi | Fulbright Fellowship - Stanford University | 2022-2023 |
 | Dr. Behnam Sadeghi | CSIRO Research Fellow Appointment | 2024 |
-| Pedro Henrique Candido Ferreira | Oxford AI Certification | 2024 |
+| Pedro Henrique Candido Ferreira | AI/ML Technology Expert | - |
 | Dr. Qusay Abeed | Permedia CO2 Team Lead - Halliburton | 2020-Present |
 
 ---
@@ -744,7 +744,7 @@ I hereby certify that all information provided regarding professional staff expe
 | ✅ DONE | Gerd Moritz Theile profile | 25+ years, PostgreSQL, LithoSurfer architect |
 | ✅ DONE | Keith Dimech profile | 15+ years, eMBA RMIT, COO/Project Director |
 | ✅ DONE | Dr. Behnam Sadeghi profile | 15+ years, CSIRO, Vistelius Award, AI/ML |
-| ✅ DONE | Pedro Henrique Candido Ferreira profile | 25+ years, Oxford AI, Enterprise AI Lead |
+| ✅ DONE | Pedro Henrique Candido Ferreira profile | Technology & AI/ML Expert |
 | ✅ DONE | Dr. Qusay Abeed profile | 17+ years, Halliburton, Petroleum Systems/CCUS |
 | ✅ DONE | Vinko Novak profile | Head of Data Security |
 | ✅ DONE | Juan Baca profile | 10+ years, Data Quality Lead, LATAM Ops |

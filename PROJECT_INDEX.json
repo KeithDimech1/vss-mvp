@@ -1,1 +1,181 @@
-{"at":"2025-11-06T15:48:07.511345","root":".","tree":[".","\u251c\u2500\u2500 docs/","\u251c\u2500\u2500 prisma/ (5 files)","\u2502   \u2514\u2500\u2500 migrations/ (4 files)","\u2502       \u251c\u2500\u2500 20251031002606_init/ (1 files)","\u2502       \u251c\u2500\u2500 20251103002112_add_action_tracking/ (1 files)","\u2502       \u251c\u2500\u2500 20251103032828_add_is_manager_field/ (1 files)","\u2502       \u2514\u2500\u2500 20251104033850_add_email_to_user/ (1 files)","\u251c\u2500\u2500 public/ (1 files)","\u2502   \u2514\u2500\u2500 images/","\u2502       \u2514\u2500\u2500 meetings/","\u251c\u2500\u2500 scripts/ (10 files)","\u2502   \u2514\u2500\u2500 README.md","\u251c\u2500\u2500 src/ (56 files)","\u2502   \u251c\u2500\u2500 app/ (38 files)","\u2502   \u2502   \u251c\u2500\u2500 (auth)/ (1 files)","\u2502   \u2502   \u2502   \u2514\u2500\u2500 login/ (1 files)","\u2502   \u2502   \u251c\u2500\u2500 (dashboard)/ (25 files)","\u2502   \u2502   \u2502   \u251c\u2500\u2500 actions/","\u2502   \u2502   \u2502   \u251c\u2500\u2500 admin/ (2 files)"],"stats":{"total_files":81,"total_directories":57,"fully_parsed":{"javascript":1,"typescript":68},"listed_only":{"json":5,"sql":4,"html":1,"css":1,"shell":1},"markdown_files":7},"f":{"check-action.js":["j",["main:4:async ()::"]],"prisma/seed.ts":["t",["main:6:async ()::"]],"s/check-db.ts":["t",["checkDatabase:5:async ()::"]],"s/finish-migration.ts":["t",["main:5:async ()::"]],"s/migrate-actions.ts":["t",["main:5:async ()::"]],"s/migrate-question-ids.template.ts":["t",["migrateQuestionIds:29:async ()::"]],"s/seed-new-actions.ts":["t",["main:5:async ()::"]],"s/seed-test-assessments.ts":["t",["seedTestAssessments:78:async ()::"]],"s/test-action-responses.ts":["t",["testActionResponses:5:async ()::"]],"s/test-response-saving.ts":["t",["testResponseSaving:5:async ()::"]],"s/update-managers.ts":["t",["updateManagers:5:async ()::"]],"s/view-assessment.ts":["t",["viewAssessment:5:async ()::"]],"sr/app/(auth)/login/page.tsx":["t",["LoginPage:7:()::","handleSubmit:14:async (e:FormEvent<HTMLFormElement>)::"]],"sr/app/(dashboard)/admin/page.tsx":["t",["AdminDashboardPage:30:()::","fetchData:38:async ()::"]],"sr/app/(dashboard)/admin/submissions/[userId]/page.tsx":["t",["SubmissionDetailPage:23:()::","fetchSubmission:32:async ()::","getQuestionObject:94:(questionId:string)::"]],"sr/app/(dashboard)/assessment/complete/page.tsx":["t",["AssessmentCompletePage:7:()::","loadAssessment:13:async ()::"]],"sr/app/(dashboard)/assessment/page.tsx":["t",["AssessmentPage:11:()::","loadAssessment:28:async ()::","handleAnswerChange:97:(questionId:string, value:string)::","handlePrevious:105:()::","handleNext:112:async ()::","handleSubmit:122:async ()::"]],"sr/app/(dashboard)/assessment/view/page.tsx":["t",["ViewAssessmentPage:15:()::","loadData:22:async ()::"]],"sr/app/(dashboard)/dashboard/page.tsx":["t",["DashboardPage:20:()::","fetchData:27:async ()::","getAssessmentStatus:57:()::"]],"sr/app/(dashboard)/debug-user/page.tsx":["t",["getSession:6:async ()::","DebugUserPage:22:async ():getSession:"]],"sr/app/(dashboard)/layout.tsx":["t",["DashboardLayout:16:({ children, }:{ children:React.ReactNode; })::","fetchSession:28:async ()::","handleLogout:49:async ()::"]],"sr/app/(dashboard)/management/action/[slug]/consensus/page.tsx":["t",["getSession:9:async ()::","ConsensusPage:25:async ({ params, }:{ params:Promise<{ slug:string }>; }):getSession:"]],"sr/app/(dashboard)/management/action/[slug]/page.tsx":["t",["ActionPage:11:async ({ params, }:{ params:Promise<{ slug:string }>; })::"]],"sr/app/(dashboard)/management/action/[slug]/team-responses/page.tsx":["t",["getSession:10:async ()::","TeamResponsesPage:26:async ({ params, }:{ params:Promise<{ slug:string }>; }):getSession:"]],"sr/app/(dashboard)/management/action/products-services/ProductsServicesClient.tsx":["t",["ProductsServicesClient:32:({ tabs, actionsData, userId }:ProductsServicesClientProps)::"]],"sr/app/(dashboard)/management/action/products-services/consensus/page.tsx":["t",["getSession:9:async ()::","ConsensusPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/action/products-services/page.tsx":["t",["ProductsServicesActionPage:33:async ()::"]],"sr/app/(dashboard)/management/action/products-services/team-responses/page.tsx":["t",["getSession:9:async ()::","TeamResponsesPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/action/setup-departments/SetupDepartmentsClient.tsx":["t",["SetupDepartmentsClient:20:({ actionData, userId }:SetupDepartmentsClientProps)::"]],"sr/app/(dashboard)/management/action/setup-departments/consensus/page.tsx":["t",["getSession:9:async ()::","ConsensusPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/action/setup-departments/page.tsx":["t",["SetupDepartmentsActionPage:11:async ()::"]],"sr/app/(dashboard)/management/action/setup-departments/team-responses/page.tsx":["t",["getSession:9:async ()::","TeamResponsesPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/action/unified-utopia/UnifiedUtopiaClient.tsx":["t",["UnifiedUtopiaClient:20:({ actionData, userId }:UnifiedUtopiaClientProps)::"]],"sr/app/(dashboard)/management/action/unified-utopia/consensus/page.tsx":["t",["getSession:9:async ()::","ConsensusPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/action/unified-utopia/page.tsx":["t",["UnifiedUtopiaActionPage:11:async ()::"]],"sr/app/(dashboard)/management/action/unified-utopia/team-responses/page.tsx":["t",["getSession:9:async ()::","TeamResponsesPage:25:async ():getSession:"]],"sr/app/(dashboard)/management/page.tsx":["t",["ManagementDashboard:189:()::","checkAccess:198:async ()::"]],"sr/app/(dashboard)/test-action/page.tsx":["t",["getSession:8:async ()::","TestPage:24:async ():getSession:"]],"sr/app/api/admin/stats/route.ts":["t",["GET:6:async ()::"]],"sr/app/api/admin/submissions/[userId]/route.ts":["t",["GET:6:async (request:Request, { params }:{ params:Promise<{ userId:string }> })::"]],"sr/app/api/assessment/route.ts":["t",["GET:9:async (request:NextRequest)::","POST:45:async (request:NextRequest)::","PATCH:90:async (request:NextRequest)::","PUT:154:async (request:NextRequest)::"]],"sr/app/api/auth/login/route.ts":["t",["POST:9:async (request:NextRequest)::"]],"sr/app/api/auth/logout/route.ts":["t",["POST:4:async ()::"]],"sr/app/api/auth/session/route.ts":["t",["GET:5:async ()::"]],"sr/app/api/debug/action-responses/route.ts":["t",["GET:9:async (request:NextRequest)::"]],"sr/app/api/test-bcrypt/route.ts":["t",["GET:4:async ()::"]],"sr/app/api/test-db/route.ts":["t",["GET:4:async ()::"]],"sr/app/layout.tsx":["t",["RootLayout:23:({ children, }:Readonly<{ children:React.ReactNode; }>)::"]],"sr/app/page.tsx":["t",["Home:1:()::"]],"sr/components/DebugAuthPanel.tsx":["t",["DebugAuthPanel:5:()::"]],"sr/components/actions/ActionFormWrapper.tsx":["t",["ActionFormWrapper:14:({ action, actionId, userId, initialResponses = {} }:ActionFormWrapperProps)::","handleSubmit:103:async ()::"]],"sr/components/actions/ConsensusBuilder.tsx":["t",["ConsensusBuilder:31:({ action, actionSlug, teamResponses, existingConsensus, currentUserId }:ConsensusBuilderProps)::","toggleQuestion:60:(questionId:string)::","expandAll:73:()::","collapseAll:78:()::","handleResolveToggle:128:async ()::","formatResponse:140:(question:ActionQuestion, value:any):string::"]],"sr/components/actions/QuestionRenderer.tsx":["t",["QuestionRenderer:13:({ question, value, onChange, responses }:QuestionRendererProps)::","handleChange:44:(newValue:any)::","renderSection:49:()::","renderLabel:63:()::","renderInput:83:()::","parseInfoText:252:(text:string)::"]],"sr/components/actions/TeamResponseView.tsx":["t",["TeamResponseView:22:({ action, teamResponses, nonRespondents }:TeamResponseViewProps)::","formatResponse:40:(question:ActionQuestion, value:any):string::"]],"sr/lib/actions/index.ts":["t",["getActionBySlug:18:(slug:string):ActionMetadata | null::"]],"sr/lib/auth.ts":["t",["hashPassword:10:async (password:string):Promise<string>::","verifyPassword:21:async (password:string, hashedPassword:string):Promise<boolean>::","createSession:39:async (userId:string, role:string):Promise<string>::","getSession:62:async ():Promise<::","verifySession:83:async ():Promise<::","deleteSession:90:async ():Promise<void>::"]],"sr/lib/questions.ts":["t",["getTotalQuestions:95:()::","getQuestionByIndex:100:(index:number):Question | null::","getQuestionById:110:(id:string):Question | null::","validateResponses:117:(responses:Record<string, string>):boolean::"]],"sr/lib/server-auth.ts":["t",["getServerSession:25:async ():Promise<::","getCurrentUser:46:async ():Promise<SessionUser | null>:getServerSession:","requireAuth:81:async ():Promise<SessionUser>:getCurrentUser:","requireManager:95:async ():Promise<SessionUser>:requireAuth:"]],"sr/middleware.ts":["t",["middleware:3:(request:NextRequest)::"]]},"g":[["TeamResponsesPage","getSession"],["getCurrentUser","getServerSession"],["DebugUserPage","getSession"],["ConsensusPage","getSession"],["requireManager","requireAuth"],["requireAuth","getCurrentUser"],["TestPage","getSession"]],"d":{"DEBUG-LOGIN-500-ERROR.md":["Login 500 Error - Debug Context","Current Situation","Deployment Info","Test Credentials","Error Details","What Has Been Fixed So Far","1. TypeScript Build Errors \u2705","2. Environment Variables \u2705","3. Database Seeding \u2705","4. PrismaClient Singleton Pattern \u2705"],"README.md":["Getting Started","or","or","or","Learn More","Deploy on Vercel"],"TEST-RESULTS.md":["Action Response System - Test Results","Summary","Test 1: Database Structure Verification","Action Items Configuration","Manager Users","Database Schema","Unique Constraint","Test 2: Response Saving Verification","Create Operation","Foreign Key Validation"],"docs/ACTION-QUESTIONS-GUIDE.md":["Action Questions Guide","Safe Question Modifications","\u2705 SAFE Changes (No Migration Needed)","\u26a0\ufe0f REQUIRES MIGRATION","\ud83d\udeab AVOID (Consider Alternatives)","Migration Process","When You Need to Rename Question IDs","ALWAYS backup database first!","Check ActionResponse table - responses should have new IDs","Validation & Warnings"],"docs/DEPLOYMENT-ARCHITECTURE.md":["Comprehensive Deployment Architecture Guide","\ud83c\udfaf **KEY ARCHITECTURE SUMMARY**","\ud83d\udce6 **WHAT YOU ACTUALLY HAVE**","**Single Deployment Target: Vercel**","**\"Clair\" Clarification**","\ud83c\udfd7\ufe0f **DEPLOYMENT ARCHITECTURE OVERVIEW**","**Application Type**: Next.js 16.0.1 Full-Stack Application (App Router)","1\ufe0f\u20e3 **FRONTEND DEPLOYMENT (Vercel)**","**Platform**: Vercel","**Configuration Files**:"],"docs/TROUBLESHOOTING.md":["Troubleshooting Guide","Issue: Action Responses Not Displaying After Save","Problem Description","Symptoms","Root Cause","Solution","Verification"],"scripts/README.md":["Database Scripts","Available Scripts","1. Check Database State","2. View Assessment Details","3. Seed Test Assessments","Database Tools","Prisma Studio (Visual Database Browser)","Current Database State","Resetting Data","Clear all assessments:"]},"deps":{"check-action.js":["@prisma/client"],"prisma/seed.ts":["@prisma/client","bcryptjs"],"scripts/check-db.ts":["@prisma/client"],"scripts/finish-migration.ts":["@prisma/client"],"scripts/migrate-actions.ts":["@prisma/client"],"scripts/migrate-question-ids.template.ts":["@prisma/client"],"scripts/seed-new-actions.ts":["@prisma/client"],"scripts/seed-test-assessments.ts":["@prisma/client"],"scripts/test-action-responses.ts":["@prisma/client"],"scripts/test-response-saving.ts":["@prisma/client"],"scripts/update-managers.ts":["@prisma/client"],"scripts/view-assessment.ts":["@prisma/client"],"src/app/(auth)/login/page.tsx":["react","next/navigation","next/image"],"src/app/(dashboard)/admin/page.tsx":["next/link","react","next/navigation"],"src/app/(dashboard)/admin/submissions/[userId]/page.tsx":["next/link","react","next/navigation","@/lib/questions"],"src/app/(dashboard)/assessment/complete/page.tsx":["react","next/navigation","next/link"],"src/app/(dashboard)/assessment/page.tsx":["react","next/navigation","@/lib/questions"],"src/app/(dashboard)/assessment/view/page.tsx":["react","next/navigation","next/link","@/lib/questions"],"src/app/(dashboard)/dashboard/page.tsx":["next/link","react"],"src/app/(dashboard)/debug-user/page.tsx":["next/headers","jose","@/lib/prisma"],"src/app/(dashboard)/layout.tsx":["react","next/navigation","next/link","next/image"],"src/app/(dashboard)/management/action/[slug]/consensus/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/ConsensusBuilder","@/lib/actions"],"src/app/(dashboard)/management/action/[slug]/page.tsx":["next/navigation","@/lib/prisma","@/components/actions/ActionFormWrapper","@/lib/actions","@/lib/server-auth"],"src/app/(dashboard)/management/action/[slug]/team-responses/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/TeamResponseView","@/lib/actions"],"src/app/(dashboard)/management/action/products-services/ProductsServicesClient.tsx":["react","@/components/actions/ActionFormWrapper"],"src/app/(dashboard)/management/action/products-services/consensus/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/ConsensusBuilder","@/lib/actions"],"src/app/(dashboard)/management/action/products-services/page.tsx":["next/navigation","@/lib/prisma","@/lib/actions","@/lib/server-auth","src/app/(dashboard)/management/action/products-services/ProductsServicesClient.tsx"],"src/app/(dashboard)/management/action/products-services/team-responses/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/TeamResponseView","@/lib/actions"],"src/app/(dashboard)/management/action/setup-departments/SetupDepartmentsClient.tsx":["@/components/actions/ActionFormWrapper"],"src/app/(dashboard)/management/action/setup-departments/consensus/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/ConsensusBuilder","@/lib/actions"],"src/app/(dashboard)/management/action/setup-departments/page.tsx":["next/navigation","@/lib/prisma","@/lib/actions","@/lib/server-auth","src/app/(dashboard)/management/action/setup-departments/SetupDepartmentsClient.tsx"],"src/app/(dashboard)/management/action/setup-departments/team-responses/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/TeamResponseView","@/lib/actions"],"src/app/(dashboard)/management/action/unified-utopia/UnifiedUtopiaClient.tsx":["@/components/actions/ActionFormWrapper"],"src/app/(dashboard)/management/action/unified-utopia/consensus/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/ConsensusBuilder","@/lib/actions"],"src/app/(dashboard)/management/action/unified-utopia/page.tsx":["next/navigation","@/lib/prisma","@/lib/actions","@/lib/server-auth","src/app/(dashboard)/management/action/unified-utopia/UnifiedUtopiaClient.tsx"],"src/app/(dashboard)/management/action/unified-utopia/team-responses/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma","@/components/actions/TeamResponseView","@/lib/actions"],"src/app/(dashboard)/management/page.tsx":["react","next/navigation"],"src/app/(dashboard)/test-action/page.tsx":["next/navigation","next/headers","jose","@/lib/prisma"],"src/app/api/admin/stats/route.ts":["next/server","next/headers","@/lib/auth","@/lib/prisma"],"src/app/api/admin/submissions/[userId]/route.ts":["next/server","next/headers","@/lib/auth","@/lib/prisma"],"src/app/api/assessment/route.ts":["next/server","@/lib/auth","@/lib/prisma"],"src/app/api/auth/login/route.ts":["next/server","@/lib/prisma","@/lib/auth"],"src/app/api/auth/logout/route.ts":["next/server","@/lib/auth"],"src/app/api/auth/session/route.ts":["next/server","@/lib/auth","@/lib/prisma"],"src/app/api/debug/action-responses/route.ts":["next/server","@/lib/prisma","@/lib/auth"],"src/app/api/test-bcrypt/route.ts":["next/server","bcryptjs"],"src/app/api/test-db/route.ts":["next/server","@/lib/prisma"],"src/app/layout.tsx":["next/font/google"],"src/components/DebugAuthPanel.tsx":["react"],"src/components/actions/ActionFormWrapper.tsx":["@/lib/actions/types","src/components/actions/QuestionRenderer.tsx"],"src/components/actions/ConsensusBuilder.tsx":["@/lib/actions/types"],"src/components/actions/QuestionRenderer.tsx":["react","@/lib/actions/types"],"src/components/actions/TeamResponseView.tsx":["@/lib/actions/types"],"src/lib/actions/index.ts":["src/lib/actions/types.ts","src/lib/actions/action1-lithosurfer.ts","src/lib/actions/action2-lithodata.ts","src/lib/actions/action3-lithobuild.ts","src/lib/actions/action2-unified-utopia.ts","src/lib/actions/action3-setup-departments.ts"],"src/lib/auth.ts":["bcryptjs","jose","next/headers"],"src/lib/server-auth.ts":["next/headers","jose","src/lib/prisma.ts"],"src/middleware.ts":["next/server"]},"dir_purposes":{"docs":"Project documentation","public":"Publicly accessible files","scripts":"Build and utility scripts","src":"Source code root directory","src/app/(dashboard)/management/action/products-services":"Business logic and external service integrations","src/app/(dashboard)/test-action":"Test files and test utilities","src/app/api/admin/stats":"API routes and endpoints","src/app/api/admin/submissions/[userId]":"API routes and endpoints","src/app/api/assessment":"API routes and endpoints","src/app/api/auth/login":"API routes and endpoints","src/app/api/auth/logout":"API routes and endpoints","src/app/api/auth/session":"API routes and endpoints","src/app/api/debug/action-responses":"API routes and endpoints","src/app/api/test-bcrypt":"Test files and test utilities","src/app/api/test-db":"Test files and test utilities","src/components":"Reusable UI components","src/lib":"Library code and shared modules"},"staleness":1761799687.705838}
+{
+  "at": "2025-12-02T17:04:07.036942",
+  "root": "/Users/keithdimech/Pathway/Dev/Lithodat/Viable Systems Model/VSM-Platform-Project",
+  "version": "1.0.0-ultrathin",
+  "IMPORTANT": "\u26a0\ufe0f DO NOT use this index for code/schema details. This is just a file inventory. For architecture, database schema, code relationships, and documentation, READ readme/INDEX.md FIRST.",
+  "living_docs": {
+    "exists": false,
+    "note": "No living documentation found. Run /bigtidy to generate comprehensive documentation in readme/"
+  },
+  "stats": {
+    "total_files": 417,
+    "md": 109,
+    "typescript": 143,
+    "hbs": 6,
+    "unknown": 33,
+    "json": 4,
+    "txt": 4,
+    "pdf": 27,
+    "docx": 17,
+    "docx\"": 1,
+    "xlsx": 4,
+    "pptx": 9,
+    "gdoc": 5,
+    "png": 9,
+    "html": 10,
+    "javascript": 3,
+    "mjs": 2,
+    "sql": 14,
+    "toml": 1,
+    "prisma": 1,
+    "ico": 2,
+    "svg": 10,
+    "backup": 1,
+    "css": 1,
+    "shell": 1
+  },
+  "tree": [
+    "build-data/ (8 files)",
+    "integrations/",
+    "prisma/ (16 files)",
+    "public/ (1 files)",
+    "roadmap/",
+    "scripts/ (37 files)",
+    "src/ (97 files)"
+  ],
+  "file_samples": {
+    "md": [
+      ".claude/CLAUDE.md",
+      ".claude/LIBRARY-GUIDE.md",
+      ".claude/README.md",
+      ".claude/SUMMARY.md",
+      ".claude/UPDATE-LOG.md"
+    ],
+    "typescript": [
+      "src/app/(auth)/login/page.tsx",
+      "src/app/(dashboard)/admin/page.tsx",
+      "src/app/(dashboard)/admin/submissions/[userId]/page.tsx",
+      "src/app/(dashboard)/assessment/complete/page.tsx",
+      "src/app/(dashboard)/assessment/page.tsx"
+    ],
+    "hbs": [
+      ".claude/templates/form/api-route.hbs",
+      ".claude/templates/form/documentation.hbs",
+      ".claude/templates/form/page-component.hbs",
+      ".claude/templates/form/prisma-schema.hbs",
+      ".claude/templates/form/questions-definition.hbs"
+    ],
+    "unknown": [
+      ".gitignore",
+      "build-data/.gitignore",
+      "build-data/01 products-services/.gitkeep",
+      "build-data/01 products-services/assets/.gitkeep",
+      "build-data/01 products-services/documentation/.gitkeep"
+    ],
+    "json": [
+      "PROJECT_INDEX.json",
+      "package-lock.json",
+      "package.json",
+      "tsconfig.json"
+    ],
+    "txt": [
+      "action1-detailed-responses.txt",
+      "build-data/06 gdac-tender/assets/RFQ-Arabic-Full.txt",
+      "build-data/06 gdac-tender/assets/RFQ-English-Full.txt",
+      "build-data/06 gdac-tender/learning/MISA-Service-manual-12-3-extracted.txt"
+    ],
+    "pdf": [
+      "build-data/06 gdac-tender/learning/EarthBank/1-s2.0-S0009254125004826-main.pdf",
+      "build-data/06 gdac-tender/learning/EarthBank/EGU25-14320-print.pdf",
+      "build-data/06 gdac-tender/learning/Finanical Statements/2023_Lithodat_Pty_Ltd_-_Annual_Report.pdf",
+      "build-data/06 gdac-tender/learning/Finanical Statements/2023_Lithodat_Pty_Ltd_-_Notes_for_persons_signing_income_tax_return.pdf",
+      "build-data/06 gdac-tender/learning/Finanical Statements/2023_Lithodat_Pty_Ltd_CTR_(for_signing).pdf"
+    ],
+    "docx": [
+      "build-data/06 gdac-tender/learning/EarthBank/AGN Earthbank proposal.docx",
+      "build-data/06 gdac-tender/learning/EarthBank/Copy of LithoPlates - A Cloud-based Deep-time Reconstruction Tool for Geochemistry Data_.docx",
+      "build-data/06 gdac-tender/learning/EarthBank/EarthBank Workshop GSN 2025.docx",
+      "build-data/06 gdac-tender/learning/EarthBank/EarthBank Workshop Thermo 2025.docx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes RnD Report - 2024 25.docx"
+    ],
+    "docx\"": [
+      "\"build-data/06 gdac-tender/learning/EarthBank/Empowering Saudi Arabia\\342\\200\\231s Geoscience Future_ A Modular Proposal for Data Integration and Innovation.docx\""
+    ],
+    "xlsx": [
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/CSIRO AF Isotope ontology results.xlsx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/Ontology_Final.lithodat_edited.xlsx",
+      "build-data/06 gdac-tender/learning/Lithospace/Evidence/GCDataPoint_Download.xlsx",
+      "build-data/06 gdac-tender/learning/Lithospace/Evidence/SAMPLE_Download.xlsx"
+    ],
+    "pptx": [
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/Data Source 5 - Isotopes - Environment.pptx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/IsotopesAu - Direct Data Upload.pptx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/Meetings/Isotopes.au Team Meeting 1.pptx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/Meetings/Isotopes.au Team Meeting 2.pptx",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Evidence/Meetings/Isotopes.au Team Meeting 3.pptx"
+    ],
+    "gdoc": [
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Isotopes RnD Report - 2024 25.gdoc",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Isotopes_Experiment_Report_001_Adapter_Validation.gdoc",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Isotopes_Experiment_Report_002_Wizard_Benchmarking.gdoc",
+      "build-data/06 gdac-tender/learning/Isotopes Au/Isotopes/Isotopes_Experiment_Report_003_Ontology_Validation.gdoc",
+      "build-data/06 gdac-tender/learning/Lithospace/Lithospace RnD Report - 2024 25.gdoc"
+    ],
+    "png": [
+      "build-data/06 gdac-tender/learning/People/image copy.png",
+      "build-data/06 gdac-tender/learning/People/image.png",
+      "build-data/06 gdac-tender/learning/image.png",
+      "public/clair-logo.png",
+      "public/images/meetings/Fabian Utopia2.png"
+    ],
+    "html": [
+      "build-data/06 gdac-tender/response/BOARD-RESOLUTION-SAUDI-EXPANSION.html",
+      "build-data/06 gdac-tender/response/email/ETIMAD-REGISTRATION-EMAIL-PLAIN.html",
+      "build-data/06 gdac-tender/response/email/ETIMAD-REGISTRATION-EMAIL.html",
+      "build-data/06 gdac-tender/response/email/LEI-EVIDENCE-OF-AUTHORITY.html",
+      "build-data/06 gdac-tender/response/email/LEI-LETTER-OF-AUTHORIZATION.html"
+    ],
+    "javascript": [
+      "check-action.js",
+      "scripts/check-action2.js",
+      "scripts/update-action2-metadata.js"
+    ],
+    "mjs": [
+      "eslint.config.mjs",
+      "postcss.config.mjs"
+    ],
+    "sql": [
+      "prisma/migrations/20251031002606_init/migration.sql",
+      "prisma/migrations/20251103002112_add_action_tracking/migration.sql",
+      "prisma/migrations/20251103032828_add_is_manager_field/migration.sql",
+      "prisma/migrations/20251104033850_add_email_to_user/migration.sql",
+      "prisma/migrations/20251110201623_add_data_extraction_tables/migration.sql"
+    ],
+    "toml": [
+      "prisma/migrations/migration_lock.toml"
+    ],
+    "prisma": [
+      "prisma/schema.prisma"
+    ],
+    "ico": [
+      "src/app/favicon.ico",
+      "public/favicon.ico"
+    ],
+    "svg": [
+      "public/file.svg",
+      "public/globe.svg",
+      "public/images/ai-pipeline-infographic.svg",
+      "public/images/gdac-sa-data-pipeline.svg",
+      "public/images/gdac-sa-technical-org-chart.svg"
+    ],
+    "backup": [
+      "src/app/(dashboard)/data-extraction/research/ResearchClient.tsx.backup"
+    ],
+    "css": [
+      "src/app/globals.css"
+    ],
+    "shell": [
+      "test-auth.sh"
+    ]
+  }
+}
