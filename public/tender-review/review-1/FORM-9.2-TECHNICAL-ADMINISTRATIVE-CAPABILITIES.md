@@ -1,10 +1,9 @@
 # GDAC-SA RFQ Response: Form 9.2 - Technical and Administrative Capabilities
 
 **RFQ Reference:** Section 9.2, Page 18, Lines 607-635
-**Form Status:** COMPLETE - Review 2
+**Form Status:** DRAFT - Requires verification of marked fields
 **Prepared By:** Lithodat Pty Ltd
 **Date:** 2025-12-02
-**Review Version:** 2.0
 
 ---
 
@@ -66,7 +65,7 @@ This form demonstrates Lithodat's technical and administrative capabilities for 
 
 | Field | Response | Evidence |
 |-------|----------|----------|
-| **Number of years of experience in geoscience data platforms** | **7 years** (2018-2025) | Company incorporation June 2018, continuous platform development |
+| **Number of years of experience in geoscience data platforms** | `[X]` years (from establishment to present) | Company history, project records |
 | **Relevant Domain Experience** | Geochemistry data management, FAIR data platforms, scientific data integration, analytics dashboards | EarthBank, Isotopes.au, LithoSpace |
 | **Geographic Experience** | Australia (primary), International (Saudi Arabia proposal, global data) | Client and project records |
 
@@ -79,7 +78,7 @@ This form demonstrates Lithodat's technical and administrative capabilities for 
 | Scientific Data Schema Design | 25+ | Custom schemas for geochemistry, isotopes, planetary science, PostgreSQL architecture | Moritz (25+ yrs PostgreSQL), Wayne (PhD Geology + CS), Fabian (PhD Geosciences) |
 | Government Data Infrastructure | 15+ | NCRIS-funded national infrastructure (AuScope), $5B+ government projects | Keith (15+ yrs govt infrastructure), Fabian (NCRIS partnerships) |
 | Multi-Agency Data Integration | 10+ | Isotopes.au (CSIRO, ANSTO, GA, NMI), Halliburton global petroleum systems | Fabian (Halliburton), Qusay (17+ yrs petroleum systems) |
-| Cloud-Based Analytics Platforms | 20+ | AWS-hosted applications, enterprise cloud architecture, MYOB transformation | Wayne (25+ yrs), Pedro (10-15 yrs Azure/AWS) |
+| Cloud-Based Analytics Platforms | 20+ | AWS-hosted applications, enterprise cloud architecture, MYOB transformation | Wayne (25+ yrs), Pedro (25+ yrs Azure/AWS) |
 | API Development (REST) | 20+ | Machine-to-machine interoperability, enterprise systems integration | Wayne (25+ yrs), Moritz (25+ yrs), Vinko (10+ yrs) |
 | Spatial/GIS Data Systems | 15+ | LithoPlates paleoreconstruction, mapping tools, environmental GIS | Fabian (15+ yrs), Keith (15+ yrs environmental GIS) |
 | Petroleum Systems & Basin Modelling | 17+ | Global petroleum systems maps, Permedia software, CO2 storage | Qusay (17+ yrs Halliburton), Fabian (Halliburton 2014-2018) |
@@ -206,18 +205,11 @@ Lithodat Pty Ltd maintains a comprehensive quality management framework aligned 
 
 | Certification/Evidence | Status | Document |
 |-----------------------|--------|----------|
-| **CoreTrustSeal Certification** | **CERTIFIED** (since 2023) | EarthBank/AusGeochem repository - trusted scientific data stewardship |
-| **World Data System (WDS)** | **RECOGNISED** | Part of International Science Council |
-| ISO 9001 Certification | Aligned - formal certification pending | Quality Policy document |
-| ISO 27001 (Information Security) | **AWS CERTIFIED** (inherited) | Infrastructure runs on ISO 27001-certified AWS |
-| ISO 27017 (Cloud Security) | **AWS CERTIFIED** (inherited) | AWS cloud security controls |
-| ISO 27018 (Cloud Privacy) | **AWS CERTIFIED** (inherited) | AWS privacy controls |
-| SOC 1/2/3 Compliance | **AWS CERTIFIED** (inherited) | AWS service organization controls |
+| ISO 9001 Certification | `[ALIGNED - formal certification to be obtained]` | Quality Policy document |
+| ISO 27001 (Information Security) | `[ALIGNED - practices implemented]` | Security Policy document |
 | Peer-Reviewed Publication | Achieved | Chemical Geology (2025) - validates scientific rigor |
 | Government Audit | Passed | AuScope/NCRIS compliance reviews |
 | Client Satisfaction | High | Ongoing AuScope relationship since 2021 |
-
-> **Note on Inherited Certifications:** Lithodat operates exclusively on Amazon Web Services (AWS), inheriting all AWS security certifications and controls. This provides enterprise-grade, internationally certified security as part of our operational environment.
 
 ### C.4 Quality Assurance Evidence (Attachments)
 
@@ -299,8 +291,8 @@ For the GDAC-SA project specifically, Lithodat commits to:
 
 | Certification/Evidence | Status | Document |
 |-----------------------|--------|----------|
-| ISO 45001 (OHS Management) | **AWS CERTIFIED** (inherited for data center operations) | WHS Policy document for office operations |
-| ISO 14001 (Environmental Management) | **AWS CERTIFIED** (inherited - 100% renewable energy commitment by 2025) | Environmental Policy document |
+| ISO 45001 (OHS Management) | `[ALIGNED - formal certification to be obtained]` | WHS Policy document |
+| ISO 14001 (Environmental Management) | `[ALIGNED - practices implemented]` | Environmental Policy document |
 | WorkCover Registration | Active | Registration certificate |
 | WHS Policy | Documented | Policy document |
 | Environmental Policy | Documented | Policy document |
@@ -325,40 +317,24 @@ For the GDAC-SA project specifically, Lithodat commits to:
 | Field | Response | Notes |
 |-------|----------|-------|
 | **Number of existing projects** | 3 | Active development/support contracts |
-| **Total value of existing projects** | **AUD $3,600,000** | Combined value across all projects |
+| **Total value of existing projects** | AUD $750,000+ | Combined value across all projects |
 
 ### E.2 Existing Projects Detail
 
 | # | Project Name | Client | Contract Value | Duration | Status | % Complete |
 |---|-------------|--------|----------------|----------|--------|------------|
-| 1 | **EarthBank Platform** | ARDC, Geoscience Australia, State Geological Surveys | **$2,900,000 AUD** | 2019 - Ongoing | Active | ~70% |
-| 2 | **National Thermochronology Platform** | ARC Linkage (University of Sydney, GA, State Surveys) | **$300,000 AUD** (in-kind) | 2022 - 2025 | Active | ~95% |
-| 3 | **Isotopes.au Platform** | CSIRO/ANSTO/GA/NMI Consortium | **$400,000 AUD** | 2023 - 2025 | Active | ~70% |
-
-> **Note on LithoSpace:** LithoSpace (lunar/Martian geochemistry platform) was **self-funded by Lithodat for the benefit of the scientific community** and is not included in contract values above.
+| 1 | **EarthBank Platform** | AuScope Geochemistry Network | $450,000 initial + ongoing maintenance | 2021 - Ongoing | Active | Continuous development |
+| 2 | **Isotopes.au Platform** | CSIRO/ANSTO/GA/NMI Consortium | $300,000 | Jul 2024 - Dec 2028 | Active | ~25% (Year 1 of 4.5) |
+| 3 | **LithoSpace Platform** | RMIT/Univ. Melbourne | R&D Investment | 2024 - Ongoing | Active | R&D phase |
 
 ### E.3 Capacity Assessment
 
 | Metric | Current | Post-GDAC Projection | Notes |
 |--------|---------|---------------------|-------|
 | **Active Projects** | 3 | 4 | Manageable with team expansion |
-| **Total Contract Value** | $3.6M | +GDAC value | Significant capacity available |
-| **Team Utilization** | **50-60%** available | ~85% | **50-60% capacity immediately available** |
+| **Total Contract Value** | ~$750K | `[+GDAC value]` | Significant capacity available |
+| **Team Utilization** | ~70% | ~85% | Capacity for additional work |
 | **Resource Conflicts** | None identified | Low risk | Different technical domains |
-
-### E.3.1 LithoSurfer Platform Advantage
-
-All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on **LithoSurfer**, Lithodat's core software framework:
-
-| LithoSurfer Provides | Benefit for GDAC-SA |
-|---------------------|---------------------|
-| Shared codebase | Rapid deployment, reduced development time |
-| Unified data model architecture | Consistent data handling |
-| Pre-built ingestion & QA/QC pipelines | Proven data quality workflows |
-| Configurable analytics engine | Customizable for Saudi requirements |
-| Rapid deployment tooling | Faster time-to-value |
-
-**Critical Efficiency:** Deploying GDAC-SA would **NOT require creating a new platform from scratch**. Core modules already exist; only Saudi Arabia-specific data models and connectors need to be added.
 
 ### E.4 Capacity to Take on GDAC-SA Project
 
@@ -441,42 +417,21 @@ All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on
 | **Frontend Development** | Expert | Browser-native applications |
 | **DevOps/Infrastructure** | Proficient | CI/CD, cloud deployment |
 
-### F.6 Saudization Compliance Plan
+### F.6 Saudization Compliance Note
 
-> **Important:** As an Australian company, Lithodat does not currently have Saudi employees (0% Saudization rate). For the GDAC-SA project, Lithodat commits to building a **Saudi-based operational presence**:
-
-**Saudization Strategy:**
-
-| Approach | Description | Timeline |
-|----------|-------------|----------|
-| **Option A - Consortium Approach** | Partner with Saudi-registered company that meets Saudization requirements | Immediate |
-| **Option B - Local Entity Establishment** | Establish Saudi subsidiary or branch office, register with SAGIA/MISA | Phase 1 |
-
-**Planned Saudi Hiring (First 12 months if awarded):**
-
-| Role | Count | Description |
-|------|-------|-------------|
-| Saudi Data Scientist | 1 | Core technical role |
-| Saudi Office Manager | 1 | Local operations management |
-| Saudi Geoscientist | 1 | Geoinformatics specialist |
-| University Interns | 2-4 | Training program participants |
-
-**Saudization Targets:**
-
-| Phase | Target | Timeline |
-|-------|--------|----------|
-| Year 1 | **20-30% Saudization rate** | First 12 months |
-| Phases 2-4 | **40-50% Saudization rate** | As platform scales |
-
-**University Partnerships for Talent Pipeline:**
-
-| Institution | Partnership Type |
-|-------------|------------------|
-| **KAUST** (King Abdullah University of Science and Technology) | Internship program, research collaboration |
-| **KSU** (King Saud University) | Graduate recruitment, joint projects |
-| **KFUPM** (King Fahd University of Petroleum and Minerals) | Technical training, workforce development |
-
-> **Commitment:** Lithodat will register a Saudi commercial entity or operate with a certified local partner, compliant with SAGIA/MISA requirements. This demonstrates a committed long-term presence in the Kingdom supporting Saudi Arabia's digital transformation and knowledge economy goals.
+> **Important:** As an Australian company, Lithodat does not have Saudi employees and cannot directly meet Saudization (Nitaqat) requirements. For the GDAC-SA project:
+>
+> **Option A - Consortium Approach:**
+> - Partner with Saudi-registered company that meets Saudization requirements
+> - Saudi partner employs local staff for on-ground activities
+> - Lithodat provides technical expertise and platform development
+>
+> **Option B - Local Entity Establishment:**
+> - Establish Saudi subsidiary or branch office
+> - Hire Saudi nationals for local operations
+> - Requires significant lead time and investment
+>
+> **Recommendation:** Consortium approach (Option A) is recommended for this tender given timeline constraints.
 
 ### F.7 Proposed GDAC-SA Project Team
 

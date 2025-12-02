@@ -1,0 +1,266 @@
+[
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "A.1",
+    "comment": "If we list EarthBank we should also add Isotopes.au and LithoSpace",
+    "status": "PENDING",
+    "createdAt": "2025-12-02T05:36:26.786",
+    "reviewer": "Fabian Kohlmann"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "B.1",
+    "comment": "Value of Captial Share is 1000 AUD NOT 100\n\nRetained Earning is that the Profit only? What about total value?\n\nWhat about our other assets? car's IT etc? I think it should be a bit higher than just profit?",
+    "status": "PENDING",
+    "createdAt": "2025-12-02T05:38:18.077",
+    "reviewer": "Fabian Kohlmann"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "B.2",
+    "comment": "Issued capital was 1000 not 100\n\nAgain not sure, Assets including out IT equipments etc I think shuld be alwas a bithigher than the retained earnings",
+    "status": "PENDING",
+    "createdAt": "2025-12-02T05:40:53.39",
+    "reviewer": "Fabian Kohlmann"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "C.2",
+    "comment": "There have been other papers like the Thermochronology one Sam led.",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T00:22:18.507",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "C.2",
+    "comment": "ithis case shallwe also add some AI stuff and/or at least AI and ML ready datya etc...\n\nCompetencies, Need to mention AI and ML ready data\n\nI don;t wnat to go through all of that again and duplciate what I did in all those md sheets. Please update the milestones and times lines and company description and all of that from my md files in the shared fodler.\n\nExploratoin datasets for major explorationcompanies\n\nIt sounds curretnly still a bit too academic. We need to establish us as a global data platform leader for acadmia, government and industry,\n\nI worote all of that added even more impoirtant projects etc. this one is jsut EarthBank... we need to show our wide exerience, including internationalgovernments such as Natura resources Canada but also Isoptopes.au with CSIRO and GA etc... and our Tier 1 mining industry clients. That is all still far too academic and all only about Earthbank. Use my md files. Please update, then I review again. I don;t want to duplciate all the time I already spent",
+    "status": "PENDING",
+    "createdAt": "2025-12-02T05:43:36.723",
+    "reviewer": "Fabian Kohlmann"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "F.1",
+    "comment": "As per update in the share holdings this will change",
+    "status": "RESOLVED",
+    "createdAt": "2025-12-01T00:28:01.607",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.1",
+    "sectionId": "F.2",
+    "comment": "the aounts of shares are incorrect \nsee document I sent you Keith.\nFabian - 50.1\nMoritz - 24.0\nWayne 14.9\nNilesh - 8\nromain - 3",
+    "status": "RESOLVED",
+    "createdAt": "2025-12-01T00:27:27.236",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.2",
+    "sectionId": "B.1",
+    "comment": "years of experience? from 2018 or do you count the years of Director experience?",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T00:32:19.998",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.2",
+    "sectionId": "B.4",
+    "comment": "Do we need to get references from Brent and or Nina ?",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T00:34:05.774",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.2",
+    "sectionId": "B.6",
+    "comment": "Pedro experience is not 25+ years he is 30 ish so 10 - 15 is more realistic",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T00:54:31.9",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.2",
+    "sectionId": "F.7",
+    "comment": "Share % not correct",
+    "status": "ADDRESSED",
+    "createdAt": "2025-12-01T01:06:50.748",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "A.2",
+    "comment": "percentages also wrong\nInconsistent format - Moritz listed as a Director\nEither remove this (as it is listed above under Board) or add it to Wayne also.",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:24:55.997",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "C.1",
+    "comment": "Percentages are incorrect",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:31:36.57",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "C.2",
+    "comment": "176 Lum Road, Wheelers Hill VIC 3150\nthis address is wrong I haver an Australian PO BOX but no address\n\nPerhaps define Agile transformations into Agile Software development and coaching to make it a bit more hands on",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:33:01.013",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "C.5",
+    "comment": "Value for GDAC-SA:\nI don't think this is listed for the others - constancy",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:41:22.061",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "F.2",
+    "comment": "Portuguese\tPedro Nogueira Ferreira\tNative\n\nhe is also fluent in Spanish",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:46:57.461",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.3",
+    "sectionId": "F.3",
+    "comment": "Behnam's Fulbright at Stanford/Carnegie provides US research network ???\n\nI don't know what this is?\n\nEurope is also via Ireland\n\nSouth America's via Pedro and Mx team",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T03:49:05.401",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "B.1",
+    "comment": "Pedro experience years need to be turned down to 10-15 - make sure it is that same as in the other section\n\nIn all cases Pedro's name is \n\nPedro Henrique Candido Ferreira\n\nIf you just want first and last name it is \nPedro Ferreira\n\nyou have Pedro Nogueira Ferreira",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:10:20.708",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "B.2.1",
+    "comment": "Share holdings as per other comments\nMoritz missing in here",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:17:47.678",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "C.4",
+    "comment": "Do we need to pad this out with thermochronology and other PhD related studies\nThermochronolgy",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:23:47.25",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "D.1",
+    "comment": "Name update for Pedro\nYears of experience for Pedro as per previous statements",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:25:33.415",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "E.1",
+    "comment": "Sam Boone ?\n\nSpace people are \nBrandon Mahan - Melb Uni\nGail Iles - RMIT\n\nI think there are some more recent publications also \nThe S Boone one is published now",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:28:49.076",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "F.1",
+    "comment": "Pedro name\nMoritz has years of experience listed no one else has - probably remove",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:33:51.21",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "G.1",
+    "comment": "Pedro Name",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:41:16.494",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "G.2",
+    "comment": "Numbers have me at over 1 fte - I am good but you had better make the numbers match realistically\n\nOK I guess the periods are sequential so the last statement is not necessarily correct",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:42:56.261",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.4",
+    "sectionId": "G.3",
+    "comment": "pedro name",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:44:27.614",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "1-key-achievements",
+    "comment": "Also Sam's paper",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:54:34.038",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "1.5",
+    "comment": "Brent - directorjdlc@curtin.edu.au\n\nBryant \nbryant.ware@curtin.edu.au\n0477528459",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T05:56:41.611",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "2-alternative-client-c",
+    "comment": "I am not sure where everyone is from but here are the contact emails of those involved \nGeoscience Aust - Geoff Fraser\nANSTO and NMI ??\n Steph Hawkins <steph.hawkins@ga.gov.au>; Kathryn Waltenberg <Kathryn.waltenberg@ga.gov.au>; HUGHES, Cath <ceh@ansto.gov.au>; Shu, Yanfeng (Data61, Sandy Bay) <Yanfeng.Shu@data61.csiro.au>; Campbell, Regina (She / Her) (Data61, Eveleigh) <Regina.Campbell@data61.csiro.au>; Christoph Gerber <c.gerber@gmx.ch>; CRAWFORD, Jagoda <jc@ansto.gov.au>; Suckow, Axel (Environment, Waite Campus) <Axel.Suckow@csiro.au>; Geoff Fraser <Geoff.Fraser@ga.gov.au>; Flick, Lian (Data61, Pullenvale) <Lian.Flick@data61.csiro.au>; wayne.noble <wayne.noble@lithodat.com>; Moritz Theile <moritz.theile@lithodat.com>; Fabian Kohlmann <fabian.kohlmann@lithodat.com>",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T06:08:22.799",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "2.4",
+    "comment": "Full operation ? It is complete other than keeping the lights on\nIt is effectively in its final state unless we get paid more for development work\nIt is only funded for the initial scope and some years of hosting",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T06:01:36.363",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "2.5",
+    "comment": "Lian Flick\nTechnical Program Manager Data61 CSIRO\nLian.Flick@data61.csiro.au\n+61 408 891 755\n\nThe other person of note is \nNina Welti \nNina.Welti@csiro.au\nSenior Research Scientist\nAgriculture and Food  |  CSIRO \nnina.welti@csiro.au \nmobile +61 (0) 460 041 281",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T06:05:11.995",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.5",
+    "sectionId": "3-remaining-actions",
+    "comment": "Contact details for RMI and Melb uni are given in previous comments \nThey are :\nUni Melb:\nDr Brandon Mahan | Senior Lecturer\nHead – Melbourne Analytical Geochemistry [MAG]\nSchool of Geography, Earth and Atmospheric Sciences | Faculty of Science\nRoom 345, McCoy Building (#200), 253-283 Elgin St\nThe University of Melbourne, Victoria 3010 Australia\nT: +61 3 8344 4000 M: +61 477 617 797 E: brandon.mahan@unimelb.edu.au\n\nRMIT:\nGail Iles\ngail.iles@rmit.edu.au\nAssociate Professor\nRMIT University\nKasper Tomas PhD Candidate\nS3895530@student.rmit.edu.au",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T06:13:58.408",
+    "reviewer": "Wayne Noble"
+  },
+  {
+    "formId": "FORM-9.6",
+    "sectionId": "E.2",
+    "comment": "As a general comment Lithospace was a self funded project for benifit of the community.\nIt may be worth noting this more strongly somewhere",
+    "status": "PENDING",
+    "createdAt": "2025-12-01T06:16:47.328",
+    "reviewer": "Wayne Noble"
+  }
+]

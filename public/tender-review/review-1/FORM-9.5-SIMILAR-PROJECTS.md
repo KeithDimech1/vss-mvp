@@ -1,8 +1,7 @@
 # GDAC-SA RFQ Response: Form 9.5 - Similar Projects
 
 **RFQ Reference:** Section 9.5, Pages 21-22, Lines 704-793
-**Form Status:** COMPLETE - Review 2
-**Review Version:** 2.0
+**Form Status:** COMPLETE - Contact details require verification before submission
 **Prepared By:** Lithodat Pty Ltd
 **Date:** 2025-12-02
 
@@ -169,8 +168,8 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 | **Position** | Director, AuScope EarthBank; Professor, Curtin University |
 | **10. Contact information** | Curtin University, Perth, Western Australia |
 | **Institution** | John de Laeter Research Centre, Curtin University |
-| **11. Email** | directorjdlc@curtin.edu.au |
-| **Phone** | Available on request |
+| **11. Email** | `[PLACEHOLDER - Obtain from Prof. McInnes]` |
+| **Phone** | `[PLACEHOLDER - Obtain from Prof. McInnes]` |
 
 ### Alternative Client Contact
 
@@ -179,8 +178,8 @@ The AuScope Geochemistry Network (AGN) was formed in 2019-2020 by geochemists fr
 | **Name** | Dr. Bryant Ware |
 | **Position** | Research Fellow, Curtin University |
 | **Institution** | Curtin University |
-| **Email** | bryant.ware@curtin.edu.au |
-| **Phone** | 0477528459 |
+| **Email** | `[PLACEHOLDER]` |
+| **Phone** | `[PLACEHOLDER]` |
 
 ## 1.6 Supporting Evidence
 
@@ -311,7 +310,7 @@ Relevance to GDAC-SA:
 | **5. Contract Value** | AUD $300,000 (total project budget) |
 | **6. Contract Duration** | 4.5 years (July 2024 - December 2028) |
 | **7. Start Date** | July 2024 |
-| **8. Delivery Date** | Complete (maintenance mode); funded for initial scope plus hosting |
+| **8. Delivery Date** | December 2028 (project end); Year 1 deliverables complete |
 | **FY2024-25 Expenditure** | AUD $77,298 |
 | **Contract Type** | R&D development project |
 
@@ -325,33 +324,26 @@ Relevance to GDAC-SA:
 | Ontology Validation | FY2024-25 | Complete (97% match) |
 | Wizard Benchmarking | FY2024-25 | Complete (93-96% accuracy) |
 | Platform Deployment | FY2025-26 | In Progress |
-| Maintenance Mode | December 2028 | Ongoing (lights-on hosting) |
+| Full Operation | December 2028 | Planned |
 
 ## 2.5 Client Contact
 
 | Field | Response |
 |-------|----------|
-| **9. Name of person responsible** | Lian Flick |
-| **Position** | Technical Program Manager |
-| **10. Contact information** | CSIRO Data61, Australia |
+| **9. Name of person responsible** | `[PLACEHOLDER - CSIRO Project Lead]` |
+| **Position** | `[Project Manager / Research Scientist]` |
+| **10. Contact information** | CSIRO, Australia |
 | **Institution** | Commonwealth Scientific and Industrial Research Organisation |
-| **11. Email** | Lian.Flick@data61.csiro.au |
-| **Phone** | +61 408 891 755 |
+| **11. Email** | `[PLACEHOLDER]` |
+| **Phone** | `[PLACEHOLDER]` |
 
 ### Alternative Client Contacts
 
 | Agency | Contact | Email |
 |--------|---------|-------|
-| CSIRO Agriculture & Food | Dr. Nina Welti (Senior Research Scientist) | Nina.Welti@csiro.au |
-| Geoscience Australia | Geoff Fraser | Geoff.Fraser@ga.gov.au |
-| Geoscience Australia | Steph Hawkins | steph.hawkins@ga.gov.au |
-| Geoscience Australia | Kathryn Waltenberg | Kathryn.waltenberg@ga.gov.au |
-| ANSTO | Cath Hughes | ceh@ansto.gov.au |
-| ANSTO | Jagoda Crawford | jc@ansto.gov.au |
-| CSIRO Environment | Axel Suckow | Axel.Suckow@csiro.au |
-| CSIRO Data61 | Regina Campbell | Regina.Campbell@data61.csiro.au |
-| CSIRO Data61 | Yanfeng Shu | Yanfeng.Shu@data61.csiro.au |
-| External | Christoph Gerber | c.gerber@gmx.ch |
+| ANSTO | `[PLACEHOLDER]` | `[PLACEHOLDER]` |
+| Geoscience Australia | `[PLACEHOLDER]` | `[PLACEHOLDER]` |
+| NMI | `[PLACEHOLDER]` | `[PLACEHOLDER]` |
 
 ## 2.6 Supporting Evidence
 
@@ -517,31 +509,20 @@ Relevance to GDAC-SA:
 
 | Field | Response |
 |-------|----------|
-| **9. Name of person responsible** | Dr. Brandon Mahan |
-| **Position** | Senior Lecturer, Head - Melbourne Analytical Geochemistry [MAG] |
-| **10. Contact information** | University of Melbourne, Victoria, Australia |
-| **Institution** | School of Geography, Earth and Atmospheric Sciences, Faculty of Science |
-| **11. Email** | brandon.mahan@unimelb.edu.au |
-| **Phone** | +61 3 8344 4000 / +61 477 617 797 |
-| **Address** | Room 345, McCoy Building (#200), 253-283 Elgin St, Victoria 3010, Australia |
+| **9. Name of person responsible** | `[PLACEHOLDER - RMIT/UniMelb Collaborator]` |
+| **Position** | `[Research Fellow / Academic]` |
+| **10. Contact information** | RMIT University / University of Melbourne, Australia |
+| **Institution** | `[Department name]` |
+| **11. Email** | `[PLACEHOLDER]` |
+| **Phone** | `[PLACEHOLDER]` |
 
-### Alternative Contact (RMIT)
-
-| Field | Response |
-|-------|----------|
-| **Name** | Gail Iles |
-| **Position** | Associate Professor |
-| **Institution** | RMIT University |
-| **Email** | gail.iles@rmit.edu.au |
-
-### Alternative Contact (RMIT PhD Candidate)
+### Alternative Contact
 
 | Field | Response |
 |-------|----------|
-| **Name** | Kasper Tomas |
-| **Position** | PhD Candidate |
-| **Institution** | RMIT University |
-| **Email** | S3895530@student.rmit.edu.au |
+| **Internal Lead** | Wayne Noble (Technical Director, Lithodat) |
+| **Email** | `[PLACEHOLDER]` |
+| **Phone** | `[PLACEHOLDER]` |
 
 ## 3.6 Supporting Evidence
 

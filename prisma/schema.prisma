@@ -542,6 +542,7 @@ model TenderReviewComment {
   sectionId       String   // Section within the form (e.g., "section-a", "section-b-1")
   comment         String   @db.Text
   status          TenderCommentStatus @default(PENDING)
+  reviewVersion   Int      @default(1) // Review cycle version (1, 2, 3, etc.)
 
   // Reviewer info
   reviewerId      String
@@ -552,7 +553,8 @@ model TenderReviewComment {
 
   @@index([formId])
   @@index([reviewerId])
-  @@unique([formId, sectionId, reviewerId]) // One comment per section per reviewer
+  @@index([reviewVersion])
+  @@unique([formId, sectionId, reviewerId, reviewVersion]) // One comment per section per reviewer per version
 }
 
 enum TenderCommentStatus {

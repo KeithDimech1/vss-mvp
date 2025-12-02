@@ -465,6 +465,9 @@ function renderMarkdown(content: string, placeholders: Map<string, TenderPlaceho
   return `<p class="my-2">${html}</p>`;
 }
 
+// Current active review version
+const CURRENT_REVIEW_VERSION = 2;
+
 export default function TenderReviewPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -485,6 +488,7 @@ export default function TenderReviewPage() {
   const [expandedToolbars, setExpandedToolbars] = useState<Set<string>>(new Set()); // Section letters with open toolbars
   const [expandedProfiles, setExpandedProfiles] = useState<Set<string>>(new Set()); // Profile IDs like "B.2.1"
   const [showAISection, setShowAISection] = useState(false);
+  const [reviewVersion, setReviewVersion] = useState<number>(CURRENT_REVIEW_VERSION);
 
   // Fetch current user session
   useEffect(() => {
@@ -532,9 +536,9 @@ export default function TenderReviewPage() {
   }, []);
 
   // Fetch comments for the selected form
-  const fetchComments = useCallback(async (formId: string) => {
+  const fetchComments = useCallback(async (formId: string, version: number) => {
     try {
-      const response = await fetch(`/api/tender-review?formId=${formId}`);
+      const response = await fetch(`/api/tender-review?formId=${formId}&reviewVersion=${version}`);
       if (!response.ok) {
         if (response.status === 401) {
           router.push("/login");
@@ -568,13 +572,13 @@ export default function TenderReviewPage() {
     }
   }, []);
 
-  // Load form content and comments when form changes
+  // Load form content and comments when form or review version changes
   useEffect(() => {
     setLoading(true);
     fetchFormContent(selectedForm);
-    fetchComments(selectedForm.id);
+    fetchComments(selectedForm.id, reviewVersion);
     fetchPlaceholders(selectedForm.id);
-  }, [selectedForm, fetchFormContent, fetchComments, fetchPlaceholders]);
+  }, [selectedForm, reviewVersion, fetchFormContent, fetchComments, fetchPlaceholders]);
 
   // Toggle section expansion
   const toggleSection = (sectionId: string) => {
@@ -628,6 +632,7 @@ export default function TenderReviewPage() {
           formId: selectedForm.id,
           sectionId: subsectionId, // Using subsection ID like "A.1"
           comment: comment.trim(),
+          reviewVersion: reviewVersion,
         }),
       });
 
@@ -796,10 +801,44 @@ export default function TenderReviewPage() {
         <div className="max-w-full mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">GDAC Tender Review</h1>
+              <div className="flex items-center gap-3">
+                <h1 className="text-2xl font-bold text-gray-900">GDAC Tender Review</h1>
+                <span className={`text-sm font-medium px-2 py-1 rounded-full ${
+                  reviewVersion === 2
+                    ? "bg-green-100 text-green-800"
+                    : "bg-gray-100 text-gray-600"
+                }`}>
+                  Review {reviewVersion}
+                </span>
+              </div>
               <p className="text-sm text-gray-500">
                 Review tender responses and leave feedback for each section
               </p>
+            </div>
+
+            {/* Review Version Toggle */}
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-500">Version:</span>
+              <button
+                onClick={() => setReviewVersion(1)}
+                className={`px-3 py-1 text-sm rounded-lg transition-colors ${
+                  reviewVersion === 1
+                    ? "bg-gray-800 text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Review 1 {reviewVersion === 1 && "(viewing)"}
+              </button>
+              <button
+                onClick={() => setReviewVersion(2)}
+                className={`px-3 py-1 text-sm rounded-lg transition-colors ${
+                  reviewVersion === 2
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Review 2 {reviewVersion === 2 && "(active)"}
+              </button>
             </div>
 
             {/* Stats */}
@@ -893,8 +932,29 @@ export default function TenderReviewPage() {
         </div>
       )}
 
+      {/* Review 1 Read-Only Banner */}
+      {reviewVersion === 1 && (
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-3">
+          <div className="flex items-center justify-between max-w-full mx-auto">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span className="text-amber-800 font-medium">Viewing Review 1 (Archived)</span>
+              <span className="text-amber-600 text-sm">- All 31 comments were resolved and incorporated into Review 2</span>
+            </div>
+            <button
+              onClick={() => setReviewVersion(2)}
+              className="px-3 py-1.5 text-sm bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
+            >
+              Switch to Review 2
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Main Content - Split Layout */}
-      <div className="flex h-[calc(100vh-180px)]">
+      <div className={`flex ${reviewVersion === 1 ? "h-[calc(100vh-230px)]" : "h-[calc(100vh-180px)]"}`}>
         {/* Left Panel - Form Content */}
         <div className="w-1/2 border-r bg-white overflow-y-auto" onClick={handlePlaceholderClick}>
           <div className="p-6">
@@ -1033,7 +1093,7 @@ export default function TenderReviewPage() {
                                       </span>
                                     )}
                                   </h4>
-                                  {!hasProfiles && (
+                                  {!hasProfiles && reviewVersion === CURRENT_REVIEW_VERSION && (
                                     <button
                                       onClick={() => {
                                         setEditingSubsection(subsection.id);
@@ -1107,23 +1167,25 @@ export default function TenderReviewPage() {
                                                 </span>
                                               )}
                                             </div>
-                                            <button
-                                              onClick={(e) => {
-                                                e.stopPropagation();
-                                                setEditingSubsection(profile.id);
-                                                setEditingComment(profileComment?.comment || "");
-                                              }}
-                                              className={`px-2 py-1 text-xs font-medium rounded transition-colors flex items-center gap-1 ${
-                                                hasProfileComments
-                                                  ? "bg-purple-100 text-purple-700 hover:bg-purple-200"
-                                                  : "text-gray-500 hover:bg-gray-200"
-                                              }`}
-                                            >
-                                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                                              </svg>
-                                              {profileComment ? "Edit" : "Comment"}
-                                            </button>
+                                            {reviewVersion === CURRENT_REVIEW_VERSION && (
+                                              <button
+                                                onClick={(e) => {
+                                                  e.stopPropagation();
+                                                  setEditingSubsection(profile.id);
+                                                  setEditingComment(profileComment?.comment || "");
+                                                }}
+                                                className={`px-2 py-1 text-xs font-medium rounded transition-colors flex items-center gap-1 ${
+                                                  hasProfileComments
+                                                    ? "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                                                    : "text-gray-500 hover:bg-gray-200"
+                                                }`}
+                                              >
+                                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                                </svg>
+                                                {profileComment ? "Edit" : "Comment"}
+                                              </button>
+                                            )}
                                           </div>
 
                                           {/* Profile Content (expanded) */}

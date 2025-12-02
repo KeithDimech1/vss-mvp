@@ -1,8 +1,7 @@
 # GDAC-SA RFQ Response: Form 9.3 - Administrative Staff Experience
 
 **RFQ Reference:** Section 9.3, Page 19, Lines 641-661
-**Form Status:** COMPLETE - Review 2
-**Review Version:** 2.0
+**Form Status:** COMPLETE - Restructured to separate Admin from Technical staff
 **Prepared By:** Lithodat Pty Ltd
 **Date:** 2025-12-02
 
@@ -126,14 +125,14 @@ This form documents the experience of Lithodat's administrative staff as require
 | **Name** | Dr. Wayne Peter Noble |
 | **Current Position** | CIO / Technical Director |
 | **Shareholding** | 14.9% (149 of 1,000 shares) |
-| **Address** | PO Box address on file (Victoria, Australia) |
+| **Address** | 176 Lum Road, Wheelers Hill VIC 3150, Australia |
 | **Director Since** | 05-01-2021 |
 | **Total Years Experience** | 25+ years |
 | **Education** | PhD Geology, La Trobe University (1992-1998); Graduate Diploma Computer Science (with Distinction), RMIT University (2003-2006); BSc (Hon), La Trobe University (1988-1992) |
 
 **Areas of Expertise:**
 - Technology leadership and software architecture
-- Agile Software Development and Coaching (12+ years experience)
+- Agile transformation (12+ years coaching experience)
 - Enterprise system development
 - Geoscience data systems design
 - Research and development management
@@ -274,6 +273,8 @@ This form documents the experience of Lithodat's administrative staff as require
 - Coordinates data entry quality assurance
 - Reports to Project Director (Keith Dimech)
 
+**Value for GDAC-SA:**
+Juan brings data quality leadership that ensures the integrity of geoscience data entering the GDAC-SA platform. His team management experience and process-oriented approach support the administrative goal of maintaining high data standards.
 
 ---
 
@@ -432,9 +433,8 @@ Lithodat's approach to AI leverages our core expertise in clean, structured data
 |--------|------------|
 | **Australia** | Primary operations - NCRIS, CSIRO, major infrastructure projects |
 | **Middle East** | Saudi Arabia proposal developed; Dr. Qusay Abeed (native Arabic speaker) with extensive Mesopotamian Basin expertise (Iraq); Halliburton petroleum systems experience across North Africa and Middle East |
-| **Europe** | Director based in Germany; Operations via Ireland; EGU conference participation |
-| **USA** | Dr. Behnam Sadeghi's research network via CSIRO collaborations |
-| **South America** | Pedro Ferreira (Portugal/LATAM experience); Mexico team (Juan Baca, Perla Luque, Alejandra Bedoya, Raul Lugo) |
+| **Europe** | Director based in Germany; EGU conference participation |
+| **USA** | Behnam's Fulbright at Stanford/Carnegie provides US research network |
 | **Global** | International user base on EarthBank platform |
 
 ---

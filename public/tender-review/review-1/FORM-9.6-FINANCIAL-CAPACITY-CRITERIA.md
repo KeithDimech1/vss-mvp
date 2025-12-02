@@ -1,8 +1,7 @@
 # GDAC-SA RFQ Response: Form 9.6 - Financial Capacity Criteria
 
 **RFQ Reference:** Section 9.6, Page 23, Lines 799-836
-**Form Status:** COMPLETE - Review 2
-**Review Version:** 2.0
+**Form Status:** DRAFT - Complete with FY2023-2025 data
 **Prepared By:** Lithodat Pty Ltd
 **Date:** 2025-12-02
 
@@ -214,8 +213,6 @@ Lithodat has a significant commitment to R&D, evidenced by AusIndustry registrat
 | FY2023 | $178,813 | $450,125 | 39.7% |
 
 **Interpretation:** Lithodat invests significantly in R&D (28-41% of revenue), demonstrating commitment to innovation and technical capability development.
-
-> **Note on LithoSpace:** LithoSpace (lunar/Martian geochemistry platform) was **entirely self-funded by Lithodat for the benefit of the scientific community**. This demonstrates Lithodat's commitment to advancing geoscience data infrastructure beyond commercial requirements, and our financial capacity to invest in innovative R&D without external funding.
 
 ---
 

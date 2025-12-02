@@ -3,6 +3,7 @@ import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 // GET - Retrieve all comments for a form or all comments
+// Supports ?reviewVersion=N to filter by review cycle (default: latest version)
 export async function GET(request: Request) {
   try {
     const session = await getSession();
@@ -13,8 +14,15 @@ export async function GET(request: Request) {
 
     const { searchParams } = new URL(request.url);
     const formId = searchParams.get("formId");
+    const versionParam = searchParams.get("reviewVersion");
 
-    const whereClause = formId ? { formId } : {};
+    // Parse review version (default to 2 for current review cycle)
+    const reviewVersion = versionParam ? parseInt(versionParam, 10) : 2;
+
+    const whereClause: { formId?: string; reviewVersion: number } = { reviewVersion };
+    if (formId) {
+      whereClause.formId = formId;
+    }
 
     const comments = await prisma.tenderReviewComment.findMany({
       where: whereClause,
@@ -34,7 +42,7 @@ export async function GET(request: Request) {
       ],
     });
 
-    return NextResponse.json({ comments });
+    return NextResponse.json({ comments, reviewVersion });
   } catch (error) {
     console.error("Error fetching tender review comments:", error);
     return NextResponse.json(
@@ -45,6 +53,7 @@ export async function GET(request: Request) {
 }
 
 // POST - Create or update a comment
+// Supports reviewVersion in body (default: 2 for current review cycle)
 export async function POST(request: Request) {
   try {
     const session = await getSession();
@@ -54,7 +63,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { formId, sectionId, comment, status } = body;
+    const { formId, sectionId, comment, status, reviewVersion = 2 } = body;
 
     if (!formId || !sectionId || !comment) {
       return NextResponse.json(
@@ -66,10 +75,11 @@ export async function POST(request: Request) {
     // Upsert the comment (create or update based on unique constraint)
     const reviewComment = await prisma.tenderReviewComment.upsert({
       where: {
-        formId_sectionId_reviewerId: {
+        formId_sectionId_reviewerId_reviewVersion: {
           formId,
           sectionId,
           reviewerId: session.userId,
+          reviewVersion,
         },
       },
       update: {
@@ -82,6 +92,7 @@ export async function POST(request: Request) {
         comment,
         status: status || "PENDING",
         reviewerId: session.userId,
+        reviewVersion,
       },
       include: {
         reviewer: {

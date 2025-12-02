@@ -1,10 +1,9 @@
 # GDAC-SA RFQ Response: Form 9.4 - Professional Staff Experience
 
 **RFQ Reference:** Section 9.4, Page 20, Lines 667-698
-**Form Status:** COMPLETE - Review 2
-**Review Version:** 2.0
+**Form Status:** COMPLETE - All team profiles documented
 **Prepared By:** Lithodat Pty Ltd
-**Date:** 2025-12-02
+**Date:** 2025-11-30
 
 ---
 
@@ -71,7 +70,7 @@ This form documents the experience of Lithodat's professional/technical staff as
 | # | Name | Function | Specialization / Area of Expertise | Years of Experience |
 |---|------|----------|-----------------------------------|---------------------|
 | 1 | **Dr. Behnam Sadeghi** | Machine Learning Technical Advisor | Machine Learning, Geospatial AI, Python Development (PyImpetus, PyMiner), Mathematical Geosciences, Critical Minerals | 15+ years |
-| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | Technology & AI/ML Strategy | 10-15 years |
+| 2 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | Technology & AI/ML Strategy | - |
 | 3 | **Dr. Qusay Abeed** | Senior Geological Consultant | Petroleum Geochemistry, Basin Modelling (Permedia), CO2 Storage (CCUS), Petroleum Systems Analysis, Mesopotamian Basin Expert, Native Arabic Speaker, C++ Development, Agile Scrum Master | 17+ years |
 | 4 | **Vinko Novak** | Head of Data Security | Data Security, Information Protection, Compliance, Security Architecture | 10+ years |
 | 5 | **Xinyan Zhang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | 3+ years |
@@ -104,7 +103,7 @@ The following personnel are documented in Form 9.3 for their administrative/gove
 | Field | Details |
 |-------|---------|
 | **Current Position** | Managing Director & Chief Geoscientist |
-| **Employment Type** | Full-time Employee (Shareholder - 50.1%) |
+| **Employment Type** | Full-time Employee (Shareholder - 55%) |
 | **Years with Lithodat** | 7 years (Founder, Dec 2017) |
 | **Total Years Experience** | 15+ years |
 | **Education** | PhD Geosciences, University of Melbourne (2012) |
@@ -127,7 +126,7 @@ The following personnel are documented in Form 9.3 for their administrative/gove
 | Field | Details |
 |-------|---------|
 | **Current Position** | Chief Information Officer / Executive Director |
-| **Employment Type** | Full-time Employee (Shareholder - 14.9%) |
+| **Employment Type** | Full-time Employee (Shareholder - 11%) |
 | **Years with Lithodat** | 6+ years (Since Dec 2018) |
 | **Total Years Experience** | 25+ years |
 | **Education** | PhD Geology, La Trobe University (1992-1998); Graduate Diploma Computer Science (with Distinction), RMIT University (2003-2006); BSc (Hon), La Trobe University (1988-1992) |
@@ -470,7 +469,6 @@ Benjamin brings unique planetary science expertise that supports Lithodat's Lith
 |------------|-----------------|-------------|
 | **Geochemistry** | Expert | Major/trace element data, analytical methods |
 | **Geochronology** | Expert | U-Pb, Ar/Ar, fission track, (U-Th)/He |
-| **Thermochronology** | Expert | Fission track, (U-Th)/He, thermal history modelling (PhD-level expertise: Dr. Kohlmann, Dr. Noble, Dr. Meeuws, Dr. Alejandra Bedoya) |
 | **Isotope Geochemistry** | Expert | Stable isotopes, radiogenic isotopes |
 | **Petrology** | Proficient | Rock classification, mineralogy |
 | **GIS/Spatial Data** | Expert | Coordinate systems, spatial analysis |
@@ -543,17 +541,13 @@ Dr. Behnam Sadeghi has developed and published production-ready Python packages 
 
 The following academic collaborators work with Lithodat and contribute domain expertise:
 
-| Name | Institution | Expertise | Relationship | Contact |
-|------|-------------|-----------|--------------|---------|
-| Prof. Brent McInnes | Curtin University | Geochemistry, EarthBank Director | Project Partner | directorjdlc@curtin.edu.au |
-| Dr. Angus Nixon | University of Adelaide | Geochemistry, Data platforms | Research Collaborator | - |
-| Dr. Bryant Ware | Curtin University | Geochemistry | Research Collaborator | bryant.ware@curtin.edu.au |
-| Dr. Sam Boone | Various | Thermochronology, Big Data | Lead Author (Scientific Reports) | - |
-| Dr. Brandon Mahan | University of Melbourne | Geochemistry, MAG Lab Head | Research Collaborator | brandon.mahan@unimelb.edu.au |
-| Dr. Gail Iles | RMIT University | Planetary Science | LithoSpace Partner | gail.iles@rmit.edu.au |
-| Lian Flick | CSIRO Data61 | Technical Program Manager | Isotopes.au Partner | Lian.Flick@data61.csiro.au |
-| Dr. Nina Welti | CSIRO Agriculture & Food | Senior Research Scientist | Isotopes.au Partner | Nina.Welti@csiro.au |
-| Geoff Fraser | Geoscience Australia | Geoscience | Isotopes.au Partner | Geoff.Fraser@ga.gov.au |
+| Name | Institution | Expertise | Relationship |
+|------|-------------|-----------|--------------|
+| Prof. Brent McInnes | Curtin University | Geochemistry, EarthBank Director | Project Partner |
+| Dr. Angus Nixon | University of Adelaide | Geochemistry, Data platforms | Research Collaborator |
+| Dr. Bryant Ware | Curtin University | Geochemistry | Research Collaborator |
+| RMIT Collaborators | RMIT University | Planetary Science | LithoSpace Partner |
+| UniMelb Collaborators | University of Melbourne | Geoscience | Research Partner |
 
 ### E.2 Key Peer-Reviewed Publications
 

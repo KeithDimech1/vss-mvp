@@ -1,10 +1,9 @@
 # GDAC-SA RFQ Response: Form 9.1 - Applicant Information
 
 **RFQ Reference:** Section 9.1, Page 17, Lines 547-601
-**Form Status:** COMPLETE - Review 2
+**Form Status:** COMPLETE - Ready for review
 **Prepared By:** Lithodat Pty Ltd
 **Date:** 2025-12-02
-**Review Version:** 2.0
 
 ---
 
@@ -21,7 +20,7 @@ This form provides comprehensive company identification and ownership informatio
 | Field | Response | Source/Notes |
 |-------|----------|--------------|
 | **Name of Applicant (Company/Institution)** | Lithodat Pty Ltd | Official registered name per ASIC |
-| **Trading Name(s)** | Lithodat; LithoSurfer; EarthBank; Isotopes.au; LithoSpace (platform names) | Platform trading names |
+| **Trading Name(s)** | Lithodat; LithoSurfer; EarthBank (platform names) | May use trading names in market |
 | **Entity Type** | Australian Private Company (Limited by Shares) | Pty Ltd structure |
 | **Country of Incorporation** | Australia | Commonwealth of Australia |
 | **Jurisdiction** | Victoria, Australia | State of registration |
@@ -59,18 +58,18 @@ This form provides comprehensive company identification and ownership informatio
 
 | Field | Response | Source |
 |-------|----------|--------|
-| **Value of Applicant's Capital (Share Capital)** | AUD $1,000 | Issued capital (1,000 ordinary shares at $1 each) |
+| **Value of Applicant's Capital (Share Capital)** | AUD $100 | Issued ordinary shares (FY2025 Annual Report) |
 | **Retained Earnings** | AUD $296,508 | As at 30 June 2025 |
-| **Total Equity / Net Assets** | AUD $297,508 | FY2025 Balance Sheet |
+| **Total Equity / Net Assets** | AUD $296,608 | FY2025 Balance Sheet |
 | **Currency** | Australian Dollars (AUD) | Functional and reporting currency |
 
 ### B.2 Capital Structure Breakdown
 
 | Component | FY2023 | FY2024 | FY2025 |
 |-----------|--------|--------|--------|
-| Issued Capital | $1,000 | $1,000 | $1,000 |
+| Issued Capital | $100 | $100 | $100 |
 | Retained Earnings | $56,803 | $136,594 | $296,508 |
-| **Total Equity** | **$57,803** | **$137,594** | **$297,508** |
+| **Total Equity** | **$56,903** | **$136,694** | **$296,608** |
 
 > **Supporting Documentation:** Audited financial statements for FY2023, FY2024, and FY2025 are available and will be attached as per Form 9.6 requirements.
 
@@ -82,60 +81,45 @@ This form provides comprehensive company identification and ownership informatio
 
 | Field | Response | Notes |
 |-------|----------|-------|
-| **Establishment Date** | 25 June 2018 | Date of incorporation |
-| **Years in Operation** | 7 years | Total operational years (2018-2025) |
+| **Establishment Date** | June 2018 | Date of incorporation |
+| **Years in Operation** | 7 years | Total operational years |
 | **Date Commenced Current Business Activity** | June 2018 | When geoscience data services began |
 
 ### C.2 Brief Company History Statement
 
-Lithodat Pty Ltd was founded in 2018 in Melbourne, Australia, with the vision of building the world's most advanced integrated platform for geochemistry, geochronology, thermochronology, isotopes and geological data. Beginning as a small specialised team with deep expertise in geology, data science and cloud architecture, Lithodat has grown into a **global provider of scientific data platforms** used by government agencies, research institutions and industry.
-
-**Mission:**
-To enable the global geoscience community to access, integrate and analyse high-quality scientific data through modern cloud-native platforms that support research, decision-making and exploration.
-
-**Vision:**
-To become the leading global provider of intelligent geoscience data infrastructures, supporting advanced analytics, AI-driven insights and long-term scientific data stewardship for governments, academia and industry.
+Lithodat Pty Ltd is an Australian technology company specializing in the development of cloud-based geoscience data management platforms. The company was established to address the critical need for FAIR (Findable, Accessible, Interoperable, Reusable) data infrastructure in the geosciences sector.
 
 **Core Competencies:**
 
 | Competency | Description |
 |------------|-------------|
-| **National-Scale Data Platforms** | Design and development of geochemistry, geochronology, thermochronology and isotope databases |
-| **AI/ML-Ready Data Infrastructure** | Standardisation, harmonisation and ingestion of machine-learning ready datasets |
-| **FAIR Data Compliance** | Implementation of Findable, Accessible, Interoperable, Reusable principles |
-| **Advanced Geoscience Modelling** | Deep-time tectonics, thermal history and mineral systems analysis |
-| **Cloud-Native AWS Solutions** | Scalable, ISO-aligned infrastructure with enterprise security |
-| **Automated QA/QC** | Provenance tracking, data validation and quality assurance pipelines |
-| **Exploration Analytics** | ML-ready datasets serving Tier 1 mining companies (BHP, AngloAmerican) |
+| **Geoscience Data Platforms** | Design and development of national-scale geochemistry databases |
+| **FAIR Data Infrastructure** | Implementation of FAIR principles for research data management |
+| **Data Harmonization** | Integration of heterogeneous data from multiple institutional sources |
+| **Schema Design** | Development of custom ontologies and controlled vocabularies |
+| **Cloud-Native Solutions** | AWS-based scalable infrastructure for geoscience applications |
+| **Analytics & Visualization** | Interactive mapping, dashboards, and analytical tools |
 
 **Key Milestones:**
 
 | Year | Milestone |
 |------|-----------|
 | 2018 | Company incorporation in Victoria, Australia (June) |
-| 2019-2020 | Development of the LithoSurfer data platform; early adoption by Australian research institutions |
-| 2021 | Official launch of AusGeochem (now EarthBank) |
-| 2022 | First Canadian tender success - NRCan national thermochronology database |
-| 2023-2025 | Launch of multi-agency Isotopes.au platform with CSIRO, GA, ANSTO, NMI |
+| 2021 | Awarded AuScope Opportunity Fund contract ($450,000) for AusGeoChem development |
+| 2022 | Launch of AusGeoChem (now EarthBank) platform |
+| 2024 | EarthBank reaches 1,300+ registered users and 350,000+ samples |
 | 2024 | MOUs signed with EarthScope (USA) and EPOS (Europe) - December |
-| 2024-2025 | Science Advances publication on deep-time AI porphyry copper preservation modelling |
-| 2025 | Launch of LithoSpace - first global public platform for extraterrestrial geochemistry data |
-| 2025 | EarthBank reaches 12+ million analytical results, 1,300+ users |
+| 2024-2025 | Isotopes.au R&D project commenced ($300,000 budget) |
+| 2025 | Peer-reviewed publication in Chemical Geology journal |
+| 2025 | EarthBank rebrand announced at EGU General Assembly |
 | 2025 | Revenue exceeds AUD $1.19 million (62.8% CAGR over 3 years) |
 
 **Key Achievements:**
 
-- **EarthBank Platform**: National geochemistry infrastructure with 12+ million analytical results, 1,300+ users, CoreTrustSeal certified
-- **Isotopes.au**: Federal stable isotope platform integrating CSIRO, GA, ANSTO, NMI laboratories
-- **LithoSpace**: World's first standardised extraterrestrial geochemistry data platform (self-funded for community benefit)
-- **NRCan Partnership**: Designed Canada's national thermochronology & thermal history data models
-- **Science Advances Publication**: Co-authored high-impact paper on AI-driven mineral systems modelling (2025)
-- **Sam Boone Thermochronology Paper**: Peer-reviewed thermochronology publication
-- **Government Partnerships**: NCRIS/AuScope, CSIRO, ANSTO, Geoscience Australia, NMI, Natural Resources Canada
+- **EarthBank Platform**: National geochemistry infrastructure with 350,000+ samples, 1,300+ users
+- **Government Partnerships**: NCRIS/AuScope, CSIRO, ANSTO, Geoscience Australia, NMI
 - **International Recognition**: MOUs with EarthScope (USA) and EPOS (Europe) - December 2024
-- **Tier 1 Mining Clients**: Serving BHP, AngloAmerican with ML-ready exploration data
-- **World Data System (WDS)**: Recognised for excellence in scientific data stewardship
-- **Conference Presentations**: Goldschmidt, IAGC, Thermo, IAMG, AEGC, SEG, PDAC
+- **Peer-Reviewed Publication**: Chemical Geology 2025 - EarthBank FAIR framework
 - **Revenue Growth**: 62.8% CAGR over 3 years to $1.19M (FY2025)
 - **R&D Investment**: $484,303 (FY2025) - 40.6% of revenue
 
@@ -179,13 +163,20 @@ To become the leading global provider of intelligent geoscience data infrastruct
 
 ## Section E: Contact Information
 
+
+
+
+
+
+## Section E: Contact Information
+
 ### E.1 General Company Contact
 
 | Field | Response |
 |-------|----------|
-| **Main Telephone** | +61 481 977 499 |
-| **Fax Number** | Not applicable |
-| **General Email** | info@lithodat.com |
+| **Main Telephone** | +61 428 971 396 |
+| **Fax Number** | N/A |
+| **General Email** | support@lithodat.com |
 | **Company Website** | https://www.lithodat.com |
 | **Platform URLs** | EarthBank: https://ausgeochem.auscope.org.au/ ; LithoSpace: https://app.lithospace.com/ ; Isotopes.au: https://app.isotopes.au/ |
 
@@ -195,8 +186,8 @@ To become the leading global provider of intelligent geoscience data infrastruct
 |----------|------------|
 | EarthBank Platform | https://app.ausgeochem.org |
 | LithoSurfer | https://app.lithodat.com/#/ |
-| LithoSpace | https://app.lithospace.com/ |
-| Isotopes.au | https://app.isotopes.au/#/ |
+| Lithospace | https://app.lithospace.com/ |
+| Isotopes | https://app.isotopes.au/#/ |
 
 ---
 
@@ -215,11 +206,11 @@ To become the leading global provider of intelligent geoscience data infrastruct
 
 | # | Owner/Partner Name | Shares Held | Ownership % | Fully Paid | Beneficially Held | Nationality |
 |---|-------------------|-------------|-------------|------------|-------------------|-------------|
-| 1 | **Fabian Kohlmann** | 501 | 50.1% | Yes | Yes | German/Australian |
+| 1 | **Fabian Kohlmann** | 501 | 50.1% | Yes | Yes | Australian |
 | 2 | **Gerd Moritz Theile** | 240 | 24.0% | Yes | Yes | German |
-| 3 | **Wayne Peter Noble** | 149 | 14.9% | Yes | Yes | Australian/British |
-| 4 | **Nilesh Ambadas Vyavahare** | 80 | 8.0% | Yes | Yes | British |
-| 5 | **Romain Beucher** | 30 | 3.0% | Yes | No | French/Australian |
+| 3 | **Wayne Peter Noble** | 149 | 14.9% | Yes | Yes | Australian |
+| 4 | **Nilesh Ambadas Vyavahare** | 80 | 8.0% | Yes | Yes | United Kingdom |
+| 5 | **Romain Beucher** | 30 | 3.0% | Yes | No | Australian |
 | | **Total** | **1,000** | **100%** | | | |
 
 **Share Class:** A (CLASS A SHARES)
@@ -230,9 +221,9 @@ To become the leading global provider of intelligent geoscience data infrastruct
 
 | # | Name | Position | Appointed | Nationality | Shareholding | Address |
 |---|------|----------|-----------|-------------|--------------|---------|
-| 1 | **Fabian Kohlmann** | Director (Managing Director) | 01-04-2019 | German/Australian | 50.1% (501 shares) | 94 Stephensons Road, Mount Waverley VIC 3149, Australia |
+| 1 | **Fabian Kohlmann** | Director (Managing Director) | 01-04-2019 | Australian | 50.1% (501 shares) | 94 Stephensons Road, Mount Waverley VIC 3149, Australia |
 | 2 | **Gerd Moritz Walter Theile** | Director (Operations Director) | 24-04-2020 | German | 24.0% (240 shares) | Harthauser Str. 71A, 81545 Munich, Germany |
-| 3 | **Wayne Peter Noble** | Director (Technical Director) | 05-01-2021 | Australian/British | 14.9% (149 shares) | PO Box address on file |
+| 3 | **Wayne Peter Noble** | Director (Technical Director) | 05-01-2021 | Australian | 14.9% (149 shares) | 176 Lum Road, Wheelers Hill VIC 3150, Australia |
 
 ### F.4 Non-Director Shareholders
 
@@ -266,10 +257,10 @@ To become the leading global provider of intelligent geoscience data infrastruct
 
 | Field | Response |
 |-------|----------|
-| **Name** | Fabian Kohlmann |
-| **Position** | Managing Director |
-| **Phone** | +61 481 977 499 |
-| **Email** | fabian.kohlmann@lithodat.com |
+| **Name** | Keith Dimech |
+| **Position** | Chief Operating Officer |
+| **Phone** | +61 428 971 396 |
+| **Email** | keith.dimech@lithodat.com |
 
 ---
 
@@ -428,5 +419,5 @@ When entering this information into the Etimad platform:
 
 *Form 9.1 Response prepared for GDAC-SA RFQ Pre-Qualification*
 *Lithodat Pty Ltd - ABN 63 627 008 904*
-*Document Version: 2.0 (Review 2)*
+*Document Version: 2.1*
 *Updated: 2025-12-02*
