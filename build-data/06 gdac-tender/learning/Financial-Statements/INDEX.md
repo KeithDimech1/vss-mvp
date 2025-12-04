@@ -1,7 +1,7 @@
 # Lithodat Pty Ltd - Financial Statements Index
 
-**Last Updated:** 2025-12-02
-**Source Directory:** `build-data/06 gdac-tender/learning/Finanical Statements/`
+**Last Updated:** 2025-12-05
+**Source Directory:** `build-data/06 gdac-tender/learning/Financial-Statements/`
 **Purpose:** GDAC Tender Submission Reference Documentation
 
 ---
@@ -115,30 +115,43 @@
 
 ### FY2023 Documents (Year ended 30 June 2023)
 
-| Document | Pages | Description | Detailed Extraction |
-|----------|-------|-------------|---------------------|
-| `2023_Lithodat_Pty_Ltd_-_Annual_Report.pdf` | 9 | Full financial statements including Directors' Report, Income Statement, Balance Sheet, Cash Flow Statement, Statement of Changes in Equity, and Notes | [FY2023-EXTRACTION.md](./FY2023-EXTRACTION.md) |
-| `2023_Lithodat_Pty_Ltd_-_Notes_for_persons_signing_income_tax_return.pdf` | 2 | Legal disclosure requirements for tax return signatories | [FY2023-EXTRACTION.md](./FY2023-EXTRACTION.md) |
-| `2023_Lithodat_Pty_Ltd_CTR_(for_signing).pdf` | 8 | Company Tax Return with R&D Tax Incentive Schedule | [FY2023-EXTRACTION.md](./FY2023-EXTRACTION.md) |
-| `2023_Lithodat_Pty_Ltd_Financial_Statements_&_Tax_Return_-_Cover_Letter.pdf` | 1 | Cover letter from Scott Partners with DocuSign envelope | [FY2023-EXTRACTION.md](./FY2023-EXTRACTION.md) |
-| `2023_Lithodat_Pty_Ltd_Tax_Reconciliation.pdf` | 1 | Tax reconciliation worksheet | [FY2023-EXTRACTION.md](./FY2023-EXTRACTION.md) |
+| Document | Description | Text Extraction |
+|----------|-------------|-----------------|
+| `FY2023/2023_Lithodat_Pty_Ltd_-_Annual_Report.pdf` | Full financial statements (9 pages) | [FY2023-EXTRACTION.md](./FY2023/FY2023-EXTRACTION.md) |
+| `FY2023/2023_Lithodat_Pty_Ltd_-_Notes_for_persons_signing_income_tax_return.pdf` | Legal disclosure for signatories (2 pages) | [FY2023-EXTRACTION.md](./FY2023/FY2023-EXTRACTION.md) |
+| `FY2023/2023_Lithodat_Pty_Ltd_CTR_(for_signing).pdf` | Company Tax Return with R&D Schedule (8 pages) | [FY2023-EXTRACTION.md](./FY2023/FY2023-EXTRACTION.md) |
+| `FY2023/2023_Lithodat_Pty_Ltd_Financial_Statements_&_Tax_Return_-_Cover_Letter.pdf` | Cover letter from Scott Partners (1 page) | [FY2023-EXTRACTION.md](./FY2023/FY2023-EXTRACTION.md) |
+| `FY2023/2023_Lithodat_Pty_Ltd_Tax_Reconciliation.pdf` | Tax reconciliation worksheet (1 page) | [FY2023-EXTRACTION.md](./FY2023/FY2023-EXTRACTION.md) |
 
 ### FY2024 Documents (Year ended 30 June 2024)
 
-| Document | Pages | Description | Detailed Extraction |
-|----------|-------|-------------|---------------------|
-| `2024_Lithodat_Pty_Ltd_Annual_Report.pdf` | 10 | Full financial statements including Directors' Report, Income Statement, Balance Sheet, Cash Flow Statement, Statement of Changes in Equity, and Notes | [FY2024-EXTRACTION.md](./FY2024-EXTRACTION.md) |
-| `2024_Lithodat_Pty_Ltd_CTR_(for_signing).pdf` | 8 | Company Tax Return with R&D Tax Incentive Schedule | [FY2024-EXTRACTION.md](./FY2024-EXTRACTION.md) |
-| `2024_Lithodat_Pty_Ltd_Tax_Reconciliation.pdf` | 1 | Tax reconciliation worksheet | [FY2024-EXTRACTION.md](./FY2024-EXTRACTION.md) |
+| Document | Description | Text Extraction |
+|----------|-------------|-----------------|
+| `FY2024/2024_Lithodat_Pty_Ltd_Annual_Report.pdf` | Full financial statements (10 pages) | [FY2024-EXTRACTION.md](./FY2024/FY2024-EXTRACTION.md) |
+| `FY2024/2024_Lithodat_Pty_Ltd_CTR_(for_signing).pdf` | Company Tax Return with R&D Schedule (8 pages) | [FY2024-EXTRACTION.md](./FY2024/FY2024-EXTRACTION.md) |
+| `FY2024/2024_Lithodat_Pty_Ltd_Tax_Reconciliation.pdf` | Tax reconciliation worksheet (1 page) | [FY2024-EXTRACTION.md](./FY2024/FY2024-EXTRACTION.md) |
 
 ### FY2025 Documents (Year ended 30 June 2025)
 
-| Document | Pages | Description | Detailed Extraction |
-|----------|-------|-------------|---------------------|
-| `2025 Lithodat Pty Ltd Annual Report (1).pdf` | 10 | Full financial statements including Directors' Report, Income Statement, Balance Sheet, Cash Flow Statement, Statement of Changes in Equity, and Notes | [FY2025-EXTRACTION.md](./FY2025-EXTRACTION.md) |
-| `2025 Lithodat Pty Ltd CTR (for signing) (1).pdf` | 8 | Company Tax Return with R&D Tax Incentive Schedule | [FY2025-EXTRACTION.md](./FY2025-EXTRACTION.md) |
-| `2025 Lithodat Pty Ltd Financial Statements & Tax Return - Cover Letter.pdf` | 1 | Cover letter from Scott Partners with DocuSign envelope | [FY2025-EXTRACTION.md](./FY2025-EXTRACTION.md) |
-| `2025 Lithodat Pty Ltd Tax Reconciliation (1).pdf` | 1 | Tax reconciliation worksheet | [FY2025-EXTRACTION.md](./FY2025-EXTRACTION.md) |
+| Document | Description | Text Extraction |
+|----------|-------------|-----------------|
+| `FY2025/Annual-Report.pdf` | Full financial statements (10 pages) | [FY2025-EXTRACTION.md](./FY2025/FY2025-EXTRACTION.md) |
+| `FY2025/CTR-Signing.pdf` | Company Tax Return with R&D Schedule (8 pages) | [FY2025-EXTRACTION.md](./FY2025/FY2025-EXTRACTION.md) |
+| `FY2025/Cover-Letter.pdf` | Cover letter from Scott Partners (1 page) | [FY2025-EXTRACTION.md](./FY2025/FY2025-EXTRACTION.md) |
+| `FY2025/Tax-Reconciliation.pdf` | Tax reconciliation worksheet (1 page) | [FY2025-EXTRACTION.md](./FY2025/FY2025-EXTRACTION.md) |
+
+### Corporate Documents
+
+| Document | Description | Text Extraction |
+|----------|-------------|-----------------|
+| `Corporate/ASIC - LITHODAT-PTY-LTD.pdf` | **CURRENT** ASIC Company Extract (Dec 2025) | [LITHODAT-PTY-LTD-ASIC-COMBINED-EXTRACT.md](./Corporate/LITHODAT-PTY-LTD-ASIC-COMBINED-EXTRACT.md) |
+| `Corporate/Company-Details-2025.pdf` | ASIC Company Details (2025) | [Lithodat-Company-Details-2025.md](./Corporate/Lithodat-Company-Details-2025.md) |
+| `Corporate/Lithodat-Company-Documents-Combined.pdf` | Combined corporate documents | See individual extractions |
+| `Corporate/Company-Certificate-1.pdf` | Company Registration Certificate | N/A (certificate image) |
+| `Corporate/Company-Certificate-2.pdf` | Company Registration Certificate (copy) | N/A (certificate image) |
+| `Corporate/Evidence-of-Authority.pdf` | Evidence of authority document | N/A |
+| `Corporate/LEI-Letter-of-Authorization.pdf` | LEI registration authorization | N/A |
+| `Corporate/ASIC-Company-Statement-2022.pdf` | **OUTDATED** - Historical ASIC statement (2022) | N/A - Superseded |
 
 ---
 
@@ -216,26 +229,40 @@ FY2023 → FY2025: 128.4% CAGR in Net Assets
 
 ## File Locations
 
-- **Master Index**: `INDEX.md` (this file)
-- **Company Details (ASIC)**: `Lithodat-Company-Details-2025.md`
-- **FY2023 Detailed Extraction**: `FY2023-EXTRACTION.md`
-- **FY2024 Detailed Extraction**: `FY2024-EXTRACTION.md`
-- **FY2025 Detailed Extraction**: `FY2025-EXTRACTION.md`
-- **Source PDFs**: Same directory
+### Text Extractions (Markdown)
 
-### Additional Corporate Documents
+| File | Description | Location |
+|------|-------------|----------|
+| INDEX.md | This file - master index | `./INDEX.md` |
+| FY2023-EXTRACTION.md | FY2023 complete extraction | `./FY2023/FY2023-EXTRACTION.md` |
+| FY2024-EXTRACTION.md | FY2024 complete extraction | `./FY2024/FY2024-EXTRACTION.md` |
+| FY2025-EXTRACTION.md | FY2025 complete extraction | `./FY2025/FY2025-EXTRACTION.md` |
+| Lithodat-Company-Details-2025.md | Company details extraction | `./Corporate/Lithodat-Company-Details-2025.md` |
+| LITHODAT-PTY-LTD-ASIC-COMBINED-EXTRACT.md | ASIC combined extraction | `./Corporate/LITHODAT-PTY-LTD-ASIC-COMBINED-EXTRACT.md` |
 
-| Document | Description |
-|----------|-------------|
-| `Lithodat company details 2025.pdf` | ASIC Company Extract (source for company details) |
-| `Lithodat-Company-Details-2025.md` | Text extraction of ASIC company details |
-| `25Jun2022 ASIC Company Statement.pdf` | Historical ASIC company statement |
-| `Evidence of Authority - Lithodat Pty Ltd.pdf` | Evidence of authority document |
-| `Letter of Authorization - LEI Registration.pdf` | LEI registration authorization |
-| `Lithodat_Pty_Ltd_certificate (1).pdf` | Company certificate |
-| `Lithodat_Pty_Ltd_certificate (2).pdf` | Company certificate (copy) |
+### Source PDFs
+
+| Folder | Contents |
+|--------|----------|
+| `./FY2023/` | 5 PDF files (Annual Report, CTR, Tax Reconciliation, Cover Letter, Notes) |
+| `./FY2024/` | 3 PDF files (Annual Report, CTR, Tax Reconciliation) |
+| `./FY2025/` | 4 PDF files (Annual Report, CTR, Cover Letter, Tax Reconciliation) |
+| `./Corporate/` | 8 PDF files (ASIC extracts, certificates, authority documents) |
+
+---
+
+## Deletion Recommendations
+
+The following files may be candidates for deletion (outdated/superseded):
+
+| File | Reason | Recommendation |
+|------|--------|----------------|
+| `Corporate/ASIC-Company-Statement-2022.pdf` | Superseded by Dec 2025 ASIC extract | **DELETE** - outdated |
+| `Corporate/Company-Certificate-2.pdf` | Duplicate of Company-Certificate-1.pdf | **REVIEW** - may be duplicate |
+
+**Note:** Before deleting, verify these files are not needed for historical record keeping.
 
 ---
 
 *Generated for GDAC Tender Submission - Lithodat Pty Ltd*
-*Last Updated: 2025-12-02*
+*Last Updated: 2025-12-05*

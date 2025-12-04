@@ -3,65 +3,60 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { lithosurferFeatures, featureCategories, LithoSurferFeature, TierName } from '@/lib/lithosurfer-features';
 
-interface Feature {
-  category: string;
-  feature: string;
-  note?: string;
-  upgradePath?: string;
-  comment?: string;
+interface TierAssignments {
+  [featureId: string]: TierName;
 }
 
-interface TierConfig {
-  id: string;
-  productType: string;
-  tierName: string;
-  price: string | null;
-  priceNote: string | null;
-  target: string | null;
-  source: string | null;
-  featuresIn: Feature[];
-  featuresOut: Feature[];
-  restrictions: string | null;
-  keyDifferentiator: string | null;
-  lastEditedAt: string;
-}
-
-const tierOrder = ['free', 'pro', 'enterprise'];
-const tierColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  free: { bg: 'bg-gray-100', border: 'border-gray-200', text: 'text-gray-700', badge: 'bg-gray-500' },
-  pro: { bg: 'bg-blue-50', border: 'border-blue-100', text: 'text-blue-700', badge: 'bg-blue-500' },
-  enterprise: { bg: 'bg-purple-50', border: 'border-purple-100', text: 'text-purple-700', badge: 'bg-purple-500' },
+const tierConfig = {
+  free: {
+    name: 'FREE',
+    color: 'bg-gray-100 border-gray-300',
+    headerBg: 'bg-gray-500',
+    badge: 'bg-gray-500',
+    dropZone: 'border-gray-400 bg-gray-50',
+    dropZoneActive: 'border-gray-600 bg-gray-100',
+  },
+  pro: {
+    name: 'PRO',
+    color: 'bg-blue-100 border-blue-300',
+    headerBg: 'bg-blue-600',
+    badge: 'bg-blue-600',
+    dropZone: 'border-blue-400 bg-blue-50',
+    dropZoneActive: 'border-blue-600 bg-blue-100',
+  },
+  enterprise: {
+    name: 'ENTERPRISE',
+    color: 'bg-purple-100 border-purple-300',
+    headerBg: 'bg-purple-600',
+    badge: 'bg-purple-600',
+    dropZone: 'border-purple-400 bg-purple-50',
+    dropZoneActive: 'border-purple-600 bg-purple-100',
+  },
 };
 
-const tierDisplayNames: Record<string, string> = {
-  free: 'FREE',
-  pro: 'PRO',
-  enterprise: 'ENTERPRISE',
-};
-
-export default function LithoSurferSummaryPage() {
+export default function LithoSurferDragDropPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [tiers, setTiers] = useState<TierConfig[]>([]);
-  const [editMode, setEditMode] = useState(false);
-  const [editingTier, setEditingTier] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState<TierConfig | null>(null);
+  const [lastSaved, setLastSaved] = useState<Date | null>(null);
+  const [assignments, setAssignments] = useState<TierAssignments>({});
+  const [draggedFeature, setDraggedFeature] = useState<string | null>(null);
+  const [dragOverTier, setDragOverTier] = useState<TierName | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showFutureFeatures, setShowFutureFeatures] = useState(true);
 
-  const fetchTiers = useCallback(async () => {
+  // Load existing assignments from API
+  const loadAssignments = useCallback(async () => {
     try {
-      const res = await fetch('/api/product-tiers?productType=lithosurfer');
+      const res = await fetch('/api/product-tiers/feature-assignments?productType=lithosurfer');
       if (res.ok) {
         const data = await res.json();
-        // Sort tiers by tierOrder
-        data.sort((a: TierConfig, b: TierConfig) =>
-          tierOrder.indexOf(a.tierName) - tierOrder.indexOf(b.tierName)
-        );
-        setTiers(data);
+        setAssignments(data.assignments || {});
       }
     } catch (error) {
-      console.error('Error fetching tiers:', error);
+      console.error('Error loading assignments:', error);
     }
   }, []);
 
@@ -78,89 +73,107 @@ export default function LithoSurferSummaryPage() {
           router.push('/dashboard');
           return;
         }
-        await fetchTiers();
+        await loadAssignments();
         setLoading(false);
       } catch (error) {
         router.push('/login');
       }
     };
     checkAccess();
-  }, [router, fetchTiers]);
+  }, [router, loadAssignments]);
 
-  const startEditing = (tier: TierConfig) => {
-    setEditingTier(tier.id);
-    setEditForm({ ...tier });
-  };
-
-  const cancelEditing = () => {
-    setEditingTier(null);
-    setEditForm(null);
-  };
-
-  const saveTier = async () => {
-    if (!editForm) return;
+  // Save assignments to API
+  const saveAssignments = async () => {
     setSaving(true);
     try {
-      const res = await fetch('/api/product-tiers', {
+      const res = await fetch('/api/product-tiers/feature-assignments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editForm),
+        body: JSON.stringify({
+          productType: 'lithosurfer',
+          assignments,
+        }),
       });
       if (res.ok) {
-        await fetchTiers();
-        setEditingTier(null);
-        setEditForm(null);
+        setLastSaved(new Date());
       } else {
-        alert('Failed to save changes');
+        alert('Failed to save assignments');
       }
     } catch (error) {
-      console.error('Error saving tier:', error);
-      alert('Failed to save changes');
+      console.error('Error saving assignments:', error);
+      alert('Failed to save assignments');
     }
     setSaving(false);
   };
 
-  const updateFeatureIn = (index: number, field: keyof Feature, value: string) => {
-    if (!editForm) return;
-    const newFeatures = [...editForm.featuresIn];
-    newFeatures[index] = { ...newFeatures[index], [field]: value || undefined };
-    setEditForm({ ...editForm, featuresIn: newFeatures });
+  // Drag handlers
+  const handleDragStart = (featureId: string) => {
+    setDraggedFeature(featureId);
   };
 
-  const updateFeatureOut = (index: number, field: keyof Feature, value: string) => {
-    if (!editForm) return;
-    const newFeatures = [...editForm.featuresOut];
-    newFeatures[index] = { ...newFeatures[index], [field]: value || undefined };
-    setEditForm({ ...editForm, featuresOut: newFeatures });
+  const handleDragEnd = () => {
+    setDraggedFeature(null);
+    setDragOverTier(null);
   };
 
-  const addFeatureIn = () => {
-    if (!editForm) return;
-    setEditForm({
-      ...editForm,
-      featuresIn: [...editForm.featuresIn, { category: '', feature: '' }],
+  const handleDragOver = (e: React.DragEvent, tier: TierName) => {
+    e.preventDefault();
+    setDragOverTier(tier);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverTier(null);
+  };
+
+  const handleDrop = (e: React.DragEvent, tier: TierName) => {
+    e.preventDefault();
+    if (draggedFeature) {
+      setAssignments(prev => ({
+        ...prev,
+        [draggedFeature]: tier,
+      }));
+    }
+    setDraggedFeature(null);
+    setDragOverTier(null);
+  };
+
+  // Click to assign
+  const assignToTier = (featureId: string, tier: TierName) => {
+    setAssignments(prev => ({
+      ...prev,
+      [featureId]: tier,
+    }));
+  };
+
+  // Remove from tier
+  const removeFromTier = (featureId: string) => {
+    setAssignments(prev => {
+      const newAssignments = { ...prev };
+      delete newAssignments[featureId];
+      return newAssignments;
     });
   };
 
-  const addFeatureOut = () => {
-    if (!editForm) return;
-    setEditForm({
-      ...editForm,
-      featuresOut: [...editForm.featuresOut, { category: '', feature: '', upgradePath: '' }],
+  // Get features for a tier
+  const getFeaturesForTier = (tier: TierName): LithoSurferFeature[] => {
+    return lithosurferFeatures.filter(f => {
+      if (!showFutureFeatures && f.available === 'future') return false;
+      return assignments[f.id] === tier;
     });
   };
 
-  const removeFeatureIn = (index: number) => {
-    if (!editForm) return;
-    const newFeatures = editForm.featuresIn.filter((_, i) => i !== index);
-    setEditForm({ ...editForm, featuresIn: newFeatures });
+  // Get unassigned features
+  const getUnassignedFeatures = (): LithoSurferFeature[] => {
+    return lithosurferFeatures.filter(f => {
+      if (!showFutureFeatures && f.available === 'future') return false;
+      if (selectedCategory && f.category !== selectedCategory) return false;
+      return !assignments[f.id];
+    });
   };
 
-  const removeFeatureOut = (index: number) => {
-    if (!editForm) return;
-    const newFeatures = editForm.featuresOut.filter((_, i) => i !== index);
-    setEditForm({ ...editForm, featuresOut: newFeatures });
-  };
+  // Stats
+  const assignedCount = Object.keys(assignments).length;
+  const totalCount = lithosurferFeatures.filter(f => showFutureFeatures || f.available !== 'future').length;
 
   if (loading) {
     return (
@@ -174,36 +187,43 @@ export default function LithoSurferSummaryPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#C9A961] via-[#C9A961] to-[#1B4332] text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-[1800px] mx-auto px-6 py-6">
           <div className="flex items-center gap-2 text-sm text-[#F5E6D3] mb-2">
             <Link href="/management" className="hover:text-white">Management</Link>
             <span>/</span>
             <Link href="/management/action/unified-utopia" className="hover:text-white">Unified Utopia</Link>
             <span>/</span>
-            <span>LithoSurfer</span>
+            <span>LithoSurfer Features</span>
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold">LithoSurfer: What's In & What's Out</h1>
-              <p className="text-[#F5E6D3] mt-2">Three-Tier Product Strategy Summary</p>
+              <h1 className="text-3xl font-bold">LithoSurfer: Feature Assignment</h1>
+              <p className="text-[#F5E6D3] mt-1">Drag features to assign them to FREE, PRO, or ENTERPRISE tiers</p>
             </div>
-            <button
-              onClick={() => setEditMode(!editMode)}
-              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
-                editMode
-                  ? 'bg-white text-[#1B4332] hover:bg-gray-100'
-                  : 'bg-white/20 text-white hover:bg-white/30'
-              }`}
-            >
-              {editMode ? 'Exit Edit Mode' : 'Enable Editing'}
-            </button>
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-[#F5E6D3]">
+                {assignedCount} / {totalCount} features assigned
+              </div>
+              {lastSaved && (
+                <div className="text-sm text-green-200">
+                  Saved {lastSaved.toLocaleTimeString()}
+                </div>
+              )}
+              <button
+                onClick={saveAssignments}
+                disabled={saving}
+                className="px-6 py-2 bg-white text-[#1B4332] rounded-lg font-semibold hover:bg-gray-100 disabled:opacity-50"
+              >
+                {saving ? 'Saving...' : 'Save Changes'}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-[1800px] mx-auto px-6 py-6">
         {/* Navigation */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex gap-4 mb-6">
           <Link
             href="/management/action/unified-utopia/lithosurfer"
             className="px-4 py-2 bg-[#C9A961] text-white rounded-lg font-semibold"
@@ -218,373 +238,213 @@ export default function LithoSurferSummaryPage() {
           </Link>
         </div>
 
-        {editMode && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-            <p className="text-amber-800 text-sm">
-              <strong>Edit Mode Active:</strong> Click on any tier card to edit its details. Changes are saved when you click "Save Changes".
-            </p>
+        {/* Controls */}
+        <div className="bg-white rounded-lg shadow p-4 mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={showFutureFeatures}
+                onChange={(e) => setShowFutureFeatures(e.target.checked)}
+                className="rounded"
+              />
+              Show Future Features
+            </label>
+            <div className="h-6 w-px bg-gray-300" />
+            <select
+              value={selectedCategory || ''}
+              onChange={(e) => setSelectedCategory(e.target.value || null)}
+              className="px-3 py-1.5 border rounded-lg text-sm"
+            >
+              <option value="">All Categories</option>
+              {featureCategories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
           </div>
-        )}
-
-        {/* Tier Cards */}
-        {tiers.map((tier) => {
-          const colors = tierColors[tier.tierName] || tierColors.free;
-          const isEditing = editingTier === tier.id;
-          const displayTier = isEditing && editForm ? editForm : tier;
-
-          return (
-            <div key={tier.id} className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
-              {/* Tier Header */}
-              <div className={`${colors.bg} px-6 py-4 border-b ${colors.border}`}>
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    {isEditing ? (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-4">
-                          <span className="text-2xl font-bold text-[#1B4332]">{tierDisplayNames[tier.tierName]}</span>
-                          <input
-                            type="text"
-                            value={editForm?.price || ''}
-                            onChange={(e) => setEditForm({ ...editForm!, price: e.target.value })}
-                            className="px-3 py-1 border rounded text-lg font-bold"
-                            placeholder="Price (e.g., $0, $5,000/year)"
-                          />
-                        </div>
-                        <input
-                          type="text"
-                          value={editForm?.target || ''}
-                          onChange={(e) => setEditForm({ ...editForm!, target: e.target.value })}
-                          className="w-full px-3 py-1 border rounded text-sm"
-                          placeholder="Target audience"
-                        />
-                        <input
-                          type="text"
-                          value={editForm?.priceNote || ''}
-                          onChange={(e) => setEditForm({ ...editForm!, priceNote: e.target.value })}
-                          className="w-full px-3 py-1 border rounded text-sm"
-                          placeholder="Price note (optional)"
-                        />
-                      </div>
-                    ) : (
-                      <>
-                        <h2 className="text-2xl font-bold text-[#1B4332]">
-                          {tierDisplayNames[tier.tierName]} ({tier.price || 'Price TBD'})
-                        </h2>
-                        <p className="text-gray-600">{tier.target || 'Target audience not set'}</p>
-                      </>
-                    )}
-                  </div>
-                  {tier.priceNote && !isEditing && (
-                    <span className="px-3 py-1 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full">
-                      {tier.priceNote}
-                    </span>
-                  )}
-                  {editMode && !isEditing && (
-                    <button
-                      onClick={() => startEditing(tier)}
-                      className="px-4 py-2 bg-[#C9A961] text-white rounded-lg hover:bg-[#1B4332] transition-colors"
-                    >
-                      Edit
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* What's IN */}
-                <div className="p-6 border-r border-gray-200">
-                  <h3 className="text-lg font-bold text-green-700 mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm">+</span>
-                    What's IN
-                  </h3>
-                  <div className="space-y-3">
-                    {displayTier.featuresIn.map((feat, idx) => (
-                      <div key={idx} className="border-b border-gray-100 pb-3">
-                        {isEditing ? (
-                          <div className="space-y-2">
-                            <div className="flex gap-2 items-start">
-                              <input
-                                type="text"
-                                value={feat.category}
-                                onChange={(e) => updateFeatureIn(idx, 'category', e.target.value)}
-                                className="w-32 px-2 py-1 border rounded text-sm"
-                                placeholder="Category"
-                              />
-                              <input
-                                type="text"
-                                value={feat.feature}
-                                onChange={(e) => updateFeatureIn(idx, 'feature', e.target.value)}
-                                className="flex-1 px-2 py-1 border rounded text-sm"
-                                placeholder="Feature"
-                              />
-                              <input
-                                type="text"
-                                value={feat.note || ''}
-                                onChange={(e) => updateFeatureIn(idx, 'note', e.target.value)}
-                                className="w-20 px-2 py-1 border rounded text-sm"
-                                placeholder="Note"
-                              />
-                              <button
-                                onClick={() => removeFeatureIn(idx)}
-                                className="text-red-500 hover:text-red-700 px-2"
-                              >
-                                ×
-                              </button>
-                            </div>
-                            <textarea
-                              value={feat.comment || ''}
-                              onChange={(e) => updateFeatureIn(idx, 'comment', e.target.value)}
-                              className="w-full px-2 py-1 border rounded text-sm"
-                              placeholder="Add comments..."
-                              rows={2}
-                            />
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex">
-                              <span className="w-32 font-medium text-gray-700">{feat.category}</span>
-                              <span className="flex-1 text-gray-600">
-                                {feat.feature}
-                                {feat.note && <span className="text-gray-400 ml-1">({feat.note})</span>}
-                              </span>
-                            </div>
-                            {feat.comment && (
-                              <div className="mt-1 ml-32 text-sm text-gray-500 bg-gray-50 px-2 py-1 rounded">
-                                <span className="font-medium">Comments:</span> {feat.comment}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {isEditing && (
-                    <button
-                      onClick={addFeatureIn}
-                      className="mt-2 text-sm text-green-600 hover:text-green-800"
-                    >
-                      + Add Feature
-                    </button>
-                  )}
-                </div>
-
-                {/* What's OUT */}
-                <div className="p-6 bg-red-50/30">
-                  <h3 className="text-lg font-bold text-red-700 mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-sm">-</span>
-                    What's OUT
-                  </h3>
-                  <div className="space-y-3">
-                    {displayTier.featuresOut.map((feat, idx) => (
-                      <div key={idx} className="border-b border-gray-100 pb-3">
-                        {isEditing ? (
-                          <div className="space-y-2">
-                            <div className="flex gap-2 items-start">
-                              <input
-                                type="text"
-                                value={feat.category}
-                                onChange={(e) => updateFeatureOut(idx, 'category', e.target.value)}
-                                className="w-32 px-2 py-1 border rounded text-sm"
-                                placeholder="Category"
-                              />
-                              <input
-                                type="text"
-                                value={feat.feature}
-                                onChange={(e) => updateFeatureOut(idx, 'feature', e.target.value)}
-                                className="flex-1 px-2 py-1 border rounded text-sm"
-                                placeholder="Feature"
-                              />
-                              <input
-                                type="text"
-                                value={feat.upgradePath || ''}
-                                onChange={(e) => updateFeatureOut(idx, 'upgradePath', e.target.value)}
-                                className="w-24 px-2 py-1 border rounded text-sm"
-                                placeholder="Upgrade"
-                              />
-                              <button
-                                onClick={() => removeFeatureOut(idx)}
-                                className="text-red-500 hover:text-red-700 px-2"
-                              >
-                                ×
-                              </button>
-                            </div>
-                            <textarea
-                              value={feat.comment || ''}
-                              onChange={(e) => updateFeatureOut(idx, 'comment', e.target.value)}
-                              className="w-full px-2 py-1 border rounded text-sm"
-                              placeholder="Add comments..."
-                              rows={2}
-                            />
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex">
-                              <span className="w-32 font-medium text-gray-700">{feat.category}</span>
-                              <span className="flex-1 text-gray-600">{feat.feature}</span>
-                              {feat.upgradePath && (
-                                <span className={`text-xs ${feat.upgradePath === 'Enterprise' ? 'text-purple-600' : 'text-blue-600'}`}>
-                                  {feat.upgradePath}
-                                </span>
-                              )}
-                            </div>
-                            {feat.comment && (
-                              <div className="mt-1 ml-32 text-sm text-gray-500 bg-gray-50 px-2 py-1 rounded">
-                                <span className="font-medium">Comments:</span> {feat.comment}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {isEditing && (
-                    <button
-                      onClick={addFeatureOut}
-                      className="mt-2 text-sm text-red-600 hover:text-red-800"
-                    >
-                      + Add Feature
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {/* Restrictions */}
-              <div className="px-6 py-3 bg-amber-50 border-t text-sm text-amber-800">
-                {isEditing ? (
-                  <div className="space-y-2">
-                    <div>
-                      <label className="font-semibold">Restrictions:</label>
-                      <input
-                        type="text"
-                        value={editForm?.restrictions || ''}
-                        onChange={(e) => setEditForm({ ...editForm!, restrictions: e.target.value })}
-                        className="w-full px-3 py-1 border rounded mt-1"
-                        placeholder="Key restrictions or limitations"
-                      />
-                    </div>
-                    <div>
-                      <label className="font-semibold">Key Differentiator:</label>
-                      <input
-                        type="text"
-                        value={editForm?.keyDifferentiator || ''}
-                        onChange={(e) => setEditForm({ ...editForm!, keyDifferentiator: e.target.value })}
-                        className="w-full px-3 py-1 border rounded mt-1"
-                        placeholder="What makes this tier unique"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    {tier.restrictions && (
-                      <p><strong>Restrictions:</strong> {tier.restrictions}</p>
-                    )}
-                    {tier.keyDifferentiator && (
-                      <p className="mt-1"><strong>Key Differentiator:</strong> {tier.keyDifferentiator}</p>
-                    )}
-                  </>
-                )}
-              </div>
-
-              {/* Edit Actions */}
-              {isEditing && (
-                <div className="px-6 py-4 bg-gray-50 border-t flex gap-3">
-                  <button
-                    onClick={saveTier}
-                    disabled={saving}
-                    className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
-                  >
-                    {saving ? 'Saving...' : 'Save Changes'}
-                  </button>
-                  <button
-                    onClick={cancelEditing}
-                    className="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              )}
-            </div>
-          );
-        })}
-
-        {/* Comparison Matrix */}
-        <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
-          <div className="px-6 py-4 border-b bg-gray-50">
-            <h2 className="text-2xl font-bold text-[#1B4332]">Comparison Matrix</h2>
-            <p className="text-sm text-gray-500">Auto-generated from tier features above</p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Feature</th>
-                  {tiers.map((tier) => (
-                    <th key={tier.id} className={`px-4 py-3 text-center font-semibold ${tierColors[tier.tierName]?.text || 'text-gray-700'}`}>
-                      {tierDisplayNames[tier.tierName]}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {/* Generate rows from all unique features */}
-                {(() => {
-                  const allFeatures = new Set<string>();
-                  tiers.forEach((tier) => {
-                    tier.featuresIn.forEach((f) => allFeatures.add(f.feature));
-                    tier.featuresOut.forEach((f) => allFeatures.add(f.feature));
-                  });
-
-                  return Array.from(allFeatures).slice(0, 20).map((feature, idx) => (
-                    <tr key={idx} className="border-b">
-                      <td className="px-4 py-2 text-gray-700">{feature}</td>
-                      {tiers.map((tier) => {
-                        const inFeature = tier.featuresIn.find((f) => f.feature === feature);
-                        const outFeature = tier.featuresOut.find((f) => f.feature === feature);
-                        return (
-                          <td key={tier.id} className="px-4 py-2 text-center">
-                            {inFeature ? (
-                              <span className="text-green-600">
-                                {inFeature.note || 'Yes'}
-                              </span>
-                            ) : outFeature ? (
-                              <span className="text-gray-400">No</span>
-                            ) : (
-                              <span className="text-gray-300">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ));
-                })()}
-                {/* Price row */}
-                <tr className="border-t-2 font-semibold">
-                  <td className="px-4 py-2 text-gray-700">Price/year</td>
-                  {tiers.map((tier) => (
-                    <td key={tier.id} className="px-4 py-2 text-center">
-                      {tier.price || 'TBD'}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
+          <div className="text-sm text-gray-500">
+            Tip: Drag features from the pool to a tier column, or click the tier buttons
           </div>
         </div>
 
+        <div className="grid grid-cols-4 gap-6">
+          {/* Unassigned Features Pool */}
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-gray-700 px-4 py-3">
+              <h2 className="text-lg font-bold text-white">Unassigned Features</h2>
+              <p className="text-gray-300 text-sm">{getUnassignedFeatures().length} features</p>
+            </div>
+            <div className="p-4 max-h-[calc(100vh-320px)] overflow-y-auto">
+              <div className="space-y-2">
+                {getUnassignedFeatures().map(feature => (
+                  <div
+                    key={feature.id}
+                    draggable
+                    onDragStart={() => handleDragStart(feature.id)}
+                    onDragEnd={handleDragEnd}
+                    className={`p-3 rounded-lg border-2 border-gray-200 bg-white cursor-move hover:shadow-md transition-all ${
+                      draggedFeature === feature.id ? 'opacity-50 scale-95' : ''
+                    } ${feature.available === 'future' ? 'border-dashed border-amber-300 bg-amber-50' : ''}`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-gray-900 text-sm">{feature.feature}</div>
+                        <div className="text-xs text-gray-500 mt-0.5">{feature.category}</div>
+                        {feature.description && (
+                          <div className="text-xs text-gray-400 mt-1 line-clamp-2">{feature.description}</div>
+                        )}
+                        {feature.available === 'future' && (
+                          <span className="inline-block mt-1 px-1.5 py-0.5 bg-amber-200 text-amber-800 text-xs rounded">
+                            Future
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex gap-1 mt-2">
+                      <button
+                        onClick={() => assignToTier(feature.id, 'free')}
+                        className="flex-1 px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded transition-colors"
+                      >
+                        Free
+                      </button>
+                      <button
+                        onClick={() => assignToTier(feature.id, 'pro')}
+                        className="flex-1 px-2 py-1 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors"
+                      >
+                        Pro
+                      </button>
+                      <button
+                        onClick={() => assignToTier(feature.id, 'enterprise')}
+                        className="flex-1 px-2 py-1 text-xs bg-purple-100 hover:bg-purple-200 text-purple-700 rounded transition-colors"
+                      >
+                        Ent
+                      </button>
+                    </div>
+                  </div>
+                ))}
+                {getUnassignedFeatures().length === 0 && (
+                  <div className="text-center py-8 text-gray-400">
+                    All features have been assigned!
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Tier Columns */}
+          {(['free', 'pro', 'enterprise'] as const).map(tier => {
+            const config = tierConfig[tier];
+            const features = getFeaturesForTier(tier);
+            const isDropTarget = dragOverTier === tier;
+
+            return (
+              <div
+                key={tier}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                onDragOver={(e) => handleDragOver(e, tier)}
+                onDragLeave={handleDragLeave}
+                onDrop={(e) => handleDrop(e, tier)}
+              >
+                <div className={`${config.headerBg} px-4 py-3`}>
+                  <h2 className="text-lg font-bold text-white">{config.name}</h2>
+                  <p className="text-white/70 text-sm">{features.length} features</p>
+                </div>
+                <div
+                  className={`p-4 max-h-[calc(100vh-320px)] overflow-y-auto border-4 transition-colors ${
+                    isDropTarget ? config.dropZoneActive + ' border-dashed' : 'border-transparent'
+                  }`}
+                >
+                  {isDropTarget && draggedFeature && (
+                    <div className="mb-2 p-3 rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-center text-gray-500 text-sm">
+                      Drop here to add to {config.name}
+                    </div>
+                  )}
+                  <div className="space-y-2">
+                    {features.map(feature => (
+                      <div
+                        key={feature.id}
+                        draggable
+                        onDragStart={() => handleDragStart(feature.id)}
+                        onDragEnd={handleDragEnd}
+                        className={`p-3 rounded-lg border ${config.color} cursor-move hover:shadow-md transition-all ${
+                          draggedFeature === feature.id ? 'opacity-50 scale-95' : ''
+                        } ${feature.available === 'future' ? 'border-dashed' : ''}`}
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-gray-900 text-sm">{feature.feature}</div>
+                            <div className="text-xs text-gray-500">{feature.category}</div>
+                            {feature.available === 'future' && (
+                              <span className="inline-block mt-1 px-1.5 py-0.5 bg-amber-200 text-amber-800 text-xs rounded">
+                                Future
+                              </span>
+                            )}
+                          </div>
+                          <button
+                            onClick={() => removeFromTier(feature.id)}
+                            className="text-gray-400 hover:text-red-500 transition-colors"
+                            title="Remove from tier"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                    {features.length === 0 && !isDropTarget && (
+                      <div className="text-center py-8 text-gray-400 border-2 border-dashed border-gray-200 rounded-lg">
+                        Drag features here
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Legend */}
+        <div className="mt-6 bg-white rounded-lg shadow p-4">
+          <h3 className="font-semibold text-gray-700 mb-2">Legend</h3>
+          <div className="flex gap-6 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-gray-200 border border-gray-300"></div>
+              <span>FREE tier</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-blue-200 border border-blue-300"></div>
+              <span>PRO tier</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-purple-200 border border-purple-300"></div>
+              <span>ENTERPRISE tier</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded border-2 border-dashed border-amber-300 bg-amber-50"></div>
+              <span>Future feature</span>
+            </div>
+          </div>
+          <p className="text-gray-500 text-sm mt-2">
+            Note: Features in higher tiers automatically include all features from lower tiers (Enterprise includes Pro + Free, Pro includes Free)
+          </p>
+        </div>
+
         {/* Actions */}
-        <div className="flex gap-4">
+        <div className="mt-6 flex gap-4">
           <Link
             href="/management/action/unified-utopia"
             className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300"
           >
             Back to Unified Utopia
           </Link>
-          <Link
-            href="/management/action/unified-utopia/lithodata"
-            className="px-6 py-3 bg-[#C9A961] text-white rounded-lg font-semibold hover:bg-[#1B4332]"
+          <button
+            onClick={saveAssignments}
+            disabled={saving}
+            className="px-6 py-3 bg-[#C9A961] text-white rounded-lg font-semibold hover:bg-[#1B4332] disabled:opacity-50"
           >
-            View LithoData Summary
-          </Link>
+            {saving ? 'Saving...' : 'Save All Changes'}
+          </button>
         </div>
       </div>
     </div>
