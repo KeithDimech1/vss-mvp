@@ -1,0 +1,18 @@
+id,feature,category,Description,Available,Total_Records,AFR,ANT,ARA,ASI,CAS,EUR,NAM,OCE,SAM,Unclassified
+,Ar-Ar Data (Argon-Argon),Geochronology,Argon-argon dating data including datapoints and irradiation info,current,874,23,435,0,10,2,286,0,0,0,118
+,Fission Track Data,Thermochronology,Fission track dating for thermal history analysis,current,67870,5521,758,1670,12405,2228,11937,11752,11394,9837,368
+,Geochemistry Data,Geochemistry,Major and trace element geochemistry datasets,current,292612,1354,1019,68960,773,1731,205,73131,141614,319,3506
+,Helium Data (U-Th/He),Thermochronology,Uranium-thorium-helium thermochronology data,current,15208,1278,122,270,4645,550,639,3599,554,3356,195
+,Isotope Data,Geochemistry,Stable and radiogenic isotope datasets,current,32656,10,0,0,0,0,0,32546,0,0,100
+,Thorium Data,Geochronology,Thorium dating and decay data,current,6581,64,2,12,32,18,26,130,248,734,5315
+,U-Pb Data (Uranium-Lead),Geochronology,Uranium-lead dating including SHRIMP data,current,20067,297,27,8,852,34,100,11068,7384,241,55
+,Vitrinite Reflectance,Thermochronology,Vitrinite reflectance for thermal maturity,current,22192,1,0,0,0,0,502,21245,444,0,0
+,Deposit Info,Metadata,Deposit and sample location information,current,8392,0,0,0,0,0,0,0,0,0,8392
+,Age Data,Metadata,General age determination records,current,1,1,0,0,0,0,0,0,0,0,0
+,Lu-Hf Data (Lutetium-Hafnium),Geochronology,Lutetium-hafnium isotope dating,future,0,0,0,0,0,0,0,0,0,0,0
+,Rb-Sr Data (Rubidium-Strontium),Geochronology,Rubidium-strontium isotope dating,future,0,0,0,0,0,0,0,0,0,0,0
+,Borehole Data,Subsurface,Borehole and drilling datasets,future,0,0,0,0,0,0,0,0,0,0,0
+,Structural Data,Structural,Structural geology measurements and data,future,0,0,0,0,0,0,0,0,0,0,0
+,Oxygen Isotope Data,Geochemistry,Oxygen isotope datasets,future,0,0,0,0,0,0,0,0,0,0,0
+,Heavy Mineral Data,Mineralogy,Heavy mineral analysis datasets,future,0,0,0,0,0,0,0,0,0,0,0
+,Mineralogical Data,Mineralogy,Mineralogical composition datasets,future,0,0,0,0,0,0,0,0,0,0,0

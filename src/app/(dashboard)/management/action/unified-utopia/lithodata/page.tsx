@@ -4,64 +4,59 @@ import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-interface Feature {
-  category: string;
-  feature: string;
-  note?: string;
-  upgradePath?: string;
-  comment?: string;
-}
-
-interface TierConfig {
+interface Package {
   id: string;
-  productType: string;
-  tierName: string;
-  price: string | null;
-  priceNote: string | null;
-  target: string | null;
-  source: string | null;
-  featuresIn: Feature[];
-  featuresOut: Feature[];
-  restrictions: string | null;
-  keyDifferentiator: string | null;
+  packageId: string;
+  category: string;
+  region: string;
+  regionCode: string;
+  records: number;
+  priceAnnual: number | null;
+  priceOneTime: number | null;
+  priceNotes: string | null;
+  isAvailable: boolean;
+  isFree: boolean;
   lastEditedAt: string;
 }
 
-const tierOrder = ['free', 'premium', 'marketplace'];
-const tierColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
-  free: { bg: 'bg-green-50', border: 'border-green-100', text: 'text-green-700', badge: 'bg-green-500' },
-  premium: { bg: 'bg-yellow-50', border: 'border-yellow-100', text: 'text-yellow-700', badge: 'bg-yellow-500' },
-  marketplace: { bg: 'bg-indigo-50', border: 'border-indigo-100', text: 'text-indigo-700', badge: 'bg-indigo-500' },
+const categoryColors: Record<string, { bg: string; border: string; text: string; headerBg: string }> = {
+  Thermochronology: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', headerBg: 'bg-blue-600' },
+  Geochronology: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', headerBg: 'bg-purple-600' },
+  Geochemistry: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', headerBg: 'bg-emerald-600' },
 };
 
-const tierDisplayNames: Record<string, string> = {
-  free: 'FREE / PUBLIC',
-  premium: 'PREMIUM / SUBSCRIPTION',
-  marketplace: 'MARKETPLACE',
+const regionOrder = ['GLOBAL', 'AFR', 'ANT', 'ARA', 'ASI', 'CAS', 'EUR', 'NAM', 'OCE', 'SAM'];
+
+const regionNames: Record<string, string> = {
+  GLOBAL: 'Global',
+  AFR: 'Africa',
+  ANT: 'Antarctica',
+  ARA: 'Arabia',
+  ASI: 'Asia',
+  CAS: 'Central Asia',
+  EUR: 'Europe',
+  NAM: 'North America',
+  OCE: 'Oceania',
+  SAM: 'South America',
 };
 
-export default function LithoDataSummaryPage() {
+export default function LithoDataPricingPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [tiers, setTiers] = useState<TierConfig[]>([]);
-  const [editMode, setEditMode] = useState(false);
-  const [editingTier, setEditingTier] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState<TierConfig | null>(null);
+  const [lastSaved, setLastSaved] = useState<Date | null>(null);
+  const [packages, setPackages] = useState<Package[]>([]);
+  const [editedPackages, setEditedPackages] = useState<Record<string, Partial<Package>>>({});
 
-  const fetchTiers = useCallback(async () => {
+  const fetchPackages = useCallback(async () => {
     try {
-      const res = await fetch('/api/product-tiers?productType=lithodata');
+      const res = await fetch('/api/lithodata-packages');
       if (res.ok) {
         const data = await res.json();
-        // Sort tiers by tierOrder
-        data.sort((a: TierConfig, b: TierConfig) =>
-          tierOrder.indexOf(a.tierName) - tierOrder.indexOf(b.tierName)
-        );
-        setTiers(data);
+        setPackages(data);
       }
     } catch (error) {
-      console.error('Error fetching tiers:', error);
+      console.error('Error fetching packages:', error);
     }
   }, []);
 
@@ -78,88 +73,95 @@ export default function LithoDataSummaryPage() {
           router.push('/dashboard');
           return;
         }
-        await fetchTiers();
+        await fetchPackages();
         setLoading(false);
       } catch (error) {
         router.push('/login');
       }
     };
     checkAccess();
-  }, [router, fetchTiers]);
+  }, [router, fetchPackages]);
 
-  const startEditing = (tier: TierConfig) => {
-    setEditingTier(tier.id);
-    setEditForm({ ...tier });
+  const getPackageValue = (pkg: Package, field: keyof Package) => {
+    if (editedPackages[pkg.packageId] && editedPackages[pkg.packageId][field] !== undefined) {
+      return editedPackages[pkg.packageId][field];
+    }
+    return pkg[field];
   };
 
-  const cancelEditing = () => {
-    setEditingTier(null);
-    setEditForm(null);
+  const updatePackage = (packageId: string, field: keyof Package, value: string | number | boolean | null) => {
+    setEditedPackages(prev => ({
+      ...prev,
+      [packageId]: {
+        ...prev[packageId],
+        [field]: value,
+      },
+    }));
   };
 
-  const saveTier = async () => {
-    if (!editForm) return;
+  const saveAll = async () => {
     setSaving(true);
     try {
-      const res = await fetch('/api/product-tiers', {
-        method: 'POST',
+      const packagesToUpdate = Object.entries(editedPackages).map(([packageId, changes]) => ({
+        packageId,
+        ...changes,
+      }));
+
+      if (packagesToUpdate.length === 0) {
+        setSaving(false);
+        return;
+      }
+
+      const res = await fetch('/api/lithodata-packages', {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editForm),
+        body: JSON.stringify({ packages: packagesToUpdate }),
       });
+
       if (res.ok) {
-        await fetchTiers();
-        setEditingTier(null);
-        setEditForm(null);
+        setLastSaved(new Date());
+        setEditedPackages({});
+        await fetchPackages();
       } else {
         alert('Failed to save changes');
       }
     } catch (error) {
-      console.error('Error saving tier:', error);
-      alert('Failed to save changes');
+      console.error('Error saving:', error);
+      alert('Failed to save');
     }
     setSaving(false);
   };
 
-  const updateFeatureIn = (index: number, field: keyof Feature, value: string) => {
-    if (!editForm) return;
-    const newFeatures = [...editForm.featuresIn];
-    newFeatures[index] = { ...newFeatures[index], [field]: value || undefined };
-    setEditForm({ ...editForm, featuresIn: newFeatures });
+  const hasChanges = Object.keys(editedPackages).length > 0;
+
+  // Group packages by category
+  const packagesByCategory = packages.reduce((acc, pkg) => {
+    if (!acc[pkg.category]) {
+      acc[pkg.category] = [];
+    }
+    acc[pkg.category].push(pkg);
+    return acc;
+  }, {} as Record<string, Package[]>);
+
+  // Sort packages within each category by region order
+  Object.keys(packagesByCategory).forEach(category => {
+    packagesByCategory[category].sort((a, b) =>
+      regionOrder.indexOf(a.regionCode) - regionOrder.indexOf(b.regionCode)
+    );
+  });
+
+  // Calculate totals
+  const getTotalRecords = (category: string) => {
+    return packagesByCategory[category]?.find(p => p.regionCode === 'GLOBAL')?.records || 0;
   };
 
-  const updateFeatureOut = (index: number, field: keyof Feature, value: string) => {
-    if (!editForm) return;
-    const newFeatures = [...editForm.featuresOut];
-    newFeatures[index] = { ...newFeatures[index], [field]: value || undefined };
-    setEditForm({ ...editForm, featuresOut: newFeatures });
+  const formatNumber = (num: number) => {
+    return num.toLocaleString();
   };
 
-  const addFeatureIn = () => {
-    if (!editForm) return;
-    setEditForm({
-      ...editForm,
-      featuresIn: [...editForm.featuresIn, { category: '', feature: '' }],
-    });
-  };
-
-  const addFeatureOut = () => {
-    if (!editForm) return;
-    setEditForm({
-      ...editForm,
-      featuresOut: [...editForm.featuresOut, { category: '', feature: '', upgradePath: '' }],
-    });
-  };
-
-  const removeFeatureIn = (index: number) => {
-    if (!editForm) return;
-    const newFeatures = editForm.featuresIn.filter((_, i) => i !== index);
-    setEditForm({ ...editForm, featuresIn: newFeatures });
-  };
-
-  const removeFeatureOut = (index: number) => {
-    if (!editForm) return;
-    const newFeatures = editForm.featuresOut.filter((_, i) => i !== index);
-    setEditForm({ ...editForm, featuresOut: newFeatures });
+  const formatPrice = (price: number | null) => {
+    if (price === null || price === undefined) return '';
+    return `$${price.toLocaleString()}`;
   };
 
   if (loading) {
@@ -174,36 +176,44 @@ export default function LithoDataSummaryPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#1B4332] via-[#1B4332] to-[#C9A961] text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-[1600px] mx-auto px-6 py-6">
           <div className="flex items-center gap-2 text-sm text-[#F5E6D3] mb-2">
             <Link href="/management" className="hover:text-white">Management</Link>
             <span>/</span>
             <Link href="/management/action/unified-utopia" className="hover:text-white">Unified Utopia</Link>
             <span>/</span>
-            <span>LithoData</span>
+            <span>LithoData Pricing</span>
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold">LithoData: What's In & What's Out</h1>
-              <p className="text-[#F5E6D3] mt-2">Three-Type Data Strategy Summary</p>
+              <h1 className="text-3xl font-bold">LithoData: Regional Pricing</h1>
+              <p className="text-[#F5E6D3] mt-1">Set prices for data packages by category and region</p>
             </div>
-            <button
-              onClick={() => setEditMode(!editMode)}
-              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
-                editMode
-                  ? 'bg-white text-[#1B4332] hover:bg-gray-100'
-                  : 'bg-white/20 text-white hover:bg-white/30'
-              }`}
-            >
-              {editMode ? 'Exit Edit Mode' : 'Enable Editing'}
-            </button>
+            <div className="flex items-center gap-4">
+              {lastSaved && (
+                <div className="text-sm text-green-200">
+                  Saved {lastSaved.toLocaleTimeString()}
+                </div>
+              )}
+              <button
+                onClick={saveAll}
+                disabled={saving || !hasChanges}
+                className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+                  hasChanges
+                    ? 'bg-white text-[#1B4332] hover:bg-gray-100'
+                    : 'bg-white/30 text-white/70 cursor-not-allowed'
+                }`}
+              >
+                {saving ? 'Saving...' : hasChanges ? 'Save Changes' : 'No Changes'}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-[1600px] mx-auto px-6 py-6">
         {/* Navigation */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex gap-4 mb-6">
           <Link
             href="/management/action/unified-utopia/lithosurfer"
             className="px-4 py-2 bg-white text-[#1B4332] rounded-lg font-semibold border border-gray-200 hover:bg-gray-50"
@@ -218,386 +228,159 @@ export default function LithoDataSummaryPage() {
           </Link>
         </div>
 
-        {editMode && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-            <p className="text-amber-800 text-sm">
-              <strong>Edit Mode Active:</strong> Click on any tier card to edit its details. Changes are saved when you click "Save Changes".
-            </p>
-          </div>
-        )}
+        {/* Summary Cards */}
+        <div className="grid grid-cols-3 gap-4 mb-6">
+          {['Thermochronology', 'Geochronology', 'Geochemistry'].map(category => {
+            const colors = categoryColors[category];
+            const totalRecords = getTotalRecords(category);
+            const globalPkg = packagesByCategory[category]?.find(p => p.regionCode === 'GLOBAL');
+            const annualPrice = globalPkg ? getPackageValue(globalPkg, 'priceAnnual') : null;
 
-        {/* Tier Cards */}
-        {tiers.map((tier) => {
-          const colors = tierColors[tier.tierName] || tierColors.free;
-          const isEditing = editingTier === tier.id;
-          const displayTier = isEditing && editForm ? editForm : tier;
+            return (
+              <div key={category} className={`${colors.bg} ${colors.border} border rounded-xl p-4`}>
+                <div className={`text-sm font-semibold ${colors.text} uppercase tracking-wide`}>{category}</div>
+                <div className="text-2xl font-bold text-gray-900 mt-1">{formatNumber(totalRecords)} records</div>
+                <div className="text-sm text-gray-500 mt-1">
+                  Global: {annualPrice ? formatPrice(annualPrice as number) + '/yr' : 'Price not set'}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Pricing Tables */}
+        {['Thermochronology', 'Geochronology', 'Geochemistry'].map(category => {
+          const colors = categoryColors[category];
+          const categoryPackages = packagesByCategory[category] || [];
 
           return (
-            <div key={tier.id} className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
-              {/* Tier Header */}
-              <div className={`${colors.bg} px-6 py-4 border-b ${colors.border}`}>
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    {isEditing ? (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-4">
-                          <span className="text-2xl font-bold text-[#1B4332]">{tierDisplayNames[tier.tierName]}</span>
-                          <input
-                            type="text"
-                            value={editForm?.price || ''}
-                            onChange={(e) => setEditForm({ ...editForm!, price: e.target.value })}
-                            className="px-3 py-1 border rounded text-lg font-bold"
-                            placeholder="Price (e.g., $0, 30% Commission)"
-                          />
-                        </div>
-                        <input
-                          type="text"
-                          value={editForm?.source || ''}
-                          onChange={(e) => setEditForm({ ...editForm!, source: e.target.value })}
-                          className="w-full px-3 py-1 border rounded text-sm"
-                          placeholder="Data source description"
-                        />
-                        <input
-                          type="text"
-                          value={editForm?.priceNote || ''}
-                          onChange={(e) => setEditForm({ ...editForm!, priceNote: e.target.value })}
-                          className="w-full px-3 py-1 border rounded text-sm"
-                          placeholder="Price note (optional)"
-                        />
-                      </div>
-                    ) : (
-                      <>
-                        <h2 className="text-2xl font-bold text-[#1B4332]">
-                          {tierDisplayNames[tier.tierName]} ({tier.price || 'Price TBD'})
-                        </h2>
-                        <p className="text-gray-600">Source: {tier.source || 'Data source not set'}</p>
-                      </>
-                    )}
-                  </div>
-                  {tier.priceNote && !isEditing && (
-                    <span className="px-3 py-1 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full">
-                      {tier.priceNote}
-                    </span>
-                  )}
-                  {editMode && !isEditing && (
-                    <button
-                      onClick={() => startEditing(tier)}
-                      className="px-4 py-2 bg-[#1B4332] text-white rounded-lg hover:bg-[#C9A961] transition-colors"
-                    >
-                      Edit
-                    </button>
-                  )}
-                </div>
+            <div key={category} className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+              {/* Category Header */}
+              <div className={`${colors.headerBg} px-6 py-4`}>
+                <h2 className="text-xl font-bold text-white">{category}</h2>
+                <p className="text-white/80 text-sm">
+                  {formatNumber(getTotalRecords(category))} total records across all regions
+                </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* What's IN */}
-                <div className="p-6 border-r border-gray-200">
-                  <h3 className="text-lg font-bold text-green-700 mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm">+</span>
-                    What's IN
-                  </h3>
-                  <div className="space-y-3">
-                    {displayTier.featuresIn.map((feat, idx) => (
-                      <div key={idx} className="border-b border-gray-100 pb-3">
-                        {isEditing ? (
-                          <div className="space-y-2">
-                            <div className="flex gap-2 items-start">
-                              <input
-                                type="text"
-                                value={feat.category}
-                                onChange={(e) => updateFeatureIn(idx, 'category', e.target.value)}
-                                className="w-32 px-2 py-1 border rounded text-sm"
-                                placeholder="Category"
-                              />
-                              <input
-                                type="text"
-                                value={feat.feature}
-                                onChange={(e) => updateFeatureIn(idx, 'feature', e.target.value)}
-                                className="flex-1 px-2 py-1 border rounded text-sm"
-                                placeholder="Feature"
-                              />
-                              <input
-                                type="text"
-                                value={feat.note || ''}
-                                onChange={(e) => updateFeatureIn(idx, 'note', e.target.value)}
-                                className="w-20 px-2 py-1 border rounded text-sm"
-                                placeholder="Note"
-                              />
-                              <button
-                                onClick={() => removeFeatureIn(idx)}
-                                className="text-red-500 hover:text-red-700 px-2"
-                              >
-                                ×
-                              </button>
-                            </div>
-                            <textarea
-                              value={feat.comment || ''}
-                              onChange={(e) => updateFeatureIn(idx, 'comment', e.target.value)}
-                              className="w-full px-2 py-1 border rounded text-sm"
-                              placeholder="Add comments..."
-                              rows={2}
-                            />
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex">
-                              <span className="w-32 font-medium text-gray-700">{feat.category}</span>
-                              <span className="flex-1 text-gray-600">
-                                {feat.feature}
-                                {feat.note && <span className="text-gray-400 ml-1">({feat.note})</span>}
-                              </span>
-                            </div>
-                            {feat.comment && (
-                              <div className="mt-1 ml-32 text-sm text-gray-500 bg-gray-50 px-2 py-1 rounded">
-                                <span className="font-medium">Comments:</span> {feat.comment}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {isEditing && (
-                    <button
-                      onClick={addFeatureIn}
-                      className="mt-2 text-sm text-green-600 hover:text-green-800"
-                    >
-                      + Add Feature
-                    </button>
-                  )}
-                </div>
+              {/* Pricing Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Region</th>
+                      <th className="text-right px-4 py-3 font-medium text-gray-600 text-sm w-[100px]">Records</th>
+                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Annual Price</th>
+                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">One-Time Price</th>
+                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[80px]">Free?</th>
+                      <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm">Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {categoryPackages.map((pkg) => {
+                      const isGlobal = pkg.regionCode === 'GLOBAL';
+                      const isFree = getPackageValue(pkg, 'isFree') as boolean;
 
-                {/* What's OUT */}
-                <div className="p-6 bg-red-50/30">
-                  <h3 className="text-lg font-bold text-red-700 mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-sm">-</span>
-                    What's OUT
-                  </h3>
-                  <div className="space-y-3">
-                    {displayTier.featuresOut.map((feat, idx) => (
-                      <div key={idx} className="border-b border-gray-100 pb-3">
-                        {isEditing ? (
-                          <div className="space-y-2">
-                            <div className="flex gap-2 items-start">
-                              <input
-                                type="text"
-                                value={feat.category}
-                                onChange={(e) => updateFeatureOut(idx, 'category', e.target.value)}
-                                className="w-32 px-2 py-1 border rounded text-sm"
-                                placeholder="Category"
-                              />
-                              <input
-                                type="text"
-                                value={feat.feature}
-                                onChange={(e) => updateFeatureOut(idx, 'feature', e.target.value)}
-                                className="flex-1 px-2 py-1 border rounded text-sm"
-                                placeholder="Feature"
-                              />
-                              <input
-                                type="text"
-                                value={feat.upgradePath || ''}
-                                onChange={(e) => updateFeatureOut(idx, 'upgradePath', e.target.value)}
-                                className="w-24 px-2 py-1 border rounded text-sm"
-                                placeholder="Upgrade"
-                              />
-                              <button
-                                onClick={() => removeFeatureOut(idx)}
-                                className="text-red-500 hover:text-red-700 px-2"
-                              >
-                                ×
-                              </button>
+                      return (
+                        <tr
+                          key={pkg.packageId}
+                          className={`border-b border-gray-100 hover:bg-gray-50/50 ${isGlobal ? 'bg-amber-50/50' : ''}`}
+                        >
+                          <td className="px-4 py-2">
+                            <div className={`font-medium text-sm ${isGlobal ? 'text-amber-700' : 'text-gray-900'}`}>
+                              {isGlobal ? '🌍 ' : ''}{regionNames[pkg.regionCode]}
                             </div>
-                            <textarea
-                              value={feat.comment || ''}
-                              onChange={(e) => updateFeatureOut(idx, 'comment', e.target.value)}
-                              className="w-full px-2 py-1 border rounded text-sm"
-                              placeholder="Add comments..."
-                              rows={2}
-                            />
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex">
-                              <span className="w-32 font-medium text-gray-700">{feat.category}</span>
-                              <span className="flex-1 text-gray-600">{feat.feature}</span>
-                              {feat.upgradePath && (
-                                <span className={`text-xs ${feat.upgradePath === 'Marketplace' ? 'text-indigo-600' : 'text-yellow-600'}`}>
-                                  {feat.upgradePath}
-                                </span>
+                            <div className="text-xs text-gray-400">{pkg.regionCode}</div>
+                          </td>
+                          <td className="px-4 py-2 text-right">
+                            <span className="text-sm font-medium text-gray-700">{formatNumber(pkg.records)}</span>
+                          </td>
+                          <td className="px-4 py-2">
+                            <div className="flex items-center justify-center">
+                              <span className="text-gray-400 mr-1">$</span>
+                              <input
+                                type="number"
+                                value={(getPackageValue(pkg, 'priceAnnual') as number) || ''}
+                                onChange={(e) => updatePackage(pkg.packageId, 'priceAnnual', e.target.value ? parseFloat(e.target.value) : null)}
+                                placeholder="0"
+                                disabled={isFree}
+                                className={`w-20 px-2 py-1 text-sm border rounded text-right ${
+                                  isFree ? 'bg-gray-100 text-gray-400' : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                                }`}
+                              />
+                              <span className="text-gray-400 ml-1 text-xs">/yr</span>
+                            </div>
+                          </td>
+                          <td className="px-4 py-2">
+                            <div className="flex items-center justify-center">
+                              <span className="text-gray-400 mr-1">$</span>
+                              <input
+                                type="number"
+                                value={(getPackageValue(pkg, 'priceOneTime') as number) || ''}
+                                onChange={(e) => updatePackage(pkg.packageId, 'priceOneTime', e.target.value ? parseFloat(e.target.value) : null)}
+                                placeholder="0"
+                                disabled={isFree}
+                                className={`w-20 px-2 py-1 text-sm border rounded text-right ${
+                                  isFree ? 'bg-gray-100 text-gray-400' : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                                }`}
+                              />
+                            </div>
+                          </td>
+                          <td className="px-4 py-2 text-center">
+                            <button
+                              onClick={() => updatePackage(pkg.packageId, 'isFree', !isFree)}
+                              className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all mx-auto ${
+                                isFree
+                                  ? 'bg-green-500 border-green-500 text-white'
+                                  : 'border-gray-300 hover:border-green-400'
+                              }`}
+                            >
+                              {isFree && (
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                </svg>
                               )}
-                            </div>
-                            {feat.comment && (
-                              <div className="mt-1 ml-32 text-sm text-gray-500 bg-gray-50 px-2 py-1 rounded">
-                                <span className="font-medium">Comments:</span> {feat.comment}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {isEditing && (
-                    <button
-                      onClick={addFeatureOut}
-                      className="mt-2 text-sm text-red-600 hover:text-red-800"
-                    >
-                      + Add Feature
-                    </button>
-                  )}
-                </div>
+                            </button>
+                          </td>
+                          <td className="px-4 py-2">
+                            <input
+                              type="text"
+                              value={(getPackageValue(pkg, 'priceNotes') as string) || ''}
+                              onChange={(e) => updatePackage(pkg.packageId, 'priceNotes', e.target.value || null)}
+                              placeholder="Add notes..."
+                              className="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
-
-              {/* Restrictions */}
-              <div className="px-6 py-3 bg-amber-50 border-t text-sm text-amber-800">
-                {isEditing ? (
-                  <div className="space-y-2">
-                    <div>
-                      <label className="font-semibold">Restrictions:</label>
-                      <input
-                        type="text"
-                        value={editForm?.restrictions || ''}
-                        onChange={(e) => setEditForm({ ...editForm!, restrictions: e.target.value })}
-                        className="w-full px-3 py-1 border rounded mt-1"
-                        placeholder="Key restrictions or limitations"
-                      />
-                    </div>
-                    <div>
-                      <label className="font-semibold">Key Differentiator:</label>
-                      <input
-                        type="text"
-                        value={editForm?.keyDifferentiator || ''}
-                        onChange={(e) => setEditForm({ ...editForm!, keyDifferentiator: e.target.value })}
-                        className="w-full px-3 py-1 border rounded mt-1"
-                        placeholder="What makes this tier unique"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    {tier.restrictions && (
-                      <p><strong>Restrictions:</strong> {tier.restrictions}</p>
-                    )}
-                    {tier.keyDifferentiator && (
-                      <p className="mt-1"><strong>Key Differentiator:</strong> {tier.keyDifferentiator}</p>
-                    )}
-                  </>
-                )}
-              </div>
-
-              {/* Edit Actions */}
-              {isEditing && (
-                <div className="px-6 py-4 bg-gray-50 border-t flex gap-3">
-                  <button
-                    onClick={saveTier}
-                    disabled={saving}
-                    className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
-                  >
-                    {saving ? 'Saving...' : 'Save Changes'}
-                  </button>
-                  <button
-                    onClick={cancelEditing}
-                    className="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              )}
             </div>
           );
         })}
 
-        {/* Comparison Matrix */}
-        <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
-          <div className="px-6 py-4 border-b bg-gray-50">
-            <h2 className="text-2xl font-bold text-[#1B4332]">Comparison Matrix</h2>
-            <p className="text-sm text-gray-500">Auto-generated from tier features above</p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-700">Feature</th>
-                  {tiers.map((tier) => (
-                    <th key={tier.id} className={`px-4 py-3 text-center font-semibold ${tierColors[tier.tierName]?.text || 'text-gray-700'}`}>
-                      {tierDisplayNames[tier.tierName]}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {/* Generate rows from all unique features */}
-                {(() => {
-                  const allFeatures = new Set<string>();
-                  tiers.forEach((tier) => {
-                    tier.featuresIn.forEach((f) => allFeatures.add(f.feature));
-                    tier.featuresOut.forEach((f) => allFeatures.add(f.feature));
-                  });
-
-                  return Array.from(allFeatures).slice(0, 15).map((feature, idx) => (
-                    <tr key={idx} className="border-b">
-                      <td className="px-4 py-2 text-gray-700">{feature}</td>
-                      {tiers.map((tier) => {
-                        const inFeature = tier.featuresIn.find((f) => f.feature === feature);
-                        const outFeature = tier.featuresOut.find((f) => f.feature === feature);
-                        return (
-                          <td key={tier.id} className="px-4 py-2 text-center">
-                            {inFeature ? (
-                              <span className="text-green-600">
-                                {inFeature.note || 'Yes'}
-                              </span>
-                            ) : outFeature ? (
-                              <span className="text-gray-400">No</span>
-                            ) : (
-                              <span className="text-gray-300">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ));
-                })()}
-                {/* Price row */}
-                <tr className="border-t-2 font-semibold">
-                  <td className="px-4 py-2 text-gray-700">Pricing</td>
-                  {tiers.map((tier) => (
-                    <td key={tier.id} className="px-4 py-2 text-center">
-                      {tier.price || 'TBD'}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Purchase Triggers */}
-        <div className="bg-white rounded-xl shadow-lg mb-8 overflow-hidden">
-          <div className="px-6 py-4 border-b bg-[#1B4332]/10">
-            <h2 className="text-2xl font-bold text-[#1B4332]">Purchase Triggers</h2>
-            <p className="text-gray-600 text-sm">When a user says this... they need this tier</p>
-          </div>
-          <div className="p-6">
-            <table className="w-full text-sm">
-              <tbody>
-                <tr className="border-b border-gray-100">
-                  <td className="py-3 text-gray-700">"I want clean, verified data"</td>
-                  <td className="py-3"><span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full font-semibold">Premium Subscription</span></td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="py-3 text-gray-700">"I want data for [specific region]"</td>
-                  <td className="py-3"><span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full font-semibold">Premium Subscription</span></td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className="py-3 text-gray-700">"I have data to sell"</td>
-                  <td className="py-3"><span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold">Marketplace Seller Account</span></td>
-                </tr>
-                <tr>
-                  <td className="py-3 text-gray-700">"I want to buy third-party data"</td>
-                  <td className="py-3"><span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold">Marketplace Purchase</span></td>
-                </tr>
-              </tbody>
-            </table>
+        {/* Pricing Strategy Notes */}
+        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+          <h3 className="text-lg font-bold text-gray-800 mb-4">Pricing Strategy Notes</h3>
+          <div className="grid grid-cols-2 gap-6 text-sm">
+            <div>
+              <h4 className="font-semibold text-gray-700 mb-2">Pricing Models</h4>
+              <ul className="space-y-1 text-gray-600">
+                <li><strong>Annual:</strong> Subscription access for 12 months</li>
+                <li><strong>One-Time:</strong> Perpetual access to current snapshot</li>
+                <li><strong>Free:</strong> Included in free tier (public data)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-700 mb-2">Considerations</h4>
+              <ul className="space-y-1 text-gray-600">
+                <li>Global packages include all regional data</li>
+                <li>Regional packages are subsets - price accordingly</li>
+                <li>Consider data density when pricing (records per region)</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -609,12 +392,17 @@ export default function LithoDataSummaryPage() {
           >
             Back to Unified Utopia
           </Link>
-          <Link
-            href="/management/action/unified-utopia/lithosurfer"
-            className="px-6 py-3 bg-[#C9A961] text-white rounded-lg font-semibold hover:bg-[#1B4332]"
+          <button
+            onClick={saveAll}
+            disabled={saving || !hasChanges}
+            className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+              hasChanges
+                ? 'bg-[#C9A961] text-white hover:bg-[#1B4332]'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            }`}
           >
-            View LithoSurfer Summary
-          </Link>
+            {saving ? 'Saving...' : 'Save All Changes'}
+          </button>
         </div>
       </div>
     </div>

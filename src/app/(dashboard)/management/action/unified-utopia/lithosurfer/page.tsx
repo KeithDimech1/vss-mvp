@@ -163,16 +163,22 @@ export default function LithoSurferPage() {
     });
   };
 
-  // Group features by category
-  const getFeaturesByCategory = (): Record<string, LithoSurferFeature[]> => {
+  // Sort features by tier: Free first, then Pro, then Enterprise, then unassigned
+  const getFeaturesSortedByTier = (): LithoSurferFeature[] => {
     const filtered = getFilteredFeatures();
-    return filtered.reduce((acc, feature) => {
-      if (!acc[feature.category]) {
-        acc[feature.category] = [];
-      }
-      acc[feature.category].push(feature);
-      return acc;
-    }, {} as Record<string, LithoSurferFeature[]>);
+
+    const tierOrder: Record<TierName | 'unassigned', number> = {
+      'free': 0,
+      'pro': 1,
+      'enterprise': 2,
+      'unassigned': 3
+    };
+
+    return filtered.sort((a, b) => {
+      const tierA = assignments[a.id] || 'unassigned';
+      const tierB = assignments[b.id] || 'unassigned';
+      return tierOrder[tierA] - tierOrder[tierB];
+    });
   };
 
   // Stats
@@ -187,7 +193,7 @@ export default function LithoSurferPage() {
     );
   }
 
-  const featuresByCategory = getFeaturesByCategory();
+  const sortedFeatures = getFeaturesSortedByTier();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
@@ -283,211 +289,175 @@ export default function LithoSurferPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b bg-gray-50">
-                  <th className="text-left px-4 py-3 font-semibold text-gray-700 w-[280px]">Feature</th>
-                  <th className="text-center px-4 py-3 font-semibold text-gray-500 w-[100px]">FREE</th>
-                  <th className="text-center px-4 py-3 font-semibold text-blue-600 w-[100px]">PRO</th>
-                  <th className="text-center px-4 py-3 font-semibold text-purple-600 w-[100px]">ENTERPRISE</th>
-                  <th className="text-center px-4 py-3 font-semibold text-gray-600 w-[180px]">
-                    <div className="flex items-center justify-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                      </svg>
-                      Comments
-                    </div>
-                  </th>
-                  <th className="text-center px-4 py-3 font-semibold text-amber-600 w-[180px]">
-                    <div className="flex items-center justify-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      Dev Required
-                    </div>
-                  </th>
+                <tr className="border-b border-gray-200 bg-gray-50/80">
+                  <th className="text-left px-3 py-2 font-medium text-gray-600 text-sm">Feature</th>
+                  <th className="text-center px-2 py-2 font-medium text-gray-500 text-sm w-[80px]">FREE</th>
+                  <th className="text-center px-2 py-2 font-medium text-blue-600 text-sm w-[80px]">PRO</th>
+                  <th className="text-center px-2 py-2 font-medium text-purple-600 text-sm w-[80px]">ENTERPRISE</th>
+                  <th className="text-center px-2 py-2 font-medium text-gray-500 text-sm w-[120px]">Comments</th>
+                  <th className="text-center px-2 py-2 font-medium text-amber-600 text-sm w-[120px]">Dev Required</th>
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(featuresByCategory).map(([category, features]) => (
-                  <>
-                    {/* Category Header */}
-                    <tr key={`cat-${category}`} className="bg-gray-100">
-                      <td colSpan={6} className="px-4 py-2 font-semibold text-gray-700 text-sm">
-                        {category}
-                      </td>
-                    </tr>
-                    {/* Features */}
-                    {features.map((feature) => {
-                      const baseTier = getBaseTier(feature.id);
-                      const expandedType = expandedComments[feature.id];
-                      const hasComments = comments[feature.id]?.suggestion || comments[feature.id]?.development;
+                {sortedFeatures.map((feature) => {
+                  const baseTier = getBaseTier(feature.id);
+                  const expandedType = expandedComments[feature.id];
 
-                      return (
-                        <tr key={feature.id} className="border-b hover:bg-gray-50 transition-colors">
-                          <td className="px-4 py-3">
-                            <div className="flex items-start gap-2">
-                              <div>
-                                <div className="font-medium text-gray-900 text-sm">{feature.feature}</div>
-                                {feature.description && (
-                                  <div className="text-xs text-gray-500 mt-0.5">{feature.description}</div>
-                                )}
-                                {feature.available === 'future' && (
-                                  <span className="inline-block mt-1 px-1.5 py-0.5 bg-amber-100 text-amber-700 text-xs rounded">
-                                    Future
-                                  </span>
-                                )}
+                  return (
+                    <tr key={feature.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                      <td className="px-3 py-2">
+                        <div className="text-sm text-gray-900">{feature.feature}</div>
+                        {feature.description && (
+                          <div className="text-xs text-gray-400">{feature.description}</div>
+                        )}
+                      </td>
+
+                      {/* FREE Column */}
+                      <td className="px-2 py-2 text-center">
+                        <button
+                          onClick={() => toggleTier(feature.id, 'free')}
+                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                            isInTier(feature.id, 'free')
+                              ? 'bg-emerald-400 border-emerald-400 text-white'
+                              : 'border-gray-200 text-gray-300 hover:border-gray-300'
+                          }`}
+                        >
+                          {isInTier(feature.id, 'free') ? (
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <span className="text-xs">-</span>
+                          )}
+                        </button>
+                      </td>
+
+                      {/* PRO Column */}
+                      <td className="px-2 py-2 text-center">
+                        <button
+                          onClick={() => toggleTier(feature.id, 'pro')}
+                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                            isInTier(feature.id, 'pro')
+                              ? baseTier === 'pro'
+                                ? 'bg-emerald-400 border-emerald-400 text-white'
+                                : 'bg-emerald-100 border-emerald-200 text-emerald-500'
+                              : 'border-gray-200 text-gray-300 hover:border-blue-300'
+                          }`}
+                        >
+                          {isInTier(feature.id, 'pro') ? (
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <span className="text-xs">-</span>
+                          )}
+                        </button>
+                      </td>
+
+                      {/* ENTERPRISE Column */}
+                      <td className="px-2 py-2 text-center">
+                        <button
+                          onClick={() => toggleTier(feature.id, 'enterprise')}
+                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                            isInTier(feature.id, 'enterprise')
+                              ? baseTier === 'enterprise'
+                                ? 'bg-emerald-400 border-emerald-400 text-white'
+                                : 'bg-emerald-100 border-emerald-200 text-emerald-500'
+                              : 'border-gray-200 text-gray-300 hover:border-purple-300'
+                          }`}
+                        >
+                          {isInTier(feature.id, 'enterprise') ? (
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <span className="text-xs">-</span>
+                          )}
+                        </button>
+                      </td>
+
+                      {/* Comments Column */}
+                      <td className="px-2 py-2">
+                        <div className="relative">
+                          <button
+                            onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
+                            className={`w-full px-2 py-1 text-xs rounded border transition-all flex items-center gap-1 ${
+                              comments[feature.id]?.suggestion
+                                ? 'bg-blue-50 border-blue-200 text-blue-700'
+                                : 'bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100'
+                            }`}
+                          >
+                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                            <span className="truncate">
+                              {comments[feature.id]?.suggestion || 'Add'}
+                            </span>
+                          </button>
+                          {expandedType === 'suggestion' && (
+                            <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
+                              <textarea
+                                value={comments[feature.id]?.suggestion || ''}
+                                onChange={(e) => updateComment(feature.id, 'suggestion', e.target.value)}
+                                placeholder="Add suggestion or comment..."
+                                className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                autoFocus
+                              />
+                              <div className="flex justify-end mt-1">
+                                <button
+                                  onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
+                                  className="text-xs px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                >
+                                  Done
+                                </button>
                               </div>
                             </div>
-                          </td>
+                          )}
+                        </div>
+                      </td>
 
-                          {/* FREE Column */}
-                          <td className="px-4 py-3 text-center">
-                            <button
-                              onClick={() => toggleTier(feature.id, 'free')}
-                              className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
-                                isInTier(feature.id, 'free')
-                                  ? 'bg-green-500 border-green-500 text-white'
-                                  : 'border-gray-300 text-gray-300 hover:border-gray-400'
-                              }`}
-                            >
-                              {isInTier(feature.id, 'free') ? (
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                              ) : (
-                                <span className="text-lg">-</span>
-                              )}
-                            </button>
-                          </td>
-
-                          {/* PRO Column */}
-                          <td className="px-4 py-3 text-center">
-                            <button
-                              onClick={() => toggleTier(feature.id, 'pro')}
-                              className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
-                                isInTier(feature.id, 'pro')
-                                  ? baseTier === 'pro'
-                                    ? 'bg-green-500 border-green-500 text-white'
-                                    : 'bg-green-100 border-green-300 text-green-500'
-                                  : 'border-gray-300 text-gray-300 hover:border-blue-400'
-                              }`}
-                            >
-                              {isInTier(feature.id, 'pro') ? (
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                              ) : (
-                                <span className="text-lg">-</span>
-                              )}
-                            </button>
-                          </td>
-
-                          {/* ENTERPRISE Column */}
-                          <td className="px-4 py-3 text-center">
-                            <button
-                              onClick={() => toggleTier(feature.id, 'enterprise')}
-                              className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
-                                isInTier(feature.id, 'enterprise')
-                                  ? baseTier === 'enterprise'
-                                    ? 'bg-green-500 border-green-500 text-white'
-                                    : 'bg-green-100 border-green-300 text-green-500'
-                                  : 'border-gray-300 text-gray-300 hover:border-purple-400'
-                              }`}
-                            >
-                              {isInTier(feature.id, 'enterprise') ? (
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                              ) : (
-                                <span className="text-lg">-</span>
-                              )}
-                            </button>
-                          </td>
-
-                          {/* Comments Column */}
-                          <td className="px-2 py-3">
-                            <div className="relative">
-                              <button
-                                onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
-                                className={`w-full px-2 py-1.5 text-xs rounded border transition-all flex items-center gap-1 ${
-                                  comments[feature.id]?.suggestion
-                                    ? 'bg-blue-50 border-blue-200 text-blue-700'
-                                    : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100'
-                                }`}
-                              >
-                                <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                </svg>
-                                <span className="truncate">
-                                  {comments[feature.id]?.suggestion || 'Add comment'}
-                                </span>
-                              </button>
-                              {expandedType === 'suggestion' && (
-                                <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
-                                  <textarea
-                                    value={comments[feature.id]?.suggestion || ''}
-                                    onChange={(e) => updateComment(feature.id, 'suggestion', e.target.value)}
-                                    placeholder="Add suggestion or comment..."
-                                    className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                    autoFocus
-                                  />
-                                  <div className="flex justify-end mt-1">
-                                    <button
-                                      onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
-                                      className="text-xs px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-                                    >
-                                      Done
-                                    </button>
-                                  </div>
-                                </div>
-                              )}
+                      {/* Dev Required Column */}
+                      <td className="px-2 py-2">
+                        <div className="relative">
+                          <button
+                            onClick={() => toggleCommentExpand(feature.id, 'development')}
+                            className={`w-full px-2 py-1 text-xs rounded border transition-all flex items-center gap-1 ${
+                              comments[feature.id]?.development
+                                ? 'bg-amber-50 border-amber-200 text-amber-700'
+                                : 'bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100'
+                            }`}
+                          >
+                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                            <span className="truncate">
+                              {comments[feature.id]?.development || 'Add'}
+                            </span>
+                          </button>
+                          {expandedType === 'development' && (
+                            <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
+                              <textarea
+                                value={comments[feature.id]?.development || ''}
+                                onChange={(e) => updateComment(feature.id, 'development', e.target.value)}
+                                placeholder="Development requirements..."
+                                className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                                autoFocus
+                              />
+                              <div className="flex justify-end mt-1">
+                                <button
+                                  onClick={() => toggleCommentExpand(feature.id, 'development')}
+                                  className="text-xs px-2 py-1 bg-amber-500 text-white rounded hover:bg-amber-600"
+                                >
+                                  Done
+                                </button>
+                              </div>
                             </div>
-                          </td>
-
-                          {/* Dev Required Column */}
-                          <td className="px-2 py-3">
-                            <div className="relative">
-                              <button
-                                onClick={() => toggleCommentExpand(feature.id, 'development')}
-                                className={`w-full px-2 py-1.5 text-xs rounded border transition-all flex items-center gap-1 ${
-                                  comments[feature.id]?.development
-                                    ? 'bg-amber-50 border-amber-200 text-amber-700'
-                                    : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100'
-                                }`}
-                              >
-                                <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                </svg>
-                                <span className="truncate">
-                                  {comments[feature.id]?.development || 'Add dev note'}
-                                </span>
-                              </button>
-                              {expandedType === 'development' && (
-                                <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
-                                  <textarea
-                                    value={comments[feature.id]?.development || ''}
-                                    onChange={(e) => updateComment(feature.id, 'development', e.target.value)}
-                                    placeholder="Development requirements..."
-                                    className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-                                    autoFocus
-                                  />
-                                  <div className="flex justify-end mt-1">
-                                    <button
-                                      onClick={() => toggleCommentExpand(feature.id, 'development')}
-                                      className="text-xs px-2 py-1 bg-amber-500 text-white rounded hover:bg-amber-600"
-                                    >
-                                      Done
-                                    </button>
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </>
-                ))}
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

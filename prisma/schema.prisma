@@ -613,3 +613,31 @@ model ProductTierConfig {
   @@unique([productType, tierName])
   @@index([productType])
 }
+
+// LithoData Package Pricing - Regional data package pricing configuration
+model LithoDataPackage {
+  id            String   @id @default(cuid())
+  packageId     String   @unique // e.g., "thermo-global", "geochron-afr"
+  category      String   // "Thermochronology", "Geochronology", "Geochemistry"
+  region        String   // "Global", "Africa", "Antarctica", etc.
+  regionCode    String   // "GLOBAL", "AFR", "ANT", etc.
+  records       Int      // Number of records in package
+
+  // Pricing (team can edit these)
+  priceAnnual   Decimal? @db.Decimal(10, 2)  // Annual subscription price
+  priceOneTime  Decimal? @db.Decimal(10, 2)  // One-time purchase price
+  priceNotes    String?  @db.Text            // Notes about pricing
+
+  // Status
+  isAvailable   Boolean  @default(true)      // Is this package available for sale
+  isFree        Boolean  @default(false)     // Is this included in free tier
+
+  // Metadata
+  lastEditedBy  String?
+  lastEditedAt  DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([category])
+  @@index([regionCode])
+}
