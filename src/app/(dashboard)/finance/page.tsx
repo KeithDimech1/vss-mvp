@@ -150,7 +150,7 @@ const TASKS: TaskDef[] = [
     category: 'critical',
     dueDay: 4,
     assignee: 'kristy',
-    instructions: 'Receive Wise "Transfer sent" emails from Fabian. Forward each to Dext (receipts@dext.cc). In Dext, match each receipt with the corresponding unpaid bill. Update the AUD amount to match the Wise receipt exactly (e.g., 3,314.03 AUD for a 1,865.92 EUR payment). Ensure the correct PAYROLL tracking code is selected. Mark as PAID with payment method "CBA Bank Payment".',
+    instructions: 'Receive Wise "Transfer sent" emails from Fabian. Forward each to Dext Costs inbox (kristy.kohlmann.lithodat.pty.ltd@dext.cc). In Dext, match each receipt with the corresponding unpaid bill. Update the AUD amount to match the Wise receipt exactly (e.g., 3,314.03 AUD for a 1,865.92 EUR payment). Ensure the correct PAYROLL tracking code is selected. Mark as PAID with payment method "CBA Bank Payment".',
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
@@ -254,7 +254,7 @@ const TASKS: TaskDef[] = [
     category: 'monthEnd',
     dueDay: 28,
     assignee: 'kristy',
-    instructions: 'Forward all contractor invoices to Dext (receipts@dext.cc). Code each invoice with: (1) Correct supplier name, (2) Category: 413 - Consulting, (3) Type: INVOICE (not receipt), (4) PAYROLL tracking code for the contractor (e.g., "01 - MXN - Juan Baca Naavarro"). Do NOT mark as paid - leave payment method blank. This publishes the bill to Xero where Fabian can see it for payment.',
+    instructions: 'Forward all contractor invoices to Dext Costs inbox (kristy.kohlmann.lithodat.pty.ltd@dext.cc). Code each invoice with: (1) Correct supplier name, (2) Category: 413 - Consulting, (3) Type: INVOICE (not receipt), (4) PAYROLL tracking code for the contractor (e.g., "01 - MXN - Juan Baca Naavarro"). Do NOT mark as paid - leave payment method blank. This publishes the bill to Xero where Fabian can see it for payment.',
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },

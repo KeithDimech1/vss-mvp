@@ -10,6 +10,17 @@ This checklist ensures all financial tasks are completed before closing the mont
 
 ---
 
+## Dext Email Addresses
+
+**Use these emails to forward documents to Dext:**
+
+| Type | Email Address |
+|------|---------------|
+| **Costs** (expenses, bills, receipts) | kristy.kohlmann.lithodat.pty.ltd@dext.cc |
+| **Sales** (customer invoices) | kristy.kohlmann.lithodat.pty.ltd+sales@dext.cc |
+
+---
+
 ## Pre-Close (Day 25-28)
 
 ### Staff Invoices

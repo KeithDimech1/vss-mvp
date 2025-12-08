@@ -81,10 +81,14 @@ Before sending:
 
 ### Step 6: Record in Dext
 
+**Dext Email Addresses:**
+- **Costs (expenses/bills):** kristy.kohlmann.lithodat.pty.ltd@dext.cc
+- **Sales (invoices):** kristy.kohlmann.lithodat.pty.ltd+sales@dext.cc
+
 For each WISE payment:
 
 1. WISE sends email receipt
-2. Forward receipt to Dext email
+2. Forward receipt to Dext Costs email: `kristy.kohlmann.lithodat.pty.ltd@dext.cc`
 3. In Dext, code as:
    - **Supplier**: [Contractor name]
    - **Category**: Contractor Wages / Professional Services
