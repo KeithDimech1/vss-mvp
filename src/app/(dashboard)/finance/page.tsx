@@ -12,6 +12,7 @@ export default function FinancePage() {
   const [readinessScore, setReadinessScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<'calendar' | 'list'>('list');
+  const [initializing, setInitializing] = useState(false);
 
   const monthString = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}-01`;
 
@@ -64,6 +65,27 @@ export default function FinancePage() {
     }
   };
 
+  const handleTaskUpdate = async (taskId: string, data: { userNotes?: string; userCompletedDate?: string; subItems?: any[] }) => {
+    try {
+      const response = await fetch(`/api/finance/tasks/${taskId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const { task } = await response.json();
+        setTasks((prevTasks) =>
+          prevTasks.map((t: any) => (t.id === taskId ? task : t))
+        );
+      }
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
+  };
+
   const handleMetricsUpdate = async (newMetrics: any) => {
     try {
       const response = await fetch('/api/finance/metrics', {
@@ -97,6 +119,36 @@ export default function FinancePage() {
       }
       return newDate;
     });
+  };
+
+  const handleInitializeTasks = async () => {
+    setInitializing(true);
+    try {
+      const response = await fetch('/api/finance/tasks/initialize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          year: currentMonth.getFullYear(),
+          month: currentMonth.getMonth() + 1,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setTasks(data.tasks || []);
+      } else {
+        const errorData = await response.json();
+        console.error('Error initializing tasks:', errorData);
+        alert(errorData.message || errorData.error || 'Failed to initialize tasks');
+      }
+    } catch (error) {
+      console.error('Error initializing tasks:', error);
+      alert('Failed to initialize tasks');
+    } finally {
+      setInitializing(false);
+    }
   };
 
   if (loading) {
@@ -169,7 +221,13 @@ export default function FinancePage() {
 
       {/* Main Content */}
       {view === 'list' ? (
-        <TaskList tasks={tasks} onTaskComplete={handleTaskComplete} />
+        <TaskList
+          tasks={tasks}
+          onTaskComplete={handleTaskComplete}
+          onTaskUpdate={handleTaskUpdate}
+          onInitializeTasks={handleInitializeTasks}
+          initializing={initializing}
+        />
       ) : (
         <CalendarView tasks={tasks} currentMonth={currentMonth} onTaskComplete={handleTaskComplete} />
       )}

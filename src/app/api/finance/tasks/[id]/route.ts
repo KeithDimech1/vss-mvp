@@ -11,7 +11,7 @@ export async function PATCH(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { status, completedById } = body;
+    const { status, completedById, userNotes, userCompletedDate, subItems } = body;
 
     const updateData: any = {};
 
@@ -32,6 +32,21 @@ export async function PATCH(
         updateData.completedAt = null;
         updateData.completedById = null;
       }
+    }
+
+    // Update user notes
+    if (userNotes !== undefined) {
+      updateData.userNotes = userNotes;
+    }
+
+    // Update user completed date
+    if (userCompletedDate !== undefined) {
+      updateData.userCompletedDate = userCompletedDate ? new Date(userCompletedDate) : null;
+    }
+
+    // Update sub-items
+    if (subItems !== undefined) {
+      updateData.subItems = subItems;
     }
 
     const task = await prisma.financeTask.update({
