@@ -325,22 +325,22 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
   switch (sectionId) {
     case 'cost-inbox':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             The Cost Inbox shows all receipts and invoices that have been submitted to Dext.
             Your goal is to ensure every item has been reviewed - no orange &quot;To Review&quot; badges should remain.
           </p>
-          <div className="bg-gray-100 rounded-lg p-2">
+          <div className="bg-gray-100 rounded-lg p-3">
             <Image
               src="/images/dext-guide/cost-inbox.png"
               alt="Dext Cost Inbox"
-              width={400}
-              height={200}
+              width={600}
+              height={300}
               className="rounded border border-gray-300 w-full"
             />
           </div>
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-            <p className="text-amber-800 text-sm">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-amber-800 text-base">
               <strong>Action:</strong> Click on any item with &quot;To Review&quot; badge to open the item details page.
             </p>
           </div>
@@ -349,20 +349,20 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'supplier':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             Always select an existing supplier from the list. <strong>Do not create duplicates</strong>.
           </p>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-            <p className="text-red-800 text-sm font-medium">Common Mistakes:</p>
-            <ul className="list-disc list-inside text-red-700 mt-1 text-sm">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-red-800 font-medium text-base">Common Mistakes:</p>
+            <ul className="list-disc list-inside text-red-700 mt-2 text-base space-y-1">
               <li>Creating &quot;Qantas Airways&quot; when &quot;Qantas&quot; exists</li>
               <li>Creating &quot;CBA&quot; when &quot;Commonwealth Bank&quot; exists</li>
             </ul>
           </div>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-            <p className="text-green-800 text-sm font-medium">Adding New Supplier:</p>
-            <p className="text-green-700 mt-1 text-sm">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <p className="text-green-800 font-medium text-base">Adding New Supplier:</p>
+            <p className="text-green-700 mt-2 text-base">
               Add new suppliers through <a href="https://go.xero.com/Contacts/Search" target="_blank" rel="noopener noreferrer" className="text-green-600 underline">Xero Contacts</a>, then reload Dext to sync.
             </p>
           </div>
@@ -371,18 +371,18 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'type':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             Most items will be <strong>Receipts</strong> (already paid). Select Invoice only if we haven&apos;t paid yet.
           </p>
-          <div className="space-y-2">
-            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-              <p className="font-semibold text-gray-900 text-sm">Receipt</p>
-              <p className="text-xs text-gray-600">Proof of payment for goods/services already paid for</p>
+          <div className="space-y-3">
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <p className="font-semibold text-gray-900 text-base">Receipt</p>
+              <p className="text-gray-600 mt-1">Proof of payment for goods/services already paid for</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-              <p className="font-semibold text-gray-900 text-sm">Invoice</p>
-              <p className="text-xs text-gray-600">A bill requesting payment (may not be paid yet)</p>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <p className="font-semibold text-gray-900 text-base">Invoice</p>
+              <p className="text-gray-600 mt-1">A bill requesting payment (may not be paid yet)</p>
             </div>
           </div>
         </div>
@@ -390,31 +390,31 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'category':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             Choose the correct expense category. This affects tax reporting and BAS.
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-xs">
+            <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="px-2 py-1.5 text-left font-semibold">Code</th>
-                  <th className="px-2 py-1.5 text-left font-semibold">Category</th>
-                  <th className="px-2 py-1.5 text-left font-semibold">GST</th>
+                  <th className="px-3 py-2 text-left font-semibold">Code</th>
+                  <th className="px-3 py-2 text-left font-semibold">Category</th>
+                  <th className="px-3 py-2 text-left font-semibold">GST</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {CATEGORY_GUIDE.map((cat) => (
                   <tr key={cat.code} className="hover:bg-gray-50">
-                    <td className="px-2 py-1.5 font-mono text-gray-600">{cat.code}</td>
-                    <td className="px-2 py-1.5 font-medium text-gray-900">{cat.name}</td>
-                    <td className="px-2 py-1.5 text-gray-600">{cat.gst}</td>
+                    <td className="px-3 py-2.5 font-mono text-gray-600">{cat.code}</td>
+                    <td className="px-3 py-2.5 font-medium text-gray-900">{cat.name}</td>
+                    <td className="px-3 py-2.5 text-gray-600">{cat.gst}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <a href="/finance/help" className="text-blue-600 hover:text-blue-800 text-sm underline">
+          <a href="/finance/help" className="text-blue-600 hover:text-blue-800 text-base underline">
             View full category list →
           </a>
         </div>
@@ -422,22 +422,22 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'travel':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             Travel expenses related to conferences or events should be tagged with a tracking category.
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-            <p className="text-blue-800 text-sm font-medium">Travel Code Format:</p>
-            <p className="font-mono text-blue-900 text-sm mt-1">YYMM - LOCATION - REASON</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-medium text-base">Travel Code Format:</p>
+            <p className="font-mono text-blue-900 text-lg mt-2">YYMM - LOCATION - REASON</p>
           </div>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-            <p className="text-gray-700 text-sm font-medium mb-2">Active Travel Categories:</p>
-            <ul className="text-xs text-gray-600 space-y-1">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <p className="text-gray-700 font-medium mb-3 text-base">Active Travel Categories:</p>
+            <ul className="text-gray-600 space-y-2">
               {TRAVEL_CODES.slice(0, 4).map((code, i) => (
                 <li key={i}>• {code}</li>
               ))}
             </ul>
-            <a href="/finance/help" className="text-blue-600 hover:text-blue-800 text-xs underline mt-2 inline-block">
+            <a href="/finance/help" className="text-blue-600 hover:text-blue-800 underline mt-3 inline-block">
               View all travel codes →
             </a>
           </div>
@@ -446,25 +446,25 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'description':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             The description is <strong>critical</strong> - it should explain what was purchased and why.
           </p>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-            <p className="text-green-800 text-sm font-medium">Good Example:</p>
-            <p className="font-mono text-green-900 text-xs mt-1 bg-white p-2 rounded">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <p className="text-green-800 font-medium text-base">Good Example:</p>
+            <p className="font-mono text-green-900 mt-2 bg-white p-3 rounded text-base">
               Roses Chocolates for Christmas presents for Nora and Kimberly.
             </p>
           </div>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-            <p className="text-red-800 text-sm font-medium">Bad Examples:</p>
-            <ul className="list-disc list-inside text-red-700 text-xs mt-1">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-red-800 font-medium text-base">Bad Examples:</p>
+            <ul className="list-disc list-inside text-red-700 mt-2 space-y-1">
               <li>&quot;Purchase&quot; - too vague</li>
               <li>&quot;Food&quot; - doesn&apos;t explain purpose</li>
             </ul>
           </div>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-            <p className="text-blue-800 text-sm">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 text-base">
               <strong>Tip:</strong> Check the &quot;Email&quot; tab in Dext for context from the submitter.
             </p>
           </div>
@@ -473,21 +473,21 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'amount':
       return (
-        <div className="space-y-4">
-          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-            <p className="text-green-800 text-sm font-semibold flex items-center gap-1">
+        <div className="space-y-5">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <p className="text-green-800 font-semibold flex items-center gap-2 text-base">
               🇦🇺 Australian (AUD)
             </p>
-            <ul className="text-green-700 text-xs mt-1 space-y-1">
+            <ul className="text-green-700 mt-2 space-y-2">
               <li>• Amount must match receipt exactly</li>
               <li>• GST auto-calculated (10%)</li>
             </ul>
           </div>
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
-            <p className="text-purple-800 text-sm font-semibold flex items-center gap-1">
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+            <p className="text-purple-800 font-semibold flex items-center gap-2 text-base">
               🌏 Overseas (Foreign Currency)
             </p>
-            <ul className="text-purple-700 text-xs mt-1 space-y-1">
+            <ul className="text-purple-700 mt-2 space-y-2">
               <li>• Use &quot;GST Free Expenses&quot;</li>
               <li>• Enter amount in original currency</li>
               <li>• Update AUD to match bank statement</li>
@@ -498,20 +498,20 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'payment':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             For receipts, click <strong>&quot;Yes&quot;</strong> to mark as paid, then select the correct payment method.
           </p>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {PAYMENT_METHODS.slice(0, 4).map((pm) => (
-              <div key={pm.name} className="bg-gray-50 rounded p-2 border border-gray-200">
-                <p className="font-medium text-gray-900 text-xs">{pm.name}</p>
-                <p className="text-gray-500 text-xs">{pm.usage}</p>
+              <div key={pm.name} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                <p className="font-medium text-gray-900">{pm.name}</p>
+                <p className="text-gray-500 mt-1">{pm.usage}</p>
               </div>
             ))}
           </div>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-            <p className="text-blue-800 text-xs">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 text-base">
               <strong>Tip:</strong> Check the last 4 digits on the receipt to match the correct card.
             </p>
           </div>
@@ -520,18 +520,18 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'line-items':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             Line item breakdown is <strong>optional for expenses under $500</strong>, but <strong>required for all costs over $500</strong>.
           </p>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-              <p className="text-green-800 text-sm font-medium">Under $500</p>
-              <p className="text-green-700 text-xs mt-1">Single line item OK</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <p className="text-green-800 font-medium text-base">Under $500</p>
+              <p className="text-green-700 mt-2">Single line item OK</p>
             </div>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-              <p className="text-amber-800 text-sm font-medium">Over $500</p>
-              <p className="text-amber-700 text-xs mt-1">Break into line items</p>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p className="text-amber-800 font-medium text-base">Over $500</p>
+              <p className="text-amber-700 mt-2">Break into line items</p>
             </div>
           </div>
         </div>
@@ -539,27 +539,27 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
 
     case 'xero-reconcile':
       return (
-        <div className="space-y-4">
-          <p className="text-gray-600 text-sm">
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
             After publishing from Dext, reconcile in Xero. Goal: <strong>0 items to reconcile</strong>.
           </p>
-          <div className="bg-gray-100 rounded-lg p-2">
+          <div className="bg-gray-100 rounded-lg p-3">
             <Image
               src="/images/dext-guide/xero-match-green.png"
               alt="Xero Green Match"
-              width={400}
-              height={100}
+              width={600}
+              height={150}
               className="rounded border border-gray-300 w-full"
             />
           </div>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-            <p className="text-green-800 text-sm font-medium">Green Items = Auto-Matched</p>
-            <p className="text-green-700 text-xs mt-1">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <p className="text-green-800 font-medium text-base">Green Items = Auto-Matched</p>
+            <p className="text-green-700 mt-2">
               Just click &quot;OK&quot; to confirm the match.
             </p>
           </div>
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-            <p className="text-amber-800 text-xs">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-amber-800 text-base">
               <strong>No match?</strong> Check if item was processed in Dext, or use &quot;Find & Match&quot; tab.
             </p>
           </div>
@@ -1124,72 +1124,74 @@ export default function FinancePage() {
         </div>
       </div>
 
-      {/* Slide-out Help Panel */}
+      {/* Centered Help Modal */}
       {helpPanelSection && (
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/30 z-40 transition-opacity"
+            className="fixed inset-0 bg-black/50 z-40 transition-opacity"
             onClick={() => setHelpPanelSection(null)}
           />
-          {/* Panel */}
-          <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 overflow-hidden flex flex-col animate-in slide-in-from-right duration-300">
-            {/* Panel Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 flex-shrink-0">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
-                    {HELP_SECTIONS.find(s => s.id === helpPanelSection)?.number}
-                  </span>
-                  <div>
-                    <h3 className="font-semibold">
-                      {HELP_SECTIONS.find(s => s.id === helpPanelSection)?.title}
-                    </h3>
-                    <p className="text-blue-100 text-xs">Quick Reference Guide</p>
+          {/* Modal */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200">
+              {/* Modal Header */}
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-5 flex-shrink-0">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                      {HELP_SECTIONS.find(s => s.id === helpPanelSection)?.number}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-lg">
+                        {HELP_SECTIONS.find(s => s.id === helpPanelSection)?.title}
+                      </h3>
+                      <p className="text-blue-100 text-sm">Quick Reference Guide</p>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => setHelpPanelSection(null)}
+                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
-                <button
-                  onClick={() => setHelpPanelSection(null)}
-                  className="p-2 hover:bg-white/20 rounded-lg transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
               </div>
-            </div>
 
-            {/* Panel Content */}
-            <div className="flex-1 overflow-y-auto p-4">
-              <HelpPanelContent sectionId={helpPanelSection} />
-            </div>
+              {/* Modal Content */}
+              <div className="flex-1 overflow-y-auto p-6">
+                <HelpPanelContent sectionId={helpPanelSection} />
+              </div>
 
-            {/* Panel Footer */}
-            <div className="border-t border-gray-200 p-4 bg-gray-50 flex-shrink-0">
-              <div className="flex items-center justify-between gap-3">
-                {/* Section Navigation */}
-                <div className="flex gap-1 overflow-x-auto">
-                  {HELP_SECTIONS.map((section) => (
-                    <button
-                      key={section.id}
-                      onClick={() => setHelpPanelSection(section.id)}
-                      className={`px-2 py-1 rounded text-xs font-medium whitespace-nowrap transition-colors ${
-                        helpPanelSection === section.id
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                      }`}
-                      title={section.title}
-                    >
-                      {section.number}
-                    </button>
-                  ))}
+              {/* Modal Footer */}
+              <div className="border-t border-gray-200 p-4 bg-gray-50 flex-shrink-0">
+                <div className="flex items-center justify-between gap-4">
+                  {/* Section Navigation */}
+                  <div className="flex gap-1.5 flex-wrap">
+                    {HELP_SECTIONS.map((section) => (
+                      <button
+                        key={section.id}
+                        onClick={() => setHelpPanelSection(section.id)}
+                        className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${
+                          helpPanelSection === section.id
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                        }`}
+                        title={section.title}
+                      >
+                        {section.number}
+                      </button>
+                    ))}
+                  </div>
+                  <Link
+                    href="/finance/help"
+                    className="text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                  >
+                    Full Guide →
+                  </Link>
                 </div>
-                <Link
-                  href="/finance/help"
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium whitespace-nowrap"
-                >
-                  Full Guide →
-                </Link>
               </div>
             </div>
           </div>
