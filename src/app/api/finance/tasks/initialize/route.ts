@@ -130,8 +130,9 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error initializing finance tasks:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Failed to initialize tasks' },
+      { error: 'Failed to initialize tasks', details: errorMessage },
       { status: 500 }
     );
   }

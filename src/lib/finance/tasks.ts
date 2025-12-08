@@ -1,6 +1,8 @@
 // Finance Task Definitions
 // These are the recurring tasks for each month
 
+import { TaskCategory, TaskPriority } from '@prisma/client';
+
 export interface SubItem {
   id: string;
   name: string;
@@ -11,8 +13,8 @@ export interface SubItem {
 export interface TaskTemplate {
   title: string;
   description: string | null;
-  category: 'CRITICAL' | 'DAILY' | 'WEEKLY' | 'MONTH_END' | 'CUSTOM';
-  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  category: TaskCategory;
+  priority: TaskPriority;
   dueDay: number; // Day of month (1-28, or special: -1 for last day, -2 for second-to-last)
   recurringRule: string;
   subItems?: SubItem[];
