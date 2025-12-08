@@ -81,6 +81,14 @@ export const MONTHLY_TASK_TEMPLATES: TaskTemplate[] = [
     dueDay: 2,
     recurringRule: 'MONTHLY_DAY_2',
   },
+  {
+    title: 'Book in Monthly Finance Review meeting (Fabian and Keith)',
+    description: 'Schedule the monthly finance review meeting with Fabian and Keith.',
+    category: 'CRITICAL',
+    priority: 'HIGH',
+    dueDay: 4,
+    recurringRule: 'MONTHLY_DAY_4',
+  },
 
   // DAILY/WEEKLY Tasks
   {

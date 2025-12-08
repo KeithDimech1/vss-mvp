@@ -16,7 +16,7 @@ export default function FinancePage() {
 
   const monthString = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}-01`;
 
-  // Fetch tasks and metrics
+  // Fetch tasks and metrics, auto-initialize if no tasks exist
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -24,7 +24,25 @@ export default function FinancePage() {
         // Fetch tasks
         const tasksResponse = await fetch(`/api/finance/tasks?month=${monthString}`);
         const tasksData = await tasksResponse.json();
-        setTasks(tasksData.tasks || []);
+        let fetchedTasks = tasksData.tasks || [];
+
+        // Auto-initialize tasks if none exist for this month
+        if (fetchedTasks.length === 0) {
+          const initResponse = await fetch('/api/finance/tasks/initialize', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              year: currentMonth.getFullYear(),
+              month: currentMonth.getMonth() + 1,
+            }),
+          });
+          if (initResponse.ok) {
+            const initData = await initResponse.json();
+            fetchedTasks = initData.tasks || [];
+          }
+        }
+
+        setTasks(fetchedTasks);
 
         // Fetch metrics
         const metricsResponse = await fetch(`/api/finance/metrics?month=${monthString}`);
@@ -39,7 +57,7 @@ export default function FinancePage() {
     }
 
     fetchData();
-  }, [monthString]);
+  }, [monthString, currentMonth]);
 
   const handleTaskComplete = async (taskId: string, completed: boolean) => {
     try {
