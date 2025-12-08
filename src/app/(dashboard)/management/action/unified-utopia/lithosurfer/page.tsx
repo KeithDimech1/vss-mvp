@@ -16,9 +16,6 @@ interface FeatureComments {
   };
 }
 
-// View modes
-type ViewMode = 'matrix' | 'assign';
-
 export default function LithoSurferPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -26,10 +23,10 @@ export default function LithoSurferPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [assignments, setAssignments] = useState<TierAssignments>({});
   const [comments, setComments] = useState<FeatureComments>({});
-  const [viewMode, setViewMode] = useState<ViewMode>('matrix');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFutureFeatures, setShowFutureFeatures] = useState(true);
-  const [expandedComments, setExpandedComments] = useState<Record<string, 'suggestion' | 'development' | null>>({});
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
+  const [showCommentsPanel, setShowCommentsPanel] = useState(true);
 
   // Load existing assignments and comments from API
   const loadData = useCallback(async () => {
@@ -127,14 +124,6 @@ export default function LithoSurferPage() {
     }));
   };
 
-  // Toggle comment expansion
-  const toggleCommentExpand = (featureId: string, type: 'suggestion' | 'development') => {
-    setExpandedComments(prev => ({
-      ...prev,
-      [featureId]: prev[featureId] === type ? null : type
-    }));
-  };
-
   // Check if feature is available in tier (cumulative)
   const isInTier = (featureId: string, tier: TierName): boolean => {
     const assignment = assignments[featureId];
@@ -163,27 +152,6 @@ export default function LithoSurferPage() {
     });
   };
 
-  // Group features by tier for display
-  type TierGroup = 'free' | 'pro' | 'enterprise' | 'unassigned';
-
-  const getFeaturesByTierGroup = (): Record<TierGroup, LithoSurferFeature[]> => {
-    const filtered = getFilteredFeatures();
-
-    const groups: Record<TierGroup, LithoSurferFeature[]> = {
-      free: [],
-      pro: [],
-      enterprise: [],
-      unassigned: []
-    };
-
-    filtered.forEach(feature => {
-      const tier = assignments[feature.id] || 'unassigned';
-      groups[tier as TierGroup].push(feature);
-    });
-
-    return groups;
-  };
-
   // Sort features by tier: Free first, then Pro, then Enterprise, then unassigned
   const getFeaturesSortedByTier = (): LithoSurferFeature[] => {
     const filtered = getFilteredFeatures();
@@ -195,48 +163,31 @@ export default function LithoSurferPage() {
       'unassigned': 3
     };
 
-    return filtered.sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       const tierA = assignments[a.id] || 'unassigned';
       const tierB = assignments[b.id] || 'unassigned';
       return tierOrder[tierA] - tierOrder[tierB];
     });
   };
 
-  // Tier group labels and styles
-  const tierGroupConfig: Record<TierGroup, { label: string; description: string; bgColor: string; textColor: string; borderColor: string }> = {
-    free: {
-      label: 'FREE Tier',
-      description: 'Available to all users',
-      bgColor: 'bg-gray-100',
-      textColor: 'text-gray-700',
-      borderColor: 'border-gray-300'
-    },
-    pro: {
-      label: 'PRO Tier',
-      description: 'Adds these features to FREE',
-      bgColor: 'bg-blue-50',
-      textColor: 'text-blue-700',
-      borderColor: 'border-blue-300'
-    },
-    enterprise: {
-      label: 'ENTERPRISE Tier',
-      description: 'Adds these features to PRO',
-      bgColor: 'bg-purple-50',
-      textColor: 'text-purple-700',
-      borderColor: 'border-purple-300'
-    },
-    unassigned: {
-      label: 'Unassigned',
-      description: 'Not yet assigned to a tier',
-      bgColor: 'bg-amber-50',
-      textColor: 'text-amber-700',
-      borderColor: 'border-amber-300'
-    }
+  // Get all features with comments
+  const getFeaturesWithComments = (): { feature: LithoSurferFeature; suggestion?: string; development?: string }[] => {
+    return lithosurferFeatures
+      .filter(f => comments[f.id]?.suggestion || comments[f.id]?.development)
+      .map(f => ({
+        feature: f,
+        suggestion: comments[f.id]?.suggestion,
+        development: comments[f.id]?.development
+      }));
   };
 
   // Stats
   const assignedCount = Object.keys(assignments).length;
   const totalCount = lithosurferFeatures.filter(f => showFutureFeatures || f.available !== 'future').length;
+  const commentsCount = getFeaturesWithComments().length;
+
+  // Get selected feature details
+  const selectedFeatureData = selectedFeature ? lithosurferFeatures.find(f => f.id === selectedFeature) : null;
 
   if (loading) {
     return (
@@ -246,14 +197,11 @@ export default function LithoSurferPage() {
     );
   }
 
-  const featuresByTier = getFeaturesByTierGroup();
-  const tierOrder: TierGroup[] = ['free', 'pro', 'enterprise', 'unassigned'];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#C9A961] via-[#C9A961] to-[#1B4332] text-white shadow-lg">
-        <div className="max-w-[1800px] mx-auto px-6 py-6">
+      <div className="bg-gradient-to-r from-[#C9A961] via-[#C9A961] to-[#1B4332] text-white shadow-lg flex-shrink-0">
+        <div className="max-w-full mx-auto px-6 py-4">
           <div className="flex items-center gap-2 text-sm text-[#F5E6D3] mb-2">
             <Link href="/management" className="hover:text-white">Management</Link>
             <span>/</span>
@@ -263,12 +211,12 @@ export default function LithoSurferPage() {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold">LithoSurfer: Feature Comparison</h1>
-              <p className="text-[#F5E6D3] mt-1">Define which features are available in each tier</p>
+              <h1 className="text-2xl font-bold">LithoSurfer: Feature Comparison</h1>
+              <p className="text-[#F5E6D3] text-sm mt-1">Define which features are available in each tier</p>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-sm text-[#F5E6D3]">
-                {assignedCount} / {totalCount} features assigned
+                {assignedCount} / {totalCount} assigned
               </div>
               {lastSaved && (
                 <div className="text-sm text-green-200">
@@ -278,7 +226,7 @@ export default function LithoSurferPage() {
               <button
                 onClick={saveAll}
                 disabled={saving}
-                className="px-6 py-2 bg-white text-[#1B4332] rounded-lg font-semibold hover:bg-gray-100 disabled:opacity-50"
+                className="px-4 py-2 bg-white text-[#1B4332] rounded-lg font-semibold hover:bg-gray-100 disabled:opacity-50 text-sm"
               >
                 {saving ? 'Saving...' : 'Save Changes'}
               </button>
@@ -287,25 +235,23 @@ export default function LithoSurferPage() {
         </div>
       </div>
 
-      <div className="max-w-[1800px] mx-auto px-6 py-6">
-        {/* Navigation */}
-        <div className="flex gap-4 mb-6">
-          <Link
-            href="/management/action/unified-utopia/lithosurfer"
-            className="px-4 py-2 bg-[#C9A961] text-white rounded-lg font-semibold"
-          >
-            LithoSurfer
-          </Link>
-          <Link
-            href="/management/action/unified-utopia/lithodata"
-            className="px-4 py-2 bg-white text-[#1B4332] rounded-lg font-semibold border border-gray-200 hover:bg-gray-50"
-          >
-            LithoData
-          </Link>
-        </div>
-
-        {/* Controls */}
-        <div className="bg-white rounded-lg shadow p-4 mb-6 flex items-center justify-between">
+      {/* Sub Navigation */}
+      <div className="bg-white border-b flex-shrink-0">
+        <div className="max-w-full mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex gap-3">
+            <Link
+              href="/management/action/unified-utopia/lithosurfer"
+              className="px-3 py-1.5 bg-[#C9A961] text-white rounded-lg font-medium text-sm"
+            >
+              LithoSurfer
+            </Link>
+            <Link
+              href="/management/action/unified-utopia/lithodata"
+              className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-200"
+            >
+              LithoData
+            </Link>
+          </div>
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2 text-sm">
               <input
@@ -314,9 +260,8 @@ export default function LithoSurferPage() {
                 onChange={(e) => setShowFutureFeatures(e.target.checked)}
                 className="rounded"
               />
-              Show Future Features
+              Show Future
             </label>
-            <div className="h-6 w-px bg-gray-300" />
             <select
               value={selectedCategory || ''}
               onChange={(e) => setSelectedCategory(e.target.value || null)}
@@ -327,39 +272,53 @@ export default function LithoSurferPage() {
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
-          </div>
-          <div className="text-sm text-gray-500">
-            Click tier columns to assign features. Higher tiers include all lower tier features.
+            <button
+              onClick={() => setShowCommentsPanel(!showCommentsPanel)}
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2 ${
+                showCommentsPanel
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+              Comments ({commentsCount})
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Comparison Matrix */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="bg-gray-50 border-b px-6 py-4">
-            <h2 className="text-xl font-bold text-gray-800">Comparison Matrix</h2>
-            <p className="text-sm text-gray-500">Auto-generated from tier assignments</p>
-          </div>
-
+      {/* Main Content - Split Layout */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left Panel - Feature Matrix */}
+        <div className={`${showCommentsPanel ? 'w-2/3' : 'w-full'} overflow-y-auto border-r bg-white`}>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-200 bg-gray-50/80">
-                  <th className="text-left px-3 py-2 font-medium text-gray-600 text-sm">Feature</th>
-                  <th className="text-center px-2 py-2 font-medium text-gray-500 text-sm w-[80px]">FREE</th>
-                  <th className="text-center px-2 py-2 font-medium text-blue-600 text-sm w-[80px]">PRO</th>
-                  <th className="text-center px-2 py-2 font-medium text-purple-600 text-sm w-[80px]">ENTERPRISE</th>
-                  <th className="text-center px-2 py-2 font-medium text-gray-500 text-sm w-[120px]">Comments</th>
-                  <th className="text-center px-2 py-2 font-medium text-amber-600 text-sm w-[120px]">Dev Required</th>
+              <thead className="sticky top-0 z-10">
+                <tr className="border-b border-gray-200 bg-gray-50">
+                  <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm">Feature</th>
+                  <th className="text-center px-3 py-3 font-medium text-gray-500 text-sm w-[80px]">FREE</th>
+                  <th className="text-center px-3 py-3 font-medium text-blue-600 text-sm w-[80px]">PRO</th>
+                  <th className="text-center px-3 py-3 font-medium text-purple-600 text-sm w-[80px]">ENTERPRISE</th>
+                  <th className="text-center px-3 py-3 font-medium text-gray-500 text-sm w-[100px]">Comments</th>
                 </tr>
               </thead>
               <tbody>
                 {getFeaturesSortedByTier().map((feature) => {
                   const baseTier = getBaseTier(feature.id);
-                  const expandedType = expandedComments[feature.id];
+                  const hasComment = comments[feature.id]?.suggestion || comments[feature.id]?.development;
+                  const isSelected = selectedFeature === feature.id;
 
                   return (
-                    <tr key={feature.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                      <td className="px-3 py-2">
+                    <tr
+                      key={feature.id}
+                      className={`border-b border-gray-100 hover:bg-gray-50/50 transition-colors cursor-pointer ${
+                        isSelected ? 'bg-blue-50' : ''
+                      }`}
+                      onClick={() => setSelectedFeature(feature.id)}
+                    >
+                      <td className="px-4 py-2">
                         <div className="text-sm text-gray-900">{feature.feature}</div>
                         {feature.description && (
                           <div className="text-xs text-gray-400">{feature.description}</div>
@@ -367,17 +326,17 @@ export default function LithoSurferPage() {
                       </td>
 
                       {/* FREE Column */}
-                      <td className="px-2 py-2 text-center">
+                      <td className="px-3 py-2 text-center">
                         <button
-                          onClick={() => toggleTier(feature.id, 'free')}
-                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                          onClick={(e) => { e.stopPropagation(); toggleTier(feature.id, 'free'); }}
+                          className={`w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
                             isInTier(feature.id, 'free')
                               ? 'bg-emerald-400 border-emerald-400 text-white'
                               : 'border-gray-200 text-gray-300 hover:border-gray-300'
                           }`}
                         >
                           {isInTier(feature.id, 'free') ? (
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
                           ) : (
@@ -387,10 +346,10 @@ export default function LithoSurferPage() {
                       </td>
 
                       {/* PRO Column */}
-                      <td className="px-2 py-2 text-center">
+                      <td className="px-3 py-2 text-center">
                         <button
-                          onClick={() => toggleTier(feature.id, 'pro')}
-                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                          onClick={(e) => { e.stopPropagation(); toggleTier(feature.id, 'pro'); }}
+                          className={`w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
                             isInTier(feature.id, 'pro')
                               ? baseTier === 'pro'
                                 ? 'bg-emerald-400 border-emerald-400 text-white'
@@ -399,7 +358,7 @@ export default function LithoSurferPage() {
                           }`}
                         >
                           {isInTier(feature.id, 'pro') ? (
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
                           ) : (
@@ -409,10 +368,10 @@ export default function LithoSurferPage() {
                       </td>
 
                       {/* ENTERPRISE Column */}
-                      <td className="px-2 py-2 text-center">
+                      <td className="px-3 py-2 text-center">
                         <button
-                          onClick={() => toggleTier(feature.id, 'enterprise')}
-                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
+                          onClick={(e) => { e.stopPropagation(); toggleTier(feature.id, 'enterprise'); }}
+                          className={`w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all mx-auto ${
                             isInTier(feature.id, 'enterprise')
                               ? baseTier === 'enterprise'
                                 ? 'bg-emerald-400 border-emerald-400 text-white'
@@ -421,7 +380,7 @@ export default function LithoSurferPage() {
                           }`}
                         >
                           {isInTier(feature.id, 'enterprise') ? (
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
                           ) : (
@@ -430,84 +389,29 @@ export default function LithoSurferPage() {
                         </button>
                       </td>
 
-                      {/* Comments Column */}
-                      <td className="px-2 py-2">
-                        <div className="relative">
-                          <button
-                            onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
-                            className={`w-full px-2 py-1 text-xs rounded border transition-all flex items-center gap-1 ${
-                              comments[feature.id]?.suggestion
-                                ? 'bg-blue-50 border-blue-200 text-blue-700'
-                                : 'bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100'
-                            }`}
-                          >
-                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                            <span className="truncate">
-                              {comments[feature.id]?.suggestion || 'Add'}
-                            </span>
-                          </button>
-                          {expandedType === 'suggestion' && (
-                            <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
-                              <textarea
-                                value={comments[feature.id]?.suggestion || ''}
-                                onChange={(e) => updateComment(feature.id, 'suggestion', e.target.value)}
-                                placeholder="Add suggestion or comment..."
-                                className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                autoFocus
-                              />
-                              <div className="flex justify-end mt-1">
-                                <button
-                                  onClick={() => toggleCommentExpand(feature.id, 'suggestion')}
-                                  className="text-xs px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-                                >
-                                  Done
-                                </button>
-                              </div>
-                            </div>
+                      {/* Comments Indicator */}
+                      <td className="px-3 py-2 text-center">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedFeature(feature.id);
+                            setShowCommentsPanel(true);
+                          }}
+                          className={`px-2 py-1 text-xs rounded flex items-center gap-1 mx-auto ${
+                            hasComment
+                              ? 'bg-blue-100 text-blue-700'
+                              : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                          </svg>
+                          {hasComment ? (
+                            <span>{(comments[feature.id]?.suggestion ? 1 : 0) + (comments[feature.id]?.development ? 1 : 0)}</span>
+                          ) : (
+                            <span>Add</span>
                           )}
-                        </div>
-                      </td>
-
-                      {/* Dev Required Column */}
-                      <td className="px-2 py-2">
-                        <div className="relative">
-                          <button
-                            onClick={() => toggleCommentExpand(feature.id, 'development')}
-                            className={`w-full px-2 py-1 text-xs rounded border transition-all flex items-center gap-1 ${
-                              comments[feature.id]?.development
-                                ? 'bg-amber-50 border-amber-200 text-amber-700'
-                                : 'bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100'
-                            }`}
-                          >
-                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                            <span className="truncate">
-                              {comments[feature.id]?.development || 'Add'}
-                            </span>
-                          </button>
-                          {expandedType === 'development' && (
-                            <div className="absolute z-10 top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border p-2">
-                              <textarea
-                                value={comments[feature.id]?.development || ''}
-                                onChange={(e) => updateComment(feature.id, 'development', e.target.value)}
-                                placeholder="Development requirements..."
-                                className="w-full h-20 text-xs border rounded p-2 resize-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-                                autoFocus
-                              />
-                              <div className="flex justify-end mt-1">
-                                <button
-                                  onClick={() => toggleCommentExpand(feature.id, 'development')}
-                                  className="text-xs px-2 py-1 bg-amber-500 text-white rounded hover:bg-amber-600"
-                                >
-                                  Done
-                                </button>
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                        </button>
                       </td>
                     </tr>
                   );
@@ -515,60 +419,182 @@ export default function LithoSurferPage() {
               </tbody>
             </table>
           </div>
-        </div>
 
-        {/* Legend */}
-        <div className="mt-6 bg-white rounded-lg shadow p-4">
-          <h3 className="font-semibold text-gray-700 mb-3">Legend</h3>
-          <div className="flex flex-wrap gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+          {/* Legend */}
+          <div className="p-4 bg-gray-50 border-t">
+            <div className="flex flex-wrap gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-emerald-400 flex items-center justify-center">
+                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-gray-600">Base tier</span>
               </div>
-              <span>Feature included (base tier)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-green-100 border-2 border-green-300 flex items-center justify-center">
-                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-emerald-100 border-2 border-emerald-200 flex items-center justify-center">
+                  <svg className="w-3 h-3 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-gray-600">Inherited</span>
               </div>
-              <span>Inherited from lower tier</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center text-gray-300">
-                -
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center text-gray-300 text-xs">
+                  -
+                </div>
+                <span className="text-gray-600">Not included</span>
               </div>
-              <span>Not included</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="px-1.5 py-0.5 bg-amber-100 text-amber-700 text-xs rounded">Future</span>
-              <span>Planned feature</span>
             </div>
           </div>
-          <p className="text-gray-500 text-sm mt-3">
-            Click on tier buttons to assign features. Features assigned to FREE are automatically included in PRO and ENTERPRISE. Features assigned to PRO are included in ENTERPRISE.
-          </p>
         </div>
 
-        {/* Actions */}
-        <div className="mt-6 flex gap-4">
-          <Link
-            href="/management"
-            className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300"
-          >
-            Back to Management
-          </Link>
-          <button
-            onClick={saveAll}
-            disabled={saving}
-            className="px-6 py-3 bg-[#C9A961] text-white rounded-lg font-semibold hover:bg-[#1B4332] disabled:opacity-50"
-          >
-            {saving ? 'Saving...' : 'Save All Changes'}
-          </button>
-        </div>
+        {/* Right Panel - Comments */}
+        {showCommentsPanel && (
+          <div className="w-1/3 bg-gray-50 overflow-y-auto flex flex-col">
+            <div className="p-4 border-b bg-white sticky top-0 z-10">
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-gray-900">Comments</h2>
+                <button
+                  onClick={() => setShowCommentsPanel(false)}
+                  className="p-1 text-gray-400 hover:text-gray-600"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Selected Feature Comment Editor */}
+            {selectedFeatureData && (
+              <div className="p-4 border-b bg-white">
+                <div className="mb-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      getBaseTier(selectedFeatureData.id) === 'free' ? 'bg-gray-100 text-gray-700' :
+                      getBaseTier(selectedFeatureData.id) === 'pro' ? 'bg-blue-100 text-blue-700' :
+                      getBaseTier(selectedFeatureData.id) === 'enterprise' ? 'bg-purple-100 text-purple-700' :
+                      'bg-amber-100 text-amber-700'
+                    }`}>
+                      {getBaseTier(selectedFeatureData.id)?.toUpperCase() || 'UNASSIGNED'}
+                    </span>
+                    <span className="text-xs text-gray-400">{selectedFeatureData.category}</span>
+                  </div>
+                  <h3 className="font-medium text-gray-900">{selectedFeatureData.feature}</h3>
+                  {selectedFeatureData.description && (
+                    <p className="text-sm text-gray-500 mt-1">{selectedFeatureData.description}</p>
+                  )}
+                </div>
+
+                {/* Suggestion Comment */}
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-blue-700 mb-1">
+                    <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                    Comment / Suggestion
+                  </label>
+                  <textarea
+                    value={comments[selectedFeatureData.id]?.suggestion || ''}
+                    onChange={(e) => updateComment(selectedFeatureData.id, 'suggestion', e.target.value)}
+                    placeholder="Add a comment or suggestion about this feature..."
+                    className="w-full h-20 text-sm border rounded-lg p-2 resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Development Comment */}
+                <div>
+                  <label className="block text-sm font-medium text-amber-700 mb-1">
+                    <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    Dev Required
+                  </label>
+                  <textarea
+                    value={comments[selectedFeatureData.id]?.development || ''}
+                    onChange={(e) => updateComment(selectedFeatureData.id, 'development', e.target.value)}
+                    placeholder="Development requirements or notes..."
+                    className="w-full h-20 text-sm border rounded-lg p-2 resize-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                  />
+                </div>
+              </div>
+            )}
+
+            {!selectedFeatureData && (
+              <div className="p-4 border-b bg-white">
+                <div className="text-center py-8 text-gray-400">
+                  <svg className="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                  </svg>
+                  <p className="text-sm">Click on a feature row to add comments</p>
+                </div>
+              </div>
+            )}
+
+            {/* All Comments List */}
+            <div className="flex-1 p-4">
+              <h3 className="text-sm font-medium text-gray-700 mb-3">All Comments ({commentsCount})</h3>
+
+              {commentsCount === 0 ? (
+                <div className="text-center py-8 text-gray-400">
+                  <svg className="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  <p className="text-sm">No comments yet</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {getFeaturesWithComments().map(({ feature, suggestion, development }) => (
+                    <div
+                      key={feature.id}
+                      className={`bg-white rounded-lg border p-3 cursor-pointer hover:shadow-sm transition-shadow ${
+                        selectedFeature === feature.id ? 'ring-2 ring-blue-500' : ''
+                      }`}
+                      onClick={() => setSelectedFeature(feature.id)}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`text-xs px-1.5 py-0.5 rounded ${
+                          getBaseTier(feature.id) === 'free' ? 'bg-gray-100 text-gray-600' :
+                          getBaseTier(feature.id) === 'pro' ? 'bg-blue-100 text-blue-600' :
+                          getBaseTier(feature.id) === 'enterprise' ? 'bg-purple-100 text-purple-600' :
+                          'bg-amber-100 text-amber-600'
+                        }`}>
+                          {getBaseTier(feature.id)?.toUpperCase() || 'N/A'}
+                        </span>
+                        <span className="text-sm font-medium text-gray-900 truncate">{feature.feature}</span>
+                      </div>
+
+                      {suggestion && (
+                        <div className="mb-2">
+                          <div className="flex items-center gap-1 text-xs text-blue-600 mb-1">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            Comment
+                          </div>
+                          <p className="text-xs text-gray-600 line-clamp-2">{suggestion}</p>
+                        </div>
+                      )}
+
+                      {development && (
+                        <div>
+                          <div className="flex items-center gap-1 text-xs text-amber-600 mb-1">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            Dev Required
+                          </div>
+                          <p className="text-xs text-gray-600 line-clamp-2">{development}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
