@@ -61,7 +61,7 @@ const TRAVEL_CODES = [
 ];
 
 // Help section definitions with content
-type HelpSectionId = 'cost-inbox' | 'supplier' | 'type' | 'category' | 'travel' | 'description' | 'amount' | 'payment' | 'line-items' | 'xero-reconcile';
+type HelpSectionId = 'cost-inbox' | 'supplier' | 'type' | 'category' | 'travel' | 'description' | 'amount' | 'payment' | 'line-items' | 'xero-reconcile' | 'payroll-tracking';
 
 interface HelpSection {
   id: HelpSectionId;
@@ -76,12 +76,20 @@ const HELP_SECTIONS: HelpSection[] = [
   { id: 'type', number: 3, title: 'Type (Receipt vs Invoice)', shortTitle: 'Type' },
   { id: 'category', number: 4, title: 'Category (Chart of Accounts)', shortTitle: 'Category' },
   { id: 'travel', number: 5, title: 'Travel Tracking Categories', shortTitle: 'Travel' },
-  { id: 'description', number: 6, title: 'Description', shortTitle: 'Description' },
-  { id: 'amount', number: 7, title: 'Amount & Currency', shortTitle: 'Amount' },
-  { id: 'payment', number: 8, title: 'Payment Method (Paid Status)', shortTitle: 'Payment' },
-  { id: 'line-items', number: 9, title: 'Line Items (For Large Expenses)', shortTitle: 'Line Items' },
-  { id: 'xero-reconcile', number: 10, title: 'Xero Bank Reconciliation', shortTitle: 'Xero Reconcile' },
+  { id: 'payroll-tracking', number: 6, title: 'Payroll Tracking Codes', shortTitle: 'Payroll' },
+  { id: 'description', number: 7, title: 'Description', shortTitle: 'Description' },
+  { id: 'amount', number: 8, title: 'Amount & Currency', shortTitle: 'Amount' },
+  { id: 'payment', number: 9, title: 'Payment Method (Paid Status)', shortTitle: 'Payment' },
+  { id: 'line-items', number: 10, title: 'Line Items (For Large Expenses)', shortTitle: 'Line Items' },
+  { id: 'xero-reconcile', number: 11, title: 'Xero Bank Reconciliation', shortTitle: 'Xero Reconcile' },
 ];
+
+interface TaskLink {
+  label: string;
+  url?: string;
+  color: 'green' | 'purple' | 'blue';
+  helpSectionLink?: HelpSectionId;  // Opens help modal instead of navigating
+}
 
 interface TaskDef {
   id: string;
@@ -90,10 +98,10 @@ interface TaskDef {
   dueDay: number;
   instructions: string;
   assignee: 'fabian' | 'kristy';
-  links?: { label: string; url: string; color: 'green' | 'purple' | 'blue' }[];
+  links?: TaskLink[];
   hasWiseSubItems?: boolean;
   hasMonthEndChecklist?: boolean;
-  helpSection?: string;
+  helpSection?: HelpSectionId;
 }
 
 const TASKS: TaskDef[] = [
@@ -176,7 +184,7 @@ const TASKS: TaskDef[] = [
     instructions: 'Process all items in the Dext Cost Inbox. Each item should be coded with: correct supplier, category, payment method, and description. No items should remain in "To Review" status.',
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
-      { label: 'Bookkeeping Guide', url: '/finance/help', color: 'blue' },
+      { label: 'Coding Guide', color: 'blue', helpSectionLink: 'cost-inbox' },
     ],
     helpSection: 'cost-inbox',
   },
@@ -189,7 +197,7 @@ const TASKS: TaskDef[] = [
     instructions: 'Match all bank transactions in Xero. Green items = auto-matched from Dext, just click OK. For unmatched items, use Find & Match or create a new transaction. Goal: 0 items to reconcile.',
     links: [
       { label: 'Xero Bank Reconciliation', url: 'https://go.xero.com/Bank/BankAccounts.aspx', color: 'purple' },
-      { label: 'Bookkeeping Guide', url: '/finance/help', color: 'blue' },
+      { label: 'Reconcile Guide', color: 'blue', helpSectionLink: 'xero-reconcile' },
     ],
     helpSection: 'xero-reconcile',
   },
@@ -258,8 +266,9 @@ const TASKS: TaskDef[] = [
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
-      { label: 'Bookkeeping Guide', url: '/finance/help', color: 'blue' },
+      { label: 'Payroll Codes', color: 'blue', helpSectionLink: 'payroll-tracking' },
     ],
+    helpSection: 'payroll-tracking',
   },
   {
     id: 'pay-bills-monthend',
@@ -440,6 +449,41 @@ function HelpPanelContent({ sectionId }: { sectionId: HelpSectionId }) {
             <a href="/finance/help" className="text-blue-600 hover:text-blue-800 underline mt-3 inline-block">
               View all travel codes →
             </a>
+          </div>
+        </div>
+      );
+
+    case 'payroll-tracking':
+      return (
+        <div className="space-y-5">
+          <p className="text-gray-600 text-base leading-relaxed">
+            Use PAYROLL tracking codes when coding contractor invoices and WISE payment receipts. This tracks costs by contractor for reporting.
+          </p>
+          <div className="bg-gray-100 rounded-lg p-3">
+            <Image
+              src="/images/dext-guide/payroll-tracking.png"
+              alt="Xero Payroll Tracking Categories"
+              width={600}
+              height={400}
+              className="rounded border border-gray-300 w-full"
+            />
+          </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p className="text-blue-800 font-medium text-base mb-3">Contractor Codes:</p>
+            <div className="space-y-1.5 text-sm">
+              {WISE_CONTRACTORS.map((contractor) => (
+                <div key={contractor.id} className="flex items-center gap-2">
+                  <span className="font-mono text-blue-900 bg-white px-2 py-0.5 rounded text-xs">
+                    {contractor.trackingCode}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-amber-800 text-base">
+              <strong>Important:</strong> Always select the PAYROLL tracking category when coding contractor invoices, so costs are correctly attributed to each contractor.
+            </p>
           </div>
         </div>
       );
@@ -963,7 +1007,19 @@ export default function FinancePage() {
                         {task.links && task.links.length > 0 && (
                           <div className="flex flex-wrap gap-2">
                             {task.links.map((link, index) => (
-                              link.url.startsWith('/') ? (
+                              link.helpSectionLink ? (
+                                // Help modal button
+                                <button
+                                  key={index}
+                                  onClick={() => setHelpPanelSection(link.helpSectionLink!)}
+                                  className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${getLinkColor(link.color)}`}
+                                >
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+                                  {link.label}
+                                </button>
+                              ) : link.url?.startsWith('/') ? (
                                 <Link
                                   key={index}
                                   href={link.url}
