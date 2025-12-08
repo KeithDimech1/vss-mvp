@@ -3,11 +3,12 @@ import { prisma } from '@/lib/prisma';
 import { verifySession } from '@/lib/auth';
 
 // Default packages to seed if none exist
-// Thermochronology = FT (67,870) + HE (15,208) + VITRINITE (22,192) + Ar-Ar (874) + TH (6,581) = 112,725
-// Geochronology = U-Pb (20,067) only
+// Thermochronology = FT (67,870) + HE (15,208) + VR (22,192) = 105,270 (global breakdown)
+// Geochronology = U-Pb (20,067) + Ar-Ar (874) + TH (6,581) = 27,522 (global breakdown)
 // Geochemistry = GC (292,612) + ISO (32,656) = 325,268
+// Note: Regional packages include UNC (Unclassified) for data not yet assigned to a region
 const defaultPackages = [
-  // Thermochronology (FT + HE + Vitrinite + Ar-Ar + Th)
+  // Thermochronology (FT + HE + VR)
   { packageId: 'thermo-global', category: 'Thermochronology', region: 'Global', regionCode: 'GLOBAL', records: 112725 },
   { packageId: 'thermo-afr', category: 'Thermochronology', region: 'Africa', regionCode: 'AFR', records: 6888 },    // 5521+1278+1+23+64
   { packageId: 'thermo-ant', category: 'Thermochronology', region: 'Antarctica', regionCode: 'ANT', records: 1317 }, // 758+122+0+435+2
@@ -18,6 +19,7 @@ const defaultPackages = [
   { packageId: 'thermo-nam', category: 'Thermochronology', region: 'North America', regionCode: 'NAM', records: 36726 }, // 11752+3599+21245+0+130
   { packageId: 'thermo-oce', category: 'Thermochronology', region: 'Oceania', regionCode: 'OCE', records: 12196 },  // 11394+554+444+0+248
   { packageId: 'thermo-sam', category: 'Thermochronology', region: 'South America', regionCode: 'SAM', records: 13927 }, // 9837+3356+0+0+734
+  { packageId: 'thermo-unc', category: 'Thermochronology', region: 'Unclassified', regionCode: 'UNC', records: 563 }, // 368+195+0
   // Geochronology (U-Pb only)
   { packageId: 'geochron-global', category: 'Geochronology', region: 'Global', regionCode: 'GLOBAL', records: 20067 },
   { packageId: 'geochron-afr', category: 'Geochronology', region: 'Africa', regionCode: 'AFR', records: 297 },
@@ -29,6 +31,7 @@ const defaultPackages = [
   { packageId: 'geochron-nam', category: 'Geochronology', region: 'North America', regionCode: 'NAM', records: 11068 },
   { packageId: 'geochron-oce', category: 'Geochronology', region: 'Oceania', regionCode: 'OCE', records: 7384 },
   { packageId: 'geochron-sam', category: 'Geochronology', region: 'South America', regionCode: 'SAM', records: 241 },
+  { packageId: 'geochron-unc', category: 'Geochronology', region: 'Unclassified', regionCode: 'UNC', records: 5488 }, // 55+118+5315
   // Geochemistry (GC + ISO)
   { packageId: 'geochem-global', category: 'Geochemistry', region: 'Global', regionCode: 'GLOBAL', records: 325268 },
   { packageId: 'geochem-afr', category: 'Geochemistry', region: 'Africa', regionCode: 'AFR', records: 1364 },
@@ -40,6 +43,7 @@ const defaultPackages = [
   { packageId: 'geochem-nam', category: 'Geochemistry', region: 'North America', regionCode: 'NAM', records: 105677 },
   { packageId: 'geochem-oce', category: 'Geochemistry', region: 'Oceania', regionCode: 'OCE', records: 141614 },
   { packageId: 'geochem-sam', category: 'Geochemistry', region: 'South America', regionCode: 'SAM', records: 319 },
+  { packageId: 'geochem-unc', category: 'Geochemistry', region: 'Unclassified', regionCode: 'UNC', records: 3606 }, // 3506+100
 ];
 
 // GET - Fetch all packages

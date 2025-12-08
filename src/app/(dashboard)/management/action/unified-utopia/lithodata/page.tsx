@@ -32,46 +32,53 @@ interface RegionalBreakdown {
   [regionCode: string]: DataTypeBreakdown;
 }
 
-// Thermochronology data types by region
+// Thermochronology data types by region - FROM CSV
+// Data types: FT (Fission Track), HE (Helium U-Th/He), VR (Vitrinite Reflectance)
+// Note: Ar-Ar and TH moved to Geochronology in CSV
 const thermoBreakdowns: RegionalBreakdown = {
-  GLOBAL: { FT: 67870, HE: 15208, VITRINITE: 22192, 'Ar-Ar': 874, TH: 6581 },
-  AFR: { FT: 5521, HE: 1278, VITRINITE: 1, 'Ar-Ar': 23, TH: 64 },
-  ANT: { FT: 758, HE: 122, VITRINITE: 0, 'Ar-Ar': 435, TH: 2 },
-  ARA: { FT: 1670, HE: 270, VITRINITE: 0, 'Ar-Ar': 0, TH: 12 },
-  ASI: { FT: 12405, HE: 4645, VITRINITE: 0, 'Ar-Ar': 10, TH: 32 },
-  CAS: { FT: 2228, HE: 550, VITRINITE: 0, 'Ar-Ar': 2, TH: 18 },
-  EUR: { FT: 11937, HE: 639, VITRINITE: 502, 'Ar-Ar': 286, TH: 26 },
-  NAM: { FT: 11752, HE: 3599, VITRINITE: 21245, 'Ar-Ar': 0, TH: 130 },
-  OCE: { FT: 11394, HE: 554, VITRINITE: 444, 'Ar-Ar': 0, TH: 248 },
-  SAM: { FT: 9837, HE: 3356, VITRINITE: 0, 'Ar-Ar': 0, TH: 734 },
+  GLOBAL: { FT: 67870, HE: 15208, VR: 22192 },           // 105,270 total
+  AFR: { FT: 5521, HE: 1278, VR: 1 },                    // 6,800
+  ANT: { FT: 758, HE: 122, VR: 0 },                      // 880
+  ARA: { FT: 1670, HE: 270, VR: 0 },                     // 1,940
+  ASI: { FT: 12405, HE: 4645, VR: 0 },                   // 17,050
+  CAS: { FT: 2228, HE: 550, VR: 0 },                     // 2,778
+  EUR: { FT: 11937, HE: 639, VR: 502 },                  // 13,078
+  NAM: { FT: 11752, HE: 3599, VR: 21245 },               // 36,596
+  OCE: { FT: 11394, HE: 554, VR: 444 },                  // 12,392
+  SAM: { FT: 9837, HE: 3356, VR: 0 },                    // 13,193
+  UNC: { FT: 368, HE: 195, VR: 0 },                      // 563 Unclassified
 };
 
-// Geochronology data types by region (only U-Pb)
+// Geochronology data types by region - FROM CSV
+// Data types: U-Pb, Ar-Ar, TH (Thorium)
 const geochronBreakdowns: RegionalBreakdown = {
-  GLOBAL: { 'U-Pb': 20067 },
-  AFR: { 'U-Pb': 297 },
-  ANT: { 'U-Pb': 27 },
-  ARA: { 'U-Pb': 8 },
-  ASI: { 'U-Pb': 852 },
-  CAS: { 'U-Pb': 34 },
-  EUR: { 'U-Pb': 100 },
-  NAM: { 'U-Pb': 11068 },
-  OCE: { 'U-Pb': 7384 },
-  SAM: { 'U-Pb': 241 },
+  GLOBAL: { 'U-Pb': 20067, 'Ar-Ar': 874, TH: 6581 },    // 27,522 total
+  AFR: { 'U-Pb': 297, 'Ar-Ar': 23, TH: 64 },            // 384
+  ANT: { 'U-Pb': 27, 'Ar-Ar': 435, TH: 2 },             // 464
+  ARA: { 'U-Pb': 8, 'Ar-Ar': 0, TH: 12 },               // 20
+  ASI: { 'U-Pb': 852, 'Ar-Ar': 10, TH: 32 },            // 894
+  CAS: { 'U-Pb': 34, 'Ar-Ar': 2, TH: 18 },              // 54
+  EUR: { 'U-Pb': 100, 'Ar-Ar': 286, TH: 26 },           // 412
+  NAM: { 'U-Pb': 11068, 'Ar-Ar': 0, TH: 130 },          // 11,198
+  OCE: { 'U-Pb': 7384, 'Ar-Ar': 0, TH: 248 },           // 7,632
+  SAM: { 'U-Pb': 241, 'Ar-Ar': 0, TH: 734 },            // 975
+  UNC: { 'U-Pb': 55, 'Ar-Ar': 118, TH: 5315 },          // 5,488 Unclassified
 };
 
-// Geochemistry data types by region
+// Geochemistry data types by region - FROM CSV
+// Data types: GC (Geochemistry), ISO (Isotope)
 const geochemBreakdowns: RegionalBreakdown = {
-  GLOBAL: { GC: 292612, ISO: 32656 },
-  AFR: { GC: 1200, ISO: 164 },
-  ANT: { GC: 900, ISO: 119 },
-  ARA: { GC: 60000, ISO: 8960 },
-  ASI: { GC: 650, ISO: 123 },
-  CAS: { GC: 1500, ISO: 231 },
-  EUR: { GC: 180, ISO: 25 },
-  NAM: { GC: 92000, ISO: 13677 },
-  OCE: { GC: 132000, ISO: 9614 },
-  SAM: { GC: 280, ISO: 39 },
+  GLOBAL: { GC: 292612, ISO: 32656 },                    // 325,268 total
+  AFR: { GC: 1354, ISO: 10 },                            // 1,364
+  ANT: { GC: 1019, ISO: 0 },                             // 1,019
+  ARA: { GC: 68960, ISO: 0 },                            // 68,960
+  ASI: { GC: 773, ISO: 0 },                              // 773
+  CAS: { GC: 1731, ISO: 0 },                             // 1,731
+  EUR: { GC: 205, ISO: 0 },                              // 205
+  NAM: { GC: 73131, ISO: 32546 },                        // 105,677
+  OCE: { GC: 141614, ISO: 0 },                           // 141,614
+  SAM: { GC: 319, ISO: 0 },                              // 319
+  UNC: { GC: 3506, ISO: 100 },                           // 3,606 Unclassified
 };
 
 const categoryBreakdowns: Record<string, RegionalBreakdown> = {
@@ -83,7 +90,7 @@ const categoryBreakdowns: Record<string, RegionalBreakdown> = {
 const dataTypeColors: Record<string, string> = {
   FT: 'bg-blue-100 text-blue-700',
   HE: 'bg-cyan-100 text-cyan-700',
-  VITRINITE: 'bg-teal-100 text-teal-700',
+  VR: 'bg-teal-100 text-teal-700',
   'Ar-Ar': 'bg-indigo-100 text-indigo-700',
   TH: 'bg-violet-100 text-violet-700',
   'U-Pb': 'bg-purple-100 text-purple-700',
@@ -97,7 +104,7 @@ const categoryColors: Record<string, { bg: string; border: string; text: string;
   Geochemistry: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', headerBg: 'bg-emerald-600' },
 };
 
-const regionOrder = ['GLOBAL', 'AFR', 'ANT', 'ARA', 'ASI', 'CAS', 'EUR', 'NAM', 'OCE', 'SAM'];
+const regionOrder = ['GLOBAL', 'AFR', 'ANT', 'ARA', 'ASI', 'CAS', 'EUR', 'NAM', 'OCE', 'SAM', 'UNC'];
 
 const regionNames: Record<string, string> = {
   GLOBAL: 'Global',
@@ -110,6 +117,7 @@ const regionNames: Record<string, string> = {
   NAM: 'North America',
   OCE: 'Oceania',
   SAM: 'South America',
+  UNC: 'Unclassified',
 };
 
 export default function LithoDataPricingPage() {

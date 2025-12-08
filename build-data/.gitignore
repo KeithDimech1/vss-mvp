@@ -17,3 +17,5 @@
 
 # Everything else is TRACKED
 ideas/
+!ideas/
+!ideas/**

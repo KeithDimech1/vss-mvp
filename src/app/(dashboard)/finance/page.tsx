@@ -13,25 +13,31 @@ const WISE_CONTRACTORS = [
   { id: 'vinko', name: 'Vinko (Scenaryo GmbH)' },
 ];
 
+// Month-end close checklist items
+const MONTH_END_CHECKLIST = [
+  { id: 'receive-invoices', label: 'Receive all staff payroll invoices' },
+  { id: 'dext-wise', label: 'Put all staff payroll costs into Dext and into Wise' },
+  { id: 'xero-100', label: '100% receipts and transactions removed in Xero' },
+  { id: 'dext-coded', label: 'Dext pushed to Xero and properly coded' },
+  { id: 'finance-meeting', label: 'Monthly finance meeting setup between Fabian, Keith, Moritz and Wayne' },
+];
+
 interface TaskDef {
   id: string;
   title: string;
   category: 'critical' | 'weekly' | 'monthEnd';
   dueDay: number; // Day of month
   hasWiseSubItems?: boolean;
+  hasMonthEndChecklist?: boolean;
 }
 
 const TASKS: TaskDef[] = [
   // CRITICAL - Start of Month
-  { id: 'review-last-month', title: "Review last month's close status", category: 'critical', dueDay: 2 },
-  { id: 'close-dext', title: 'Close all Dext items open', category: 'critical', dueDay: 2 },
-  { id: 'xero-reconciliation', title: 'Xero reconciliation of all outstanding items', category: 'critical', dueDay: 2 },
   { id: 'check-stp', title: 'Check STP (Single Touch Payroll)', category: 'critical', dueDay: 4 },
   { id: 'run-payroll', title: 'Run payroll in Xero', category: 'critical', dueDay: 4 },
   { id: 'review-invoices-wise', title: 'Review Invoices for staff payments and put into WISE', category: 'critical', dueDay: 4, hasWiseSubItems: true },
   { id: 'run-wise', title: 'Run Wise Payments', category: 'critical', dueDay: 4 },
   { id: 'wise-to-dext', title: 'Send WISE email receipts to DEXT', category: 'critical', dueDay: 4 },
-  { id: 'book-finance-meeting', title: 'Book in Monthly Finance Review meeting (Fabian and Keith)', category: 'critical', dueDay: 4 },
 
   // WEEKLY
   { id: 'pay-bills-weekly', title: 'Review and pay all bills due this week', category: 'weekly', dueDay: 8 },
@@ -39,11 +45,11 @@ const TASKS: TaskDef[] = [
   { id: 'lodge-invoices', title: 'Lodge all incoming invoices into Xero - with due date', category: 'weekly', dueDay: 8 },
 
   // MONTH-END
-  { id: 'staff-invoices', title: 'Ensure all staff have submitted their monthly invoices', category: 'monthEnd', dueDay: -1 },
+  { id: 'staff-invoices', title: 'Send email to all staff ensuring invoices on final day of every month (working day)', category: 'monthEnd', dueDay: 25 },
   { id: 'pay-bills-monthend', title: 'Pay all bills due this week', category: 'monthEnd', dueDay: -1 },
   { id: 'dext-coded', title: 'Month-end close: All Dext items coded and published', category: 'monthEnd', dueDay: -1 },
   { id: 'bank-recon', title: 'Month-end close: Bank reconciliation 100%', category: 'monthEnd', dueDay: -1 },
-  { id: 'bills-approved', title: 'Month-end close: All bills coded and approved', category: 'monthEnd', dueDay: -1 },
+  { id: 'month-close', title: 'Month-end close: Complete all close requirements', category: 'monthEnd', dueDay: -1, hasMonthEndChecklist: true },
 ];
 
 interface TaskState {
@@ -51,6 +57,7 @@ interface TaskState {
   completedDate: string;
   notes: string;
   wiseSubItems?: { [key: string]: { completed: boolean; audAmount: string } };
+  monthEndChecklist?: { [key: string]: boolean };
 }
 
 interface ChecklistData {
@@ -133,6 +140,33 @@ export default function FinancePage() {
     };
     setChecklistData(newData);
     saveData(newData);
+  };
+
+  // Update a month-end checklist item
+  const updateMonthEndChecklistItem = (taskId: string, itemId: string, completed: boolean) => {
+    const currentTask = checklistData[taskId] || { completed: false, completedDate: '', notes: '', monthEndChecklist: {} };
+    const currentChecklist = currentTask.monthEndChecklist || {};
+
+    const newData = {
+      ...checklistData,
+      [taskId]: {
+        ...currentTask,
+        monthEndChecklist: {
+          ...currentChecklist,
+          [itemId]: completed,
+        },
+      },
+    };
+    setChecklistData(newData);
+    saveData(newData);
+  };
+
+  // Get month-end checklist completion count
+  const getMonthEndChecklistStats = (taskId: string) => {
+    const state = getTaskState(taskId);
+    const checklist = state.monthEndChecklist || {};
+    const completedCount = MONTH_END_CHECKLIST.filter(item => checklist[item.id]).length;
+    return { completed: completedCount, total: MONTH_END_CHECKLIST.length };
   };
 
   const toggleExpanded = (taskId: string) => {
@@ -270,8 +304,13 @@ export default function FinancePage() {
                             {isExpanded ? 'Collapse' : 'Expand'}
                           </button>
                         </div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          Due: Day {task.dueDay === -1 ? 'Last' : task.dueDay}
+                        <div className="text-sm text-gray-500 mt-1 flex items-center gap-3">
+                          <span>Due: Day {task.dueDay === -1 ? 'Last' : task.dueDay}</span>
+                          {task.hasMonthEndChecklist && (
+                            <span className="text-purple-600 font-medium">
+                              Checklist: {getMonthEndChecklistStats(task.id).completed}/{getMonthEndChecklistStats(task.id).total}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -310,6 +349,33 @@ export default function FinancePage() {
                                       className="w-24 px-2 py-1 text-sm border border-gray-300 rounded"
                                     />
                                   </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Month-End Close Checklist */}
+                      {task.hasMonthEndChecklist && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Month-End Close Checklist ({getMonthEndChecklistStats(task.id).completed}/{getMonthEndChecklistStats(task.id).total})
+                          </label>
+                          <div className="space-y-2 ml-4">
+                            {MONTH_END_CHECKLIST.map((item) => {
+                              const isItemCompleted = state.monthEndChecklist?.[item.id] || false;
+                              return (
+                                <div key={item.id} className="flex items-center gap-3 p-2 bg-white rounded border">
+                                  <input
+                                    type="checkbox"
+                                    checked={isItemCompleted}
+                                    onChange={(e) => updateMonthEndChecklistItem(task.id, item.id, e.target.checked)}
+                                    className="w-4 h-4 text-purple-600 border-gray-300 rounded"
+                                  />
+                                  <span className={`flex-1 ${isItemCompleted ? 'line-through text-gray-500' : ''}`}>
+                                    {item.label}
+                                  </span>
                                 </div>
                               );
                             })}
