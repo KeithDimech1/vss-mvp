@@ -15,13 +15,14 @@ const OUTPUT_DIR = path.join(process.cwd(), 'public/docs/dext');
 // Collections to scrape (from Dext Help Centre)
 // URL format: https://help.dext.com/en/collections/{id}-{slug}
 const COLLECTIONS = [
-  { slug: 'getting-started-for-business-owners', name: 'Getting Started', id: '878134' },
-  { slug: 'adding-managing-documents', name: 'Adding & Managing Documents', id: '3553095' },
-  { slug: 'troubleshooting', name: 'Troubleshooting', id: '3553162' },
-  { slug: 'accounting-softwares', name: 'Accounting Softwares', id: '3553096' },
-  { slug: 'data-health-insights', name: 'Data Health & Insights', id: '3553155' },
-  { slug: 'costs-sales', name: 'Costs & Sales', id: '3553098' },
-  { slug: 'mobile-app', name: 'Mobile App', id: '3553160' },
+  { slug: 'getting-started', name: 'Getting Started', id: '878035' },
+  { slug: 'accounting-softwares', name: 'Accounting Softwares', id: '878041' },
+  { slug: 'adding-managing-documents', name: 'Adding & Managing Documents', id: '878052' },
+  { slug: 'data-health-insights', name: 'Data Health & Insights', id: '878070' },
+  { slug: 'costs-sales', name: 'Costs & Sales', id: '878055' },
+  { slug: 'troubleshooting', name: 'Troubleshooting', id: '878076' },
+  { slug: 'mobile-app', name: 'Mobile App', id: '878038' },
+  { slug: 'business-settings', name: 'Business Settings', id: '878039' },
 ];
 
 interface Article {

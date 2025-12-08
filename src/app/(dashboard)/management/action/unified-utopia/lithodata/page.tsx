@@ -4,105 +4,16 @@ import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-interface Package {
+// Data type definitions with their records by region
+interface DataTypeInfo {
   id: string;
-  packageId: string;
+  name: string;
+  fullName: string;
   category: string;
-  region: string;
-  regionCode: string;
-  records: number;
-  priceAnnual: number | null;
-  priceOneTime: number | null;
-  priceNotes: string | null;
-  isAvailable: boolean;
-  isFree: boolean;
-  lastEditedAt: string;
+  color: string;
+  bgColor: string;
+  records: Record<string, number>;
 }
-
-// Data type breakdowns by region
-// Thermochronology: FT, HE, VITRINITE, Ar-Ar, TH
-// Geochronology: U-Pb
-// Geochemistry: GC, ISO
-
-interface DataTypeBreakdown {
-  [dataType: string]: number;
-}
-
-interface RegionalBreakdown {
-  [regionCode: string]: DataTypeBreakdown;
-}
-
-// Thermochronology data types by region - FROM CSV
-// Data types: FT (Fission Track), HE (Helium U-Th/He), VR (Vitrinite Reflectance)
-// Note: Ar-Ar and TH moved to Geochronology in CSV
-const thermoBreakdowns: RegionalBreakdown = {
-  GLOBAL: { FT: 67870, HE: 15208, VR: 22192 },           // 105,270 total
-  AFR: { FT: 5521, HE: 1278, VR: 1 },                    // 6,800
-  ANT: { FT: 758, HE: 122, VR: 0 },                      // 880
-  ARA: { FT: 1670, HE: 270, VR: 0 },                     // 1,940
-  ASI: { FT: 12405, HE: 4645, VR: 0 },                   // 17,050
-  CAS: { FT: 2228, HE: 550, VR: 0 },                     // 2,778
-  EUR: { FT: 11937, HE: 639, VR: 502 },                  // 13,078
-  NAM: { FT: 11752, HE: 3599, VR: 21245 },               // 36,596
-  OCE: { FT: 11394, HE: 554, VR: 444 },                  // 12,392
-  SAM: { FT: 9837, HE: 3356, VR: 0 },                    // 13,193
-  UNC: { FT: 368, HE: 195, VR: 0 },                      // 563 Unclassified
-};
-
-// Geochronology data types by region - FROM CSV
-// Data types: U-Pb, Ar-Ar, TH (Thorium)
-const geochronBreakdowns: RegionalBreakdown = {
-  GLOBAL: { 'U-Pb': 20067, 'Ar-Ar': 874, TH: 6581 },    // 27,522 total
-  AFR: { 'U-Pb': 297, 'Ar-Ar': 23, TH: 64 },            // 384
-  ANT: { 'U-Pb': 27, 'Ar-Ar': 435, TH: 2 },             // 464
-  ARA: { 'U-Pb': 8, 'Ar-Ar': 0, TH: 12 },               // 20
-  ASI: { 'U-Pb': 852, 'Ar-Ar': 10, TH: 32 },            // 894
-  CAS: { 'U-Pb': 34, 'Ar-Ar': 2, TH: 18 },              // 54
-  EUR: { 'U-Pb': 100, 'Ar-Ar': 286, TH: 26 },           // 412
-  NAM: { 'U-Pb': 11068, 'Ar-Ar': 0, TH: 130 },          // 11,198
-  OCE: { 'U-Pb': 7384, 'Ar-Ar': 0, TH: 248 },           // 7,632
-  SAM: { 'U-Pb': 241, 'Ar-Ar': 0, TH: 734 },            // 975
-  UNC: { 'U-Pb': 55, 'Ar-Ar': 118, TH: 5315 },          // 5,488 Unclassified
-};
-
-// Geochemistry data types by region - FROM CSV
-// Data types: GC (Geochemistry), ISO (Isotope)
-const geochemBreakdowns: RegionalBreakdown = {
-  GLOBAL: { GC: 292612, ISO: 32656 },                    // 325,268 total
-  AFR: { GC: 1354, ISO: 10 },                            // 1,364
-  ANT: { GC: 1019, ISO: 0 },                             // 1,019
-  ARA: { GC: 68960, ISO: 0 },                            // 68,960
-  ASI: { GC: 773, ISO: 0 },                              // 773
-  CAS: { GC: 1731, ISO: 0 },                             // 1,731
-  EUR: { GC: 205, ISO: 0 },                              // 205
-  NAM: { GC: 73131, ISO: 32546 },                        // 105,677
-  OCE: { GC: 141614, ISO: 0 },                           // 141,614
-  SAM: { GC: 319, ISO: 0 },                              // 319
-  UNC: { GC: 3506, ISO: 100 },                           // 3,606 Unclassified
-};
-
-const categoryBreakdowns: Record<string, RegionalBreakdown> = {
-  Thermochronology: thermoBreakdowns,
-  Geochronology: geochronBreakdowns,
-  Geochemistry: geochemBreakdowns,
-};
-
-const dataTypeColors: Record<string, string> = {
-  FT: 'bg-blue-100 text-blue-700',
-  HE: 'bg-cyan-100 text-cyan-700',
-  VR: 'bg-teal-100 text-teal-700',
-  'Ar-Ar': 'bg-indigo-100 text-indigo-700',
-  TH: 'bg-violet-100 text-violet-700',
-  'U-Pb': 'bg-purple-100 text-purple-700',
-  GC: 'bg-emerald-100 text-emerald-700',
-  ISO: 'bg-green-100 text-green-700',
-};
-
-const categoryColors: Record<string, { bg: string; border: string; text: string; headerBg: string }> = {
-  Thermochronology: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', headerBg: 'bg-blue-600' },
-  Geochronology: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', headerBg: 'bg-purple-600' },
-  Geochemistry: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', headerBg: 'bg-emerald-600' },
-};
 
 const regionOrder = ['GLOBAL', 'AFR', 'ANT', 'ARA', 'ASI', 'CAS', 'EUR', 'NAM', 'OCE', 'SAM', 'UNC'];
 
@@ -120,34 +31,125 @@ const regionNames: Record<string, string> = {
   UNC: 'Unclassified',
 };
 
+// All data types with their regional record counts from CSV
+const dataTypes: DataTypeInfo[] = [
+  // Thermochronology
+  {
+    id: 'FT',
+    name: 'FT',
+    fullName: 'Fission Track',
+    category: 'Thermochronology',
+    color: 'text-blue-700',
+    bgColor: 'bg-blue-500',
+    records: { GLOBAL: 67870, AFR: 5521, ANT: 758, ARA: 1670, ASI: 12405, CAS: 2228, EUR: 11937, NAM: 11752, OCE: 11394, SAM: 9837, UNC: 368 },
+  },
+  {
+    id: 'HE',
+    name: 'HE',
+    fullName: 'Helium (U-Th/He)',
+    category: 'Thermochronology',
+    color: 'text-cyan-700',
+    bgColor: 'bg-cyan-500',
+    records: { GLOBAL: 15208, AFR: 1278, ANT: 122, ARA: 270, ASI: 4645, CAS: 550, EUR: 639, NAM: 3599, OCE: 554, SAM: 3356, UNC: 195 },
+  },
+  {
+    id: 'VR',
+    name: 'VR',
+    fullName: 'Vitrinite Reflectance',
+    category: 'Thermochronology',
+    color: 'text-teal-700',
+    bgColor: 'bg-teal-500',
+    records: { GLOBAL: 22192, AFR: 1, ANT: 0, ARA: 0, ASI: 0, CAS: 0, EUR: 502, NAM: 21245, OCE: 444, SAM: 0, UNC: 0 },
+  },
+  // Geochronology
+  {
+    id: 'U-Pb',
+    name: 'U-Pb',
+    fullName: 'Uranium-Lead',
+    category: 'Geochronology',
+    color: 'text-purple-700',
+    bgColor: 'bg-purple-500',
+    records: { GLOBAL: 20067, AFR: 297, ANT: 27, ARA: 8, ASI: 852, CAS: 34, EUR: 100, NAM: 11068, OCE: 7384, SAM: 241, UNC: 55 },
+  },
+  {
+    id: 'Ar-Ar',
+    name: 'Ar-Ar',
+    fullName: 'Argon-Argon',
+    category: 'Geochronology',
+    color: 'text-indigo-700',
+    bgColor: 'bg-indigo-500',
+    records: { GLOBAL: 874, AFR: 23, ANT: 435, ARA: 0, ASI: 10, CAS: 2, EUR: 286, NAM: 0, OCE: 0, SAM: 0, UNC: 118 },
+  },
+  {
+    id: 'TH',
+    name: 'TH',
+    fullName: 'Thorium',
+    category: 'Geochronology',
+    color: 'text-violet-700',
+    bgColor: 'bg-violet-500',
+    records: { GLOBAL: 6581, AFR: 64, ANT: 2, ARA: 12, ASI: 32, CAS: 18, EUR: 26, NAM: 130, OCE: 248, SAM: 734, UNC: 5315 },
+  },
+  // Geochemistry
+  {
+    id: 'GC',
+    name: 'GC',
+    fullName: 'Geochemistry',
+    category: 'Geochemistry',
+    color: 'text-emerald-700',
+    bgColor: 'bg-emerald-500',
+    records: { GLOBAL: 292612, AFR: 1354, ANT: 1019, ARA: 68960, ASI: 773, CAS: 1731, EUR: 205, NAM: 73131, OCE: 141614, SAM: 319, UNC: 3506 },
+  },
+  {
+    id: 'ISO',
+    name: 'ISO',
+    fullName: 'Isotope',
+    category: 'Geochemistry',
+    color: 'text-green-700',
+    bgColor: 'bg-green-500',
+    records: { GLOBAL: 32656, AFR: 10, ANT: 0, ARA: 0, ASI: 0, CAS: 0, EUR: 0, NAM: 32546, OCE: 0, SAM: 0, UNC: 100 },
+  },
+];
+
+// Package in cart
+interface SelectedPackage {
+  dataTypeId: string;
+  regionCode: string;
+  isGlobal: boolean;
+}
+
+// Pricing state per data type per region
+interface PricingState {
+  [key: string]: {
+    priceAnnual: number | null;
+    isFree: boolean;
+    notes: string;
+  };
+}
+
 export default function LithoDataPricingPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
-  const [packages, setPackages] = useState<Package[]>([]);
-  const [editedPackages, setEditedPackages] = useState<Record<string, Partial<Package>>>({});
-  const [showBreakdown, setShowBreakdown] = useState<Record<string, boolean>>({
-    Thermochronology: false,
-    Geochronology: false,
-    Geochemistry: false,
-  });
-  const [autoCalculate, setAutoCalculate] = useState<Record<string, boolean>>({
-    Thermochronology: true,
-    Geochronology: true,
-    Geochemistry: true,
-  });
+  const [pricing, setPricing] = useState<PricingState>({});
+  const [selectedPackages, setSelectedPackages] = useState<SelectedPackage[]>([]);
+  const [customerName, setCustomerName] = useState('');
+  const [autoCalculate, setAutoCalculate] = useState(true);
 
-  const fetchPackages = useCallback(async () => {
-    try {
-      const res = await fetch('/api/lithodata-packages');
-      if (res.ok) {
-        const data = await res.json();
-        setPackages(data);
-      }
-    } catch (error) {
-      console.error('Error fetching packages:', error);
-    }
+  // Initialize pricing state
+  useEffect(() => {
+    const initialPricing: PricingState = {};
+    dataTypes.forEach(dt => {
+      regionOrder.forEach(region => {
+        const key = `${dt.id}-${region}`;
+        initialPricing[key] = {
+          priceAnnual: null,
+          isFree: false,
+          notes: '',
+        };
+      });
+    });
+    setPricing(initialPricing);
   }, []);
 
   useEffect(() => {
@@ -163,142 +165,121 @@ export default function LithoDataPricingPage() {
           router.push('/dashboard');
           return;
         }
-        await fetchPackages();
         setLoading(false);
-      } catch (error) {
+      } catch {
         router.push('/login');
       }
     };
     checkAccess();
-  }, [router, fetchPackages]);
+  }, [router]);
 
-  const getPackageValue = (pkg: Package, field: keyof Package) => {
-    if (editedPackages[pkg.packageId] && editedPackages[pkg.packageId][field] !== undefined) {
-      return editedPackages[pkg.packageId][field];
-    }
-    return pkg[field];
+  const formatNumber = (num: number) => num.toLocaleString();
+  const formatPrice = (price: number | null) => {
+    if (price === null || price === undefined) return '-';
+    return `$${price.toLocaleString()}`;
   };
 
-  const updatePackage = (packageId: string, field: keyof Package, value: string | number | boolean | null) => {
-    setEditedPackages(prev => ({
+  const getPricingKey = (dataTypeId: string, regionCode: string) => `${dataTypeId}-${regionCode}`;
+
+  const updatePricing = (dataTypeId: string, regionCode: string, field: string, value: number | boolean | string | null) => {
+    const key = getPricingKey(dataTypeId, regionCode);
+    setPricing(prev => ({
       ...prev,
-      [packageId]: {
-        ...prev[packageId],
+      [key]: {
+        ...prev[key],
         [field]: value,
       },
     }));
   };
 
-  const saveAll = async () => {
-    setSaving(true);
-    try {
-      const packagesToUpdate = Object.entries(editedPackages).map(([packageId, changes]) => ({
-        packageId,
-        ...changes,
-      }));
-
-      if (packagesToUpdate.length === 0) {
-        setSaving(false);
-        return;
-      }
-
-      const res = await fetch('/api/lithodata-packages', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ packages: packagesToUpdate }),
-      });
-
-      if (res.ok) {
-        setLastSaved(new Date());
-        setEditedPackages({});
-        await fetchPackages();
-      } else {
-        alert('Failed to save changes');
-      }
-    } catch (error) {
-      console.error('Error saving:', error);
-      alert('Failed to save');
-    }
-    setSaving(false);
+  // Calculate regional price based on global
+  const calculateRegionalPrice = (dataType: DataTypeInfo, globalPrice: number, regionCode: string): number => {
+    const globalRecords = dataType.records.GLOBAL;
+    const regionalRecords = dataType.records[regionCode] || 0;
+    if (globalRecords === 0 || regionalRecords === 0) return 0;
+    // Regional = Global × (Region Records / Total) × 1.2 (20% premium)
+    return Math.round(globalPrice * (regionalRecords / globalRecords) * 1.2);
   };
 
-  const toggleBreakdown = (category: string) => {
-    setShowBreakdown(prev => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
-  };
-
-  // Calculate regional prices based on Global price
-  // Formula: Regional = Global × (Regional Records / Total Records) × 1.2
-  const calculateRegionalPrices = (category: string, globalPrice: number, priceField: 'priceAnnual' | 'priceOneTime') => {
-    const categoryPkgs = packagesByCategory[category] || [];
-    const globalPkg = categoryPkgs.find(p => p.regionCode === 'GLOBAL');
-    if (!globalPkg) return;
-
-    const totalRecords = globalPkg.records;
-    const regionalPremium = 1.2; // 20% more expensive than proportional
-
-    categoryPkgs.forEach(pkg => {
-      if (pkg.regionCode !== 'GLOBAL') {
-        const proportion = pkg.records / totalRecords;
-        const calculatedPrice = Math.round(globalPrice * proportion * regionalPremium);
-        updatePackage(pkg.packageId, priceField, calculatedPrice);
-      }
-    });
-  };
-
-  // Handle Global price change with auto-calculation
-  const handleGlobalPriceChange = (packageId: string, category: string, priceField: 'priceAnnual' | 'priceOneTime', value: string) => {
+  // Handle global price change with auto-calculation
+  const handleGlobalPriceChange = (dataType: DataTypeInfo, value: string) => {
     const numValue = value ? parseFloat(value) : null;
-    updatePackage(packageId, priceField, numValue);
+    updatePricing(dataType.id, 'GLOBAL', 'priceAnnual', numValue);
 
-    // Auto-calculate regional prices if enabled and we have a value
-    if (autoCalculate[category] && numValue && numValue > 0) {
-      // Use setTimeout to ensure the state update happens first
-      setTimeout(() => {
-        calculateRegionalPrices(category, numValue, priceField);
-      }, 0);
+    if (autoCalculate && numValue && numValue > 0) {
+      regionOrder.forEach(region => {
+        if (region !== 'GLOBAL') {
+          const calculatedPrice = calculateRegionalPrice(dataType, numValue, region);
+          updatePricing(dataType.id, region, 'priceAnnual', calculatedPrice);
+        }
+      });
     }
   };
 
-  const hasChanges = Object.keys(editedPackages).length > 0;
-
-  // Group packages by category
-  const packagesByCategory = packages.reduce((acc, pkg) => {
-    if (!acc[pkg.category]) {
-      acc[pkg.category] = [];
+  // Package builder functions
+  const addToPackage = (dataTypeId: string, regionCode: string) => {
+    const isGlobal = regionCode === 'GLOBAL';
+    // If adding global, remove all regional selections for this data type
+    if (isGlobal) {
+      setSelectedPackages(prev => [
+        ...prev.filter(p => p.dataTypeId !== dataTypeId),
+        { dataTypeId, regionCode, isGlobal: true },
+      ]);
+    } else {
+      // If adding regional, remove global selection for this data type
+      setSelectedPackages(prev => {
+        const filtered = prev.filter(p => !(p.dataTypeId === dataTypeId && p.isGlobal));
+        // Check if already selected
+        const exists = filtered.some(p => p.dataTypeId === dataTypeId && p.regionCode === regionCode);
+        if (exists) return filtered;
+        return [...filtered, { dataTypeId, regionCode, isGlobal: false }];
+      });
     }
-    acc[pkg.category].push(pkg);
+  };
+
+  const removeFromPackage = (dataTypeId: string, regionCode: string) => {
+    setSelectedPackages(prev => prev.filter(p => !(p.dataTypeId === dataTypeId && p.regionCode === regionCode)));
+  };
+
+  const isSelected = (dataTypeId: string, regionCode: string) => {
+    return selectedPackages.some(p => p.dataTypeId === dataTypeId && p.regionCode === regionCode);
+  };
+
+  const isGlobalSelected = (dataTypeId: string) => {
+    return selectedPackages.some(p => p.dataTypeId === dataTypeId && p.isGlobal);
+  };
+
+  // Calculate total package price
+  const calculatePackageTotal = () => {
+    let total = 0;
+    let totalRecords = 0;
+    selectedPackages.forEach(pkg => {
+      const key = getPricingKey(pkg.dataTypeId, pkg.regionCode);
+      const price = pricing[key]?.priceAnnual || 0;
+      const dataType = dataTypes.find(dt => dt.id === pkg.dataTypeId);
+      const records = dataType?.records[pkg.regionCode] || 0;
+      total += price;
+      totalRecords += records;
+    });
+    return { total, totalRecords };
+  };
+
+  const clearPackage = () => {
+    setSelectedPackages([]);
+    setCustomerName('');
+  };
+
+  // Group data types by category
+  const dataTypesByCategory = dataTypes.reduce((acc, dt) => {
+    if (!acc[dt.category]) acc[dt.category] = [];
+    acc[dt.category].push(dt);
     return acc;
-  }, {} as Record<string, Package[]>);
+  }, {} as Record<string, DataTypeInfo[]>);
 
-  // Sort packages within each category by region order
-  Object.keys(packagesByCategory).forEach(category => {
-    packagesByCategory[category].sort((a, b) =>
-      regionOrder.indexOf(a.regionCode) - regionOrder.indexOf(b.regionCode)
-    );
-  });
-
-  // Calculate totals
-  const getTotalRecords = (category: string) => {
-    return packagesByCategory[category]?.find(p => p.regionCode === 'GLOBAL')?.records || 0;
-  };
-
-  const formatNumber = (num: number) => {
-    return num.toLocaleString();
-  };
-
-  const formatPrice = (price: number | null) => {
-    if (price === null || price === undefined) return '';
-    return `$${price.toLocaleString()}`;
-  };
-
-  // Get data types for a category
-  const getDataTypes = (category: string): string[] => {
-    const breakdown = categoryBreakdowns[category];
-    if (!breakdown || !breakdown.GLOBAL) return [];
-    return Object.keys(breakdown.GLOBAL);
+  const categoryColors: Record<string, { header: string; light: string }> = {
+    Thermochronology: { header: 'bg-blue-600', light: 'bg-blue-50' },
+    Geochronology: { header: 'bg-purple-600', light: 'bg-purple-50' },
+    Geochemistry: { header: 'bg-emerald-600', light: 'bg-emerald-50' },
   };
 
   if (loading) {
@@ -309,11 +290,13 @@ export default function LithoDataPricingPage() {
     );
   }
 
+  const { total: packageTotal, totalRecords: packageRecords } = calculatePackageTotal();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#1B4332] via-[#1B4332] to-[#C9A961] text-white shadow-lg">
-        <div className="max-w-[1600px] mx-auto px-6 py-6">
+        <div className="max-w-[1800px] mx-auto px-6 py-6">
           <div className="flex items-center gap-2 text-sm text-[#F5E6D3] mb-2">
             <Link href="/management" className="hover:text-white">Management</Link>
             <span>/</span>
@@ -323,32 +306,30 @@ export default function LithoDataPricingPage() {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold">LithoData: Regional Pricing</h1>
-              <p className="text-[#F5E6D3] mt-1">Set prices for data packages by category and region</p>
+              <h1 className="text-3xl font-bold">LithoData: Data Type Pricing</h1>
+              <p className="text-[#F5E6D3] mt-1">Set prices per data type and region, build custom packages</p>
             </div>
             <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 text-white/80 text-sm cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={autoCalculate}
+                  onChange={(e) => setAutoCalculate(e.target.checked)}
+                  className="rounded border-white/30"
+                />
+                Auto-calc regional (20% premium)
+              </label>
               {lastSaved && (
                 <div className="text-sm text-green-200">
                   Saved {lastSaved.toLocaleTimeString()}
                 </div>
               )}
-              <button
-                onClick={saveAll}
-                disabled={saving || !hasChanges}
-                className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
-                  hasChanges
-                    ? 'bg-white text-[#1B4332] hover:bg-gray-100'
-                    : 'bg-white/30 text-white/70 cursor-not-allowed'
-                }`}
-              >
-                {saving ? 'Saving...' : hasChanges ? 'Save Changes' : 'No Changes'}
-              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 py-6">
+      <div className="max-w-[1800px] mx-auto px-6 py-6">
         {/* Navigation */}
         <div className="flex gap-4 mb-6">
           <Link
@@ -366,241 +347,322 @@ export default function LithoDataPricingPage() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          {['Thermochronology', 'Geochronology', 'Geochemistry'].map(category => {
-            const colors = categoryColors[category];
-            const totalRecords = getTotalRecords(category);
-            const globalPkg = packagesByCategory[category]?.find(p => p.regionCode === 'GLOBAL');
-            const annualPrice = globalPkg ? getPackageValue(globalPkg, 'priceAnnual') : null;
-            const dataTypes = getDataTypes(category);
-            const breakdown = categoryBreakdowns[category]?.GLOBAL || {};
-
-            return (
-              <div key={category} className={`${colors.bg} ${colors.border} border rounded-xl p-4`}>
-                <div className={`text-sm font-semibold ${colors.text} uppercase tracking-wide`}>{category}</div>
-                <div className="text-2xl font-bold text-gray-900 mt-1">{formatNumber(totalRecords)} records</div>
-                <div className="text-sm text-gray-500 mt-1">
-                  Global: {annualPrice ? formatPrice(annualPrice as number) + '/yr' : 'Price not set'}
-                </div>
-                {dataTypes.length > 1 && (
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {dataTypes.map(dt => (
-                      <span key={dt} className={`text-xs px-1.5 py-0.5 rounded ${dataTypeColors[dt] || 'bg-gray-100 text-gray-600'}`}>
-                        {dt}: {formatNumber(breakdown[dt] || 0)}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-8 gap-3 mb-6">
+          {dataTypes.map(dt => (
+            <div key={dt.id} className={`${dt.bgColor} rounded-lg p-3 text-white shadow-md`}>
+              <div className="text-xs font-medium opacity-80">{dt.category}</div>
+              <div className="text-lg font-bold">{dt.name}</div>
+              <div className="text-sm opacity-90">{formatNumber(dt.records.GLOBAL)}</div>
+              <div className="text-xs opacity-70">{dt.fullName}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Pricing Tables */}
-        {['Thermochronology', 'Geochronology', 'Geochemistry'].map(category => {
-          const colors = categoryColors[category];
-          const categoryPackages = packagesByCategory[category] || [];
-          const isBreakdownVisible = showBreakdown[category];
-          const dataTypes = getDataTypes(category);
-          const hasMultipleTypes = dataTypes.length > 1;
+        {/* Pricing Tables by Category */}
+        {Object.entries(dataTypesByCategory).map(([category, types]) => (
+          <div key={category} className="mb-8">
+            <div className={`${categoryColors[category]?.header || 'bg-gray-600'} rounded-t-xl px-6 py-3`}>
+              <h2 className="text-xl font-bold text-white">{category}</h2>
+              <p className="text-white/70 text-sm">
+                {types.length} data type{types.length > 1 ? 's' : ''} • {formatNumber(types.reduce((sum, dt) => sum + dt.records.GLOBAL, 0))} total records
+              </p>
+            </div>
 
-          return (
-            <div key={category} className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
-              {/* Category Header */}
-              <div className={`${colors.headerBg} px-6 py-4 flex items-center justify-between`}>
-                <div>
-                  <h2 className="text-xl font-bold text-white">{category}</h2>
-                  <p className="text-white/80 text-sm">
-                    {formatNumber(getTotalRecords(category))} total records across all regions
-                  </p>
+            {/* One table per data type */}
+            {types.map(dataType => (
+              <div key={dataType.id} className="bg-white border-x border-b border-gray-200 last:rounded-b-xl overflow-hidden">
+                <div className={`${categoryColors[category]?.light || 'bg-gray-50'} px-6 py-3 border-b border-gray-200 flex items-center justify-between`}>
+                  <div className="flex items-center gap-3">
+                    <span className={`${dataType.bgColor} text-white px-3 py-1 rounded-lg font-bold text-sm`}>
+                      {dataType.name}
+                    </span>
+                    <span className="font-medium text-gray-700">{dataType.fullName}</span>
+                    <span className="text-gray-500 text-sm">• {formatNumber(dataType.records.GLOBAL)} records</span>
+                  </div>
+                  <button
+                    onClick={() => addToPackage(dataType.id, 'GLOBAL')}
+                    disabled={isGlobalSelected(dataType.id)}
+                    className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                      isGlobalSelected(dataType.id)
+                        ? 'bg-green-100 text-green-700 cursor-default'
+                        : 'bg-[#1B4332] text-white hover:bg-[#C9A961]'
+                    }`}
+                  >
+                    {isGlobalSelected(dataType.id) ? '✓ Global Added' : '+ Add Global'}
+                  </button>
                 </div>
-                <div className="flex items-center gap-2">
-                  <label className="flex items-center gap-2 text-white/80 text-sm cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={autoCalculate[category]}
-                      onChange={(e) => setAutoCalculate(prev => ({ ...prev, [category]: e.target.checked }))}
-                      className="rounded border-white/30"
-                    />
-                    Auto-calc regions
-                  </label>
-                  {hasMultipleTypes && (
-                    <button
-                      onClick={() => toggleBreakdown(category)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors ${
-                        isBreakdownVisible
-                          ? 'bg-white text-gray-800'
-                          : 'bg-white/20 text-white hover:bg-white/30'
-                      }`}
-                    >
-                      <svg className={`w-4 h-4 transition-transform ${isBreakdownVisible ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                      {isBreakdownVisible ? 'Show Totals' : 'Show Breakdown'}
-                    </button>
-                  )}
+
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-gray-200 bg-gray-50">
+                        <th className="text-left px-4 py-2 font-medium text-gray-600 text-sm w-[140px]">Region</th>
+                        <th className="text-right px-4 py-2 font-medium text-gray-600 text-sm w-[100px]">Records</th>
+                        <th className="text-right px-4 py-2 font-medium text-gray-600 text-sm w-[80px]">%</th>
+                        <th className="text-center px-4 py-2 font-medium text-gray-600 text-sm w-[140px]">Annual Price</th>
+                        <th className="text-center px-4 py-2 font-medium text-gray-600 text-sm w-[80px]">Free?</th>
+                        <th className="text-center px-4 py-2 font-medium text-gray-600 text-sm w-[100px]">Package</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {regionOrder.map(regionCode => {
+                        const records = dataType.records[regionCode] || 0;
+                        const percentage = dataType.records.GLOBAL > 0
+                          ? ((records / dataType.records.GLOBAL) * 100).toFixed(1)
+                          : '0';
+                        const isGlobal = regionCode === 'GLOBAL';
+                        const key = getPricingKey(dataType.id, regionCode);
+                        const isFree = pricing[key]?.isFree || false;
+                        const priceValue = pricing[key]?.priceAnnual;
+                        const isInPackage = isSelected(dataType.id, regionCode) || (isGlobalSelected(dataType.id) && !isGlobal);
+
+                        if (records === 0 && !isGlobal) return null;
+
+                        return (
+                          <tr
+                            key={regionCode}
+                            className={`border-b border-gray-100 hover:bg-gray-50/50 ${isGlobal ? 'bg-amber-50/50' : ''} ${isInPackage ? 'bg-green-50' : ''}`}
+                          >
+                            <td className="px-4 py-2">
+                              <div className={`font-medium text-sm ${isGlobal ? 'text-amber-700' : 'text-gray-900'}`}>
+                                {isGlobal ? '🌍 ' : ''}{regionNames[regionCode]}
+                              </div>
+                            </td>
+                            <td className="px-4 py-2 text-right">
+                              <span className="text-sm font-medium text-gray-700">{formatNumber(records)}</span>
+                            </td>
+                            <td className="px-4 py-2 text-right">
+                              <span className="text-sm text-gray-500">{percentage}%</span>
+                            </td>
+                            <td className="px-4 py-2">
+                              <div className="flex items-center justify-center">
+                                <span className="text-gray-400 mr-1">$</span>
+                                <input
+                                  type="number"
+                                  value={priceValue || ''}
+                                  onChange={(e) => isGlobal
+                                    ? handleGlobalPriceChange(dataType, e.target.value)
+                                    : updatePricing(dataType.id, regionCode, 'priceAnnual', e.target.value ? parseFloat(e.target.value) : null)
+                                  }
+                                  placeholder="0"
+                                  disabled={isFree || (!isGlobal && autoCalculate)}
+                                  className={`w-24 px-2 py-1 text-sm border rounded text-right ${
+                                    isFree || (!isGlobal && autoCalculate)
+                                      ? 'bg-gray-100 text-gray-400'
+                                      : isGlobal
+                                        ? 'focus:ring-2 focus:ring-amber-500 focus:border-amber-500 border-amber-300'
+                                        : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                                  }`}
+                                />
+                                <span className="text-gray-400 ml-1 text-xs">/yr</span>
+                              </div>
+                            </td>
+                            <td className="px-4 py-2 text-center">
+                              <button
+                                onClick={() => updatePricing(dataType.id, regionCode, 'isFree', !isFree)}
+                                className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all mx-auto ${
+                                  isFree
+                                    ? 'bg-green-500 border-green-500 text-white'
+                                    : 'border-gray-300 hover:border-green-400'
+                                }`}
+                              >
+                                {isFree && (
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                  </svg>
+                                )}
+                              </button>
+                            </td>
+                            <td className="px-4 py-2 text-center">
+                              {isGlobalSelected(dataType.id) && !isGlobal ? (
+                                <span className="text-xs text-green-600">via Global</span>
+                              ) : (
+                                <button
+                                  onClick={() => isInPackage
+                                    ? removeFromPackage(dataType.id, regionCode)
+                                    : addToPackage(dataType.id, regionCode)
+                                  }
+                                  className={`px-2 py-1 rounded text-xs font-medium transition-colors ${
+                                    isInPackage
+                                      ? 'bg-green-500 text-white hover:bg-red-500'
+                                      : 'bg-gray-200 text-gray-600 hover:bg-[#1B4332] hover:text-white'
+                                  }`}
+                                >
+                                  {isInPackage ? '✓ Remove' : '+ Add'}
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
+            ))}
+          </div>
+        ))}
 
-              {/* Pricing Table */}
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Region</th>
-                      {isBreakdownVisible && hasMultipleTypes ? (
-                        dataTypes.map(dt => (
-                          <th key={dt} className="text-right px-3 py-3 font-medium text-gray-600 text-sm w-[80px]">
-                            <span className={`inline-block px-1.5 py-0.5 rounded text-xs ${dataTypeColors[dt] || 'bg-gray-100'}`}>
-                              {dt}
-                            </span>
-                          </th>
-                        ))
-                      ) : (
-                        <th className="text-right px-4 py-3 font-medium text-gray-600 text-sm w-[100px]">Records</th>
-                      )}
-                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Annual Price</th>
-                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[80px]">Free?</th>
-                      <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm">Notes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {categoryPackages.map((pkg) => {
-                      const isGlobal = pkg.regionCode === 'GLOBAL';
-                      const isFree = getPackageValue(pkg, 'isFree') as boolean;
-                      const breakdown = categoryBreakdowns[category]?.[pkg.regionCode] || {};
-
-                      return (
-                        <tr
-                          key={pkg.packageId}
-                          className={`border-b border-gray-100 hover:bg-gray-50/50 ${isGlobal ? 'bg-amber-50/50' : ''}`}
-                        >
-                          <td className="px-4 py-2">
-                            <div className={`font-medium text-sm ${isGlobal ? 'text-amber-700' : 'text-gray-900'}`}>
-                              {isGlobal ? '🌍 ' : ''}{regionNames[pkg.regionCode]}
-                            </div>
-                            <div className="text-xs text-gray-400">{pkg.regionCode}</div>
-                          </td>
-                          {isBreakdownVisible && hasMultipleTypes ? (
-                            dataTypes.map(dt => (
-                              <td key={dt} className="px-3 py-2 text-right">
-                                <span className="text-sm font-medium text-gray-700">
-                                  {breakdown[dt] !== undefined ? formatNumber(breakdown[dt]) : '-'}
-                                </span>
-                              </td>
-                            ))
-                          ) : (
-                            <td className="px-4 py-2 text-right">
-                              <span className="text-sm font-medium text-gray-700">{formatNumber(pkg.records)}</span>
-                            </td>
-                          )}
-                          <td className="px-4 py-2">
-                            <div className="flex items-center justify-center">
-                              <span className="text-gray-400 mr-1">$</span>
-                              <input
-                                type="number"
-                                value={(getPackageValue(pkg, 'priceAnnual') as number) || ''}
-                                onChange={(e) => isGlobal
-                                  ? handleGlobalPriceChange(pkg.packageId, category, 'priceAnnual', e.target.value)
-                                  : updatePackage(pkg.packageId, 'priceAnnual', e.target.value ? parseFloat(e.target.value) : null)
-                                }
-                                placeholder="0"
-                                disabled={isFree || (!isGlobal && autoCalculate[category])}
-                                className={`w-20 px-2 py-1 text-sm border rounded text-right ${
-                                  isFree || (!isGlobal && autoCalculate[category])
-                                    ? 'bg-gray-100 text-gray-400'
-                                    : isGlobal
-                                      ? 'focus:ring-2 focus:ring-amber-500 focus:border-amber-500 border-amber-300'
-                                      : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
-                                }`}
-                              />
-                              <span className="text-gray-400 ml-1 text-xs">/yr</span>
-                            </div>
-                          </td>
-                          <td className="px-4 py-2 text-center">
-                            <button
-                              onClick={() => updatePackage(pkg.packageId, 'isFree', !isFree)}
-                              className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-all mx-auto ${
-                                isFree
-                                  ? 'bg-green-500 border-green-500 text-white'
-                                  : 'border-gray-300 hover:border-green-400'
-                              }`}
-                            >
-                              {isFree && (
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                                </svg>
-                              )}
-                            </button>
-                          </td>
-                          <td className="px-4 py-2">
-                            <input
-                              type="text"
-                              value={(getPackageValue(pkg, 'priceNotes') as string) || ''}
-                              onChange={(e) => updatePackage(pkg.packageId, 'priceNotes', e.target.value || null)}
-                              placeholder="Add notes..."
-                              className="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+        {/* Package Builder / Quote Calculator */}
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden sticky bottom-4">
+          <div className="bg-gradient-to-r from-[#1B4332] to-[#C9A961] px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-bold text-white">Package Builder</h2>
+                <p className="text-white/70 text-sm">Build custom data packages for customers</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <div className="text-sm text-white/70">Selected Packages</div>
+                  <div className="text-2xl font-bold text-white">{selectedPackages.length}</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm text-white/70">Total Records</div>
+                  <div className="text-2xl font-bold text-white">{formatNumber(packageRecords)}</div>
+                </div>
+                <div className="text-right border-l border-white/30 pl-4">
+                  <div className="text-sm text-white/70">Package Total</div>
+                  <div className="text-2xl font-bold text-[#C9A961]">{formatPrice(packageTotal)}/yr</div>
+                </div>
               </div>
             </div>
-          );
-        })}
+          </div>
 
-        {/* Pricing Strategy Notes */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">Pricing Strategy Notes</h3>
+          {selectedPackages.length > 0 ? (
+            <div className="p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <input
+                  type="text"
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  placeholder="Customer Name (optional)"
+                  className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#1B4332] focus:border-[#1B4332]"
+                />
+                <button
+                  onClick={clearPackage}
+                  className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 font-medium"
+                >
+                  Clear All
+                </button>
+              </div>
+
+              {/* Kanban-style package display */}
+              <div className="grid grid-cols-3 gap-4">
+                {Object.entries(dataTypesByCategory).map(([category, types]) => {
+                  const categoryPackages = selectedPackages.filter(p =>
+                    types.some(t => t.id === p.dataTypeId)
+                  );
+                  if (categoryPackages.length === 0) return null;
+
+                  return (
+                    <div key={category} className={`${categoryColors[category]?.light} rounded-lg p-4`}>
+                      <h3 className="font-bold text-gray-800 mb-3">{category}</h3>
+                      <div className="space-y-2">
+                        {categoryPackages.map(pkg => {
+                          const dataType = dataTypes.find(dt => dt.id === pkg.dataTypeId)!;
+                          const key = getPricingKey(pkg.dataTypeId, pkg.regionCode);
+                          const price = pricing[key]?.priceAnnual || 0;
+                          const records = dataType.records[pkg.regionCode] || 0;
+
+                          return (
+                            <div
+                              key={`${pkg.dataTypeId}-${pkg.regionCode}`}
+                              className="bg-white rounded-lg p-3 shadow-sm border border-gray-200 flex items-center justify-between"
+                            >
+                              <div className="flex items-center gap-2">
+                                <span className={`${dataType.bgColor} text-white px-2 py-0.5 rounded text-xs font-bold`}>
+                                  {dataType.name}
+                                </span>
+                                <div>
+                                  <div className="text-sm font-medium text-gray-800">
+                                    {pkg.isGlobal ? '🌍 Global' : regionNames[pkg.regionCode]}
+                                  </div>
+                                  <div className="text-xs text-gray-500">{formatNumber(records)} records</div>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="font-bold text-[#1B4332]">{formatPrice(price)}</span>
+                                <button
+                                  onClick={() => removeFromPackage(pkg.dataTypeId, pkg.regionCode)}
+                                  className="text-red-500 hover:text-red-700 p-1"
+                                >
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Quote Summary */}
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-gray-800">Quote Summary {customerName && `for ${customerName}`}</h4>
+                    <p className="text-sm text-gray-500">
+                      {selectedPackages.length} package{selectedPackages.length !== 1 ? 's' : ''} • {formatNumber(packageRecords)} total records
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">Annual Subscription</div>
+                    <div className="text-3xl font-bold text-[#1B4332]">{formatPrice(packageTotal)}<span className="text-lg text-gray-500">/yr</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="p-8 text-center text-gray-500">
+              <div className="text-4xl mb-2">📦</div>
+              <p>Click &quot;+ Add&quot; on any region row to build a custom package</p>
+              <p className="text-sm mt-1">Or click &quot;+ Add Global&quot; to include all regions for a data type</p>
+            </div>
+          )}
+        </div>
+
+        {/* Pricing Notes */}
+        <div className="bg-white rounded-xl shadow-lg p-6 mt-6">
+          <h3 className="text-lg font-bold text-gray-800 mb-4">Pricing Strategy</h3>
           <div className="grid grid-cols-3 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-gray-700 mb-2">Pricing Models</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Global vs Regional</h4>
               <ul className="space-y-1 text-gray-600">
-                <li><strong>Annual:</strong> Subscription access for 12 months</li>
-                <li><strong>Free:</strong> Included in free tier (public data)</li>
+                <li><strong>Global:</strong> Set base price, includes all regions</li>
+                <li><strong>Regional:</strong> Auto-calculated at 20% premium over proportional</li>
+                <li><strong>Savings:</strong> Global is ~20% cheaper than sum of regionals</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-700 mb-2">Auto-Calculate Formula</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Regional Price Formula</h4>
               <ul className="space-y-1 text-gray-600">
-                <li><strong>Regional Price =</strong></li>
-                <li className="pl-4">Global × (Region Records / Total) × 1.2</li>
-                <li className="text-xs text-gray-400 mt-2">Regional packages have a 20% premium over the proportional Global rate</li>
+                <li><strong>Regional =</strong> Global × (Region % of Total) × 1.2</li>
+                <li className="text-xs text-gray-400 mt-2">Example: $100k Global, Asia 10% → $12k</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-700 mb-2">Data Type Breakdown</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Package Builder</h4>
               <ul className="space-y-1 text-gray-600">
-                <li><strong>Thermochronology:</strong> FT, HE, Vitrinite, Ar-Ar, TH</li>
-                <li><strong>Geochronology:</strong> U-Pb</li>
-                <li><strong>Geochemistry:</strong> GC, ISO</li>
+                <li><strong>Mix & Match:</strong> Combine any data types + regions</li>
+                <li><strong>Global Override:</strong> Selecting Global replaces regionals</li>
+                <li><strong>Quote:</strong> Total calculated automatically</li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-4">
+        {/* Back Button */}
+        <div className="mt-6">
           <Link
             href="/management/action/unified-utopia"
-            className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300"
+            className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 inline-block"
           >
             Back to Unified Utopia
           </Link>
-          <button
-            onClick={saveAll}
-            disabled={saving || !hasChanges}
-            className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-              hasChanges
-                ? 'bg-[#C9A961] text-white hover:bg-[#1B4332]'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            {saving ? 'Saving...' : 'Save All Changes'}
-          </button>
         </div>
       </div>
     </div>

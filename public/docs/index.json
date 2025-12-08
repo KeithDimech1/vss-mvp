@@ -1,0 +1,1363 @@
+{
+  "lastUpdated": "2025-12-08T02:05:51.199Z",
+  "counts": {
+    "total": 134,
+    "dext": 134,
+    "xero": 0
+  },
+  "categories": {
+    "dext": [
+      "Getting Started",
+      "Accounting Softwares",
+      "Adding & Managing Documents",
+      "Data Health & Insights",
+      "Costs & Sales",
+      "Troubleshooting",
+      "Mobile App",
+      "Business Settings"
+    ],
+    "xero": []
+  },
+  "articles": [
+    {
+      "id": "dext-the-enhanced-version-of-dext-what-x27-s-changed",
+      "title": "The Enhanced Version of Dext: What&#x27;s Changed",
+      "url": "https://help.dext.com/en/articles/185119-the-enhanced-version-of-dext-what-s-changed",
+      "collection": "Getting Started",
+      "excerpt": "# The new Dext platform has an enhanced, simplified and more intuitive design, with simpler navigation.     Below is a summary of the changes and new features now available to you, and how to continue...",
+      "source": "dext",
+      "path": "/getting-started/the-enhanced-version-of-dext-what-x27-s-changed.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-clients-x27-page",
+      "title": "The ‘Clients&#x27; Page",
+      "url": "https://help.dext.com/en/articles/377037-the-clients-page",
+      "collection": "Getting Started",
+      "excerpt": "# The Clients page gives an overview of each of your Client Accounts and details statistics and patterns in client&#x27;s usage of Dext.     It can indicate when your clients are submitting documents ...",
+      "source": "dext",
+      "path": "/getting-started/the-clients-x27-page.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-suppliers-page",
+      "title": "The ‘Suppliers’ Page",
+      "url": "https://help.dext.com/en/articles/377039-the-suppliers-page",
+      "collection": "Getting Started",
+      "excerpt": "# The Suppliers page lists all of the businesses that you’ve previously purchased from.     From this page you can access the settings for each supplier and edit them to automate repetitive processes ...",
+      "source": "dext",
+      "path": "/getting-started/the-suppliers-page.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-get-started-with-dext-for-business",
+      "title": "Get Started with Dext for Business’",
+      "url": "https://help.dext.com/en/articles/416705-get-started-with-dext-for-business",
+      "collection": "Getting Started",
+      "excerpt": "**Ready to get started with Dext? This article will guide you through the process of:**     - [Connecting your Accounting software](#connect)  - [Submitting Items ](#submit)  - [Editing, Publishing an...",
+      "source": "dext",
+      "path": "/getting-started/get-started-with-dext-for-business.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-using-the-tools-menu",
+      "title": "Using the Tools Menu",
+      "url": "https://help.dext.com/en/articles/416718-using-the-tools-menu",
+      "collection": "Getting Started",
+      "excerpt": "**The Tools menu is located in the [Costs](https://help.dext.com/en/s/article/the-costs-inbox) & [Sales](https://help.dext.com/en/s/article/the-sales-inbox) Inboxes, and is used to make adjustments to...",
+      "source": "dext",
+      "path": "/getting-started/using-the-tools-menu.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-getting-started-with-dext-for-accountants-amp-bookkeepers",
+      "title": "Getting Started with Dext for Accountants &amp; Bookkeepers",
+      "url": "https://help.dext.com/en/articles/416727-getting-started-with-dext-for-accountants-bookkeepers",
+      "collection": "Getting Started",
+      "excerpt": "**Ready to get started with Dext? This article will guide you through: **     - [**Adding a Client Account**](#adding-client)  - [**Adding a User or Colleague**](#add-user)  - [**Connecting your Accou...",
+      "source": "dext",
+      "path": "/getting-started/getting-started-with-dext-for-accountants-amp-bookkeepers.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-archive-tab",
+      "title": "The Archive Tab",
+      "url": "https://help.dext.com/en/articles/416742-the-archive-tab",
+      "collection": "Getting Started",
+      "excerpt": "**After you’ve published items, downloaded items, or added them to an expense claim, they’ll be moved to the Archive. This is where we permanently store your processed documents.**     Access the Arch...",
+      "source": "dext",
+      "path": "/getting-started/the-archive-tab.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-cost-inbox",
+      "title": "The Cost Inbox",
+      "url": "https://help.dext.com/en/articles/416743-the-cost-inbox",
+      "collection": "Getting Started",
+      "excerpt": "# The cost inbox is where you can view and manage documentation for your accounts payable that has been submitted to a Dext account.     There are two different inboxes in your Dext account: one for y...",
+      "source": "dext",
+      "path": "/getting-started/the-cost-inbox.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-sales-inbox",
+      "title": "The Sales Inbox",
+      "url": "https://help.dext.com/en/articles/416748-the-sales-inbox",
+      "collection": "Getting Started",
+      "excerpt": "The Sales inbox contains all of the invoices and other financial documents that your business issues to its customers for payment.     This is separate to the Costs inbox, where financial documents fo...",
+      "source": "dext",
+      "path": "/getting-started/the-sales-inbox.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-item-details-page",
+      "title": "The ‘Item Details’ Page",
+      "url": "https://help.dext.com/en/articles/105676-the-item-details-page",
+      "collection": "Getting Started",
+      "excerpt": "# The Item Details page presents an in-depth view of all the data associated with a submitted document.     The** Item Details** page consists of the document image and several tabs that provide addit...",
+      "source": "dext",
+      "path": "/getting-started/the-item-details-page.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-bank-workspace",
+      "title": "The Bank Workspace",
+      "url": "https://help.dext.com/en/articles/105726-the-bank-workspace",
+      "collection": "Getting Started",
+      "excerpt": "**The Bank Workspace allows you to manage all transactions imported into Dext from your various bank accounts.**     This article is relevant to the enhanced Dext experience. You can access the articl...",
+      "source": "dext",
+      "path": "/getting-started/the-bank-workspace.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-getting-started-with-dext-advanced",
+      "title": "Getting Started with Dext Advanced",
+      "url": "https://help.dext.com/en/articles/273220-getting-started-with-dext-advanced",
+      "collection": "Getting Started",
+      "excerpt": "**Dext Practice Advanced give you additional powerful tools and insights to take your bookkeeping to the next level. **     See how to get started with your Advanced account features:     - **[Bookkee...",
+      "source": "dext",
+      "path": "/getting-started/getting-started-with-dext-advanced.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-getting-started-with-dext-essentials-data-health-amp-insights",
+      "title": "Getting Started with Dext Essentials + Data Health &amp; Insights",
+      "url": "https://help.dext.com/en/articles/273219-getting-started-with-dext-essentials-data-health-insights",
+      "collection": "Getting Started",
+      "excerpt": "# Follow this guide and set up for success with Essentials Data Health & Insights.     Set up Data Health & Insights to monitor and improve the quality of your financial data effortlessly. Connect wit...",
+      "source": "dext",
+      "path": "/getting-started/getting-started-with-dext-essentials-data-health-amp-insights.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-getting-started-with-dext-advanced-data-health-amp-insights",
+      "title": "Getting Started with Dext Advanced + Data Health &amp; Insights",
+      "url": "https://help.dext.com/en/articles/273221-getting-started-with-dext-advanced-data-health-insights",
+      "collection": "Getting Started",
+      "excerpt": "# Follow this guide to set up for success with Advanced Data Health & Insights.     Set up Data Health & Insights to monitor and improve the quality of your financial data effortlessly. Connect with y...",
+      "source": "dext",
+      "path": "/getting-started/getting-started-with-dext-advanced-data-health-amp-insights.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-the-new-version-of-dext-a-quick-overview",
+      "title": "The New Version of Dext: A Quick Overview",
+      "url": "https://help.dext.com/en/articles/185728-the-new-version-of-dext-a-quick-overview",
+      "collection": "Getting Started",
+      "excerpt": "The updated version of Dext has a new, modern look with a simple and intuitive interface making it even easier to use on a daily basis.     Below is a quick overview of the changes and how to continue...",
+      "source": "dext",
+      "path": "/getting-started/the-new-version-of-dext-a-quick-overview.md",
+      "category": "Getting Started"
+    },
+    {
+      "id": "dext-how-to-integrate-dext-prepare-with-sage-50-using-dext-connect",
+      "title": "How to Integrate Dext Prepare with Sage 50 Using Dext Connect",
+      "url": "https://help.dext.com/en/articles/105795-how-to-integrate-dext-prepare-with-sage-50-using-dext-connect",
+      "collection": "Accounting Softwares",
+      "excerpt": "# This is a guide how to connect your Sage 50 account with the Dext Connect desktop application.     Important: To be able to integrate with an accounting software you must have Administrator level [U...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-integrate-dext-prepare-with-sage-50-using-dext-connect.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-odbcexception-error-42000",
+      "title": "OdbcException:ERROR [42000]",
+      "url": "https://help.dext.com/en/articles/105983-odbcexception-error-42000",
+      "collection": "Accounting Softwares",
+      "excerpt": "This error is due to the user profile that has been used to log into Sage 50 does not have sufficient permission to run the report. The access rights for this user need to be updated with the correct ...",
+      "source": "dext",
+      "path": "/accounting-softwares/odbcexception-error-42000.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-pushfailedexception-1-failed-to-push-object-connectionid-not-valid",
+      "title": "PushFailedException`1: Failed to push Object - ConnectionId not valid",
+      "url": "https://help.dext.com/en/articles/105984-pushfailedexception-1-failed-to-push-object-connectionid-not-valid",
+      "collection": "Accounting Softwares",
+      "excerpt": "**This error is due to the connection to Sage 50 has become de-authorized; so the connection becomes invalid.**     To fix this issue you would need to follow these steps:     - Navigate to the integr...",
+      "source": "dext",
+      "path": "/accounting-softwares/pushfailedexception-1-failed-to-push-object-connectionid-not-valid.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-comexception-not-connected-to-data-source-connect-or-logon-failed",
+      "title": "COMException:Not connected to Data Source - Connect or Logon failed",
+      "url": "https://help.dext.com/en/articles/105985-comexception-not-connected-to-data-source-connect-or-logon-failed",
+      "collection": "Accounting Softwares",
+      "excerpt": "**If you&#x27;re using the Sage 50 integration and the above error message appears, it&#x27;s due to installing multiple instances of the same connector for one specific company. **     Follow these s...",
+      "source": "dext",
+      "path": "/accounting-softwares/comexception-not-connected-to-data-source-connect-or-logon-failed.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-common-sage-50-and-dext-connect-errors",
+      "title": "Common Sage 50 and Dext Connect Errors",
+      "url": "https://help.dext.com/en/articles/105986-common-sage-50-and-dext-connect-errors",
+      "collection": "Accounting Softwares",
+      "excerpt": "**This page contains some common errors encountered when using the Connect desktop application with Sage 50, and how to troubleshoot them.**     # Username already in use     Causes:     - The same us...",
+      "source": "dext",
+      "path": "/accounting-softwares/common-sage-50-and-dext-connect-errors.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-sorry-we-cannot-publish-this-item-because-in-order-to-publish-extracted-tax-amounts-to-sage-50-you-n",
+      "title": "Sorry, we cannot publish this item because in order to publish extracted tax amounts to Sage 50 you need to select a Default Tax in your account settings.",
+      "url": "https://help.dext.com/en/articles/105982-sorry-we-cannot-publish-this-item-because-in-order-to-publish-extracted-tax-amounts-to-sage-50-you-need-to-select-a-default-tax-in-your-account-settings",
+      "collection": "Accounting Softwares",
+      "excerpt": "**This error occurs because there is no default tax set within Receipt Bank. To fix the problem navigate to the Connections section of the menu and click on Integrations. **     On this page you are a...",
+      "source": "dext",
+      "path": "/accounting-softwares/sorry-we-cannot-publish-this-item-because-in-order-to-publish-extracted-tax-amounts-to-sage-50-you-n.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-401-unauthorised-error",
+      "title": "401 Unauthorised error",
+      "url": "https://help.dext.com/en/articles/105989-401-unauthorised-error",
+      "collection": "Accounting Softwares",
+      "excerpt": "**This error occurs as a result of the integration with Sage Accounting expiring. It can easily be resolved by reintegrating. **     1. Simply navigate to the **Connections** menu and open the **Integ...",
+      "source": "dext",
+      "path": "/accounting-softwares/401-unauthorised-error.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-to-publish-to-other-expense-in-sage-accounting-you-must-have-a-payment-method-linked-with-a-bank-acc",
+      "title": "To publish to Other Expense in Sage Accounting, you must have a payment method linked with a bank account",
+      "url": "https://help.dext.com/en/articles/105988-to-publish-to-other-expense-in-sage-accounting-you-must-have-a-payment-method-linked-with-a-bank-account",
+      "collection": "Accounting Softwares",
+      "excerpt": "**This error message is a result of items being published to &#x27;Other expenses&#x27; section for reconciliation. But they do not have a [payment method](https://help.dext.com/en/s/article/What-is-a...",
+      "source": "dext",
+      "path": "/accounting-softwares/to-publish-to-other-expense-in-sage-accounting-you-must-have-a-payment-method-linked-with-a-bank-acc.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-with-sage-business-cloud-accounting",
+      "title": "How to Connect with Sage Business Cloud Accounting",
+      "url": "https://help.dext.com/en/articles/339553-how-to-connect-with-sage-business-cloud-accounting",
+      "collection": "Accounting Softwares",
+      "excerpt": "# Integrating your Dext and Sage Business Cloud Accounting accounts will enable you to send your Dext items directly to your accounting software with all the relevant item details applied.     This ar...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-with-sage-business-cloud-accounting.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-with-sage-accounting-south-africa",
+      "title": "How to Connect with Sage Accounting South Africa",
+      "url": "https://help.dext.com/en/articles/220010-how-to-connect-with-sage-accounting-south-africa",
+      "collection": "Accounting Softwares",
+      "excerpt": "# Integrating your Dext and Sage Accounting South Africa accounts will enable you to send your Dext items directly to your accounting software with all the relevant item details applied.        This a...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-with-sage-accounting-south-africa.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-dext-to-accounting-software",
+      "title": "How to connect Dext to accounting software",
+      "url": "https://help.dext.com/en/articles/339551-how-to-connect-dext-to-accounting-software",
+      "collection": "Accounting Softwares",
+      "excerpt": "Connecting Dext to your accounting software lets you automatically send your Dext items (receipts, invoices, etc.) directly into your accounting platform.      This ensures each item includes the corr...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-dext-to-accounting-software.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-bank-match",
+      "title": "Bank Match",
+      "url": "https://help.dext.com/en/articles/377054-bank-match",
+      "collection": "Accounting Softwares",
+      "excerpt": "**Bank Match automatically identifies Dext items that have a matching transaction in your accounting software Bank Feed or cash coded payments.**  **Note: **Bank Match does not currently work with Sag...",
+      "source": "dext",
+      "path": "/accounting-softwares/bank-match.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-using-additional-accounting-software-connections",
+      "title": "Using Additional Accounting Software Connections",
+      "url": "https://help.dext.com/en/articles/377057-using-additional-accounting-software-connections",
+      "collection": "Accounting Softwares",
+      "excerpt": "# If your Dext account is connected with Xero, QuickBooks Online, or QuickBooks Desktop, you can set up an additional connection with Bill.com, or ApprovalMax.        This article is relevant to the e...",
+      "source": "dext",
+      "path": "/accounting-softwares/using-additional-accounting-software-connections.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-use-paperwork-match-with-your-accounting-software",
+      "title": "How to use Paperwork Match with your Accounting Software",
+      "url": "https://help.dext.com/en/articles/377069-how-to-use-paperwork-match-with-your-accounting-software",
+      "collection": "Accounting Softwares",
+      "excerpt": "**Paperwork Match allows you to match your existing payments from the last 6 months in your accounting software that do not have an attached image. Once you select the Paperwork Match button, we’ll at...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-use-paperwork-match-with-your-accounting-software.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-reconnecting-when-an-integration-expires",
+      "title": "Reconnecting When an Integration Expires",
+      "url": "https://help.dext.com/en/articles/339552-reconnecting-when-an-integration-expires",
+      "collection": "Accounting Softwares",
+      "excerpt": "# Connections between Dext and an accounting software expire once a year. You&#x27;ll receive a publishing error when this happens, and will have to complete a short re-connection process to continue ...",
+      "source": "dext",
+      "path": "/accounting-softwares/reconnecting-when-an-integration-expires.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-using-prepayments-for-xero-and-quickbooks-online",
+      "title": "Using Prepayments for Xero and QuickBooks Online",
+      "url": "https://help.dext.com/en/articles/386537-using-prepayments-for-xero-and-quickbooks-online",
+      "collection": "Accounting Softwares",
+      "excerpt": "**Important**: This feature is currently only available for accounts connected with Xero and QuickBooks Online.  Account for costs that are paid upfront but relate to a future period with prepayments....",
+      "source": "dext",
+      "path": "/accounting-softwares/using-prepayments-for-xero-and-quickbooks-online.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-automatically-publishing-your-items",
+      "title": "Automatically publishing your items",
+      "url": "https://help.dext.com/en/articles/377051-automatically-publishing-your-items",
+      "collection": "Accounting Softwares",
+      "excerpt": "Use Auto-publish to automatically publish documents from selected suppliers, customers, or payment methods to your connected accounting software as soon as they’re submitted.     Auto-publish works al...",
+      "source": "dext",
+      "path": "/accounting-softwares/automatically-publishing-your-items.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-with-approvalmax",
+      "title": "How to Connect with ApprovalMax",
+      "url": "https://help.dext.com/en/articles/339554-how-to-connect-with-approvalmax",
+      "collection": "Accounting Softwares",
+      "excerpt": "# By connecting Dext with ApprovalMax, users integrated with Xero and QuickBooks Online can easily process invoices, bills, and expenses, deduplicate, and auto-approve them for smoother routing and ea...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-with-approvalmax.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-with-freeagent",
+      "title": "How to Connect with FreeAgent",
+      "url": "https://help.dext.com/en/articles/220009-how-to-connect-with-freeagent",
+      "collection": "Accounting Softwares",
+      "excerpt": "# Connecting your Dext and FreeAgent accounts will enable you to send your Dext items directly to your accounting software with all the relevant item details applied.        This article is relevant t...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-with-freeagent.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-how-to-connect-with-twinfield",
+      "title": "How to Connect with Twinfield",
+      "url": "https://help.dext.com/en/articles/222160-how-to-connect-with-twinfield",
+      "collection": "Accounting Softwares",
+      "excerpt": "# Connecting your Dext and Twinfield accounts will enable you to send your Dext items directly to your accounting software with all the relevant item details applied.        This article is relevant t...",
+      "source": "dext",
+      "path": "/accounting-softwares/how-to-connect-with-twinfield.md",
+      "category": "Accounting Softwares"
+    },
+    {
+      "id": "dext-inboxes",
+      "title": "Inboxes",
+      "url": "https://help.dext.com/en/articles/185853-inboxes",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "How you’ll add and view your documents within Dext hasn’t changed.     Once you’ve added your documents to Dext, you’ll be able to view them in the relevant inbox.     The **Inbox**, **In Processing**...",
+      "source": "dext",
+      "path": "/adding-managing-documents/inboxes.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-submission-history",
+      "title": "Submission History",
+      "url": "https://help.dext.com/en/articles/105787-submission-history",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**You can view a list of all of your account’s submitted items in the ‘Submission history’ section.**     The Submission history will show you all the items added to your Dext Prepare account. This in...",
+      "source": "dext",
+      "path": "/adding-managing-documents/submission-history.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-understanding-uk-vat-number-verification-results",
+      "title": "Understanding UK VAT Number Verification Results",
+      "url": "https://help.dext.com/en/articles/409918-understanding-uk-vat-number-verification-results",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "## ⚠️ Important: This article applies to UK customers only. VAT number verification is checked against HMRC’s official records.     When you upload a cost item in Dext, we automatically check the supp...",
+      "source": "dext",
+      "path": "/adding-managing-documents/understanding-uk-vat-number-verification-results.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-why-was-my-document-rejected",
+      "title": "Why was my document rejected?",
+      "url": "https://help.dext.com/en/articles/416680-why-was-my-document-rejected",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "Some items you upload to Dext may be rejected or accepted without data being extracted. This happens for a few specific reasons.     This article explains the most common causes and what each message ...",
+      "source": "dext",
+      "path": "/adding-managing-documents/why-was-my-document-rejected.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-how-to-set-up-a-fetch-connection",
+      "title": "How to Set up a Fetch Connection",
+      "url": "https://help.dext.com/en/articles/105950-how-to-set-up-a-fetch-connection",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# Use Fetch to automatically collect your bills and invoices from supplier websites.     This means that you don’t have to spend any more time logging into websites, finding your documents and downloa...",
+      "source": "dext",
+      "path": "/adding-managing-documents/how-to-set-up-a-fetch-connection.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-adding-documents-to-dext",
+      "title": "Adding Documents to Dext",
+      "url": "https://help.dext.com/en/articles/416741-adding-documents-to-dext",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# Use the submission method that best suits your needs to Add Costs & Sales items or Bank transaction data to your Dext account.     See the sections below for an overview of the submission methods av...",
+      "source": "dext",
+      "path": "/adding-managing-documents/adding-documents-to-dext.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-submit-documents-to-dext-with-extract-by-email",
+      "title": "Submit documents to Dext with Extract by Email",
+      "url": "https://help.dext.com/en/articles/416754-submit-documents-to-dext-with-extract-by-email",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# **Overview**  You can send receipts, invoices, and other paperwork straight into Dext by emailing them to your unique **Extract by Email** addresses.      Each user and account gets dedicated addres...",
+      "source": "dext",
+      "path": "/adding-managing-documents/submit-documents-to-dext-with-extract-by-email.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-submitting-items-via-paypal",
+      "title": "Submitting Items via PayPal",
+      "url": "https://help.dext.com/en/articles/377059-submitting-items-via-paypal",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Dext can check your Paypal account and collect any new Payments and Automatic Payments at 24 hour intervals**        This article is relevant to the enhanced Dext experience. You can access the arti...",
+      "source": "dext",
+      "path": "/adding-managing-documents/submitting-items-via-paypal.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-how-to-set-up-a-fetch-connection-for-amazon-business",
+      "title": "How to Set up a Fetch Connection for Amazon Business",
+      "url": "https://help.dext.com/en/articles/377062-how-to-set-up-a-fetch-connection-for-amazon-business",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# Use Fetch to automatically collect costs from your Amazon Business account.        This article is relevant to the enhanced Dext experience. You can access the article for the legacy Dext experience...",
+      "source": "dext",
+      "path": "/adding-managing-documents/how-to-set-up-a-fetch-connection-for-amazon-business.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-submitting-items-using-dropbox",
+      "title": "Submitting Items Using Dropbox",
+      "url": "https://help.dext.com/en/articles/377074-submitting-items-using-dropbox",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Connecting your Dropbox account to Dext will create a ‘Dext’ folder in your Dropbox account. Adding images of costs or sales items to the ‘Receipt’, ‘Invoices’ & ‘Sales’ folders within this ‘Dext’ f...",
+      "source": "dext",
+      "path": "/adding-managing-documents/submitting-items-using-dropbox.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-supplier-statements",
+      "title": "Supplier Statements",
+      "url": "https://help.dext.com/en/articles/183198-supplier-statements",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# Add supplier statements to your Dext account and Dext will help you match them to the invoices in both your Dext account and your connected accounting software.     Items for reconciliation are foun...",
+      "source": "dext",
+      "path": "/adding-managing-documents/supplier-statements.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-mileage-claims",
+      "title": "Mileage Claims",
+      "url": "https://help.dext.com/en/articles/235925-mileage-claims",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# **Mileage claims**  Mileage claims let you capture and calculate business travel expenses quickly, using official government reimbursement rates for supported regions. Dext calculates mileage automa...",
+      "source": "dext",
+      "path": "/adding-managing-documents/mileage-claims.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-using-commerce-lite",
+      "title": "Using Commerce Lite",
+      "url": "https://help.dext.com/en/articles/272696-using-commerce-lite",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Connect your Dext account to sales channels including Shopify, Square and PayPal, and pull both sales and fee transactions into the respective cost and sales inboxes for quick and simple coding and ...",
+      "source": "dext",
+      "path": "/adding-managing-documents/using-commerce-lite.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-using-vault",
+      "title": "Using Vault",
+      "url": "https://help.dext.com/en/articles/339544-using-vault",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Use Vault to store documents that are not classified as costs or sales items, but may still be needed in the future.**  Important: Vault is only available in the new enhanced version of Dext.  Unlik...",
+      "source": "dext",
+      "path": "/adding-managing-documents/using-vault.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-sales-invoicing-for-solo",
+      "title": "Sales Invoicing for Solo",
+      "url": "https://help.dext.com/en/articles/339545-sales-invoicing-for-solo",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Raise sales quotes and invoices directly in Dext, ready to send to customers.**     - **[Setting Up Business & Payment Details](#business-payment-details)**  - **[Editing Business & Payment Details]...",
+      "source": "dext",
+      "path": "/adding-managing-documents/sales-invoicing-for-solo.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-adding-documents-via-whatsapp",
+      "title": "Adding Documents via Whatsapp",
+      "url": "https://help.dext.com/en/articles/402584-adding-documents-via-whatsapp",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "**Easily add documents to Dext via Whatsapp **        # Connecting to your Whatsapp Account     To connect your Whatsapp account to your Dext account:  - Go to Teams or Users and click on the user you...",
+      "source": "dext",
+      "path": "/adding-managing-documents/adding-documents-via-whatsapp.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-set-up-email-forwarding-rules-to-dext",
+      "title": "Set up email forwarding rules to Dext",
+      "url": "https://help.dext.com/en/articles/416678-set-up-email-forwarding-rules-to-dext",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "# **Why use email forwarding?**  If suppliers send receipts or invoices to your inbox, set up an email rule to forward them to Dext automatically. This saves time and eliminates manual uploads.     # ...",
+      "source": "dext",
+      "path": "/adding-managing-documents/set-up-email-forwarding-rules-to-dext.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-exporting-your-data-as-a-csv-file",
+      "title": "Exporting your data as a CSV file",
+      "url": "https://help.dext.com/en/articles/416710-exporting-your-data-as-a-csv-file",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "You can export documents from Dext as a **CSV** (or PDF/ZIP) to share, analyze, or upload to your accounting software.     ## **Before you export**  - Use **advanced search** and **filters** to refine...",
+      "source": "dext",
+      "path": "/adding-managing-documents/exporting-your-data-as-a-csv-file.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-downloading-your-items-as-pdf-files",
+      "title": "Downloading your items as PDF files",
+      "url": "https://help.dext.com/en/articles/416715-downloading-your-items-as-pdf-files",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "You can download your documents from Dext as a **PDF**, **CSV**, or **ZIP** file. This makes it easy to share records, keep backups, or upload your financial data to an accounting platform.     ## **B...",
+      "source": "dext",
+      "path": "/adding-managing-documents/downloading-your-items-as-pdf-files.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-editing-publishing-and-exporting-items",
+      "title": "Editing, publishing, and exporting items",
+      "url": "https://help.dext.com/en/articles/416716-editing-publishing-and-exporting-items",
+      "collection": "Adding & Managing Documents",
+      "excerpt": "Once you’ve uploaded your documents into Dext, you can **edit** item details, **publish** them to your connected accounting software, or **export** them to share or store elsewhere.     # **View and e...",
+      "source": "dext",
+      "path": "/adding-managing-documents/editing-publishing-and-exporting-items.md",
+      "category": "Adding & Managing Documents"
+    },
+    {
+      "id": "dext-historical-changes",
+      "title": "Historical Changes",
+      "url": "https://help.dext.com/en/articles/109186-historical-changes",
+      "collection": "Data Health & Insights",
+      "excerpt": "**Dext Data Health & Insights uses the Companies House number from your accounting software to pull back the last filing period and the dates the accounts were filed for each of your clients, where ap...",
+      "source": "dext",
+      "path": "/data-health-insights/historical-changes.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-fixed-assets-reconciliation",
+      "title": "Using Fixed Assets Reconciliation",
+      "url": "https://help.dext.com/en/articles/276843-using-fixed-assets-reconciliation",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Dext Data Health & Insights connects with the Fixed Assets register in Xero and compares it with the general accounting ledger to highlight where records may be out of sync.        **Important:** Fi...",
+      "source": "dext",
+      "path": "/data-health-insights/using-fixed-assets-reconciliation.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-unreconciled-transactions-qbo-only",
+      "title": "Using Unreconciled Transactions (QBO Only)",
+      "url": "https://help.dext.com/en/articles/276846-using-unreconciled-transactions-qbo-only",
+      "collection": "Data Health & Insights",
+      "excerpt": "# QuickBooks Online does not provide bank statement data for Dext to check, so all unreconciled transactions are from the ledger side (outstanding payments and outstanding deposits). This is in contra...",
+      "source": "dext",
+      "path": "/data-health-insights/using-unreconciled-transactions-qbo-only.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-reviewing-duplicate-contacts",
+      "title": "Reviewing Duplicate Contacts",
+      "url": "https://help.dext.com/en/articles/276848-reviewing-duplicate-contacts",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Duplicate Contacts highlights your general ledger contacts identified as potential duplicates.        You can&#x27;t make changes to duplicate contacts in Dext. You will need to merge them in your G...",
+      "source": "dext",
+      "path": "/data-health-insights/reviewing-duplicate-contacts.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-contact-defaults",
+      "title": "Using Contact Defaults",
+      "url": "https://help.dext.com/en/articles/276850-using-contact-defaults",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Contacts in Xero can be setup with \"default\" account codes and tax types for sales and purchases. If set, Xero will use these to pre-populate the account code or tax type fields during bank statemen...",
+      "source": "dext",
+      "path": "/data-health-insights/using-contact-defaults.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-reviewing-duplicate-transactions",
+      "title": "Reviewing Duplicate Transactions",
+      "url": "https://help.dext.com/en/articles/276847-reviewing-duplicate-transactions",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Dext Data Health & Insights looks across invoices and bank transactions and highlights records that it thinks could be unwanted duplicates.     - [**Reviewing Duplicate Transactions**](#reviewing-du...",
+      "source": "dext",
+      "path": "/data-health-insights/reviewing-duplicate-transactions.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-dormant-accounts",
+      "title": "Using Dormant Accounts",
+      "url": "https://help.dext.com/en/articles/276851-using-dormant-accounts",
+      "collection": "Data Health & Insights",
+      "excerpt": "# This check identifies GL Accounts that have not had any transactional activity recorded against them from the \"Dormant Since\" date you supply.     [*](https://dext.intercom-attachments.eu/i/o/weauzz...",
+      "source": "dext",
+      "path": "/data-health-insights/using-dormant-accounts.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-control-accounts",
+      "title": "Using Control Accounts",
+      "url": "https://help.dext.com/en/articles/276844-using-control-accounts",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Control account checks are created based on the account codes selected for each check.     They are a visual representation of your PAYE, Net Wages, Pension liability status and update on Directors ...",
+      "source": "dext",
+      "path": "/data-health-insights/using-control-accounts.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-bank-reconciliation",
+      "title": "Using Bank Reconciliation",
+      "url": "https://help.dext.com/en/articles/276845-using-bank-reconciliation",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Dext uses a combination of Xero&#x27;s Bank Statement Report data, bank transactions and payments to provide an interactive view across all of an organisation&#x27;s bank accounts.        Bank Recon...",
+      "source": "dext",
+      "path": "/data-health-insights/using-bank-reconciliation.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-abn-validation",
+      "title": "ABN Validation",
+      "url": "https://help.dext.com/en/articles/278974-abn-validation",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Dext integrates with the Australian Business Register ABN Lookup tool, to cross check a contact’s ABN. Dext will automatically highlight all missing or invalid ABN numbers in your accounting softwar...",
+      "source": "dext",
+      "path": "/data-health-insights/abn-validation.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-reviewing-multi-coded-contacts",
+      "title": "Reviewing Multi-Coded Contacts",
+      "url": "https://help.dext.com/en/articles/276849-reviewing-multi-coded-contacts",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Multi-Coded Contacts reviews all invoices and bank transaction line items that are assigned to multiple account and/or tax codes.     The majority of the time, these codes *should* be consistent for...",
+      "source": "dext",
+      "path": "/data-health-insights/reviewing-multi-coded-contacts.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-corporation-tax",
+      "title": "Using Corporation Tax",
+      "url": "https://help.dext.com/en/articles/339557-using-corporation-tax",
+      "collection": "Data Health & Insights",
+      "excerpt": "**The Corporation Tax check gives an estimate of the corporation tax accrued by a company for the current and previous financial years, based on UK tax rates and using the financial year-end dates in ...",
+      "source": "dext",
+      "path": "/data-health-insights/using-corporation-tax.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-lock-dates",
+      "title": "Using Lock Dates",
+      "url": "https://help.dext.com/en/articles/278973-using-lock-dates",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Lock Dates, or Closing Dates are a feature of Xero and QuickBooks Online respectively designed to help prevent changes to records in periods that have already been reported on or filed.        # Wha...",
+      "source": "dext",
+      "path": "/data-health-insights/using-lock-dates.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-vat-return-checks",
+      "title": "Using VAT Return Checks",
+      "url": "https://help.dext.com/en/articles/276852-using-vat-return-checks",
+      "collection": "Data Health & Insights",
+      "excerpt": "# Dext provides a set of checks that have been designed to quickly spot tax issues with respect to transaction data over a given filing period.     - [Settings to get started](#settings-to-get-started...",
+      "source": "dext",
+      "path": "/data-health-insights/using-vat-return-checks.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-tracking-prepayments",
+      "title": "Tracking Prepayments",
+      "url": "https://help.dext.com/en/articles/394688-tracking-prepayments",
+      "collection": "Data Health & Insights",
+      "excerpt": "**Maintain visibility on prepayment activity with the Prepayments tracker. **  **Important**: This feature is currently only available for accounts connected with Xero.  To view prepaid expenses, in t...",
+      "source": "dext",
+      "path": "/data-health-insights/tracking-prepayments.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-using-transaction-cleanup-qbo-only",
+      "title": "Using Transaction Cleanup (QBO only)",
+      "url": "https://help.dext.com/en/articles/409141-using-transaction-cleanup-qbo-only",
+      "collection": "Data Health & Insights",
+      "excerpt": "**Transaction cleanup** helps improve reporting accuracy by ensuring QuickBooks Online transactions are categorized and coded correctly.      [](https://downloads.intercomcdn.eu/i/o/weauzzxo/63992765/...",
+      "source": "dext",
+      "path": "/data-health-insights/using-transaction-cleanup-qbo-only.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-the-activity-stats-insight",
+      "title": "The Activity Stats Insight",
+      "url": "https://help.dext.com/en/articles/273830-the-activity-stats-insight",
+      "collection": "Data Health & Insights",
+      "excerpt": "**The Activity Stats insight gives a breakdown of the key trading statistics of a company, with a focus on volume, e.g. number of bank transactions for the period. Designed for accountancy firms utili...",
+      "source": "dext",
+      "path": "/data-health-insights/the-activity-stats-insight.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-the-sales-analysis-insight",
+      "title": "The Sales Analysis Insight",
+      "url": "https://help.dext.com/en/articles/272708-the-sales-analysis-insight",
+      "collection": "Data Health & Insights",
+      "excerpt": "**Review your client’s revenue for a given period, breaking it down into who their key customers are and how much revenue each of these customers generate.**     [*](https://dext.intercom-attachments....",
+      "source": "dext",
+      "path": "/data-health-insights/the-sales-analysis-insight.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-the-benchmarking-insight",
+      "title": "The Benchmarking Insight",
+      "url": "https://help.dext.com/en/articles/273109-the-benchmarking-insight",
+      "collection": "Data Health & Insights",
+      "excerpt": "**Using the Benchmarking insight, Dext can benchmark both Turnover and Expenses for your clients, within their region, industry, or all other clients, either against your own practice or across a wide...",
+      "source": "dext",
+      "path": "/data-health-insights/the-benchmarking-insight.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-the-cost-analysis-insight",
+      "title": "The Cost Analysis Insight",
+      "url": "https://help.dext.com/en/articles/272707-the-cost-analysis-insight",
+      "collection": "Data Health & Insights",
+      "excerpt": "**The Cost Analysis insight is designed to analyse your client&#x27;s expenses across their supplier base and their expense accounts over time and automatically detect issues. Dext will look for month...",
+      "source": "dext",
+      "path": "/data-health-insights/the-cost-analysis-insight.md",
+      "category": "Data Health & Insights"
+    },
+    {
+      "id": "dext-list-of-suppliers-for-invoice-fetch",
+      "title": "List of Suppliers for Invoice Fetch",
+      "url": "https://help.dext.com/en/articles/416675-list-of-suppliers-for-invoice-fetch",
+      "collection": "Costs & Sales",
+      "excerpt": "**This page contains a list of all of the suppliers that are available for the Invoice Fetch submission method on Dext.**     For best search results, please use **cmd+f** (for MacOS) or **ctrl+F** (f...",
+      "source": "dext",
+      "path": "/costs-sales/list-of-suppliers-for-invoice-fetch.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-which-suppliers-should-i-set-supplier-rules-for",
+      "title": "Which Suppliers Should I Set Supplier Rules For?",
+      "url": "https://help.dext.com/en/articles/416677-which-suppliers-should-i-set-supplier-rules-for",
+      "collection": "Costs & Sales",
+      "excerpt": "# Use Supplier Rules to establish routine behaviours that take affect whenever documents from specific suppliers are uploaded to Dext.     Since [Supplier Rules](https://help.dext.com/en/s/article/How...",
+      "source": "dext",
+      "path": "/costs-sales/which-suppliers-should-i-set-supplier-rules-for.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-using-smart-split",
+      "title": "Using Smart split",
+      "url": "https://help.dext.com/en/articles/416726-using-smart-split",
+      "collection": "Costs & Sales",
+      "excerpt": "Use **Smart Split** to automatically divide transactions from specific suppliers or customers into predefined line items - no manual entry needed.     This is especially useful for receipts or invoice...",
+      "source": "dext",
+      "path": "/costs-sales/using-smart-split.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-uploading-your-supplier-list-into-dext",
+      "title": "Uploading your Supplier list into Dext",
+      "url": "https://help.dext.com/en/articles/416744-uploading-your-supplier-list-into-dext",
+      "collection": "Costs & Sales",
+      "excerpt": "You can quickly populate your **Supplier List in Dext** by importing a CSV file.  **Note**: If your Dext account is **[connected to an accounting platform](https://help.dext.com/en/articles/339551-how...",
+      "source": "dext",
+      "path": "/costs-sales/uploading-your-supplier-list-into-dext.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-setting-up-your-customer-list",
+      "title": "Setting up your Customer list",
+      "url": "https://help.dext.com/en/articles/416749-setting-up-your-customer-list",
+      "collection": "Costs & Sales",
+      "excerpt": "Your **Customer list in Dext** makes it easy to track who you&#x27;ve sold to and helps you automatically match sales invoices to the right customer.  **Important**: You must be **[an Admin user](http...",
+      "source": "dext",
+      "path": "/costs-sales/setting-up-your-customer-list.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-how-to-manage-suppliers-in-dext",
+      "title": "How to manage suppliers in Dext",
+      "url": "https://help.dext.com/en/articles/106015-how-to-manage-suppliers-in-dext",
+      "collection": "Costs & Sales",
+      "excerpt": "Dext automatically detects supplier names when you submit Costs receipts, invoices, or financial documents. But sometimes the supplier may:  - Not yet exist in your Dext account  - Have a slightly dif...",
+      "source": "dext",
+      "path": "/costs-sales/how-to-manage-suppliers-in-dext.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-using-supplier-and-customer-rules",
+      "title": "Using Supplier and Customer rules",
+      "url": "https://help.dext.com/en/articles/216125-using-supplier-and-customer-rules",
+      "collection": "Costs & Sales",
+      "excerpt": "**Supplier and Customer Rules** help automate how documents from specific suppliers or customers are processed in Dext.      Once a rule is set, it’s automatically applied to every new document upload...",
+      "source": "dext",
+      "path": "/costs-sales/using-supplier-and-customer-rules.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-how-to-delete-an-expense-claim",
+      "title": "How to Delete an Expense Claim",
+      "url": "https://help.dext.com/en/articles/105940-how-to-delete-an-expense-claim",
+      "collection": "Costs & Sales",
+      "excerpt": "Deleting an **Expense claim** will remove the claim, but not delete the original items that were submitted to create it. The items within the deleted claim are automatically returned to the **Costs In...",
+      "source": "dext",
+      "path": "/costs-sales/how-to-delete-an-expense-claim.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-publish-export-or-share-an-expense-claim",
+      "title": "Publish, Export or Share an Expense Claim",
+      "url": "https://help.dext.com/en/articles/377045-publish-export-or-share-an-expense-claim",
+      "collection": "Costs & Sales",
+      "excerpt": "**Expense Claims can be published to an integrated accounting software, exported in CSV and PDF formats or automatically sent via email.**     After completing an Expense Claim on Dext Prepare, you ca...",
+      "source": "dext",
+      "path": "/costs-sales/publish-export-or-share-an-expense-claim.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-auto-expense-claims",
+      "title": "Auto Expense Claims",
+      "url": "https://help.dext.com/en/articles/377048-auto-expense-claims",
+      "collection": "Costs & Sales",
+      "excerpt": "# Auto Expense Claims automates the creation, population and completion of Expense Claims.     Once set up, it will routinely create expense claims for specified users whenever they submit an item to ...",
+      "source": "dext",
+      "path": "/costs-sales/auto-expense-claims.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-submitting-expense-claims-for-approval",
+      "title": "Submitting Expense Claims for Approval",
+      "url": "https://help.dext.com/en/articles/377066-submitting-expense-claims-for-approval",
+      "collection": "Costs & Sales",
+      "excerpt": "**Submit expense claims for approval.**        # Submitting an Expense Claim     When you have completed an expense claim and want to submit it for approval:     - Go to **Costs**, then **Expense Clai...",
+      "source": "dext",
+      "path": "/costs-sales/submitting-expense-claims-for-approval.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-approving-expense-claims",
+      "title": "Approving Expense Claims",
+      "url": "https://help.dext.com/en/articles/377068-approving-expense-claims",
+      "collection": "Costs & Sales",
+      "excerpt": "**Approve expense claims submitted to you for review and sign off.**        Expense Claims can only be approved as a claim, not as single items.     - [**Roles & Permissions for Approving Expense Clai...",
+      "source": "dext",
+      "path": "/costs-sales/approving-expense-claims.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-removing-the-expense-claim-suffix-from-staff-expense-claims",
+      "title": "Removing the ‘Expense Claim’ Suffix From Staff Expense Claims",
+      "url": "https://help.dext.com/en/articles/416751-removing-the-expense-claim-suffix-from-staff-expense-claims",
+      "collection": "Costs & Sales",
+      "excerpt": "If your staff members exist as contacts in your Suppliers list, they&#x27;ll be duplicated when an expense claim is first created in their name. This article provides instructions on how to merge thes...",
+      "source": "dext",
+      "path": "/costs-sales/removing-the-expense-claim-suffix-from-staff-expense-claims.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-editing-expense-claims",
+      "title": "Editing Expense Claims",
+      "url": "https://help.dext.com/en/articles/416756-editing-expense-claims",
+      "collection": "Costs & Sales",
+      "excerpt": "You can manage all your expense claims in Dext - from reviewing and editing details to adding items, assigning suppliers, and exporting them for accounting. This guide explains each step clearly, so y...",
+      "source": "dext",
+      "path": "/costs-sales/editing-expense-claims.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-how-to-create-an-expense-claim",
+      "title": "How to Create an Expense Claim",
+      "url": "https://help.dext.com/en/articles/105799-how-to-create-an-expense-claim",
+      "collection": "Costs & Sales",
+      "excerpt": "Expense claims let you group and submit reimbursable expenses in one place. This guide explains how to create an expense claim in Dext - from the Costs Inbox, the Expense claims Inbox, and the mobile ...",
+      "source": "dext",
+      "path": "/costs-sales/how-to-create-an-expense-claim.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-using-expense-claims-in-dext",
+      "title": "Using Expense Claims in Dext",
+      "url": "https://help.dext.com/en/articles/267238-using-expense-claims-in-dext",
+      "collection": "Costs & Sales",
+      "excerpt": "Expense Claims provide a space to collate an individual’s reimbursable payments.     Before you can create expense claims, you’ll need to submit your items into Dext. For more information on the diffe...",
+      "source": "dext",
+      "path": "/costs-sales/using-expense-claims-in-dext.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-managing-column-settings-and-table-density-in-your-inbox-and-archive",
+      "title": "Managing column settings and table density in your Inbox and Archive",
+      "url": "https://help.dext.com/en/articles/105716-managing-column-settings-and-table-density-in-your-inbox-and-archive",
+      "collection": "Costs & Sales",
+      "excerpt": "You can customise your Inbox or Archive view by adjusting **table columns** and **row density**.      This helps you see the most relevant data and control how much fits on your screen.     These sett...",
+      "source": "dext",
+      "path": "/costs-sales/managing-column-settings-and-table-density-in-your-inbox-and-archive.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-the-costs-inbox",
+      "title": "The Costs inbox",
+      "url": "https://help.dext.com/en/articles/105789-the-costs-inbox",
+      "collection": "Costs & Sales",
+      "excerpt": "The **Costs inbox** in Dext is where all your purchase-related documents - such as receipts, bills, and supplier invoices - are collected and processed.     [*](https://downloads.intercomcdn.eu/i/o/we...",
+      "source": "dext",
+      "path": "/costs-sales/the-costs-inbox.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-how-to-search-through-the-inbox-and-archive",
+      "title": "How to Search Through the Inbox and Archive",
+      "url": "https://help.dext.com/en/articles/105914-how-to-search-through-the-inbox-and-archive",
+      "collection": "Costs & Sales",
+      "excerpt": "# Use the search, filter and advanced search tools to search for specific paperwork, or groups of paperwork that can easily be processed in the same way.     You can combine the Filter, Search and Adv...",
+      "source": "dext",
+      "path": "/costs-sales/how-to-search-through-the-inbox-and-archive.md",
+      "category": "Costs & Sales"
+    },
+    {
+      "id": "dext-faqs-for-accountants-amp-bookkeepers",
+      "title": "FAQs for Accountants &amp; Bookkeepers",
+      "url": "https://help.dext.com/en/articles/377035-faqs-for-accountants-bookkeepers",
+      "collection": "Troubleshooting",
+      "excerpt": "# Frequently asked questions about your Dext Account.     # Account Management     - [Can I have multiple accounts with 1 email address?](#multiple-accounts-1-email)  - [&#x27;This email is already ta...",
+      "source": "dext",
+      "path": "/troubleshooting/faqs-for-accountants-amp-bookkeepers.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-faqs-for-businesses",
+      "title": "FAQs for Businesses",
+      "url": "https://help.dext.com/en/articles/106216-faqs-for-businesses",
+      "collection": "Troubleshooting",
+      "excerpt": "Frequently asked questions about your Dext Account.     # Account Management     [Inviting your Accountant or Bookkeeper**​](#Invite)[Removing your Accountant or Bookkeeper](#remove) ​[Add a new Accou...",
+      "source": "dext",
+      "path": "/troubleshooting/faqs-for-businesses.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-how-to-spot-phishing-and-fraud-attempts",
+      "title": "How to spot phishing and fraud attempts",
+      "url": "https://help.dext.com/en/articles/213573-how-to-spot-phishing-and-fraud-attempts",
+      "collection": "Troubleshooting",
+      "excerpt": "Phishing and online fraud are common scams where attackers pretend to be a trusted company or person to steal sensitive information. These scams can appear through emails, text messages, or even phone...",
+      "source": "dext",
+      "path": "/troubleshooting/how-to-spot-phishing-and-fraud-attempts.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-secure-connection-failed-this-site-can-t-provide-a-secure-connection-error-messages",
+      "title": "Secure Connection Failed/This site can’t provide a secure connection - Error Messages",
+      "url": "https://help.dext.com/en/articles/106243-secure-connection-failed-this-site-can-t-provide-a-secure-connection-error-messages",
+      "collection": "Troubleshooting",
+      "excerpt": "# These errors are likely related to your browser or internet connection.        [](https://dext.intercom-attachments.eu/i/o/weauzzxo/59663021/aad52b2cab869e04d893ca833789/25183_8e8726cab49fb5b5fe9e0d...",
+      "source": "dext",
+      "path": "/troubleshooting/secure-connection-failed-this-site-can-t-provide-a-secure-connection-error-messages.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-changes-to-the-x27-use-tax-list-x27-setting-in-dext-prepare",
+      "title": "Changes to the &#x27;Use Tax List&#x27; Setting in Dext Prepare",
+      "url": "https://help.dext.com/en/articles/106295-changes-to-the-use-tax-list-setting-in-dext-prepare",
+      "collection": "Troubleshooting",
+      "excerpt": "# We’re tweaking what the ‘Use tax list’ setting does in Dext Prepare.     The ‘Use tax list’ is a setting that is applied on the **Integrations** page in the Connections section of the sidebar. By sc...",
+      "source": "dext",
+      "path": "/troubleshooting/changes-to-the-x27-use-tax-list-x27-setting-in-dext-prepare.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-clearing-the-cache-and-cookies-in-your-web-browser",
+      "title": "Clearing the cache and cookies in your web browser",
+      "url": "https://help.dext.com/en/articles/431351-clearing-the-cache-and-cookies-in-your-web-browser",
+      "collection": "Troubleshooting",
+      "excerpt": "Clearing the cache and cookies in your browser is an essential troubleshooting step for resolving common browsing issues.     The **cache** stores temporary website data to help pages load faster, whi...",
+      "source": "dext",
+      "path": "/troubleshooting/clearing-the-cache-and-cookies-in-your-web-browser.md",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "dext-how-to-log-in-to-multiple-accounts-on-the-dext-mobile-app",
+      "title": "How to Log In to Multiple Accounts on the Dext Mobile App",
+      "url": "https://help.dext.com/en/articles/415253-how-to-log-in-to-multiple-accounts-on-the-dext-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# If you have more than one Dext account to manage multiple businesses, you may need to swap between logins while using the Dext Mobile App.     **If you own multiple businesses**, follow the instruct...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-log-in-to-multiple-accounts-on-the-dext-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-save-your-data-before-deleting-your-account-in-the-dext-mobile-app",
+      "title": "How to Save Your Data Before Deleting Your Account in the Dext Mobile App",
+      "url": "https://help.dext.com/en/articles/416682-how-to-save-your-data-before-deleting-your-account-in-the-dext-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "**When you delete your account from the Dext mobile app, all the data in your Dext account will also be deleted. **     Before deleting your account, we recommend that you save all your account data, ...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-save-your-data-before-deleting-your-account-in-the-dext-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-remove-login-details-from-the-mobile-app",
+      "title": "How to Remove Login Details from the Mobile App",
+      "url": "https://help.dext.com/en/articles/416692-how-to-remove-login-details-from-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# If you’ve previously logged into multiple Dext accounts on the Mobile App, you may want to remove logins that are no longer needed.     To remove login details from the mobile app:     - Open the De...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-remove-login-details-from-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-use-the-dext-mobile-app",
+      "title": "How to Use the Dext Mobile App",
+      "url": "https://help.dext.com/en/articles/416730-how-to-use-the-dext-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "**The Dext Mobile app is the quickest and easiest way to submit your receipts, invoices and other documents to Dext. **     There is an [iOS version](https://itunes.apple.com/us/app/receipt-bank-recei...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-use-the-dext-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-publish-an-item-from-the-mobile-app",
+      "title": "How to Publish an Item from the Mobile App",
+      "url": "https://help.dext.com/en/articles/105671-how-to-publish-an-item-from-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# If a Dext Account is integrated with an Accounting Software, you can send submitted documents directly from the Costs or Sales Inbox to a specified location in your Accounting Software.        **Not...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-publish-an-item-from-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-use-the-mobile-app-to-upload-paperwork",
+      "title": "How to Use the Mobile App to Upload Paperwork",
+      "url": "https://help.dext.com/en/articles/105670-how-to-use-the-mobile-app-to-upload-paperwork",
+      "collection": "Mobile App",
+      "excerpt": "**The Dext Mobile app is the quickest and easiest way to submit physical, paper receipts, invoices and other documentation to Dext. **     There is an [iOS version](https://itunes.apple.com/us/app/rec...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-use-the-mobile-app-to-upload-paperwork.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-log-in-to-the-mobile-app",
+      "title": "How to Log In to the Mobile App",
+      "url": "https://help.dext.com/en/articles/105702-how-to-log-in-to-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# The Dext Mobile App is available on all iOS [Apple] and Android devices.     There are a number of ways to access the Dext Mobile App:     - Press the link in the invitation Email or Text you receiv...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-log-in-to-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-switch-between-different-client-accounts-on-the-mobile-app",
+      "title": "How to Switch Between Different Client Accounts on the Mobile App",
+      "url": "https://help.dext.com/en/articles/106115-how-to-switch-between-different-client-accounts-on-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# Switch between your list of Client Accounts or Multiple Dext Accounts on the Dext Mobile App, and easily access and add to the financial records of each of your businesses and clients.     To switch...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-switch-between-different-client-accounts-on-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-insert-your-company-logo-into-the-mobile-app",
+      "title": "How to Insert Your Company Logo Into the Mobile App",
+      "url": "https://help.dext.com/en/articles/106111-how-to-insert-your-company-logo-into-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# Insert your company logo into the Dext Mobile App and make your partnership with Dext immediately visible to users on your account.        **Note: **This functionality is only available for Accounta...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-insert-your-company-logo-into-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-set-up-biometric-authentication-on-the-mobile-app",
+      "title": "How to set up Biometric Authentication on the Mobile App",
+      "url": "https://help.dext.com/en/articles/112082-how-to-set-up-biometric-authentication-on-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "# You can securely log into the mobile app using your fingerprint or FaceID.     To set up Biometric Authentication, you’ll need to:     - Log into the Mobile App  - Click **Settings **in the bottom r...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-set-up-biometric-authentication-on-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-connect-your-accounting-software-using-the-mobile-app",
+      "title": "How to Connect Your Accounting Software Using the Mobile App",
+      "url": "https://help.dext.com/en/articles/148084-how-to-connect-your-accounting-software-using-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "If you have an account with QuickBooks Online or Xero, you can integrate it with your accounting software and manage the connection using the mobile app.        **Note:** You&#x27;ll need to have Admi...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-connect-your-accounting-software-using-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-using-expense-claims-on-the-mobile-app",
+      "title": "Using Expense Claims on the Mobile app",
+      "url": "https://help.dext.com/en/articles/278977-using-expense-claims-on-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "You can create and manage expense claims using the mobile app.        **Note**: To be able to create Expense Claims on the Mobile app, you&#x27;ll need to be assigned the Admin level [role](https://he...",
+      "source": "dext",
+      "path": "/mobile-app/using-expense-claims-on-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-how-to-add-a-mileage-claim-using-the-mobile-app",
+      "title": "How to add a mileage claim using the mobile app",
+      "url": "https://help.dext.com/en/articles/278978-how-to-add-a-mileage-claim-using-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "**Note: **To see the rates & calculations used for mileage, take a look at [this article](https://help.dext.com/en/s/article/mileage-claims#rates).  # **Supported Regions**  Mileage claim calculations...",
+      "source": "dext",
+      "path": "/mobile-app/how-to-add-a-mileage-claim-using-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-using-vault-on-the-mobile-app",
+      "title": "Using Vault on the Mobile App",
+      "url": "https://help.dext.com/en/articles/390214-using-vault-on-the-mobile-app",
+      "collection": "Mobile App",
+      "excerpt": "**Access Vault and manage your documents directly from the mobile app.**  **Important**: To access Vault in the mobile app be sure you update your mobile app to the latest version.  See how to use Vau...",
+      "source": "dext",
+      "path": "/mobile-app/using-vault-on-the-mobile-app.md",
+      "category": "Mobile App"
+    },
+    {
+      "id": "dext-business-settings",
+      "title": "Business Settings",
+      "url": "https://help.dext.com/en/articles/185729-business-settings",
+      "collection": "Business Settings",
+      "excerpt": "From within the Business Settings, you can update your business profile details as well as manage lists and connections that relate to your account.     The Business Settings can be found in the botto...",
+      "source": "dext",
+      "path": "/business-settings/business-settings.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-using-vault-upgrade-storage-and-ai-credits",
+      "title": "Using Vault: Upgrade Storage and AI Credits",
+      "url": "https://help.dext.com/en/articles/437169-using-vault-upgrade-storage-and-ai-credits",
+      "collection": "Business Settings",
+      "excerpt": "With **Vault**, you can purchase additional **storage** and **AI credits** as part of your **Dext Business subscription**. This will allow you to store and organise more important documents all in one...",
+      "source": "dext",
+      "path": "/business-settings/using-vault-upgrade-storage-and-ai-credits.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-how-to-change-your-plan",
+      "title": "How to Change Your Plan",
+      "url": "https://help.dext.com/en/articles/377061-how-to-change-your-plan",
+      "collection": "Business Settings",
+      "excerpt": "# You can change your plan if you need to update your user or document extraction allowance.        This article is relevant to the enhanced Dext experience. You can access the article for the legacy ...",
+      "source": "dext",
+      "path": "/business-settings/how-to-change-your-plan.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-removing-or-reallocating-a-bookkeeper-s-or-accountant-s-access-to-your-account",
+      "title": "Removing or Reallocating a Bookkeeper’s or Accountant’s Access to Your Account",
+      "url": "https://help.dext.com/en/articles/416721-removing-or-reallocating-a-bookkeeper-s-or-accountant-s-access-to-your-account",
+      "collection": "Business Settings",
+      "excerpt": "# If you’ve previously given access to an accountant or bookkeeper to view and manage your Dext account, you can remove or change their access.        This article is relevant to the enhanced Dext exp...",
+      "source": "dext",
+      "path": "/business-settings/removing-or-reallocating-a-bookkeeper-s-or-accountant-s-access-to-your-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-linking-a-payment-method-to-a-bank-account",
+      "title": "Linking a Payment Method to a Bank Account",
+      "url": "https://help.dext.com/en/articles/416720-linking-a-payment-method-to-a-bank-account",
+      "collection": "Business Settings",
+      "excerpt": "**In order to publish an item from Dext to a bank account in your connected accounting software, you may need to link your payment methods in Dext to the corresponding bank account in the connected ac...",
+      "source": "dext",
+      "path": "/business-settings/linking-a-payment-method-to-a-bank-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-setting-rules-based-on-a-payment-method",
+      "title": "Setting Rules Based on a Payment Method",
+      "url": "https://help.dext.com/en/articles/416719-setting-rules-based-on-a-payment-method",
+      "collection": "Business Settings",
+      "excerpt": "**Payment Method Rules allows you to apply your specified details to all submitted documents that were paid for using that payment method.**     This article is relevant to the enhanced Dext experienc...",
+      "source": "dext",
+      "path": "/business-settings/setting-rules-based-on-a-payment-method.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-inviting-your-accountant-or-bookkeeper-to-access-your-dext-account",
+      "title": "Inviting Your Accountant or Bookkeeper to Access Your Dext Account",
+      "url": "https://help.dext.com/en/articles/416717-inviting-your-accountant-or-bookkeeper-to-access-your-dext-account",
+      "collection": "Business Settings",
+      "excerpt": "By inviting an external accountant or bookkeeper to Dext, they’ll be able to view, manage and collaborate with you on the paperwork that you’ve submitted to your account.        **Note: **No changes w...",
+      "source": "dext",
+      "path": "/business-settings/inviting-your-accountant-or-bookkeeper-to-access-your-dext-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-rules-and-automation-in-dext",
+      "title": "Rules and Automation in Dext",
+      "url": "https://help.dext.com/en/articles/416713-rules-and-automation-in-dext",
+      "collection": "Business Settings",
+      "excerpt": "# Use Supplier & Customer Rules, Smart Split and Auto-publish to specify specific ways that data should be treated when paperwork from particular suppliers, payment methods or users are submitted.    ...",
+      "source": "dext",
+      "path": "/business-settings/rules-and-automation-in-dext.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-using-projects-in-dext",
+      "title": "Using Projects in Dext",
+      "url": "https://help.dext.com/en/articles/416711-using-projects-in-dext",
+      "collection": "Business Settings",
+      "excerpt": "# Use Projects to assign tracking and location information to your purchases in Dext.     The Project field provides additional information to help code and track your items.     Accounts that are int...",
+      "source": "dext",
+      "path": "/business-settings/using-projects-in-dext.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-payment-methods",
+      "title": "Payment Methods",
+      "url": "https://help.dext.com/en/articles/416709-payment-methods",
+      "collection": "Business Settings",
+      "excerpt": "# A Payment Method is an indication of what was used to purchase an item.     Examples of Payment Methods include Company Credit Cards, Personal Credit Cards and Petty Cash. These can be used to ident...",
+      "source": "dext",
+      "path": "/business-settings/payment-methods.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-cancelling-your-dext-account",
+      "title": "Cancelling your Dext Account",
+      "url": "https://help.dext.com/en/articles/416708-cancelling-your-dext-account",
+      "collection": "Business Settings",
+      "excerpt": "# What you need to know:     - This article is aimed at Dext for Business accounts.  - Only Admin users can cancel an account – if you cannot see the Subscription page, contact your account administra...",
+      "source": "dext",
+      "path": "/business-settings/cancelling-your-dext-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-link-a-payment-method-to-a-bank-account",
+      "title": "Link a Payment Method to a Bank Account",
+      "url": "https://help.dext.com/en/articles/377046-link-a-payment-method-to-a-bank-account",
+      "collection": "Business Settings",
+      "excerpt": "# In order to publish an item from Dext to a bank account in your connected accounting software, you may need to link your Payment Methods in Dext to the corresponding bank account in the connected ac...",
+      "source": "dext",
+      "path": "/business-settings/link-a-payment-method-to-a-bank-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-personal-company-and-cash-payment-methods",
+      "title": "Personal, Company and Cash Payment Methods",
+      "url": "https://help.dext.com/en/articles/377042-personal-company-and-cash-payment-methods",
+      "collection": "Business Settings",
+      "excerpt": "# You can quickly and easily set up Personal, Company and Cash Payment Methods on the Dext platform.     This article outlines how Payment Methods can be used for:     - [Personal Card Payments](#h_7b...",
+      "source": "dext",
+      "path": "/business-settings/personal-company-and-cash-payment-methods.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-setting-up-your-category-list",
+      "title": "Setting Up Your Category List",
+      "url": "https://help.dext.com/en/articles/377036-setting-up-your-category-list",
+      "collection": "Business Settings",
+      "excerpt": "**Applying the correct nominal code to your purchases and expenses is an essential part of accounting. Dext makes it easy to set up your Chart of Accounts, whether you’re working with a cloud or deskt...",
+      "source": "dext",
+      "path": "/business-settings/setting-up-your-category-list.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-setting-user-rules",
+      "title": "Setting User Rules",
+      "url": "https://help.dext.com/en/articles/416722-setting-user-rules",
+      "collection": "Business Settings",
+      "excerpt": "# User Rules can be used to automatically apply a Payment Method or Project to any Costs transactions uploaded by a specific user.     - [Setting a Payment Method Rule](#payment-method-rule)  - [Setti...",
+      "source": "dext",
+      "path": "/business-settings/setting-user-rules.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-setting-up-tax-rates-in-an-unintegrated-account",
+      "title": "Setting up Tax Rates in an Unintegrated Account",
+      "url": "https://help.dext.com/en/articles/416752-setting-up-tax-rates-in-an-unintegrated-account",
+      "collection": "Business Settings",
+      "excerpt": "# Set up tax rates in your unintegrated Dext account and apply them to items individually, by setting default tax rates, or by creating supplier rules.        **Note**: This feature is only available ...",
+      "source": "dext",
+      "path": "/business-settings/setting-up-tax-rates-in-an-unintegrated-account.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-using-products-and-services-in-dext",
+      "title": "Using Products and Services in Dext",
+      "url": "https://help.dext.com/en/articles/416755-using-products-and-services-in-dext",
+      "collection": "Business Settings",
+      "excerpt": "# Easily keep track of inventory and job costings with Products and Services lists in Dext.     When you create a Product/Service in accounting software and integrate it with your Dext account, you ca...",
+      "source": "dext",
+      "path": "/business-settings/using-products-and-services-in-dext.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-how-does-dext-handle-duplicate-documents",
+      "title": "How Does Dext Handle Duplicate Documents?",
+      "url": "https://help.dext.com/en/articles/216124-how-does-dext-handle-duplicate-documents",
+      "collection": "Business Settings",
+      "excerpt": "# You have three settings options to choose from to process duplicate items in Dext.     These three settings options can be set as a default system setting that will be applied across all suppliers, ...",
+      "source": "dext",
+      "path": "/business-settings/how-does-dext-handle-duplicate-documents.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-managing-a-fetch-connection",
+      "title": "Managing a Fetch Connection",
+      "url": "https://help.dext.com/en/articles/105949-managing-a-fetch-connection",
+      "collection": "Business Settings",
+      "excerpt": "After you’ve [set up a Fetch connection](https://help.dext.com/en/s/article/setting-up-a-fetch-connection), Dext will list all of the portals that you’ve connected to in the **Connections** section un...",
+      "source": "dext",
+      "path": "/business-settings/managing-a-fetch-connection.md",
+      "category": "Business Settings"
+    },
+    {
+      "id": "dext-refreshing-your-chart-of-accounts",
+      "title": "Refreshing Your Chart of Accounts",
+      "url": "https://help.dext.com/en/articles/209127-refreshing-your-chart-of-accounts",
+      "collection": "Business Settings",
+      "excerpt": "# If your Dext account is integrated with any Accounting Software, we will check every 48 hours for any updated information and sync these to Dext.     This article is relevant to the enhanced Dext ex...",
+      "source": "dext",
+      "path": "/business-settings/refreshing-your-chart-of-accounts.md",
+      "category": "Business Settings"
+    }
+  ]
+}
