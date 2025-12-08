@@ -617,6 +617,17 @@ model ProductTierConfig {
   @@index([productType])
 }
 
+// Finance Monthly Checklist - Simple JSON storage for monthly finance tasks
+model FinanceChecklist {
+  id        String   @id @default(cuid())
+  month     DateTime @unique // First day of month, e.g. 2025-12-01
+  data      Json     // { taskId: { completed: bool, completedDate: string, notes: string, subItems?: {...} } }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([month])
+}
+
 // LithoData Package Pricing - Regional data package pricing configuration
 model LithoDataPackage {
   id            String   @id @default(cuid())

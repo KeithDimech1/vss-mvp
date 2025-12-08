@@ -19,6 +19,78 @@ interface Package {
   lastEditedAt: string;
 }
 
+// Data type breakdowns by region
+// Thermochronology: FT, HE, VITRINITE, Ar-Ar, TH
+// Geochronology: U-Pb
+// Geochemistry: GC, ISO
+
+interface DataTypeBreakdown {
+  [dataType: string]: number;
+}
+
+interface RegionalBreakdown {
+  [regionCode: string]: DataTypeBreakdown;
+}
+
+// Thermochronology data types by region
+const thermoBreakdowns: RegionalBreakdown = {
+  GLOBAL: { FT: 67870, HE: 15208, VITRINITE: 22192, 'Ar-Ar': 874, TH: 6581 },
+  AFR: { FT: 5521, HE: 1278, VITRINITE: 1, 'Ar-Ar': 23, TH: 64 },
+  ANT: { FT: 758, HE: 122, VITRINITE: 0, 'Ar-Ar': 435, TH: 2 },
+  ARA: { FT: 1670, HE: 270, VITRINITE: 0, 'Ar-Ar': 0, TH: 12 },
+  ASI: { FT: 12405, HE: 4645, VITRINITE: 0, 'Ar-Ar': 10, TH: 32 },
+  CAS: { FT: 2228, HE: 550, VITRINITE: 0, 'Ar-Ar': 2, TH: 18 },
+  EUR: { FT: 11937, HE: 639, VITRINITE: 502, 'Ar-Ar': 286, TH: 26 },
+  NAM: { FT: 11752, HE: 3599, VITRINITE: 21245, 'Ar-Ar': 0, TH: 130 },
+  OCE: { FT: 11394, HE: 554, VITRINITE: 444, 'Ar-Ar': 0, TH: 248 },
+  SAM: { FT: 9837, HE: 3356, VITRINITE: 0, 'Ar-Ar': 0, TH: 734 },
+};
+
+// Geochronology data types by region (only U-Pb)
+const geochronBreakdowns: RegionalBreakdown = {
+  GLOBAL: { 'U-Pb': 20067 },
+  AFR: { 'U-Pb': 297 },
+  ANT: { 'U-Pb': 27 },
+  ARA: { 'U-Pb': 8 },
+  ASI: { 'U-Pb': 852 },
+  CAS: { 'U-Pb': 34 },
+  EUR: { 'U-Pb': 100 },
+  NAM: { 'U-Pb': 11068 },
+  OCE: { 'U-Pb': 7384 },
+  SAM: { 'U-Pb': 241 },
+};
+
+// Geochemistry data types by region
+const geochemBreakdowns: RegionalBreakdown = {
+  GLOBAL: { GC: 292612, ISO: 32656 },
+  AFR: { GC: 1200, ISO: 164 },
+  ANT: { GC: 900, ISO: 119 },
+  ARA: { GC: 60000, ISO: 8960 },
+  ASI: { GC: 650, ISO: 123 },
+  CAS: { GC: 1500, ISO: 231 },
+  EUR: { GC: 180, ISO: 25 },
+  NAM: { GC: 92000, ISO: 13677 },
+  OCE: { GC: 132000, ISO: 9614 },
+  SAM: { GC: 280, ISO: 39 },
+};
+
+const categoryBreakdowns: Record<string, RegionalBreakdown> = {
+  Thermochronology: thermoBreakdowns,
+  Geochronology: geochronBreakdowns,
+  Geochemistry: geochemBreakdowns,
+};
+
+const dataTypeColors: Record<string, string> = {
+  FT: 'bg-blue-100 text-blue-700',
+  HE: 'bg-cyan-100 text-cyan-700',
+  VITRINITE: 'bg-teal-100 text-teal-700',
+  'Ar-Ar': 'bg-indigo-100 text-indigo-700',
+  TH: 'bg-violet-100 text-violet-700',
+  'U-Pb': 'bg-purple-100 text-purple-700',
+  GC: 'bg-emerald-100 text-emerald-700',
+  ISO: 'bg-green-100 text-green-700',
+};
+
 const categoryColors: Record<string, { bg: string; border: string; text: string; headerBg: string }> = {
   Thermochronology: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', headerBg: 'bg-blue-600' },
   Geochronology: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', headerBg: 'bg-purple-600' },
@@ -47,6 +119,16 @@ export default function LithoDataPricingPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [packages, setPackages] = useState<Package[]>([]);
   const [editedPackages, setEditedPackages] = useState<Record<string, Partial<Package>>>({});
+  const [showBreakdown, setShowBreakdown] = useState<Record<string, boolean>>({
+    Thermochronology: false,
+    Geochronology: false,
+    Geochemistry: false,
+  });
+  const [autoCalculate, setAutoCalculate] = useState<Record<string, boolean>>({
+    Thermochronology: true,
+    Geochronology: true,
+    Geochemistry: true,
+  });
 
   const fetchPackages = useCallback(async () => {
     try {
@@ -132,6 +214,46 @@ export default function LithoDataPricingPage() {
     setSaving(false);
   };
 
+  const toggleBreakdown = (category: string) => {
+    setShowBreakdown(prev => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
+  };
+
+  // Calculate regional prices based on Global price
+  // Formula: Regional = Global × (Regional Records / Total Records) × 1.2
+  const calculateRegionalPrices = (category: string, globalPrice: number, priceField: 'priceAnnual' | 'priceOneTime') => {
+    const categoryPkgs = packagesByCategory[category] || [];
+    const globalPkg = categoryPkgs.find(p => p.regionCode === 'GLOBAL');
+    if (!globalPkg) return;
+
+    const totalRecords = globalPkg.records;
+    const regionalPremium = 1.2; // 20% more expensive than proportional
+
+    categoryPkgs.forEach(pkg => {
+      if (pkg.regionCode !== 'GLOBAL') {
+        const proportion = pkg.records / totalRecords;
+        const calculatedPrice = Math.round(globalPrice * proportion * regionalPremium);
+        updatePackage(pkg.packageId, priceField, calculatedPrice);
+      }
+    });
+  };
+
+  // Handle Global price change with auto-calculation
+  const handleGlobalPriceChange = (packageId: string, category: string, priceField: 'priceAnnual' | 'priceOneTime', value: string) => {
+    const numValue = value ? parseFloat(value) : null;
+    updatePackage(packageId, priceField, numValue);
+
+    // Auto-calculate regional prices if enabled and we have a value
+    if (autoCalculate[category] && numValue && numValue > 0) {
+      // Use setTimeout to ensure the state update happens first
+      setTimeout(() => {
+        calculateRegionalPrices(category, numValue, priceField);
+      }, 0);
+    }
+  };
+
   const hasChanges = Object.keys(editedPackages).length > 0;
 
   // Group packages by category
@@ -162,6 +284,13 @@ export default function LithoDataPricingPage() {
   const formatPrice = (price: number | null) => {
     if (price === null || price === undefined) return '';
     return `$${price.toLocaleString()}`;
+  };
+
+  // Get data types for a category
+  const getDataTypes = (category: string): string[] => {
+    const breakdown = categoryBreakdowns[category];
+    if (!breakdown || !breakdown.GLOBAL) return [];
+    return Object.keys(breakdown.GLOBAL);
   };
 
   if (loading) {
@@ -235,6 +364,8 @@ export default function LithoDataPricingPage() {
             const totalRecords = getTotalRecords(category);
             const globalPkg = packagesByCategory[category]?.find(p => p.regionCode === 'GLOBAL');
             const annualPrice = globalPkg ? getPackageValue(globalPkg, 'priceAnnual') : null;
+            const dataTypes = getDataTypes(category);
+            const breakdown = categoryBreakdowns[category]?.GLOBAL || {};
 
             return (
               <div key={category} className={`${colors.bg} ${colors.border} border rounded-xl p-4`}>
@@ -243,6 +374,15 @@ export default function LithoDataPricingPage() {
                 <div className="text-sm text-gray-500 mt-1">
                   Global: {annualPrice ? formatPrice(annualPrice as number) + '/yr' : 'Price not set'}
                 </div>
+                {dataTypes.length > 1 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {dataTypes.map(dt => (
+                      <span key={dt} className={`text-xs px-1.5 py-0.5 rounded ${dataTypeColors[dt] || 'bg-gray-100 text-gray-600'}`}>
+                        {dt}: {formatNumber(breakdown[dt] || 0)}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -252,15 +392,46 @@ export default function LithoDataPricingPage() {
         {['Thermochronology', 'Geochronology', 'Geochemistry'].map(category => {
           const colors = categoryColors[category];
           const categoryPackages = packagesByCategory[category] || [];
+          const isBreakdownVisible = showBreakdown[category];
+          const dataTypes = getDataTypes(category);
+          const hasMultipleTypes = dataTypes.length > 1;
 
           return (
             <div key={category} className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
               {/* Category Header */}
-              <div className={`${colors.headerBg} px-6 py-4`}>
-                <h2 className="text-xl font-bold text-white">{category}</h2>
-                <p className="text-white/80 text-sm">
-                  {formatNumber(getTotalRecords(category))} total records across all regions
-                </p>
+              <div className={`${colors.headerBg} px-6 py-4 flex items-center justify-between`}>
+                <div>
+                  <h2 className="text-xl font-bold text-white">{category}</h2>
+                  <p className="text-white/80 text-sm">
+                    {formatNumber(getTotalRecords(category))} total records across all regions
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-white/80 text-sm cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={autoCalculate[category]}
+                      onChange={(e) => setAutoCalculate(prev => ({ ...prev, [category]: e.target.checked }))}
+                      className="rounded border-white/30"
+                    />
+                    Auto-calc regions
+                  </label>
+                  {hasMultipleTypes && (
+                    <button
+                      onClick={() => toggleBreakdown(category)}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors ${
+                        isBreakdownVisible
+                          ? 'bg-white text-gray-800'
+                          : 'bg-white/20 text-white hover:bg-white/30'
+                      }`}
+                    >
+                      <svg className={`w-4 h-4 transition-transform ${isBreakdownVisible ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                      {isBreakdownVisible ? 'Show Totals' : 'Show Breakdown'}
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Pricing Table */}
@@ -269,9 +440,18 @@ export default function LithoDataPricingPage() {
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50">
                       <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Region</th>
-                      <th className="text-right px-4 py-3 font-medium text-gray-600 text-sm w-[100px]">Records</th>
+                      {isBreakdownVisible && hasMultipleTypes ? (
+                        dataTypes.map(dt => (
+                          <th key={dt} className="text-right px-3 py-3 font-medium text-gray-600 text-sm w-[80px]">
+                            <span className={`inline-block px-1.5 py-0.5 rounded text-xs ${dataTypeColors[dt] || 'bg-gray-100'}`}>
+                              {dt}
+                            </span>
+                          </th>
+                        ))
+                      ) : (
+                        <th className="text-right px-4 py-3 font-medium text-gray-600 text-sm w-[100px]">Records</th>
+                      )}
                       <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">Annual Price</th>
-                      <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[140px]">One-Time Price</th>
                       <th className="text-center px-4 py-3 font-medium text-gray-600 text-sm w-[80px]">Free?</th>
                       <th className="text-left px-4 py-3 font-medium text-gray-600 text-sm">Notes</th>
                     </tr>
@@ -280,6 +460,7 @@ export default function LithoDataPricingPage() {
                     {categoryPackages.map((pkg) => {
                       const isGlobal = pkg.regionCode === 'GLOBAL';
                       const isFree = getPackageValue(pkg, 'isFree') as boolean;
+                      const breakdown = categoryBreakdowns[category]?.[pkg.regionCode] || {};
 
                       return (
                         <tr
@@ -292,38 +473,40 @@ export default function LithoDataPricingPage() {
                             </div>
                             <div className="text-xs text-gray-400">{pkg.regionCode}</div>
                           </td>
-                          <td className="px-4 py-2 text-right">
-                            <span className="text-sm font-medium text-gray-700">{formatNumber(pkg.records)}</span>
-                          </td>
+                          {isBreakdownVisible && hasMultipleTypes ? (
+                            dataTypes.map(dt => (
+                              <td key={dt} className="px-3 py-2 text-right">
+                                <span className="text-sm font-medium text-gray-700">
+                                  {breakdown[dt] !== undefined ? formatNumber(breakdown[dt]) : '-'}
+                                </span>
+                              </td>
+                            ))
+                          ) : (
+                            <td className="px-4 py-2 text-right">
+                              <span className="text-sm font-medium text-gray-700">{formatNumber(pkg.records)}</span>
+                            </td>
+                          )}
                           <td className="px-4 py-2">
                             <div className="flex items-center justify-center">
                               <span className="text-gray-400 mr-1">$</span>
                               <input
                                 type="number"
                                 value={(getPackageValue(pkg, 'priceAnnual') as number) || ''}
-                                onChange={(e) => updatePackage(pkg.packageId, 'priceAnnual', e.target.value ? parseFloat(e.target.value) : null)}
+                                onChange={(e) => isGlobal
+                                  ? handleGlobalPriceChange(pkg.packageId, category, 'priceAnnual', e.target.value)
+                                  : updatePackage(pkg.packageId, 'priceAnnual', e.target.value ? parseFloat(e.target.value) : null)
+                                }
                                 placeholder="0"
-                                disabled={isFree}
+                                disabled={isFree || (!isGlobal && autoCalculate[category])}
                                 className={`w-20 px-2 py-1 text-sm border rounded text-right ${
-                                  isFree ? 'bg-gray-100 text-gray-400' : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                                  isFree || (!isGlobal && autoCalculate[category])
+                                    ? 'bg-gray-100 text-gray-400'
+                                    : isGlobal
+                                      ? 'focus:ring-2 focus:ring-amber-500 focus:border-amber-500 border-amber-300'
+                                      : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                                 }`}
                               />
                               <span className="text-gray-400 ml-1 text-xs">/yr</span>
-                            </div>
-                          </td>
-                          <td className="px-4 py-2">
-                            <div className="flex items-center justify-center">
-                              <span className="text-gray-400 mr-1">$</span>
-                              <input
-                                type="number"
-                                value={(getPackageValue(pkg, 'priceOneTime') as number) || ''}
-                                onChange={(e) => updatePackage(pkg.packageId, 'priceOneTime', e.target.value ? parseFloat(e.target.value) : null)}
-                                placeholder="0"
-                                disabled={isFree}
-                                className={`w-20 px-2 py-1 text-sm border rounded text-right ${
-                                  isFree ? 'bg-gray-100 text-gray-400' : 'focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
-                                }`}
-                              />
                             </div>
                           </td>
                           <td className="px-4 py-2 text-center">
@@ -364,21 +547,28 @@ export default function LithoDataPricingPage() {
         {/* Pricing Strategy Notes */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h3 className="text-lg font-bold text-gray-800 mb-4">Pricing Strategy Notes</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-3 gap-6 text-sm">
             <div>
               <h4 className="font-semibold text-gray-700 mb-2">Pricing Models</h4>
               <ul className="space-y-1 text-gray-600">
                 <li><strong>Annual:</strong> Subscription access for 12 months</li>
-                <li><strong>One-Time:</strong> Perpetual access to current snapshot</li>
                 <li><strong>Free:</strong> Included in free tier (public data)</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-700 mb-2">Considerations</h4>
+              <h4 className="font-semibold text-gray-700 mb-2">Auto-Calculate Formula</h4>
               <ul className="space-y-1 text-gray-600">
-                <li>Global packages include all regional data</li>
-                <li>Regional packages are subsets - price accordingly</li>
-                <li>Consider data density when pricing (records per region)</li>
+                <li><strong>Regional Price =</strong></li>
+                <li className="pl-4">Global × (Region Records / Total) × 1.2</li>
+                <li className="text-xs text-gray-400 mt-2">Regional packages have a 20% premium over the proportional Global rate</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-700 mb-2">Data Type Breakdown</h4>
+              <ul className="space-y-1 text-gray-600">
+                <li><strong>Thermochronology:</strong> FT, HE, Vitrinite, Ar-Ar, TH</li>
+                <li><strong>Geochronology:</strong> U-Pb</li>
+                <li><strong>Geochemistry:</strong> GC, ISO</li>
               </ul>
             </div>
           </div>

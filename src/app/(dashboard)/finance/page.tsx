@@ -1,254 +1,356 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import MetricsDashboard from '@/components/finance/MetricsDashboard';
-import TaskList from '@/components/finance/TaskList';
-import CalendarView from '@/components/finance/CalendarView';
+import { useEffect, useState, useCallback } from 'react';
+
+// Static task definitions based on Kristy's monthly checklist
+const WISE_CONTRACTORS = [
+  { id: 'wayne', name: 'Wayne' },
+  { id: 'moritz', name: 'Moritz' },
+  { id: 'tarun', name: 'Tarun/Nirali' },
+  { id: 'juan', name: 'Juan' },
+  { id: 'perla', name: 'Perla' },
+  { id: 'aida', name: 'Aida Cristina' },
+  { id: 'vinko', name: 'Vinko (Scenaryo GmbH)' },
+];
+
+interface TaskDef {
+  id: string;
+  title: string;
+  category: 'critical' | 'weekly' | 'monthEnd';
+  dueDay: number; // Day of month
+  hasWiseSubItems?: boolean;
+}
+
+const TASKS: TaskDef[] = [
+  // CRITICAL - Start of Month
+  { id: 'review-last-month', title: "Review last month's close status", category: 'critical', dueDay: 2 },
+  { id: 'close-dext', title: 'Close all Dext items open', category: 'critical', dueDay: 2 },
+  { id: 'xero-reconciliation', title: 'Xero reconciliation of all outstanding items', category: 'critical', dueDay: 2 },
+  { id: 'check-stp', title: 'Check STP (Single Touch Payroll)', category: 'critical', dueDay: 4 },
+  { id: 'run-payroll', title: 'Run payroll in Xero', category: 'critical', dueDay: 4 },
+  { id: 'review-invoices-wise', title: 'Review Invoices for staff payments and put into WISE', category: 'critical', dueDay: 4, hasWiseSubItems: true },
+  { id: 'run-wise', title: 'Run Wise Payments', category: 'critical', dueDay: 4 },
+  { id: 'wise-to-dext', title: 'Send WISE email receipts to DEXT', category: 'critical', dueDay: 4 },
+  { id: 'book-finance-meeting', title: 'Book in Monthly Finance Review meeting (Fabian and Keith)', category: 'critical', dueDay: 4 },
+
+  // WEEKLY
+  { id: 'pay-bills-weekly', title: 'Review and pay all bills due this week', category: 'weekly', dueDay: 8 },
+  { id: 'submit-receipts', title: 'Submit any outstanding receipts to DEXT', category: 'weekly', dueDay: 8 },
+  { id: 'lodge-invoices', title: 'Lodge all incoming invoices into Xero - with due date', category: 'weekly', dueDay: 8 },
+
+  // MONTH-END
+  { id: 'staff-invoices', title: 'Ensure all staff have submitted their monthly invoices', category: 'monthEnd', dueDay: -1 },
+  { id: 'pay-bills-monthend', title: 'Pay all bills due this week', category: 'monthEnd', dueDay: -1 },
+  { id: 'dext-coded', title: 'Month-end close: All Dext items coded and published', category: 'monthEnd', dueDay: -1 },
+  { id: 'bank-recon', title: 'Month-end close: Bank reconciliation 100%', category: 'monthEnd', dueDay: -1 },
+  { id: 'bills-approved', title: 'Month-end close: All bills coded and approved', category: 'monthEnd', dueDay: -1 },
+];
+
+interface TaskState {
+  completed: boolean;
+  completedDate: string;
+  notes: string;
+  wiseSubItems?: { [key: string]: { completed: boolean; audAmount: string } };
+}
+
+interface ChecklistData {
+  [taskId: string]: TaskState;
+}
 
 export default function FinancePage() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [tasks, setTasks] = useState<any[]>([]);
-  const [metrics, setMetrics] = useState<any>(null);
-  const [readinessScore, setReadinessScore] = useState(0);
+  const [checklistData, setChecklistData] = useState<ChecklistData>({});
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState<'calendar' | 'list'>('list');
-  const [initializing, setInitializing] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
 
   const monthString = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}-01`;
 
-  // Fetch tasks and metrics, auto-initialize if no tasks exist
+  // Fetch checklist data
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
-        // Fetch tasks
-        const tasksResponse = await fetch(`/api/finance/tasks?month=${monthString}`);
-        const tasksData = await tasksResponse.json();
-        let fetchedTasks = tasksData.tasks || [];
-
-        // Auto-initialize tasks if none exist for this month
-        if (fetchedTasks.length === 0) {
-          const initResponse = await fetch('/api/finance/tasks/initialize', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              year: currentMonth.getFullYear(),
-              month: currentMonth.getMonth() + 1,
-            }),
-          });
-          if (initResponse.ok) {
-            const initData = await initResponse.json();
-            fetchedTasks = initData.tasks || [];
-          }
-        }
-
-        setTasks(fetchedTasks);
-
-        // Fetch metrics
-        const metricsResponse = await fetch(`/api/finance/metrics?month=${monthString}`);
-        const metricsData = await metricsResponse.json();
-        setMetrics(metricsData.metric);
-        setReadinessScore(metricsData.readinessScore || 0);
+        const response = await fetch(`/api/finance/checklist?month=${monthString}`);
+        const result = await response.json();
+        setChecklistData(result.data || {});
       } catch (error) {
-        console.error('Error fetching finance data:', error);
+        console.error('Error fetching checklist:', error);
       } finally {
         setLoading(false);
       }
     }
-
     fetchData();
-  }, [monthString, currentMonth]);
+  }, [monthString]);
 
-  const handleTaskComplete = async (taskId: string, completed: boolean) => {
+  // Save checklist data
+  const saveData = useCallback(async (newData: ChecklistData) => {
+    setSaving(true);
     try {
-      const response = await fetch(`/api/finance/tasks/${taskId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          status: completed ? 'COMPLETED' : 'PENDING',
-          completedById: completed ? 'current-user-id' : null, // TODO: Get from session
-        }),
-      });
-
-      if (response.ok) {
-        const { task } = await response.json();
-        setTasks((prevTasks) =>
-          prevTasks.map((t: any) => (t.id === taskId ? task : t))
-        );
-      }
-    } catch (error) {
-      console.error('Error updating task:', error);
-    }
-  };
-
-  const handleTaskUpdate = async (taskId: string, data: { userNotes?: string; userCompletedDate?: string; subItems?: any[] }) => {
-    try {
-      const response = await fetch(`/api/finance/tasks/${taskId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        const { task } = await response.json();
-        setTasks((prevTasks) =>
-          prevTasks.map((t: any) => (t.id === taskId ? task : t))
-        );
-      }
-    } catch (error) {
-      console.error('Error updating task:', error);
-    }
-  };
-
-  const handleMetricsUpdate = async (newMetrics: any) => {
-    try {
-      const response = await fetch('/api/finance/metrics', {
+      await fetch('/api/finance/checklist', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          month: monthString,
-          ...newMetrics,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ month: monthString, data: newData }),
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        setMetrics(data.metric);
-        setReadinessScore(data.readinessScore);
-      }
     } catch (error) {
-      console.error('Error updating metrics:', error);
+      console.error('Error saving checklist:', error);
+    } finally {
+      setSaving(false);
     }
+  }, [monthString]);
+
+  // Update a task
+  const updateTask = (taskId: string, updates: Partial<TaskState>) => {
+    const newData = {
+      ...checklistData,
+      [taskId]: {
+        completed: false,
+        completedDate: '',
+        notes: '',
+        ...checklistData[taskId],
+        ...updates,
+      },
+    };
+    setChecklistData(newData);
+    saveData(newData);
+  };
+
+  // Update a WISE sub-item
+  const updateWiseSubItem = (taskId: string, contractorId: string, updates: { completed?: boolean; audAmount?: string }) => {
+    const currentTask = checklistData[taskId] || { completed: false, completedDate: '', notes: '', wiseSubItems: {} };
+    const currentSubItems = currentTask.wiseSubItems || {};
+    const currentSubItem = currentSubItems[contractorId] || { completed: false, audAmount: '' };
+
+    const newData = {
+      ...checklistData,
+      [taskId]: {
+        ...currentTask,
+        wiseSubItems: {
+          ...currentSubItems,
+          [contractorId]: { ...currentSubItem, ...updates },
+        },
+      },
+    };
+    setChecklistData(newData);
+    saveData(newData);
+  };
+
+  const toggleExpanded = (taskId: string) => {
+    const newExpanded = new Set(expandedTasks);
+    if (newExpanded.has(taskId)) {
+      newExpanded.delete(taskId);
+    } else {
+      newExpanded.add(taskId);
+    }
+    setExpandedTasks(newExpanded);
   };
 
   const navigateMonth = (direction: 'prev' | 'next') => {
     setCurrentMonth((prev) => {
       const newDate = new Date(prev);
-      if (direction === 'prev') {
-        newDate.setMonth(newDate.getMonth() - 1);
-      } else {
-        newDate.setMonth(newDate.getMonth() + 1);
-      }
+      newDate.setMonth(newDate.getMonth() + (direction === 'prev' ? -1 : 1));
       return newDate;
     });
   };
 
-  const handleInitializeTasks = async () => {
-    setInitializing(true);
-    try {
-      const response = await fetch('/api/finance/tasks/initialize', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          year: currentMonth.getFullYear(),
-          month: currentMonth.getMonth() + 1,
-        }),
-      });
+  const getTaskState = (taskId: string): TaskState => {
+    return checklistData[taskId] || { completed: false, completedDate: '', notes: '' };
+  };
 
-      if (response.ok) {
-        const data = await response.json();
-        setTasks(data.tasks || []);
-      } else {
-        const errorData = await response.json();
-        console.error('Error initializing tasks:', errorData);
-        alert(errorData.message || errorData.error || 'Failed to initialize tasks');
-      }
-    } catch (error) {
-      console.error('Error initializing tasks:', error);
-      alert('Failed to initialize tasks');
-    } finally {
-      setInitializing(false);
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case 'critical': return 'CRITICAL - Start of Month';
+      case 'weekly': return 'WEEKLY';
+      case 'monthEnd': return 'MONTH-END';
+      default: return category;
     }
   };
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'critical': return 'border-red-500 bg-red-50';
+      case 'weekly': return 'border-yellow-500 bg-yellow-50';
+      case 'monthEnd': return 'border-purple-500 bg-purple-50';
+      default: return 'border-gray-500 bg-gray-50';
+    }
+  };
+
+  // Calculate completion stats
+  const completedCount = TASKS.filter(t => getTaskState(t.id).completed).length;
+  const totalCount = TASKS.length;
+  const completionPercent = Math.round((completedCount / totalCount) * 100);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="text-lg text-gray-600">Loading finance dashboard...</div>
+        <div className="text-lg text-gray-600">Loading finance checklist...</div>
       </div>
     );
   }
 
+  // Group tasks by category
+  const groupedTasks = {
+    critical: TASKS.filter(t => t.category === 'critical'),
+    weekly: TASKS.filter(t => t.category === 'weekly'),
+    monthEnd: TASKS.filter(t => t.category === 'monthEnd'),
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Lithodat Finance Dashboard
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          Lithodat Finance Checklist
         </h1>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => navigateMonth('prev')}
-            className="px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50"
-          >
-            ← Prev
-          </button>
-          <span className="text-lg font-semibold">
-            {currentMonth.toLocaleDateString('en-US', {
-              month: 'long',
-              year: 'numeric',
-            })}
-          </span>
-          <button
-            onClick={() => navigateMonth('next')}
-            className="px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50"
-          >
-            Next →
-          </button>
+        <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigateMonth('prev')}
+              className="px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50"
+            >
+              Prev
+            </button>
+            <span className="text-lg font-semibold min-w-[150px] text-center">
+              {currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            </span>
+            <button
+              onClick={() => navigateMonth('next')}
+              className="px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50"
+            >
+              Next
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-32 h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-green-500 transition-all"
+                style={{ width: `${completionPercent}%` }}
+              />
+            </div>
+            <span className="text-sm text-gray-600">{completedCount}/{totalCount} complete</span>
+          </div>
+          {saving && <span className="text-sm text-blue-600">Saving...</span>}
         </div>
       </div>
 
-      {/* Metrics Dashboard */}
-      <MetricsDashboard
-        metrics={metrics}
-        readinessScore={readinessScore}
-        onUpdate={handleMetricsUpdate}
-      />
+      {/* Task Lists by Category */}
+      {Object.entries(groupedTasks).map(([category, tasks]) => (
+        <div key={category} className="mb-8">
+          <h2 className="text-lg font-semibold mb-3 text-gray-800">
+            {getCategoryLabel(category)} ({tasks.filter(t => getTaskState(t.id).completed).length}/{tasks.length})
+          </h2>
+          <div className="space-y-3">
+            {tasks.map((task) => {
+              const state = getTaskState(task.id);
+              const isExpanded = expandedTasks.has(task.id);
 
-      {/* View Toggle */}
-      <div className="mb-6 flex gap-2">
-        <button
-          onClick={() => setView('list')}
-          className={`px-4 py-2 rounded ${
-            view === 'list'
-              ? 'bg-blue-600 text-white'
-              : 'bg-white text-gray-700 border border-gray-300'
-          }`}
-        >
-          📋 Task List
-        </button>
-        <button
-          onClick={() => setView('calendar')}
-          className={`px-4 py-2 rounded ${
-            view === 'calendar'
-              ? 'bg-blue-600 text-white'
-              : 'bg-white text-gray-700 border border-gray-300'
-          }`}
-        >
-          📅 Calendar
-        </button>
-      </div>
+              return (
+                <div
+                  key={task.id}
+                  className={`border-l-4 rounded-lg bg-white shadow ${getCategoryColor(task.category)}`}
+                >
+                  {/* Task Header */}
+                  <div className="p-4">
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        checked={state.completed}
+                        onChange={(e) => updateTask(task.id, { completed: e.target.checked })}
+                        className="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <span className={`font-medium ${state.completed ? 'line-through text-gray-500' : 'text-gray-900'}`}>
+                            {task.title}
+                          </span>
+                          <button
+                            onClick={() => toggleExpanded(task.id)}
+                            className="text-blue-600 hover:text-blue-800 text-sm whitespace-nowrap"
+                          >
+                            {isExpanded ? 'Collapse' : 'Expand'}
+                          </button>
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Due: Day {task.dueDay === -1 ? 'Last' : task.dueDay}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-      {/* Main Content */}
-      {view === 'list' ? (
-        <TaskList
-          tasks={tasks}
-          onTaskComplete={handleTaskComplete}
-          onTaskUpdate={handleTaskUpdate}
-          onInitializeTasks={handleInitializeTasks}
-          initializing={initializing}
-        />
-      ) : (
-        <CalendarView tasks={tasks} currentMonth={currentMonth} onTaskComplete={handleTaskComplete} />
-      )}
+                  {/* Expanded Section */}
+                  {isExpanded && (
+                    <div className="border-t border-gray-200 p-4 bg-gray-50 space-y-4">
+                      {/* WISE Sub-items */}
+                      {task.hasWiseSubItems && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Contractor Payments (AUD Conversion from WISE)
+                          </label>
+                          <div className="space-y-2 ml-4">
+                            {WISE_CONTRACTORS.map((contractor) => {
+                              const subItem = state.wiseSubItems?.[contractor.id] || { completed: false, audAmount: '' };
+                              return (
+                                <div key={contractor.id} className="flex items-center gap-3 p-2 bg-white rounded border">
+                                  <input
+                                    type="checkbox"
+                                    checked={subItem.completed}
+                                    onChange={(e) => updateWiseSubItem(task.id, contractor.id, { completed: e.target.checked })}
+                                    className="w-4 h-4 text-blue-600 border-gray-300 rounded"
+                                  />
+                                  <span className={`flex-1 ${subItem.completed ? 'line-through text-gray-500' : ''}`}>
+                                    {contractor.name}
+                                  </span>
+                                  <div className="flex items-center gap-1">
+                                    <span className="text-gray-500 text-sm">AUD:</span>
+                                    <input
+                                      type="text"
+                                      value={subItem.audAmount}
+                                      onChange={(e) => updateWiseSubItem(task.id, contractor.id, { audAmount: e.target.value })}
+                                      placeholder="0.00"
+                                      className="w-24 px-2 py-1 text-sm border border-gray-300 rounded"
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Date Completed */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Date Completed
+                        </label>
+                        <input
+                          type="date"
+                          value={state.completedDate}
+                          onChange={(e) => updateTask(task.id, { completedDate: e.target.value })}
+                          className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        />
+                      </div>
+
+                      {/* Notes */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Notes / Comments
+                        </label>
+                        <textarea
+                          value={state.notes}
+                          onChange={(e) => updateTask(task.id, { notes: e.target.value })}
+                          placeholder="Add any notes..."
+                          rows={2}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
