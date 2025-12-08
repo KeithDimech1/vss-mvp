@@ -4,7 +4,7 @@
  * Uses Fuse.js for fuzzy searching across Dext and Xero documentation
  */
 
-import Fuse from 'fuse.js';
+import Fuse, { FuseResultMatch, IFuseOptions } from 'fuse.js';
 
 export interface DocArticle {
   id: string;
@@ -33,11 +33,11 @@ export interface DocsIndex {
 export interface SearchResult {
   item: DocArticle;
   score?: number;
-  matches?: readonly Fuse.FuseResultMatch[];
+  matches?: readonly FuseResultMatch[];
 }
 
 // Fuse.js options for fuzzy search
-const fuseOptions: Fuse.IFuseOptions<DocArticle> = {
+const fuseOptions: IFuseOptions<DocArticle> = {
   keys: [
     { name: 'title', weight: 0.4 },
     { name: 'excerpt', weight: 0.3 },

@@ -285,13 +285,11 @@ export default function FinancePage() {
 
   // Update a task
   const updateTask = (taskId: string, updates: Partial<TaskState>) => {
+    const existingTask = checklistData[taskId] || { completed: false, completedDate: '', notes: '' };
     const newData = {
       ...checklistData,
       [taskId]: {
-        completed: false,
-        completedDate: '',
-        notes: '',
-        ...checklistData[taskId],
+        ...existingTask,
         ...updates,
       },
     };
