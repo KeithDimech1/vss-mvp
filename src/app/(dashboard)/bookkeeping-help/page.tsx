@@ -55,6 +55,19 @@ const PAYMENT_METHODS = [
   { name: 'American Express (Keith)', reference: '1042', account: 'American Express Platinum Business', usage: 'Keith\'s business card - last 4 digits 1042' },
 ];
 
+// Travel code type
+interface TravelCode {
+  name: string;
+  date: string;
+  type: string;
+  active: boolean;
+}
+
+interface TravelCodesData {
+  lastUpdated: string;
+  codes: TravelCode[];
+}
+
 export default function BookkeepingHelpPage() {
   const [mainTab, setMainTab] = useState<MainTab>('guide');
   const [isLoading, setIsLoading] = useState(true);
@@ -68,6 +81,7 @@ export default function BookkeepingHelpPage() {
   const [categories, setCategories] = useState<{ dext: string[]; xero: string[] }>({ dext: [], xero: [] });
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>('cost-inbox');
+  const [travelCodes, setTravelCodes] = useState<TravelCodesData | null>(null);
 
   // Initialize search on mount
   useEffect(() => {
@@ -87,6 +101,22 @@ export default function BookkeepingHelpPage() {
       setIsLoading(false);
     }
     init();
+  }, []);
+
+  // Load travel codes from JSON file
+  useEffect(() => {
+    async function loadTravelCodes() {
+      try {
+        const response = await fetch('/data/travel-codes.json');
+        if (response.ok) {
+          const data = await response.json();
+          setTravelCodes(data);
+        }
+      } catch (error) {
+        console.error('Failed to load travel codes:', error);
+      }
+    }
+    loadTravelCodes();
   }, []);
 
   // Perform search when query or filters change
@@ -189,8 +219,39 @@ export default function BookkeepingHelpPage() {
                 This guide explains how to process costs in Dext and push them to Xero correctly.
                 Every item in the Cost Inbox must be reviewed and coded before month-end.
               </p>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                 <p className="text-blue-800 font-medium">Key Rule: No items should remain in &quot;To Review&quot; status at month-end</p>
+              </div>
+
+              {/* Quick Links */}
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <p className="text-gray-700 font-medium mb-3">Quick Links:</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="https://app.dext.com/delta/costs" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Dext Cost Inbox
+                  </a>
+                  <a href="https://app.dext.com/delta/settings/business/lists/payment-methods" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Dext Payment Methods
+                  </a>
+                  <a href="https://go.xero.com/Contacts/Search" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Xero Contacts
+                  </a>
+                  <a href="https://go.xero.com/Setup/Tracking.aspx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Xero Tracking Categories
+                  </a>
+                  <a href="https://go.xero.com/AccountsPayable/Search.aspx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Xero Bills
+                  </a>
+                  <a href="https://go.xero.com/Bank/BankAccounts.aspx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Xero Bank Reconciliation
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -398,26 +459,58 @@ export default function BookkeepingHelpPage() {
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
                     <p className="text-green-800 font-medium">Adding a New Travel Category in Xero:</p>
                     <ol className="list-decimal list-inside text-green-700 mt-2 space-y-1">
-                      <li>Go to <a href="https://go.xero.com/Settings/TrackingCategories" target="_blank" rel="noopener noreferrer" className="text-green-600 underline hover:text-green-800">Xero Tracking Categories</a></li>
+                      <li>Go to <a href="https://go.xero.com/Setup/Tracking.aspx" target="_blank" rel="noopener noreferrer" className="text-green-600 underline hover:text-green-800">Xero Tracking Categories</a></li>
                       <li>Click on the &quot;Travel&quot; category</li>
                       <li>Click &quot;Add another option&quot;</li>
                       <li>Enter the travel code (e.g., &quot;AEGC 2025 Perth&quot;)</li>
                       <li>Save and reload Dext to sync</li>
                     </ol>
+                    <div className="bg-white rounded-lg p-2 mt-3">
+                      <Image
+                        src="/images/dext-guide/travel-tracking.png"
+                        alt="Xero Travel Tracking Categories"
+                        width={500}
+                        height={400}
+                        className="rounded border border-green-200"
+                      />
+                    </div>
                   </div>
                   <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                    <p className="text-gray-700">
-                      <strong>Current Active Travel Categories:</strong>
-                    </p>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-gray-700">
+                        <strong>Current Active Travel Categories:</strong>
+                      </p>
+                      {travelCodes && (
+                        <span className="text-xs text-gray-400">
+                          Updated: {travelCodes.lastUpdated}
+                        </span>
+                      )}
+                    </div>
                     <ul className="mt-2 space-y-1 text-gray-600">
-                      <li>• AEGC 2025 Perth</li>
-                      <li>• EMC 2025 Amira Global Gold Coast</li>
-                      <li>• IAMG 2025 Zhuhai China</li>
-                      <li>• Nordic Geological Winter Meeting 2026 Turku</li>
-                      <li>• SEG 2025 Brisbane</li>
-                      <li>• Tang3o 2025 Canberra</li>
-                      <li>• Thermo 2025 Kanazawa Japan</li>
+                      {travelCodes ? (
+                        travelCodes.codes
+                          .filter(code => code.active)
+                          .sort((a, b) => a.date.localeCompare(b.date))
+                          .map((code, index) => (
+                            <li key={index}>• {code.name}</li>
+                          ))
+                      ) : (
+                        <>
+                          <li>• AEGC 2025 Perth</li>
+                          <li>• EMC 2025 Amira Global Gold Coast</li>
+                          <li>• IAMG 2025 Zhuhai China</li>
+                          <li>• Nordic Geological Winter Meeting 2026 Turku</li>
+                          <li>• SEG 2025 Brisbane</li>
+                          <li>• Tang3o 2025 Canberra</li>
+                          <li>• Thermo 2025 Kanazawa Japan</li>
+                        </>
+                      )}
                     </ul>
+                    <div className="mt-3 pt-3 border-t border-gray-200">
+                      <p className="text-xs text-gray-500">
+                        To update this list, edit <code className="bg-gray-200 px-1 rounded">/public/data/travel-codes.json</code>
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -463,6 +556,12 @@ export default function BookkeepingHelpPage() {
                       Click on the &quot;Email&quot; tab in Dext to see what information Fabian or Wayne included when they submitted the receipt.
                       This often contains context about the purchase.
                     </p>
+                    <div className="mt-3 bg-blue-100 border border-blue-300 rounded p-3">
+                      <p className="text-blue-800 text-sm">
+                        <strong>Note:</strong> The Email tab is only available for receipts submitted via email.
+                        If the receipt was forwarded from another source or uploaded directly (via mobile app or drag-and-drop), the Email tab will not be present.
+                      </p>
+                    </div>
                   </div>
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                     <p className="text-amber-800">
@@ -552,6 +651,14 @@ export default function BookkeepingHelpPage() {
                     For receipts, click <strong>&quot;Yes&quot;</strong> to mark as paid, then select the correct payment method.
                     This is essential for bank reconciliation.
                   </p>
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4">
+                    <p className="text-gray-700 text-sm">
+                      <strong>Manage Payment Methods:</strong>{' '}
+                      <a href="https://app.dext.com/delta/settings/business/lists/payment-methods" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">
+                        Dext Payment Methods Settings
+                      </a>
+                    </p>
+                  </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
@@ -630,6 +737,99 @@ export default function BookkeepingHelpPage() {
                       <li>$1,500 - Conference Registration (414 Conferences)</li>
                       <li>$300 - Workshop Fee (414 Conferences)</li>
                       <li>$200 - Conference Dinner (420 Entertainment)</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Section 10: Xero Reconciliation */}
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button
+                onClick={() => toggleSection('xero-reconcile')}
+                className="w-full px-6 py-4 flex items-center justify-between bg-purple-50 hover:bg-purple-100 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">10</span>
+                  <span className="font-semibold text-gray-900">Xero Bank Reconciliation</span>
+                </div>
+                <svg className={`w-5 h-5 transition-transform ${expandedSection === 'xero-reconcile' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {expandedSection === 'xero-reconcile' && (
+                <div className="p-6 border-t">
+                  <p className="text-gray-600 mb-4">
+                    After publishing items from Dext, the next step is to reconcile them in Xero.
+                    The goal is to have <strong>0 items to reconcile</strong> for each bank account.
+                  </p>
+
+                  {/* Reconcile Homepage */}
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-4">
+                    <p className="text-purple-800 font-medium mb-3">Step 1: Check Reconciliation Dashboard</p>
+                    <p className="text-purple-700 mb-3">
+                      Go to <a href="https://go.xero.com/Bank/BankAccounts.aspx" target="_blank" rel="noopener noreferrer" className="text-purple-600 underline hover:text-purple-800 font-medium">Xero Bank Accounts</a> to see how many items need reconciling for each account.
+                    </p>
+                    <div className="bg-white rounded-lg p-2 mb-3">
+                      <Image
+                        src="/images/dext-guide/xero-reconcile-homepage.png"
+                        alt="Xero Reconciliation Dashboard"
+                        width={600}
+                        height={400}
+                        className="rounded border border-purple-200"
+                      />
+                    </div>
+                    <p className="text-purple-700 text-sm">
+                      Click &quot;Reconcile X items&quot; on each account to start matching transactions.
+                    </p>
+                  </div>
+
+                  {/* Green Match */}
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                    <p className="text-green-800 font-medium mb-3">Step 2: Match Green Items (Auto-Matched)</p>
+                    <p className="text-green-700 mb-3">
+                      When Dext items have been published with the correct payment method, Xero will automatically find a match.
+                      These appear with a <strong>green background</strong>.
+                    </p>
+                    <div className="bg-white rounded-lg p-2 mb-3">
+                      <Image
+                        src="/images/dext-guide/xero-match-green.png"
+                        alt="Xero Green Match"
+                        width={800}
+                        height={200}
+                        className="rounded border border-green-200"
+                      />
+                    </div>
+                    <div className="bg-green-100 border border-green-300 rounded p-3">
+                      <p className="text-green-800 text-sm">
+                        <strong>What happens behind the scenes:</strong> Dext creates a Bill in Xero and marks it as Paid.
+                        When you click &quot;OK&quot;, you&apos;re matching the bank transaction to that paid bill.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Simple process */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                    <p className="text-blue-800 font-medium mb-3">For Green Matches - Simply Click OK</p>
+                    <ol className="list-decimal list-inside text-blue-700 space-y-2">
+                      <li>Verify the bank transaction (left) matches the Dext item (right)</li>
+                      <li>Check the amount is exactly the same</li>
+                      <li>Click the blue <strong>&quot;OK&quot;</strong> button</li>
+                      <li>The transaction is now reconciled</li>
+                    </ol>
+                  </div>
+
+                  {/* What if no match */}
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-amber-800 font-medium mb-2">No Green Match?</p>
+                    <p className="text-amber-700 mb-2">
+                      If there&apos;s no automatic match, it usually means:
+                    </p>
+                    <ul className="list-disc list-inside text-amber-700 space-y-1">
+                      <li>The item hasn&apos;t been processed in Dext yet</li>
+                      <li>The wrong payment method was selected in Dext</li>
+                      <li>The amount in Dext doesn&apos;t match the bank exactly (common with overseas transactions)</li>
+                      <li>Use &quot;Find &amp; Match&quot; tab to search for the bill manually</li>
                     </ul>
                   </div>
                 </div>
