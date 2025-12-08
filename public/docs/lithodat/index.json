@@ -1,0 +1,84 @@
+{
+  "name": "Lithodat Finance & Operations Guide",
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-08",
+  "description": "Internal procedures, codes, and how-to guides for Lithodat finance and operations",
+  "categories": [
+    {
+      "id": "product-codes",
+      "name": "Product & Service Codes",
+      "description": "Complete inventory codes for Xero and invoicing",
+      "documents": [
+        {
+          "id": "product-service-codes",
+          "title": "Product & Service Codes",
+          "file": "product-service-codes.json",
+          "description": "All product codes for LithoData, LithoSurfer, LithoBuild, etc."
+        },
+        {
+          "id": "coding-guide",
+          "title": "How to Code Products",
+          "file": "how-to-code-products.md",
+          "description": "Guide for creating new product codes"
+        }
+      ]
+    },
+    {
+      "id": "invoicing",
+      "name": "Invoicing Procedures",
+      "description": "How to create and manage invoices",
+      "documents": [
+        {
+          "id": "create-invoice",
+          "title": "Creating an Invoice",
+          "file": "invoicing/create-invoice.md",
+          "description": "Step-by-step invoice creation"
+        },
+        {
+          "id": "custom-packages",
+          "title": "Custom Package Invoicing",
+          "file": "invoicing/custom-packages.md",
+          "description": "How to invoice bespoke data packages"
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing Rules",
+      "description": "Pricing formulas and discount policies",
+      "documents": [
+        {
+          "id": "regional-pricing",
+          "title": "Regional Pricing Formula",
+          "file": "pricing/regional-pricing.md",
+          "description": "How regional prices are calculated"
+        },
+        {
+          "id": "bundle-discounts",
+          "title": "Bundle Discounts",
+          "file": "pricing/bundle-discounts.md",
+          "description": "Discount rules for package bundles"
+        }
+      ]
+    },
+    {
+      "id": "month-end",
+      "name": "Month-End Procedures",
+      "description": "Monthly close and reconciliation",
+      "documents": [
+        {
+          "id": "close-checklist",
+          "title": "Month-End Close Checklist",
+          "file": "month-end/close-checklist.md",
+          "description": "Complete checklist for month-end close"
+        },
+        {
+          "id": "wise-payments",
+          "title": "WISE Contractor Payments",
+          "file": "month-end/wise-payments.md",
+          "description": "Processing contractor payments through WISE"
+        }
+      ]
+    }
+  ]
+}

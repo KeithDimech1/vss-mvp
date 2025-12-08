@@ -1,0 +1,139 @@
+Code,Name,Description,Track Inventory,Purchase,Sell
+001-01-00,FT Global,Fission Track - All Regions (Annual),No,No,Yes
+001-01-01,FT Africa,Fission Track - Africa Region (Annual),No,No,Yes
+001-01-02,FT Antarctica,Fission Track - Antarctica Region (Annual),No,No,Yes
+001-01-03,FT Arabia,Fission Track - Arabia Region (Annual),No,No,Yes
+001-01-04,FT Asia,Fission Track - Asia Region (Annual),No,No,Yes
+001-01-05,FT Central Asia,Fission Track - Central Asia Region (Annual),No,No,Yes
+001-01-06,FT Europe,Fission Track - Europe Region (Annual),No,No,Yes
+001-01-07,FT North America,Fission Track - North America Region (Annual),No,No,Yes
+001-01-08,FT Oceania,Fission Track - Oceania Region (Annual),No,No,Yes
+001-01-09,FT South America,Fission Track - South America Region (Annual),No,No,Yes
+001-01-10,FT Unclassified,Fission Track - Unclassified Region (Annual),No,No,Yes
+001-02-00,HE Global,Helium U-Th/He - All Regions (Annual),No,No,Yes
+001-02-01,HE Africa,Helium U-Th/He - Africa Region (Annual),No,No,Yes
+001-02-02,HE Antarctica,Helium U-Th/He - Antarctica Region (Annual),No,No,Yes
+001-02-03,HE Arabia,Helium U-Th/He - Arabia Region (Annual),No,No,Yes
+001-02-04,HE Asia,Helium U-Th/He - Asia Region (Annual),No,No,Yes
+001-02-05,HE Central Asia,Helium U-Th/He - Central Asia Region (Annual),No,No,Yes
+001-02-06,HE Europe,Helium U-Th/He - Europe Region (Annual),No,No,Yes
+001-02-07,HE North America,Helium U-Th/He - North America Region (Annual),No,No,Yes
+001-02-08,HE Oceania,Helium U-Th/He - Oceania Region (Annual),No,No,Yes
+001-02-09,HE South America,Helium U-Th/He - South America Region (Annual),No,No,Yes
+001-02-10,HE Unclassified,Helium U-Th/He - Unclassified Region (Annual),No,No,Yes
+001-03-00,VR Global,Vitrinite Reflectance - All Regions (Annual),No,No,Yes
+001-03-01,VR Africa,Vitrinite Reflectance - Africa Region (Annual),No,No,Yes
+001-03-06,VR Europe,Vitrinite Reflectance - Europe Region (Annual),No,No,Yes
+001-03-07,VR North America,Vitrinite Reflectance - North America Region (Annual),No,No,Yes
+001-03-08,VR Oceania,Vitrinite Reflectance - Oceania Region (Annual),No,No,Yes
+001-04-00,U-Pb Global,Uranium-Lead - All Regions (Annual),No,No,Yes
+001-04-01,U-Pb Africa,Uranium-Lead - Africa Region (Annual),No,No,Yes
+001-04-02,U-Pb Antarctica,Uranium-Lead - Antarctica Region (Annual),No,No,Yes
+001-04-03,U-Pb Arabia,Uranium-Lead - Arabia Region (Annual),No,No,Yes
+001-04-04,U-Pb Asia,Uranium-Lead - Asia Region (Annual),No,No,Yes
+001-04-05,U-Pb Central Asia,Uranium-Lead - Central Asia Region (Annual),No,No,Yes
+001-04-06,U-Pb Europe,Uranium-Lead - Europe Region (Annual),No,No,Yes
+001-04-07,U-Pb North America,Uranium-Lead - North America Region (Annual),No,No,Yes
+001-04-08,U-Pb Oceania,Uranium-Lead - Oceania Region (Annual),No,No,Yes
+001-04-09,U-Pb South America,Uranium-Lead - South America Region (Annual),No,No,Yes
+001-04-10,U-Pb Unclassified,Uranium-Lead - Unclassified Region (Annual),No,No,Yes
+001-05-00,Ar-Ar Global,Argon-Argon - All Regions (Annual),No,No,Yes
+001-05-01,Ar-Ar Africa,Argon-Argon - Africa Region (Annual),No,No,Yes
+001-05-02,Ar-Ar Antarctica,Argon-Argon - Antarctica Region (Annual),No,No,Yes
+001-05-04,Ar-Ar Asia,Argon-Argon - Asia Region (Annual),No,No,Yes
+001-05-05,Ar-Ar Central Asia,Argon-Argon - Central Asia Region (Annual),No,No,Yes
+001-05-06,Ar-Ar Europe,Argon-Argon - Europe Region (Annual),No,No,Yes
+001-05-10,Ar-Ar Unclassified,Argon-Argon - Unclassified Region (Annual),No,No,Yes
+001-06-00,TH Global,Thorium - All Regions (Annual),No,No,Yes
+001-06-01,TH Africa,Thorium - Africa Region (Annual),No,No,Yes
+001-06-02,TH Antarctica,Thorium - Antarctica Region (Annual),No,No,Yes
+001-06-03,TH Arabia,Thorium - Arabia Region (Annual),No,No,Yes
+001-06-04,TH Asia,Thorium - Asia Region (Annual),No,No,Yes
+001-06-05,TH Central Asia,Thorium - Central Asia Region (Annual),No,No,Yes
+001-06-06,TH Europe,Thorium - Europe Region (Annual),No,No,Yes
+001-06-07,TH North America,Thorium - North America Region (Annual),No,No,Yes
+001-06-08,TH Oceania,Thorium - Oceania Region (Annual),No,No,Yes
+001-06-09,TH South America,Thorium - South America Region (Annual),No,No,Yes
+001-06-10,TH Unclassified,Thorium - Unclassified Region (Annual),No,No,Yes
+001-07-00,GC Global,Geochemistry - All Regions (Annual),No,No,Yes
+001-07-01,GC Africa,Geochemistry - Africa Region (Annual),No,No,Yes
+001-07-02,GC Antarctica,Geochemistry - Antarctica Region (Annual),No,No,Yes
+001-07-03,GC Arabia,Geochemistry - Arabia Region (Annual),No,No,Yes
+001-07-04,GC Asia,Geochemistry - Asia Region (Annual),No,No,Yes
+001-07-05,GC Central Asia,Geochemistry - Central Asia Region (Annual),No,No,Yes
+001-07-06,GC Europe,Geochemistry - Europe Region (Annual),No,No,Yes
+001-07-07,GC North America,Geochemistry - North America Region (Annual),No,No,Yes
+001-07-08,GC Oceania,Geochemistry - Oceania Region (Annual),No,No,Yes
+001-07-09,GC South America,Geochemistry - South America Region (Annual),No,No,Yes
+001-07-10,GC Unclassified,Geochemistry - Unclassified Region (Annual),No,No,Yes
+001-08-00,ISO Global,Isotope - All Regions (Annual),No,No,Yes
+001-08-01,ISO Africa,Isotope - Africa Region (Annual),No,No,Yes
+001-08-07,ISO North America,Isotope - North America Region (Annual),No,No,Yes
+001-08-10,ISO Unclassified,Isotope - Unclassified Region (Annual),No,No,Yes
+001-XX-00,Custom Data Package,Bespoke data package - Mixed regions/types,No,No,Yes
+001-XX-01,Custom Bundle Small,Custom bundle - Up to 3 data types,No,No,Yes
+001-XX-02,Custom Bundle Medium,Custom bundle - 4-6 data types,No,No,Yes
+001-XX-03,Custom Bundle Large,Custom bundle - 7+ data types,No,No,Yes
+001-XX-10,Enterprise Data License,Full data access - All types all regions,No,No,Yes
+002-01-00,LithoSurfer FREE,LithoSurfer FREE - Basic Access (No charge),No,No,Yes
+002-02-00,LithoSurfer PRO Monthly,LithoSurfer PRO - Monthly Subscription,No,No,Yes
+002-02-01,LithoSurfer PRO Annual,LithoSurfer PRO - Annual Subscription,No,No,Yes
+002-02-02,LithoSurfer PRO Academic,LithoSurfer PRO - Academic License (Annual),No,No,Yes
+002-03-00,LithoSurfer ENT Monthly,LithoSurfer ENTERPRISE - Monthly Subscription,No,No,Yes
+002-03-01,LithoSurfer ENT Annual,LithoSurfer ENTERPRISE - Annual Subscription,No,No,Yes
+002-03-02,LithoSurfer ENT Multi-Seat,LithoSurfer ENTERPRISE - Multi-Seat License,No,No,Yes
+002-03-03,LithoSurfer ENT Site License,LithoSurfer ENTERPRISE - Site License,No,No,Yes
+002-10-00,Additional User Seat,Additional user seat (per user/month),No,No,Yes
+002-10-01,Storage Upgrade,Additional storage (per 10GB/month),No,No,Yes
+002-10-02,Custom Branding,Custom branding/white-label add-on,No,No,Yes
+002-10-03,Dedicated Domain,Custom domain (CNAME) setup,No,No,Yes
+002-10-04,Priority Support,Priority support add-on (Annual),No,No,Yes
+002-10-05,API Access,API access add-on (per 1000 calls),No,No,Yes
+003-01-00,Data Migration,Data migration project (one-time),No,No,Yes
+003-01-01,CSV Template Build,Bespoke CSV ingestion template,No,No,Yes
+003-01-02,API Integration,Custom API integration development,No,No,Yes
+003-01-03,Database Connector,aQuire/GeoBank/Micromine connector,No,No,Yes
+003-02-00,Custom Visualization,Bespoke visualization development,No,No,Yes
+003-02-01,Custom Analysis Tool,Custom analysis tool development,No,No,Yes
+003-02-02,Paleo Model Import,Custom paleo reconstruction model,No,No,Yes
+003-02-03,WMS Layer Setup,WMS layer feed configuration,No,No,Yes
+003-03-00,Enterprise Setup,Enterprise environment setup,No,No,Yes
+003-03-01,SSO/SAML Integration,SSO/SAML identity integration,No,No,Yes
+003-03-02,Custom Portal,Virtual custom portal development,No,No,Yes
+003-03-03,Dedicated Instance,Dedicated hosting instance setup,No,No,Yes
+003-10-00,Development Hour,Development services (per hour),No,No,Yes
+003-10-01,Development Day,Development services (per day),No,No,Yes
+003-10-02,Retainer Small,Development retainer - 10 hrs/month,No,No,Yes
+003-10-03,Retainer Medium,Development retainer - 20 hrs/month,No,No,Yes
+003-10-04,Retainer Large,Development retainer - 40 hrs/month,No,No,Yes
+004-01-00,Data Audit,Data quality audit and report,No,No,Yes
+004-01-01,Clean Small,Data cleaning - Up to 1000 records,No,No,Yes
+004-01-02,Clean Medium,Data cleaning - 1001-10000 records,No,No,Yes
+004-01-03,Clean Large,Data cleaning - 10001-50000 records,No,No,Yes
+004-01-04,Clean Enterprise,Data cleaning - 50000+ records,No,No,Yes
+004-02-00,QA Review,Quality assurance review,No,No,Yes
+004-02-01,Validation Report,Data validation report,No,No,Yes
+004-02-02,Compliance Check,Data compliance verification,No,No,Yes
+005-01-00,Exploration Package,Mining exploration data package,No,No,Yes
+005-01-01,Regional Survey,Regional survey data access,No,No,Yes
+005-01-02,Prospect Analysis,Prospect analysis data bundle,No,No,Yes
+005-02-00,Work Program Tool,Exploration work program tool,No,No,Yes
+005-02-01,Borehole Planning,Borehole location planning tool,No,No,Yes
+005-02-02,Sample Management,Sample management integration,No,No,Yes
+006-01-00,Onboarding Workshop,Onboarding workshop (half day),No,No,Yes
+006-01-01,Onboarding Full,Onboarding workshop (full day),No,No,Yes
+006-01-02,Training Session,Training session (2 hours),No,No,Yes
+006-01-03,In-Person Training,In-person training day,No,No,Yes
+006-01-04,Custom Training,Custom training program,No,No,Yes
+006-02-00,Academic Consult,Academic consultation (per hour),No,No,Yes
+006-02-01,Research Support,Research project support,No,No,Yes
+006-02-02,DOI Minting,DOI minting service,No,No,Yes
+006-02-03,Publication Support,Publication assistance,No,No,Yes
+006-03-00,Consult Hour,General consulting (per hour),No,No,Yes
+006-03-01,Consult Day,General consulting (per day),No,No,Yes
+006-03-02,Strategy Session,Strategic planning session,No,No,Yes
+006-03-03,Technical Review,Technical review and recommendations,No,No,Yes
+006-10-00,Support Basic,Email support (included),No,No,Yes
+006-10-01,Support Priority,Priority support SLA (Annual),No,No,Yes
+006-10-02,Support Dedicated,Dedicated account manager (Annual),No,No,Yes
+006-10-03,Support Portal,Support portal access (included),No,No,Yes
