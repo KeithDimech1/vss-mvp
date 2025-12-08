@@ -160,7 +160,7 @@ const TASKS: TaskDef[] = [
     assignee: 'kristy',
     instructions: 'Receive Wise "Transfer sent" emails from Fabian. Forward each to Dext Costs inbox (kristy.kohlmann.lithodat.pty.ltd@dext.cc). In Dext, match each receipt with the corresponding unpaid bill. Update the AUD amount to match the Wise receipt exactly (e.g., 3,314.03 AUD for a 1,865.92 EUR payment). Ensure the correct PAYROLL tracking code is selected. Mark as PAID with payment method "CBA Bank Payment".',
     links: [
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
     ],
     helpSection: 'cost-inbox',
@@ -183,7 +183,7 @@ const TASKS: TaskDef[] = [
     dueDay: 2,
     instructions: 'Process all items in the Dext Cost Inbox. Each item should be coded with: correct supplier, category, payment method, and description. No items should remain in "To Review" status.',
     links: [
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
       { label: 'Coding Guide', color: 'blue', helpSectionLink: 'cost-inbox' },
     ],
     helpSection: 'cost-inbox',
@@ -220,7 +220,7 @@ const TASKS: TaskDef[] = [
     assignee: 'kristy',
     instructions: 'Remind team members to submit any receipts they haven\'t sent yet. Check credit card statements for transactions that don\'t have matching receipts in Dext.',
     links: [
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
     ],
   },
   {
@@ -243,7 +243,7 @@ const TASKS: TaskDef[] = [
     instructions: 'Check if any team members have upcoming travel or are currently travelling. Add travel expenses to Xero with the correct Travel tracking codes: 493 - Travel National (GST) for domestic, 494 - Travel International (GST Free) for overseas. Ensure receipts are forwarded to Dext.',
     links: [
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
     ],
   },
 
@@ -264,7 +264,7 @@ const TASKS: TaskDef[] = [
     assignee: 'kristy',
     instructions: 'Forward all contractor invoices to Dext Costs inbox (kristy.kohlmann.lithodat.pty.ltd@dext.cc). Code each invoice with: (1) Correct supplier name, (2) Category: 413 - Consulting, (3) Type: INVOICE (not receipt), (4) PAYROLL tracking code for the contractor (e.g., "01 - MXN - Juan Baca Naavarro"). Do NOT mark as paid - leave payment method blank. This publishes the bill to Xero where Fabian can see it for payment.',
     links: [
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
       { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
       { label: 'Payroll Codes', color: 'blue', helpSectionLink: 'payroll-tracking' },
     ],
@@ -289,7 +289,7 @@ const TASKS: TaskDef[] = [
     assignee: 'kristy',
     instructions: 'Final check that all Dext items have been processed. The inbox should be at 0 items. All items should be published to Xero with correct coding.',
     links: [
-      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs/inbox', color: 'green' },
     ],
   },
   {
@@ -856,7 +856,7 @@ export default function FinancePage() {
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div className="flex items-center gap-3 flex-wrap">
               <span className="text-sm font-medium text-gray-500">Quick Links:</span>
-              <a href="https://app.dext.com/delta/costs" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 text-sm font-medium transition-colors">
+              <a href="https://app.dext.com/delta/costs/inbox" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 text-sm font-medium transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 Dext Inbox
               </a>
