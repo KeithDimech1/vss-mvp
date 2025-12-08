@@ -204,6 +204,9 @@ model FinanceTask {
   completedAt     DateTime?
   completedById   String?
   completedBy     User?          @relation("CompletedTasks", fields: [completedById], references: [id])
+  userCompletedDate DateTime?    // User-entered date when task was completed (editable)
+  userNotes       String?        @db.Text // User notes/comments for this task
+  subItems        Json?          // For tasks with sub-items (e.g., WISE payments per contractor)
   comments        FinanceComment[]
 
   createdAt       DateTime       @default(now())

@@ -163,6 +163,27 @@ export default function LithoSurferPage() {
     });
   };
 
+  // Group features by tier for display
+  type TierGroup = 'free' | 'pro' | 'enterprise' | 'unassigned';
+
+  const getFeaturesByTierGroup = (): Record<TierGroup, LithoSurferFeature[]> => {
+    const filtered = getFilteredFeatures();
+
+    const groups: Record<TierGroup, LithoSurferFeature[]> = {
+      free: [],
+      pro: [],
+      enterprise: [],
+      unassigned: []
+    };
+
+    filtered.forEach(feature => {
+      const tier = assignments[feature.id] || 'unassigned';
+      groups[tier as TierGroup].push(feature);
+    });
+
+    return groups;
+  };
+
   // Sort features by tier: Free first, then Pro, then Enterprise, then unassigned
   const getFeaturesSortedByTier = (): LithoSurferFeature[] => {
     const filtered = getFilteredFeatures();
@@ -181,6 +202,38 @@ export default function LithoSurferPage() {
     });
   };
 
+  // Tier group labels and styles
+  const tierGroupConfig: Record<TierGroup, { label: string; description: string; bgColor: string; textColor: string; borderColor: string }> = {
+    free: {
+      label: 'FREE Tier',
+      description: 'Available to all users',
+      bgColor: 'bg-gray-100',
+      textColor: 'text-gray-700',
+      borderColor: 'border-gray-300'
+    },
+    pro: {
+      label: 'PRO Tier',
+      description: 'Adds these features to FREE',
+      bgColor: 'bg-blue-50',
+      textColor: 'text-blue-700',
+      borderColor: 'border-blue-300'
+    },
+    enterprise: {
+      label: 'ENTERPRISE Tier',
+      description: 'Adds these features to PRO',
+      bgColor: 'bg-purple-50',
+      textColor: 'text-purple-700',
+      borderColor: 'border-purple-300'
+    },
+    unassigned: {
+      label: 'Unassigned',
+      description: 'Not yet assigned to a tier',
+      bgColor: 'bg-amber-50',
+      textColor: 'text-amber-700',
+      borderColor: 'border-amber-300'
+    }
+  };
+
   // Stats
   const assignedCount = Object.keys(assignments).length;
   const totalCount = lithosurferFeatures.filter(f => showFutureFeatures || f.available !== 'future').length;
@@ -193,7 +246,8 @@ export default function LithoSurferPage() {
     );
   }
 
-  const sortedFeatures = getFeaturesSortedByTier();
+  const featuresByTier = getFeaturesByTierGroup();
+  const tierOrder: TierGroup[] = ['free', 'pro', 'enterprise', 'unassigned'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-[#F5E6D3]/20 to-[#C9A961]/10">
@@ -299,7 +353,7 @@ export default function LithoSurferPage() {
                 </tr>
               </thead>
               <tbody>
-                {sortedFeatures.map((feature) => {
+                {getFeaturesSortedByTier().map((feature) => {
                   const baseTier = getBaseTier(feature.id);
                   const expandedType = expandedComments[feature.id];
 

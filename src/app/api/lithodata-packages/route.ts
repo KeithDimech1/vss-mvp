@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { verifyToken } from '@/lib/auth';
+import { verifySession } from '@/lib/auth';
 
 // Default packages to seed if none exist
 // Thermochronology = FT (67,870) + HE (15,208) + VITRINITE (22,192) + Ar-Ar (874) + TH (6,581) = 112,725
@@ -43,16 +43,11 @@ const defaultPackages = [
 ];
 
 // GET - Fetch all packages
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const token = request.cookies.get('token')?.value;
-    if (!token) {
+    const session = await verifySession();
+    if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const payload = await verifyToken(token);
-    if (!payload) {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
     }
 
     // Check if packages exist, seed if not
@@ -84,19 +79,14 @@ export async function GET(request: NextRequest) {
 // POST - Update package pricing
 export async function POST(request: NextRequest) {
   try {
-    const token = request.cookies.get('token')?.value;
-    if (!token) {
+    const session = await verifySession();
+    if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const payload = await verifyToken(token);
-    if (!payload) {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
     }
 
     // Check if manager
     const user = await prisma.user.findUnique({
-      where: { id: payload.userId },
+      where: { id: session.userId },
       select: { isManager: true },
     });
 
@@ -119,7 +109,7 @@ export async function POST(request: NextRequest) {
         priceNotes: priceNotes !== undefined ? priceNotes : undefined,
         isAvailable: isAvailable !== undefined ? isAvailable : undefined,
         isFree: isFree !== undefined ? isFree : undefined,
-        lastEditedBy: payload.userId,
+        lastEditedBy: session.userId,
         lastEditedAt: new Date(),
       },
     });
@@ -134,19 +124,14 @@ export async function POST(request: NextRequest) {
 // PUT - Bulk update packages
 export async function PUT(request: NextRequest) {
   try {
-    const token = request.cookies.get('token')?.value;
-    if (!token) {
+    const session = await verifySession();
+    if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const payload = await verifyToken(token);
-    if (!payload) {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
     }
 
     // Check if manager
     const user = await prisma.user.findUnique({
-      where: { id: payload.userId },
+      where: { id: session.userId },
       select: { isManager: true },
     });
 
@@ -179,7 +164,7 @@ export async function PUT(request: NextRequest) {
             priceNotes: pkg.priceNotes,
             isAvailable: pkg.isAvailable,
             isFree: pkg.isFree,
-            lastEditedBy: payload.userId,
+            lastEditedBy: session.userId,
             lastEditedAt: new Date(),
           },
         })
