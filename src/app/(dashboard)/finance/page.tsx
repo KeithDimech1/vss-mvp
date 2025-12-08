@@ -3,15 +3,17 @@
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 
-// Contractor list for WISE payments
+// Contractor list for WISE payments with Xero tracking codes
 const WISE_CONTRACTORS = [
-  { id: 'wayne', name: 'Wayne Noble', currency: 'EUR', role: 'Technical Director' },
-  { id: 'moritz', name: 'Moritz Theile', currency: 'EUR', role: 'Operations Director' },
-  { id: 'tarun', name: 'Tarun/Nirali', currency: 'USD', role: 'Development' },
-  { id: 'juan', name: 'Juan Castillo', currency: 'USD', role: 'Data Extraction' },
-  { id: 'perla', name: 'Perla Rodriguez', currency: 'USD', role: 'Data Extraction' },
-  { id: 'aida', name: 'Aida Cristina', currency: 'USD', role: 'Data Extraction' },
-  { id: 'vinko', name: 'Vinko (Scenaryo GmbH)', currency: 'EUR', role: 'Strategy' },
+  { id: 'juan', name: 'Juan Baca Naavarro', currency: 'MXN', role: 'Data Extraction', trackingCode: '01 - MXN - Juan Baca Naavarro' },
+  { id: 'aida', name: 'Aida Christina Ibarra Sarabia', currency: 'MXN', role: 'Data Extraction', trackingCode: '02 - MXN - Aida Christina Ibarra Sarabia' },
+  { id: 'perla', name: 'Perla Fernanda Luque Rodriguez', currency: 'MXN', role: 'Data Extraction', trackingCode: '03 - MXN - Perla Fernanda Luque Rodriguez' },
+  { id: 'vinko', name: 'Vinko Novak (Scenaryo GmbH)', currency: 'EUR', role: 'Strategy', trackingCode: '04 - GER - Vinko Novak (Scenaryo GmbH)' },
+  { id: 'moritz', name: 'Moritz Theile (MTheile Softwareentwicklung)', currency: 'EUR', role: 'Operations Director', trackingCode: '05 - GER - Moritz Thielle (MTheile Softwareentwicklung)' },
+  { id: 'tarun', name: 'Sengar Tarun Yatendrasiingh', currency: 'INR', role: 'Development', trackingCode: '06 - IND - Sengar Tarun Yatendrasiingh' },
+  { id: 'nirali', name: 'Nirali Dudharejiya', currency: 'INR', role: 'Development', trackingCode: '07 - IND - Nirali Dudharejiya' },
+  { id: 'wayne', name: 'Wayne Noble (Noble Foundry)', currency: 'GBP', role: 'Technical Director', trackingCode: '08 - UK - Wayne Noble - Noble Foundry' },
+  { id: 'keith', name: 'Keith Dimech (Clair Associates)', currency: 'AUD', role: 'COO', trackingCode: '09 - AUS - Keith Dimech - Clair Associates' },
 ];
 
 // Month-end close checklist items
@@ -50,24 +52,25 @@ const TASKS: TaskDef[] = [
   },
   {
     id: 'run-wise',
-    title: 'Run Wise Payments',
+    title: 'Run Wise Payments (FABIAN)',
     category: 'critical',
     dueDay: 4,
-    instructions: 'Process all contractor payments through Wise. Check that invoices have been received and amounts are correct. Note the AUD conversion amount for each payment.',
+    instructions: 'FABIAN: Review all unpaid bills in Xero for contractors. Process payments through Wise for each contractor. Forward Wise "Transfer sent" confirmation emails to Kristy for processing in Dext.',
     links: [
+      { label: 'Xero Bills (Unpaid)', url: 'https://go.xero.com/AccountsPayable/Search.aspx', color: 'purple' },
       { label: 'Wise Dashboard', url: 'https://wise.com/balances/', color: 'green' },
     ],
     hasWiseSubItems: true,
   },
   {
     id: 'wise-to-dext',
-    title: 'Forward WISE payment receipts to DEXT and match with bills',
+    title: 'Process WISE receipts in Dext and match with bills (KRISTY)',
     category: 'critical',
     dueDay: 4,
-    instructions: 'Forward all Wise "Transfer sent" confirmation emails to Dext (receipts@dext.cc). These emails contain the actual AUD amount and exchange rate used. In Dext, match each receipt with the corresponding unpaid bill that was coded earlier. Update the AUD amount to match the Wise receipt exactly (e.g., 3,314.03 AUD for a 1,865.92 EUR payment). Mark as PAID with payment method "CBA Bank Payment". This pairs the payment with the bill.',
+    instructions: 'KRISTY: Receive Wise "Transfer sent" emails from Fabian. Forward each to Dext (receipts@dext.cc). In Dext, match each receipt with the corresponding unpaid bill. Update the AUD amount to match the Wise receipt exactly (e.g., 3,314.03 AUD for a 1,865.92 EUR payment). Ensure the correct PAYROLL tracking code is selected. Mark as PAID with payment method "CBA Bank Payment".',
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
-      { label: 'Wise Transfers', url: 'https://wise.com/balances/', color: 'green' },
+      { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
     ],
     helpSection: 'cost-inbox',
   },
@@ -176,12 +179,13 @@ const TASKS: TaskDef[] = [
   },
   {
     id: 'code-invoices-dext',
-    title: 'Code all contractor invoices in Dext as unpaid bills',
+    title: 'Code all contractor invoices in Dext as unpaid bills (KRISTY)',
     category: 'monthEnd',
     dueDay: 28,
-    instructions: 'Forward all contractor invoices to Dext (receipts@dext.cc). Code each invoice with: correct supplier, category (413 - Consulting), and mark as INVOICE (not receipt). Do NOT mark as paid yet - leave payment method blank. This creates the bill in Xero ready to be matched when payment is made.',
+    instructions: 'KRISTY: Forward all contractor invoices to Dext (receipts@dext.cc). Code each invoice with: (1) Correct supplier name, (2) Category: 413 - Consulting, (3) Type: INVOICE (not receipt), (4) PAYROLL tracking code for the contractor (e.g., "01 - MXN - Juan Baca Naavarro"). Do NOT mark as paid - leave payment method blank. This publishes the bill to Xero where Fabian can see it for payment.',
     links: [
       { label: 'Dext Cost Inbox', url: 'https://app.dext.com/delta/costs', color: 'green' },
+      { label: 'Xero Tracking Categories', url: 'https://go.xero.com/Setup/Tracking.aspx', color: 'purple' },
       { label: 'Bookkeeping Guide', url: '/bookkeeping-help', color: 'blue' },
     ],
   },
@@ -634,35 +638,45 @@ export default function FinancePage() {
                         {/* WISE Sub-items */}
                         {task.hasWiseSubItems && (
                           <div className="bg-white rounded-lg p-4 border border-gray-200">
-                            <p className="text-sm font-medium text-gray-700 mb-3">
-                              Contractor Payments (record AUD conversion from bank)
+                            <p className="text-sm font-medium text-gray-700 mb-1">
+                              Contractor Payments (record AUD conversion from Wise receipt)
+                            </p>
+                            <p className="text-xs text-gray-500 mb-3">
+                              Ensure correct PAYROLL tracking code is used when coding in Dext
                             </p>
                             <div className="space-y-2">
                               {WISE_CONTRACTORS.map((contractor) => {
                                 const subItem = state.wiseSubItems?.[contractor.id] || { completed: false, audAmount: '' };
                                 return (
-                                  <div key={contractor.id} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
-                                    <input
-                                      type="checkbox"
-                                      checked={subItem.completed}
-                                      onChange={(e) => updateWiseSubItem(task.id, contractor.id, { completed: e.target.checked })}
-                                      className="w-4 h-4 text-blue-600 border-gray-300 rounded cursor-pointer"
-                                    />
-                                    <div className="flex-1 min-w-0">
-                                      <span className={`font-medium ${subItem.completed ? 'line-through text-gray-400' : 'text-gray-900'}`}>
-                                        {contractor.name}
-                                      </span>
-                                      <span className="text-xs text-gray-500 ml-2">({contractor.currency}) - {contractor.role}</span>
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-gray-500 text-sm">AUD:</span>
+                                  <div key={contractor.id} className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                    <div className="flex items-center gap-3">
                                       <input
-                                        type="text"
-                                        value={subItem.audAmount}
-                                        onChange={(e) => updateWiseSubItem(task.id, contractor.id, { audAmount: e.target.value })}
-                                        placeholder="0.00"
-                                        className="w-28 px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+                                        type="checkbox"
+                                        checked={subItem.completed}
+                                        onChange={(e) => updateWiseSubItem(task.id, contractor.id, { completed: e.target.checked })}
+                                        className="w-4 h-4 text-blue-600 border-gray-300 rounded cursor-pointer"
                                       />
+                                      <div className="flex-1 min-w-0">
+                                        <span className={`font-medium ${subItem.completed ? 'line-through text-gray-400' : 'text-gray-900'}`}>
+                                          {contractor.name}
+                                        </span>
+                                        <span className="text-xs text-gray-500 ml-2">({contractor.currency})</span>
+                                      </div>
+                                      <div className="flex items-center gap-1">
+                                        <span className="text-gray-500 text-sm">AUD:</span>
+                                        <input
+                                          type="text"
+                                          value={subItem.audAmount}
+                                          onChange={(e) => updateWiseSubItem(task.id, contractor.id, { audAmount: e.target.value })}
+                                          placeholder="0.00"
+                                          className="w-28 px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="mt-1 ml-7">
+                                      <span className="text-xs text-purple-600 bg-purple-50 px-2 py-0.5 rounded font-mono">
+                                        {contractor.trackingCode}
+                                      </span>
                                     </div>
                                   </div>
                                 );

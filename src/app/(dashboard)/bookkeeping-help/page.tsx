@@ -55,18 +55,26 @@ const PAYMENT_METHODS = [
   { name: 'American Express (Keith)', reference: '1042', account: 'American Express Platinum Business', usage: 'Keith\'s business card - last 4 digits 1042' },
 ];
 
-// Travel code type
-interface TravelCode {
-  name: string;
-  date: string;
-  type: string;
-  active: boolean;
-}
-
-interface TravelCodesData {
-  lastUpdated: string;
-  codes: TravelCode[];
-}
+// ============================================
+// TRAVEL CODES - UPDATE THIS LIST AS NEEDED
+// ============================================
+// Format: YYMM - LOCATION - REASON
+// Examples: 2503 - Perth - AEGC Conference
+//           2506 - Sydney - Client Meeting
+// To add a new travel code:
+// 1. Add it in Xero first (Setup > Tracking Categories > Travel)
+// 2. Add a new entry below matching the format
+// 3. Deploy the change
+const TRAVEL_CODES = [
+  '2509 - Perth - AEGC Conference',           // 8-11 September 2025
+  '2505 - Canberra - Tang3o Conference',      // May 2025 (date TBC)
+  '2509 - Gold Coast - EMC Amira Global',     // 24-25 September 2025
+  '2509 - Kanazawa Japan - Thermo Conference', // 14-20 September 2025
+  '2510 - Zhuhai China - IAMG Conference',    // 8-13 October 2025
+  '2509 - Brisbane - SEG Conference',         // 26-29 September 2025
+  '2601 - Turku Finland - Nordic Geological Winter Meeting', // 13-15 January 2026
+];
+// ============================================
 
 export default function BookkeepingHelpPage() {
   const [mainTab, setMainTab] = useState<MainTab>('guide');
@@ -81,7 +89,6 @@ export default function BookkeepingHelpPage() {
   const [categories, setCategories] = useState<{ dext: string[]; xero: string[] }>({ dext: [], xero: [] });
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>('cost-inbox');
-  const [travelCodes, setTravelCodes] = useState<TravelCodesData | null>(null);
 
   // Initialize search on mount
   useEffect(() => {
@@ -103,21 +110,6 @@ export default function BookkeepingHelpPage() {
     init();
   }, []);
 
-  // Load travel codes from JSON file
-  useEffect(() => {
-    async function loadTravelCodes() {
-      try {
-        const response = await fetch('/data/travel-codes.json');
-        if (response.ok) {
-          const data = await response.json();
-          setTravelCodes(data);
-        }
-      } catch (error) {
-        console.error('Failed to load travel codes:', error);
-      }
-    }
-    loadTravelCodes();
-  }, []);
 
   // Perform search when query or filters change
   const performSearch = useCallback(() => {
@@ -448,12 +440,12 @@ export default function BookkeepingHelpPage() {
                   </p>
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <p className="text-blue-800 font-medium">Travel Code Format:</p>
-                    <p className="font-mono text-blue-900 mt-2 text-lg">YYYY-MM-[EVENT NAME]</p>
+                    <p className="font-mono text-blue-900 mt-2 text-lg">YYMM - LOCATION - REASON</p>
                     <p className="text-blue-700 mt-2">Examples:</p>
                     <ul className="list-disc list-inside text-blue-700 mt-1 space-y-1">
-                      <li><span className="font-mono">2025-03-AEGC2025PERTH</span> - AEGC Conference Perth March 2025</li>
-                      <li><span className="font-mono">2025-06-EMC2025GOLDCOAST</span> - EMC Conference Gold Coast June 2025</li>
-                      <li><span className="font-mono">2025-09-SEG2025BRISBANE</span> - SEG Conference Brisbane Sept 2025</li>
+                      <li><span className="font-mono">2503 - Perth - AEGC Conference</span></li>
+                      <li><span className="font-mono">2506 - Sydney - Client Meeting</span></li>
+                      <li><span className="font-mono">2509 - Brisbane - SEG Conference</span></li>
                     </ul>
                   </div>
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
@@ -476,41 +468,14 @@ export default function BookkeepingHelpPage() {
                     </div>
                   </div>
                   <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <p className="text-gray-700">
-                        <strong>Current Active Travel Categories:</strong>
-                      </p>
-                      {travelCodes && (
-                        <span className="text-xs text-gray-400">
-                          Updated: {travelCodes.lastUpdated}
-                        </span>
-                      )}
-                    </div>
+                    <p className="text-gray-700 mb-2">
+                      <strong>Current Active Travel Categories:</strong>
+                    </p>
                     <ul className="mt-2 space-y-1 text-gray-600">
-                      {travelCodes ? (
-                        travelCodes.codes
-                          .filter(code => code.active)
-                          .sort((a, b) => a.date.localeCompare(b.date))
-                          .map((code, index) => (
-                            <li key={index}>• {code.name}</li>
-                          ))
-                      ) : (
-                        <>
-                          <li>• AEGC 2025 Perth</li>
-                          <li>• EMC 2025 Amira Global Gold Coast</li>
-                          <li>• IAMG 2025 Zhuhai China</li>
-                          <li>• Nordic Geological Winter Meeting 2026 Turku</li>
-                          <li>• SEG 2025 Brisbane</li>
-                          <li>• Tang3o 2025 Canberra</li>
-                          <li>• Thermo 2025 Kanazawa Japan</li>
-                        </>
-                      )}
+                      {TRAVEL_CODES.map((code, index) => (
+                        <li key={index}>• {code}</li>
+                      ))}
                     </ul>
-                    <div className="mt-3 pt-3 border-t border-gray-200">
-                      <p className="text-xs text-gray-500">
-                        To update this list, edit <code className="bg-gray-200 px-1 rounded">/public/data/travel-codes.json</code>
-                      </p>
-                    </div>
                   </div>
                 </div>
               )}
