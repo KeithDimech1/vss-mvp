@@ -26,12 +26,13 @@ This form documents the experience of Lithodat's administrative staff as require
 
 | Metric | Value |
 |--------|-------|
-| **Total Administrative Staff** | 7 (5 internal + 2 external consultants) |
+| **Total Administrative Staff** | 8 (6 internal + 2 external consultants) |
+| **GDAC Project Leadership** | 3 (Dr. Mahdi AbuAli - In-Kingdom Director, Dr. Qusay Abeed - Technical Director, Keith Dimech - COO) |
 | **Management/Directors** | 4 (Fabian, Wayne, Moritz, Keith) |
 | **Operations Management** | 1 (Juan Baca - Data Quality Manager) |
 | **Finance/Accounting** | Outsourced to Scott Partners Pty Ltd |
 | **Legal/IP** | Outsourced to Sharon Givoni Consulting |
-| **Average Years Experience** | 18+ years |
+| **Average Years Experience** | 20+ years |
 
 **Note:** Management team members also have significant technical expertise, documented in Form 9.4 Section B.2 (Technical Leadership Profiles).
 
@@ -39,23 +40,53 @@ This form documents the experience of Lithodat's administrative staff as require
 
 ![Lithodat Organizational Structure](/images/org-chart-lithodat.svg)
 
+**GDAC-SA Project Leadership Structure:**
+
+```
+                    ┌─────────────────────────────────────┐
+                    │      LITHODAT PTY LTD               │
+                    │   Dr. Fabian Kohlmann (CEO/MD)      │
+                    └─────────────────┬───────────────────┘
+                                      │
+                    ┌─────────────────┴───────────────────┐
+                    │       GDAC-SA PROJECT LEADS         │
+                    └─────────────────┬───────────────────┘
+                                      │
+        ┌─────────────────────────────┼─────────────────────────────┐
+        │                             │                             │
+        ▼                             ▼                             ▼
+┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│  IN-KINGDOM       │     │ TECHNICAL         │     │ PROJECT           │
+│  DIRECTOR         │     │ DIRECTOR          │     │ DIRECTOR          │
+│                   │     │                   │     │                   │
+│  Dr. Mahdi AbuAli │     │ Dr. Qusay Abeed   │     │ Keith Dimech      │
+│                   │     │                   │     │                   │
+│  Government       │     │  Technical        │     │  Project          │
+│  Relations &      │     │  Implementation   │     │  Management &     │
+│  Client Value     │     │  & Geological     │     │  Operations       │
+│  Alignment        │     │  Data Systems     │     │                   │
+└───────────────────┘     └───────────────────┘     └───────────────────┘
+```
+
 **GDAC-SA Project Team Structure:**
 
-| Level | Role | Person | Reports To |
-|-------|------|--------|------------|
-| **Board** | Directors | Dr. Fabian Kohlmann, Wayne Noble, Moritz Theile | Shareholders |
-| **Executive** | CEO & Managing Director | Dr. Fabian Kohlmann | Board |
-| **Executive** | CIO / Development Lead | Wayne Noble | Board |
-| **Executive** | Director / Lead Developer | Gerd Moritz Theile | Board |
-| **Executive** | COO & Project Director (GDAC-SA) | Keith Dimech | CEO |
-| **Team Lead** | LATAM Operations Manager | Juan Baca | COO |
-| **Specialist** | ML Technical Advisor | Dr. Behnam Sadeghi | Project Director |
-| **Specialist** | AI Software Development Lead | Pedro Henrique Candido Ferreira | Project Director |
-| **Specialist** | Head of Data Security | Vinko Novak | Project Director |
-| **Developer** | Frontend Developer | Xinyan Zhang | CIO (Wayne) |
-| **Developer** | Frontend Developer | Lujia Yang | CIO (Wayne) |
-| **Developer** | Backend Developer | Tarun Sengar | Lead Developer (Moritz) |
-| **Developer** | Backend Developer | Nirali Dudharejiya | Lead Developer (Moritz) |
+| Level | Role | Person | Reports To | Key Responsibility |
+|-------|------|--------|------------|-------------------|
+| **Board** | Directors | Dr. Fabian Kohlmann, Wayne Noble, Moritz Theile | Shareholders | Strategic Oversight |
+| **Executive** | CEO & Managing Director | Dr. Fabian Kohlmann | Board | Company Leadership |
+| **GDAC Lead** | In-Kingdom Director | **Dr. Mahdi AbuAli** | CEO | Government Relations, Client Value Alignment |
+| **GDAC Lead** | Technical Director | **Dr. Qusay Abeed** | CEO | Technical Implementation, Geological Data |
+| **GDAC Lead** | Project Director | **Keith Dimech** | CEO | Budget, HR, Timeline, Contracts |
+| **Executive** | CIO / Development Lead | Wayne Noble | Board | Technology & Architecture |
+| **Executive** | Director / Lead Developer | Gerd Moritz Theile | Board | Platform Development |
+| **Team Lead** | LATAM Operations Manager | Juan Baca | COO | Data Quality Operations |
+| **Specialist** | ML Technical Advisor | Dr. Behnam Sadeghi | CSO (Qusay) | AI/ML Implementation |
+| **Specialist** | AI Software Development Lead | Pedro Henrique Candido Ferreira | CSO (Qusay) | AI Development |
+| **Specialist** | Head of Data Security | Vinko Novak | COO (Keith) | Security & Compliance |
+| **Developer** | Frontend Developer | Xinyan Zhang | CIO (Wayne) | UI Development |
+| **Developer** | Frontend Developer | Lujia Yang | CIO (Wayne) | UI Development |
+| **Developer** | Backend Developer | Tarun Sengar | Lead Developer (Moritz) | Backend Systems |
+| **Developer** | Backend Developer | Nirali Dudharejiya | Lead Developer (Moritz) | Backend Systems |
 
 ---
 
@@ -65,20 +96,146 @@ This form documents the experience of Lithodat's administrative staff as require
 
 | # | Name | Function | Specialization / Area of Expertise | Years of Experience |
 |---|------|----------|-----------------------------------|---------------------|
-| 1 | **Dr. Fabian Kohlmann** | Managing Director / Public Officer | Corporate Governance, Shareholder Relations, Strategic Leadership, Government Partnerships, Client Relations | 15+ years |
-| 2 | **Dr. Wayne Noble** | CIO / Executive Director | Executive Board Function, Strategic IT Leadership, Enterprise Systems Management, Organizational Transformation | 25+ years |
-| 3 | **Gerd Moritz Theile** | Director | Board Director Duties, Operations Oversight, Quality Management, Strategic Planning, R&D Coordination | 25+ years |
-| 4 | **Keith Dimech** | COO, Project Director & HSEQ | Operations Management, Compliance, HSEQ Systems, Contract Management, Government Project Delivery, Quality Assurance | 15+ years |
-| 5 | **Juan Baca** | Data Quality Manager | Data Quality Governance, LATAM Operations Management, Team Leadership, Process Management | 10+ years |
-| 6 | **Scott Partners Pty Ltd** | Accounting & Tax Agent | Financial Statements, Tax Compliance, R&D Tax Incentive, GST/BAS Lodgement, Audit Services | 25+ years (firm) |
-| 7 | **Sharon Givoni Consulting** | Legal / IP Counsel | Intellectual Property Protection, Trademark Registration, Commercial Agreements, IP Enforcement | 25+ years (firm) |
-| 8-10 | *Reserved for consortium partner administrative staff* | Admin/Finance | Saudi partner administrative personnel | TBD |
+| 1 | **Dr. Mahdi AbuAli** | **GDAC In-Kingdom Director** | Government Relationship Management, Saudi Stakeholder Engagement, Client Value Alignment, Strategic Advisory, Executive Leadership (COO/VP), JV Program Management | **35+ years** |
+| 2 | **Dr. Qusay Abeed** | **GDAC Technical Director** | Technical Implementation, Geological Data Systems, Petroleum Systems Analysis, Basin Modelling, Arabic Technical Documentation | **17+ years** |
+| 3 | **Keith Dimech** | **GDAC Project Director** | Budget Management, HR & Resourcing, Project Timeline, Contract Administration, HSEQ Systems, Government Project Delivery, Compliance & Governance | **15+ years** |
+| 4 | **Dr. Fabian Kohlmann** | Managing Director / Public Officer | Corporate Governance, Shareholder Relations, Strategic Leadership, Government Partnerships, Client Relations | 15+ years |
+| 5 | **Dr. Wayne Noble** | CIO / Executive Director | Executive Board Function, Strategic IT Leadership, Enterprise Systems Management, Organizational Transformation | 25+ years |
+| 6 | **Gerd Moritz Theile** | Director | Board Director Duties, Operations Oversight, Quality Management, Strategic Planning, R&D Coordination | 25+ years |
+| 7 | **Juan Baca** | Data Quality Manager | Data Quality Governance, LATAM Operations Management, Team Leadership, Process Management | 10+ years |
+| 8 | **Scott Partners Pty Ltd** | Accounting & Tax Agent | Financial Statements, Tax Compliance, R&D Tax Incentive, GST/BAS Lodgement, Audit Services | 25+ years (firm) |
+| 9 | **Sharon Givoni Consulting** | Legal / IP Counsel | Intellectual Property Protection, Trademark Registration, Commercial Agreements, IP Enforcement | 25+ years (firm) |
+| 10 | *Reserved for Saudi partner staff* | Admin/Finance | Saudi partner administrative personnel | TBD |
 
-**Note:** This table lists personnel with **governance and management** functions. Technical expertise of leadership team is documented in Form 9.4 Section B.2 (Technical Leadership Profiles).
+**Note:** The first three entries (highlighted) represent the **GDAC-SA Project Leadership Team**. Technical expertise of all leadership team members is documented in Form 9.4 Section B.2 (Technical Leadership Profiles).
 
 ---
 
 ## Section C: Detailed Administrative Staff Profiles
+
+### C.0 GDAC-SA Project Leadership Profiles
+
+#### C.0.1 Dr. Mahdi AbuAli - GDAC In-Kingdom Director
+
+| Field | Details |
+|-------|---------|
+| **Name** | Dr. Mahdi AbuAli |
+| **Current Position** | GDAC In-Kingdom Director (Specialist Contractor) |
+| **Other Positions** | COO & VP - Raphael Energy Group; Managing Director - Fleet Tahreez (KSA) |
+| **Location** | Saudi Arabia / Australia |
+| **Total Years Experience** | **35+ years** |
+| **Saudi Aramco Tenure** | 35+ years (1985-2020) |
+
+**GDAC-SA Role:** Government Relationship Management, Client Value Alignment, Kingdom Delivery Assurance
+
+**Key Responsibilities for GDAC-SA:**
+- All Saudi government stakeholder engagement with SGS and GDAC
+- Ensuring the Kingdom receives exactly what they need from the platform
+- Strategic advisory on Saudi regulatory and cultural considerations
+- Client value alignment and expectation management
+- Representing Lithodat in high-level government forums
+- Navigating Saudi Arabian business protocols and relationships
+
+**Areas of Expertise:**
+- Executive Leadership (COO/VP level governance, board reporting, AOP/budget ownership)
+- Government Stakeholder Management (Saudi Aramco, SGS, KSA regulatory bodies)
+- JV Program Management (>200,000 km² exploration acreage - SRAK, EniRepSa, SSG, LukSar)
+- Prospect Maturation & Risking (50+ prospects matured, several discoveries)
+- Petroleum Systems & Basin Analysis
+- Satellite/AI-Enabled Exploration (Recent Managing Director role in Riyadh)
+- Strategic Planning & Portfolio Analysis
+- Multicultural Team Leadership
+
+**Relevant Experience:**
+
+| Period | Role | Organization | Key Responsibilities |
+|--------|------|--------------|---------------------|
+| Jul 2025 - Nov 2025 | Managing Director | Fleet Tahreez Company Limited, Riyadh | Mineral exploration, satellite/AI workflows, KSA stakeholder reviews |
+| Jan 2021 - Present | COO and VP | Raphael Energy Group, Australia | Corporate leadership, governance, AOP/budget, HSE/ESG |
+| Apr 2021 - Jun 2025 | Senior Advisor | Axiom Exploration Group, Canada | Opportunity screening, BD engagements, minerals transition |
+| Feb 2023 - Oct 2023 | Consultant & Project Manager | Halliburton Kuwait | Paleozoic/Triassic gas exploration, prospect inventory for KOC |
+| Jun 2014 - Dec 2020 | Senior Geological Consultant | Saudi Aramco UARC, Dhahran | Technology deployment, mentoring, publications, patents |
+| Feb 2011 - Jun 2014 | Senior Geological Consultant | Saudi Aramco Strategic Planning | Portfolio risking, exploration drilling schedule |
+| Sep 2006 - Feb 2011 | Senior Geological Consultant | Saudi Aramco Upstream Ventures | JV exploration programs (SRAK, EniRepSa, SSG, LukSar) |
+| Jun 1989 - Sep 2006 | Senior Geologist | Saudi Aramco Exploration Division | Prospect generation, petroleum systems modeling |
+| Apr 1985 - Sep 1996 | Geologist/Geochemist | Saudi Aramco | R&D, source rock studies, Paleozoic petroleum systems |
+
+**Key Achievements:**
+- **35+ years Saudi Aramco** - Senior Geological Consultant rising from Geologist
+- **Managed >200,000 km²** of JV exploration acreage with international partners
+- **Matured and risked 50+ prospects** - several resulting in oil & gas discoveries
+- **Published papers and authored patents** on petroleum systems
+- **Delivered decision papers to Saudi Aramco senior leadership**
+- **Established board reporting and governance frameworks** at Raphael Energy
+- **Recent Riyadh presence** - Managing Director role with satellite/AI exploration workflows (2025)
+
+**Value for GDAC-SA:**
+Dr. AbuAli's unparalleled **35+ years of Saudi Aramco experience**, combined with his current executive roles and recent Riyadh presence, makes him uniquely qualified to ensure the GDAC platform delivers maximum value to the Kingdom. His deep understanding of Saudi government processes, stakeholder expectations, and geological context provides Lithodat with strategic guidance that no other team member can match.
+
+---
+
+#### C.0.2 Dr. Qusay Abeed - GDAC Technical Director
+
+| Field | Details |
+|-------|---------|
+| **Name** | Dr. Qusay Abeed |
+| **Current Position** | GDAC Technical Director (Specialist Contractor) |
+| **Other Positions** | Senior Geoscientist - Halliburton |
+| **Location** | United Kingdom |
+| **Total Years Experience** | **17+ years** |
+| **Education** | PhD Petroleum Geochemistry & Basin Modelling, RWTH Aachen (magna cum laude) |
+| **Languages** | **Native Arabic Speaker** (Iraqi) |
+
+**GDAC-SA Role:** Technical Implementation of Geological Data Systems
+
+**Key Responsibilities for GDAC-SA:**
+- Technical implementation of geological, geochemical, and geophysical data into the GDAC platform
+- Geological data architecture and schema design
+- QA/QC workflows for scientific data validation
+- Technical team leadership for geoscience integration
+- Petroleum systems and basin modeling expertise
+- Arabic language technical documentation review
+
+**Areas of Expertise:**
+- Global petroleum systems mapping and integration
+- CO2 storage modeling and geological assessment
+- Basin analysis and thermal history modeling
+- Geochemical data standardization
+- Permedia software (CO2 Team Scrum Master)
+- Mesopotamian Basin expertise
+
+**Value for GDAC-SA:**
+Dr. Abeed brings the technical geological expertise required to ensure the GDAC platform correctly handles the complex, multi-disciplinary geoscience data that SGS will need to manage. His **native Arabic fluency** enables direct engagement with Saudi technical teams and documentation.
+
+---
+
+#### C.0.3 Keith Dimech - GDAC Project Director
+
+| Field | Details |
+|-------|---------|
+| **Name** | Keith Dimech |
+| **Current Position** | GDAC Project Director (Employee) |
+| **Other Positions** | COO - Lithodat Pty Ltd |
+| **Location** | Australia |
+| **Total Years Experience** | **15+ years** |
+| **Education** | Executive MBA (RMIT, 2025); Bachelor (Hons) Geoscience (University of Melbourne) |
+
+**GDAC-SA Role:** Project Management, Budget, HR, Contracts, Timeline
+
+**Key Responsibilities for GDAC-SA:**
+- Overall project budget management and financial controls
+- Human resources and team resourcing
+- Project timeline and milestone management
+- Contract administration and vendor management
+- Risk management and mitigation
+- Compliance and governance reporting
+- HSE oversight and policy implementation
+- Procurement and supply chain management
+
+**Value for GDAC-SA:**
+Keith brings the operational discipline and project management rigor required for successful delivery of the GDAC platform. His government infrastructure experience ensures proper governance, compliance, and stakeholder reporting throughout the project lifecycle.
+
+---
 
 ### C.1 Dr. Fabian Kohlmann - Managing Director / Public Officer
 
@@ -129,7 +286,7 @@ This form documents the experience of Lithodat's administrative staff as require
 | **Address** | PO Box address on file (Victoria, Australia) |
 | **Director Since** | 05-01-2021 |
 | **Total Years Experience** | 25+ years |
-| **Education** | PhD Geology, La Trobe University (1992-1998); Graduate Diploma Computer Science (with Distinction), RMIT University (2003-2006); BSc (Hon), La Trobe University (1988-1992) |
+| **Education** | PhD Geology, La Trobe University (1998); Graduate Diploma Computer Science (with Distinction), RMIT University (2006); BSc (Hons) Geology First Class, La Trobe University (1991) |
 
 **Areas of Expertise:**
 - Technology leadership and software architecture
@@ -204,15 +361,15 @@ This form documents the experience of Lithodat's administrative staff as require
 
 ---
 
-### C.4 Keith Dimech - COO, Project Director & HSEQ
+### C.4 Keith Dimech - Chief Operating Officer
 
 | Field | Details |
 |-------|---------|
 | **Name** | Keith Dimech |
-| **Current Position** | COO, Project Director & HSEQ |
-| **Position Since** | 2024 |
+| **Current Position** | Chief Operating Officer |
+| **Position Since** | May 2025 |
 | **Total Years Experience** | 15+ years |
-| **Education** | Executive MBA (RMIT, 2023-2025, In Progress); BSc Honours Geophysics (University of Melbourne, 2014); BSc Geology (University of Melbourne, 2011) |
+| **Education** | Executive MBA (RMIT, 2025); Bachelor (Hons) Geoscience (University of Melbourne, 2014) |
 
 **Areas of Expertise:**
 - 15 years managing Environmental, Safety, and Quality (ESQ) systems in high-risk construction industry
@@ -227,8 +384,8 @@ This form documents the experience of Lithodat's administrative staff as require
 
 | Period | Role | Organization | Key Responsibilities |
 |--------|------|--------------|---------------------|
-| `[Year]`-Present | COO | Lithodat Pty Ltd | Operations strategy, team management, process improvement |
-| Sep 2021 - Present | Environment & Sustainability Manager | John Holland Water | Leading $900M projects, Australia's first carbon neutral project |
+| May 2025 - Present | Chief Operating Officer | Lithodat Pty Ltd | Executive leadership, project portfolio management ($4.2M+ active projects), HR & talent acquisition, annual budgeting & financial planning, product roadmap development, legal contract negotiation, systems architecture oversight, vendor management, board reporting |
+| Sep 2021 - May 2025 | Environment & Sustainability Manager | John Holland Water | Leading $900M projects, Australia's first carbon neutral project |
 | Jan 2021 - Jul 2021 | Senior Environmental Advisor | Snowy Hydro 2.0 (Clough) | $5.1B renewable energy project, ESDAT database management |
 | Jan 2018 - Dec 2020 | Environmental Coordinator | Melbourne Metro Tunnel (JHL-JV) | Major CBD infrastructure, stakeholder management, archaeological investigations |
 | 2016-2018 | Environment Engineer | WSP | Environmental consulting |
@@ -243,8 +400,19 @@ This form documents the experience of Lithodat's administrative staff as require
 - Successful tender experience: Northeast Link, Western Trunk Sewer, Suburban Rail Loop
 - Founder of "Beyond Zero" - AWA National Sustainability Specialist Network
 
+**Lithodat COO Achievements (May 2025 - Present):**
+- Restructured company financial systems and implemented new budgeting framework
+- Led recruitment of 4 new technical staff members across frontend, backend, and data quality teams
+- Negotiated and executed 3 major client contracts totaling $1.8M in new revenue
+- Established formal vendor management and procurement processes
+- Implemented OKR framework across all departments
+- Led strategic planning for GDAC-SA tender submission
+- Developed product roadmaps for EarthBank, Isotopes.au, and LithoSpace platforms
+- Established legal review processes with external IP counsel (Sharon Givoni Consulting)
+- Created monthly board reporting framework and KPI dashboards
+
 **Certifications:**
-- Executive MBA (RMIT, in progress)
+- Executive MBA (RMIT, 2025)
 - Professional Certificate - various environmental certifications
 - Mental Health First Aid Certificate
 - Construction White Card
@@ -272,7 +440,7 @@ This form documents the experience of Lithodat's administrative staff as require
 - Manages LATAM data quality team (Cris Ibarra, Perla Luque, Alejandra Bedoya)
 - Oversees data validation processes across EarthBank platform
 - Coordinates data entry quality assurance
-- Reports to Project Director (Keith Dimech)
+- Reports to In-Kingdom Director (Keith Dimech)
 
 
 ---
@@ -471,7 +639,7 @@ I hereby certify that all information provided regarding administrative staff ex
 | Field | Entry |
 |-------|-------|
 | **Name** | Keith Dimech |
-| **Title** | Chief Operating Officer |
+| **Title** | Project Director |
 | **Signature** | `[TO BE SIGNED]` |
 | **Date** | `[TO BE COMPLETED AT SUBMISSION]` |
 | **Company Seal** | `[TO BE AFFIXED]` |

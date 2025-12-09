@@ -389,7 +389,7 @@ All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on
 
 | Field | Response | Notes |
 |-------|----------|-------|
-| **Total Number of Employees** | 19 | As of current date |
+| **Total Number of Employees** | 20 | As of current date (including GDAC specialist contractors) |
 | **Number of Saudi Employees** | 0 | Australian-based company |
 | **Percentage of Saudi Employees** | 0% | See Note on Saudization below |
 
@@ -397,21 +397,24 @@ All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on
 
 | Category | Count | Percentage |
 |----------|-------|------------|
-| **Management/Directors** | 3 | 16% |
-| **Full-Time Technical Staff** | 10 | 53% |
-| **Contractors/Consultants** | 6 | 31% |
-| **Total** | **19** | **100%** |
+| **Management/Directors** | 3 | 15% |
+| **Full-Time Technical Staff** | 10 | 50% |
+| **Contractors/Consultants** | 7 | 35% |
+| **Total** | **20** | **100%** |
+
+> **Note:** Includes Dr. Mahdi AbuAli (GDAC In-Kingdom Director - Specialist Contractor with 35+ years Saudi Aramco experience)
 
 ### F.3 Staff by Function
 
 | Function | Count | Key Personnel | Key Skills |
 |----------|-------|---------------|------------|
+| **GDAC Project Leadership** | 3 | **Dr. Mahdi AbuAli (In-Kingdom Director)**, Dr. Qusay Abeed (Technical Director), Keith Dimech (COO) | Saudi government relations, geological data implementation, project management |
 | **Executive/Directors** | 4 | Dr. Fabian Kohlmann (MD), Wayne Noble (CIO), Moritz Theile (Director), Keith Dimech (COO) | Company leadership, technical direction, operations |
 | **Software Development** | 2+ | Moritz Theile (Lead Developer), Pedro Henrique Candido Ferreira (AI Software Development Lead) | Full-stack development, cloud architecture, API design, PostgreSQL |
 | **AI/ML Engineering** | 2+ | Dr. Behnam Sadeghi (ML Technical Advisor), Pedro Henrique Candido Ferreira (AI Software Development Lead) | Machine learning, AI strategy, enterprise AI implementation |
 | **Data Science/Engineering** | 2+ | Dr. Behnam Sadeghi, Juan Baca (Data Quality Lead) | Data modeling, ML, schema design, ETL, analytics, data quality |
-| **Geoscience Domain Experts** | 3+ | Dr. Kohlmann (thermochronology), Dr. Sadeghi (mathematical geosciences), Juan Baca (cartography, well logs) | Geochemistry, geochronology, earth sciences |
-| **Project Management** | 1+ | Keith Dimech (COO, Project Director & HSEQ) | Project delivery, client management, government liaison, HSEQ |
+| **Geoscience Domain Experts** | 4+ | **Dr. Mahdi AbuAli (35+ yrs Saudi Aramco)**, Dr. Qusay Abeed (petroleum systems), Dr. Kohlmann (thermochronology), Dr. Sadeghi (mathematical geosciences) | Saudi geology, petroleum geochemistry, geochronology |
+| **Project Management** | 2+ | **Dr. Mahdi AbuAli (government relations)**, Keith Dimech (COO, In-Kingdom Director & HSEQ) | Saudi stakeholder engagement, project delivery, HSEQ |
 | **Data Security** | 1 | Vinko Novak (Head of Data Security) | Data security, compliance, information protection |
 | **Quality Assurance** | 1+ | Juan Baca (Data Quality Lead) | Data validation, quality control |
 
@@ -422,7 +425,7 @@ All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on
 | **PhD** | 2 confirmed | Dr. Fabian Kohlmann (UniMelb Geosciences), Dr. Behnam Sadeghi (UNSW Mining/Data Analytics) |
 | **Executive MBA** | 1 | Keith Dimech (RMIT Executive MBA, 2025) |
 | **Masters Degree** | 1+ | Dr. Sadeghi (MSc Economic Geology) |
-| **Bachelor Degree** | 2+ confirmed | Keith Dimech (BSc Hons Geophysics), Dr. Kohlmann (BSc Geosciences) |
+| **Bachelor Degree** | 2+ confirmed | Keith Dimech (Bachelor (Hons) Geoscience), Dr. Kohlmann (BSc Geosciences) |
 | **Professional Awards** | 2 | Dr. Sadeghi (2023 IAMG Vistelius Award, Fulbright Fellowship), Keith Dimech (2024 AWA Innovation Award) |
 | **Professional Certifications** | 1+ | Vinko Novak (Data Security certifications) |
 
@@ -478,31 +481,187 @@ All Lithodat platforms—EarthBank, Thermochronology, Isotopes.au—are built on
 
 > **Commitment:** Lithodat will register a Saudi commercial entity or operate with a certified local partner, compliant with SAGIA/MISA requirements. This demonstrates a committed long-term presence in the Kingdom supporting Saudi Arabia's digital transformation and knowledge economy goals.
 
-### F.7 Proposed GDAC-SA Project Team
+### F.7 GDAC-SA Project Leadership Structure
+
+#### GDAC Project Leadership Team (Organizational Chart)
+
+```
+                    ┌─────────────────────────────────────┐
+                    │      LITHODAT PTY LTD               │
+                    │   Dr. Fabian Kohlmann (CEO/MD)      │
+                    └─────────────────┬───────────────────┘
+                                      │
+                    ┌─────────────────┴───────────────────┐
+                    │       GDAC-SA PROJECT LEADS         │
+                    └─────────────────┬───────────────────┘
+                                      │
+        ┌─────────────────────────────┼─────────────────────────────┐
+        │                             │                             │
+        ▼                             ▼                             ▼
+┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│  IN-KINGDOM       │     │ TECHNICAL         │     │ PROJECT           │
+│  DIRECTOR         │     │ DIRECTOR          │     │ DIRECTOR          │
+│                   │     │                   │     │                   │
+│  Dr. Mahdi AbuAli │     │ Dr. Qusay Abeed   │     │ Keith Dimech      │
+│                   │     │                   │     │                   │
+│  Government       │     │  Technical        │     │  Project          │
+│  Relations &      │     │  Implementation   │     │  Management &     │
+│  Client Value     │     │  & Geological     │     │  Operations       │
+│  Alignment        │     │  Data Systems     │     │                   │
+└─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
+          │                         │                         │
+          ▼                         ▼                         ▼
+┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│ RESPONSIBILITIES: │     │ RESPONSIBILITIES: │     │ RESPONSIBILITIES: │
+│                   │     │                   │     │                   │
+│ • SGS stakeholder │     │ • Geological data │     │ • Budget mgmt     │
+│   engagement      │     │   architecture    │     │ • HR & resourcing │
+│ • Saudi govt      │     │ • Data model      │     │ • Project timeline│
+│   relations       │     │   design          │     │ • Contracts       │
+│ • Kingdom value   │     │ • QA/QC workflows │     │ • Risk management │
+│   alignment       │     │ • Technical team  │     │ • Compliance      │
+│ • Cultural        │     │   leadership      │     │ • Reporting       │
+│   navigation      │     │ • Integration     │     │ • Governance      │
+│ • Strategic       │     │   architecture    │     │ • HSE oversight   │
+│   advisory        │     │ • Science review  │     │ • Procurement     │
+└───────────────────┘     └───────────────────┘     └───────────────────┘
+          │                         │                         │
+          └─────────────────────────┼─────────────────────────┘
+                                    │
+                    ┌───────────────┴───────────────┐
+                    │     DELIVERY TEAM             │
+                    └───────────────────────────────┘
+```
+
+#### GDAC Project Leadership Profiles
+
+| Role | Name | Location | Employment Type | Key Expertise |
+|------|------|----------|-----------------|---------------|
+| **In-Kingdom Director** | **Dr. Mahdi AbuAli** | Saudi Arabia / Australia | Specialist Contractor | 35+ years Saudi Aramco, COO/VP Raphael Energy, Managing Director Fleet Tahreez (KSA) |
+| **Technical Director** | **Dr. Qusay Abeed** | United Kingdom | Specialist Contractor | 17+ years Halliburton, PhD Petroleum Geochemistry (RWTH Aachen, magna cum laude), Native Arabic Speaker |
+| **Project Director** | **Keith Dimech** | Australia | Employee (COO) | 15+ years government infrastructure, Executive MBA (RMIT), Project delivery & HSEQ |
+
+---
+
+#### Dr. Mahdi AbuAli - In-Kingdom Director
+
+**Role:** Government Relationship Management, Client Value Alignment, Kingdom Delivery Assurance
+
+**Responsibilities:**
+- All Saudi government stakeholder engagement with SGS and GDAC
+- Ensuring the Kingdom receives exactly what they need from the platform
+- Strategic advisory on Saudi regulatory and cultural considerations
+- Client value alignment and expectation management
+- Representing Lithodat in high-level government forums
+- Navigating Saudi Arabian business protocols and relationships
+
+**Qualifications:**
+- **35+ years Saudi Aramco** (1985-2020) - Senior Geological Consultant
+- **COO and VP** - Raphael Energy Group (2021-Present)
+- **Managing Director** - Fleet Tahreez Company Limited, Riyadh (2025)
+- **Senior Advisor** - Axiom Exploration Group (2021-2025)
+- **Consultant & Project Manager** - Halliburton Kuwait (2023)
+
+**Key Achievements:**
+- Managed >200,000 km² of JV exploration acreage (SRAK, EniRepSa, SSG, LukSar)
+- Matured and risked 50+ prospects, several resulting in oil & gas discoveries
+- Established board reporting and governance frameworks
+- Delivered decision papers to Saudi Aramco senior leadership
+- Published papers and authored patents on petroleum systems
+- Recent Riyadh-based MD role with satellite/AI exploration workflows
+
+**Value for GDAC-SA:**
+Dr. AbuAli's unparalleled 35+ years of Saudi Aramco experience, combined with his current executive roles and recent Riyadh presence, makes him uniquely qualified to ensure the GDAC platform delivers maximum value to the Kingdom. His deep understanding of Saudi government processes, stakeholder expectations, and geological context provides Lithodat with strategic guidance that no other team member can match.
+
+---
+
+#### Dr. Qusay Abeed - Technical Director
+
+**Role:** Technical Implementation of Geological Data Systems
+
+**Responsibilities:**
+- Technical implementation of geological, geochemical, and geophysical data into the GDAC platform
+- Geological data architecture and schema design
+- QA/QC workflows for scientific data validation
+- Technical team leadership for geoscience integration
+- Petroleum systems and basin modeling expertise
+- Arabic language technical documentation review
+
+**Qualifications:**
+- **PhD Petroleum Geochemistry & Basin Modelling** - RWTH Aachen University (magna cum laude)
+- **17+ years Halliburton** - Senior Geoscientist, Permedia CO2 Team Scrum Master
+- **Native Arabic Speaker** - Essential for Saudi technical documentation
+
+**Key Expertise:**
+- Global petroleum systems mapping and integration
+- CO2 storage modeling and geological assessment
+- Basin analysis and thermal history modeling
+- Geochemical data standardization
+
+**Value for GDAC-SA:**
+Dr. Abeed brings the technical geological expertise required to ensure the GDAC platform correctly handles the complex, multi-disciplinary geoscience data that SGS will need to manage. His native Arabic fluency enables direct engagement with Saudi technical teams and documentation.
+
+---
+
+#### Keith Dimech - Project Director
+
+**Role:** Project Management, Budget, HR, Contracts, Timeline
+
+**Responsibilities:**
+- Overall project budget management and financial controls
+- Human resources and team resourcing
+- Project timeline and milestone management
+- Contract administration and vendor management
+- Risk management and mitigation
+- Compliance and governance reporting
+- HSE oversight and policy implementation
+- Procurement and supply chain management
+
+**Qualifications:**
+- **Executive MBA** - RMIT University (2025)
+- **BSc (Hons) Geophysics** - University of Melbourne
+- **15+ years** - Government infrastructure and environmental systems
+- **AWA Innovation Award** (2024)
+
+**Key Expertise:**
+- Major government infrastructure project delivery ($5B+ projects)
+- Environmental data systems and contaminated land assessment
+- HSEQ management systems in high-risk environments
+- Carbon accounting and ESG compliance
+
+**Value for GDAC-SA:**
+Keith brings the operational discipline and project management rigor required for successful delivery of the GDAC platform. His government infrastructure experience ensures proper governance, compliance, and stakeholder reporting throughout the project lifecycle.
+
+---
+
+### F.7.1 Extended Project Team
 
 | Role | Proposed Staff | Location | Employment Type | Experience |
 |------|---------------|----------|-----------------|------------|
-| **CEO & Managing Director** | Dr. Fabian Kohlmann | Australia | Employee (CEO/MD, 55% shareholder) | 15+ years, PhD Geosciences |
-| **Project Director (GDAC-SA)** | Keith Dimech | Australia | Employee (COO) | 15+ years, ESQ systems in high-risk construction |
-| **Development Lead** | Wayne Noble | Australia | Employee (CIO, 11% shareholder) | 25+ years, MYOB enterprise scale |
-| **Machine Learning Technical Advisor** | Dr. Behnam Sadeghi | Australia | Contractor (CSIRO Research Fellow) | 15+ years, Vistelius Award winner |
-| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Portugal | Contractor | Technology & AI/ML Expert |
-| **Lead Developer** | Gerd Moritz Theile | Germany | Employee (Director, 21% shareholder) | 25+ years PostgreSQL, Lead Architect of LithoSurfer |
+| **CEO & Managing Director** | Dr. Fabian Kohlmann | Australia | Employee (CEO/MD, 50.1% shareholder) | 15+ years, PhD Geosciences |
+| **In-Kingdom Director** | Dr. Mahdi AbuAli | Saudi Arabia / Australia | Specialist Contractor | 35+ years Saudi Aramco, COO/VP, Managing Director KSA |
+| **Technical Director** | Dr. Qusay Abeed | United Kingdom | Specialist Contractor | 17+ years Halliburton, PhD RWTH Aachen, Native Arabic Speaker |
+| **Project Director** | Keith Dimech | Australia | Employee (COO) | 15+ years govt infrastructure, Executive MBA |
+| **Development Lead** | Wayne Noble | Australia | Employee (CIO, 14.9% shareholder) | 25+ years, MYOB enterprise scale |
+| **Lead Developer** | Gerd Moritz Theile | Germany | Employee (Director, 24% shareholder) | 25+ years PostgreSQL, Lead Architect of LithoSurfer |
+| **Machine Learning Technical Advisor** | Dr. Behnam Sadeghi | Australia | Specialist Contractor (CSIRO Research Fellow) | 15+ years, Vistelius Award winner |
+| **AI Software Development Lead** | Pedro Henrique Candido Ferreira | Portugal | Specialist Contractor | Technology & AI/ML Expert |
 | **Head of Data Security** | Vinko Novak | Australia | Employee/Contractor | Data security and compliance |
 | **Data Quality Lead** | Juan Baca | Mexico | Employee (Lithodat México) | Database consulting, well log analysis, cartography |
-| **Primary Geological Consultant** | Dr. Qusay Abeed | United Kingdom | Contractor (Halliburton Senior Geoscientist) | 17+ years, PhD Petroleum Geochemistry & Basin Modelling (RWTH Aachen, magna cum laude), Permedia CO2 Team Scrum Master, Native Arabic Speaker |
-| **Saudi Liaison** | `[Via Consortium Partner]` | Saudi Arabia | Partner staff | `[NEEDS INFO: Saudi partner]` |
-| **On-Site Support** | `[Via Consortium Partner]` | Saudi Arabia | Partner staff | `[NEEDS INFO: Saudi partner]` |
 
-**Leadership Team Commitment:**
+---
 
-| Leader | GDAC-SA Allocation | Key Contribution |
-|--------|-------------------|------------------|
-| Dr. Fabian Kohlmann (CEO) | 50% | Geoscience architecture, vocabulary design, client relationship |
-| Keith Dimech (Project Director) | 50% | Delivery management, compliance, government liaison |
-| Wayne Noble (Development Lead) | 50% | System architecture, scalability, technical team leadership |
+### F.7.2 Leadership Team Commitment
 
-**Combined Leadership Experience:** 55+ years across geoscience, enterprise software, and government delivery.
+| Leader | Role | GDAC-SA Allocation | Key Contribution |
+|--------|------|-------------------|------------------|
+| **Dr. Mahdi AbuAli** | In-Kingdom Director | 80% | Government relations, client value alignment, Kingdom delivery assurance |
+| **Dr. Qusay Abeed** | Technical Director | 70% | Technical implementation, geological data systems, Arabic documentation |
+| **Keith Dimech** | Project Director | 60% | Budget, HR, timeline, contracts, compliance, governance |
+| Dr. Fabian Kohlmann | CEO/MD | 30% | Strategic oversight, geoscience architecture, vocabulary design |
+| Wayne Noble | Development Lead | 50% | System architecture, scalability, technical team leadership |
+
+**Combined GDAC Leadership Experience:** 70+ years across Saudi government, petroleum geoscience, enterprise software, and government delivery.
 
 ### F.8 Recruitment and Capacity Expansion Plan
 
@@ -562,7 +721,7 @@ I hereby certify that all information provided in this Technical and Administrat
 | Field | Entry |
 |-------|-------|
 | **Name** | Keith Dimech |
-| **Title** | Chief Operating Officer |
+| **Title** | Project Director |
 | **Signature** | `[TO BE SIGNED]` |
 | **Date** | `[TO BE COMPLETED AT SUBMISSION]` |
 | **Company Seal** | `[TO BE AFFIXED]` |

@@ -1,0 +1,7 @@
+# Ignore everything in build-data by default
+*
+
+# But track ideas/ directory
+!ideas/
+!ideas/**
+!.gitignore
