@@ -48,45 +48,161 @@ This form documents the experience of Lithodat's professional/technical staff as
 **GDAC-SA Project Leadership Structure:**
 
 ```
-                    ┌─────────────────────────────────────┐
-                    │      LITHODAT PTY LTD               │
-                    │   Dr. Fabian Kohlmann (CEO/MD)      │
-                    └─────────────────┬───────────────────┘
-                                      │
-                    ┌─────────────────┴───────────────────┐
-                    │       GDAC-SA PROJECT LEADS         │
-                    └─────────────────┬───────────────────┘
-                                      │
-        ┌─────────────────────────────┼─────────────────────────────┐
-        │                             │                             │
-        ▼                             ▼                             ▼
-┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
-│  IN-KINGDOM       │     │ TECHNICAL         │     │ PROJECT           │
-│  DIRECTOR         │     │ DIRECTOR          │     │ DIRECTOR          │
-│                   │     │                   │     │                   │
-│  Dr. Mahdi AbuAli │     │ Dr. Qusay Abeed   │     │ Keith Dimech      │
-│                   │     │                   │     │                   │
-│  Government       │     │  Technical        │     │  Project          │
-│  Relations &      │     │  Implementation   │     │  Management &     │
-│  Client Value     │     │  & Geological     │     │  Operations       │
-│  Alignment        │     │  Data Systems     │     │                   │
-└─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
-          │                         │                         │
-          ▼                         ▼                         ▼
-┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
-│ RESPONSIBILITIES: │     │ RESPONSIBILITIES: │     │ RESPONSIBILITIES: │
-│                   │     │                   │     │                   │
-│ • SGS stakeholder │     │ • Geological data │     │ • Budget mgmt     │
-│   engagement      │     │   architecture    │     │ • HR & resourcing │
-│ • Saudi govt      │     │ • Data model      │     │ • Project timeline│
-│   relations       │     │   design          │     │ • Contracts       │
-│ • Kingdom value   │     │ • QA/QC workflows │     │ • Risk management │
-│   alignment       │     │ • Technical team  │     │ • Compliance      │
-│ • Cultural        │     │   leadership      │     │ • Reporting       │
-│   navigation      │     │ • Integration     │     │ • Governance      │
-│ • Strategic       │     │   architecture    │     │ • HSE oversight   │
-│   advisory        │     │ • Science review  │     │ • Procurement     │
-└───────────────────┘     └───────────────────┘     └───────────────────┘
+                         ┌─────────────────────────────────────┐
+                         │         LITHODAT PTY LTD            │
+                         │    Dr. Fabian Kohlmann (CEO/MD)     │
+                         └─────────────────┬───────────────────┘
+                                           │
+                         ┌─────────────────┴───────────────────┐
+                         │        GDAC-SA PROJECT LEADS        │
+                         └─────────────────┬───────────────────┘
+                                           │
+        ┌──────────────────────────────────┼──────────────────────────────────┐
+        │                                  │                                  │
+        ▼                                  ▼                                  ▼
+┌─────────────────────┐        ┌─────────────────────┐        ┌─────────────────────┐
+│    IN-KINGDOM       │        │     TECHNICAL       │        │      PROJECT        │
+│     DIRECTOR        │        │      DIRECTOR       │        │      DIRECTOR       │
+│                     │        │                     │        │                     │
+│  Dr. Mahdi AbuAli   │        │  Dr. Qusay Abeed    │        │   Keith Dimech      │
+│                     │        │                     │        │                     │
+│   Government        │        │    Technical        │        │     Project         │
+│   Relations &       │        │    Implementation   │        │     Management &    │
+│   Client Value      │        │    & Geological     │        │     Operations      │
+│   Alignment         │        │    Data Systems     │        │                     │
+└──────────┬──────────┘        └──────────┬──────────┘        └──────────┬──────────┘
+           │                              │                              │
+           ▼                              ▼                              ▼
+┌─────────────────────┐        ┌─────────────────────┐        ┌─────────────────────┐
+│  RESPONSIBILITIES:  │        │  RESPONSIBILITIES:  │        │  RESPONSIBILITIES:  │
+│                     │        │                     │        │                     │
+│ • SGS stakeholder   │        │ • Geological data   │        │ • Budget mgmt       │
+│   engagement        │        │   architecture      │        │ • HR & resourcing   │
+│ • Saudi govt        │        │ • Data model        │        │ • Project timeline  │
+│   relations         │        │   design            │        │ • Contracts         │
+│ • Kingdom value     │        │ • QA/QC workflows   │        │ • Risk management   │
+│   alignment         │        │ • Technical team    │        │ • Compliance        │
+│ • Cultural          │        │   leadership        │        │ • Reporting         │
+│   navigation        │        │ • Integration       │        │ • Governance        │
+│ • Strategic         │        │   architecture      │        │ • HSE oversight     │
+│   advisory          │        │ • Science review    │        │ • Procurement       │
+└─────────────────────┘        └─────────────────────┘        └─────────────────────┘
+```
+
+**GDAC-SA Technical Delivery Structure:**
+
+```
+                         ┌─────────────────────────────────────┐
+                         │        GDAC-SA PROJECT LEADS        │
+                         │  (AbuAli / Abeed / Dimech)          │
+                         └─────────────────┬───────────────────┘
+                                           │
+           ┌───────────────────────────────┼───────────────────────────────┐
+           │                               │                               │
+           ▼                               ▼                               ▼
+┌─────────────────────┐        ┌─────────────────────┐        ┌─────────────────────┐
+│  TECHNICAL LEAD     │        │  SOFTWARE LEAD      │        │  OPERATIONS LEAD    │
+│                     │        │                     │        │                     │
+│  Wayne Noble        │        │  Moritz Theile      │        │  Juan Baca          │
+│  (CIO)              │        │  (Lead Developer)   │        │  (Data Quality Mgr) │
+│                     │        │                     │        │                     │
+│  System Architecture│        │  PostgreSQL/Backend │        │  Data Quality/QA    │
+│  Cloud & DevOps     │        │  LithoSurfer        │        │  LATAM Operations   │
+└──────────┬──────────┘        └──────────┬──────────┘        └──────────┬──────────┘
+           │                              │                              │
+     ┌─────┴─────┐                  ┌─────┴─────┐                  ┌─────┴─────┐
+     │           │                  │           │                  │           │
+     ▼           ▼                  ▼           ▼                  ▼           ▼
+┌─────────┐ ┌─────────┐      ┌─────────┐ ┌─────────┐      ┌─────────┐ ┌─────────┐
+│ Xinyan  │ │ Lujia   │      │ Tarun   │ │ Nirali  │      │ Cris    │ │ Perla   │
+│ Zhang   │ │ Yang    │      │ Sengar  │ │Dudharej.│      │ Ibarra  │ │ Luque   │
+│         │ │         │      │         │ │         │      │         │ │         │
+│Frontend │ │Frontend │      │Backend  │ │Backend  │      │ Data QC │ │ Data QC │
+│React/TS │ │React/TS │      │Java/AWS │ │Java/DB  │      │Specialist│ │Specialist│
+└─────────┘ └─────────┘      └─────────┘ └─────────┘      └─────────┘ └─────────┘
+```
+
+**GDAC-SA Specialist Advisors:**
+
+```
+                         ┌─────────────────────────────────────┐
+                         │         LITHODAT PTY LTD            │
+                         │    Dr. Fabian Kohlmann (CEO/MD)     │
+                         └─────────────────┬───────────────────┘
+                                           │
+        ┌──────────────────────────────────┼──────────────────────────────────┐
+        │                                  │                                  │
+        ▼                                  ▼                                  ▼
+┌─────────────────────┐        ┌─────────────────────┐        ┌─────────────────────┐
+│   AI/ML TECHNICAL   │        │    DATA SECURITY    │        │ GEOSCIENCE ADVISORY │
+│      ADVISOR        │        │       HEAD          │        │                     │
+│                     │        │                     │        │                     │
+│ Dr. Behnam Sadeghi  │        │   Vinko Novak       │        │  Dr. Fun Meeuws     │
+│ (CSIRO Fellow)      │        │                     │        │  Dr. Alejandra      │
+│                     │        │                     │        │     Bedoya          │
+│ • ML Strategy       │        │ • Security Arch     │        │  Benjamin Dib       │
+│ • Algorithm Design  │        │ • Compliance        │        │                     │
+│ • PyImpetus/PyMiner │        │ • Data Protection   │        │ • Thermochronology  │
+│ • Geospatial AI     │        │ • Access Control    │        │ • Geochronology     │
+└─────────────────────┘        └─────────────────────┘        │ • Planetary Science │
+                                                              └─────────────────────┘
+        │
+        ▼
+┌─────────────────────┐
+│ AI IMPLEMENTATION   │
+│      LEAD           │
+│                     │
+│ Pedro Henrique      │
+│ Candido Ferreira    │
+│                     │
+│ • Enterprise AI     │
+│ • ML Implementation │
+│ • Cloud AI Services │
+└─────────────────────┘
+```
+
+**Complete GDAC-SA Team Overview:**
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+│                              LITHODAT GDAC-SA TEAM                                   │
+│                        Dr. Fabian Kohlmann (CEO/Managing Director)                   │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+                                           │
+        ┌──────────────────────────────────┼──────────────────────────────────┐
+        │                                  │                                  │
+┌───────┴───────┐                  ┌───────┴───────┐                  ┌───────┴───────┐
+│   KINGDOM &   │                  │   TECHNICAL   │                  │   PROJECT     │
+│   GOVERNMENT  │                  │   LEADERSHIP  │                  │   MANAGEMENT  │
+├───────────────┤                  ├───────────────┤                  ├───────────────┤
+│ Dr. Mahdi     │                  │ Dr. Qusay     │                  │ Keith Dimech  │
+│ AbuAli        │                  │ Abeed         │                  │               │
+│ (In-Kingdom   │                  │ (Technical    │                  │ (Project      │
+│  Director)    │                  │  Director)    │                  │  Director)    │
+│               │                  │               │                  │               │
+│ Wayne Noble   │                  │ Moritz Theile │                  │ Juan Baca     │
+│ (CIO)         │                  │ (Lead Dev)    │                  │ (Data Quality)│
+└───────────────┘                  └───────────────┘                  └───────────────┘
+        │                                  │                                  │
+        ▼                                  ▼                                  ▼
+┌───────────────┐                  ┌───────────────┐                  ┌───────────────┐
+│ SPECIALISTS   │                  │ DEVELOPMENT   │                  │ DATA QUALITY  │
+├───────────────┤                  ├───────────────┤                  ├───────────────┤
+│ Dr. Behnam    │                  │ Xinyan Zhang  │                  │ Cris Ibarra   │
+│ Sadeghi (ML)  │                  │ (Frontend)    │                  │ (QC)          │
+│               │                  │               │                  │               │
+│ Pedro H.C.    │                  │ Lujia Yang    │                  │ Perla Luque   │
+│ Ferreira (AI) │                  │ (Frontend)    │                  │ (QC)          │
+│               │                  │               │                  │               │
+│ Vinko Novak   │                  │ Tarun Sengar  │                  │ Dr. Alejandra │
+│ (Security)    │                  │ (Backend)     │                  │ Bedoya (Geo)  │
+│               │                  │               │                  │               │
+│ Dr. Fun       │                  │ Nirali        │                  │ Benjamin Dib  │
+│ Meeuws (Geo)  │                  │ Dudharejiya   │                  │ (LithoSpace)  │
+│               │                  │ (Backend)     │                  │               │
+└───────────────┘                  └───────────────┘                  └───────────────┘
+
+TOTAL TEAM: 17 personnel (3 Directors + 3 Team Leads + 4 Specialists + 4 Developers + 3 Data Quality)
 ```
 
 **GDAC-SA Project Technical Team:**
