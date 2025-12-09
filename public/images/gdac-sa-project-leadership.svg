@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #1e293b; }
+      .box-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: white; }
+      .box-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: white; opacity: 0.9; }
+      .box-detail { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: white; opacity: 0.8; }
+      .resp-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #1e293b; }
+      .resp-item { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #475569; }
+      .footer { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #0891b2; }
+      .footer-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #94a3b8; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">GDAC-SA Project Leadership Structure</text>
+
+  <!-- CEO Box -->
+  <rect x="450" y="70" width="300" height="60" rx="8" fill="#1e3a5f"/>
+  <text x="600" y="95" text-anchor="middle" class="box-title">LITHODAT PTY LTD</text>
+  <text x="600" y="115" text-anchor="middle" class="box-subtitle">Dr. Fabian Kohlmann (CEO/MD)</text>
+
+  <!-- Connector from CEO to Project Leads box -->
+  <line x1="600" y1="130" x2="600" y2="155" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Project Leads Box -->
+  <rect x="450" y="155" width="300" height="40" rx="8" fill="#475569"/>
+  <text x="600" y="180" text-anchor="middle" class="box-title">GDAC-SA PROJECT LEADS</text>
+
+  <!-- Connector from Project Leads to three directors -->
+  <line x1="600" y1="195" x2="600" y2="220" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="220" x2="1000" y2="220" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="220" x2="200" y2="250" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="600" y1="220" x2="600" y2="250" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1000" y1="220" x2="1000" y2="250" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- In-Kingdom Director Box -->
+  <rect x="50" y="250" width="300" height="130" rx="8" fill="#0891b2"/>
+  <text x="200" y="275" text-anchor="middle" class="box-title">IN-KINGDOM DIRECTOR</text>
+  <text x="200" y="300" text-anchor="middle" class="box-subtitle">Dr. Mahdi AbuAli</text>
+  <line x1="70" y1="315" x2="330" y2="315" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="200" y="335" text-anchor="middle" class="box-detail">Government Relations &amp;</text>
+  <text x="200" y="350" text-anchor="middle" class="box-detail">Client Value Alignment</text>
+  <text x="200" y="370" text-anchor="middle" class="box-detail">35+ yrs | Saudi Aramco Expert</text>
+
+  <!-- Technical Director Box -->
+  <rect x="450" y="250" width="300" height="130" rx="8" fill="#0891b2"/>
+  <text x="600" y="275" text-anchor="middle" class="box-title">TECHNICAL DIRECTOR</text>
+  <text x="600" y="300" text-anchor="middle" class="box-subtitle">Dr. Qusay Abeed</text>
+  <line x1="470" y1="315" x2="730" y2="315" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="600" y="335" text-anchor="middle" class="box-detail">Technical Implementation</text>
+  <text x="600" y="350" text-anchor="middle" class="box-detail">&amp; Geological Data Systems</text>
+  <text x="600" y="370" text-anchor="middle" class="box-detail">17+ yrs | Halliburton | Native Arabic</text>
+
+  <!-- Project Director Box -->
+  <rect x="850" y="250" width="300" height="130" rx="8" fill="#0891b2"/>
+  <text x="1000" y="275" text-anchor="middle" class="box-title">PROJECT DIRECTOR</text>
+  <text x="1000" y="300" text-anchor="middle" class="box-subtitle">Keith Dimech</text>
+  <line x1="870" y1="315" x2="1130" y2="315" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="1000" y="335" text-anchor="middle" class="box-detail">Project Management &amp;</text>
+  <text x="1000" y="350" text-anchor="middle" class="box-detail">Operations</text>
+  <text x="1000" y="370" text-anchor="middle" class="box-detail">15+ yrs | eMBA | HSEQ</text>
+
+  <!-- Connectors to responsibilities -->
+  <line x1="200" y1="380" x2="200" y2="410" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="600" y1="380" x2="600" y2="410" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1000" y1="380" x2="1000" y2="410" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- In-Kingdom Responsibilities Box -->
+  <rect x="50" y="410" width="300" height="280" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="200" y="435" text-anchor="middle" class="resp-title">RESPONSIBILITIES:</text>
+  <circle cx="75" cy="460" r="3" fill="#0891b2"/>
+  <text x="85" y="464" class="resp-item">SGS stakeholder engagement</text>
+  <circle cx="75" cy="485" r="3" fill="#0891b2"/>
+  <text x="85" y="489" class="resp-item">Saudi government relations</text>
+  <circle cx="75" cy="510" r="3" fill="#0891b2"/>
+  <text x="85" y="514" class="resp-item">Kingdom value alignment</text>
+  <circle cx="75" cy="535" r="3" fill="#0891b2"/>
+  <text x="85" y="539" class="resp-item">Cultural navigation</text>
+  <circle cx="75" cy="560" r="3" fill="#0891b2"/>
+  <text x="85" y="564" class="resp-item">Strategic advisory</text>
+  <circle cx="75" cy="585" r="3" fill="#0891b2"/>
+  <text x="85" y="589" class="resp-item">High-level government forums</text>
+  <circle cx="75" cy="610" r="3" fill="#0891b2"/>
+  <text x="85" y="614" class="resp-item">Client expectation management</text>
+  <circle cx="75" cy="635" r="3" fill="#0891b2"/>
+  <text x="85" y="639" class="resp-item">Saudi regulatory guidance</text>
+  <circle cx="75" cy="660" r="3" fill="#0891b2"/>
+  <text x="85" y="664" class="resp-item">Business protocol navigation</text>
+
+  <!-- Technical Responsibilities Box -->
+  <rect x="450" y="410" width="300" height="280" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="600" y="435" text-anchor="middle" class="resp-title">RESPONSIBILITIES:</text>
+  <circle cx="475" cy="460" r="3" fill="#0891b2"/>
+  <text x="485" y="464" class="resp-item">Geological data architecture</text>
+  <circle cx="475" cy="485" r="3" fill="#0891b2"/>
+  <text x="485" y="489" class="resp-item">Data model design</text>
+  <circle cx="475" cy="510" r="3" fill="#0891b2"/>
+  <text x="485" y="514" class="resp-item">QA/QC workflows</text>
+  <circle cx="475" cy="535" r="3" fill="#0891b2"/>
+  <text x="485" y="539" class="resp-item">Technical team leadership</text>
+  <circle cx="475" cy="560" r="3" fill="#0891b2"/>
+  <text x="485" y="564" class="resp-item">Integration architecture</text>
+  <circle cx="475" cy="585" r="3" fill="#0891b2"/>
+  <text x="485" y="589" class="resp-item">Science review</text>
+  <circle cx="475" cy="610" r="3" fill="#0891b2"/>
+  <text x="485" y="614" class="resp-item">Petroleum systems expertise</text>
+  <circle cx="475" cy="635" r="3" fill="#0891b2"/>
+  <text x="485" y="639" class="resp-item">CCUS/Vision 2030 alignment</text>
+  <circle cx="475" cy="660" r="3" fill="#0891b2"/>
+  <text x="485" y="664" class="resp-item">Arabic stakeholder liaison</text>
+
+  <!-- Project Responsibilities Box -->
+  <rect x="850" y="410" width="300" height="280" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="1000" y="435" text-anchor="middle" class="resp-title">RESPONSIBILITIES:</text>
+  <circle cx="875" cy="460" r="3" fill="#0891b2"/>
+  <text x="885" y="464" class="resp-item">Budget management</text>
+  <circle cx="875" cy="485" r="3" fill="#0891b2"/>
+  <text x="885" y="489" class="resp-item">HR &amp; resourcing</text>
+  <circle cx="875" cy="510" r="3" fill="#0891b2"/>
+  <text x="885" y="514" class="resp-item">Project timeline</text>
+  <circle cx="875" cy="535" r="3" fill="#0891b2"/>
+  <text x="885" y="539" class="resp-item">Contracts</text>
+  <circle cx="875" cy="560" r="3" fill="#0891b2"/>
+  <text x="885" y="564" class="resp-item">Risk management</text>
+  <circle cx="875" cy="585" r="3" fill="#0891b2"/>
+  <text x="885" y="589" class="resp-item">Compliance</text>
+  <circle cx="875" cy="610" r="3" fill="#0891b2"/>
+  <text x="885" y="614" class="resp-item">Reporting &amp; Governance</text>
+  <circle cx="875" cy="635" r="3" fill="#0891b2"/>
+  <text x="885" y="639" class="resp-item">HSE oversight</text>
+  <circle cx="875" cy="660" r="3" fill="#0891b2"/>
+  <text x="885" y="664" class="resp-item">Procurement</text>
+
+  <!-- Legend -->
+  <rect x="900" y="720" width="250" height="100" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="1025" y="745" text-anchor="middle" class="resp-title">Legend</text>
+  <rect x="920" y="758" width="20" height="14" rx="3" fill="#1e3a5f"/>
+  <text x="950" y="770" class="resp-item">Board / CEO</text>
+  <rect x="920" y="780" width="20" height="14" rx="3" fill="#0891b2"/>
+  <text x="950" y="792" class="resp-item">GDAC-SA Project Directors</text>
+
+  <!-- Footer -->
+  <text x="600" y="840" text-anchor="middle" class="footer">Lithodat Pty Ltd - GDAC-SA Advanced Analytics Platform Team</text>
+  <text x="600" y="860" text-anchor="middle" class="footer-sub">Advanced Analytics Platform for the Geological Data Center in the Kingdom of Saudi Arabia</text>
+</svg>

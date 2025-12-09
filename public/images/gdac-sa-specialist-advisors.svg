@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #1e293b; }
+      .box-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: white; }
+      .box-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: white; opacity: 0.9; }
+      .box-detail { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: white; opacity: 0.8; }
+      .bullet { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9px; fill: white; opacity: 0.85; }
+      .footer { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #0891b2; }
+      .footer-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #94a3b8; }
+      .legend-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #475569; }
+      .legend-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #1e293b; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">GDAC-SA Specialist Advisors</text>
+
+  <!-- CEO Box -->
+  <rect x="450" y="70" width="300" height="60" rx="8" fill="#1e3a5f"/>
+  <text x="600" y="95" text-anchor="middle" class="box-title">LITHODAT PTY LTD</text>
+  <text x="600" y="115" text-anchor="middle" class="box-subtitle">Dr. Fabian Kohlmann (CEO/MD)</text>
+
+  <!-- Connector from CEO to specialists -->
+  <line x1="600" y1="130" x2="600" y2="165" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="165" x2="1000" y2="165" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="165" x2="200" y2="195" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="600" y1="165" x2="600" y2="195" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1000" y1="165" x2="1000" y2="195" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- AI/ML Technical Advisor Box -->
+  <rect x="50" y="195" width="300" height="200" rx="8" fill="#8b5cf6"/>
+  <text x="200" y="220" text-anchor="middle" class="box-title">AI/ML TECHNICAL ADVISOR</text>
+  <text x="200" y="245" text-anchor="middle" class="box-subtitle">Dr. Behnam Sadeghi</text>
+  <text x="200" y="265" text-anchor="middle" class="box-detail">(CSIRO Research Fellow)</text>
+  <line x1="70" y1="280" x2="330" y2="280" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="75" y="300" class="bullet">&#8226; ML Strategy &amp; Algorithm Design</text>
+  <text x="75" y="318" class="bullet">&#8226; PyImpetus / PyMiner creator</text>
+  <text x="75" y="336" class="bullet">&#8226; Geospatial AI</text>
+  <text x="75" y="354" class="bullet">&#8226; 2023 Vistelius Award (IAMG)</text>
+  <text x="75" y="372" class="bullet">&#8226; Fulbright Fellow (Stanford)</text>
+  <text x="75" y="390" class="bullet">&#8226; 15+ yrs | 58+ publications</text>
+
+  <!-- Data Security Box -->
+  <rect x="450" y="195" width="300" height="200" rx="8" fill="#8b5cf6"/>
+  <text x="600" y="220" text-anchor="middle" class="box-title">DATA SECURITY HEAD</text>
+  <text x="600" y="245" text-anchor="middle" class="box-subtitle">Vinko Novak</text>
+  <text x="600" y="265" text-anchor="middle" class="box-detail">(Head of Data Security)</text>
+  <line x1="470" y1="280" x2="730" y2="280" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="475" y="300" class="bullet">&#8226; Security Architecture</text>
+  <text x="475" y="318" class="bullet">&#8226; Compliance &amp; Governance</text>
+  <text x="475" y="336" class="bullet">&#8226; Data Protection</text>
+  <text x="475" y="354" class="bullet">&#8226; Access Control</text>
+  <text x="475" y="372" class="bullet">&#8226; Information Security</text>
+  <text x="475" y="390" class="bullet">&#8226; 10+ yrs experience</text>
+
+  <!-- Geoscience Advisory Box -->
+  <rect x="850" y="195" width="300" height="200" rx="8" fill="#8b5cf6"/>
+  <text x="1000" y="220" text-anchor="middle" class="box-title">GEOSCIENCE ADVISORY</text>
+  <text x="1000" y="245" text-anchor="middle" class="box-subtitle">Domain Specialists</text>
+  <line x1="870" y1="265" x2="1130" y2="265" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="875" y="285" class="bullet">Dr. Fun Meeuws</text>
+  <text x="885" y="300" class="box-detail">Thermochronology, FT Analysis</text>
+  <text x="875" y="320" class="bullet">Dr. Alejandra Bedoya</text>
+  <text x="885" y="335" class="box-detail">Geochronology, PhD Candidate</text>
+  <text x="875" y="355" class="bullet">Benjamin Dib</text>
+  <text x="885" y="370" class="box-detail">Planetary Science, LithoSpace</text>
+  <text x="875" y="390" class="box-detail">Moon/Mars Mission Data</text>
+
+  <!-- Connector from AI/ML to Implementation Lead -->
+  <line x1="200" y1="395" x2="200" y2="440" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- AI Implementation Lead Box -->
+  <rect x="50" y="440" width="300" height="170" rx="8" fill="#8b5cf6"/>
+  <text x="200" y="465" text-anchor="middle" class="box-title">AI IMPLEMENTATION LEAD</text>
+  <text x="200" y="490" text-anchor="middle" class="box-subtitle">Pedro Henrique Candido Ferreira</text>
+  <text x="200" y="510" text-anchor="middle" class="box-detail">(AI Software Development Lead)</text>
+  <line x1="70" y1="525" x2="330" y2="525" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="75" y="545" class="bullet">&#8226; Enterprise AI Implementation</text>
+  <text x="75" y="563" class="bullet">&#8226; ML Pipeline Development</text>
+  <text x="75" y="581" class="bullet">&#8226; Cloud AI Services</text>
+  <text x="75" y="599" class="bullet">&#8226; Technology Strategy</text>
+
+  <!-- Value Proposition Box -->
+  <rect x="450" y="440" width="700" height="120" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="800" y="470" text-anchor="middle" class="legend-title">Specialist Advisory Value for GDAC-SA</text>
+  <text x="475" y="495" class="legend-text">&#8226; World-class AI/ML expertise specifically for geoscience applications (Dr. Sadeghi)</text>
+  <text x="475" y="515" class="legend-text">&#8226; Enterprise-grade security architecture ensuring SGS data protection requirements (Vinko Novak)</text>
+  <text x="475" y="535" class="legend-text">&#8226; Deep geoscience domain knowledge for data validation and quality assurance (Dr. Meeuws, Dr. Bedoya)</text>
+  <text x="475" y="555" class="legend-text">&#8226; Production-ready AI implementation capacity (Pedro H.C. Ferreira)</text>
+
+  <!-- Legend -->
+  <rect x="900" y="580" width="250" height="70" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="1025" y="605" text-anchor="middle" class="legend-title">Legend</text>
+  <rect x="920" y="618" width="20" height="14" rx="3" fill="#1e3a5f"/>
+  <text x="950" y="630" class="legend-text">Board / CEO</text>
+  <rect x="920" y="638" width="20" height="14" rx="3" fill="#8b5cf6"/>
+  <text x="950" y="650" class="legend-text">Specialist Contractors / Advisors</text>
+
+  <!-- Footer -->
+  <text x="600" y="690" text-anchor="middle" class="footer">Lithodat Pty Ltd - GDAC-SA Advanced Analytics Platform Team</text>
+  <text x="600" y="710" text-anchor="middle" class="footer-sub">Advanced Analytics Platform for the Geological Data Center in the Kingdom of Saudi Arabia</text>
+</svg>

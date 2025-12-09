@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #1e293b; }
+      .box-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: white; }
+      .box-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: white; opacity: 0.9; }
+      .box-detail { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: white; opacity: 0.8; }
+      .dev-name { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: bold; fill: white; }
+      .dev-role { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: white; opacity: 0.9; }
+      .dev-tech { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9px; fill: white; opacity: 0.7; }
+      .footer { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #0891b2; }
+      .footer-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #94a3b8; }
+      .legend-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #475569; }
+      .legend-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #1e293b; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">GDAC-SA Technical Delivery Structure</text>
+
+  <!-- Project Leads Box -->
+  <rect x="400" y="70" width="400" height="55" rx="8" fill="#1e3a5f"/>
+  <text x="600" y="95" text-anchor="middle" class="box-title">GDAC-SA PROJECT LEADS</text>
+  <text x="600" y="112" text-anchor="middle" class="box-subtitle">(AbuAli / Abeed / Dimech)</text>
+
+  <!-- Connector from Project Leads to Team Leads -->
+  <line x1="600" y1="125" x2="600" y2="155" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="155" x2="1000" y2="155" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="200" y1="155" x2="200" y2="180" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="600" y1="155" x2="600" y2="180" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1000" y1="155" x2="1000" y2="180" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Technical Lead Box -->
+  <rect x="50" y="180" width="300" height="120" rx="8" fill="#0891b2"/>
+  <text x="200" y="205" text-anchor="middle" class="box-title">TECHNICAL LEAD</text>
+  <text x="200" y="230" text-anchor="middle" class="box-subtitle">Wayne Noble</text>
+  <text x="200" y="250" text-anchor="middle" class="box-detail">(CIO)</text>
+  <line x1="70" y1="265" x2="330" y2="265" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="200" y="285" text-anchor="middle" class="box-detail">System Architecture</text>
+  <text x="200" y="295" text-anchor="middle" class="box-detail">Cloud &amp; DevOps</text>
+
+  <!-- Software Lead Box -->
+  <rect x="450" y="180" width="300" height="120" rx="8" fill="#0891b2"/>
+  <text x="600" y="205" text-anchor="middle" class="box-title">SOFTWARE LEAD</text>
+  <text x="600" y="230" text-anchor="middle" class="box-subtitle">Moritz Theile</text>
+  <text x="600" y="250" text-anchor="middle" class="box-detail">(Lead Developer)</text>
+  <line x1="470" y1="265" x2="730" y2="265" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="600" y="285" text-anchor="middle" class="box-detail">PostgreSQL/Backend</text>
+  <text x="600" y="295" text-anchor="middle" class="box-detail">LithoSurfer</text>
+
+  <!-- Operations Lead Box -->
+  <rect x="850" y="180" width="300" height="120" rx="8" fill="#0891b2"/>
+  <text x="1000" y="205" text-anchor="middle" class="box-title">OPERATIONS LEAD</text>
+  <text x="1000" y="230" text-anchor="middle" class="box-subtitle">Juan Baca</text>
+  <text x="1000" y="250" text-anchor="middle" class="box-detail">(Data Quality Manager)</text>
+  <line x1="870" y1="265" x2="1130" y2="265" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="1000" y="285" text-anchor="middle" class="box-detail">Data Quality/QA</text>
+  <text x="1000" y="295" text-anchor="middle" class="box-detail">LATAM Operations</text>
+
+  <!-- Connectors to team members -->
+  <line x1="200" y1="300" x2="200" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="125" y1="340" x2="275" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="125" y1="340" x2="125" y2="370" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="275" y1="340" x2="275" y2="370" stroke="#94a3b8" stroke-width="2"/>
+
+  <line x1="600" y1="300" x2="600" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="525" y1="340" x2="675" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="525" y1="340" x2="525" y2="370" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="675" y1="340" x2="675" y2="370" stroke="#94a3b8" stroke-width="2"/>
+
+  <line x1="1000" y1="300" x2="1000" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="925" y1="340" x2="1075" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="925" y1="340" x2="925" y2="370" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1075" y1="340" x2="1075" y2="370" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Frontend Team Members -->
+  <rect x="50" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="125" y="395" text-anchor="middle" class="dev-name">Xinyan Zhang</text>
+  <text x="125" y="415" text-anchor="middle" class="dev-role">Frontend Developer</text>
+  <line x1="65" y1="430" x2="185" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="125" y="450" text-anchor="middle" class="dev-tech">React, TypeScript</text>
+  <text x="125" y="462" text-anchor="middle" class="dev-tech">UI/UX Implementation</text>
+
+  <rect x="200" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="275" y="395" text-anchor="middle" class="dev-name">Lujia Yang</text>
+  <text x="275" y="415" text-anchor="middle" class="dev-role">Frontend Developer</text>
+  <line x1="215" y1="430" x2="335" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="275" y="450" text-anchor="middle" class="dev-tech">React, TypeScript</text>
+  <text x="275" y="462" text-anchor="middle" class="dev-tech">UI/UX Implementation</text>
+
+  <!-- Backend Team Members -->
+  <rect x="450" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="525" y="395" text-anchor="middle" class="dev-name">Tarun Sengar</text>
+  <text x="525" y="415" text-anchor="middle" class="dev-role">Backend Developer</text>
+  <line x1="465" y1="430" x2="585" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="525" y="450" text-anchor="middle" class="dev-tech">Java, AWS</text>
+  <text x="525" y="462" text-anchor="middle" class="dev-tech">API Development</text>
+
+  <rect x="600" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="675" y="395" text-anchor="middle" class="dev-name">Nirali Dudharejiya</text>
+  <text x="675" y="415" text-anchor="middle" class="dev-role">Backend Developer</text>
+  <line x1="615" y1="430" x2="735" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="675" y="450" text-anchor="middle" class="dev-tech">Java, Liquibase</text>
+  <text x="675" y="462" text-anchor="middle" class="dev-tech">Database Management</text>
+
+  <!-- Data Quality Team Members -->
+  <rect x="850" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="925" y="395" text-anchor="middle" class="dev-name">Cris Ibarra</text>
+  <text x="925" y="415" text-anchor="middle" class="dev-role">Data Quality Specialist</text>
+  <line x1="865" y1="430" x2="985" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="925" y="450" text-anchor="middle" class="dev-tech">Data Validation</text>
+  <text x="925" y="462" text-anchor="middle" class="dev-tech">Mexico</text>
+
+  <rect x="1000" y="370" width="150" height="100" rx="8" fill="#10b981"/>
+  <text x="1075" y="395" text-anchor="middle" class="dev-name">Perla Luque</text>
+  <text x="1075" y="415" text-anchor="middle" class="dev-role">Data Quality Specialist</text>
+  <line x1="1015" y1="430" x2="1135" y2="430" stroke="white" stroke-width="1" opacity="0.3"/>
+  <text x="1075" y="450" text-anchor="middle" class="dev-tech">Data Validation</text>
+  <text x="1075" y="462" text-anchor="middle" class="dev-tech">Mexico</text>
+
+  <!-- Team Labels -->
+  <rect x="75" y="490" width="250" height="30" rx="6" fill="#e2e8f0"/>
+  <text x="200" y="510" text-anchor="middle" class="legend-title">Frontend Team</text>
+
+  <rect x="475" y="490" width="250" height="30" rx="6" fill="#e2e8f0"/>
+  <text x="600" y="510" text-anchor="middle" class="legend-title">Backend Team</text>
+
+  <rect x="875" y="490" width="250" height="30" rx="6" fill="#e2e8f0"/>
+  <text x="1000" y="510" text-anchor="middle" class="legend-title">Data Quality Team</text>
+
+  <!-- Legend -->
+  <rect x="900" y="550" width="250" height="90" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="1025" y="575" text-anchor="middle" class="legend-title">Legend</text>
+  <rect x="920" y="588" width="20" height="14" rx="3" fill="#1e3a5f"/>
+  <text x="950" y="600" class="legend-text">GDAC-SA Project Directors</text>
+  <rect x="920" y="608" width="20" height="14" rx="3" fill="#0891b2"/>
+  <text x="950" y="620" class="legend-text">Team Leads</text>
+  <rect x="920" y="628" width="20" height="14" rx="3" fill="#10b981"/>
+  <text x="950" y="640" class="legend-text">Developers / Specialists</text>
+
+  <!-- Footer -->
+  <text x="600" y="660" text-anchor="middle" class="footer">Lithodat Pty Ltd - GDAC-SA Advanced Analytics Platform Team</text>
+  <text x="600" y="680" text-anchor="middle" class="footer-sub">Advanced Analytics Platform for the Geological Data Center in the Kingdom of Saudi Arabia</text>
+</svg>
