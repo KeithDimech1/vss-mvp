@@ -159,3 +159,297 @@ Download and index the entire Dext Help Centre and Xero Central documentation to
 **Detail Log:** [debug/IDEA-001-dext-documentation-knowledge-base-for-kristy.md](debug/IDEA-001-dext-documentation-knowledge-base-for-kristy.md)
 
 ---
+
+## IDEA-003 {#idea-003}
+
+**Title:** GDAC Tender Forms 9.1-9.6 Systematic Audit & Consistency Checker
+**Priority:** P1 | **Status:** 🚀 active | **Date:** 2025-12-09
+**Updated:** 2025-12-09 (Session 1 Complete - Deep Audit)
+
+### Description
+
+Comprehensive audit of GDAC-SA Pre-Qualification Response Forms 9.1-9.6, cross-referencing against source documents in build-data for consistency, accuracy, formatting, spelling, and structural alignment.
+
+---
+
+## AUDIT FINDINGS
+
+### CRITICAL DISCREPANCIES (Requires Immediate Fix)
+
+#### 1. OWNERSHIP STRUCTURE (Form 9.1) - MAJOR ERROR
+
+**Tender Document States:**
+| Owner | Percentage |
+|-------|------------|
+| Dr. Fabian Kohlmann | 50.1% |
+| Dr. Wayne Noble | 14.9% |
+| Gerd Moritz Theile | 10.0% |
+| Vinko Novak | 10.0% |
+| Enreach Resources Pty Ltd | 15.0% |
+
+**ASIC Extract (02-Dec-2025) Shows:**
+| Owner | Shares | Percentage |
+|-------|--------|------------|
+| Fabian Kohlmann | 501 | 50.1% |
+| Gerd Moritz Theile | 240 | **24.0%** |
+| Wayne Peter Noble | 149 | 14.9% |
+| Nilesh Ambadas Vyavahare | 80 | **8.0%** |
+| Romain Beucher | 30 | **3.0%** |
+
+**Issues:**
+- ❌ **Vinko Novak is NOT a shareholder** per ASIC - shows 10% in tender
+- ❌ **Enreach Resources Pty Ltd is NOT a shareholder** per ASIC - shows 15% in tender
+- ❌ **Moritz Theile has 24%**, not 10% as stated
+- ❌ **Two shareholders missing:** Nilesh Vyavahare (8%) and Romain Beucher (3%)
+- **ACTION:** Verify current shareholding structure and correct Form 9.1
+
+#### 2. FINANCIAL RATIOS (Form 9.6) - CALCULATION ERROR
+
+**Problem:** Tender uses Total Assets/Liabilities instead of Current Assets/Liabilities
+
+| Ratio | Tender Value | Correct Calculation | Issue |
+|-------|-------------|---------------------|-------|
+| Cash Ratio FY2025 | 2.05 | $274,855 ÷ $60,404 = **4.55** | Using Total Liabilities ($134,211) instead of Current ($60,404) |
+| Current Ratio FY2025 | 3.21 | $364,840 ÷ $60,404 = **6.04** | Same error |
+| Quick Ratio FY2025 | 3.19 | Same as Current = **6.04** | Same error |
+
+**FY2025 Balance Sheet (from extraction):**
+- Current Assets: $364,840 (NOT $430,819 - that's Total Assets)
+- Current Liabilities: $60,404 (NOT $134,211 - that's Total Liabilities)
+
+**ACTION:** Recalculate all ratios using Current figures OR clarify column headers
+
+#### 3. NRCan PROJECT VALUE INCONSISTENCY (Forms 9.2 & 9.5)
+
+| Location | Value Stated |
+|----------|-------------|
+| Form 9.2 Similar Projects Summary (Line 155) | $400,000 AUD |
+| Form 9.2 Current Projects Detail (Line 216) | $300,000 AUD |
+| Form 9.5 Project Details | $400,000 AUD |
+
+**ACTION:** Confirm correct value and update to be consistent
+
+---
+
+### HIGH PRIORITY ISSUES
+
+#### 4. STAFF EXPERIENCE CLAIMS INACCURATE (Form 9.4)
+
+**Lujia Yang (#7) - "3+ years" experience stated but:**
+- Lithodat Developer: Dec 2024 - Present (~1 year)
+- Student IT role: 5 months (2021)
+- Graduated: Nov 2024
+- **Actual experience: ~1 year maximum**
+
+**ACTION:** Correct experience years to accurate figure
+
+#### 5. TITLE INCONSISTENCIES
+
+| Person | Form 9.3/9.4 Title | CV File Title |
+|--------|-------------------|---------------|
+| Moritz Theile | "Lead Developer / Director" | "CTO - Lithodat Pty Ltd" |
+| Juan Baca | "Operations Manager (LATAM)" | "Managing Director, Lithodat México" |
+| Pedro Ferreira | "AI Software Development Lead" | "Fullstack Engineer" (various companies) |
+
+**ACTION:** Standardize titles across documents
+
+#### 6. MISSING CV REFERENCE FILES
+
+The following staff listed in Form 9.4 have no corresponding CV files in build-data:
+- #6 Xinyan Zhang (Frontend Developer)
+- #8 Tarun Sengar (Backend Developer)
+- #9 Nirali Dudharejiya (Backend Developer)
+- #10 Cris Ibarra (Data Quality Specialist)
+- #11 Perla Luque (Data Quality Specialist)
+
+**ACTION:** Create CV files for all listed staff OR confirm they exist elsewhere
+
+---
+
+### MEDIUM PRIORITY ISSUES
+
+#### 7. CV STRUCTURE INCONSISTENCY
+
+Profiles have varying levels of detail:
+
+**Full profiles (with tables, achievements, value propositions):**
+- Dr. Mahdi AbuAli
+- Dr. Qusay Abeed
+- Dr. Behnam Sadeghi
+- Dr. Fabian Kohlmann
+- Dr. Wayne Noble
+- Keith Dimech
+
+**Minimal entries (just name, function, years):**
+- Entries #6-14 in Form 9.4
+
+**Recommended standard CV structure:**
+1. Current Position & Location
+2. Key Expertise Areas (bulleted)
+3. Years of Experience
+4. Education (Degree, Institution, Year)
+5. Languages (if relevant)
+6. GDAC-SA Value Proposition (1-2 sentences)
+
+**ACTION:** Standardize all CV entries to consistent format
+
+#### 8. KEITH DIMECH DATE DISCREPANCY
+
+**Form 9.3 states:** "Years with Lithodat: May 2025 - Present (7 months)"
+**But document date is December 2025:** May to Dec 2025 = 8 months, not 7
+
+**ACTION:** Update to accurate tenure or use "8 months"
+
+#### 9. CAPITAL VALUE VERIFICATION NEEDED
+
+Form 9.1 states capital value: AUD $370,575 (SAR 907,909)
+
+This needs verification against:
+- Latest ASIC records
+- FY2025 financial statements (Net Assets: $296,608 per extraction)
+
+**Discrepancy:** Net Assets in FY2025 extraction = $296,608, but tender shows $370,575
+
+**ACTION:** Verify and correct capital value
+
+---
+
+### LOW PRIORITY ISSUES
+
+#### 10. SPELLING & FORMATTING
+
+- Line 269: "Moritz Theile" in table vs "Gerd Moritz Theile" in CV - use consistent full name
+- Various SAR conversions should be verified for consistency (all using 2.45 rate?)
+
+#### 11. REPEATED CONTENT
+
+- Organizational chart in Form 9.3 (lines 280-303) repeats similar info to project leadership structure
+- Consider consolidating to reduce document length
+
+---
+
+## REPEATABLE AUDIT CHECKLIST
+
+### Pre-Audit Setup
+- [ ] Identify all source documents in build-data
+- [ ] Create cross-reference mapping (tender section → source file)
+- [ ] Note document dates for currency checks
+
+### Form 9.1 - Applicant Information
+- [ ] Verify company name against ASIC
+- [ ] Verify ABN against ASIC
+- [ ] Verify registration date against ASIC
+- [ ] Verify capital value against latest financials
+- [ ] **Verify ownership percentages against current ASIC extract**
+- [ ] Verify address matches ASIC registered/principal place
+- [ ] Verify contact details are current
+
+### Form 9.2 - Technical & Administrative
+- [ ] Cross-check project values across all mentions in document
+- [ ] Verify experience years are current
+- [ ] Verify project status (ongoing/delivered)
+- [ ] Check quality certifications are accurate
+
+### Form 9.3 - Administrative Staff
+- [ ] Match titles to CV files
+- [ ] Verify years of experience
+- [ ] Check tenure calculations are current
+- [ ] Verify education credentials
+
+### Form 9.4 - Professional Staff
+- [ ] Each entry has corresponding CV file
+- [ ] Titles match CV files
+- [ ] Experience years are accurate
+- [ ] Consistent structure across all entries
+- [ ] Education listed where available
+- [ ] Languages noted where relevant
+
+### Form 9.5 - Similar Projects
+- [ ] Project values match Form 9.2
+- [ ] Dates are accurate
+- [ ] Client contact info is current
+- [ ] Status (delivered/ongoing) is accurate
+
+### Form 9.6 - Financial Capacity
+- [ ] Balance sheet figures match extractions
+- [ ] Distinguish Current vs Total assets/liabilities
+- [ ] Ratio calculations use correct inputs
+- [ ] Currency conversions are consistent
+- [ ] All 3 years of data are accurate
+
+### Final Checks
+- [ ] Spelling and grammar review
+- [ ] Consistent formatting throughout
+- [ ] No repeated content/redundancy
+- [ ] All cross-references are accurate
+
+---
+
+### Use Cases
+
+1. **Pre-submission quality assurance** - Catch errors before tender deadline
+2. **Document update tracking** - When source docs change, know what to update in tender
+3. **Team onboarding** - New staff understand audit process
+
+### Requirements
+
+**Functional:**
+- [ ] Automated cross-reference checker (source files → tender sections)
+- [ ] Ownership structure validator (ASIC extract → Form 9.1)
+- [ ] Financial ratio calculator with input verification
+- [ ] CV completeness checker
+
+**Technical:**
+- [ ] ASIC API integration (if available) or manual extract comparison
+- [ ] Financial statement parser
+- [ ] Markdown diff tool for CV comparison
+
+### Implementation Options
+
+#### Option 1: Manual Checklist with Documented Process (Recommended)
+
+**Approach:**
+- Maintain checklist in build-data as markdown
+- Run manually before each submission
+- Document findings in audit log
+
+**Pros:**
+- ✅ No development needed
+- ✅ Flexible and human-verified
+- ✅ Catches nuanced issues
+
+**Cons:**
+- ❌ Time-consuming
+- ❌ Requires deep document knowledge
+
+**Effort:** Low (checklist already created above)
+
+#### Option 2: Semi-Automated Validation Script
+
+**Approach:**
+- Node.js script that parses tender markdown
+- Compares against known values from source files
+- Outputs discrepancy report
+
+**Pros:**
+- ✅ Faster repeat audits
+- ✅ Catches numeric discrepancies
+
+**Cons:**
+- ❌ Development time
+- ❌ May miss contextual issues
+
+**Effort:** Medium (2-3 days)
+
+### Files to Create/Modify
+
+**To Fix Immediately:**
+- `build-data/06 gdac-tender/response/GDAC-SA-TENDER-RESPONSE-COMPLETE.md` - Apply all fixes above
+
+**New files (if implementing Option 2):**
+- `scripts/audit-tender.ts` - Automated checker
+- `build-data/06 gdac-tender/documentation/AUDIT-CHECKLIST.md` - Standalone checklist
+
+**Detail Log:** [debug/IDEA-003-gdac-tender-forms-9-1-9-6-systematic-audit-consistency-checker.md](debug/IDEA-003-gdac-tender-forms-9-1-9-6-systematic-audit-consistency-checker.md)
+
+---

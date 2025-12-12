@@ -1,0 +1,120 @@
+{
+  "forms": [
+    {
+      "id": "FORM-001",
+      "name": "vsm-assessment",
+      "displayName": "VSM System 1 Assessment",
+      "version": "1.0.0",
+      "status": "active",
+      "accessControl": "all-users",
+      "uxPattern": "step-by-step",
+      "questionCount": 8,
+      "description": "Multi-step questionnaire for Viable Systems Model System 1 assessment",
+      "files": {
+        "questions": "src/lib/questions.ts",
+        "apiRoutes": "src/app/api/assessment/route.ts",
+        "page": "src/app/(dashboard)/assessment/page.tsx"
+      },
+      "databaseModel": "Assessment",
+      "createdAt": "2025-10-31",
+      "updatedAt": "2025-10-31"
+    },
+    {
+      "id": "FORM-002",
+      "name": "gdac-tender-tracker",
+      "displayName": "GDAC Tender Tracker",
+      "version": "1.0.0",
+      "status": "active",
+      "accessControl": "managers-only",
+      "uxPattern": "multi-section",
+      "questionCount": 37,
+      "description": "Tender application tracker for Saudi Geological Survey RFQ #251140007625",
+      "files": {
+        "page": "src/app/(dashboard)/gdac-tender/page.tsx",
+        "apiRoutes": "src/app/api/gdac-tender/route.ts"
+      },
+      "databaseModel": "GdacTenderTracker",
+      "createdAt": "2025-12-01",
+      "updatedAt": "2025-12-01"
+    },
+    {
+      "id": "FORM-003",
+      "name": "iso-document-builder",
+      "displayName": "ISO Document Builder",
+      "version": "1.0.0",
+      "status": "active",
+      "accessControl": "managers-only",
+      "uxPattern": "multi-section",
+      "questionCount": 47,
+      "description": "Progressive ISO policy and procedure document creation. Supports HSE (ISO 45001/14001), Quality (ISO 9001), and Integrated Management System documentation. Designed for desk-based IT/software companies.",
+      "files": {
+        "types": "src/lib/iso-documents/types.ts",
+        "template": "src/lib/iso-documents/hse-policy-template.ts",
+        "index": "src/lib/iso-documents/index.ts",
+        "apiRoutes": [
+          "src/app/api/iso-documents/route.ts",
+          "src/app/api/iso-documents/[slug]/route.ts"
+        ],
+        "pages": [
+          "src/app/(dashboard)/iso-documents/page.tsx",
+          "src/app/(dashboard)/iso-documents/new/page.tsx",
+          "src/app/(dashboard)/iso-documents/[slug]/page.tsx"
+        ]
+      },
+      "databaseModels": ["IsoDocument", "IsoDocumentSection"],
+      "features": [
+        "Multi-section document builder",
+        "Auto-save every 30 seconds",
+        "Section-by-section progress tracking",
+        "ISO 45001 (OHS) alignment",
+        "ISO 14001 (Environmental) alignment",
+        "Desk-based work focus (ergonomics, DSE, mental health)",
+        "Document version control",
+        "Review and approval workflow",
+        "Extensible template system"
+      ],
+      "templateTypes": [
+        {
+          "type": "HSE_POLICY",
+          "status": "available",
+          "sections": 10,
+          "isoReferences": ["ISO 45001:2018", "ISO 14001:2015"]
+        },
+        {
+          "type": "QUALITY_POLICY",
+          "status": "coming-soon",
+          "sections": null,
+          "isoReferences": ["ISO 9001:2015"]
+        },
+        {
+          "type": "ENVIRONMENTAL_POLICY",
+          "status": "coming-soon",
+          "sections": null,
+          "isoReferences": ["ISO 14001:2015"]
+        },
+        {
+          "type": "OHS_POLICY",
+          "status": "coming-soon",
+          "sections": null,
+          "isoReferences": ["ISO 45001:2018"]
+        },
+        {
+          "type": "IMS_MANUAL",
+          "status": "coming-soon",
+          "sections": null,
+          "isoReferences": ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018"]
+        }
+      ],
+      "relatedIdea": "IDEA-002",
+      "createdAt": "2025-12-09",
+      "updatedAt": "2025-12-09"
+    }
+  ],
+  "stats": {
+    "totalForms": 3,
+    "activeForms": 3,
+    "deprecatedForms": 0,
+    "totalQuestions": 92,
+    "lastUpdated": "2025-12-09"
+  }
+}

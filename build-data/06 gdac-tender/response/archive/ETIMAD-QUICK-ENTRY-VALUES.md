@@ -86,13 +86,15 @@ Current obligations: 328817
 |-------|-------|
 | Company Name | Lithodat Pty Ltd |
 | Commercial Registration | ABN 63 627 008 904 |
-| Capital Value | SAR 907,909 (AUD $370,575) |
+| Capital Value | SAR 726,690 (AUD $296,608)¹ |
 | Establishment Date | 25 June 2018 |
 | Country | Australia |
 | City | Newtown, Victoria |
 | Email | info@lithodat.com |
 | Phone | +61 3 5215 5129 |
 | Website | https://www.lithodat.com |
+
+¹ Net Assets as at 30 June 2025 per FY2025 Annual Report. Exchange rate: 1 AUD = 2.45 SAR.
 
 ---
 

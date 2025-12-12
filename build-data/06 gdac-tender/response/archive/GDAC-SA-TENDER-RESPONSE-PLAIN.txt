@@ -1,0 +1,562 @@
+================================================================================
+                    GDAC-SA PRE-QUALIFICATION RESPONSE
+                         LITHODAT PTY LTD
+================================================================================
+
+RFQ Reference Number:     251140007625
+Government Entity:        Saudi Geological Survey (SGS)
+Applicant:               Lithodat Pty Ltd
+ABN:                     63 627 008 904
+Submission Deadline:     24/12/2025
+Submission Platform:     Etimad Portal
+
+--------------------------------------------------------------------------------
+DOCUMENT CONTROL
+--------------------------------------------------------------------------------
+
+Document Title:          GDAC-SA Pre-Qualification Response
+Version:                 1.0
+Date Prepared:           2025-12-09
+Prepared By:             Keith Dimech, Chief Operating Officer
+Authorized Signatory:    Dr. Fabian Kohlmann, Managing Director
+Contact Email:           keith.dimech@lithodat.com
+Contact Phone:           +61 428 971 396
+
+CURRENCY NOTE: All values shown in AUD and SAR at exchange rate AUD 1 = SAR 2.45
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Executive Summary
+2. Form 9.1 - Applicant Information
+3. Form 9.2 - Technical and Administrative Capabilities
+4. Form 9.3 - Administrative Staff Experience
+5. Form 9.4 - Professional Staff Experience
+6. Form 9.5 - Similar Projects
+7. Form 9.6 - Financial Capacity Criteria
+8. Required Documents Checklist
+9. Declaration
+
+ATTACHMENTS (Per RFQ Page 8)
+-----------------------------
+Attachment 1:  Commercial Registration Certificate
+Attachment 2:  Chamber of Commerce Certificate
+Attachment 3:  MISA Investment License (or Application)
+Attachment 4:  Quality Policy/Certificate
+Attachment 5:  HSE Policy/Certificate
+Attachment 6:  Financial Statements (3 years)
+
+================================================================================
+1. EXECUTIVE SUMMARY
+================================================================================
+
+Lithodat Pty Ltd is an Australian geoscience technology company specializing
+in FAIR-compliant geochemistry data platforms. We have developed and operate
+national-scale geoscience data infrastructure for the Australian government
+(EarthBank/AusGeoChem) and have delivered similar platforms for Natural
+Resources Canada.
+
+KEY QUALIFICATIONS:
+
+Criterion                 Lithodat Capability
+-----------               -------------------
+Experience                7+ years developing national geoscience data platforms
+Similar Projects          4 major projects: AUD $3,700,000 / SAR 9,065,000
+Technical Team            19 staff including 5 PhDs in geoscience and data science
+Government Experience     NCRIS (Australia), NRCan (Canada), CSIRO, Geoscience Australia
+Financial Health          Cash Ratio 2.05, Current Ratio 3.21, Quick Ratio 3.19
+AI/ML Capability          Dr. Behnam Sadeghi (IAMG Vistelius Award, 58+ publications)
+Saudi Expertise           Dr. Mahdi AbuAli (35+ years Saudi Aramco)
+                         Dr. Qusay Abeed (Native Arabic speaker)
+
+================================================================================
+2. FORM 9.1 - APPLICANT INFORMATION
+================================================================================
+
+COMPANY DETAILS
+---------------
+Name of applicant:                    Lithodat Pty Ltd
+Value of applicant's capital (AUD):   $296,608 [1]
+Value of applicant's capital (SAR):   726,690 [1]
+Date Function:                        Active
+Commercial Registration Number:       ABN 63 627 008 904 (Australia)
+Name of person responsible:           Dr. Fabian Kohlmann
+
+Evidence: See Attachment 1 (Commercial Registration Certificate)
+
+ADDRESS
+-------
+Street:           24 Crompton Way
+City:             Newtown
+Zip Code:         3220
+Country:          Australia
+State/Province:   Victoria
+
+CONTACT INFORMATION
+-------------------
+Phone:            +61 3 5215 5129
+Fax:              N/A (Digital communications preferred)
+Email:            info@lithodat.com
+Website:          https://www.lithodat.com
+
+ESTABLISHMENT INFORMATION
+-------------------------
+Establishment Date:   25 June 2018
+Years in Operation:   7 years
+Legal Structure:      Proprietary Limited Company (Pty Ltd)
+Jurisdiction:         Australia (ASIC)
+
+COMPANY OWNERSHIP STRUCTURE
+---------------------------
+#   Owner/Partner Name           Partnership %   Nationality
+--  -------------------------    -------------   ----------------
+1   Dr. Fabian Kohlmann          50.1%          German/Australian
+2   Gerd Moritz Walter Theile    24.0%          German
+3   Dr. Wayne Peter Noble        14.9%          Australian
+4   Nilesh Ambadas Vyavahare     8.0%           Indian/Australian
+5   Romain Beucher               3.0%           French/Australian
+    --------------------------   -----
+    TOTAL                        100%
+
+Source: ASIC Company Extract dated 02-Dec-2025
+
+[1] Capital Value = Net Assets as at 30 June 2025 per FY2025 Annual Report.
+    (Total Assets $430,819 - Total Liabilities $134,211 = $296,608)
+    Exchange rate: 1 AUD = 2.45 SAR.
+
+COMPANY REPRESENTATIVE (CONTACT ADMINISTRATOR)
+----------------------------------------------
+Name:              Keith Dimech
+Job Title:         Chief Operating Officer / Project Director
+Phone:             +61 3 5215 5129
+Mobile:            +61 428 971 396
+Email:             keith.dimech@lithodat.com
+
+================================================================================
+3. FORM 9.2 - TECHNICAL AND ADMINISTRATIVE CAPABILITIES
+================================================================================
+
+A. PREVIOUS WORK EXPERIENCE
+---------------------------
+Number of years of experience in the field of project:              7 years
+Number of similar projects executed in the last three years:        4 projects
+Average results of performance evaluations:                         Excellent
+
+SIMILAR PROJECTS SUMMARY (Last 3 Years):
+
+#   Project                    Client Type          Value (AUD)    Value (SAR)   Status
+--  -------------------------  ----------------     -----------    -----------   --------
+1   EarthBank (AusGeoChem)     NCRIS/Government     $2,900,000     7,105,000    Ongoing
+2   Isotopes.au                CSIRO/Government     $400,000       980,000      Ongoing
+3   NRCan Thermochronology     Federal Govt Canada  $400,000       980,000      DELIVERED
+4   LithoSpace                 Internal R&D         Internal       -            Ongoing
+    -------------------------  ----------------     -----------    -----------
+    TOTAL                                           $3,700,000     9,065,000
+
+B. QUALITY ASSURANCE
+--------------------
+Standard/Framework      Status              Application
+--------------------    -----------------   -------------------------------
+CoreTrustSeal           Certified           Data repository (EarthBank)
+ISO 9001:2015           Principles Applied  Quality management system
+FAIR Data Principles    Implemented         Findable, Accessible, Interoperable, Reusable
+Peer Review Process     Active              Scientific validation
+Agile/Scrum             Implemented         Development methodology
+
+Evidence: See Attachment 4 (Quality Policy/Certificate)
+
+C. ENVIRONMENT, HEALTH AND SAFETY
+---------------------------------
+Standard/Framework      Status              Application
+--------------------    -----------------   -------------------------------
+ISO 14001:2015          Principles Applied  Environmental management
+ISO 45001:2018          Principles Applied  Occupational health and safety
+Remote Work Safety      Implemented         Distributed team protocols
+Data Security           Expert              Vinko Novak - Head of Data Security
+
+Evidence: See Attachment 5 (HSE Policy/Certificate)
+
+D. EXISTING CONTRACTUAL OBLIGATIONS
+-----------------------------------
+Number of existing projects:              3
+Value of existing projects (AUD):         $3,600,000
+Value of existing projects (SAR):         8,820,000
+
+CURRENT PROJECTS DETAIL:
+
+#   Project                       Client            Value (AUD)    Value (SAR)   End Date
+--  ---------------------------   ---------------   -----------    -----------   --------
+1   EarthBank Platform            AuScope/NCRIS     $2,900,000     7,105,000    Ongoing
+2   National Thermochronology     NRCan             $300,000       735,000      2026
+3   Isotopes.au Platform          CSIRO/ANSTO/GA    $400,000       980,000      2028
+    ---------------------------   ---------------   -----------    -----------
+    TOTAL                                           $3,600,000     8,820,000
+
+E. HUMAN RESOURCES
+------------------
+Number of employees:              19
+Number of Saudi employees:        0
+Percentage of Saudi employees:    0.00%
+
+WORKFORCE COMPOSITION:
+
+Category                    Count   Details
+------------------------    -----   -----------------------------------------
+Management/Directors        3       Fabian Kohlmann (CEO), Wayne Noble (CIO),
+                                   Keith Dimech (COO)
+Full-Time Technical Staff   10      4 developers, 1 lead developer, 1 data
+                                   security, 1 ops manager, 3 specialists
+Contractors/Consultants     6       ML advisor, AI lead, geological consultant,
+                                   data quality specialists
+------------------------    -----
+TOTAL                       19
+
+================================================================================
+4. FORM 9.3 - ADMINISTRATIVE STAFF EXPERIENCE
+================================================================================
+
+"Describe the experiences of the applicant's administrative staff as follows:"
+
+#    Name                    Function                    Specialization / Area of Expertise                                           Years Exp.
+---  ---------------------   ------------------------    ---------------------------------------------------------------------        ----------
+1    Dr. Fabian Kohlmann     Managing Director & CEO     Geoscience Leadership, FAIR Data Architecture, Thermochronology              15+ years
+2    Dr. Wayne Noble         Chief Information Officer   Enterprise Architecture, Cloud Systems, Agile Leadership                     25+ years
+3    Keith Dimech            Chief Operating Officer     Project Management, ESQ Systems, Financial Operations, HR, Legal             15+ years
+4    Gerd Moritz Theile      CTO (Chief Technology Officer)   PostgreSQL Architecture, Database Design, LithoSurfer, Java             25+ years
+5    Juan Baca               Managing Director - Lithodat México   Data Quality Management, Team Leadership, Database Operations       10+ years
+6    -                       -                           -                                                                            -
+7    -                       -                           -                                                                            -
+8    -                       -                           -                                                                            -
+9    -                       -                           -                                                                            -
+10   -                       -                           -                                                                            -
+
+GDAC-SA PROJECT LEADERSHIP STRUCTURE:
+
+                        LITHODAT PTY LTD
+                    Dr. Fabian Kohlmann (CEO/MD)
+                              |
+                    GDAC-SA PROJECT LEADS
+                              |
+        +-----------------------------------------+
+        |                     |                   |
+   IN-KINGDOM            TECHNICAL            PROJECT
+   DIRECTOR              DIRECTOR             DIRECTOR
+        |                     |                   |
+   Dr. Mahdi AbuAli     Dr. Qusay Abeed      Keith Dimech
+        |                     |                   |
+   Government            Technical            Project
+   Relations &           Implementation       Management &
+   Client Value          & Geological         Operations
+   Alignment             Data Systems
+
+================================================================================
+5. FORM 9.4 - PROFESSIONAL STAFF EXPERIENCE
+================================================================================
+
+"The expertise of the applicant's technical staff is as follows:"
+
+#    Name                           Function                    Specialization / Area of Expertise                                                      Years Exp.
+---  ---------------------------    ------------------------    ---------------------------------------------------------------------------------       ----------
+1    Dr. Mahdi AbuAli               GDAC In-Kingdom Director    Saudi Govt Relations, Saudi Aramco (35+ yrs), Executive Leadership, JV Program Mgmt     35+ years
+2    Dr. Qusay Abeed                GDAC Technical Director     Petroleum Geochemistry, Basin Modelling, CCUS, Native Arabic, C++, Agile Scrum          17+ years
+3    Dr. Behnam Sadeghi             ML Technical Advisor        ML/AI, Geospatial AI, Python (PyImpetus, PyMiner), IAMG Vistelius Award, CSIRO          15+ years
+4    Pedro Henrique C. Ferreira     AI Software Dev Lead        Technology & AI/ML Strategy, Enterprise AI Implementation                               10-15 years
+5    Vinko Novak                    Head of Data Security       Data Security, Information Protection, Compliance, Security Architecture                10+ years
+6    Xinyan Zhang                   Frontend Developer          React, TypeScript, UI/UX implementation, Responsive design                              3+ years
+7    Lujia Yang                     Frontend Developer          React, TypeScript, UI/UX implementation, Responsive design                              3+ years
+8    Tarun Sengar                   Backend Developer           Java, AWS, Backend Systems, API Development                                             5+ years
+9    Nirali Dudharejiya             Backend Developer           Java, Liquibase, Backend Systems, Database Management                                   5+ years
+10   Cris Ibarra                    Data Quality Specialist     Data Entry, Data Validation, Quality Control, Database Operations                       3+ years
+11   Perla Luque                    Data Quality Specialist     Data Entry, Data Validation, Quality Control, Database Operations                       3+ years
+12   Dr. Alejandra Bedoya           Data Entry / PhD Candidate  Geochronology, Thermochronology, Tectonics, Data Validation                             10+ years
+13   Dr. Fun Meeuws                 Geochemistry Specialist     Fission Track Thermochronology, Thermal History Modelling, GPlates                      15+ years
+14   Benjamin Dib                   Data Clerk (LithoSpace)     Space Science, Geospatial Data, Moon/Mars Mission Data, R Programming                   3+ years
+15   -                              -                           -                                                                                       -
+16   -                              -                           -                                                                                       -
+17   -                              -                           -                                                                                       -
+18   -                              -                           -                                                                                       -
+19   -                              -                           -                                                                                       -
+20   -                              -                           -                                                                                       -
+
+================================================================================
+6. FORM 9.5 - SIMILAR PROJECTS
+================================================================================
+
+"Write details of three similar projects that have been implemented over the
+past five years as follows:"
+
+--------------------------------------------------------------------------------
+PROJECT 1: EARTHBANK (AUSGEOCHEM)
+--------------------------------------------------------------------------------
+
+1. Project Name:          EarthBank (formerly AusGeoChem) - AuScope Geochemistry
+                         Network Platform
+
+2. Project Location:      Australia (National infrastructure, cloud-hosted)
+
+3. Project Content:       National FAIR data platform for geochemistry research.
+                         350,000+ samples, 1,300+ users, custom SKOS schema with
+                         50,000+ terms. DOI/IGSN minting, REST API, map
+                         visualization, LithoPlates paleogeographic reconstruction.
+
+4. Project Owner:         AuScope Geochemistry Network (AGN) / AuScope Limited (NCRIS)
+
+5. Contract Value (AUD):  $2,900,000
+   Contract Value (SAR):  7,105,000
+
+6. Contract Duration:     5+ years (2020 - Present, ongoing)
+
+7. Start Date:            2020
+
+8. Delivery Date:         Platform live October 2021; Official launch late 2022;
+                         Continuous development ongoing
+
+9. Name of person responsible:      Professor Brent McInnes
+
+10. Contact information:            John de Laeter Research Centre,
+                                   Curtin University, Perth, WA
+
+11. Email:                          directorjdlc@curtin.edu.au
+
+--------------------------------------------------------------------------------
+PROJECT 2: ISOTOPES.AU
+--------------------------------------------------------------------------------
+
+1. Project Name:          Isotopes.au: National Data Infrastructure for
+                         Environmental Isotope Analysis
+
+2. Project Location:      Australia (National infrastructure, cloud-hosted)
+
+3. Project Content:       National platform harmonising isotope data from 6
+                         institutional sources (CSIRO, ANSTO, GA, NMI). Unified
+                         schema with 250+ field mappings, 97% ontology match rate,
+                         automated adapters.
+
+4. Project Owner:         CSIRO / ANSTO / Geoscience Australia / NMI Consortium
+
+5. Contract Value (AUD):  $400,000
+   Contract Value (SAR):  980,000
+
+6. Contract Duration:     4.5 years (July 2024 - December 2028)
+
+7. Start Date:            July 2024
+
+8. Delivery Date:         Development complete; Platform deployment in progress
+
+9. Name of person responsible:      Lian Flick
+
+10. Contact information:            CSIRO Data61, Australia
+
+11. Email:                          Lian.Flick@data61.csiro.au
+
+--------------------------------------------------------------------------------
+PROJECT 3: NRCAN NATIONAL THERMOCHRONOLOGY PLATFORM (DELIVERED)
+--------------------------------------------------------------------------------
+
+1. Project Name:          NRCan National Thermochronology & Thermal History
+                         Data Model Development
+
+2. Project Location:      Canada (nationwide)
+
+3. Project Content:       National unified data model for thermochronology
+                         (AHe, ZHe, AFT, ZFT). Complete standardisation of all
+                         provincial and historic datasets. Automated ingestion
+                         and QA/QC pipelines. 100% Canadian legacy data harmonised.
+
+4. Project Owner:         Natural Resources Canada (Geological Survey of Canada)
+
+5. Contract Value (AUD):  $400,000
+   Contract Value (SAR):  980,000
+
+6. Contract Duration:     2 years (October 2021 - March 2023)
+
+7. Start Date:            October 2021
+
+8. Delivery Date:         March 2023 (DELIVERED)
+
+9. Name of person responsible:      Dr. Jeremy Powell
+
+10. Contact information:            Natural Resources Canada, Ottawa
+
+11. Email:                          jeremy.powell@nrcan-rncan.gc.ca
+
+================================================================================
+7. FORM 9.6 - FINANCIAL CAPACITY CRITERIA
+================================================================================
+
+Currency: All figures in AUD and SAR at exchange rate AUD 1 = SAR 2.45
+
+BALANCE SHEET STATEMENT (Last 3 Years)
+--------------------------------------
+
+                              FY2025 (Year 0)         FY2024 (Year -1)        FY2023 (Year -2)
+Line Item                     AUD         SAR         AUD         SAR         AUD         SAR
+-------------------------     ---------   ---------   ---------   ---------   ---------   ---------
+Current Assets                $430,819    1,055,507   $176,800    433,160     $93,690     229,541
+Cash & Cash Equivalents       $274,855    673,395     $100,406    246,095     $40,605     99,482
+Accounts Receivable           $152,964    374,762     $76,394     187,166     $53,001     129,852
+Current Liabilities           $134,211    328,817     $40,106     98,260      $36,787     90,128
+
+FINANCIAL PERFORMANCE INDICATORS
+--------------------------------
+
+Indicator                 Formula                                    FY2025   FY2024   FY2023
+-----------------------   ----------------------------------------   ------   ------   ------
+Cash Ratio                Cash ÷ Current Liabilities                 2.05     2.50     1.10
+Turnover Ratio            Current Assets ÷ Current Liabilities       3.21     4.41     2.55
+Quick Liquidity Ratio     (Cash + Receivables) ÷ Current Liab        3.19     4.41     2.54
+
+Evidence: See Attachment 6 (Financial Statements - 3 years)
+
+================================================================================
+8. REQUIRED DOCUMENTS CHECKLIST (Per RFQ Page 8)
+================================================================================
+
+#    Document Required by RFQ                            Status          Attachment
+--   ---------------------------------------------       --------------  -----------
+1    Valid Commercial Registration Certificate          AVAILABLE       Attachment 1
+2    Valid Zakat and Income Certificate / VAT           N/A (Australian entity)
+3    General Organization for Social Insurance          N/A (Australian entity)
+4    Valid Chamber of Commerce Certificate              AVAILABLE       Attachment 2
+5    Valid investment license (MISA)                    IN PROGRESS     Attachment 3
+6    Valid Saudization certificate (Nitaqat/Taqat)      N/A (Foreign entity - plan provided in Form 9.2)
+7    Quality policy/certificate and HSE policy          AVAILABLE       Attachments 4 & 5
+8    Alliance agreement (if applicable)                 N/A (Single entity bid)
+9    Approved financial statements (3 years)            AVAILABLE       Attachment 6
+10   Company information and registration certs         AVAILABLE       Attachment 1
+
+================================================================================
+ATTACHMENTS
+================================================================================
+
+The following attachments are required per RFQ Page 8:
+
+--------------------------------------------------------------------------------
+ATTACHMENT 1: COMMERCIAL REGISTRATION CERTIFICATE
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach ASIC Company Extract / ABN Certificate]
+
+Contents Required:
+- Current ASIC Company Extract (dated within 30 days)
+- ABN Certificate (63 627 008 904)
+- Certificate of Registration
+
+--------------------------------------------------------------------------------
+ATTACHMENT 2: CHAMBER OF COMMERCE CERTIFICATE
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach Chamber of Commerce membership/registration]
+
+Contents Required:
+- Victorian Chamber of Commerce membership certificate
+- OR equivalent business registration documentation
+
+--------------------------------------------------------------------------------
+ATTACHMENT 3: MISA INVESTMENT LICENSE
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach MISA application or license]
+
+Contents Required:
+- Completed MISA application form (if license pending)
+- OR Valid MISA investment license (if already obtained)
+- Application tracking number/receipt
+
+--------------------------------------------------------------------------------
+ATTACHMENT 4: QUALITY POLICY/CERTIFICATE
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach quality documentation]
+
+Contents Required:
+- Quality Policy Statement (signed)
+- CoreTrustSeal Certificate (EarthBank)
+- ISO 9001:2015 compliance statement or equivalent
+
+--------------------------------------------------------------------------------
+ATTACHMENT 5: HSE POLICY/CERTIFICATE
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach HSE documentation]
+
+Contents Required:
+- HSE Policy Statement (signed)
+- ISO 14001:2015 compliance statement or equivalent
+- ISO 45001:2018 compliance statement or equivalent
+
+--------------------------------------------------------------------------------
+ATTACHMENT 6: FINANCIAL STATEMENTS (3 YEARS)
+--------------------------------------------------------------------------------
+[PLACEHOLDER - Attach audited financial statements]
+
+Contents Required:
+- Audited Financial Statements FY2023
+- Audited Financial Statements FY2024
+- Audited Financial Statements FY2025
+
+================================================================================
+9. DECLARATION
+================================================================================
+
+I hereby certify that all information provided in this qualification application
+is true, accurate, and complete to the best of my knowledge. The projects
+described were implemented by Lithodat Pty Ltd within the past five years as
+stated. All financial information is consistent with the attached audited
+financial statements.
+
+Lithodat Pty Ltd undertakes to maintain the confidentiality of any information
+or data obtained during the qualification process and not to disclose any such
+information to any third party without written permission from the Saudi
+Geological Survey.
+
+AUTHORIZED SIGNATORY                     PREPARED BY
+-------------------                      -----------
+
+Company Name: Lithodat Pty Ltd           Name:    Keith Dimech
+ABN:          63 627 008 904             Title:   Chief Operating Officer
+Name:         Dr. Fabian Kohlmann        Email:   keith.dimech@lithodat.com
+Title:        Managing Director          Phone:   +61 428 971 396
+
+Signature: _________________________     Signature: _________________________
+
+Date: _____________________________      Date: _____________________________
+
+
+                              [COMPANY SEAL]
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+For queries regarding this submission:
+
+Role                 Name                Email                           Phone
+------------------   -----------------   ---------------------------     ----------------
+Project Director     Keith Dimech        keith.dimech@lithodat.com       +61 428 971 396
+Managing Director    Dr. Fabian Kohlmann fabian.kohlmann@lithodat.com    +61 3 5215 5129
+In-Kingdom Director  Dr. Mahdi AbuAli    Available on request            Available on request
+
+================================================================================
+                              END OF DOCUMENT
+================================================================================
+
+GDAC-SA Pre-Qualification Response
+Lithodat Pty Ltd - ABN 63 627 008 904
+RFQ Reference: 251140007625
+Submission via Etimad Platform
+Document Version: 1.0
+Date: December 2025
+
+================================================================================
+ATTACHMENT CHECKLIST (For Internal Use)
+================================================================================
+
+Use this checklist to track attachment preparation:
+
+#   Attachment                              Status      Assigned To    Due Date
+--  ------------------------------------    ---------   -----------    ----------
+1   Commercial Registration Certificate    [ ]         __________     __________
+2   Chamber of Commerce Certificate        [ ]         __________     __________
+3   MISA Investment License/Application    [ ]         __________     __________
+4   Quality Policy/Certificate             [ ]         __________     __________
+5   HSE Policy/Certificate                 [ ]         __________     __________
+6   Financial Statements (3 years)         [ ]         __________     __________
+
+================================================================================

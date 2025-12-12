@@ -628,6 +628,96 @@ model FinanceChecklist {
   @@index([month])
 }
 
+// ISO Document Builder - Progressive policy and procedure document creation
+// Supports HSE (ISO 45001/14001), Quality (ISO 9001), and Integrated Management System
+model IsoDocument {
+  id              String   @id @default(cuid())
+  documentType    IsoDocumentType
+  documentSlug    String   @unique // e.g., "hse-policy-2025", "quality-manual-v1"
+  title           String   // e.g., "Lithodat HSE Policy & Procedures"
+  version         String   @default("1.0.0")
+  status          IsoDocumentStatus @default(DRAFT)
+
+  // Core document metadata
+  organizationName String  @default("Lithodat Pty Ltd")
+  effectiveDate    DateTime?
+  reviewDate       DateTime?
+  approvedBy       String?
+  approvedAt       DateTime?
+
+  // Section content (JSON structure for flexibility)
+  // Each section stores: { completed: boolean, content: {...}, lastUpdated: timestamp }
+  sections         Json     @default("{}")
+
+  // Generated outputs
+  policyStatement  String?  @db.Text // Generated policy statement text
+  generatedPdf     String?  // Path/URL to generated PDF
+  generatedAt      DateTime?
+
+  // Tracking
+  createdById      String
+  lastEditedById   String?
+  lastEditedAt     DateTime @default(now())
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([documentType])
+  @@index([status])
+}
+
+enum IsoDocumentType {
+  HSE_POLICY           // ISO 45001 + ISO 14001 combined
+  QUALITY_POLICY       // ISO 9001
+  ENVIRONMENTAL_POLICY // ISO 14001 standalone
+  OHS_POLICY           // ISO 45001 standalone
+  IMS_MANUAL           // Integrated Management System (9001+14001+45001)
+}
+
+enum IsoDocumentStatus {
+  DRAFT              // Being developed
+  REVIEW             // Under management review
+  APPROVED           // Approved and active
+  SUPERSEDED         // Replaced by newer version
+  ARCHIVED           // No longer in use
+}
+
+// ISO Document Section Progress - Track completion of individual sections
+model IsoDocumentSection {
+  id              String   @id @default(cuid())
+  documentId      String
+  sectionKey      String   // e.g., "policy_statement", "risk_assessment", "emergency_procedures"
+  sectionTitle    String   // Display title
+  sectionOrder    Int      // Order in document
+
+  // Content and status
+  content         Json     @default("{}") // Section-specific form responses
+  status          SectionStatus @default(NOT_STARTED)
+  completedAt     DateTime?
+
+  // Notes and comments
+  notes           String?  @db.Text
+  reviewComments  String?  @db.Text
+
+  // Tracking
+  lastEditedById  String?
+  lastEditedAt    DateTime @default(now())
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([documentId, sectionKey])
+  @@index([documentId])
+  @@index([status])
+}
+
+enum SectionStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  NEEDS_REVIEW
+  APPROVED
+}
+
 // LithoData Package Pricing - Regional data package pricing configuration
 model LithoDataPackage {
   id            String   @id @default(cuid())

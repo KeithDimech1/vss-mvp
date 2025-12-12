@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etimad Quick Entry Values - GDAC-SA RFQ 251140007625</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d69e2e;
+            --success-green: #38a169;
+            --light-gray: #f7fafc;
+            --border-gray: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .header .rfq-ref {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .exchange-rate {
+            background: #ebf8ff;
+            border: 1px solid var(--secondary-blue);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .exchange-rate strong {
+            color: var(--primary-blue);
+            font-size: 18px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 12px 20px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .value-cell {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .aud {
+            color: var(--primary-blue);
+        }
+
+        .sar {
+            color: var(--success-green);
+        }
+
+        .copy-block {
+            background: #1a202c;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .copy-block::before {
+            content: 'Copy-Paste Block (SAR Values for Etimad)';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #1a202c;
+            padding: 0 10px;
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border: 1px solid var(--success-green);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .metric-card .label {
+            font-size: 11px;
+            color: #718096;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .footer {
+            background: var(--light-gray);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .deadline-badge {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Etimad Platform Quick Entry Values</h1>
+            <p class="subtitle">GDAC-SA Pre-Qualification Submission</p>
+            <div class="rfq-ref">RFQ: 251140007625</div>
+            <div class="deadline-badge">Deadline: 24/12/2025</div>
+        </div>
+
+        <div class="content">
+            <div class="exchange-rate">
+                Exchange Rate: <strong>AUD 1 = SAR 2.45</strong>
+            </div>
+
+            <!-- Previous Experiences -->
+            <div class="section">
+                <div class="section-title">Previous Experiences</div>
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Field</th>
+                        <th class="value-cell">AUD</th>
+                        <th class="value-cell">SAR (Enter This)</th>
+                    </tr>
+                    <tr>
+                        <td>Total value of projects (last 3 years)</td>
+                        <td class="value-cell aud">$3,700,000</td>
+                        <td class="value-cell sar">9,065,000</td>
+                    </tr>
+                    <tr>
+                        <td>Number of projects (last 3 years)</td>
+                        <td class="value-cell" colspan="2" style="text-align: center;">4</td>
+                    </tr>
+                    <tr>
+                        <td>Number of years of experience</td>
+                        <td class="value-cell" colspan="2" style="text-align: center;">7</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Existing Contractual Obligations -->
+            <div class="section">
+                <div class="section-title">Existing Contractual Obligations</div>
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Field</th>
+                        <th class="value-cell">AUD</th>
+                        <th class="value-cell">SAR (Enter This)</th>
+                    </tr>
+                    <tr>
+                        <td>Value of existing projects</td>
+                        <td class="value-cell aud">$3,600,000</td>
+                        <td class="value-cell sar">8,820,000</td>
+                    </tr>
+                    <tr>
+                        <td>Number of existing projects</td>
+                        <td class="value-cell" colspan="2" style="text-align: center;">3</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Human Resources -->
+            <div class="section">
+                <div class="section-title">Human Resources</div>
+                <table>
+                    <tr>
+                        <th style="width: 60%;">Field</th>
+                        <th class="value-cell">Value (Enter This)</th>
+                    </tr>
+                    <tr>
+                        <td>Number of employees</td>
+                        <td class="value-cell">19</td>
+                    </tr>
+                    <tr>
+                        <td>Number of Saudi employees</td>
+                        <td class="value-cell">0</td>
+                    </tr>
+                    <tr>
+                        <td>Percentage of Saudi employees</td>
+                        <td class="value-cell">0.00</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Financial Data -->
+            <div class="section">
+                <div class="section-title">Financial Data - FY2025 (Current Year)</div>
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Field</th>
+                        <th class="value-cell">AUD</th>
+                        <th class="value-cell">SAR (Enter This)</th>
+                    </tr>
+                    <tr>
+                        <td>Cash and cash equivalents</td>
+                        <td class="value-cell aud">$274,855</td>
+                        <td class="value-cell sar">673,395</td>
+                    </tr>
+                    <tr>
+                        <td>Accounts due (Trade Receivables)</td>
+                        <td class="value-cell aud">$152,964</td>
+                        <td class="value-cell sar">374,762</td>
+                    </tr>
+                    <tr>
+                        <td>Current obligations (Liabilities)</td>
+                        <td class="value-cell aud">$134,211</td>
+                        <td class="value-cell sar">328,817</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Calculated Ratios -->
+            <div class="section">
+                <div class="section-title">Calculated Ratios (Auto-calculated by Etimad)</div>
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="value">2.05</div>
+                        <div class="label">Cash Ratio</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">3.21</div>
+                        <div class="label">Current Ratio</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">3.19</div>
+                        <div class="label">Quick Ratio</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copy-Paste Block -->
+            <div class="section">
+                <div class="section-title">Copy-Paste Values (SAR)</div>
+                <div class="copy-block">
+PREVIOUS EXPERIENCES:
+Total value of projects (3 years): 9065000
+Number of projects (3 years): 4
+Years of experience: 7
+
+EXISTING OBLIGATIONS:
+Value of existing projects: 8820000
+Number of existing projects: 3
+
+HUMAN RESOURCES:
+Percentage of Saudi employees: 0.00
+Number of Saudi employees: 0
+Number of employees: 19
+
+FINANCIAL DATA (FY2025):
+Cash and cash equivalents: 673395
+Accounts due: 374762
+Current obligations: 328817
+                </div>
+            </div>
+
+            <!-- Project Values Breakdown -->
+            <div class="section">
+                <div class="section-title">Project Values Breakdown (Reference)</div>
+                <table>
+                    <tr>
+                        <th>Project</th>
+                        <th class="value-cell">AUD</th>
+                        <th class="value-cell">SAR</th>
+                    </tr>
+                    <tr>
+                        <td>EarthBank (AusGeoChem)</td>
+                        <td class="value-cell aud">$2,900,000</td>
+                        <td class="value-cell sar">7,105,000</td>
+                    </tr>
+                    <tr>
+                        <td>Isotopes.au</td>
+                        <td class="value-cell aud">$400,000</td>
+                        <td class="value-cell sar">980,000</td>
+                    </tr>
+                    <tr>
+                        <td>NRCan Thermochronology</td>
+                        <td class="value-cell aud">$400,000</td>
+                        <td class="value-cell sar">980,000</td>
+                    </tr>
+                    <tr style="background: var(--primary-blue); color: white;">
+                        <td><strong>TOTAL (3 Years)</strong></td>
+                        <td class="value-cell" style="color: white;"><strong>$3,700,000</strong></td>
+                        <td class="value-cell" style="color: #68d391;"><strong>9,065,000</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Company Information -->
+            <div class="section">
+                <div class="section-title">Company Information</div>
+                <table>
+                    <tr><th style="width: 40%;">Field</th><th>Value</th></tr>
+                    <tr><td>Company Name</td><td><strong>Lithodat Pty Ltd</strong></td></tr>
+                    <tr><td>Commercial Registration</td><td>ABN 63 627 008 904</td></tr>
+                    <tr><td>Capital Value (AUD)</td><td>$296,608<sup>1</sup></td></tr>
+                    <tr><td>Capital Value (SAR)</td><td>726,690<sup>1</sup></td></tr>
+                    <tr><td>Establishment Date</td><td>25 June 2018</td></tr>
+                    <tr><td>Country</td><td>Australia</td></tr>
+                    <tr><td>City</td><td>Newtown, Victoria</td></tr>
+                    <tr><td>Email</td><td>info@lithodat.com</td></tr>
+                    <tr><td>Phone</td><td>+61 3 5215 5129</td></tr>
+                    <tr><td>Website</td><td>https://www.lithodat.com</td></tr>
+                </table>
+                <p style="font-size: 11px; color: #666; margin-top: 8px;"><sup>1</sup> Net Assets as at 30 June 2025 per FY2025 Annual Report. Exchange rate: 1 AUD = 2.45 SAR.</p>
+            </div>
+
+            <!-- Contact Administrator -->
+            <div class="section">
+                <div class="section-title">Contact Administrator</div>
+                <table>
+                    <tr><th style="width: 40%;">Field</th><th>Value</th></tr>
+                    <tr><td>Name</td><td><strong>Keith Dimech</strong></td></tr>
+                    <tr><td>Title</td><td>Chief Operating Officer</td></tr>
+                    <tr><td>Email</td><td>keith.dimech@lithodat.com</td></tr>
+                    <tr><td>Phone</td><td>+61 3 5215 5129</td></tr>
+                    <tr><td>Mobile</td><td>+61 428 971 396</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Lithodat Pty Ltd</strong> | ABN 63 627 008 904</p>
+            <p>Quick Reference for Etimad Platform Data Entry | Last Updated: 2025-12-09</p>
+        </div>
+    </div>
+</body>
+</html>

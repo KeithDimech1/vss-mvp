@@ -62,7 +62,7 @@ Lithodat Pty Ltd is an Australian geoscience technology company specializing in 
 | **Similar Projects** | 4 major projects totaling AUD $3.7M+ (SAR 9,065,000) |
 | **Technical Team** | 19 staff including 5 PhDs in geoscience and data science |
 | **Government Experience** | NCRIS (Australia), NRCan (Canada), CSIRO, Geoscience Australia |
-| **Financial Health** | Cash Ratio 2.05, Current Ratio 3.21, Quick Ratio 3.19 |
+| **Financial Health** | Cash Ratio 4.69, Current Ratio 6.04, Quick Ratio 4.98 |
 | **AI/ML Capability** | Dr. Behnam Sadeghi (IAMG Vistelius Award winner, 58+ publications) |
 | **Saudi Expertise** | Dr. Mahdi AbuAli (35+ years Saudi Aramco), Dr. Qusay Abeed (Native Arabic speaker) |
 
@@ -77,7 +77,7 @@ Lithodat Pty Ltd is an Australian geoscience technology company specializing in 
 | Field | Response |
 |-------|----------|
 | **Name of the applicant (company/institution)** | Lithodat Pty Ltd |
-| **Value of the applicant's capital** | AUD $370,575 (SAR 907,909) |
+| **Value of the applicant's capital** | AUD $296,608 (SAR 726,690)¹ |
 | **Date Function** | Active |
 | **Commercial Registration Number** | ABN 63 627 008 904 (Australia) |
 | **Name of the person responsible** | Dr. Fabian Kohlmann |
@@ -116,11 +116,15 @@ Lithodat Pty Ltd is an Australian geoscience technology company specializing in 
 | # | Owner/Partner Name | Partnership Percentage | Nationality |
 |---|-------------------|----------------------|-------------|
 | 1 | Dr. Fabian Kohlmann | 50.1% | German/Australian |
-| 2 | Dr. Wayne Noble | 14.9% | Australian |
-| 3 | Gerd Moritz Theile | 10.0% | German |
-| 4 | Vinko Novak | 10.0% | Croatian |
-| 5 | Enreach Resources Pty Ltd | 15.0% | Australian |
+| 2 | Gerd Moritz Walter Theile | 24.0% | German |
+| 3 | Dr. Wayne Peter Noble | 14.9% | Australian |
+| 4 | Nilesh Ambadas Vyavahare | 8.0% | Indian/Australian |
+| 5 | Romain Beucher | 3.0% | French/Australian |
 | **Total** | | **100%** | |
+
+*Source: ASIC Company Extract dated 02-Dec-2025*
+
+¹ Capital Value = Net Assets as at 30 June 2025 per FY2025 Annual Report (Total Assets $430,819 - Total Liabilities $134,211 = $296,608). Exchange rate: 1 AUD = 2.45 SAR.
 
 ## Company Representative (Contact Administrator)
 
@@ -212,9 +216,9 @@ Keith Dimech (COO) brings **15 years** managing Environmental, Safety, and Quali
 | # | Project | Client | Value (AUD) | Value (SAR) | End Date |
 |---|---------|--------|-------------|-------------|----------|
 | 1 | EarthBank Platform | AuScope/NCRIS | $2,900,000 | 7,105,000 | Ongoing |
-| 2 | National Thermochronology Platform | NRCan | $300,000 | 735,000 | 2026 |
+| 2 | National Thermochronology Platform | NRCan | $400,000 | 980,000 | DELIVERED (2023) |
 | 3 | Isotopes.au Platform | CSIRO/ANSTO/GA | $400,000 | 980,000 | 2028 |
-| **Total** | | | **$3,600,000** | **8,820,000** | |
+| **Total** | | | **$3,700,000** | **9,065,000** | |
 
 ### Capacity Assessment
 
@@ -267,8 +271,8 @@ Lithodat is committed to supporting Saudi Vision 2030 workforce development obje
 | 1 | **Dr. Fabian Kohlmann** | Managing Director & CEO | Geoscience Leadership, FAIR Data Architecture, Thermochronology, Strategic Planning | **15+ years** |
 | 2 | **Dr. Wayne Noble** | Chief Information Officer | Enterprise Architecture, Cloud Systems, Agile Leadership, Software Development | **25+ years** |
 | 3 | **Keith Dimech** | Chief Operating Officer | Project Management, ESQ Systems, Financial Operations, HR, Legal, HSEQ | **15+ years** |
-| 4 | **Gerd Moritz Theile** | Lead Developer / Director | PostgreSQL Architecture, Database Design, LithoSurfer Platform, Java Development | **25+ years** |
-| 5 | **Juan Baca** | Operations Manager (LATAM) | Data Quality Management, Team Leadership, Database Operations, Training | **10+ years** |
+| 4 | **Gerd Moritz Theile** | CTO (Chief Technology Officer) | PostgreSQL Architecture, Database Design, LithoSurfer Platform, Java Development | **25+ years** |
+| 5 | **Juan Baca** | Managing Director - Lithodat México | Data Quality Management, Team Leadership, Database Operations, Training | **10+ years** |
 | 6 | - | - | - | - |
 | 7 | - | - | - | - |
 | 8 | - | - | - | - |
@@ -344,7 +348,7 @@ Lithodat is committed to supporting Saudi Vision 2030 workforce development obje
 | Field | Details |
 |-------|---------|
 | **Position** | Chief Operating Officer |
-| **Years with Lithodat** | May 2025 - Present (7 months) |
+| **Years with Lithodat** | May 2025 - Present (8 months) |
 | **Total Experience** | 15+ years |
 | **Education** | Executive MBA (RMIT, 2025); Bachelor (Hons) Geoscience (University of Melbourne, 2014) |
 
@@ -372,7 +376,7 @@ Lithodat is committed to supporting Saudi Vision 2030 workforce development obje
 | 4 | **Pedro Henrique Candido Ferreira** | AI Software Development Lead | Technology & AI/ML Strategy, Enterprise AI Implementation | **10-15 years** |
 | 5 | **Vinko Novak** | Head of Data Security | Data Security, Information Protection, Compliance, Security Architecture | **10+ years** |
 | 6 | **Xinyan Zhang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | **3+ years** |
-| 7 | **Lujia Yang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design | **3+ years** |
+| 7 | **Lujia Yang** | Frontend Developer | React, TypeScript, UI/UX implementation, Responsive design, Data Science (MSc) | **1+ years** |
 | 8 | **Tarun Sengar** | Backend Developer | Java, AWS, Backend Systems, API Development | **5+ years** |
 | 9 | **Nirali Dudharejiya** | Backend Developer | Java, Liquibase, Backend Systems, Database Management | **5+ years** |
 | 10 | **Cris Ibarra** | Data Quality Specialist | Data Entry, Data Validation, Quality Control, Database Operations | **3+ years** |
@@ -551,36 +555,46 @@ Lithodat is committed to supporting Saudi Vision 2030 workforce development obje
 
 | Line Item | FY2025 (Year 0) | FY2024 (Year -1) | FY2023 (Year -2) |
 |-----------|-----------------|------------------|------------------|
-| **Current Assets** | $430,819 | $176,800 | $93,690 |
-| **Cash & Cash Equivalents** | $274,855 | $100,406 | $40,605 |
-| **Accounts Receivable** | $152,964 | $76,394 | $53,001 |
-| **Current Liabilities** | $134,211 | $40,106 | $36,787 |
+| **Total Assets** | $430,819 | $194,687 | $93,690 |
+| **Current Assets** | $364,840 | $183,365 | $82,367 |
+| **Cash & Cash Equivalents** | $283,189 | $40,078 | $31,664 |
+| **Accounts Receivable** | $17,487 | $125,400 | $0 |
+| **Income Tax Refund Due** | $64,164 | $17,887 | $50,703 |
+| **Total Liabilities** | $134,211 | $57,993 | $36,787 |
+| **Current Liabilities** | $60,404 | $47,993 | $16,787 |
+| **Net Assets (Equity)** | $296,608 | $136,694 | $56,903 |
+
+*Source: Audited Annual Reports FY2023, FY2024, FY2025*
 
 ### In Saudi Riyals (SAR) - For Etimad Platform
 
 | Line Item | FY2025 (Year 0) | FY2024 (Year -1) | FY2023 (Year -2) |
 |-----------|-----------------|------------------|------------------|
-| **Current Assets** | 1,055,507 | 433,160 | 229,541 |
-| **Cash & Cash Equivalents** | **673,395** | 246,095 | 99,482 |
-| **Accounts Receivable** | **374,762** | 187,166 | 129,852 |
-| **Current Liabilities** | **328,817** | 98,260 | 90,128 |
+| **Total Assets** | 1,055,507 | 476,983 | 229,541 |
+| **Current Assets** | 893,858 | 449,244 | 201,799 |
+| **Cash & Cash Equivalents** | 693,813 | 98,191 | 77,577 |
+| **Current Liabilities** | 147,990 | 117,584 | 41,128 |
+| **Net Assets (Equity)** | 726,690 | 334,901 | 139,412 |
 
 ## Financial Performance Indicators
 
 | Indicator | Formula | FY2025 | FY2024 | FY2023 | Assessment |
 |-----------|---------|--------|--------|--------|------------|
-| **Cash Ratio** | Cash ÷ Current Liabilities | **2.05** | 2.50 | 1.10 | Excellent |
-| **Turnover Ratio** | Current Assets ÷ Current Liabilities | **3.21** | 4.41 | 2.55 | Excellent |
-| **Quick Liquidity Ratio** | (Cash + Receivables) ÷ Current Liabilities | **3.19** | 4.41 | 2.54 | Excellent |
+| **Cash Ratio** | Cash ÷ Current Liabilities | **4.69** | 0.84 | 1.89 | Excellent |
+| **Current Ratio** | Current Assets ÷ Current Liabilities | **6.04** | 3.82 | 4.91 | Excellent |
+| **Quick Ratio** | (Cash + Receivables) ÷ Current Liabilities | **4.98** | 3.44 | 1.89 | Excellent |
+
+*Note: Ratios calculated using Current Assets/Liabilities per audited financial statements*
 
 ## Financial Health Summary
 
 | Metric | FY2025 | Benchmark | Status |
 |--------|--------|-----------|--------|
-| Cash Ratio | 2.05 | >0.5 | **4x above benchmark** |
-| Current Ratio | 3.21 | >1.5 | **2x above benchmark** |
-| Quick Ratio | 3.19 | >1.0 | **3x above benchmark** |
-| Net Working Capital | $296,608 (SAR 726,690) | Positive | **Strong** |
+| Cash Ratio | 4.69 | >0.5 | **9x above benchmark** |
+| Current Ratio | 6.04 | >1.5 | **4x above benchmark** |
+| Quick Ratio | 4.98 | >1.0 | **5x above benchmark** |
+| Net Working Capital | $304,436 (SAR 745,868) | Positive | **Strong** |
+| Net Assets (Equity) | $296,608 (SAR 726,690) | Positive | **Strong** |
 | Revenue Growth (3-year CAGR) | 62.8% | - | **Strong Growth** |
 | Profit Growth (3-year CAGR) | 151.2% | - | **Excellent** |
 | Debt to Equity Ratio | 0.45:1 | <1.0 | **Low Leverage** |

@@ -31,15 +31,16 @@ This directory contains profiles of key personnel at Lithodat Pty Ltd.
 
 ## Lithodat Shareholding Summary
 
-Based on company records (image.png):
+**Source:** ASIC Company Extract (02-Dec-2025) - Document 7ECW02160
+**Last Updated:** 2025-12-10
 
-| Member | Shares | Address |
-|--------|--------|---------|
-| Fabian Kohlmann | 550 | Mount Waverley VIC 3149 |
-| Gerd Moritz Theile | 210 | Muenchen, Germany |
-| Romain Beucher | 30 | Acton ACT 2601 |
-| Nilesh Ambadas Vyavahare | 100 | United Kingdom |
-| Wayne Peter Noble | 110 | Wheelers Hill VIC 3150 |
+| Member | Shares | Percentage | Address |
+|--------|--------|------------|---------|
+| Fabian Kohlmann | 501 | 50.1% | 94 Stephensons Road, Mount Waverley VIC 3149 |
+| Gerd Moritz Theile | 240 | 24.0% | Harthauser Str. 71a, 81545 Muenchen, Germany |
+| Wayne Peter Noble | 149 | 14.9% | 176 Lum Road, Wheelers Hill VIC 3150 |
+| Nilesh Ambadas Vyavahare | 80 | 8.0% | 1 Subble Close, United Kingdom |
+| Romain Beucher | 30 | 3.0% | 22 Judith Wright Court, Acton ACT 2601 |
 
 **Total Class A Shares:** 1,000
 
