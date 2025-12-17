@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix K - Publications Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .page-break { page-break-before: always; }
+            .no-print { display: none; }
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+        }
+
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+        }
+
+        .header {
+            background: #1f4e78;
+            color: white;
+            padding: 25px 30px;
+            margin-bottom: 0;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .appendix-label {
+            font-size: 12pt;
+            opacity: 0.9;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 20px 30px 30px 30px;
+        }
+
+        .highlight-box {
+            background: #e8f0f7;
+            border-left: 4px solid #1f4e78;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box h3 {
+            color: #1f4e78;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .stat-number {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #1f4e78;
+        }
+
+        .stat-label {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #1f4e78;
+            border-bottom: 2px solid #1f4e78;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .subsection-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #1f4e78;
+            margin: 15px 0 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #1f4e78;
+            color: white;
+            padding: 8px 6px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 6px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #e8f0f7;
+        }
+
+        .author-highlight {
+            font-weight: bold;
+            color: #1f4e78;
+        }
+
+        .type-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .type-ai {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .type-traditional {
+            background: #f8f9fa;
+            color: #6c757d;
+        }
+
+        .legend {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 9pt;
+        }
+
+        .book-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .book-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #1f4e78;
+            margin-bottom: 5px;
+        }
+
+        .book-author {
+            font-size: 11pt;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .book-details {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 9pt;
+        }
+
+        .book-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-detail-label {
+            color: #666;
+            font-size: 8pt;
+        }
+
+        .book-detail-value {
+            font-weight: bold;
+        }
+
+        .book-description {
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+
+        .book-description ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        .book-url {
+            font-size: 9pt;
+            color: #1f4e78;
+            word-break: break-all;
+        }
+
+        .award-item {
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-left: 4px solid #ffc107;
+            margin-bottom: 8px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .award-year {
+            font-weight: bold;
+            color: #856404;
+        }
+
+        .award-title {
+            font-weight: bold;
+        }
+
+        .award-recipient {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .software-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .software-name {
+            font-weight: bold;
+            color: #1f4e78;
+            font-family: 'Consolas', 'Monaco', monospace;
+            min-width: 120px;
+        }
+
+        .software-desc {
+            flex: 1;
+            font-size: 9pt;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #1f4e78;
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .footer-company {
+            font-weight: bold;
+            color: #1f4e78;
+        }
+
+        .compact-table td {
+            padding: 4px 6px;
+            font-size: 8.5pt;
+        }
+
+        .compact-table th {
+            padding: 6px;
+            font-size: 8.5pt;
+        }
+
+        a {
+            color: #1f4e78;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .software-name a {
+            color: #1f4e78;
+            text-decoration: none;
+        }
+
+        .software-name a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="appendix-label">APPENDIX K</div>
+                <div class="title">Publications Summary</div>
+                <div class="subtitle">LITHODAT PTY LTD | GDAC-SA Tender | December 2025</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Summary Statistics -->
+            <div class="highlight-box">
+                <h3>Publication Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">87</div>
+                        <div class="stat-label">Total Publications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Book</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">AI-focused</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">13</div>
+                        <div class="stat-label">Research Themes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item"><span class="type-tag type-ai">AI</span> Machine learning, automation</div>
+                <div class="legend-item"><span class="type-tag type-traditional">-</span> Traditional research</div>
+            </div>
+
+            <!-- Book Publication -->
+            <div class="section">
+                <div class="section-title">Book Publication</div>
+                <div class="book-card">
+                    <div class="book-title"><a href="https://www.sciencedirect.com/book/9780323908979/fractals-and-multifractals-in-the-geosciences" target="_blank">Fractals and Multifractals in the Geosciences</a></div>
+                    <div class="book-author">Dr. Behnam Sadeghi</div>
+                    <div class="book-details">
+                        <div class="book-detail-item">
+                            <span class="book-detail-label">Publisher</span>
+                            <span class="book-detail-value">Elsevier</span>
+                        </div>
+                        <div class="book-detail-item">
+                            <span class="book-detail-label">Year</span>
+                            <span class="book-detail-value">2024</span>
+                        </div>
+                        <div class="book-detail-item">
+                            <span class="book-detail-label">ISBN</span>
+                            <span class="book-detail-value">978-0-323-90897-9</span>
+                        </div>
+                    </div>
+                    <div class="book-description">
+                        Comprehensive reference providing in-depth exploration of fractal and multifractal analysis in geoscience applications:
+                        <ul>
+                            <li><strong>Theoretical Foundations:</strong> Mathematical framework for fractal analysis</li>
+                            <li><strong>Geoscience Applications:</strong> Mineral exploration, anomaly detection, spatial analysis</li>
+                            <li><strong>Computational Methods:</strong> Python-based implementations and workflows</li>
+                            <li><strong>Case Studies:</strong> Real-world examples from global exploration projects</li>
+                        </ul>
+                    </div>
+                    <div class="book-url">https://www.elsevier.com/books/fractals-and-multifractals-in-the-geosciences/sadeghi/978-0-323-90897-9</div>
+                </div>
+            </div>
+
+            <!-- Key Authors -->
+            <div class="section">
+                <div class="section-title">Key Authors (Lithodat Team)</div>
+                <table>
+                    <tr>
+                        <th>Author</th>
+                        <th>Role</th>
+                        <th>Primary Focus</th>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">F Kohlmann</span></td>
+                        <td>CEO</td>
+                        <td>Thermochronology, Data Platforms</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">W Noble</span></td>
+                        <td>Technical Director</td>
+                        <td>Data Platforms, Thermochronology</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">M Theile</span></td>
+                        <td>Operations Director</td>
+                        <td>Data Platforms</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">K Dimech</span></td>
+                        <td>COO</td>
+                        <td>Environmental Sustainability</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">B Sadeghi</span></td>
+                        <td>Data Scientist</td>
+                        <td>Fractal Modeling, ML, Geochemistry</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">Q Abeed</span></td>
+                        <td>Collaborator</td>
+                        <td>Petroleum Geology</td>
+                    </tr>
+                    <tr>
+                        <td><span class="author-highlight">MA AbuAli</span></td>
+                        <td>Collaborator</td>
+                        <td>Petroleum Systems</td>
+                    </tr>
+                    <tr>
+                        <td>SC Boone</td>
+                        <td>Collaborator</td>
+                        <td>Big Data Thermochronology</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Awards & Recognition -->
+            <div class="section">
+                <div class="section-title">Awards & Recognition</div>
+                <div class="award-item">
+                    <span class="award-year">2023</span> - <span class="award-title">IAMG Andrei Borisovich Vistelius Research Award</span>
+                    <div class="award-recipient">B Sadeghi (First Australian recipient)</div>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2022-2024</span> - <span class="award-title">Fulbright Future Scholarship (USD $29,325)</span>
+                    <div class="award-recipient">B Sadeghi</div>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2020</span> - <span class="award-title">IAMG Founders Scholarship Award</span>
+                    <div class="award-recipient">B Sadeghi (First recipient ever)</div>
+                </div>
+            </div>
+
+            <!-- Open-Source Software -->
+            <div class="section">
+                <div class="section-title">Open-Source Software</div>
+                <div class="software-item">
+                    <span class="software-name"><a href="https://doi.org/10.1016/j.oregeorev.2025.106319" target="_blank">pyClusterWise</a></span>
+                    <span class="software-desc">Clustering method selection with uncertainty analysis</span>
+                    <span style="color: #666; font-size: 9pt;">B Sadeghi</span>
+                </div>
+                <div class="software-item">
+                    <span class="software-name"><a href="https://doi.org/10.1016/j.oregeorev.2024.106206" target="_blank">IRWPy</a></span>
+                    <span class="software-desc">Inverse Radius Weighting interpolation</span>
+                    <span style="color: #666; font-size: 9pt;">B Sadeghi</span>
+                </div>
+                <div class="software-item">
+                    <span class="software-name">TripleCpy</span>
+                    <span class="software-desc">Chatterjee Correlation Coefficient implementation</span>
+                    <span style="color: #666; font-size: 9pt;">B Sadeghi</span>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Publications by Research Theme -->
+            <div class="section">
+                <div class="section-title">Publications by Research Theme</div>
+
+                <!-- 1. Geochemistry Data Platforms -->
+                <div class="subsection-title">1. Geochemistry Data Platforms (11 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>2022</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1111/ggr.12419" target="_blank">AusGeochem: An open platform for geochemical data preservation, dissemination and synthesis</a></td><td>SC Boone, H Dalton, A Prent, <span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">M Theile</span>, Y Greau, G Florin, <span class="author-highlight">W Noble</span>, et al.</td><td>27</td></tr>
+                    <tr><td>2023</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1016/j.gca.2023.04.024" target="_blank">Community recommendations for geochemical data, services and analytical capabilities in the 21st century</a></td><td>M Klocking, L Wyborn, KA Lehnert, B Ware, AM Prent, L Profeta, <span class="author-highlight">F Kohlmann</span>, et al.</td><td>19</td></tr>
+                    <tr><td>2021</td><td><span class="type-tag type-traditional">-</span></td><td>LithoSurfer-a new community platform for storing, viewing, analysing, sharing and publishing thermochronology and geochronology data</td><td><span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">W Noble</span>, <span class="author-highlight">M Theile</span></td><td>1</td></tr>
+                    <tr><td>2025</td><td><span class="type-tag type-traditional">-</span></td><td>Deep-Time Digital Twins: Integrating LithoPlates with the EarthBank Platform</td><td><span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">W Noble</span>, X Qin, J Higton, et al.</td><td>0</td></tr>
+                    <tr><td>2023</td><td><span class="type-tag type-traditional">-</span></td><td>LithoPlates: A New Cloud-based Tool for Deep-Time Reconstruction of Geochemistry Data</td><td><span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">W Noble</span>, X Qin, R Beucher, et al.</td><td>0</td></tr>
+                    <tr><td>2024</td><td><span class="type-tag type-traditional">-</span></td><td>Empowering Geochemical Exploration and Research: Lithodat's Collaborative Data Platforms and Partnerships</td><td><span class="author-highlight">W Noble</span>, <span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">M Theile</span>, et al.</td><td>0</td></tr>
+                </table>
+
+                <!-- 2. Thermochronology & Geochronology -->
+                <div class="subsection-title">2. Thermochronology & Geochronology (15 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>2014</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1144/SP390.27" target="_blank">From orogen to passive margin: constraints from fission track and (U-Th)/He analyses on Mesozoic uplift and fault reactivation in SW Norway</a></td><td>AK Ksienzyk, I Dunkl, J Jacobs, H Fossen, <span class="author-highlight">F Kohlmann</span></td><td>76</td></tr>
+                    <tr><td>2013</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1016/j.tecto.2013.09.035" target="_blank">K-Ar illite and apatite fission track constraints on brittle faulting and the evolution of the northern Norwegian passive margin</a></td><td>C Davids, K Wemmer, H Zwingmann, <span class="author-highlight">F Kohlmann</span>, J Jacobs, SG Bergh</td><td>61</td></tr>
+                    <tr><td>2009</td><td><span class="type-tag type-ai">AI</span></td><td><a href="https://doi.org/10.1016/j.chemgeo.2009.05.021" target="_blank">A new approach to crystallographic orientation measurement for apatite fission track analysis: effects of crystal morphology and implications for automation</a></td><td>M Peternell, <span class="author-highlight">F Kohlmann</span>, CJL Wilson, C Seiler, AJW Gleadow</td><td>50</td></tr>
+                    <tr><td>2009</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1144/SP324.15" target="_blank">A reappraisal of low-temperature thermochronology of the eastern Fennoscandia Shield</a></td><td>BP Kohn, M Lorencak, AJW Gleadow, <span class="author-highlight">F Kohlmann</span>, A Raza, KG Osadetz, et al.</td><td>50</td></tr>
+                    <tr><td>2023</td><td><span class="type-tag type-ai">AI</span></td><td><a href="https://doi.org/10.1038/s41598-023-35776-3" target="_blank">A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data</a></td><td>SC Boone, <span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">W Noble</span>, <span class="author-highlight">M Theile</span>, R Beucher, B Kohn, S Glorie, et al.</td><td>12</td></tr>
+                    <tr><td>2013</td><td><span class="type-tag type-traditional">-</span></td><td>Tectonic evolution of the SW Norwegian passive margin based on low-temperature thermochronology</td><td>KC Johannessen, <span class="author-highlight">F Kohlmann</span>, AK Ksienzyk, I Dunkl, J Jacobs</td><td>26</td></tr>
+                </table>
+
+                <!-- 3. Machine Learning in Mineral Exploration -->
+                <div class="subsection-title">3. Machine Learning in Mineral Exploration (3 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>2025</td><td><span class="type-tag type-ai">AI</span></td><td><a href="https://doi.org/10.1029/2024TC008362" target="_blank">Machine learning-based spatio-temporal prospectivity modeling of porphyry systems in the New Guinea and Solomon Islands region</a></td><td>E Farahbakhsh, S Zahirovic, B McInnes, S Polanco, <span class="author-highlight">F Kohlmann</span>, M Seton, et al.</td><td>2</td></tr>
+                    <tr><td>2024</td><td><span class="type-tag type-ai">AI</span></td><td><a href="https://doi.org/10.1016/j.chemer.2024.126111" target="_blank">Lithium exploration targeting through robust variable selection and deep anomaly detection</a></td><td>S Esmaeiloghli, A Lima, <span class="author-highlight">B Sadeghi</span></td><td>0</td></tr>
+                    <tr><td>2022</td><td><span class="type-tag type-ai">AI</span></td><td><a href="https://doi.org/10.3390/min12060689" target="_blank">Combination of Machine Learning Algorithms with Concentration-area Fractal Method for Soil Geochemical Anomaly Detection</a></td><td>S Farhadi, P Afzal, M Boveiri Konari, L Daneshvar Saein, <span class="author-highlight">B Sadeghi</span></td><td>0</td></tr>
+                </table>
+
+                <!-- 7. Petroleum Geology & Basin Modeling -->
+                <div class="subsection-title">7. Petroleum Geology & Basin Modeling (13 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>1999</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.2113/geoarabia0403321" target="_blank">Paleozoic petroleum system of central Saudi Arabia</a></td><td><span class="author-highlight">MA Abu-Ali</span>, JLL Rudkiewicz, JG McGillivray, F Behar</td><td>132</td></tr>
+                    <tr><td>1994</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1021/ef00048a034" target="_blank">Organic geochemistry of the Paleozoic petroleum system of Saudi Arabia</a></td><td>GA Cole, <span class="author-highlight">MA Abu-Ali</span>, SM Aoudeh, WJ Carrigan, HH Chen, EL Colling, et al.</td><td>125</td></tr>
+                    <tr><td>2011</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1111/j.1747-5457.2011.00497.x" target="_blank">Source rock potential of the upper Jurassic-Lower Cretaceous succession in the southern Mesopotamian basin, southern Iraq</a></td><td><span class="author-highlight">Q Abeed</span>, A Alkhafaji, R Littke</td><td>89</td></tr>
+                    <tr><td>2005</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.2113/geoarabia1003131" target="_blank">Paleozoic petroleum systems of Saudi Arabia: a basin modeling approach</a></td><td>M Abu-Ali, R Littke</td><td>84</td></tr>
+                    <tr><td>1991</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.2118/21376-MS" target="_blank">Hydrocarbon generation and migration in the Paleozoic sequence of Saudi Arabia</a></td><td><span class="author-highlight">MA Abu-Ali</span>, UA Franz, J Shen, F Monnier, MD Mahmoud, TM Chambers</td><td>84</td></tr>
+                    <tr><td>2012</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.1016/j.orggeochem.2012.02.007" target="_blank">Geochemistry, origin and correlation of crude oils in Lower Cretaceous sedimentary sequences of the southern Mesopotamian Basin, southern Iraq</a></td><td><span class="author-highlight">Q Abeed</span>, D Leythaeuser, R Littke</td><td>83</td></tr>
+                    <tr><td>2013</td><td><span class="type-tag type-traditional">-</span></td><td><a href="https://doi.org/10.2113/geoarabia1801179" target="_blank">The Upper Jurassic-Cretaceous petroleum system of southern Iraq: a 3-D basin modelling study</a></td><td><span class="author-highlight">Q Abeed</span>, R Littke, F Strozyk, AK Uffmann</td><td>73</td></tr>
+                </table>
+
+                <!-- 11. Environmental & Sustainability -->
+                <div class="subsection-title">11. Environmental & Sustainability (2 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>2025</td><td><span class="type-tag type-traditional">-</span></td><td>DERT (Diagnostic Environmental Reporting Tool): A Global Relational Data Platform Set to Transform Contamination Reporting and Environmental Data</td><td><span class="author-highlight">F Kohlmann</span>, <span class="author-highlight">K Dimech</span>, <span class="author-highlight">W Noble</span>, et al.</td><td>0</td></tr>
+                    <tr><td>2025</td><td><span class="type-tag type-traditional">-</span></td><td>'PROJECT PATHWAY' TO NET ZERO: SCOPE 3 CARBON IN WATER CAPITAL PROJECTS FROM TENDER TO AS BUILT</td><td><span class="author-highlight">K Dimech</span></td><td>0</td></tr>
+                </table>
+
+                <!-- 13. Petroleum Exploration Technology -->
+                <div class="subsection-title">13. Petroleum Exploration Technology (5 publications)</div>
+                <table class="compact-table">
+                    <tr><th>Year</th><th>Type</th><th>Title</th><th>Authors</th><th>Cites</th></tr>
+                    <tr><td>2020</td><td><span class="type-tag type-traditional">-</span></td><td>Iterative and repeatable workflow for comprehensive data and processes integration for petroleum exploration and production assessments (US Patent 10,713,398)</td><td>MM Mezghani, NF Najjar, <span class="author-highlight">M AbuAli</span>, R Zuhlke, S Inan, CK Allen</td><td>26</td></tr>
+                    <tr><td>2019</td><td><span class="type-tag type-traditional">-</span></td><td>Sampling techniques to detect hydrocarbon seepage (US Patent 10,280,747)</td><td><span class="author-highlight">M AbuAli</span>, MI Almarhoon, K Arouri</td><td>12</td></tr>
+                    <tr><td>2016</td><td><span class="type-tag type-ai">AI</span></td><td>Characterizing stratigraphic traps using improved waveform classification seismic facies analysis: central Saudi Arabia</td><td>SH Zhang, Y Xu, <span class="author-highlight">M Abu-Ali</span></td><td>7</td></tr>
+                    <tr><td>2021</td><td><span class="type-tag type-traditional">-</span></td><td>In-situ hydrocarbon detection and monitoring (US Patent 11,163,091)</td><td>A Alabbad, W AlKawai, <span class="author-highlight">M AbuAli</span></td><td>3</td></tr>
+                </table>
+
+                <p style="font-size: 9pt; color: #666; margin-top: 15px; font-style: italic;">
+                    Note: This summary shows selected highlights from 87 total publications across 13 research themes.
+                    Full publication list available in K-Publications-Summary.md
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span class="footer-company">LITHODAT PTY LTD</span> | ABN: 48 647 191 452 | publications@lithodat.com
+            </div>
+        </div>
+    </div>
+</body>
+</html>

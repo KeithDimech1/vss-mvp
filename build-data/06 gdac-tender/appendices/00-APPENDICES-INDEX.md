@@ -3,7 +3,7 @@
 
 **RFQ Reference:** 251140007625
 **Date Created:** December 2025
-**Total Appendices:** 13 (A-M)
+**Total Appendices:** 12 (A-K, M)
 
 ---
 
@@ -21,8 +21,7 @@
 | **H** | Isotopes.au Project Summary & Client Reference | Markdown | 6.0 KB | Form 9.5 - Similar Projects |
 | **I** | NRCan Project Summary & Client Reference | Markdown | 6.0 KB | Form 9.5 - Similar Projects |
 | **J** | Curriculum Vitae (Combined) | Markdown | 42 KB | Form 9.3 - Administrative Staff |
-| **K** | Publications Summary | Markdown | 2.4 KB | Form 9.2 - Innovation Excellence |
-| **L** | Elsevier Book Reference - "Fractals and Multifractals in the Geosciences" | Markdown | 1.8 KB | Form 9.4 - Professional Staff |
+| **K** | Publications Summary (incl. Elsevier Book Reference) | Markdown | 4.2 KB | Form 9.2 - Innovation Excellence |
 | **M** | Project Organizational Chart | Markdown | 5.9 KB | Form 9.1 - Company Structure |
 
 ---
@@ -52,8 +51,8 @@ Example: `A-ASIC-Company-Extract-02-Dec-2025.pdf`
 - **Total Size:** ~18 KB
 - **Format:** Markdown
 
-### Personnel & Publications (J-M)
-- **4 documents** - CVs, publications, book reference, org chart
+### Personnel & Publications (J-K, M)
+- **3 documents** - CVs, publications (incl. book reference), org chart
 - **Total Size:** ~52 KB
 - **Format:** Markdown
 
@@ -122,20 +121,14 @@ Example: `A-ASIC-Company-Extract-02-Dec-2025.pdf`
 
 **Total Pages:** ~40 pages combined
 
-### Appendix K - Publications Summary
+### Appendix K - Publications Summary (incl. Book Reference)
 **Content:**
-- Chemical Geology (2025) publication details
+- 87 peer-reviewed publications across 13 research themes
+- Book Publication: "Fractals and Multifractals in the Geosciences" by Dr. B. Sadeghi (Elsevier, 2024, ISBN 978-0-323-90897-9)
 - Dr. Behnam Sadeghi publication list (58+ articles)
 - Awards and recognition
 - Python packages developed (3)
 - Editorial positions
-
-### Appendix L - Elsevier Book Reference
-**Book:** "Fractals and Multifractals in the Geosciences"
-**Author:** Dr. Behnam Sadeghi
-**Publisher:** Elsevier (2024)
-**ISBN:** 978-0-323-90897-9
-**URL:** https://www.elsevier.com/books/fractals-and-multifractals-in-the-geosciences/sadeghi/978-0-323-90897-9
 
 ### Appendix M - Organizational Chart
 **Content:**
@@ -187,7 +180,7 @@ done
 
 ## Verification Checklist
 
-- ✅ All 13 appendices present (A-M)
+- ✅ All 12 appendices present (A-K, M)
 - ✅ File naming consistent
 - ✅ Financial statements cover 3 years (FY2023-2025)
 - ✅ ASIC document is most recent (02-Dec-2025)

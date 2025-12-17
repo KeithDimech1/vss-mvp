@@ -453,3 +453,167 @@ This needs verification against:
 **Detail Log:** [debug/IDEA-003-gdac-tender-forms-9-1-9-6-systematic-audit-consistency-checker.md](debug/IDEA-003-gdac-tender-forms-9-1-9-6-systematic-audit-consistency-checker.md)
 
 ---
+
+## IDEA-004
+
+**Title:** Global Australian Legal AI Agents (Sovereign AI + Open Legal Corpus)
+**Priority:** P1 | **Status:** 💡 idea | **Date:** 2025-12-17
+
+### Description
+
+Create global MCP (Model Context Protocol) servers that integrate Australian legal AI resources across all Claude Code projects. This would provide:
+
+1. **Open Australian Legal Corpus Access** - The largest open database of Australian law (232k+ documents, 1.47B tokens) from Federal, State, and Territory sources
+2. **Sovereign Australia AI Integration** - Future integration with Ginan (8B parameter Australian-focused LLM, open source when released)
+
+These MCP servers would be globally available to all Claude Code projects, providing legal context, compliance checking, and Australian legal document understanding without project-specific setup.
+
+**Key Resources:**
+- [Open Australian Legal Corpus on Hugging Face](https://huggingface.co/datasets/isaacus/open-australian-legal-corpus)
+- [Sovereign Australia AI](https://sovereign-au.ai/)
+- [How the corpus was built](https://umarbutler.com/how-i-built-the-largest-open-database-of-australian-law/)
+
+### Use Cases
+
+1. **Legal Document Generation** - Generate Australian-compliant Terms of Service, Privacy Policies, contracts using actual legal precedents
+2. **Compliance Checking** - Verify business documents against Australian Consumer Law, Privacy Act 1988, APP (Australian Privacy Principles)
+3. **Legal Research Assistant** - Query Australian legislation, case law, and regulations across all jurisdictions
+4. **Contract Analysis** - Analyze contracts for Australian legal requirements and risks
+5. **Multi-Project Consistency** - Ensure legal language consistency across Lithodat products (LithoSurfer, VSM Platform, etc.)
+6. **License/Terms Generation** - Generate tier-specific legal documents for Free/Pro/Enterprise tiers with Australian compliance
+
+### Requirements
+
+**Functional:**
+- [ ] Query Open Australian Legal Corpus (100k+ legislative and judicial documents)
+- [ ] Search by jurisdiction (Federal, NSW, QLD, WA, SA, TAS)
+- [ ] Search by document type (legislation, case law, regulations)
+- [ ] Generate legal document templates (Privacy Policy, Terms of Service, etc.)
+- [ ] Check text for legal compliance and issues
+- [ ] Provide Australian legal context and citations
+- [ ] Future: Integrate with Sovereign AI Ginan model when API available
+
+**Technical:**
+- [ ] Build MCP server following Anthropic's Model Context Protocol spec
+- [ ] Download and index Open Australian Legal Corpus dataset
+- [ ] Implement vector search/RAG for efficient legal document retrieval
+- [ ] Configure as global MCP server in `~/.claude/config.json`
+- [ ] Handle large dataset efficiently (1.47B tokens)
+- [ ] Provide secure, local processing (no external API calls for corpus data)
+- [ ] Future: API integration with Sovereign AI when available
+
+### Implementation Options
+
+#### Option 1: Standalone MCP Server with Local Corpus
+
+**Approach:** Build a Python MCP server that downloads and indexes the Open Australian Legal Corpus locally, providing RAG-based search and legal analysis.
+
+**Pros:**
+- ✅ Complete control over data and privacy
+- ✅ No external API dependencies or costs
+- ✅ Fast local queries after initial setup
+- ✅ Works offline once corpus downloaded
+- ✅ Can be used across all Lithodat projects globally
+
+**Cons:**
+- ❌ Large initial download (~1.47B tokens)
+- ❌ Requires local storage and indexing infrastructure
+- ❌ Maintenance overhead for corpus updates
+- ❌ Need to build vector search/RAG pipeline
+
+**Effort:** High (2-3 weeks)
+
+**Tech Stack:**
+- Python MCP server
+- Hugging Face `datasets` library
+- ChromaDB or FAISS for vector storage
+- Sentence transformers for embeddings
+- LangChain for RAG pipeline
+
+#### Option 2: Hybrid Approach - Corpus MCP + Future Ginan Integration
+
+**Approach:** Start with local Open Australian Legal Corpus MCP server, design architecture to add Sovereign AI Ginan when API becomes available.
+
+**Pros:**
+- ✅ Immediate value with corpus access
+- ✅ Future-proof for Ginan integration
+- ✅ Leverages both structured legal data and AI reasoning
+- ✅ Modular design allows gradual enhancement
+
+**Cons:**
+- ❌ Uncertain timeline for Ginan API availability
+- ❌ May need to refactor when Ginan API specs are known
+- ❌ Complex architecture to maintain two systems
+
+**Effort:** High initial (2-3 weeks), Medium ongoing
+
+#### Option 3: Lightweight MCP with Hugging Face API
+
+**Approach:** Use Hugging Face Datasets API to query corpus remotely instead of downloading, build minimal MCP wrapper.
+
+**Pros:**
+- ✅ Minimal local storage requirements
+- ✅ Faster initial setup
+- ✅ Automatic corpus updates from Hugging Face
+- ✅ Simpler architecture
+
+**Cons:**
+- ❌ Requires internet connection
+- ❌ Slower queries (API latency)
+- ❌ Potential rate limits or API costs
+- ❌ Less control over indexing and search
+
+**Effort:** Medium (1 week)
+
+#### Option 4: Integration with Existing Legal MCP Servers
+
+**Approach:** Leverage existing LegalContext MCP server pattern, adapt for Australian corpus.
+
+**Pros:**
+- ✅ Proven MCP server architecture
+- ✅ Existing patterns for legal document processing
+- ✅ Security patterns already established
+- ✅ Faster development using reference implementation
+
+**Cons:**
+- ❌ May need significant adaptation for Australian context
+- ❌ Existing servers focused on US/Clio integration
+- ❌ Still needs corpus integration work
+
+**Effort:** Medium (1-2 weeks)
+
+**Reference:** [LegalContext MCP Server](https://mcp.so/server/legal-context/protomated)
+
+### Recommended Approach
+
+**Start with Option 1** (Standalone MCP Server with Local Corpus):
+- Most control and best long-term foundation
+- Build proper RAG pipeline that can be reused
+- Design with Option 2 in mind (future Ginan integration)
+- Accept higher initial effort for better long-term value
+
+**Phase 1:** Local Corpus MCP Server (2-3 weeks)
+**Phase 2:** Add Ginan integration when API available (TBD)
+
+### Files to Create/Modify
+
+**New files:**
+- `~/.claude/mcp-servers/australian-legal/` - MCP server directory
+- `~/.claude/mcp-servers/australian-legal/server.py` - Main MCP server implementation
+- `~/.claude/mcp-servers/australian-legal/corpus_indexer.py` - Download and index Open Australian Legal Corpus
+- `~/.claude/mcp-servers/australian-legal/legal_search.py` - RAG-based legal document search
+- `~/.claude/mcp-servers/australian-legal/requirements.txt` - Python dependencies
+- `~/.claude/mcp-servers/australian-legal/README.md` - Setup and usage documentation
+- `~/.claude/mcp-servers/australian-legal/config.json` - Corpus paths, embeddings config
+
+**Modified files:**
+- `~/.claude/config.json` - Add Australian Legal MCP server to global config
+- `~/.claude/CLAUDE.md` - Document available legal AI capabilities
+
+**Data storage:**
+- `~/.claude/mcp-servers/australian-legal/data/corpus/` - Downloaded corpus files
+- `~/.claude/mcp-servers/australian-legal/data/embeddings/` - Vector embeddings database
+
+**Detail Log:** [debug/IDEA-004-global-australian-legal-ai-agents-sovereign-ai-open-legal-corpus.md](debug/IDEA-004-global-australian-legal-ai-agents-sovereign-ai-open-legal-corpus.md)
+
+---

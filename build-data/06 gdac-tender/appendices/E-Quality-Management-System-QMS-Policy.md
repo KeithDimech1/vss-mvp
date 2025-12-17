@@ -10,11 +10,11 @@ Lithodat follows internationally recognised frameworks for software quality, dat
 - Clear product lifecycle management  
 - Continuous improvement procedures  
 
-**Status:** Alignment (not formally certified)
+**Status:** Alignment
 
 ---
 
-### • ISO 27001 – Information Security Management
+### Information Security Management
 Lithodat’s platform and operational practices adhere to ISO 27001 principles through:
 
 - Role-based access control  
