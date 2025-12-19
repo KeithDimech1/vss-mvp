@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" style="background-color: white;">
+  <!-- Title -->
+  <rect x="50" y="20" width="1300" height="80" fill="#1f4e78" rx="5"/>
+  <text x="700" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">LITHODAT GDAC-SA TEAM</text>
+  <text x="700" y="80" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Dr. Fabian Kohlmann (CEO/Managing Director)</text>
+
+  <!-- Vertical line from CEO -->
+  <line x1="700" y1="100" x2="700" y2="140" stroke="#333" stroke-width="3"/>
+
+  <!-- Horizontal line to three divisions -->
+  <line x1="200" y1="140" x2="1200" y2="140" stroke="#333" stroke-width="3"/>
+
+  <!-- Three vertical lines down to division boxes -->
+  <line x1="350" y1="140" x2="350" y2="180" stroke="#333" stroke-width="3"/>
+  <line x1="700" y1="140" x2="700" y2="180" stroke="#333" stroke-width="3"/>
+  <line x1="1050" y1="140" x2="1050" y2="180" stroke="#333" stroke-width="3"/>
+
+  <!-- KINGDOM & GOVERNMENT -->
+  <rect x="200" y="180" width="300" height="60" fill="#2c5f8d" rx="5"/>
+  <text x="350" y="205" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">KINGDOM &amp; GOVERNMENT</text>
+  <text x="350" y="225" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">RELATIONS</text>
+
+  <!-- TECHNICAL LEADERSHIP -->
+  <rect x="550" y="180" width="300" height="60" fill="#2c5f8d" rx="5"/>
+  <text x="700" y="205" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">TECHNICAL</text>
+  <text x="700" y="225" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">LEADERSHIP</text>
+
+  <!-- PROJECT MANAGEMENT -->
+  <rect x="900" y="180" width="300" height="60" fill="#2c5f8d" rx="5"/>
+  <text x="1050" y="205" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">PROJECT</text>
+  <text x="1050" y="225" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">MANAGEMENT</text>
+
+  <!-- Lines down from division headers -->
+  <line x1="350" y1="240" x2="350" y2="280" stroke="#333" stroke-width="2"/>
+  <line x1="700" y1="240" x2="700" y2="280" stroke="#333" stroke-width="2"/>
+  <line x1="1050" y1="240" x2="1050" y2="280" stroke="#333" stroke-width="2"/>
+
+  <!-- Kingdom & Government - Leaders -->
+  <rect x="200" y="280" width="300" height="90" fill="#4a7ba7" rx="5" stroke="#1f4e78" stroke-width="2"/>
+  <text x="350" y="305" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Dr. Mahdi AbuAli</text>
+  <text x="350" y="325" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">(GDAC Saudi Lead)</text>
+  <line x1="200" y1="335" x2="500" y2="335" stroke="white" stroke-width="1"/>
+  <text x="350" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Dr. Wayne Noble</text>
+  <text x="350" y="370" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">(CIO)</text>
+
+  <!-- Technical Leadership - Leaders -->
+  <rect x="550" y="280" width="300" height="90" fill="#4a7ba7" rx="5" stroke="#1f4e78" stroke-width="2"/>
+  <text x="700" y="305" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Dr. Qusay Abeed</text>
+  <text x="700" y="325" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">(Technical Director)</text>
+  <line x1="550" y1="335" x2="850" y2="335" stroke="white" stroke-width="1"/>
+  <text x="700" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Moritz Theile</text>
+  <text x="700" y="370" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">(Lead Dev)</text>
+
+  <!-- Project Management - Leaders -->
+  <rect x="900" y="280" width="300" height="90" fill="#4a7ba7" rx="5" stroke="#1f4e78" stroke-width="2"/>
+  <text x="1050" y="305" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Keith Dimech</text>
+  <text x="1050" y="325" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">(Project Director)</text>
+  <line x1="900" y1="335" x2="1200" y2="335" stroke="white" stroke-width="1"/>
+  <text x="1050" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Juan Baca</text>
+  <text x="1050" y="370" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">(Data Quality)</text>
+
+  <!-- Lines down to team sections -->
+  <line x1="350" y1="370" x2="350" y2="410" stroke="#333" stroke-width="2"/>
+  <line x1="700" y1="370" x2="700" y2="410" stroke="#333" stroke-width="2"/>
+  <line x1="1050" y1="370" x2="1050" y2="410" stroke="#333" stroke-width="2"/>
+
+  <!-- SPECIALISTS Team -->
+  <rect x="200" y="410" width="300" height="35" fill="#6b9dc8" rx="5"/>
+  <text x="350" y="432" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SPECIALISTS</text>
+
+  <rect x="200" y="450" width="300" height="240" fill="#e8f0f7" rx="5" stroke="#4a7ba7" stroke-width="2"/>
+  <text x="350" y="475" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Dr. Behnam Sadeghi</text>
+  <text x="350" y="490" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(ML/AI)</text>
+
+  <line x1="210" y1="500" x2="490" y2="500" stroke="#ccc" stroke-width="1"/>
+
+  <text x="350" y="520" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Pedro H.C. Ferreira</text>
+  <text x="350" y="535" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(AI Software Lead)</text>
+
+  <line x1="210" y1="545" x2="490" y2="545" stroke="#ccc" stroke-width="1"/>
+
+  <text x="350" y="565" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Vinko Novak</text>
+  <text x="350" y="580" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Security)</text>
+
+  <line x1="210" y1="590" x2="490" y2="590" stroke="#ccc" stroke-width="1"/>
+
+  <text x="350" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Dr. Fun Meeuws</text>
+  <text x="350" y="625" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Geochemistry)</text>
+
+  <line x1="210" y1="635" x2="490" y2="635" stroke="#ccc" stroke-width="1"/>
+
+  <text x="350" y="655" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Dr. Alejandra Bedoya</text>
+  <text x="350" y="670" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Geochronology)</text>
+
+  <!-- DEVELOPMENT Team -->
+  <rect x="550" y="410" width="300" height="35" fill="#6b9dc8" rx="5"/>
+  <text x="700" y="432" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVELOPMENT</text>
+
+  <rect x="550" y="450" width="300" height="195" fill="#e8f0f7" rx="5" stroke="#4a7ba7" stroke-width="2"/>
+  <text x="700" y="475" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Xinyan Zhang</text>
+  <text x="700" y="490" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Frontend)</text>
+
+  <line x1="560" y1="500" x2="840" y2="500" stroke="#ccc" stroke-width="1"/>
+
+  <text x="700" y="520" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Lujia Yang</text>
+  <text x="700" y="535" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Frontend)</text>
+
+  <line x1="560" y1="545" x2="840" y2="545" stroke="#ccc" stroke-width="1"/>
+
+  <text x="700" y="565" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Tarun Sengar</text>
+  <text x="700" y="580" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Backend)</text>
+
+  <line x1="560" y1="590" x2="840" y2="590" stroke="#ccc" stroke-width="1"/>
+
+  <text x="700" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Nirali Dudharejiya</text>
+  <text x="700" y="625" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(Backend)</text>
+
+  <!-- DATA QUALITY Team -->
+  <rect x="900" y="410" width="300" height="35" fill="#6b9dc8" rx="5"/>
+  <text x="1050" y="432" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DATA QUALITY</text>
+
+  <rect x="900" y="450" width="300" height="195" fill="#e8f0f7" rx="5" stroke="#4a7ba7" stroke-width="2"/>
+  <text x="1050" y="475" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Cris Ibarra</text>
+  <text x="1050" y="490" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(QC)</text>
+
+  <line x1="910" y1="500" x2="1190" y2="500" stroke="#ccc" stroke-width="1"/>
+
+  <text x="1050" y="520" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Perla Luque</text>
+  <text x="1050" y="535" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(QC)</text>
+
+  <line x1="910" y1="545" x2="1190" y2="545" stroke="#ccc" stroke-width="1"/>
+
+  <text x="1050" y="565" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f4e78" text-anchor="middle">Benjamin Dib</text>
+  <text x="1050" y="580" font-family="Arial, sans-serif" font-size="10" fill="#333" text-anchor="middle">(LithoSpace)</text>
+
+  <!-- Footer Summary -->
+  <rect x="50" y="720" width="1300" height="60" fill="#f0f0f0" rx="5" stroke="#1f4e78" stroke-width="2"/>
+  <text x="700" y="745" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f4e78" text-anchor="middle">TOTAL TEAM: 17 personnel</text>
+  <text x="700" y="765" font-family="Arial, sans-serif" font-size="12" fill="#333" text-anchor="middle">(3 Directors + 3 Team Leads + 5 Specialists + 4 Developers + 3 Data Quality)</text>
+</svg>

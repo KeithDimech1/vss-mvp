@@ -1,0 +1,101 @@
+graph LR
+    %% Top Level - Client and Advisory
+    SGS[SGS<br/>Saudi Geological Survey]
+    ADVISOR[Dr. Mahdi AbuAli<br/>GDAC Saudi Lead]
+
+    %% Executive Level
+    CEO[Dr. Fabian Kohlmann<br/>Chief Executive]
+
+    %% C-Level Management
+    COO[Keith Dimech<br/>Chief Operating Officer]
+    CIO[Dr. Wayne Peter Noble<br/>Chief Information Officer]
+    GEO[Dr. Qusay Abeed<br/>Geological Director]
+
+    %% External Consultants (Top Level)
+    LEGAL[Legal<br/>External]
+    ACCT[Accounting<br/>External]
+
+    %% CTO
+    CTO[Gerd Moritz Theile<br/>Chief Technology Officer]
+
+    %% Quality Manager
+    QM[Juan Baca<br/>Quality Manager]
+
+    %% Data and Cyber Security Team (Vertical Stack)
+    subgraph DATASEC["Data and Cyber Security"]
+        direction TB
+        VINKO[Vinko Novak<br/>Head of Data Security]
+        ANNE[Annemarie Grass<br/>Head of Cyber Defence]
+        MAPBOX[Mapbox<br/>Data Sovereignty Role<br/>External Company]
+    end
+
+    %% Backend Team (Vertical Stack)
+    subgraph BACKEND["Backend Team"]
+        direction TB
+        BE1[Nirali Dudharejiya<br/>Backend Developer]
+        BE2[Tarun Sengar<br/>Backend Developer]
+    end
+
+    %% Frontend Team (Vertical Stack)
+    subgraph FRONTEND["Frontend Team"]
+        direction TB
+        FE1[Lujia Yang<br/>Frontend]
+        FE2[Xinyan Zhang<br/>Frontend]
+    end
+
+    %% AI Specialist Team (Vertical Stack)
+    subgraph AIBOX["AI Specialist Team"]
+        direction TB
+        AI1[Nilesh Vyavahare<br/>GIS Full Stack Developer]
+        AI2[Pedro Ferreira<br/>AI Software Development Lead]
+        AI3[Dr. Behnam Sadeghi<br/>Geological ML Technical Advisor]
+    end
+
+    %% Geological Quality Team (Vertical Stack)
+    subgraph GEOBOX["Geological Quality Team"]
+        direction TB
+        GEO1[Dr. Alejandra Bedoya<br/>Geologist]
+        GEO2[Perla Luque<br/>Geologist]
+        GEO3[Cris Ibarra<br/>Geologist]
+    end
+
+    %% Main Reporting Structure
+    SGS --> CEO
+    ADVISOR -.Advisory Role.-> CEO
+
+    CEO --> COO
+    CEO --> CIO
+    CEO --> GEO
+
+    %% COO's Reports
+    LEGAL -.-> COO
+    ACCT -.-> COO
+    COO --> DATASEC
+
+    %% CIO's Reports
+    CIO --> CTO
+    CIO --> FRONTEND
+    CIO --> AIBOX
+
+    %% CTO's Reports
+    COO <-.-> CTO
+    CTO --> BACKEND
+
+    %% Geological Director's Reports
+    GEO --> QM
+    QM --> GEOBOX
+
+    %% Styling
+    classDef client fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+    classDef advisory fill:#ffc0cb,stroke:#ff69b4,stroke-width:2px,color:#000
+    classDef executive fill:#1e3a8a,stroke:#1e40af,stroke-width:3px,color:#fff
+    classDef clevel fill:#2563eb,stroke:#3b82f6,stroke-width:2px,color:#fff
+    classDef team fill:#60a5fa,stroke:#3b82f6,stroke-width:1px,color:#000
+    classDef consultant fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
+
+    class SGS client
+    class ADVISOR advisory
+    class CEO executive
+    class COO,CIO,GEO,CTO,QM clevel
+    class VINKO,ANNE,BE1,BE2,FE1,FE2,AI1,AI2,AI3,GEO1,GEO2,GEO3 team
+    class LEGAL,ACCT,MAPBOX consultant

@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 920" font-family="'Calibri', Arial, sans-serif">
+  <defs>
+    <!-- Gradients matching HTML color scheme #1f4e78 -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1f4e78"/>
+      <stop offset="100%" style="stop-color:#2d5f92"/>
+    </linearGradient>
+    <linearGradient id="step1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2b6cb0"/>
+      <stop offset="100%" style="stop-color:#2c5282"/>
+    </linearGradient>
+    <linearGradient id="step2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2f855a"/>
+      <stop offset="100%" style="stop-color:#276749"/>
+    </linearGradient>
+    <linearGradient id="step3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5a67d8"/>
+      <stop offset="100%" style="stop-color:#4c51bf"/>
+    </linearGradient>
+    <linearGradient id="step4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c53030"/>
+      <stop offset="100%" style="stop-color:#9b2c2c"/>
+    </linearGradient>
+    <linearGradient id="step5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c05621"/>
+      <stop offset="100%" style="stop-color:#9c4221"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1f4e78"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="920" fill="#ffffff"/>
+
+  <!-- Header -->
+  <rect x="50" y="20" width="800" height="60" rx="6" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="450" y="46" text-anchor="middle" font-size="20" font-weight="bold" fill="white">LITHODAT AI-READY DATA PIPELINE</text>
+  <text x="450" y="66" text-anchor="middle" font-size="11" fill="#cbd5e0">"Clean Data First" Methodology for GDAC-SA</text>
+
+  <!-- Step 1: Data Ingestion -->
+  <rect x="50" y="100" width="800" height="130" rx="6" fill="white" stroke="#2b6cb0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="50" y="100" width="800" height="35" rx="6" fill="url(#step1Grad)"/>
+  <rect x="50" y="127" width="800" height="8" fill="url(#step1Grad)"/>
+  <circle cx="80" cy="117" r="14" fill="white"/>
+  <text x="80" y="122" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b6cb0">1</text>
+  <text x="110" y="123" font-size="13" font-weight="bold" fill="white">DATA INGESTION</text>
+
+  <!-- Step 1 Content -->
+  <text x="70" y="155" font-size="10.5" fill="#2d3748">• Multi-format adapters (PDF, CSV, databases, legacy systems)</text>
+  <text x="70" y="172" font-size="10.5" fill="#2d3748">• Automated validation against geoscience vocabularies</text>
+  <text x="70" y="189" font-size="10.5" fill="#2d3748">• Quality scoring at point of entry</text>
+
+  <!-- Step 1 Leads -->
+  <rect x="550" y="145" width="280" height="75" rx="4" fill="#e8f0f7" stroke="#2b6cb0" stroke-width="1"/>
+  <text x="565" y="162" font-size="9" font-weight="bold" fill="#1f4e78">Technical Lead:</text>
+  <text x="565" y="175" font-size="9" fill="#2d3748">Gerd Moritz Theile (Chief Technology Officer)</text>
+  <text x="565" y="195" font-size="9" font-weight="bold" fill="#1f4e78">Domain Lead:</text>
+  <text x="565" y="208" font-size="9" fill="#2d3748">Dr. Wayne Peter Noble (Chief Information Officer)</text>
+
+  <!-- Arrow 1 -->
+  <line x1="450" y1="230" x2="450" y2="255" stroke="#1f4e78" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 2: Semantic Standardization -->
+  <rect x="50" y="260" width="800" height="130" rx="6" fill="white" stroke="#2f855a" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="50" y="260" width="800" height="35" rx="6" fill="url(#step2Grad)"/>
+  <rect x="50" y="287" width="800" height="8" fill="url(#step2Grad)"/>
+  <circle cx="80" cy="277" r="14" fill="white"/>
+  <text x="80" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f855a">2</text>
+  <text x="110" y="283" font-size="13" font-weight="bold" fill="white">SEMANTIC STANDARDIZATION</text>
+
+  <!-- Step 2 Content -->
+  <text x="70" y="315" font-size="10.5" fill="#2d3748">• SKOS-based controlled vocabularies (minerals, rock types, methods)</text>
+  <text x="70" y="332" font-size="10.5" fill="#2d3748">• Ontology mapping for heterogeneous sources</text>
+  <text x="70" y="349" font-size="10.5" fill="#2d3748">• Unit normalization (SI units, coordinate systems)</text>
+
+  <!-- Step 2 Leads -->
+  <rect x="550" y="305" width="280" height="75" rx="4" fill="#e8f7f0" stroke="#10b981" stroke-width="1"/>
+  <text x="565" y="322" font-size="9" font-weight="bold" fill="#1f4e78">Technical Lead:</text>
+  <text x="565" y="335" font-size="9" fill="#2d3748">Gerd Moritz Theile (Chief Technology Officer)</text>
+  <text x="565" y="355" font-size="9" font-weight="bold" fill="#1f4e78">Data Systems:</text>
+  <text x="565" y="368" font-size="9" fill="#2d3748">Dr. Fabian Kohlmann (Chief Executive)</text>
+
+  <!-- Arrow 2 -->
+  <line x1="450" y1="390" x2="450" y2="415" stroke="#1f4e78" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 3: Database Storage -->
+  <rect x="50" y="420" width="800" height="130" rx="6" fill="white" stroke="#5a67d8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="50" y="420" width="800" height="35" rx="6" fill="url(#step3Grad)"/>
+  <rect x="50" y="447" width="800" height="8" fill="url(#step3Grad)"/>
+  <circle cx="80" cy="437" r="14" fill="white"/>
+  <text x="80" y="442" text-anchor="middle" font-size="14" font-weight="bold" fill="#5a67d8">3</text>
+  <text x="110" y="443" font-size="13" font-weight="bold" fill="white">RELATIONAL DATABASE STORAGE (FAIR-COMPLIANT)</text>
+
+  <!-- Step 3 Content -->
+  <text x="70" y="475" font-size="10.5" fill="#2d3748">• PostgreSQL with PostGIS for spatial data</text>
+  <text x="70" y="492" font-size="10.5" fill="#2d3748">• Full audit trail and provenance tracking</text>
+  <text x="70" y="509" font-size="10.5" fill="#2d3748">• RESTful APIs for programmatic access</text>
+
+  <!-- Step 3 Leads -->
+  <rect x="550" y="465" width="280" height="75" rx="4" fill="#e8f0f7" stroke="#2b6cb0" stroke-width="1"/>
+  <text x="565" y="482" font-size="9" font-weight="bold" fill="#1f4e78">Technical Lead:</text>
+  <text x="565" y="495" font-size="9" fill="#2d3748">Dr. Wayne Peter Noble (Chief Information Officer)</text>
+  <text x="565" y="515" font-size="9" font-weight="bold" fill="#1f4e78">Quality Systems:</text>
+  <text x="565" y="528" font-size="9" fill="#2d3748">Keith Dimech (Chief Operating Officer)</text>
+
+  <!-- Arrow 3 -->
+  <line x1="450" y1="550" x2="450" y2="575" stroke="#1f4e78" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 4: SGS Portal -->
+  <rect x="50" y="580" width="800" height="145" rx="6" fill="white" stroke="#c53030" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="50" y="580" width="800" height="35" rx="6" fill="url(#step4Grad)"/>
+  <rect x="50" y="607" width="800" height="8" fill="url(#step4Grad)"/>
+  <circle cx="80" cy="597" r="14" fill="white"/>
+  <text x="80" y="602" text-anchor="middle" font-size="14" font-weight="bold" fill="#c53030">4</text>
+  <text x="110" y="603" font-size="13" font-weight="bold" fill="white">SGS LIVE PORTAL DEVELOPMENT</text>
+
+  <!-- Step 4 Content -->
+  <text x="70" y="635" font-size="10.5" fill="#2d3748">• Public-facing data portal for open geoscience data access</text>
+  <text x="70" y="652" font-size="10.5" fill="#2d3748">• Private secure area for SGS internal data and workflows</text>
+  <text x="70" y="669" font-size="10.5" fill="#2d3748">• Admin controls, user management, and role-based access</text>
+  <text x="70" y="686" font-size="10.5" fill="#2d3748">• Dual toolsets: public analytics + internal SGS-only features</text>
+
+  <!-- Step 4 Leads -->
+  <rect x="550" y="625" width="280" height="90" rx="4" fill="#e8f0f7" stroke="#2b6cb0" stroke-width="1"/>
+  <text x="565" y="642" font-size="9" font-weight="bold" fill="#1f4e78">Technical Lead:</text>
+  <text x="565" y="655" font-size="9" fill="#2d3748">Dr. Wayne Peter Noble (Chief Information Officer)</text>
+  <text x="565" y="675" font-size="9" font-weight="bold" fill="#1f4e78">Client Liaison:</text>
+  <text x="565" y="688" font-size="9" fill="#2d3748">Keith Dimech (Chief Operating Officer)</text>
+  <text x="565" y="705" font-size="9" font-weight="bold" fill="#1f4e78">Frontend Dev:</text>
+  <text x="565" y="718" font-size="9" fill="#2d3748">Lujia Yang, Xinyan Zhang</text>
+
+  <!-- Arrow 4 -->
+  <line x1="450" y1="725" x2="450" y2="750" stroke="#1f4e78" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 5: AI/ML Layer -->
+  <rect x="50" y="755" width="800" height="145" rx="6" fill="white" stroke="#c05621" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="50" y="755" width="800" height="35" rx="6" fill="url(#step5Grad)"/>
+  <rect x="50" y="782" width="800" height="8" fill="url(#step5Grad)"/>
+  <circle cx="80" cy="772" r="14" fill="white"/>
+  <text x="80" y="777" text-anchor="middle" font-size="14" font-weight="bold" fill="#c05621">5</text>
+  <text x="110" y="778" font-size="13" font-weight="bold" fill="white">AI/ML APPLICATION LAYER</text>
+
+  <!-- Step 5 Content -->
+  <text x="70" y="810" font-size="10.5" fill="#2d3748">• Feature engineering from clean structured data</text>
+  <text x="70" y="827" font-size="10.5" fill="#2d3748">• Machine learning model training (classification, regression, clustering)</text>
+  <text x="70" y="844" font-size="10.5" fill="#2d3748">• Mineral prospectivity mapping and target generation</text>
+  <text x="70" y="861" font-size="10.5" fill="#2d3748">• Time series analysis and trend detection</text>
+
+  <!-- Step 5 Leads -->
+  <rect x="550" y="800" width="280" height="90" rx="4" fill="#e8f0f7" stroke="#2b6cb0" stroke-width="1"/>
+  <text x="565" y="820" font-size="9" font-weight="bold" fill="#1f4e78">ML Technical Advisor:</text>
+  <text x="565" y="833" font-size="9" fill="#2d3748">Dr. Behnam Sadeghi</text>
+  <text x="565" y="846" font-size="9" fill="#2d3748">(Geological ML Technical Advisor)</text>
+  <text x="565" y="866" font-size="9" font-weight="bold" fill="#1f4e78">AI Software Dev Lead:</text>
+  <text x="565" y="879" font-size="9" fill="#2d3748">Pedro Ferreira (AI Software Development Lead)</text>
+
+  <!-- Footer -->
+  <text x="450" y="912" text-anchor="middle" font-size="9.5" fill="#718096">Lithodat Pty Ltd | GDAC-SA Pre-Qualification Response | December 2025</text>
+</svg>

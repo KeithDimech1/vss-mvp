@@ -1,0 +1,57 @@
+Subject: URGENT: GDAC-SA Tender Review - Due Friday 19th Dec EOD
+
+Hi Team,
+
+I need everyone's help to review our GDAC-SA pre-qualification response by Friday, December 19th (EOD). Please prioritize this urgent request.
+
+MANDATORY FOR EVERYONE:
+1. Review ENTIRE main document: 01 - GDAC-SA PRE-QUALIFICATION RESPONSE.docx (cover to cover)
+2. Review YOUR OWN CV in Appendix L - verify accuracy, currency, and formatting
+
+ADDITIONAL INDIVIDUAL ASSIGNMENTS:
+
+FABIAN - Technical Leadership Focus
+• Additional focus: Executive Summary, Technical Capabilities, Project Organization, Financial Capacity
+• Appendix: Your CV (L)
+• Tasks: Strategic coherence, organization structure, technical claims accuracy
+
+WAYNE - Database & Technical Projects
+• Additional focus: Technical Capabilities (technical aspects), Professional Staff, Similar Projects
+• Appendices: CATCH Database (I), EarthBank (G), Your CV (L)
+• Tasks: Technical accuracy, database capabilities, project implementation details
+
+VINKO - Quality Systems & Compliance
+• Additional focus: Quality, HSE, Contractual Obligations, Administrative Staff
+• Appendices: QMS Policy (E), HSE Policy (F), Your CV (L)
+• Tasks: Compliance, quality processes, administrative capabilities
+
+QUSAY - Academic & Publications
+• Additional focus: Work Experience, Performance Outcomes, Reference Contacts
+• Appendices: Publications Summary (K), All Team CVs (L - full review), Your CV (L)
+• Tasks: Publication accuracy, ALL CV formatting, academic credentials
+
+MORITZ - Project Case Studies
+• Additional focus: Similar Projects (all three), Performance Outcomes, Human Resources
+• Appendices: Isotopes.au (H), EarthBank (G - secondary), Your CV (L)
+• Tasks: Project summaries completeness, consistency, outcomes alignment
+
+LOCATION:
+Main Document: /Users/keithdimech/Pathway/Dev/Lithodat/Viable Systems Model/VSM-Platform-Project/build-data/06 gdac-tender/response/final/
+Appendices: (same path)/word versions/
+
+REVIEW PROCESS:
+1. Use track changes for edits
+2. Add comments for questions/suggestions
+3. Email summary of findings to me by Friday 6 PM:
+   - Critical issues
+   - Recommended changes
+   - Minor suggestions
+
+DEADLINE: Friday December 19th, 6:00 PM
+
+Please confirm receipt and let me know if you have any questions.
+
+Thanks for your urgent attention to this.
+
+Best,
+[Your name]

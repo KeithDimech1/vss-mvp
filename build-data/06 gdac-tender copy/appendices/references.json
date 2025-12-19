@@ -1,0 +1,981 @@
+{
+  "metadata": {
+    "description": "GDAC Tender References - Organized by Research Field",
+    "generated": "2025-12-12",
+    "total_references": 145,
+    "technology_tags": {
+      "ai": "Machine learning, deep learning, neural networks, automation algorithms",
+      "data": "Data platforms, databases, FAIR data, big data management, cloud infrastructure",
+      "both": "Combines AI/ML with data platform capabilities",
+      "traditional": "Conventional research methods without AI or data platform focus"
+    }
+  },
+  "fields": {
+    "geochemistry_data_platforms": {
+      "description": "Cloud-based platforms for geochemical data management, preservation, and analysis",
+      "references": [
+        {
+          "title": "AusGeochem: An open platform for geochemical data preservation, dissemination and synthesis",
+          "authors": ["SC Boone", "H Dalton", "A Prent", "F Kohlmann", "M Theile", "Y Gréau", "G Florin", "W Noble", "et al."],
+          "journal": "Geostandards and Geoanalytical Research",
+          "volume": "46(2)",
+          "pages": "245-259",
+          "year": 2022,
+          "citations": 27,
+          "technology": "data"
+        },
+        {
+          "title": "Community recommendations for geochemical data, services and analytical capabilities in the 21st century",
+          "authors": ["M Klöcking", "L Wyborn", "KA Lehnert", "B Ware", "AM Prent", "L Profeta", "F Kohlmann", "et al."],
+          "journal": "Geochimica et Cosmochimica Acta",
+          "volume": "351",
+          "pages": "192-205",
+          "year": 2023,
+          "citations": 19,
+          "technology": "data"
+        },
+        {
+          "title": "LithoSurfer-a new community platform for storing, viewing, analysing, sharing and publishing thermochronology and geochronology data",
+          "authors": ["F Kohlmann", "W Noble", "M Theile"],
+          "venue": "17th International Conference on Thermochronology",
+          "year": 2021,
+          "citations": 1,
+          "technology": "data"
+        },
+        {
+          "title": "Deep-Time Digital Twins: Integrating LithoPlates with the EarthBank Platform",
+          "authors": ["F Kohlmann", "W Noble", "X Qin", "J Higton", "et al."],
+          "venue": "EGU General Assembly",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "LithoPlates: A New Cloud-based Tool for Deep-Time Reconstruction of Geochemistry Data",
+          "authors": ["F Kohlmann", "W Noble", "X Qin", "R Beucher", "et al."],
+          "venue": "Goldschmidt 2023 Conference",
+          "year": 2023,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Opening the full Potential of Geochemical Big Data utilising AusGeochem",
+          "authors": ["W Noble", "F Kohlmann", "AM Prent", "S Boone", "et al."],
+          "venue": "2022 Goldschmidt Conference",
+          "year": 2022,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "From Field Application to Publication: An end-to-end Solution for FAIR Geoscience Data",
+          "authors": ["M Theile", "W Noble", "R Beucher", "et al."],
+          "venue": "EGU General Assembly",
+          "year": 2022,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "From Fieldwork to Publication with AusGeochem: An Open end-to-end Solution for managing FAIR Sample Based Geoscience Data",
+          "authors": ["M Theile", "W Noble", "R Beucher", "et al."],
+          "venue": "EGU General Assembly",
+          "year": 2023,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "The AuScope Geochemistry Laboratory Network Project and the Building of the AusGeochem Data Repository",
+          "authors": ["AM Prent", "S Boone", "Y Greau", "W Noble", "F Kohlmann", "et al."],
+          "venue": "2022 Goldschmidt Conference",
+          "year": 2022,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "A Digital end-to-end solution for FAIR Geochemistry Data, from Field Collection to Publication",
+          "authors": ["F Kohlmann", "W Noble", "S Boone", "Y Greau", "et al."],
+          "venue": "2022 Goldschmidt Conference",
+          "year": 2022,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Empowering Geochemical Exploration and Research: Lithodat's Collaborative Data Platforms and Partnerships",
+          "authors": ["W Noble", "F Kohlmann", "M Theile", "et al."],
+          "venue": "Thirty-fourth Annual V.M. Goldschmidt Conference",
+          "year": 2024,
+          "citations": 0,
+          "technology": "data"
+        }
+      ]
+    },
+    "thermochronology_geochronology": {
+      "description": "Low-temperature thermochronology, fission track analysis, and geochronological studies",
+      "references": [
+        {
+          "title": "From orogen to passive margin: constraints from fission track and (U–Th)/He analyses on Mesozoic uplift and fault reactivation in SW Norway",
+          "authors": ["AK Ksienzyk", "I Dunkl", "J Jacobs", "H Fossen", "F Kohlmann"],
+          "journal": "Norwegian Journal of Geology",
+          "year": 2014,
+          "citations": 76,
+          "technology": "traditional"
+        },
+        {
+          "title": "K–Ar illite and apatite fission track constraints on brittle faulting and the evolution of the northern Norwegian passive margin",
+          "authors": ["C Davids", "K Wemmer", "H Zwingmann", "F Kohlmann", "J Jacobs", "SG Bergh"],
+          "journal": "Tectonophysics",
+          "volume": "608",
+          "pages": "196-211",
+          "year": 2013,
+          "citations": 61,
+          "technology": "traditional"
+        },
+        {
+          "title": "A new approach to crystallographic orientation measurement for apatite fission track analysis: effects of crystal morphology and implications for automation",
+          "authors": ["M Peternell", "F Kohlmann", "CJL Wilson", "C Seiler", "AJW Gleadow"],
+          "journal": "Chemical Geology",
+          "volume": "265(3-4)",
+          "pages": "527-539",
+          "year": 2009,
+          "citations": 50,
+          "technology": "ai"
+        },
+        {
+          "title": "A reappraisal of low-temperature thermochronology of the eastern Fennoscandia Shield and radiation-enhanced apatite fission-track annealing",
+          "authors": ["BP Kohn", "M Lorencak", "AJW Gleadow", "F Kohlmann", "A Raza", "KG Osadetz", "et al."],
+          "year": 2009,
+          "citations": 50,
+          "technology": "traditional"
+        },
+        {
+          "title": "A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data",
+          "authors": ["SC Boone", "F Kohlmann", "W Noble", "M Theile", "R Beucher", "B Kohn", "S Glorie", "et al."],
+          "journal": "Scientific Reports",
+          "volume": "13(1)",
+          "pages": "8581",
+          "year": 2023,
+          "citations": 12,
+          "technology": "both"
+        },
+        {
+          "title": "Tectonic evolution of the SW Norwegian passive margin based on low-temperature thermochronology from the innermost Hardangerfjord area",
+          "authors": ["KC Johannessen", "F Kohlmann", "AK Ksienzyk", "I Dunkl", "J Jacobs"],
+          "journal": "Norwegian Journal of Geology/Norsk Geologisk Forening",
+          "volume": "93",
+          "year": 2013,
+          "citations": 26,
+          "technology": "traditional"
+        },
+        {
+          "title": "Automated analytical techniques for fission track thermochronology",
+          "authors": ["AJW Gleadow", "SJ Gleadow", "S Frei", "F Kohlmann", "BP Kohn"],
+          "journal": "Geochimica et Cosmochimica Acta Supplement",
+          "volume": "73",
+          "pages": "A441",
+          "year": 2009,
+          "citations": 8,
+          "technology": "ai"
+        },
+        {
+          "title": "Scanning force microscopy of 129Iodine surface impact structures in muscovite, zircon and apatite as proxies for damage of simulated fission fragments in solids",
+          "authors": ["F Kohlmann", "BP Kohn", "AJW Gleadow", "R Siegele"],
+          "journal": "Radiation Measurements",
+          "volume": "51",
+          "pages": "83-91",
+          "year": 2013,
+          "citations": 4,
+          "technology": "traditional"
+        },
+        {
+          "title": "Insights Into the Nanoscale Formation of Fission Tracks in Solids and a Low Temperature Thermochronology Study of the Archaen Slave Province, Northwest Territories, Canada",
+          "authors": ["F Kohlmann"],
+          "institution": "University of Melbourne, School of Earth Sciences",
+          "type": "PhD Thesis",
+          "year": 2010,
+          "citations": 3,
+          "technology": "traditional"
+        },
+        {
+          "title": "Low-temperature thermochronology in ancient terranes: A progress report",
+          "authors": ["B Kohn", "A Gleadow", "S Frei", "F Kohlmann"],
+          "venue": "11th International Conference on Thermochronometry",
+          "year": 2008,
+          "citations": 3,
+          "technology": "traditional"
+        },
+        {
+          "title": "Post-Caledonian Onshore Exhumation History of Troms, Northern Norway",
+          "authors": ["C Davids", "F Kohlmann", "JA Hansen", "JA Benowitz", "P Layer", "J Jacobs"],
+          "venue": "Onshore-Offshore Relationship on the North Atlantic Margin, Trondheim",
+          "year": 2012,
+          "citations": 6,
+          "technology": "traditional"
+        },
+        {
+          "title": "Late Caledonian orogenic collapse and Permian-Mesozoic rifting: dating onshore faults in SW Norway with low-temperature thermochronological methods",
+          "authors": ["AK Ksienzyk", "F Kohlmann", "I Dunkl", "K Wemmer", "J Jacobs", "H Fossen"],
+          "venue": "Abstracts and Proceedings of the Geological Society of Norway",
+          "volume": "2",
+          "pages": "37",
+          "year": 2012,
+          "citations": 4,
+          "technology": "traditional"
+        },
+        {
+          "title": "Phanerozoic thermochronology record of Afro-Arabia through space and time",
+          "authors": ["SC Boone", "M McMillan", "ML Balestrieri", "B Kohn", "A Gleadow", "A Alimanovic", "F Kohlmann", "et al."],
+          "journal": "Scientific Data",
+          "volume": "12(1)",
+          "pages": "444",
+          "year": 2025,
+          "citations": 1,
+          "technology": "data"
+        },
+        {
+          "title": "Continental-Scale Evaluation of Geodynamic, Tectonic and Climate Drivers of Exhumation",
+          "authors": ["S Boone", "S Glorie", "S Zahirovic", "A Nixon", "F Meeuws", "F Kohlmann"],
+          "year": 2025,
+          "citations": 1,
+          "technology": "data"
+        },
+        {
+          "title": "Re-evaluating low temperature apatite thermochronology in slowly cooled terranes",
+          "authors": ["BP Kohn", "AJW Gleadow", "A Raza", "F Kohlmann", "RW Brown"],
+          "journal": "Geochimica et Cosmochimica Acta",
+          "volume": "70(18)",
+          "pages": "26-26",
+          "year": 2006,
+          "citations": 2,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "machine_learning_mineral_exploration": {
+      "description": "AI and machine learning applications in mineral prospectivity and exploration",
+      "references": [
+        {
+          "title": "Machine learning‐based spatio‐temporal prospectivity modeling of porphyry systems in the New Guinea and Solomon Islands region",
+          "authors": ["E Farahbakhsh", "S Zahirovic", "B McInnes", "S Polanco", "F Kohlmann", "M Seton", "et al."],
+          "journal": "Tectonics",
+          "volume": "44(3)",
+          "pages": "e2024TC008362",
+          "year": 2025,
+          "citations": 2,
+          "technology": "ai"
+        },
+        {
+          "title": "Lithium exploration targeting through robust variable selection and deep anomaly detection: An integrated application of sparse principal component analysis and stacked autoencoders",
+          "authors": ["S Esmaeiloghli", "A Lima", "B Sadeghi"],
+          "journal": "Geochemistry",
+          "special_issue": "AI-driven mineral exploration",
+          "pages": "126111",
+          "year": 2024,
+          "citations": 0,
+          "technology": "ai"
+        },
+        {
+          "title": "Combination of Machine Learning Algorithms with Concentration-area Fractal Method for Soil Geochemical Anomaly Detection in Sediment-Hosted Irankuh Pb-Zn Deposit, Central Iran",
+          "authors": ["S Farhadi", "P Afzal", "M Boveiri Konari", "L Daneshvar Saein", "B Sadeghi"],
+          "journal": "Minerals",
+          "section": "Mineral Exploration Methods and Applications",
+          "volume": "12(6)",
+          "pages": "689",
+          "year": 2022,
+          "citations": 0,
+          "technology": "ai"
+        }
+      ]
+    },
+    "fractal_multifractal_geochemistry": {
+      "description": "Fractal and multifractal modeling for geochemical anomaly detection and mineral exploration",
+      "references": [
+        {
+          "title": "Simulated-multifractal models: a futuristic review of multifractal modeling in geochemical anomaly classification",
+          "authors": ["B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "volume": "139(Part B)",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Concentration-distance from centroids (C-DC) multifractal modeling: A novel approach to characterizing geochemical patterns based on sample distance from mineralization",
+          "authors": ["B Sadeghi", "DR Cohen"],
+          "journal": "Ore Geology Reviews",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Category-based fractal modelling: A novel model to integrate the geology into the data for more effective processing and interpretation",
+          "authors": ["B Sadeghi", "DR Cohen"],
+          "journal": "Journal of Geochemical Exploration",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Concentration-concentration fractal modelling: a novel insight for correlation between variables in response to changes in the underlying controlling geological-geochemical processes",
+          "authors": ["B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Capturing Hidden Geochemical Anomalies in Scarce Data by Fractal Analysis and Stochastic Modelling",
+          "authors": ["N Madani", "B Sadeghi"],
+          "journal": "Natural Resources Research",
+          "volume": "28(3)",
+          "pages": "833-847",
+          "year": 2019,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Combination of geostatistical simulation and fractal modelling for mineral resource classification",
+          "authors": ["B Sadeghi", "N Madani", "EJM Carranza"],
+          "journal": "Journal of Geochemical Exploration",
+          "volume": "149",
+          "pages": "59-73",
+          "year": 2015,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Application of fractal models to outline mineralized zones in the Zaghia iron ore deposit, Central Iran",
+          "authors": ["B Sadeghi", "P Moarefvand", "P Afzal", "AB Yasrebi", "L Daneshvar Saein"],
+          "journal": "Journal of Geochemical Exploration",
+          "special_issue": "Fractal/multifractal modelling of geochemical data",
+          "volume": "122",
+          "pages": "9-19",
+          "year": 2012,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "The efficiency of fractal techniques in geochemical anomaly delineation within BLEG and <180 μm stream sediments in Western Turkey",
+          "authors": ["H Yilmaz", "B Sadeghi", "DR Cohen"],
+          "journal": "Journal of Geochemical Exploration",
+          "year": 2022,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Geochemical anomaly definition using stream sediments landscape modeling",
+          "authors": ["H Wang", "Z Yuan", "Q Cheng", "S Zhang", "B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "year": 2022,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Detection of mineralization stages using zonality and multifractal modeling based on geological and geochemical data in the Au-(Cu) intrusion-related Gouzal-Bolagh deposit, NW Iran",
+          "authors": ["SM Heidari", "P Afzal", "M Ghaderi", "B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "geochemical_data_analysis": {
+      "description": "Statistical and computational methods for geochemical data interpretation",
+      "references": [
+        {
+          "title": "Clustering in Geo-Data Science: Navigating Uncertainty to Select the Most Reliable Method",
+          "authors": ["B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "volume": "181C",
+          "pages": "106591",
+          "year": 2025,
+          "citations": 0,
+          "technology": "ai"
+        },
+        {
+          "title": "Inverse radius weighting and its python package 'IRWPy': A new topography-informed interpolation to enhance geological interpretations",
+          "authors": ["B Sadeghi", "AM Eleish", "SM Morrison", "J Klump"],
+          "journal": "Ore Geology Reviews",
+          "volume": "172",
+          "pages": "106206",
+          "year": 2024,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Decision-making within geochemical exploration data based on spatial uncertainty: A new insight and a futuristic review",
+          "authors": ["B Sadeghi", "DR Cohen"],
+          "journal": "Ore Geology Reviews",
+          "volume": "161",
+          "pages": "105660",
+          "year": 2023,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "How to choose a proper representation of compositional data for mineral exploration?",
+          "authors": ["B Sadeghi", "H Molayemat", "V Pawlowsky-Glahn"],
+          "journal": "Journal of Geochemical Exploration",
+          "special_issue": "Compositional Data Analysis 40 years after 1982",
+          "volume": "259",
+          "pages": "107425",
+          "year": 2024,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Chatterjee Correlation Coefficient: A robust alternative for classic correlation methods in geochemical studies (including 'TripleCpy' Python package)",
+          "authors": ["B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "volume": "146",
+          "pages": "104954",
+          "year": 2022,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Controls on soil geochemistry fractal characteristics in Lemesos (Limassol), Cyprus",
+          "authors": ["AM Zissimos", "DR Cohen", "IC Christoforou", "B Sadeghi", "NF Rutherford"],
+          "journal": "Journal of Geochemical Exploration",
+          "volume": "220",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "critical_minerals_rare_earths": {
+      "description": "Research on critical minerals, rare earth elements, and strategic resources",
+      "references": [
+        {
+          "title": "Critical Minerals: Current Perspectives (Preface)",
+          "authors": ["B Sadeghi", "S Jowitt", "A Porwal", "F Lucci"],
+          "journal": "Geochemistry",
+          "special_issue": "Critical Minerals: Current Perspectives",
+          "volume": "84(2)",
+          "pages": "126131",
+          "year": 2024,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Targeting potential cobalt deposits through integration of helicopter-borne magnetic and stream sediment data: Insights from the Bou Azzer Inlier, Central Anti-Atlas, Morocco",
+          "authors": ["A Bajadi", "M Ouchchen", "D El Azzab", "L Achkouch", "B Dadi", "EH Abia", "B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "special_issue": "Critical metal deposits within magmatic-hydrothermal systems",
+          "volume": "185",
+          "pages": "106807",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Assessment of potential Cobalt zones by modeling radiometric and ASTER data using the AHP method: Bou Azzer El Grara buttonhole, Central Anti-Atlas, Morocco",
+          "authors": ["A Bajadi", "D El Azzab", "M Ouchchen", "Y Mamouch", "L Achkouch", "B Dadi", "N El Moutaouakkil", "B Sadeghi"],
+          "journal": "Geochemistry",
+          "special_issue": "Critical Minerals: Current Perspectives",
+          "volume": "84(2)",
+          "pages": "126105",
+          "year": 2024,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Geochemical anomaly recognition of rare earth elements using multi-fractal modelling correlated with geological features, Central Iran",
+          "authors": ["M Khalajmasoumi", "B Sadeghi", "EJM Carranza", "M Sadeghi"],
+          "journal": "Journal of Geochemical Exploration",
+          "special_issue": "Critical metals in the Middle East and North Africa",
+          "volume": "181",
+          "pages": "318-332",
+          "year": 2017,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "petroleum_geology_basin_modeling": {
+      "description": "Petroleum systems analysis, source rock characterization, and basin modeling",
+      "references": [
+        {
+          "title": "Paleozoic petroleum system of central Saudi Arabia",
+          "authors": ["MA Abu-Ali", "JLL Rudkiewicz", "JG McGillivray", "F Behar"],
+          "journal": "GeoArabia",
+          "volume": "4(3)",
+          "pages": "321-336",
+          "year": 1999,
+          "citations": 132,
+          "technology": "traditional"
+        },
+        {
+          "title": "Organic geochemistry of the Paleozoic petroleum system of Saudi Arabia",
+          "authors": ["GA Cole", "MA Abu-Ali", "SM Aoudeh", "WJ Carrigan", "HH Chen", "EL Colling", "et al."],
+          "journal": "Energy & Fuels",
+          "volume": "8(6)",
+          "pages": "1425-1442",
+          "year": 1994,
+          "citations": 125,
+          "technology": "traditional"
+        },
+        {
+          "title": "Source rock potential of the upper Jurassic–Lower Cretaceous succession in the southern Mesopotamian basin, southern Iraq",
+          "authors": ["Q Abeed", "A Alkhafaji", "R Littke"],
+          "journal": "Journal of Petroleum Geology",
+          "volume": "34(2)",
+          "pages": "117-134",
+          "year": 2011,
+          "citations": 89,
+          "technology": "traditional"
+        },
+        {
+          "title": "Paleozoic petroleum systems of Saudi Arabia: a basin modeling approach",
+          "authors": ["M Abu-Ali", "R Littke"],
+          "journal": "GeoArabia",
+          "volume": "10(3)",
+          "pages": "131-168",
+          "year": 2005,
+          "citations": 84,
+          "technology": "traditional"
+        },
+        {
+          "title": "Hydrocarbon generation and migration in the Paleozoic sequence of Saudi Arabia",
+          "authors": ["MA Abu-Ali", "UA Franz", "J Shen", "F Monnier", "MD Mahmoud", "TM Chambers"],
+          "venue": "SPE Middle East Oil and Gas Show and Conference",
+          "pages": "SPE-21376-MS",
+          "year": 1991,
+          "citations": 84,
+          "technology": "traditional"
+        },
+        {
+          "title": "Geochemistry, origin and correlation of crude oils in Lower Cretaceous sedimentary sequences of the southern Mesopotamian Basin, southern Iraq",
+          "authors": ["Q Abeed", "D Leythaeuser", "R Littke"],
+          "journal": "Organic Geochemistry",
+          "volume": "46",
+          "pages": "113-126",
+          "year": 2012,
+          "citations": 83,
+          "technology": "traditional"
+        },
+        {
+          "title": "The Upper Jurassic–Cretaceous petroleum system of southern Iraq: a 3-D basin modelling study",
+          "authors": ["Q Abeed", "R Littke", "F Strozyk", "AK Uffmann"],
+          "journal": "GeoArabia",
+          "volume": "18(1)",
+          "pages": "179-200",
+          "year": 2013,
+          "citations": 73,
+          "technology": "data"
+        },
+        {
+          "title": "Diverse applications of petroleum biomarker maturity parameters",
+          "authors": ["JM Moldowan", "KE Peters", "RMK Carlson", "M Schoell", "MA Abuali"],
+          "journal": "Arabian Journal for Science and Engineering",
+          "volume": "19(2B)",
+          "pages": "273-298",
+          "year": 1994,
+          "citations": 64,
+          "technology": "traditional"
+        },
+        {
+          "title": "Petroleum geochemistry of the Midyan and Jaizan basins of the Red Sea, Saudi Arabia",
+          "authors": ["GA Cole", "MA Abu-Ali", "EL Coiling", "HI Halpern", "WJ Carrigan", "GR Savage", "et al."],
+          "journal": "Marine and Petroleum Geology",
+          "volume": "12(6)",
+          "pages": "597-614",
+          "year": 1995,
+          "citations": 47,
+          "technology": "traditional"
+        },
+        {
+          "title": "Petroleum systems restoration of the Huallaga—Marañon Andean retroforeland basin, Peru",
+          "authors": ["Y Calderón", "Y Vela", "C Hurtado", "R Bolaños", "P Baby", "A Eude", "M Roddaz", "et al."],
+          "journal": "AAPG Special Volumes",
+          "year": 2017,
+          "citations": 38,
+          "technology": "traditional"
+        },
+        {
+          "title": "Petroleum systems analysis of the eastern Arabian Plate: chemometrics based on a review of the geochemical characteristics of oils in Jurassic–Cenozoic reservoirs",
+          "authors": ["A Baniasad", "R Littke", "Q Abeed"],
+          "journal": "Journal of Petroleum Geology",
+          "volume": "46(1)",
+          "pages": "3-45",
+          "year": 2023,
+          "citations": 12,
+          "technology": "data"
+        },
+        {
+          "title": "2-D Basin modeling of the Western Canada Sedimentary Basin across the Montney-Doig System",
+          "authors": ["M Ducros", "W Sassi", "R Vially", "T Euzen", "V Crombez"],
+          "journal": "AAPG Special Volumes",
+          "year": 2017,
+          "citations": 27,
+          "technology": "data"
+        },
+        {
+          "title": "Palynology, palynofacies analysis, depositional environments and source rock potential of Lower Cretaceous successions in southern Iraq",
+          "authors": ["H El Atfy", "Q Abeed", "D Uhl", "R Littke"],
+          "journal": "Marine and Petroleum Geology",
+          "volume": "76",
+          "pages": "362-376",
+          "year": 2016,
+          "citations": 18,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "hydrothermal_alteration_remote_sensing": {
+      "description": "Remote sensing and GIS methods for hydrothermal alteration mapping and mineral prospectivity",
+      "references": [
+        {
+          "title": "Integration of Multi-Method ASTER data Analysis and Geometric Average Modeling for Hydrothermal Alteration Mapping and Mineral Prospectivity Assessment of Copper Deposits, Anti-Atlas, Morocco",
+          "authors": ["L Achkouch", "A Attou", "H Mezougane", "M Ouchchen", "Y El Cheikh", "Y Mamouch", "A Bajadi", "B Dadi", "R Ahmed", "B Sadeghi"],
+          "journal": "Remote Sensing Applications: Society and Environment",
+          "volume": "37",
+          "pages": "101467",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Hydrothermal Fluid Pathways and Mineralization Potential in the High Atlas Massif (Morocco) Using Fuzzy Logic and Multifractal Modeling",
+          "authors": ["B Dadi", "M Ouchchen", "F Faik", "S Boutaleb", "D El Azzab", "Y Mamouch", "L Achkouch", "A Bajadi", "EH Abia", "B Sadeghi"],
+          "journal": "Ore Geology Reviews",
+          "volume": "175",
+          "pages": "106401",
+          "year": 2024,
+          "citations": 0,
+          "technology": "ai"
+        },
+        {
+          "title": "Using ETM+ and ASTER sensors to identify iron occurrences in the Esfordi 1:100000 mapping sheet of Central Iran",
+          "authors": ["B Sadeghi", "M Khalajmasoumi", "P Afzal", "P Moarefvand", "AB Yasrebi", "A Wetherelt", "P Foster", "A Ziazarifi"],
+          "journal": "Journal of African Earth Sciences",
+          "volume": "85",
+          "pages": "103-114",
+          "year": 2013,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Application of target detection algorithms to identification of iron oxides using ASTER images: North of Semnan province, Iran",
+          "authors": ["M Rahimzadegan", "B Sadeghi", "M Masoumi", "S Taghizadeh Ghalehjoghi"],
+          "journal": "Arabian Journal of Geosciences",
+          "volume": "8(9)",
+          "pages": "7321-7331",
+          "year": 2015,
+          "citations": 0,
+          "technology": "ai"
+        },
+        {
+          "title": "A Futuristic Review for Evaluation of Geothermal Potentials Using Fuzzy Logic and Binary Index Overlay in GIS Environment",
+          "authors": ["B Sadeghi", "M Khalajmasoumi"],
+          "journal": "Renewable & Sustainable Energy Reviews",
+          "volume": "43C",
+          "pages": "818-831",
+          "year": 2015,
+          "citations": 0,
+          "technology": "ai"
+        }
+      ]
+    },
+    "mineral_deposit_geology": {
+      "description": "Geology, mineralogy, and geochemistry of specific mineral deposits",
+      "references": [
+        {
+          "title": "Molybdenum and gold distribution variances within Iranian copper porphyry deposits",
+          "authors": ["SM Heidari", "P Afzal", "B Sadeghi"],
+          "journal": "Journal of Geochemical Exploration",
+          "special_issue": "Multi-element Geochemical Mapping in South and Central Asia at National Scale",
+          "volume": "261",
+          "pages": "107471",
+          "year": 2024,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Mineralogy, geochemistry and mineralization of Maimoon-abad iron ore deposit, northwest of Sanandaj-Sirjan zone, Iran",
+          "authors": ["A Akbarpour", "J Ghalamghash", "H Azizi", "B Sadeghi"],
+          "journal": "Journal of Geochemical Exploration",
+          "volume": "259",
+          "pages": "107427",
+          "year": 2024,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Geology, mineralogy, and alteration of the Cu-Pb veins, and their significance in mineral exploration: Khajeh-Nezam area, SE Iran",
+          "authors": ["A Akbarpour", "M Vanaei", "B Sadeghi"],
+          "journal": "Geochemistry",
+          "special_issue": "Critical Minerals: Current Perspectives",
+          "year": 2023,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Miocene tectono-magmatic events and gold mineralization in the Takab-Delijan belt, Iran",
+          "authors": ["M Heidari", "P Afzal", "B Sadeghi"],
+          "journal": "Geochemistry",
+          "volume": "83(1)",
+          "pages": "125944",
+          "year": 2023,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Mineral resource classification using geostatistical and fractal simulation in the Masjed Daghi Cu-Mo porphyry deposit, NW Iran",
+          "authors": ["P Afzal", "H Gholami", "N Madani", "AB Yasrebi", "B Sadeghi"],
+          "journal": "Minerals",
+          "special_issue": "Advanced Data Analytics in Earth and Environmental Sciences",
+          "volume": "13",
+          "pages": "370",
+          "year": 2023,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Enhancing core recovery and RQD analysis in porphyry Cu deposits through fractal modeling: Sungun mine (NW Iran)",
+          "authors": ["P Afzal", "B Heidari", "M Alidaryan", "B Sadeghi", "L Daneshvar Saein"],
+          "journal": "International Journal of Mining and Geo-Engineering",
+          "volume": "59(1)",
+          "pages": "69-74",
+          "year": 2025,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "volcanology": {
+      "description": "Volcanic systems, hazard assessment, and magmatic processes",
+      "references": [
+        {
+          "title": "The dynamic of magmatic system and volcano hazard implications of the Damavand volcano (N. Iran) inferred from the textural data",
+          "authors": ["A Eskandari", "S Amini", "B Sadeghi"],
+          "journal": "Journal of Volcanology and Geothermal Research",
+          "volume": "456C",
+          "pages": "108220",
+          "year": 2024,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Deciphering Igneous Rock Crystals: Unveiling Multifractal Patterns in Crystal Size Dynamics",
+          "authors": ["A Eskandari", "B Sadeghi"],
+          "journal": "Minerals",
+          "special_issue": "Texture and Microstructural Analysis of Crystalline Solids, Volume II",
+          "volume": "14(7)",
+          "pages": "660",
+          "year": 2024,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "environmental_sustainability": {
+      "description": "Environmental monitoring, contamination reporting, and sustainability in geosciences",
+      "references": [
+        {
+          "title": "DERT (Diagnostic Environmental Reporting Tool): A Global Relational Data Platform Set to Transform Contamination Reporting and Environmental Data",
+          "authors": ["F Kohlmann", "K Dimech", "W Noble", "et al."],
+          "venue": "Goldschmidt 2025 Conference",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "'PROJECT PATHWAY' TO NET ZERO: SCOPE 3 CARBON IN WATER CAPITAL PROJECTS FROM TENDER TO AS BUILT",
+          "authors": ["K Dimech"],
+          "affiliation": "Environment and Sustainability Manager - John Holland - Resource Recovery and Reuse Project",
+          "venue": "Ozwater 2025 Conference Proceedings",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        }
+      ]
+    },
+    "geological_survey_exploration": {
+      "description": "Regional geological surveys, stream sediment analysis, and exploration geochemistry",
+      "references": [
+        {
+          "title": "Journal article on multi-element geochemical mapping (title partial)",
+          "authors": ["P Acosta-Gongora", "M Andersson", "T Bjerkgård", "WM Morris", "T Kurz", "M Lee", "MA Dumais", "A Nasuti", "M van Boeckel", "J Jakob", "ACR Miranda", "A Crilly", "Y Wang", "B Sadeghi"],
+          "journal": "Journal of Geochemical Exploration",
+          "volume": "280",
+          "pages": "107911",
+          "year": 2025,
+          "citations": 0,
+          "technology": "data"
+        },
+        {
+          "title": "Prospection of Au mineralization based on stream sediments and lithogeochemical data using multifractal modelling in Alut 1:100,000 sheet, NW Iran",
+          "authors": ["SA Hosseini", "P Afzal", "B Sadeghi", "T Sharmad", "SV Shahrokhi", "T Farhadinejad"],
+          "journal": "Arabian Journal of Geosciences",
+          "volume": "8",
+          "pages": "3867-3879",
+          "year": 2015,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Separation of geochemical anomalies using factor analysis and concentration-number (C-N) fractal modelling based on stream sediments data in Esfordi 1:100,000 sheet, Central Iran",
+          "authors": ["P Afzal", "A ZiaZarifi", "B Sadeghi"],
+          "journal": "Iranian Journal of Earth Sciences",
+          "volume": "5",
+          "pages": "100-110",
+          "year": 2013,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Delineation of geochemical anomalies using factor analysis and multifractal modelling based on stream sediments data in Sarajeh 1:100,000 sheet, Central Iran",
+          "authors": ["M Shamseddin Meigoony", "P Afzal", "M Gholinejad", "AB Yasrebi", "B Sadeghi"],
+          "journal": "Arabian Journal of Geosciences",
+          "volume": "7",
+          "pages": "5333-5343",
+          "year": 2014,
+          "citations": 0,
+          "technology": "traditional"
+        },
+        {
+          "title": "Weighting of BLEG data with drainage and catchment properties to enhance Au anomalies",
+          "authors": ["B Sadeghi", "H Yilmaz", "F Pirajno"],
+          "journal": "Geochemistry",
+          "year": 2021,
+          "citations": 0,
+          "technology": "traditional"
+        }
+      ]
+    },
+    "petroleum_exploration_technology": {
+      "description": "Advanced technologies and methods for petroleum exploration",
+      "references": [
+        {
+          "title": "Iterative and repeatable workflow for comprehensive data and processes integration for petroleum exploration and production assessments",
+          "authors": ["MM Mezghani", "NF Najjar", "M AbuAli", "R Zuhlke", "S Inan", "CK Allen"],
+          "type": "US Patent",
+          "patent_number": "10,713,398",
+          "year": 2020,
+          "citations": 26,
+          "technology": "data"
+        },
+        {
+          "title": "Sampling techniques to detect hydrocarbon seepage",
+          "authors": ["M AbuAli", "MI Almarhoon", "K Arouri"],
+          "type": "US Patent",
+          "patent_number": "10,280,747",
+          "year": 2019,
+          "citations": 12,
+          "technology": "data"
+        },
+        {
+          "title": "The potential use of biogeochemistry in the detection of petroleum microseepage",
+          "authors": ["RW Klusman", "MA Saeed", "MA Abu-Ali"],
+          "journal": "AAPG Bulletin",
+          "volume": "76(6)",
+          "pages": "851-863",
+          "year": 1992,
+          "citations": 28,
+          "technology": "traditional"
+        },
+        {
+          "title": "Characterizing stratigraphic traps using improved waveform classification seismic facies analysis: central Saudi Arabia",
+          "authors": ["SH Zhang", "Y Xu", "M Abu-Ali"],
+          "journal": "First Break",
+          "volume": "34(12)",
+          "year": 2016,
+          "citations": 7,
+          "technology": "ai"
+        },
+        {
+          "title": "In-situ hydrocarbon detection and monitoring",
+          "authors": ["A Alabbad", "W AlKawai", "M AbuAli"],
+          "type": "US Patent",
+          "patent_number": "11,163,091",
+          "year": 2021,
+          "citations": 3,
+          "technology": "data"
+        }
+      ]
+    }
+  },
+  "summary_by_field": {
+    "geochemistry_data_platforms": 11,
+    "thermochronology_geochronology": 15,
+    "machine_learning_mineral_exploration": 3,
+    "fractal_multifractal_geochemistry": 10,
+    "geochemical_data_analysis": 6,
+    "critical_minerals_rare_earths": 4,
+    "petroleum_geology_basin_modeling": 13,
+    "hydrothermal_alteration_remote_sensing": 5,
+    "mineral_deposit_geology": 6,
+    "volcanology": 2,
+    "environmental_sustainability": 2,
+    "geological_survey_exploration": 5,
+    "petroleum_exploration_technology": 5
+  },
+  "summary_by_technology": {
+    "ai": {
+      "count": 13,
+      "description": "Machine learning, automation, neural networks, fuzzy logic algorithms",
+      "examples": ["ML prospectivity modeling", "Automated fission track analysis", "Deep anomaly detection", "Waveform classification"]
+    },
+    "data": {
+      "count": 35,
+      "description": "Data platforms, FAIR data, cloud infrastructure, big data management",
+      "examples": ["AusGeochem", "LithoSurfer", "LithoPlates", "DERT", "Python packages (IRWPy, TripleCpy)"]
+    },
+    "both": {
+      "count": 1,
+      "description": "Combines AI/ML with data platform capabilities",
+      "examples": ["Big Data thermochronology platform with tectonic interpretation"]
+    },
+    "traditional": {
+      "count": 56,
+      "description": "Conventional geological/geochemical research methods",
+      "examples": ["Field studies", "Laboratory analysis", "Classical statistics"]
+    }
+  },
+  "key_authors": {
+    "F Kohlmann": {
+      "role": "Lithodat CEO",
+      "primary_fields": ["thermochronology_geochronology", "geochemistry_data_platforms"],
+      "notable_contributions": ["AusGeochem", "LithoSurfer", "LithoPlates"],
+      "technology_focus": ["data", "ai"]
+    },
+    "B Sadeghi": {
+      "primary_fields": ["fractal_multifractal_geochemistry", "geochemical_data_analysis", "critical_minerals_rare_earths"],
+      "notable_contributions": ["Multifractal modeling", "Python packages (IRWPy, TripleCpy)"],
+      "technology_focus": ["data", "ai"]
+    },
+    "W Noble": {
+      "role": "Technical Director",
+      "primary_fields": ["geochemistry_data_platforms", "thermochronology_geochronology"],
+      "technology_focus": ["data"]
+    },
+    "M Theile": {
+      "role": "Operations Director",
+      "primary_fields": ["geochemistry_data_platforms"],
+      "technology_focus": ["data"]
+    },
+    "K Dimech": {
+      "role": "COO",
+      "primary_fields": ["environmental_sustainability"],
+      "notable_contributions": ["DERT platform", "Scope 3 carbon methodology"],
+      "technology_focus": ["data"]
+    },
+    "Q Abeed": {
+      "primary_fields": ["petroleum_geology_basin_modeling"],
+      "notable_contributions": ["Mesopotamian Basin petroleum systems"],
+      "technology_focus": ["traditional", "data"]
+    },
+    "MA AbuAli": {
+      "affiliation": "Saudi Aramco/Raphael Energy Group",
+      "primary_fields": ["petroleum_geology_basin_modeling", "petroleum_exploration_technology"],
+      "notable_contributions": ["Paleozoic petroleum systems", "Hydrocarbon detection patents"],
+      "technology_focus": ["traditional", "data"]
+    },
+    "SC Boone": {
+      "primary_fields": ["thermochronology_geochronology", "geochemistry_data_platforms"],
+      "notable_contributions": ["Big Data thermochronology", "AusGeochem development"],
+      "technology_focus": ["data", "both"]
+    }
+  }
+}

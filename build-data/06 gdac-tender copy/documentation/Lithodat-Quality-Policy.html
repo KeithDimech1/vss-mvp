@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LithoDat Quality Policy - Geology First</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            color: #333;
+            background: #fff;
+            font-size: 9pt;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .header {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #0088cc;
+            margin: 8px auto;
+        }
+
+        h1 {
+            color: #0088cc;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 3px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            color: #1a3a52;
+            font-size: 0.95em;
+            text-align: center;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 0.85em;
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0 5px 0;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
+        }
+
+        .commitment-text {
+            text-align: center;
+            font-size: 0.8em;
+            max-width: 900px;
+            margin: 0 auto 8px auto;
+            line-height: 1.3;
+        }
+
+        .values-container {
+            background: linear-gradient(135deg, #0088cc 0%, #1a3a52 100%);
+            padding: 15px 20px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .value-box {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: start;
+        }
+
+        .value-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .icon-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .value-title {
+            color: white;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .value-content h3 {
+            color: white;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .value-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .value-content li {
+            color: white;
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            font-size: 0.7em;
+            line-height: 1.3;
+        }
+
+        .value-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 180px;
+            gap: 15px;
+            margin-top: 12px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .signature-box {
+            text-align: center;
+            background: white;
+            padding: 8px;
+            border-radius: 3px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            font-size: 0.8em;
+            margin-top: 5px;
+            color: #1a1a1a;
+        }
+
+        .signature-title {
+            color: #666;
+            margin-top: 2px;
+            font-size: 0.7em;
+        }
+
+        .signature-date {
+            color: #999;
+            margin-top: 3px;
+            font-size: 0.65em;
+        }
+
+        .closing-text {
+            font-size: 0.75em;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .page-break {
+                page-break-after: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .value-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .signature-section {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/LithoDat_LOGO.png" alt="LithoDat Logo" class="logo">
+        </div>
+
+        <div class="divider"></div>
+
+        <h1>QUALITY POLICY</h1>
+        <p class="tagline">Geology First - Excellence Through Expertise</p>
+
+        <div class="section-title">OUR COMMITMENT</div>
+        <p class="commitment-text">
+            To deliver the highest quality geological and geotechnical data through expert-led processes, rigorous validation, and unwavering commitment to scientific excellence. Our goal is to ensure every data point is accurate, reliable, and fit for purpose - validated by qualified geologists and grounded in FAIR data principles.
+        </p>
+
+        <div class="section-title">OUR APPROACH</div>
+
+        <div class="values-container">
+            <!-- Value 1: Expert-Led -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            <path d="M15.5 2.5h3v3h-3z"/>
+                            <circle cx="17" cy="4" r="2"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Expert-Led</div>
+                </div>
+                <div class="value-content">
+                    <h3>We put qualified geologists at every stage of the data lifecycle by:</h3>
+                    <ul>
+                        <li>Employing academically trained and professionally qualified geologists for all data validation and quality control processes</li>
+                        <li>Ensuring every dataset is reviewed and verified by geoscience professionals who understand the context, constraints, and critical nuances of geological data</li>
+                        <li>Investing in continuous professional development to keep our team at the forefront of geological science and data management best practices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 2: Rigorous -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Rigorous</div>
+                </div>
+                <div class="value-content">
+                    <h3>We maintain the highest standards through systematic validation by:</h3>
+                    <ul>
+                        <li>Implementing multi-stage human checking processes where every data point undergoes review by experienced geologists before release</li>
+                        <li>Conducting peer review of all critical datasets, ensuring independent validation and reducing the risk of systematic errors or biases</li>
+                        <li>Establishing clear quality metrics, audit trails, and documentation standards that provide transparency and traceability throughout the data lifecycle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 3: FAIR-Driven -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">FAIR-Driven</div>
+                </div>
+                <div class="value-content">
+                    <h3>FAIR data principles are at our core - we ensure our data is:</h3>
+                    <ul>
+                        <li><strong>Findable:</strong> Properly catalogued with rich metadata, persistent identifiers, and searchable repositories that make discovery effortless</li>
+                        <li><strong>Accessible:</strong> Available through standardized protocols with clear access conditions and long-term preservation strategies</li>
+                        <li><strong>Interoperable:</strong> Formatted using community standards and vocabularies that enable seamless integration across platforms and systems</li>
+                        <li><strong>Reusable:</strong> Thoroughly documented with provenance information, usage licenses, and quality indicators that enable confident reuse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 4: Excellence-Focused -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Excellence</div>
+                </div>
+                <div class="value-content">
+                    <h3>We're committed to continuous improvement and exceeding expectations by:</h3>
+                    <ul>
+                        <li>Setting internal quality standards that go beyond industry requirements, driven by our passion for geological excellence</li>
+                        <li>Regularly reviewing our processes, capturing lessons learned, and implementing improvements based on feedback and emerging best practices</li>
+                        <li>Collaborating with clients, researchers, and regulatory bodies to understand evolving needs and deliver data that creates lasting value</li>
+                        <li>Fostering a culture where every team member takes personal ownership of quality and feels empowered to raise concerns or suggest improvements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div>
+                <p class="closing-text">
+                    This Quality Policy reflects LithoDat's fundamental belief that geological data is only as valuable as the expertise behind it. By combining qualified professionals, rigorous processes, and FAIR principles, we ensure our data delivers reliable insights that drive better decisions.
+                </p>
+            </div>
+            <div class="signature-box">
+                <div style="height: 35px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; margin-bottom: 5px;">
+                    <svg width="80" height="25" viewBox="0 0 100 40">
+                        <path d="M 5,20 Q 15,5 25,20 T 45,20 Q 55,35 65,20 T 85,20" stroke="#0088cc" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="signature-name">Fabian Kohlmann</div>
+                <div class="signature-title">Chief Executive Officer</div>
+                <div class="signature-date">December 2025</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

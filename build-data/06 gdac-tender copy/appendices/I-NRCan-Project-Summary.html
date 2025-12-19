@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix I: NRCan CATCH Database - GDAC-SA Tender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .header {
+            background: #1f4e78;
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+            min-height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            flex: 1;
+            max-width: calc(100% - 180px);
+        }
+
+        .name {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 13pt;
+            opacity: 0.95;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .content {
+            padding: 20px 30px 30px 30px;
+        }
+
+        .highlight-box {
+            background: #e8f0f7;
+            border-left: 4px solid #1f4e78;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+        }
+
+        .highlight-box strong {
+            color: #1f4e78;
+        }
+
+        .warning-box {
+            background: #fff4e6;
+            border-left: 4px solid #d4880c;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+        }
+
+        .success-box {
+            background: #e8f7f0;
+            border-left: 4px solid #10b981;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+        }
+
+        .success-box strong {
+            color: #10b981;
+        }
+
+        h1 {
+            display: none;
+        }
+
+        h2 {
+            color: #1f4e78;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #1f4e78;
+            padding-bottom: 4px;
+        }
+
+        h3 {
+            color: #1f4e78;
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        h4 {
+            color: #1f4e78;
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        strong {
+            color: #1f4e78;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        th, td {
+            padding: 6px 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #1f4e78;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .reference {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+
+        .publication-link {
+            color: #1f4e78;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 16px 0;
+        }
+
+        .logo {
+            max-width: 220px;
+            max-height: 120px;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .figure {
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: white;
+        }
+
+        .figure-caption {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 15px;
+            margin: 12px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .stat-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #1f4e78;
+        }
+
+        .stat-label {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="name">APPENDIX I: NRCan CATCH Database</div>
+                <div class="title">Canadian ThermoCHronology Database – National Geological Data Integration Platform</div>
+                <div class="subtitle">GDAC-SA Advanced Analytics Platform RFQ | Lithodat Pty Ltd</div>
+            </div>
+            <img src="images/earthbank/nrcan/Logo.png" alt="Natural Resources Canada Logo" class="logo">
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <strong>Project Overview:</strong> The Canadian ThermoCHronology (CATCH) database is Natural Resources Canada's (NRCan) national platform for integrating low-temperature thermochronology data across Canada. Developed by Lithodat in partnership with the Geological Survey of Canada (GSC), CATCH demonstrates advanced capability in multi-decade data curation, legacy data digitization, FAIR-compliant repository construction, and national-scale geoscientific database architecture—directly applicable to GDAC-SA's requirements for integrating historical and modern geological datasets.
+            </div>
+
+            <h2>About the CATCH Database</h2>
+
+            <p><strong>Official Publication:</strong> Natural Resources Canada's Geological Survey of Canada published <strong>Open File 9225</strong> in <strong>2025</strong>, marking the first comprehensive compilation of low-temperature thermochronology (LTT) data for northern Canada and the foundation of the CATCH database initiative.</p>
+
+            <p><strong>Authors:</strong> J.W. Powell (GSC), D.A. Kellett (GSC), <strong>F. Kohlmann (Lithodat)</strong>, and M. McMillan (Lithodat/University of Melbourne)</p>
+
+            <p><strong>What is Low-Temperature Thermochronology?</strong> Low-temperature thermochronometers, such as fission track and (U-Th)/He systems, are radiometric dating methods sensitive to low (<~300°C) temperature regimes characteristic of relatively shallow depths in Earth's crust. LTT provides temporal constraints on a range of important upper crustal geological processes, including:</p>
+
+            <ul>
+                <li><strong>Tectonic exhumation</strong> – Unroofing and uplift of mountain belts</li>
+                <li><strong>Climatic exhumation</strong> – Erosion driven by glacial and fluvial processes</li>
+                <li><strong>Brittle deformation</strong> – Faulting and fracturing events</li>
+                <li><strong>Sedimentary burial</strong> – Basin subsidence and thermal maturation</li>
+                <li><strong>Hydrothermal fluid circulation</strong> – Mineral deposit formation</li>
+                <li><strong>Crustal heat flow changes</strong> – Geothermal evolution over time</li>
+            </ul>
+
+            <p>The unique ability of LTT to unravel the thermal history of rocks renders these methods invaluable for assessing the geodynamic and surficial processes that have impacted Canada's bedrock throughout geologic time.</p>
+
+            <div class="figure">
+                <img src="images/earthbank/nrcan/NRcan image.png" alt="Map of northern Canada showing locations of samples with low-temperature thermochronology data">
+                <div class="figure-caption">Locations of samples with LTT data in northern Canada. All published data are included in this report. Note: data from Alaska, Greenland and southern Canada were also extracted if included in the same publications as northern Canada LTT data. (Source: GSC Open File 9225)</div>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-number">1,427</div>
+                    <div class="stat-label">Unique Samples</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50+ Years</div>
+                    <div class="stat-label">Data Coverage (1970-2021)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">91</div>
+                    <div class="stat-label">Data Sources</div>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <strong>Data Accessibility:</strong> CATCH compilation data will be publicly accessible via Lithodat's open-access AusGeochem platform at <a href="https://ausgeochem.auscope.org.au" class="publication-link" style="color: #10b981;">https://ausgeochem.auscope.org.au</a>
+            </div>
+
+            <hr>
+
+            <h2>1. Executive Summary</h2>
+
+            <h3>1.1 What is the CATCH Database?</h3>
+
+            <p>The Canadian ThermoCHronology (CATCH) database is a comprehensive national repository for low-temperature thermochronology data from across Canada. The database integrates <strong>996 fission track datapoints</strong> and <strong>762 (U-Th)/He datapoints</strong> from 1,427 unique samples, further divided into:</p>
+
+            <ul>
+                <li><strong>16,277 single grain fission track measurements</strong></li>
+                <li><strong>27,848 fission track length measurements</strong></li>
+                <li><strong>3,230 aliquots of (U-Th)/He data</strong></li>
+            </ul>
+
+            <p>The project represents a multi-year collaboration between Lithodat Pty Ltd and Canada's Geological Survey (Natural Resources Canada), involving extensive data mining, legacy data digitization, quality control, and standardization across 91 different data sources spanning five decades (1970-2021).</p>
+
+            <h3>1.2 Relevance to GDAC-SA Project</h3>
+
+            <p>The CATCH database demonstrates Lithodat's proven capability to address GDAC-SA's core challenges in national geological data integration:</p>
+
+            <ul>
+                <li><strong>Multi-Decade Data Integration:</strong> Successfully compiled and harmonized data from 50+ years of publications (1970-2021), including digital and analogue sources—directly analogous to GDAC's challenge of integrating historical and modern Saudi geological survey data</li>
+                <li><strong>Legacy Data Digitization:</strong> Developed systematic approaches to extract data from paper reports, non-vectorized PDFs, and published figures (e.g., digitizing histograms, georeferencing sample locations)—critical for GDAC's historical data integration requirements</li>
+                <li><strong>Complex Metadata Management:</strong> Captured comprehensive analytical metadata including sample coordinates, rock types, stratigraphic units, analytical methods, kinetic parameters, and quality control metrics—demonstrating expertise in geoscientific metadata frameworks</li>
+                <li><strong>FAIR Data Principles:</strong> Designed database structure to be Findable, Accessible, Interoperable, and Reusable, with open-access delivery via AusGeochem platform—aligning with GDAC's open science mandate</li>
+                <li><strong>National-Scale Geoscientific Infrastructure:</strong> Created standardized templates and workflows for ongoing data submission by Canadian researchers—providing blueprint for GDAC's data ingestion framework</li>
+                <li><strong>Government Partnership Excellence:</strong> Multi-year collaboration with Natural Resources Canada (federal agency) demonstrates capability to deliver mission-critical infrastructure for national geological surveys</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Critical GDAC-SA Alignment:</strong> The CATCH database solves the exact multi-decade data integration problem that GDAC-SA faces. Where GDAC must digitize and integrate 50+ years of Saudi geological survey data with inconsistent formats, CATCH successfully harmonized Canadian thermochronology data spanning the same timeframe with equally diverse data structures. The data extraction methodologies, quality control frameworks, and database architectures are directly transferable to the Saudi context.
+            </div>
+
+            <h2>2. Data Extraction and Curation Methodology</h2>
+
+            <h3>2.1 Multi-Source Data Integration</h3>
+
+            <p>Data extraction involved extensive data mining of all LTT data and associated metadata for northern Canada from 91 different data sources. The project required specialized approaches for different data formats:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Format</th>
+                        <th>Extraction Method</th>
+                        <th>Quality Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Modern Digital Publications</strong></td>
+                        <td>Direct extraction from digital tables (copy/paste to Excel)</td>
+                        <td>Row-by-row validation against source</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analogue Paper Reports</strong></td>
+                        <td>Manual data entry from physical documents</td>
+                        <td>Double-entry verification</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Non-Vectorized PDFs</strong></td>
+                        <td>OCR extraction with manual correction</td>
+                        <td>Character-by-character validation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Published Figures/Histograms</strong></td>
+                        <td>Digital extraction using image analysis tools</td>
+                        <td>Statistical comparison to published summaries</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maps Without Coordinates</strong></td>
+                        <td>Georeferencing using GIS software</td>
+                        <td>Cross-validation with regional geology</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.2 Comprehensive Metadata Capture</h3>
+
+            <p>At the sample level, CATCH captures extensive metadata to enable reuse and reinterpretation of historical data:</p>
+
+            <ul>
+                <li><strong>Sample Metadata:</strong> Name, coordinates, location name/description, location type, sampling method, rock type, stratigraphic unit, elevation</li>
+                <li><strong>Analytical Metadata:</strong> Laboratory, analyst, analytical method, measurement date, equipment used</li>
+                <li><strong>Kinetic Parameters:</strong> Dpar, chlorine content, radiation damage, etching conditions—essential for thermal history modeling</li>
+                <li><strong>Provenance Metadata:</strong> Funding sources, chief investigator, publication reference, digital object identifier (DOI)</li>
+                <li><strong>Quality Metrics:</strong> Number of grains analyzed, track counts, uncertainties, quality flags</li>
+            </ul>
+
+            <h3>2.3 Georeferencing and Spatial Integration</h3>
+
+            <p>For publications where sample coordinates were not provided, locations were determined via systematic georeferencing of geologic maps. This process involved:</p>
+
+            <ul>
+                <li>Digital extraction of geologic maps from publications</li>
+                <li>Georeferencing maps using GIS software (QGIS, ArcGIS)</li>
+                <li>Digitizing sample locations from georeferenced maps</li>
+                <li>Cross-validation with regional geological frameworks</li>
+                <li>Assignment of confidence levels to georeferenced coordinates</li>
+            </ul>
+
+            <h2>3. Database Architecture and Data Model</h2>
+
+            <h3>3.1 Thermochronology-Specific Data Structure</h3>
+
+            <p>The CATCH database employs a purpose-built data structure tailored to low-temperature thermochronology requirements. The data model accounts for different thermochronometers, various analytical generations, and corresponding metadata:</p>
+
+            <h4>Fission Track Data Structure</h4>
+            <ul>
+                <li><strong>FT Datapoints:</strong> Bulk fission track data for all samples (central ages, pooled ages, summary statistics)</li>
+                <li><strong>FT Count Data:</strong> Fission track counting statistics (spontaneous tracks, induced tracks, uranium concentrations)</li>
+                <li><strong>FT Single Grain:</strong> Individual grain ages and kinetic parameters</li>
+                <li><strong>FT Length Data:</strong> Individual fission track length measurements</li>
+                <li><strong>FT Binned Length Data:</strong> Length distributions digitized from published histograms</li>
+            </ul>
+
+            <h4>(U-Th)/He Data Structure</h4>
+            <ul>
+                <li><strong>He Datapoints:</strong> Summary data for all samples (mean ages, weighted mean ages)</li>
+                <li><strong>He Whole Grain:</strong> Detailed aliquot data (single grain or multi-grain analyses)</li>
+                <li><strong>He Kinetic Parameters:</strong> Effective uranium (eU), grain dimensions, alpha ejection corrections</li>
+            </ul>
+
+            <h3>3.2 Modern Data Reporting Standards</h3>
+
+            <p>The CATCH database structure adheres to international thermochronology community guidelines for data reporting:</p>
+
+            <ul>
+                <li><strong>Fission Track:</strong> Aligned with Kohn et al. (2024) community standards for fission track data reporting</li>
+                <li><strong>(U-Th)/He:</strong> Follows Flowers et al. (2023a, b) guidelines for (U-Th)/He chronology data and uncertainty reporting</li>
+                <li><strong>Extensibility:</strong> Database structure designed to accommodate future analytical methods and evolving reporting standards</li>
+            </ul>
+
+            <h3>3.3 Data Reusability Framework</h3>
+
+            <p>A critical design principle of CATCH is enabling functional reuse of historical data through modern analytical lenses. This is essential because:</p>
+
+            <ul>
+                <li><strong>Evolving Kinetic Models:</strong> Laboratory-defined models for thermal diffusion and annealing are routinely updated and improved</li>
+                <li><strong>New Modeling Software:</strong> Advanced codes for numerical thermal history modeling are continually published</li>
+                <li><strong>Big Data Approaches:</strong> Modern methods derive regional geologic histories from large LTT datasets requiring comprehensive metadata</li>
+            </ul>
+
+            <p>By capturing comprehensive analytical metadata, CATCH ensures that a single apatite fission track age from a 1970s publication (with minimal reported metadata) can be reanalyzed using modern kinetic models alongside contemporary samples with >3000 unique data entries per sample.</p>
+
+            <h2>4. Data Coverage and Scientific Impact</h2>
+
+            <h3>4.1 Geographic Coverage</h3>
+
+            <p>The northern Canada CATCH compilation provides comprehensive coverage of key tectonic and geological provinces:</p>
+
+            <ul>
+                <li><strong>Northern Canadian Cordillera:</strong> Extensive data documenting Mesozoic to Eocene mountain building and exhumation</li>
+                <li><strong>Arctic Islands:</strong> Data constraining burial and exhumation in Franklinian Basin and Sverdrup Basin</li>
+                <li><strong>Canadian Shield:</strong> Critical data revealing dynamic cratonic response to far-field stresses through deep time</li>
+                <li><strong>Eurekan Orogeny:</strong> Thermochronology documenting Eocene orogenesis along Arctic margin</li>
+            </ul>
+
+            <h3>4.2 Temporal Coverage and Data Density</h3>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-number">996</div>
+                    <div class="stat-label">Fission Track Datapoints</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">762</div>
+                    <div class="stat-label">(U-Th)/He Datapoints</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">27,848</div>
+                    <div class="stat-label">Track Length Measurements</div>
+                </div>
+            </div>
+
+            <p>The data span geological ages from <strong>Precambrian to Cenozoic</strong>, with the majority documenting cooling related to Mesozoic and younger tectonic systems. This comprehensive temporal coverage enables:</p>
+
+            <ul>
+                <li>Regional synthesis of exhumation and burial patterns</li>
+                <li>Identification of data gaps requiring new sampling campaigns</li>
+                <li>Statistical approaches to understanding continental-scale tectonics</li>
+                <li>Validation and calibration of geodynamic models</li>
+            </ul>
+
+            <h3>4.3 Research Applications Enabled by CATCH</h3>
+
+            <p>The CATCH database infrastructure enables advanced research applications that were previously impossible without centralized data access:</p>
+
+            <ul>
+                <li><strong>Big Data Thermochronology:</strong> Statistical analysis of continental-scale exhumation patterns (Boone et al. 2023, Scientific Reports)</li>
+                <li><strong>Machine Learning Applications:</strong> Training datasets for ML-based thermal history inversion algorithms</li>
+                <li><strong>Regional Synthesis:</strong> Identification of first-order tectonic events affecting Canada's bedrock evolution</li>
+                <li><strong>Gap Analysis:</strong> Systematic identification of under-sampled geological provinces requiring new data acquisition</li>
+                <li><strong>Legacy Data Reinterpretation:</strong> Re-analysis of historical data using modern kinetic models and thermal history modeling codes</li>
+            </ul>
+
+            <h2>5. GDAC-SA Technical Alignment</h2>
+
+            <h3>5.1 Multi-Decade Data Integration Expertise</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>CATCH Database Challenge</th>
+                        <th>Solution Implemented</th>
+                        <th>GDAC-SA Applicability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data from 1970-2021 in diverse formats</td>
+                        <td>Multi-format extraction pipeline (digital, analogue, OCR, image analysis)</td>
+                        <td>Directly applicable to GDAC's 50+ year historical data integration</td>
+                    </tr>
+                    <tr>
+                        <td>Non-standardized metadata across decades</td>
+                        <td>Flexible schema accommodating variable metadata completeness</td>
+                        <td>Handles GDAC's heterogeneous historical Saudi survey data</td>
+                    </tr>
+                    <tr>
+                        <td>Missing spatial coordinates</td>
+                        <td>Systematic georeferencing workflow using GIS</td>
+                        <td>Applicable to Saudi publications lacking GPS coordinates</td>
+                    </tr>
+                    <tr>
+                        <td>Data in published figures/histograms</td>
+                        <td>Image digitization and data extraction tools</td>
+                        <td>Critical for extracting data from historical Saudi reports</td>
+                    </tr>
+                    <tr>
+                        <td>91 disparate data sources</td>
+                        <td>Unified quality control and validation framework</td>
+                        <td>Ensures consistency across GDAC's multi-source data streams</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.2 Government Partnership and Governance</h3>
+
+            <p>Lithodat's collaboration with Natural Resources Canada (NRCan) on the CATCH database demonstrates:</p>
+
+            <ul>
+                <li><strong>Federal Agency Collaboration:</strong> Multi-year partnership with Canadian federal government geological survey (GSC)</li>
+                <li><strong>National Infrastructure Development:</strong> Building mission-critical data infrastructure for national geoscience priorities</li>
+                <li><strong>Official Publications:</strong> CATCH work published as GSC Open File 9225 with full government co-authorship</li>
+                <li><strong>Long-Term Sustainability:</strong> Database designed for ongoing curation and expansion beyond initial compilation</li>
+                <li><strong>Open Science Mandate:</strong> Full public accessibility via AusGeochem platform aligns with government open data policies</li>
+            </ul>
+
+            <h3>5.3 FAIR Data Implementation</h3>
+
+            <p>The CATCH database exemplifies FAIR (Findable, Accessible, Interoperable, Reusable) data principles:</p>
+
+            <ul>
+                <li><strong>Findable:</strong> Comprehensive metadata, DOI assignment (10.4095/pdreqf905k), publication in official GSC Open File series</li>
+                <li><strong>Accessible:</strong> Open-access delivery via AusGeochem platform, no authentication barriers</li>
+                <li><strong>Interoperable:</strong> Standardized data formats, adherence to community reporting guidelines, API-ready structure</li>
+                <li><strong>Reusable:</strong> Rich metadata enabling thermal history modeling, clear provenance and licensing, comprehensive documentation</li>
+            </ul>
+
+            <h2>6. Future Expansion: Southern Canada and Thermal Modeling</h2>
+
+            <p>The CATCH database is being expanded through a series of GSC Open Files:</p>
+
+            <ul>
+                <li><strong>Open File 9225 (Published 2025):</strong> Northern Canada compilation (this work)</li>
+                <li><strong>Open File 2 (Upcoming):</strong> Southern Canada LTT compilation plus thermal history models and metadata</li>
+                <li><strong>Open File 3 (Upcoming):</strong> CATCH database documentation and data submission templates for researchers</li>
+            </ul>
+
+            <p>This phased approach demonstrates Lithodat's capability to deliver large-scale national infrastructure projects in stages, with each phase building on previous work—directly relevant to GDAC-SA's phased implementation strategy.</p>
+
+            <h2>7. Official Publication and Citation</h2>
+
+            <div class="reference">
+                <p><strong>Official Citation:</strong></p>
+                <p>Powell, J.W., Kellett, D.A., Kohlmann, F., and McMillan, M., 2025. Canadian ThermoCHronology (CATCH) database: northern Canada compilation; Geological Survey of Canada, Open File 9225, 1 .zip file. <a href="https://doi.org/10.4095/pdreqf905k" class="publication-link">https://doi.org/10.4095/pdreqf905k</a></p>
+
+                <p style="margin-top: 12px;"><strong>Publisher:</strong> Natural Resources Canada, Geological Survey of Canada</p>
+                <p><strong>ISBN:</strong> 978-0-660-74235-9</p>
+                <p><strong>Catalogue No.:</strong> M183-2/9225E-PDF</p>
+                <p><strong>ISSN:</strong> 2816-7155</p>
+
+                <p style="margin-top: 12px;"><strong>Lithodat Authors:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 6px;">
+                    <li>F. Kohlmann (Lithodat Pty Ltd, Melbourne, Australia)</li>
+                    <li>M. McMillan (Lithodat Pty Ltd & University of Melbourne, Australia)</li>
+                </ul>
+
+                <p style="margin-top: 12px;"><strong>Copyright:</strong> © His Majesty the King in Right of Canada, as represented by the Minister of Natural Resources, 2025</p>
+            </div>
+
+            <h2>8. Key Takeaways for GDAC-SA</h2>
+
+            <div class="success-box">
+                <p><strong>Proven National-Scale Data Integration:</strong> The CATCH database demonstrates Lithodat's capability to deliver national geological data infrastructure for federal government agencies. The project's scope (1,427 samples, 91 data sources, 50 years of legacy data) is directly comparable to GDAC-SA's requirements. Methodologies developed for CATCH—including legacy data digitization, multi-format extraction pipelines, georeferencing workflows, and FAIR data implementation—are immediately transferable to the Saudi geological survey context.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>Government Partnership Excellence:</strong> Lithodat's multi-year collaboration with Natural Resources Canada (federal agency equivalent to Saudi Geological Survey) resulted in official government publications and long-term national infrastructure. This demonstrates capability to work within government procurement frameworks, deliver mission-critical infrastructure, and maintain partnerships through multi-phase projects—essential qualifications for the GDAC-SA contract.
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

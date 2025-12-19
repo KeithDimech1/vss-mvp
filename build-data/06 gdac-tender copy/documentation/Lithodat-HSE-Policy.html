@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LithoDat Health, Safety & Environment Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            color: #333;
+            background: #fff;
+            font-size: 9pt;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .header {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #0088cc;
+            margin: 8px auto;
+        }
+
+        h1 {
+            color: #0088cc;
+            font-size: 1.6em;
+            text-align: center;
+            margin-bottom: 3px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            color: #1a3a52;
+            font-size: 0.95em;
+            text-align: center;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 0.85em;
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0 5px 0;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
+        }
+
+        .commitment-text {
+            text-align: center;
+            font-size: 0.8em;
+            max-width: 900px;
+            margin: 0 auto 8px auto;
+            line-height: 1.3;
+        }
+
+        .values-container {
+            background: linear-gradient(135deg, #0088cc 0%, #1a3a52 100%);
+            padding: 15px 20px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .value-box {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: start;
+        }
+
+        .value-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .icon-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .value-title {
+            color: white;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .value-content h3 {
+            color: white;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .value-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .value-content li {
+            color: white;
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            font-size: 0.7em;
+            line-height: 1.3;
+        }
+
+        .value-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 180px;
+            gap: 15px;
+            margin-top: 12px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .signature-box {
+            text-align: center;
+            background: white;
+            padding: 8px;
+            border-radius: 3px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            font-size: 0.8em;
+            margin-top: 5px;
+            color: #1a1a1a;
+        }
+
+        .signature-title {
+            color: #666;
+            margin-top: 2px;
+            font-size: 0.7em;
+        }
+
+        .signature-date {
+            color: #999;
+            margin-top: 3px;
+            font-size: 0.65em;
+        }
+
+        .closing-text {
+            font-size: 0.75em;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .page-break {
+                page-break-after: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .value-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .signature-section {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/LithoDat_LOGO.png" alt="LithoDat Logo" class="logo">
+        </div>
+
+        <div class="divider"></div>
+
+        <h1>HEALTH, SAFETY & ENVIRONMENT POLICY</h1>
+        <p class="tagline">Safety, Wellbeing & Stewardship</p>
+
+        <div class="section-title">OUR COMMITMENT</div>
+        <p class="commitment-text">
+            To protect our people, communities, and environment through proactive risk management, comprehensive safety practices, and unwavering commitment to responsible operations. Our goal is to create a workplace where everyone returns home safely every day, where wellbeing is prioritized, and where our environmental impact is minimized through sustainable practices and continuous improvement.
+        </p>
+
+        <div class="section-title">OUR APPROACH</div>
+
+        <div class="values-container">
+            <!-- Value 1: Safe -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Safe</div>
+                </div>
+                <div class="value-content">
+                    <h3>Safety is our highest priority - we protect our people by:</h3>
+                    <ul>
+                        <li>Pursuing zero harm as our ultimate goal - every person deserves to work in an environment free from injury, illness, and unnecessary risk</li>
+                        <li>Providing comprehensive safety training, clear procedures, and appropriate personal protective equipment for all field and office operations</li>
+                        <li>Empowering every team member to stop work immediately if they identify unsafe conditions or practices</li>
+                        <li>Conducting thorough risk assessments before every project, with ongoing monitoring and adjustment as conditions change</li>
+                        <li>Maintaining transparent communication about safety performance, incidents, near-misses, and lessons learned across the organization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 2: Healthy -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Healthy</div>
+                </div>
+                <div class="value-content">
+                    <h3>Wellbeing and health drive sustainable performance - we support our team by:</h3>
+                    <ul>
+                        <li>Recognizing that physical, mental, and emotional health are interconnected and equally important for individual and organizational success</li>
+                        <li>Providing access to mental health resources, employee assistance programs, and support services for our team and their families</li>
+                        <li>Promoting work-life balance through flexible work arrangements, reasonable workloads, and respect for personal time</li>
+                        <li>Creating an inclusive culture where people feel valued, heard, and supported regardless of background or role</li>
+                        <li>Monitoring occupational health risks including ergonomics, repetitive strain, and exposure to field hazards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 3: Responsible -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2V3.46c-.95-.3-1.95-.46-3-.46C5.48 3 0 8.48 0 15s5.48 12 12 12c5.84 0 10.87-4.19 11.82-9.93-.59.28-1.23.43-1.92.43-2.07 0-3.75-1.68-3.75-3.75 0-.59.14-1.16.39-1.68l-.64-.68zM12 19.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 10.5 12 10.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Responsible</div>
+                </div>
+                <div class="value-content">
+                    <h3>Environmental stewardship is central to our operations - we protect our planet by:</h3>
+                    <ul>
+                        <li>Minimizing our carbon footprint through efficient travel planning, reduced energy consumption, and support for renewable energy initiatives</li>
+                        <li>Reducing waste and promoting recycling in all our operations, from office practices to field work</li>
+                        <li>Protecting the natural environments we work in - respecting ecosystems, waterways, and wildlife during data collection activities</li>
+                        <li>Complying with all environmental regulations and exceeding requirements wherever possible</li>
+                        <li>Collaborating with clients and communities to leave a positive environmental legacy through responsible data collection and site management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value 4: Vigilant -->
+            <div class="value-box">
+                <div class="icon-container">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                    <div class="value-title">Vigilant</div>
+                </div>
+                <div class="value-content">
+                    <h3>Continuous improvement and proactive risk management keep us safe - we strengthen our culture by:</h3>
+                    <ul>
+                        <li>Conducting regular HSE audits, inspections, and reviews to identify hazards before they lead to incidents</li>
+                        <li>Learning from incidents, near-misses, and industry events - capturing lessons and implementing corrective actions promptly</li>
+                        <li>Encouraging open reporting and honest communication without fear of blame or reprisal</li>
+                        <li>Maintaining emergency response plans, conducting drills, and ensuring our team is prepared for unexpected situations</li>
+                        <li>Engaging with industry peers, regulators, and experts to stay current with best practices and emerging risks</li>
+                        <li>Holding ourselves accountable - from leadership to frontline workers - for HSE performance and continuous improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div>
+                <p class="closing-text">
+                    This HSE Policy reflects LithoDat's fundamental belief that safety, health, and environmental stewardship are not just regulatory requirements - they are core values that define who we are and how we work. Through vigilance, accountability, and genuine care for our people and planet, we create lasting value for our clients, communities, and environment.
+                </p>
+            </div>
+            <div class="signature-box">
+                <div style="height: 35px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; margin-bottom: 5px;">
+                    <svg width="80" height="25" viewBox="0 0 100 40">
+                        <path d="M 5,20 Q 15,5 25,20 T 45,20 Q 55,35 65,20 T 85,20" stroke="#0088cc" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="signature-name">Fabian Kohlmann</div>
+                <div class="signature-title">Chief Executive Officer</div>
+                <div class="signature-date">December 2025</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

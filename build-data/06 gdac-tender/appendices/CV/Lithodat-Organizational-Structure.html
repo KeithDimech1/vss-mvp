@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lithodat - Organizational Structure</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2563eb;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-text {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .org-chart {
+            margin: 30px 0;
+        }
+
+        .level {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .level-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .positions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .position {
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-align: center;
+            min-width: 160px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .position-name {
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .position-title {
+            font-size: 10px;
+            opacity: 0.9;
+        }
+
+        .client {
+            background: #10b981;
+            color: white;
+            border: 2px solid #059669;
+        }
+
+        .advisory {
+            background: #ffc0cb;
+            color: #000;
+            border: 2px solid #ff69b4;
+        }
+
+        .executive {
+            background: #1e3a8a;
+            color: white;
+            border: 2px solid #1e40af;
+        }
+
+        .clevel {
+            background: #2563eb;
+            color: white;
+            border: 2px solid #3b82f6;
+        }
+
+        .team-box {
+            background: #e0f2fe;
+            border: 2px solid #60a5fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 600px;
+        }
+
+        .team-box-title {
+            font-weight: 700;
+            font-size: 12px;
+            color: #1e40af;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 10px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #93c5fd;
+        }
+
+        .external {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            color: #000;
+        }
+
+        .connector {
+            text-align: center;
+            font-size: 20px;
+            color: #2563eb;
+            margin: 10px 0;
+        }
+
+        .value-section {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .value-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .value-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .value-section li {
+            font-size: 11px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .value-section li:before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            font-weight: bold;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: right;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .signature-title {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .signature-date {
+            font-size: 10px;
+            color: #999;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="flex: 1;"></div>
+        <img src="../assets/LithoDat_LOGO.png" alt="Lithodat Logo" class="logo">
+    </div>
+
+    <div class="title-section">
+        <div class="main-title">ORGANIZATIONAL STRUCTURE</div>
+        <div class="subtitle">Building Excellence Through Strategic Organization</div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Our Commitment</h2>
+        <p class="section-text">
+            Lithodat's organizational structure is designed to deliver world-class geoscience data platforms
+            through clear leadership, specialized expertise, and collaborative teams. Our structure ensures
+            accountability, innovation, and quality across all operations.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Leadership Structure</h2>
+
+        <div class="org-chart">
+            <!-- Client & Advisory -->
+            <div class="level">
+                <div class="level-title">Client & Advisory</div>
+                <div class="positions">
+                    <div class="position client">
+                        <div class="position-name">Saudi Geological Survey</div>
+                        <div class="position-title">Client</div>
+                    </div>
+                    <div class="position advisory">
+                        <div class="position-name">Dr. Mahdi AbuAli</div>
+                        <div class="position-title">GDAC Saudi Lead</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector">↓</div>
+
+            <!-- Executive -->
+            <div class="level">
+                <div class="level-title">Executive Leadership</div>
+                <div class="positions">
+                    <div class="position executive">
+                        <div class="position-name">Dr. Fabian Kohlmann</div>
+                        <div class="position-title">Chief Executive Officer</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector">↓</div>
+
+            <!-- C-Level -->
+            <div class="level">
+                <div class="level-title">C-Level Management</div>
+                <div class="positions">
+                    <div class="position clevel">
+                        <div class="position-name">Keith Dimech</div>
+                        <div class="position-title">Chief Operating Officer</div>
+                    </div>
+                    <div class="position clevel">
+                        <div class="position-name">Dr. Wayne Peter Noble</div>
+                        <div class="position-title">Chief Information Officer</div>
+                    </div>
+                    <div class="position clevel">
+                        <div class="position-name">Dr. Qusay Abeed</div>
+                        <div class="position-title">Geological Director</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTO & QM -->
+            <div class="level" style="margin-top: 20px;">
+                <div class="positions">
+                    <div class="position clevel">
+                        <div class="position-name">Gerd Moritz Theile</div>
+                        <div class="position-title">Chief Technology Officer</div>
+                    </div>
+                    <div class="position clevel">
+                        <div class="position-name">Juan Baca</div>
+                        <div class="position-title">Quality Manager</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Consultants -->
+            <div class="level" style="margin-top: 20px;">
+                <div class="level-title">External Support</div>
+                <div class="positions">
+                    <div class="position external">
+                        <div class="position-name">Legal Services</div>
+                        <div class="position-title">External Consultant</div>
+                    </div>
+                    <div class="position external">
+                        <div class="position-name">Accounting Services</div>
+                        <div class="position-title">External Consultant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Specialized Teams</h2>
+
+        <div class="team-box">
+            <div class="team-box-title">Data & Cyber Security</div>
+            <div class="team-members">
+                <div class="team-member">
+                    <strong>Vinko Novak</strong><br>
+                    Head of Data Security
+                </div>
+                <div class="team-member">
+                    <strong>Annemarie Grass</strong><br>
+                    Head of Cyber Defence
+                </div>
+                <div class="team-member" style="grid-column: 1 / -1;">
+                    <strong>Mapbox</strong> (External)<br>
+                    Data Sovereignty Partner
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <div class="team-box-title">Backend Development</div>
+            <div class="team-members">
+                <div class="team-member">
+                    <strong>Nirali Dudharejiya</strong><br>
+                    Backend Developer
+                </div>
+                <div class="team-member">
+                    <strong>Tarun Sengar</strong><br>
+                    Backend Developer
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <div class="team-box-title">Frontend Development</div>
+            <div class="team-members">
+                <div class="team-member">
+                    <strong>Lujia Yang</strong><br>
+                    Frontend Developer
+                </div>
+                <div class="team-member">
+                    <strong>Xinyan Zhang</strong><br>
+                    Frontend Developer
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <div class="team-box-title">AI Specialist Team</div>
+            <div class="team-members">
+                <div class="team-member">
+                    <strong>Nilesh Vyavahare</strong><br>
+                    GIS Full Stack Developer
+                </div>
+                <div class="team-member">
+                    <strong>Pedro Ferreira</strong><br>
+                    AI Software Development Lead
+                </div>
+                <div class="team-member" style="grid-column: 1 / -1;">
+                    <strong>Dr. Behnam Sadeghi</strong><br>
+                    Geological ML Technical Advisor
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <div class="team-box-title">Geological Quality Team</div>
+            <div class="team-members">
+                <div class="team-member">
+                    <strong>Dr. Alejandra Bedoya</strong><br>
+                    Geologist
+                </div>
+                <div class="team-member">
+                    <strong>Perla Luque</strong><br>
+                    Geologist
+                </div>
+                <div class="team-member" style="grid-column: 1 / -1;">
+                    <strong>Cris Ibarra</strong><br>
+                    Geologist
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="value-section">
+        <h3>Our Organizational Strengths</h3>
+        <ul>
+            <li><strong>Specialized Expertise:</strong> Dedicated teams for security, development, AI, and geological quality ensure excellence in every domain</li>
+            <li><strong>Quality-First Culture:</strong> Quality Manager reporting directly to Geological Director with oversight of geological quality team</li>
+            <li><strong>Security by Design:</strong> Comprehensive data and cyber security team ensuring information protection and data sovereignty</li>
+            <li><strong>Innovation-Driven:</strong> AI Specialist Team with geological ML expertise advancing intelligent data solutions</li>
+            <li><strong>Clear Accountability:</strong> Well-defined reporting lines from executive leadership through to specialized teams</li>
+            <li><strong>Global Partnerships:</strong> Strategic partnerships with industry leaders like Mapbox for enhanced capabilities</li>
+        </ul>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-name">Dr. Fabian Kohlmann</div>
+        <div class="signature-title">Chief Executive Officer</div>
+        <div class="signature-date">December 2024</div>
+    </div>
+</body>
+</html>

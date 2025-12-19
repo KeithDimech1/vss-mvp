@@ -1,0 +1,99 @@
+graph LR
+    %% Top Level
+    SGS[SGS<br/>Saudi Geological Survey]
+    ADVISOR[Dr. Mahdi AbuAli<br/>GDAC Saudi Lead]
+
+    %% Executive Level
+    CEO[Dr. Fabian Kohlmann<br/>Chief Executive]
+
+    %% C-Level Management
+    COO[Keith Dimech<br/>Chief Operating Officer]
+    CIO[Dr. Wayne Peter Noble<br/>Chief Information Officer]
+    GEO[Dr. Qusay Abeed<br/>Geological Director]
+
+    %% Department Heads
+    CTO[Gerd Moritz Theile<br/>Chief Technology Officer]
+    QM[Juan Baca<br/>Quality Manager]
+
+    %% External Consultants
+    LEGAL[Legal<br/>External]
+    ACCT[Accounting<br/>External]
+
+    %% Security Team Box
+    DATASEC[Data and Cyber Security]
+    VINKO[Vinko Novak<br/>Head of Data Security]
+    ANNE[Annemarie Grass<br/>Head of Cyber Defence]
+
+    %% Backend Team
+    BE1[Nirali Dudharejiya<br/>Backend Developer]
+    BE2[Tarun Sengar<br/>Backend Developer]
+
+    %% Frontend Team
+    FE1[Lujia Yang<br/>Frontend]
+    FE2[Xinyan Zhang<br/>Frontend]
+
+    %% AI Team Box
+    AIBOX[AI Specialist Team]
+    AI1[Nilesh Vyavahare<br/>GIS Full Stack Developer]
+    AI2[Pedro Ferreira<br/>AI Software Development Lead]
+    AI3[Dr. Behnam Sadeghi<br/>Geological ML Technical Advisor]
+
+    %% Geology Team Box
+    GEOBOX[Geological Quality Team]
+    GEO1[Dr. Alejandra Bedoya<br/>Geologist]
+    GEO2[Perla Luque<br/>Geologist]
+    GEO3[Cris Ibarra<br/>Geologist]
+
+    %% Main Structure
+    SGS --> CEO
+    ADVISOR -.Advisory Role.-> CEO
+
+    CEO --> COO
+    CEO --> CIO
+    CEO --> GEO
+
+    %% COO's Reports
+    LEGAL -.-> COO
+    ACCT -.-> COO
+    COO --> DATASEC
+    DATASEC --> VINKO
+    DATASEC --> ANNE
+
+    %% CIO's Reports
+    COO <--> CTO
+    CIO --> CTO
+    CIO --> AIBOX
+    CIO --> FE1
+    CIO --> FE2
+
+    CTO --> BE1
+    CTO --> BE2
+
+    AIBOX --> AI1
+    AIBOX --> AI2
+    AIBOX --> AI3
+
+    %% Geological Director's Reports
+    GEO --> GEOBOX
+    GEOBOX --> QM
+    QM --> GEO1
+    QM --> GEO2
+    QM --> GEO3
+
+    %% Styling
+    classDef client fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+    classDef advisory fill:#ffc0cb,stroke:#ff69b4,stroke-width:2px,color:#000
+    classDef executive fill:#1e3a8a,stroke:#1e40af,stroke-width:3px,color:#fff
+    classDef clevel fill:#2563eb,stroke:#3b82f6,stroke-width:2px,color:#fff
+    classDef team fill:#60a5fa,stroke:#3b82f6,stroke-width:1px,color:#000
+    classDef consultant fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
+    classDef teambox fill:#fff,stroke:#000,stroke-width:2px,color:#000
+
+    class SGS client
+    class ADVISOR advisory
+    class CEO executive
+    class COO,CIO,GEO,CTO clevel
+    class QM clevel
+    class VINKO,ANNE,BE1,BE2,FE1,FE2,AI1,AI2,AI3,GEO1,GEO2,GEO3 team
+    class LEGAL,ACCT consultant
+    class DATASEC,AIBOX,GEOBOX teambox

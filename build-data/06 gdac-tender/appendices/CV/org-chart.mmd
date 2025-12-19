@@ -1,0 +1,72 @@
+graph TB
+    SGS[SGS<br/>Saudi Geological Survey]
+
+    CEO[Dr. Fabian Kohlmann<br/>Chief Executive Officer]
+    ADVISOR[Dr. Mahdi AbuAli<br/>GDAC Saudi Lead]
+
+    COO[Keith Dimech<br/>Chief Operating Officer]
+    CIO[Dr. Wayne Peter Noble<br/>Chief Information Officer]
+    GEO[Dr. Qusay Abeed<br/>Geological Director]
+
+    DATA[Vinko Novak<br/>Head of Data Security]
+    CYBER[Annemarie Grass<br/>Head of Cyber Defence]
+    LEGAL[Legal<br/>External Consultant]
+    ACCT[Accounting<br/>External Consultant]
+
+    CTO[Gerd Moritz Theile<br/>Chief Technology Officer]
+
+    BE1[Nirali Dudharejiya<br/>Backend Developer]
+    BE2[Tarun Sengar<br/>Backend Developer]
+
+    FE1[Lujia Yang<br/>Frontend Developer]
+    FE2[Xinyan Zhang<br/>Frontend Developer]
+
+    AI1[Pedro Ferreira<br/>AI Software Development Lead]
+    AI2[Nilesh Vyavahare<br/>GIS Full Stack Developer]
+    AI3[Dr. Behnam Sadeghi<br/>ML Technical Advisor]
+
+    QM[Juan Baca<br/>Quality Manager]
+    GEO1[Cris Ibarra<br/>Geologist]
+    GEO2[Perla Luque<br/>Geologist]
+    GEO3[Dr. Alejandra Bedoya<br/>Geologist]
+
+    SGS --> CEO
+    ADVISOR -.Advisory Role.-> CEO
+
+    CEO --> COO
+    CEO --> CIO
+    CEO --> GEO
+
+    COO --> DATA
+    COO --> CYBER
+    COO --> LEGAL
+    COO --> ACCT
+
+    CIO --> CTO
+    CIO --> FE1
+    CIO --> FE2
+    CIO --> AI1
+    CIO --> AI2
+    CIO --> AI3
+
+    CTO --> BE1
+    CTO --> BE2
+
+    GEO --> QM
+    QM --> GEO1
+    QM --> GEO2
+    QM --> GEO3
+
+    classDef executive fill:#1e3a8a,stroke:#1e40af,stroke-width:3px,color:#fff
+    classDef management fill:#2563eb,stroke:#3b82f6,stroke-width:2px,color:#fff
+    classDef team fill:#60a5fa,stroke:#93c5fd,stroke-width:1px,color:#000
+    classDef consultant fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
+    classDef client fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+
+    class SGS client
+    class CEO executive
+    class ADVISOR management
+    class COO,CIO,GEO management
+    class CTO,QM management
+    class DATA,CYBER,FE1,FE2,AI1,AI2,AI3,BE1,BE2,GEO1,GEO2,GEO3 team
+    class LEGAL,ACCT consultant

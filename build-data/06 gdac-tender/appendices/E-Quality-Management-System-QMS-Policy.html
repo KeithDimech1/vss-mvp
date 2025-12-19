@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix E: Quality Management System Policy - GDAC-SA Tender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .header {
+            background: #1f4e78;
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+            min-height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            flex: 1;
+            max-width: calc(100% - 180px);
+        }
+
+        .name {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 13pt;
+            opacity: 0.95;
+        }
+
+        .subtitle {
+            font-size: 10pt;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .content {
+            padding: 20px 30px 30px 30px;
+        }
+
+        .highlight-box {
+            background: #e8f0f7;
+            border-left: 4px solid #1f4e78;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+        }
+
+        .highlight-box strong {
+            color: #1f4e78;
+        }
+
+        .success-box {
+            background: #e8f7f0;
+            border-left: 4px solid #10b981;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 10pt;
+        }
+
+        .success-box strong {
+            color: #10b981;
+        }
+
+        h1 {
+            display: none;
+        }
+
+        h2 {
+            color: #1f4e78;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #1f4e78;
+            padding-bottom: 4px;
+        }
+
+        h3 {
+            color: #1f4e78;
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        h4 {
+            color: #1f4e78;
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        strong {
+            color: #1f4e78;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        th, td {
+            padding: 6px 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #1f4e78;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .reference {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 16px 0;
+        }
+
+        .logo {
+            max-width: 150px;
+            max-height: 80px;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .cert-badge {
+            background: #e8f7f0;
+            border: 2px solid #10b981;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .cert-name {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #10b981;
+            margin-bottom: 4px;
+        }
+
+        .cert-status {
+            font-size: 9pt;
+            color: #059669;
+        }
+
+        .signature-section {
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+
+        .signature-block {
+            margin-bottom: 16px;
+        }
+
+        .signature-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .signature-name {
+            font-weight: bold;
+            font-size: 10.5pt;
+            color: #1f4e78;
+        }
+
+        .signature-title {
+            font-size: 9.5pt;
+            color: #666;
+        }
+
+        .signature-date {
+            font-size: 9pt;
+            color: #999;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="name">APPENDIX E: Quality Management System Policy</div>
+                <div class="title">Standards, Processes & Certifications for Scientific Data Platform Excellence</div>
+                <div class="subtitle">GDAC-SA Advanced Analytics Platform RFQ | Lithodat Pty Ltd</div>
+            </div>
+            <img src="../assets/LithoDat_LOGO.png" alt="Lithodat Logo" class="logo">
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <strong>Policy Overview:</strong> Lithodat is committed to delivering world-class geoscience data platforms through rigorous quality management systems, continuous improvement, and adherence to international standards. Our <strong>"Geology First"</strong> philosophy ensures that qualified geologists are embedded throughout our organization—from executive leadership to quality control teams—guaranteeing that scientific accuracy and geological understanding drive every decision. This policy outlines our approach to software quality, data governance, scientific data management, and organizational quality assurance—ensuring we exceed client expectations while maintaining the highest standards of reliability, security, and scientific integrity.
+            </div>
+
+            <h2>1. Quality Management Systems and Standards</h2>
+
+            <p>Lithodat follows internationally recognized frameworks for software quality, data governance, and scientific data management. While Lithodat is not currently ISO-certified at the organizational level, its internal processes and platform architecture fully align with:</p>
+
+            <h3>ISO 9001 – Quality Management Systems</h3>
+            <ul>
+                <li>Documented, process-driven development workflows</li>
+                <li>Strong customer focus and delivery reliability</li>
+                <li>Clear product lifecycle management</li>
+                <li>Continuous improvement procedures</li>
+            </ul>
+            <p><strong>Status:</strong> Alignment (not formally certified)</p>
+
+            <h3>ISO 27001 – Information Security Management</h3>
+            <p>Lithodat's platform and operational practices adhere to ISO 27001 principles through:</p>
+            <ul>
+                <li>Role-based access control</li>
+                <li>Network segmentation</li>
+                <li>Encryption of all data at rest and in transit</li>
+                <li>Secure Software Development Lifecycle (SDLC)</li>
+                <li>Continuous monitoring and log auditing</li>
+            </ul>
+            <p><strong>Status:</strong> Alignment (not formally certified)</p>
+            <p><em>Note: Infrastructure runs entirely on AWS, which is ISO 27001-certified.</em></p>
+
+            <h3>FAIR Data Principles</h3>
+            <p>Lithodat applies the FAIR standards (Findable, Accessible, Interoperable, Reusable) across all its national scientific data platforms (EarthBank, NRCan thermochronology, isotope platforms).</p>
+
+            <hr>
+
+            <h2>2. Quality Control Processes for Software Development</h2>
+
+            <p>Lithodat maintains a robust Software Development Lifecycle (SDLC) with:</p>
+
+            <h3>Code Quality Controls</h3>
+            <ul>
+                <li><strong>Mandatory Peer Review:</strong> All code submissions require peer review before merge</li>
+                <li><strong>Linting and Style Enforcement:</strong> Automated code quality checks</li>
+                <li><strong>Git Workflows:</strong> Protected branches and pull request gating</li>
+            </ul>
+
+            <h3>Development Workflow</h3>
+            <ul>
+                <li><strong>Agile Methodology:</strong> Sprint cycles with continuous improvement</li>
+                <li><strong>Staging Environments:</strong> Pre-production testing before deployment</li>
+                <li><strong>Versioned Releases:</strong> Change logs and version control</li>
+            </ul>
+
+            <h3>Documentation</h3>
+            <ul>
+                <li>API documentation with comprehensive schemas</li>
+                <li>Data model schemas and metadata specifications</li>
+                <li>Infrastructure-as-code documentation</li>
+            </ul>
+
+            <hr>
+
+            <h2>3. Testing and Validation Procedures</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test Type</th>
+                        <th>Purpose</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Unit Testing</strong></td>
+                        <td>Validate data handling and business logic</td>
+                        <td>Automated tests for all core functions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Integration Testing</strong></td>
+                        <td>Ensure system compatibility</td>
+                        <td>Cross-pipeline and infrastructure testing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>End-to-End Testing</strong></td>
+                        <td>Simulate real user workflows</td>
+                        <td>User journey testing at scale</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance Testing</strong></td>
+                        <td>Validate scalability</td>
+                        <td>Load testing for national datasets</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security Testing</strong></td>
+                        <td>Identify vulnerabilities</td>
+                        <td>Scanning, access control verification, penetration testing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UAT</strong></td>
+                        <td>Validate with end users</td>
+                        <td>Conducted with GA, CSIRO, ARDC, NRCan, State Surveys</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h2>4. Data Quality Assurance Methodologies</h2>
+
+            <p>Lithodat is a leader in scientific data quality frameworks, including:</p>
+
+            <h3>Schema Validation</h3>
+            <p>Strict enforcement of controlled vocabularies, units, data types, and metadata completeness.</p>
+
+            <h3>Automated QA/QC Pipelines</h3>
+            <ul>
+                <li><strong>Outlier Detection:</strong> Statistical identification of anomalous data points</li>
+                <li><strong>Logical Consistency Checks:</strong> Cross-field validation (e.g., chemistry + sample metadata)</li>
+                <li><strong>Duplicate Identification:</strong> Automated deduplication algorithms</li>
+                <li><strong>Age-Model Validation:</strong> Specialized thermochronology quality checks</li>
+                <li><strong>Cross-Field Validation:</strong> Ensuring data integrity across related fields</li>
+            </ul>
+
+            <h3>Provenance and Version Control</h3>
+            <p>Full traceability of every data change, versioned record histories, and comprehensive audit logs.</p>
+
+            <h3>Interoperability Across Agencies</h3>
+            <p>Ensures compatibility between Geoscience Australia (GA), State Surveys, CSIRO, ANSTO, NMI, NRCan, and international standards.</p>
+
+            <hr>
+
+            <h2>5. Continuous Improvement Processes</h2>
+
+            <h3>Agile Review Mechanism</h3>
+            <p>Regular sprint reviews, retrospectives, and iterative improvement cycles.</p>
+
+            <h3>Stakeholder Feedback</h3>
+            <p>Workshops and alignment sessions with national partners including GA, State Surveys, NRCan, CSIRO, and universities.</p>
+
+            <h3>Monitoring & Alerting</h3>
+            <ul>
+                <li>AWS CloudWatch metrics for real-time performance monitoring</li>
+                <li>Automated failure alerts for immediate incident response</li>
+                <li>Continuous performance tuning and optimization</li>
+            </ul>
+
+            <h3>Post-Deployment Review</h3>
+            <p>Formal lessons-learned analysis and process optimization following each deployment.</p>
+
+            <hr>
+
+            <h2>6. Quality Certificates Held</h2>
+
+            <h3>CoreTrustSeal (CTS) – Certified Trusted Scientific Repository</h3>
+            <p>Lithodat is officially <strong>CoreTrustSeal certified</strong> through the EarthBank (AusGeochem) repository, validating:</p>
+            <ul>
+                <li>Trusted long-term data stewardship</li>
+                <li>FAIR data adherence</li>
+                <li>Sustainable governance</li>
+                <li>Robust data integrity and QA/QC systems</li>
+                <li>Compliance with international repository standards</li>
+            </ul>
+
+            <p style="font-size: 9pt; color: #666; margin-top: 8px;">
+                <strong>Verification:</strong> <a href="https://www.re3data.org/repository/r3d100014000" style="color: #1f4e78;">re3data.org - AuScope EarthBank Platform</a>
+            </p>
+
+            <div class="cert-grid">
+                <div class="cert-badge">
+                    <div class="cert-name">CoreTrustSeal</div>
+                    <div class="cert-status">✓ Certified</div>
+                    <div class="cert-status">EarthBank / AusGeochem</div>
+                    <div class="cert-status">Since 2023</div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-name">World Data System</div>
+                    <div class="cert-status">✓ Recognized</div>
+                    <div class="cert-status">International Science Council</div>
+                    <div class="cert-status">WDS Regular Member</div>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-name">AWS Compliance</div>
+                    <div class="cert-status">✓ Inherited Controls</div>
+                    <div class="cert-status">ISO 27001/17/18</div>
+                    <div class="cert-status">SOC 1/2/3, PCI-DSS</div>
+                </div>
+            </div>
+
+            <h3>World Data System (WDS)</h3>
+            <p>EarthBank/AusGeochem is recognized as a <strong>WDS Regular Member</strong>, part of the International Science Council. WDS uses CoreTrustSeal certification as its membership standard, and EarthBank was featured as a <a href="https://worlddatasystem.org/member-highlight-auscope-earthbank-platform/" style="color: #1f4e78;">Member Highlight</a> by WDS for excellence in scientific data stewardship. This demonstrates compliance with global standards for trusted scientific data infrastructures.</p>
+
+            <p style="font-size: 9pt; color: #666; margin-top: 8px;">
+                <strong>Additional Information:</strong> <a href="https://www.coretrustseal.org/about/history/" style="color: #1f4e78;">CoreTrustSeal & WDS Partnership</a>
+            </p>
+
+            <h3>AWS Cloud Security and Compliance (Inherited Controls)</h3>
+            <p>Lithodat operates exclusively on <strong>Amazon Web Services</strong>, inheriting all AWS security certifications and controls, including:</p>
+            <ul>
+                <li>ISO 27001 (Information Security)</li>
+                <li>ISO 27017 (Cloud Security)</li>
+                <li>ISO 27018 (Cloud Privacy)</li>
+                <li>SOC 1 / SOC 2 / SOC 3 compliance</li>
+                <li>PCI-DSS compliance (where applicable)</li>
+                <li>CSA STAR Level 2</li>
+            </ul>
+
+            <p>AWS provides:</p>
+            <ul>
+                <li>World-class physical and cyber security</li>
+                <li>Encryption by default (at rest and in transit)</li>
+                <li>24/7 monitored data centres</li>
+                <li>Continuously audited infrastructure</li>
+            </ul>
+
+            <p>Lithodat's platform therefore benefits from <strong>enterprise-grade, internationally certified security</strong> as part of its operational environment.</p>
+
+            <hr>
+
+            <h2>7. Organizational Structure: "Geology First" Approach</h2>
+
+            <p>Lithodat's organizational structure is built on a <strong>"Geology First"</strong> philosophy—ensuring that qualified geologists are embedded throughout the organization at all levels. This approach guarantees that scientific accuracy, geological understanding, and domain expertise drive every decision from executive strategy to day-to-day quality control.</p>
+
+            <h3>Geologists Throughout the Business</h3>
+            <ul>
+                <li><strong>Executive Leadership:</strong> Dr. Fabian Kohlmann (CEO) and Dr. Qusay Abeed (Geological Director) bring geological expertise to strategic decision-making</li>
+                <li><strong>Quality Management:</strong> Juan Baca (Quality Manager) with geological background oversees all QA/QC processes</li>
+                <li><strong>Geological Quality Team:</strong> Three dedicated geologists (Dr. Alejandra Bedoya, Perla Luque, Cris Ibarra) ensure scientific data accuracy</li>
+                <li><strong>AI/ML Development:</strong> Dr. Behnam Sadeghi (Geological ML Technical Advisor) ensures algorithms respect geological principles</li>
+                <li><strong>Technical Advisory:</strong> Geologists integrated into development teams to validate data models and workflows</li>
+            </ul>
+
+            <p>This "Geology First" approach ensures that:</p>
+            <ul>
+                <li>Data models are scientifically sound and reflect real geological relationships</li>
+                <li>Quality control processes are designed by geologists who understand the data</li>
+                <li>Product development prioritizes scientific accuracy over technical convenience</li>
+                <li>Client communication is led by geologists who speak the language of geoscience</li>
+            </ul>
+
+            <h3>Key Quality-Related Roles</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Quality Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Quality Manager</strong></td>
+                        <td>Juan Baca</td>
+                        <td>Reports to Geological Director, oversees geological quality team and QA/QC processes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Geological Director</strong></td>
+                        <td>Dr. Qusay Abeed</td>
+                        <td>Strategic oversight of scientific data quality and geological standards</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Head of Data Security</strong></td>
+                        <td>Vinko Novak</td>
+                        <td>Data integrity, governance, and security protocols</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Head of Cyber Defence</strong></td>
+                        <td>Annemarie Grass</td>
+                        <td>Information security and cyber threat protection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Geological ML Advisor</strong></td>
+                        <td>Dr. Behnam Sadeghi</td>
+                        <td>Algorithm quality assurance and ML validation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Specialized Quality Teams (Geology-Integrated)</h3>
+            <ul>
+                <li><strong>Geological Quality Team:</strong> Three full-time geologists (Dr. Alejandra Bedoya, Perla Luque, Cris Ibarra) dedicated to scientific data accuracy, validation, and quality control</li>
+                <li><strong>AI Specialist Team:</strong> Led by Dr. Behnam Sadeghi (Geological ML Technical Advisor) ensuring algorithms respect geological principles and produce scientifically valid results</li>
+                <li><strong>Data & Cyber Security Team:</strong> Works with geologists to ensure data integrity and scientific provenance throughout security protocols</li>
+                <li><strong>External Support:</strong> Legal and accounting consultants for compliance oversight</li>
+            </ul>
+
+            <p style="margin-top: 12px;"><em>Unlike purely technical companies, Lithodat's "Geology First" approach means geologists are not just end users or consultants—they are core team members driving quality standards, data validation, and product development at every level.</em></p>
+
+            <hr>
+
+            <div class="success-box">
+                <strong>Quality Management System Summary:</strong> Lithodat maintains strong quality assurance, security, and scientific data management processes, supported by our <strong>"Geology First"</strong> organizational philosophy, ISO-aligned internal processes, CoreTrustSeal certification, World Data System recognition, AWS-certified infrastructure security, robust QA/QC testing and validation workflows, and geologists embedded throughout our business at all levels. These combined systems ensure Lithodat can deliver a <strong>secure, reliable, scientifically accurate, high-quality</strong> geoscience AI platform to meet GDAC-SA requirements.
+            </div>
+
+            <div class="signature-section">
+                <div class="signature-block">
+                    <div class="signature-name">Dr. Fabian Kohlmann</div>
+                    <div class="signature-title">Chief Executive Officer</div>
+                    <div class="signature-date">December 2024</div>
+                </div>
+            </div>
+
+            <div class="reference">
+                <p><strong>Lithodat Pty Ltd</strong> | ABN: 48 647 191 452<br>
+                Website: <a href="https://lithodat.com" style="color: #1f4e78;">https://lithodat.com</a><br>
+                Support: support@lithodat.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

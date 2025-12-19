@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilesh Khadse - Curriculum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 9.5pt;
+            line-height: 1.3;
+            color: #333;
+            background: white;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .header {
+            background: #1f4e78;
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .header-content {
+            width: calc(100% - 140px);
+        }
+
+        .name {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 12pt;
+            opacity: 0.95;
+        }
+
+        .photo {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 110px;
+            height: 110px;
+            border: 4px solid white;
+            border-radius: 55px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 20px 20px 15px 20px;
+        }
+
+        .highlight-box {
+            background: #e8f0f7;
+            border-left: 4px solid #1f4e78;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            font-size: 10pt;
+        }
+
+        .highlight-box strong {
+            color: #1f4e78;
+        }
+
+        h1 {
+            display: none;
+        }
+
+        h2 {
+            color: #1f4e78;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 24px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #1f4e78;
+            padding-bottom: 4px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: #1f4e78;
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 3px;
+            page-break-after: avoid;
+        }
+
+        /* Page break controls for professional printing */
+        h2, h3, .highlight-box {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        ul, ol {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        p {
+            margin-bottom: 4px;
+            orphans: 3;
+            widows: 3;
+        }
+
+        .highlight-box + h2 {
+            margin-top: 12px;
+        }
+
+        .content > h2:first-child {
+            margin-top: 0;
+        }
+
+        ul {
+            margin-left: 18px;
+            margin-bottom: 4px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        strong {
+            color: #1f4e78;
+        }
+
+        em {
+            font-style: italic;
+            color: #666;
+        }
+
+        hr {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="name">Nilesh Khadse</div>
+                <div class="title">GIS Full Stack Developer</div>
+            </div>
+            <div class="photo">
+                <img src="../photos/Nilesh.png" alt="Nilesh Khadse">
+            </div>
+        </div>
+
+        <div class="content">
+
+<h2 id="experience">Experience</h2>
+
+<h3 id="deimos-space">Senior Full Stack Engineer (GIS)</h3>
+<p><strong>Deimos Space UK · Full-time</strong><br>
+<em>Jun 2021 - Present · 4 yrs 7 mos</em><br>
+Harwell Campus, England, United Kingdom</p>
+
+<ul>
+<li>Developed numerous Earth Observation applications, involving the creation of APIs, user interfaces, and processing large volumes of satellite data.</li>
+<li>Collaborated with the European Space Agency to successfully deliver several projects, including:
+<ul>
+<li>Designed a space debris collision risk assessment web application for satellite operators.</li>
+<li>Implemented an Authentication and Access Management (IAM) service using Keycloak OpenID and an Accounting system for a microservices platform catering to Earth Observation application providers. This microservice plays a central role in the EU's Destination Earth (DestinE) initiative.</li>
+</ul>
+</li>
+</ul>
+
+<p><strong>Skills:</strong> Python, docker and +4 skills</p>
+
+<h3 id="fugro">Senior MetOcean Software Developer</h3>
+<p><strong>Fugro · Full-time</strong><br>
+<em>Nov 2019 - May 2021 · 1 yr 7 mos</em><br>
+Oxfordshire, England, United Kingdom</p>
+
+<ul>
+<li>Successfully implemented the Apache Airflow ETL platform for data processing workflows.</li>
+<li>Developed an atmospheric lightning data harvester in Python using the asyncio library, achieving a significant reduction in the server's CPU usage from 25% to 0.1% compared to its predecessor.</li>
+<li>Transformed the data ingestor application from a monolith Windows service to a containerized .NET Core application. This initiative not only reduced reliance on an aging data ingestion system but also made the team platform agnostic.</li>
+<li>Set up Elastic (ELK) analytics platform for monitoring workflows and applications, contributing to improved visibility and performance tracking.</li>
+</ul>
+
+<p><strong>Skills:</strong> Geoprocessing, Elastic Stack (ELK) and +3 skills</p>
+
+<h3 id="neftex">Principal Software Developer</h3>
+<p><strong>Neftex Exploration Insights · Full-time</strong><br>
+<em>Jun 2014 - Oct 2019 · 5 yrs 5 mos</em><br>
+Oxford, United Kingdom</p>
+
+<ul>
+<li>Ideated and developed the 'QuickPlates' web mapping application, showcasing reconstructed data through geological times. This application also provided a client data processing service, marking a notable achievement.</li>
+<li>Devised a geological data reconstruction algorithm based on scientific literature, enabling the provision of 'reconstruction as a service' for client data.</li>
+<li>Developed a tool utilizing the OpenCV library to extract geographical contour features from historical map images.</li>
+<li>Built an aesthetic geological timescale using D3.js.</li>
+<li>Developed numerous ArcGIS plugins, web mapping applications and geospatial ETL workflows using FME.</li>
+</ul>
+
+<p><strong>Skills:</strong> React.js, .NET Framework and +3 skills</p>
+
+<h3 id="seazone-senior">Senior GIS Analyst</h3>
+<p><strong>HR Wallingford (SeaZone Solutions)</strong><br>
+<em>Apr 2013 - Jul 2014 · 1 yr 4 mos</em></p>
+
+<p><strong>SeaZone Solutions</strong><br>
+<em>4 yrs 7 mos</em></p>
+
+<h3 id="seazone-analyst">GIS Analyst</h3>
+<p><em>Jan 2009 - Mar 2013 · 4 yrs 3 mos</em></p>
+
+<h3 id="seazone-technician">GIS Technician</h3>
+<p><em>Sep 2008 - Dec 2008 · 4 mos</em></p>
+
+<h2 id="education">Education</h2>
+
+<h3 id="edinburgh">The University of Edinburgh</h3>
+<p><strong>MSc, GIS</strong><br>
+<em>2007 - 2008</em></p>
+
+<h3 id="kkwagh">K. K. Wagh Institute of Engineering Education</h3>
+<p><strong>B. Tech, Agricultural Engineering</strong><br>
+<em>2003 - 2007</em></p>
+
+<h2 id="relevance-to-gdac-sa">Relevance to GDAC-SA Tender</h2>
+
+<p>Nilesh brings 16+ years of GIS and geospatial software development experience with proven expertise in building Earth Observation applications, web mapping platforms, and large-scale spatial data processing systems. His work with the European Space Agency on the DestinE initiative and development of geological reconstruction applications demonstrates capability directly applicable to the GDAC-SA Advanced Analytics Platform.</p>
+
+<p><strong>Key qualifications include:</strong></p>
+<ul>
+<li>MSc in GIS from The University of Edinburgh</li>
+<li>Senior Full Stack Engineer (GIS) at Deimos Space UK collaborating with European Space Agency</li>
+<li>Developed Earth Observation applications involving APIs, user interfaces, and processing large volumes of satellite data</li>
+<li>Designed space debris collision risk assessment web application for satellite operators</li>
+<li>Implemented Authentication and Access Management (IAM) service using Keycloak OpenID for EU's Destination Earth (DestinE) initiative</li>
+<li>Built QuickPlates web mapping application for reconstructed geological data through geological time periods</li>
+<li>Devised geological data reconstruction algorithm based on scientific literature</li>
+<li>Developed numerous ArcGIS plugins, web mapping applications and geospatial ETL workflows using FME</li>
+<li>Implemented Apache Airflow ETL platform for data processing workflows</li>
+<li>Achieved 99.6% reduction in server CPU usage through optimized Python asyncio implementation</li>
+<li>Experience with Python, Docker, React.js, .NET Framework, ArcGIS, FME, D3.js, OpenCV, Elastic Stack (ELK)</li>
+<li>16+ years combined experience in GIS analysis, software development, and geospatial systems (2008-present)</li>
+</ul>
+
+        </div>
+    </div>
+</body>
+</html>

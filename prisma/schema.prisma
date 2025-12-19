@@ -745,3 +745,101 @@ model LithoDataPackage {
   @@index([category])
   @@index([regionCode])
 }
+
+// Document Builder - HTML/CSS document creation and management
+model Document {
+  id              String   @id @default(cuid())
+  title           String   // Document title
+  slug            String   @unique // URL-friendly identifier
+  documentType    DocumentType // resume, business_report, vsm_report, custom
+  description     String?  @db.Text
+
+  // Current version (always points to latest)
+  currentVersionId String?
+  currentVersion   DocumentVersion? @relation("CurrentVersion", fields: [currentVersionId], references: [id])
+
+  // All versions
+  versions        DocumentVersion[] @relation("DocumentVersions")
+
+  // Template info (if created from template)
+  templateId      String?
+  template        DocumentTemplate? @relation(fields: [templateId], references: [id])
+
+  // Ownership and permissions
+  createdById     String
+  isPublic        Boolean  @default(false) // Can others view this document?
+  sharedWith      Json?    // Array of user IDs who can view/edit
+
+  // Metadata
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([createdById])
+  @@index([documentType])
+  @@index([templateId])
+}
+
+model DocumentVersion {
+  id              String   @id @default(cuid())
+  documentId      String
+  document        Document @relation("DocumentVersions", fields: [documentId], references: [id], onDelete: Cascade)
+
+  versionNumber   Int      // 1, 2, 3, etc.
+  versionName     String?  // Optional name like "Draft", "Final", "Review 2"
+
+  // HTML and CSS content
+  htmlContent     String   @db.Text // Full HTML content
+  cssContent      String   @db.Text // CSS styles
+  combinedHtml    String?  @db.Text // Combined HTML with inline CSS (for PDF generation)
+
+  // PDF generation
+  pdfGenerated    Boolean  @default(false)
+  pdfUrl          String?  // URL to generated PDF (if stored)
+  pdfGeneratedAt  DateTime?
+
+  // Change tracking
+  changeNotes     String?  @db.Text // What changed in this version
+  createdById     String   // Who created this version
+  createdAt       DateTime @default(now())
+
+  // Relation for current version pointer
+  currentFor      Document[] @relation("CurrentVersion")
+
+  @@unique([documentId, versionNumber])
+  @@index([documentId])
+  @@index([createdAt])
+}
+
+model DocumentTemplate {
+  id              String   @id @default(cuid())
+  name            String   @unique // "Professional Resume", "Business Report", etc.
+  description     String   @db.Text
+  category        DocumentType
+
+  // Template content
+  htmlTemplate    String   @db.Text // HTML with placeholder variables
+  cssTemplate     String   @db.Text // Default CSS
+  thumbnailUrl    String?  // Preview image
+
+  // Template variables/placeholders
+  variables       Json?    // Array of { name, description, defaultValue }
+
+  // Metadata
+  isActive        Boolean  @default(true)
+  usageCount      Int      @default(0) // Track how often used
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Documents created from this template
+  documents       Document[]
+
+  @@index([category])
+  @@index([isActive])
+}
+
+enum DocumentType {
+  RESUME           // Personal resume/CV
+  BUSINESS_REPORT  // Business reports, analytics
+  VSM_REPORT       // VSM assessment reports (from database data)
+  CUSTOM           // Custom HTML documents
+}

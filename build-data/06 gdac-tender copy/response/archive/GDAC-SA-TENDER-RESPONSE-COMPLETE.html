@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDAC-SA Pre-Qualification Response - Lithodat Pty Ltd</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d69e2e;
+            --light-gray: #f7fafc;
+            --border-gray: #e2e8f0;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --success-green: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+            font-size: 11pt;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .logo-small {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .header-text {
+            text-align: right;
+        }
+
+        .header-text h1 {
+            color: var(--primary-blue);
+            font-size: 18pt;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            color: var(--text-light);
+            font-size: 10pt;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            page-break-after: always;
+            border: 2px solid var(--primary-blue);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .cover-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .cover-logo {
+            max-height: 80px;
+        }
+
+        .cover-title {
+            color: var(--primary-blue);
+            font-size: 28pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cover-subtitle {
+            color: var(--secondary-blue);
+            font-size: 16pt;
+            margin-bottom: 30px;
+        }
+
+        .cover-details {
+            background: var(--light-gray);
+            padding: 20px 40px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .cover-details table {
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .cover-details td {
+            padding: 8px 15px;
+        }
+
+        .cover-details td:first-child {
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        /* Section Headers */
+        h1 {
+            color: var(--primary-blue);
+            font-size: 18pt;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            page-break-after: avoid;
+        }
+
+        h2 {
+            color: var(--secondary-blue);
+            font-size: 14pt;
+            margin: 25px 0 15px 0;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 12pt;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        tr:hover {
+            background: #edf2f7;
+        }
+
+        .currency-cell {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+
+        .dual-currency {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .aud-value {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .sar-value {
+            color: var(--success-green);
+            font-size: 9pt;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--light-gray);
+            border-left: 4px solid var(--primary-blue);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+            border: 1px solid var(--secondary-blue);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border: 1px solid var(--success-green);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        /* Org Chart */
+        .org-chart {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            white-space: pre;
+            overflow-x: auto;
+            line-height: 1.3;
+        }
+
+        /* Figures */
+        .figure {
+            margin: 20px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .figure img {
+            max-width: 100%;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+        }
+
+        .figure-caption {
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-size: 9pt;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24pt;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .metric-label {
+            font-size: 9pt;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .metric-secondary {
+            font-size: 10pt;
+            color: var(--success-green);
+            margin-top: 5px;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+
+        .badge-success {
+            background: #c6f6d5;
+            color: #276749;
+        }
+
+        .badge-warning {
+            background: #fefcbf;
+            color: #975a16;
+        }
+
+        .badge-info {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        /* Footer */
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+
+        /* Signature Block */
+        .signature-block {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid var(--text-dark);
+            width: 250px;
+            margin: 30px 0 5px 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+
+            .container {
+                padding: 15mm;
+            }
+
+            .cover-page {
+                min-height: auto;
+                padding: 30px;
+            }
+
+            h1 {
+                page-break-before: always;
+            }
+
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* TOC Styles */
+        .toc {
+            background: var(--light-gray);
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .toc-title {
+            color: var(--primary-blue);
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .toc ol {
+            list-style-type: none;
+            counter-reset: section;
+        }
+
+        .toc li {
+            counter-increment: section;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border-gray);
+        }
+
+        .toc li::before {
+            content: counter(section) ". ";
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .toc a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cover Page -->
+        <div class="cover-page">
+            <div class="cover-logos">
+                <img src="../assets/LithoDat_LOGO.png" alt="Lithodat Logo" class="cover-logo">
+                <img src="../assets/image.png" alt="SGS Logo" class="cover-logo">
+            </div>
+
+            <h1 class="cover-title">Pre-Qualification Response</h1>
+            <p class="cover-subtitle">Geoscience Data Analytics Center<br>Saudi Arabia's Advanced Analytics Platform</p>
+
+            <div class="cover-details">
+                <table>
+                    <tr><td>RFQ Reference Number:</td><td><strong>251140007625</strong></td></tr>
+                    <tr><td>Government Entity:</td><td>Saudi Geological Survey (SGS)</td></tr>
+                    <tr><td>Applicant:</td><td><strong>Lithodat Pty Ltd</strong></td></tr>
+                    <tr><td>ABN:</td><td>63 627 008 904</td></tr>
+                    <tr><td>Submission Deadline:</td><td><strong>24/12/2025</strong></td></tr>
+                    <tr><td>Submission Platform:</td><td>Etimad Portal</td></tr>
+                </table>
+            </div>
+
+            <div style="margin-top: 40px; color: var(--text-light);">
+                <p>Document Version: 1.0 | Date: December 2025</p>
+                <p>Prepared by: Keith Dimech, Chief Operating Officer</p>
+            </div>
+        </div>
+
+        <!-- Document Control -->
+        <section>
+            <h1>Document Control</h1>
+            <table>
+                <tr><th style="width: 30%;">Item</th><th>Details</th></tr>
+                <tr><td>Document Title</td><td>GDAC-SA Pre-Qualification Response</td></tr>
+                <tr><td>Version</td><td>1.0</td></tr>
+                <tr><td>Date Prepared</td><td>2025-12-09</td></tr>
+                <tr><td>Prepared By</td><td>Keith Dimech, Chief Operating Officer</td></tr>
+                <tr><td>Authorized Signatory</td><td>Dr. Fabian Kohlmann, Managing Director</td></tr>
+                <tr><td>Company</td><td>Lithodat Pty Ltd</td></tr>
+                <tr><td>ABN</td><td>63 627 008 904</td></tr>
+                <tr><td>Contact Email</td><td>keith.dimech@lithodat.com</td></tr>
+                <tr><td>Contact Phone</td><td>+61 428 971 396</td></tr>
+            </table>
+
+            <div class="info-box">
+                <strong>Currency Note:</strong> All financial figures are presented in both Australian Dollars (AUD) and Saudi Riyals (SAR) at exchange rate <strong>AUD 1 = SAR 2.45</strong>
+            </div>
+        </section>
+
+        <!-- Table of Contents -->
+        <section>
+            <div class="toc">
+                <h2 class="toc-title">Table of Contents</h2>
+                <ol>
+                    <li><a href="#executive-summary">Executive Summary</a></li>
+                    <li><a href="#form-91">Form 9.1 - Applicant Information</a></li>
+                    <li><a href="#form-92">Form 9.2 - Technical and Administrative Capabilities</a></li>
+                    <li><a href="#form-93">Form 9.3 - Administrative Staff Experience</a></li>
+                    <li><a href="#form-94">Form 9.4 - Professional Staff Experience</a></li>
+                    <li><a href="#form-95">Form 9.5 - Similar Projects</a></li>
+                    <li><a href="#form-96">Form 9.6 - Financial Capacity Criteria</a></li>
+                    <li><a href="#supporting-docs">Supporting Documentation Index</a></li>
+                    <li><a href="#declaration">Declaration</a></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary">
+            <h1>1. Executive Summary</h1>
+
+            <p>Lithodat Pty Ltd is an Australian geoscience technology company specializing in FAIR-compliant geochemistry data platforms. We have developed and operate national-scale geoscience data infrastructure for the Australian government (EarthBank/AusGeoChem) and have delivered similar platforms for Natural Resources Canada.</p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">7+</div>
+                    <div class="metric-label">Years Experience</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$3.7M</div>
+                    <div class="metric-label">AUD Project Value</div>
+                    <div class="metric-secondary">SAR 9,065,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">19</div>
+                    <div class="metric-label">Team Members</div>
+                </div>
+            </div>
+
+            <h3>Key Qualifications Summary</h3>
+            <table>
+                <tr><th style="width: 25%;">Criterion</th><th>Lithodat Capability</th></tr>
+                <tr><td>Experience</td><td>7+ years developing national geoscience data platforms</td></tr>
+                <tr><td>Similar Projects</td><td>4 major projects: AUD $3,700,000 / SAR 9,065,000</td></tr>
+                <tr><td>Technical Team</td><td>19 staff including 5 PhDs in geoscience and data science</td></tr>
+                <tr><td>Government Experience</td><td>NCRIS (Australia), NRCan (Canada), CSIRO, Geoscience Australia</td></tr>
+                <tr><td>Financial Health</td><td>Cash Ratio 2.05, Current Ratio 3.21, Quick Ratio 3.19</td></tr>
+                <tr><td>AI/ML Capability</td><td>Dr. Behnam Sadeghi (IAMG Vistelius Award winner, 58+ publications)</td></tr>
+                <tr><td>Saudi Expertise</td><td>Dr. Mahdi AbuAli (35+ years Saudi Aramco), Dr. Qusay Abeed (Native Arabic)</td></tr>
+            </table>
+
+            <div class="success-box">
+                <strong>Competitive Advantage:</strong> Lithodat is the only applicant with proven national-scale geoscience data platform delivery (EarthBank: 350,000+ samples, 1,300+ users), combined with dedicated Saudi Arabian expertise through Dr. Mahdi AbuAli's 35+ years at Saudi Aramco.
+            </div>
+        </section>
+
+        <!-- Form 9.1 - Applicant Information -->
+        <section id="form-91">
+            <h1>2. Form 9.1 - Applicant Information</h1>
+
+            <h2>Company Details</h2>
+            <table>
+                <tr><th style="width: 40%;">Field</th><th>Response</th></tr>
+                <tr><td>Name of the applicant (company/institution)</td><td><strong>Lithodat Pty Ltd</strong></td></tr>
+                <tr><td>Value of the applicant's capital</td><td>
+                    <div class="dual-currency">
+                        <span class="aud-value">AUD $296,608<sup>1</sup></span>
+                        <span class="sar-value">SAR 726,690<sup>1</sup></span>
+                    </div>
+                </td></tr>
+                <tr><td>Date Function</td><td>Active</td></tr>
+                <tr><td>Commercial Registration Number</td><td>ABN 63 627 008 904 (Australia)</td></tr>
+                <tr><td>Name of the person responsible</td><td>Dr. Fabian Kohlmann</td></tr>
+            </table>
+
+            <h2>Address</h2>
+            <table>
+                <tr><th style="width: 40%;">Field</th><th>Response</th></tr>
+                <tr><td>Street</td><td>24 Crompton Way</td></tr>
+                <tr><td>City</td><td>Newtown</td></tr>
+                <tr><td>Zip Code</td><td>3220</td></tr>
+                <tr><td>Country</td><td>Australia</td></tr>
+                <tr><td>State/Province</td><td>Victoria</td></tr>
+            </table>
+
+            <h2>Contact Information</h2>
+            <table>
+                <tr><th style="width: 40%;">Field</th><th>Response</th></tr>
+                <tr><td>Phone</td><td>+61 3 5215 5129</td></tr>
+                <tr><td>Email</td><td>info@lithodat.com</td></tr>
+                <tr><td>Website</td><td>https://www.lithodat.com</td></tr>
+                <tr><td>Establishment Date</td><td>25 June 2018</td></tr>
+                <tr><td>Years in Operation</td><td>7 years</td></tr>
+            </table>
+
+            <h2>Company Ownership Structure</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Owner/Partner Name</th>
+                    <th style="text-align: center;">Partnership %</th>
+                    <th>Nationality</th>
+                </tr>
+                <tr><td>1</td><td>Dr. Fabian Kohlmann</td><td style="text-align: center;">50.1%</td><td>German/Australian</td></tr>
+                <tr><td>2</td><td>Gerd Moritz Walter Theile</td><td style="text-align: center;">24.0%</td><td>German</td></tr>
+                <tr><td>3</td><td>Dr. Wayne Peter Noble</td><td style="text-align: center;">14.9%</td><td>Australian</td></tr>
+                <tr><td>4</td><td>Nilesh Ambadas Vyavahare</td><td style="text-align: center;">8.0%</td><td>Indian/Australian</td></tr>
+                <tr><td>5</td><td>Romain Beucher</td><td style="text-align: center;">3.0%</td><td>French/Australian</td></tr>
+                <tr style="background: var(--light-gray); font-weight: bold;">
+                    <td colspan="2">Total</td>
+                    <td style="text-align: center;">100%</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p style="font-size: 11px; color: #666; margin-top: 8px;">Source: ASIC Company Extract dated 02-Dec-2025</p>
+            <p style="font-size: 11px; color: #666; margin-top: 4px;"><sup>1</sup> Capital Value = Net Assets as at 30 June 2025 per FY2025 Annual Report (Total Assets $430,819 - Total Liabilities $134,211 = $296,608). Exchange rate: 1 AUD = 2.45 SAR.</p>
+
+            <h2>Company Representative (Contact Administrator)</h2>
+            <table>
+                <tr><th style="width: 40%;">Field</th><th>Response</th></tr>
+                <tr><td>Name</td><td><strong>Keith Dimech</strong></td></tr>
+                <tr><td>Job Title</td><td>Chief Operating Officer / Project Director</td></tr>
+                <tr><td>Phone</td><td>+61 3 5215 5129</td></tr>
+                <tr><td>Mobile</td><td>+61 428 971 396</td></tr>
+                <tr><td>Email</td><td>keith.dimech@lithodat.com</td></tr>
+                <tr><td>Alternate Contact</td><td>Dr. Fabian Kohlmann (fabian.kohlmann@lithodat.com)</td></tr>
+            </table>
+        </section>
+
+        <!-- Form 9.2 - Technical and Administrative Capabilities -->
+        <section id="form-92">
+            <h1>3. Form 9.2 - Technical and Administrative Capabilities</h1>
+
+            <h2>A. Previous Work Experience</h2>
+            <table>
+                <tr><th style="width: 60%;">Question</th><th>Response</th></tr>
+                <tr><td>Number of years of experience in the field of project</td><td><strong>7 years</strong> (2018-Present)</td></tr>
+                <tr><td>Number of similar projects executed in the last three years</td><td><strong>4 projects</strong></td></tr>
+                <tr><td>Average results of performance evaluations</td><td><strong>Excellent</strong></td></tr>
+            </table>
+
+            <h3>Similar Projects Summary (Last 3 Years)</h3>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Project</th>
+                    <th>Client Type</th>
+                    <th style="text-align: right;">Value (AUD)</th>
+                    <th style="text-align: right;">Value (SAR)</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>EarthBank (AusGeoChem)</td>
+                    <td>NCRIS/Government</td>
+                    <td class="currency-cell">$2,900,000</td>
+                    <td class="currency-cell">7,105,000</td>
+                    <td><span class="badge badge-success">Ongoing</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Isotopes.au</td>
+                    <td>CSIRO/Government</td>
+                    <td class="currency-cell">$400,000</td>
+                    <td class="currency-cell">980,000</td>
+                    <td><span class="badge badge-success">Ongoing</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>NRCan Thermochronology</td>
+                    <td>Federal Govt (Canada)</td>
+                    <td class="currency-cell">$400,000</td>
+                    <td class="currency-cell">980,000</td>
+                    <td><span class="badge badge-info">DELIVERED</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LithoSpace</td>
+                    <td>Internal R&D</td>
+                    <td class="currency-cell">Internal</td>
+                    <td class="currency-cell">-</td>
+                    <td><span class="badge badge-success">Ongoing</span></td>
+                </tr>
+                <tr style="background: var(--primary-blue); color: white; font-weight: bold;">
+                    <td colspan="3">TOTAL</td>
+                    <td class="currency-cell">$3,700,000</td>
+                    <td class="currency-cell">9,065,000</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <h2>B. Quality Assurance</h2>
+            <table>
+                <tr><th>Standard/Framework</th><th>Status</th><th>Application</th></tr>
+                <tr><td>CoreTrustSeal</td><td><span class="badge badge-success">Certified</span></td><td>Data repository certification (EarthBank)</td></tr>
+                <tr><td>ISO 9001:2015</td><td><span class="badge badge-info">Principles Applied</span></td><td>Quality management system</td></tr>
+                <tr><td>FAIR Data Principles</td><td><span class="badge badge-success">Implemented</span></td><td>Findable, Accessible, Interoperable, Reusable</td></tr>
+                <tr><td>Peer Review Process</td><td><span class="badge badge-success">Active</span></td><td>Scientific validation</td></tr>
+                <tr><td>Agile/Scrum</td><td><span class="badge badge-success">Implemented</span></td><td>Development methodology</td></tr>
+            </table>
+
+            <h2>C. Environment, Health and Safety</h2>
+            <table>
+                <tr><th>Standard/Framework</th><th>Status</th><th>Application</th></tr>
+                <tr><td>ISO 14001:2015</td><td><span class="badge badge-info">Principles Applied</span></td><td>Environmental management</td></tr>
+                <tr><td>ISO 45001:2018</td><td><span class="badge badge-info">Principles Applied</span></td><td>Occupational health and safety</td></tr>
+                <tr><td>Remote Work Safety</td><td><span class="badge badge-success">Implemented</span></td><td>Distributed team protocols</td></tr>
+                <tr><td>Data Security</td><td><span class="badge badge-success">Expert</span></td><td>Vinko Novak - Head of Data Security</td></tr>
+            </table>
+
+            <div class="info-box">
+                <strong>HSE Experience:</strong> Keith Dimech (COO) brings 15 years managing Environmental, Safety, and Quality systems in high-risk construction including: $5.1B Snowy Hydro 2.0, $11B Melbourne Metro Tunnel, and $900M Melbourne Water projects.
+            </div>
+
+            <h2>D. Existing Contractual Obligations</h2>
+            <table>
+                <tr><th style="width: 60%;">Question</th><th>Response</th></tr>
+                <tr><td>Number of existing projects</td><td><strong>3</strong></td></tr>
+                <tr><td>Value of existing projects (AUD)</td><td><strong>$3,600,000</strong></td></tr>
+                <tr><td>Value of existing projects (SAR)</td><td><strong>8,820,000</strong></td></tr>
+            </table>
+
+            <h3>Current Projects Detail</h3>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th style="text-align: right;">Value (AUD)</th>
+                    <th style="text-align: right;">Value (SAR)</th>
+                    <th>End Date</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>EarthBank Platform</td>
+                    <td>AuScope/NCRIS</td>
+                    <td class="currency-cell">$2,900,000</td>
+                    <td class="currency-cell">7,105,000</td>
+                    <td>Ongoing</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>National Thermochronology</td>
+                    <td>NRCan</td>
+                    <td class="currency-cell">$300,000</td>
+                    <td class="currency-cell">735,000</td>
+                    <td>2026</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Isotopes.au Platform</td>
+                    <td>CSIRO/ANSTO/GA</td>
+                    <td class="currency-cell">$400,000</td>
+                    <td class="currency-cell">980,000</td>
+                    <td>2028</td>
+                </tr>
+                <tr style="background: var(--primary-blue); color: white; font-weight: bold;">
+                    <td colspan="3">TOTAL</td>
+                    <td class="currency-cell">$3,600,000</td>
+                    <td class="currency-cell">8,820,000</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <h2>E. Human Resources</h2>
+            <table>
+                <tr><th style="width: 60%;">Question</th><th>Response</th></tr>
+                <tr><td>Number of employees</td><td><strong>19</strong></td></tr>
+                <tr><td>Number of Saudi employees</td><td><strong>0</strong></td></tr>
+                <tr><td>Percentage of Saudi employees</td><td><strong>0.00%</strong></td></tr>
+            </table>
+
+            <h3>Workforce Composition</h3>
+            <table>
+                <tr><th>Category</th><th style="text-align: center;">Count</th><th>Details</th></tr>
+                <tr><td>Management/Directors</td><td style="text-align: center;">3</td><td>Fabian Kohlmann (CEO), Wayne Noble (CIO), Keith Dimech (COO)</td></tr>
+                <tr><td>Full-Time Technical Staff</td><td style="text-align: center;">10</td><td>4 developers, 1 lead developer, 1 data security, 1 ops manager, 3 specialists</td></tr>
+                <tr><td>Contractors/Consultants</td><td style="text-align: center;">6</td><td>ML advisor, AI lead, geological consultant, data quality specialists</td></tr>
+                <tr style="background: var(--light-gray); font-weight: bold;">
+                    <td>Total</td>
+                    <td style="text-align: center;">19</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="highlight-box">
+                <h3>Saudization Commitment</h3>
+                <p>Lithodat is committed to supporting Saudi Vision 2030 workforce development objectives:</p>
+                <table style="margin-top: 10px;">
+                    <tr><th>Phase</th><th>Timeline</th><th style="text-align: center;">Saudi Hires</th><th>Roles</th></tr>
+                    <tr><td>Phase 1</td><td>Year 1</td><td style="text-align: center;">2</td><td>Junior developers, data analysts</td></tr>
+                    <tr><td>Phase 2</td><td>Year 2</td><td style="text-align: center;">3</td><td>Mid-level technical, project support</td></tr>
+                    <tr><td>Phase 3</td><td>Year 3+</td><td style="text-align: center;">5+</td><td>Senior technical, management roles</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Form 9.3 - Administrative Staff Experience -->
+        <section id="form-93">
+            <h1>4. Form 9.3 - Administrative Staff Experience</h1>
+
+            <p><em>RFQ Requirement: "Describe the experiences of the applicant's administrative staff as follows:" (10 rows)</em></p>
+
+            <table>
+                <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 20%;">Name</th>
+                    <th style="width: 20%;">Function</th>
+                    <th style="width: 40%;">Specialization / Area of Expertise</th>
+                    <th style="width: 15%;">Years Exp.</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>Dr. Fabian Kohlmann</strong></td>
+                    <td>Managing Director & CEO</td>
+                    <td>Geoscience Leadership, FAIR Data Architecture, Thermochronology, Strategic Planning</td>
+                    <td><strong>15+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Dr. Wayne Noble</strong></td>
+                    <td>Chief Information Officer</td>
+                    <td>Enterprise Architecture, Cloud Systems, Agile Leadership, Software Development</td>
+                    <td><strong>25+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Keith Dimech</strong></td>
+                    <td>Chief Operating Officer</td>
+                    <td>Project Management, ESQ Systems, Financial Operations, HR, Legal, HSEQ</td>
+                    <td><strong>15+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Gerd Moritz Theile</strong></td>
+                    <td>CTO (Chief Technology Officer)</td>
+                    <td>PostgreSQL Architecture, Database Design, LithoSurfer Platform, Java</td>
+                    <td><strong>25+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Juan Baca</strong></td>
+                    <td>Managing Director - Lithodat México</td>
+                    <td>Data Quality Management, Team Leadership, Database Operations, Training</td>
+                    <td><strong>10+ years</strong></td>
+                </tr>
+                <tr><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                <tr><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                <tr><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                <tr><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                <tr><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            </table>
+
+            <h2>GDAC-SA Project Leadership Structure</h2>
+
+            <div class="org-chart">
+                            ┌─────────────────────────────────────┐
+                            │      LITHODAT PTY LTD               │
+                            │   Dr. Fabian Kohlmann (CEO/MD)      │
+                            └─────────────────┬───────────────────┘
+                                              │
+                            ┌─────────────────┴───────────────────┐
+                            │       GDAC-SA PROJECT LEADS         │
+                            └─────────────────┬───────────────────┘
+                                              │
+            ┌─────────────────────────────────┼─────────────────────────────────┐
+            │                                 │                                 │
+            ▼                                 ▼                                 ▼
+    ┌───────────────────┐         ┌───────────────────┐         ┌───────────────────┐
+    │  IN-KINGDOM       │         │ TECHNICAL         │         │ PROJECT           │
+    │  DIRECTOR         │         │ DIRECTOR          │         │ DIRECTOR          │
+    │                   │         │                   │         │                   │
+    │  Dr. Mahdi AbuAli │         │ Dr. Qusay Abeed   │         │ Keith Dimech      │
+    │                   │         │                   │         │                   │
+    │  Government       │         │  Technical        │         │  Project          │
+    │  Relations &      │         │  Implementation   │         │  Management &     │
+    │  Client Value     │         │  & Geological     │         │  Operations       │
+    │  Alignment        │         │  Data Systems     │         │                   │
+    └───────────────────┘         └───────────────────┘         └───────────────────┘
+            </div>
+
+            <h2>Key Administrative Staff Profiles</h2>
+
+            <h3>Dr. Fabian Kohlmann - Managing Director & CEO</h3>
+            <table>
+                <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                <tr><td>Position</td><td>Managing Director & Chief Geoscientist</td></tr>
+                <tr><td>Shareholding</td><td>50.1%</td></tr>
+                <tr><td>Years with Lithodat</td><td>7 years (Founder, December 2017)</td></tr>
+                <tr><td>Total Experience</td><td>15+ years</td></tr>
+                <tr><td>Education</td><td>PhD, University of Melbourne (2010)</td></tr>
+                <tr><td>Key Competencies</td><td>FAIR geochemistry frameworks, relational database architecture, SKOS vocabularies, thermal history modeling</td></tr>
+            </table>
+
+            <h3>Dr. Wayne Noble - Chief Information Officer</h3>
+            <table>
+                <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                <tr><td>Position</td><td>Chief Information Officer / Executive Director</td></tr>
+                <tr><td>Shareholding</td><td>14.9%</td></tr>
+                <tr><td>Years with Lithodat</td><td>6+ years (Since December 2018)</td></tr>
+                <tr><td>Total Experience</td><td>25+ years</td></tr>
+                <tr><td>Education</td><td>PhD Geology, La Trobe University (1998); Graduate Diploma Computer Science (with Distinction), RMIT (2006); BSc (Hons) Geology First Class, La Trobe (1991)</td></tr>
+                <tr><td>Key Competencies</td><td>Java, Python, JavaScript, cloud-native applications (AWS), microservices, API design, Agile/Scrum</td></tr>
+            </table>
+
+            <h3>Keith Dimech - Chief Operating Officer</h3>
+            <table>
+                <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                <tr><td>Position</td><td>Chief Operating Officer</td></tr>
+                <tr><td>Years with Lithodat</td><td>May 2025 - Present (7 months)</td></tr>
+                <tr><td>Total Experience</td><td>15+ years</td></tr>
+                <tr><td>Education</td><td>Executive MBA (RMIT, 2025); Bachelor (Hons) Geoscience (University of Melbourne, 2014)</td></tr>
+                <tr><td>Key Competencies</td><td>Project portfolio management, HR, budgeting, ESQ (15 years), SQL databases, ISO 9001/14001/45001</td></tr>
+            </table>
+
+            <div class="info-box">
+                <strong>Lithodat COO Achievements (May 2025 - Present):</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Executive leadership of $4.2M+ active project portfolio</li>
+                    <li>Recruited 4 new technical staff members</li>
+                    <li>Restructured company financial systems</li>
+                    <li>Executed 3 major client contracts ($1.8M new revenue)</li>
+                    <li>Established OKR framework across all departments</li>
+                    <li>Led strategic planning for GDAC-SA tender submission</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Form 9.4 - Professional Staff Experience -->
+        <section id="form-94">
+            <h1>5. Form 9.4 - Professional Staff Experience</h1>
+
+            <p><em>RFQ Requirement: "The expertise of the applicant's technical staff is as follows:" (20 rows)</em></p>
+
+            <table>
+                <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 18%;">Name</th>
+                    <th style="width: 18%;">Function</th>
+                    <th style="width: 44%;">Specialization / Area of Expertise</th>
+                    <th style="width: 15%;">Years Exp.</th>
+                </tr>
+                <tr style="background: #ebf8ff;">
+                    <td>1</td>
+                    <td><strong>Dr. Mahdi AbuAli</strong></td>
+                    <td>GDAC In-Kingdom Director</td>
+                    <td>Saudi Government Relations, Saudi Aramco (35+ years), Executive Leadership, JV Program Management, Petroleum Systems</td>
+                    <td><strong>35+ years</strong></td>
+                </tr>
+                <tr style="background: #ebf8ff;">
+                    <td>2</td>
+                    <td><strong>Dr. Qusay Abeed</strong></td>
+                    <td>GDAC Technical Director</td>
+                    <td>Petroleum Geochemistry, Basin Modelling, CO2 Storage (CCUS), Native Arabic Speaker, C++, Agile Scrum</td>
+                    <td><strong>17+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Dr. Behnam Sadeghi</strong></td>
+                    <td>ML Technical Advisor</td>
+                    <td>ML/AI, Geospatial AI, Python (PyImpetus, PyMiner), IAMG Vistelius Award, Fulbright Fellow, CSIRO</td>
+                    <td><strong>15+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Pedro H. C. Ferreira</strong></td>
+                    <td>AI Software Dev Lead</td>
+                    <td>Technology & AI/ML Strategy, Enterprise AI Implementation</td>
+                    <td><strong>10-15 years</strong></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Vinko Novak</strong></td>
+                    <td>Head of Data Security</td>
+                    <td>Data Security, Information Protection, Compliance, Security Architecture</td>
+                    <td><strong>10+ years</strong></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Xinyan Zhang</td>
+                    <td>Frontend Developer</td>
+                    <td>React, TypeScript, UI/UX implementation, Responsive design</td>
+                    <td>3+ years</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Lujia Yang</td>
+                    <td>Frontend Developer</td>
+                    <td>React, TypeScript, UI/UX implementation, Responsive design</td>
+                    <td>3+ years</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Tarun Sengar</td>
+                    <td>Backend Developer</td>
+                    <td>Java, AWS, Backend Systems, API Development</td>
+                    <td>5+ years</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Nirali Dudharejiya</td>
+                    <td>Backend Developer</td>
+                    <td>Java, Liquibase, Backend Systems, Database Management</td>
+                    <td>5+ years</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Cris Ibarra</td>
+                    <td>Data Quality Specialist</td>
+                    <td>Data Entry, Data Validation, Quality Control, Database Operations</td>
+                    <td>3+ years</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Perla Luque</td>
+                    <td>Data Quality Specialist</td>
+                    <td>Data Entry, Data Validation, Quality Control, Database Operations</td>
+                    <td>3+ years</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Dr. Alejandra Bedoya</td>
+                    <td>Data Entry / PhD Candidate</td>
+                    <td>Geochronology, Thermochronology, Tectonics, Data Validation</td>
+                    <td>10+ years</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Dr. Fun Meeuws</td>
+                    <td>Geochemistry Specialist</td>
+                    <td>Fission Track Thermochronology, Thermal History Modelling, GPlates</td>
+                    <td>15+ years</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Benjamin Dib</td>
+                    <td>Data Clerk (LithoSpace)</td>
+                    <td>Space Science, Geospatial Data, Moon/Mars Mission Data, R Programming</td>
+                    <td>3+ years</td>
+                </tr>
+                <tr><td>15-20</td><td colspan="4"><em>Reserved for additional contractors as required</em></td></tr>
+            </table>
+
+            <h2>Key Technical Personnel Profiles</h2>
+
+            <div class="highlight-box">
+                <h3>Dr. Mahdi AbuAli - GDAC In-Kingdom Director</h3>
+                <table>
+                    <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                    <tr><td>Current Position</td><td>GDAC In-Kingdom Director (Specialist Contractor)</td></tr>
+                    <tr><td>Other Positions</td><td>COO & VP - Raphael Energy Group; MD - Fleet Tahreez Company (Riyadh)</td></tr>
+                    <tr><td>Location</td><td>Saudi Arabia / Australia</td></tr>
+                    <tr><td>Languages</td><td>English (Fluent), <strong>Arabic (Native - Saudi dialect)</strong></td></tr>
+                    <tr><td>Saudi Aramco Tenure</td><td><strong>35+ years (1985-2020)</strong></td></tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>GDAC-SA Role:</strong> Government Relationship Management, Client Value Alignment, Kingdom Delivery Assurance</p>
+                <p style="margin-top: 10px;"><strong>Key Achievements:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>35+ years Saudi Aramco - Rising from Geologist to Senior Geological Consultant</li>
+                    <li>Managed >200,000 km² of JV exploration acreage with ENI, Shell, Lukoil</li>
+                    <li>Matured and risked 50+ prospects - several resulting in discoveries</li>
+                    <li>Recent Riyadh presence - MD role with satellite/AI exploration workflows (2025)</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Dr. Qusay Abeed - GDAC Technical Director</h3>
+                <table>
+                    <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                    <tr><td>Current Position</td><td>Senior Geological Consultant / Petroleum Geochemist</td></tr>
+                    <tr><td>Location</td><td>Oxford, United Kingdom</td></tr>
+                    <tr><td>Languages</td><td>English (Fluent), <strong>Arabic (Native)</strong></td></tr>
+                    <tr><td>Total Experience</td><td>17+ years</td></tr>
+                    <tr><td>Education</td><td>PhD Petroleum Geochemistry, RWTH Aachen (magna cum laude)</td></tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>Value for GDAC-SA:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Native Arabic Speaker</strong> - Direct communication with SGS stakeholders</li>
+                    <li><strong>Middle East Geology Expertise</strong> - Deep understanding of regional systems</li>
+                    <li><strong>CCUS Knowledge</strong> - Aligns with Saudi Vision 2030 sustainability</li>
+                    <li><strong>Halliburton Connection</strong> - Former colleague of Dr. Kohlmann</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Dr. Behnam Sadeghi - Machine Learning Technical Advisor</h3>
+                <table>
+                    <tr><th style="width: 30%;">Field</th><th>Details</th></tr>
+                    <tr><td>Current Position</td><td>ML Technical Advisor (CSIRO Research Fellow)</td></tr>
+                    <tr><td>Total Experience</td><td>15+ years</td></tr>
+                    <tr><td>Education</td><td>PhD Mining Engineering (Data Analytics), UNSW (2020)</td></tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>Recognition:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>2023 IAMG Vistelius Research Award</strong> - Highest honor for early-career mathematical geoscientists</li>
+                    <li><strong>Fulbright Fellow</strong> - Stanford University (2022-2023)</li>
+                    <li><strong>58+ peer-reviewed publications</strong> (H-index: 24, 2000+ citations)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Published Software:</strong></p>
+                <table style="margin-top: 10px;">
+                    <tr><th>Package</th><th>Description</th><th>GDAC-SA Application</th></tr>
+                    <tr><td>PyImpetus</td><td>Feature selection</td><td>Identifying geochemical pathfinders</td></tr>
+                    <tr><td>PyMiner</td><td>Prospectivity mapping</td><td>Exploration targeting</td></tr>
+                    <tr><td>PySensibo</td><td>Time series analysis</td><td>Temporal trends</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Form 9.5 - Similar Projects -->
+        <section id="form-95">
+            <h1>6. Form 9.5 - Similar Projects</h1>
+
+            <p><em>RFQ Requirement: "Write details of three similar projects that have been implemented over the past five years"</em></p>
+
+            <!-- Project 1 -->
+            <h2>Project 1: EarthBank (AusGeoChem)</h2>
+            <div style="border: 2px solid var(--primary-blue); border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <table>
+                    <tr><th style="width: 35%;">Field</th><th>Response</th></tr>
+                    <tr><td>1. Project Name</td><td><strong>EarthBank (formerly AusGeoChem) - AuScope Geochemistry Network Platform</strong></td></tr>
+                    <tr><td>2. Project Location</td><td>Australia (National infrastructure, cloud-hosted)</td></tr>
+                    <tr><td>3. Project Content</td><td>National FAIR data platform for geochemistry research. 350,000+ samples, 1,300+ users, custom SKOS schema with 50,000+ terms. DOI/IGSN minting, REST API, map visualization, LithoPlates paleogeographic reconstruction.</td></tr>
+                    <tr><td>4. Project Owner</td><td>AuScope Geochemistry Network (AGN) / AuScope Limited (NCRIS)</td></tr>
+                    <tr><td>5. Contract Value</td><td>
+                        <div class="dual-currency">
+                            <span class="aud-value">AUD $2,900,000</span>
+                            <span class="sar-value">SAR 7,105,000</span>
+                        </div>
+                    </td></tr>
+                    <tr><td>6. Contract Duration</td><td>5+ years (2020 - Present, ongoing)</td></tr>
+                    <tr><td>7. Start Date</td><td>2020</td></tr>
+                    <tr><td>8. Delivery Date</td><td>Platform live October 2021; Official launch late 2022</td></tr>
+                    <tr><td>9. Name of person responsible</td><td>Professor Brent McInnes</td></tr>
+                    <tr><td>10. Contact information</td><td>John de Laeter Research Centre, Curtin University, Perth, WA</td></tr>
+                    <tr><td>11. Email</td><td>directorjdlc@curtin.edu.au</td></tr>
+                </table>
+                <div class="success-box" style="margin-top: 15px;">
+                    <strong>Evidence:</strong> Chemical Geology (2025) publication | CoreTrustSeal certified | https://earthbank.auscope.org.au/
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <h2>Project 2: Isotopes.au</h2>
+            <div style="border: 2px solid var(--primary-blue); border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <table>
+                    <tr><th style="width: 35%;">Field</th><th>Response</th></tr>
+                    <tr><td>1. Project Name</td><td><strong>Isotopes.au: National Data Infrastructure for Environmental Isotope Analysis</strong></td></tr>
+                    <tr><td>2. Project Location</td><td>Australia (National infrastructure, cloud-hosted)</td></tr>
+                    <tr><td>3. Project Content</td><td>National platform harmonising isotope data from 6 institutional sources (CSIRO, ANSTO, GA, NMI). Unified schema with 250+ field mappings, 97% ontology match rate, automated adapters.</td></tr>
+                    <tr><td>4. Project Owner</td><td>CSIRO / ANSTO / Geoscience Australia / NMI Consortium</td></tr>
+                    <tr><td>5. Contract Value</td><td>
+                        <div class="dual-currency">
+                            <span class="aud-value">AUD $400,000</span>
+                            <span class="sar-value">SAR 980,000</span>
+                        </div>
+                    </td></tr>
+                    <tr><td>6. Contract Duration</td><td>4.5 years (July 2024 - December 2028)</td></tr>
+                    <tr><td>7. Start Date</td><td>July 2024</td></tr>
+                    <tr><td>8. Delivery Date</td><td>Development complete; Platform deployment in progress</td></tr>
+                    <tr><td>9. Name of person responsible</td><td>Lian Flick</td></tr>
+                    <tr><td>10. Contact information</td><td>CSIRO Data61, Australia</td></tr>
+                    <tr><td>11. Email</td><td>Lian.Flick@data61.csiro.au</td></tr>
+                </table>
+                <div class="success-box" style="margin-top: 15px;">
+                    <strong>Evidence:</strong> R&D Registration IISA0053835 | Experiment Reports (Adapter, Wizard, Ontology Validation)
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <h2>Project 3: NRCan National Thermochronology Platform</h2>
+            <div style="border: 2px solid var(--success-green); border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <table>
+                    <tr><th style="width: 35%;">Field</th><th>Response</th></tr>
+                    <tr><td>1. Project Name</td><td><strong>NRCan National Thermochronology & Thermal History Data Model Development</strong></td></tr>
+                    <tr><td>2. Project Location</td><td>Canada (nationwide)</td></tr>
+                    <tr><td>3. Project Content</td><td>National unified data model for thermochronology (AHe, ZHe, AFT, ZFT). Complete standardisation of all provincial and historic datasets. Automated ingestion and QA/QC pipelines. 100% Canadian legacy data harmonised.</td></tr>
+                    <tr><td>4. Project Owner</td><td>Natural Resources Canada (Geological Survey of Canada)</td></tr>
+                    <tr><td>5. Contract Value</td><td>
+                        <div class="dual-currency">
+                            <span class="aud-value">AUD $400,000</span>
+                            <span class="sar-value">SAR 980,000</span>
+                        </div>
+                    </td></tr>
+                    <tr><td>6. Contract Duration</td><td>2 years (October 2021 - March 2023)</td></tr>
+                    <tr><td>7. Start Date</td><td>October 2021</td></tr>
+                    <tr><td>8. Delivery Date</td><td><strong style="color: var(--success-green);">March 2023 (DELIVERED)</strong></td></tr>
+                    <tr><td>9. Name of person responsible</td><td>Dr. Jeremy Powell</td></tr>
+                    <tr><td>10. Contact information</td><td>Natural Resources Canada, Ottawa</td></tr>
+                    <tr><td>11. Email</td><td>jeremy.powell@nrcan-rncan.gc.ca</td></tr>
+                </table>
+                <div class="success-box" style="margin-top: 15px;">
+                    <strong>Status: DELIVERED</strong> | Contract documentation and GSC sign-off available
+                </div>
+            </div>
+
+            <h2>Projects Summary</h2>
+            <table>
+                <tr>
+                    <th>Project</th>
+                    <th>Client</th>
+                    <th style="text-align: right;">Value (AUD)</th>
+                    <th style="text-align: right;">Value (SAR)</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>EarthBank</td>
+                    <td>NCRIS/AuScope</td>
+                    <td class="currency-cell">$2,900,000</td>
+                    <td class="currency-cell">7,105,000</td>
+                    <td>2020-Present</td>
+                    <td><span class="badge badge-success">Production</span></td>
+                </tr>
+                <tr>
+                    <td>Isotopes.au</td>
+                    <td>CSIRO/ANSTO/GA</td>
+                    <td class="currency-cell">$400,000</td>
+                    <td class="currency-cell">980,000</td>
+                    <td>2024-2028</td>
+                    <td><span class="badge badge-warning">Development</span></td>
+                </tr>
+                <tr>
+                    <td>NRCan</td>
+                    <td>Geological Survey of Canada</td>
+                    <td class="currency-cell">$400,000</td>
+                    <td class="currency-cell">980,000</td>
+                    <td>2021-2023</td>
+                    <td><span class="badge badge-info">DELIVERED</span></td>
+                </tr>
+                <tr style="background: var(--primary-blue); color: white; font-weight: bold;">
+                    <td colspan="2">TOTAL</td>
+                    <td class="currency-cell">$3,700,000</td>
+                    <td class="currency-cell">9,065,000</td>
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Form 9.6 - Financial Capacity Criteria -->
+        <section id="form-96">
+            <h1>7. Form 9.6 - Financial Capacity Criteria</h1>
+
+            <div class="info-box">
+                <strong>Currency Information:</strong> All figures presented in both Australian Dollars (AUD) and Saudi Riyals (SAR) at exchange rate <strong>AUD 1 = SAR 2.45</strong>
+            </div>
+
+            <h2>Balance Sheet Statement (Last 3 Years)</h2>
+
+            <table>
+                <tr>
+                    <th rowspan="2">Line Item</th>
+                    <th colspan="2" style="text-align: center;">FY2025 (Year 0)</th>
+                    <th colspan="2" style="text-align: center;">FY2024 (Year -1)</th>
+                    <th colspan="2" style="text-align: center;">FY2023 (Year -2)</th>
+                </tr>
+                <tr>
+                    <th style="text-align: right;">AUD</th>
+                    <th style="text-align: right;">SAR</th>
+                    <th style="text-align: right;">AUD</th>
+                    <th style="text-align: right;">SAR</th>
+                    <th style="text-align: right;">AUD</th>
+                    <th style="text-align: right;">SAR</th>
+                </tr>
+                <tr>
+                    <td><strong>Current Assets</strong></td>
+                    <td class="currency-cell">$430,819</td>
+                    <td class="currency-cell">1,055,507</td>
+                    <td class="currency-cell">$176,800</td>
+                    <td class="currency-cell">433,160</td>
+                    <td class="currency-cell">$93,690</td>
+                    <td class="currency-cell">229,541</td>
+                </tr>
+                <tr>
+                    <td><strong>Cash & Cash Equivalents</strong></td>
+                    <td class="currency-cell">$274,855</td>
+                    <td class="currency-cell" style="color: var(--success-green); font-weight: bold;">673,395</td>
+                    <td class="currency-cell">$100,406</td>
+                    <td class="currency-cell">246,095</td>
+                    <td class="currency-cell">$40,605</td>
+                    <td class="currency-cell">99,482</td>
+                </tr>
+                <tr>
+                    <td><strong>Accounts Receivable</strong></td>
+                    <td class="currency-cell">$152,964</td>
+                    <td class="currency-cell" style="color: var(--success-green); font-weight: bold;">374,762</td>
+                    <td class="currency-cell">$76,394</td>
+                    <td class="currency-cell">187,166</td>
+                    <td class="currency-cell">$53,001</td>
+                    <td class="currency-cell">129,852</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Liabilities</strong></td>
+                    <td class="currency-cell">$134,211</td>
+                    <td class="currency-cell" style="color: var(--success-green); font-weight: bold;">328,817</td>
+                    <td class="currency-cell">$40,106</td>
+                    <td class="currency-cell">98,260</td>
+                    <td class="currency-cell">$36,787</td>
+                    <td class="currency-cell">90,128</td>
+                </tr>
+            </table>
+
+            <h2>Financial Performance Indicators</h2>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Cash Ratio</div>
+                    <div class="metric-value">2.05</div>
+                    <div class="metric-secondary">4x above 0.5 benchmark</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Current Ratio</div>
+                    <div class="metric-value">3.21</div>
+                    <div class="metric-secondary">2x above 1.5 benchmark</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Quick Ratio</div>
+                    <div class="metric-value">3.19</div>
+                    <div class="metric-secondary">3x above 1.0 benchmark</div>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Indicator</th>
+                    <th>Formula</th>
+                    <th style="text-align: center;">FY2025</th>
+                    <th style="text-align: center;">FY2024</th>
+                    <th style="text-align: center;">FY2023</th>
+                    <th style="text-align: center;">Benchmark</th>
+                    <th>Assessment</th>
+                </tr>
+                <tr>
+                    <td><strong>Cash Ratio</strong></td>
+                    <td>Cash ÷ Current Liabilities</td>
+                    <td style="text-align: center; font-weight: bold; color: var(--success-green);">2.05</td>
+                    <td style="text-align: center;">2.50</td>
+                    <td style="text-align: center;">1.10</td>
+                    <td style="text-align: center;">>0.5</td>
+                    <td><span class="badge badge-success">Excellent</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Turnover Ratio</strong></td>
+                    <td>Current Assets ÷ Current Liabilities</td>
+                    <td style="text-align: center; font-weight: bold; color: var(--success-green);">3.21</td>
+                    <td style="text-align: center;">4.41</td>
+                    <td style="text-align: center;">2.55</td>
+                    <td style="text-align: center;">>1.5</td>
+                    <td><span class="badge badge-success">Excellent</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Quick Liquidity Ratio</strong></td>
+                    <td>(Cash + Receivables) ÷ Current Liabilities</td>
+                    <td style="text-align: center; font-weight: bold; color: var(--success-green);">3.19</td>
+                    <td style="text-align: center;">4.41</td>
+                    <td style="text-align: center;">2.54</td>
+                    <td style="text-align: center;">>1.0</td>
+                    <td><span class="badge badge-success">Excellent</span></td>
+                </tr>
+            </table>
+
+            <h2>Additional Financial Metrics</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th style="text-align: right;">FY2025 (AUD)</th>
+                    <th style="text-align: right;">FY2025 (SAR)</th>
+                    <th>Assessment</th>
+                </tr>
+                <tr>
+                    <td>Net Working Capital</td>
+                    <td class="currency-cell">$296,608</td>
+                    <td class="currency-cell">726,690</td>
+                    <td><span class="badge badge-success">Strong</span></td>
+                </tr>
+                <tr>
+                    <td>Revenue (FY2025)</td>
+                    <td class="currency-cell">$1,192,265</td>
+                    <td class="currency-cell">2,921,049</td>
+                    <td><span class="badge badge-success">+76% YoY</span></td>
+                </tr>
+                <tr>
+                    <td>Net Profit After Tax</td>
+                    <td class="currency-cell">$159,914</td>
+                    <td class="currency-cell">391,789</td>
+                    <td><span class="badge badge-success">+100% YoY</span></td>
+                </tr>
+                <tr>
+                    <td>Revenue Growth (3-year CAGR)</td>
+                    <td colspan="2" style="text-align: center;">62.8%</td>
+                    <td><span class="badge badge-success">Strong Growth</span></td>
+                </tr>
+                <tr>
+                    <td>Debt to Equity Ratio</td>
+                    <td colspan="2" style="text-align: center;">0.45:1</td>
+                    <td><span class="badge badge-success">Low Leverage</span></td>
+                </tr>
+            </table>
+
+            <h2>Financial Statements Attachments</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Document</th>
+                    <th>Fiscal Year</th>
+                    <th>Status</th>
+                </tr>
+                <tr><td>1</td><td>Annual Report (Financial Statements)</td><td>FY2023</td><td><span class="badge badge-success">Available</span></td></tr>
+                <tr><td>2</td><td>Annual Report (Financial Statements)</td><td>FY2024</td><td><span class="badge badge-success">Available</span></td></tr>
+                <tr><td>3</td><td>Annual Report (Financial Statements)</td><td>FY2025</td><td><span class="badge badge-success">Available</span></td></tr>
+                <tr><td>4</td><td>Company Tax Return</td><td>FY2023</td><td><span class="badge badge-success">Available</span></td></tr>
+                <tr><td>5</td><td>Company Tax Return</td><td>FY2024</td><td><span class="badge badge-success">Available</span></td></tr>
+                <tr><td>6</td><td>Company Tax Return</td><td>FY2025</td><td><span class="badge badge-success">Available</span></td></tr>
+            </table>
+        </section>
+
+        <!-- Supporting Documentation -->
+        <section id="supporting-docs">
+            <h1>8. Supporting Documentation Index</h1>
+
+            <h2>Required Documents Checklist</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Document</th>
+                    <th>RFQ Reference</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Valid Commercial Registration Certificate</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-success">AVAILABLE</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Valid Zakat and Income Certificate / VAT</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-info">N/A - Australian Entity</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>General Organization for Social Insurance</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-info">N/A - Australian Entity</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Valid Chamber of Commerce Certificate</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-success">AVAILABLE</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Valid investment license (MISA)</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-warning">IN PROGRESS</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Valid Saudization certificate</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-info">N/A - Saudization Plan Provided</span></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Quality policy/certificate and HSE policy</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-success">AVAILABLE</span></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Alliance agreement (if applicable)</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-info">N/A - Single Entity</span></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Approved financial statements (3 years)</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-success">AVAILABLE</span></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Company information and registration certificates</td>
+                    <td>Page 8</td>
+                    <td><span class="badge badge-success">AVAILABLE</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Declaration -->
+        <section id="declaration">
+            <h1>9. Declaration</h1>
+
+            <div class="info-box">
+                <p>I hereby certify that all information provided in this qualification application is true, accurate, and complete to the best of my knowledge. The projects described were implemented by Lithodat Pty Ltd within the past five years as stated. All financial information is consistent with the attached audited financial statements.</p>
+                <br>
+                <p>Lithodat Pty Ltd undertakes to maintain the confidentiality of any information or data obtained during the qualification process and not to disclose any such information to any third party without written permission from the Saudi Geological Survey.</p>
+            </div>
+
+            <div class="signature-block">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; vertical-align: top; padding-right: 30px;">
+                            <h3>Authorized Signatory</h3>
+                            <table>
+                                <tr><td style="width: 40%;">Company Name:</td><td><strong>Lithodat Pty Ltd</strong></td></tr>
+                                <tr><td>ABN:</td><td>63 627 008 904</td></tr>
+                                <tr><td>Name:</td><td><strong>Dr. Fabian Kohlmann</strong></td></tr>
+                                <tr><td>Title:</td><td>Managing Director</td></tr>
+                            </table>
+                            <div class="signature-line"></div>
+                            <p>Signature</p>
+                            <br>
+                            <div class="signature-line" style="width: 150px;"></div>
+                            <p>Date</p>
+                        </td>
+                        <td style="width: 50%; vertical-align: top; padding-left: 30px;">
+                            <h3>Prepared By</h3>
+                            <table>
+                                <tr><td style="width: 40%;">Name:</td><td><strong>Keith Dimech</strong></td></tr>
+                                <tr><td>Title:</td><td>Chief Operating Officer</td></tr>
+                                <tr><td>Email:</td><td>keith.dimech@lithodat.com</td></tr>
+                                <tr><td>Phone:</td><td>+61 428 971 396</td></tr>
+                            </table>
+                            <div class="signature-line"></div>
+                            <p>Signature</p>
+                            <br>
+                            <div class="signature-line" style="width: 150px;"></div>
+                            <p>Date</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="margin-bottom: 20px;"><strong>[COMPANY SEAL]</strong></p>
+                    <div style="width: 100px; height: 100px; border: 2px dashed var(--border-gray); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                        Seal
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <div>
+                <img src="../assets/LithoDat_LOGO.png" alt="Lithodat Logo" class="logo-small">
+            </div>
+            <div style="text-align: center;">
+                <p><strong>GDAC-SA Pre-Qualification Response</strong></p>
+                <p>RFQ Reference: 251140007625</p>
+            </div>
+            <div style="text-align: right;">
+                <p>Lithodat Pty Ltd</p>
+                <p>ABN 63 627 008 904</p>
+                <p>December 2025</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

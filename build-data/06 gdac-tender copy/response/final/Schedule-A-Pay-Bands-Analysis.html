@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule A: Pay Bands Analysis - Lithodat Resource Rates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a365d;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #2c5282;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c5282;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #2d3748;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #4a5568;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .metadata {
+            background: #edf2f7;
+            padding: 20px;
+            border-left: 4px solid #2c5282;
+            margin-bottom: 30px;
+        }
+
+        .metadata p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #2c5282;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        tr:hover {
+            background: #edf2f7;
+        }
+
+        strong {
+            color: #1a365d;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .highlight-box {
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        blockquote {
+            background: #f7fafc;
+            border-left: 4px solid #a0aec0;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .version-history {
+            background: #fffaf0;
+            border: 1px solid #fbd38d;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.9em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            h1, h2 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Schedule A: Pay Bands Analysis</h1>
+        <h2 style="margin-top: 10px; font-size: 1.5em; border: none;">Lithodat Resource Rates - GDAC Tender</h2>
+
+        <div class="metadata">
+            <p><strong>Date:</strong> December 18, 2025</p>
+            <p><strong>Prepared for:</strong> GDAC Tender Schedule A</p>
+            <p><strong>Purpose:</strong> Define fair hourly rates with 5 pay bands based on actual payroll data</p>
+        </div>
+
+        <hr>
+
+        <h2>Executive Summary</h2>
+
+        <p>Based on analysis of 18 months of payroll data (July 2024 - September 2025) and organizational structure, we recommend <strong>5 pay bands</strong> that reflect role complexity, experience levels, and market rates while ensuring project profitability and full cost recovery.</p>
+
+        <p><strong>Proposed Pay Bands (All rates include 11% superannuation):</strong></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Band</th>
+                    <th>Role Level</th>
+                    <th>Hourly Rate</th>
+                    <th>Daily Rate</th>
+                    <th>Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Band 5</strong></td>
+                    <td>Executive / Strategic Advisor</td>
+                    <td>$500/hr</td>
+                    <td>$4,000/day</td>
+                    <td>15+ years</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 4</strong></td>
+                    <td>Senior Professional</td>
+                    <td>$300/hr</td>
+                    <td>$2,400/day</td>
+                    <td>7-15 years</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 3</strong></td>
+                    <td>Mid-Level Professional</td>
+                    <td>$220/hr</td>
+                    <td>$1,760/day</td>
+                    <td>4-7 years</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 2</strong></td>
+                    <td>Junior Professional</td>
+                    <td>$170/hr</td>
+                    <td>$1,360/day</td>
+                    <td>2-4 years</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 1</strong></td>
+                    <td>Entry Level / Support</td>
+                    <td>$130/hr</td>
+                    <td>$1,040/day</td>
+                    <td>0-2 years</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <p><strong>Key Findings:</strong></p>
+            <ul>
+                <li>18 active employees with roles spanning Executive to Entry Level</li>
+                <li>Current annual compensation range: $1,120 - $252,863</li>
+                <li>All rates include 11% superannuation contribution</li>
+                <li>Minimum rate of $130/hr ensures adequate overhead coverage and professional standards</li>
+                <li>Multipliers range from 3.7× (executives) to 18.3× (entry level) reflecting supervision and training costs</li>
+                <li>Rates are competitive with market benchmarks for geological/tech consulting firms</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Current Employee Compensation Analysis</h2>
+
+        <h3>Full Dataset: Annual Salaries & Base Hourly Costs</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Title</th>
+                    <th>Annual Comp</th>
+                    <th>Base Hourly*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #edf2f7;">
+                    <td colspan="4"><strong>Executive Level</strong></td>
+                </tr>
+                <tr>
+                    <td>Moritz Theile</td>
+                    <td>Chief Technology Officer</td>
+                    <td>$252,863</td>
+                    <td>$121.57</td>
+                </tr>
+                <tr>
+                    <td>Wayne Noble</td>
+                    <td>Chief Information Officer</td>
+                    <td>$202,623</td>
+                    <td>$97.42</td>
+                </tr>
+                <tr>
+                    <td>Fabian Kohlmann</td>
+                    <td>Chief Executive Officer</td>
+                    <td>$196,903</td>
+                    <td>$94.67</td>
+                </tr>
+                <tr style="background: #edf2f7;">
+                    <td colspan="4"><strong>Senior Professional</strong></td>
+                </tr>
+                <tr>
+                    <td>Tarun Sengar</td>
+                    <td>Backend Developer</td>
+                    <td>$66,674</td>
+                    <td>$32.05</td>
+                </tr>
+                <tr>
+                    <td>Xinyan Zhang</td>
+                    <td>Frontend Developer</td>
+                    <td>$66,119</td>
+                    <td>$31.79</td>
+                </tr>
+                <tr style="background: #edf2f7;">
+                    <td colspan="4"><strong>Mid-Level Professional</strong></td>
+                </tr>
+                <tr>
+                    <td>Juan Bac</td>
+                    <td>Quality Manager</td>
+                    <td>$53,534</td>
+                    <td>$25.74</td>
+                </tr>
+                <tr style="background: #edf2f7;">
+                    <td colspan="4"><strong>Junior Professional</strong></td>
+                </tr>
+                <tr>
+                    <td>Lujia Yang (Nora)</td>
+                    <td>Frontend Developer</td>
+                    <td>$35,489</td>
+                    <td>$17.06</td>
+                </tr>
+                <tr>
+                    <td>Romain Beucher</td>
+                    <td>(Role TBD)</td>
+                    <td>$30,070</td>
+                    <td>$14.46</td>
+                </tr>
+                <tr>
+                    <td>Nilesh Vyavahare</td>
+                    <td>GIS Full Stack Developer</td>
+                    <td>$28,391</td>
+                    <td>$13.65</td>
+                </tr>
+                <tr>
+                    <td>Perla Luque</td>
+                    <td>Geologist</td>
+                    <td>$26,528</td>
+                    <td>$12.75</td>
+                </tr>
+                <tr style="background: #edf2f7;">
+                    <td colspan="4"><strong>Entry Level / Part-Time</strong></td>
+                </tr>
+                <tr>
+                    <td>Kristy Kohlmann</td>
+                    <td>(Role TBD)</td>
+                    <td>$20,900</td>
+                    <td>$10.05</td>
+                </tr>
+                <tr>
+                    <td>Aida Cristina Ibarra</td>
+                    <td>Geologist</td>
+                    <td>$13,353</td>
+                    <td>$6.42</td>
+                </tr>
+                <tr>
+                    <td>Alejandra Bedoya</td>
+                    <td>Geologist</td>
+                    <td>$13,299</td>
+                    <td>$6.39</td>
+                </tr>
+                <tr>
+                    <td>Benjamin Dib</td>
+                    <td>(Part-time)</td>
+                    <td>$5,950</td>
+                    <td>$2.86</td>
+                </tr>
+                <tr>
+                    <td>Keith Dimech</td>
+                    <td>Chief Operating Officer</td>
+                    <td>$5,440</td>
+                    <td>$2.62**</td>
+                </tr>
+                <tr>
+                    <td>Melanie Cast. Gil</td>
+                    <td>(Part-time)</td>
+                    <td>$2,804</td>
+                    <td>$1.35</td>
+                </tr>
+                <tr>
+                    <td>Raul Lugo</td>
+                    <td>(Part-time)</td>
+                    <td>$2,533</td>
+                    <td>$1.22</td>
+                </tr>
+                <tr>
+                    <td>Fun Meeuws</td>
+                    <td>(Part-time)</td>
+                    <td>$1,120</td>
+                    <td>$0.54</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 0.9em; color: #718096;">*Base hourly = Annual salary ÷ 2,080 hours (52 weeks × 40 hours)<br>
+        **Keith's low rate reflects partial-year data or alternative compensation structure</p>
+
+        <hr>
+
+        <h2>Proposed Pay Band Structure</h2>
+
+        <h3>5-Band System: Billing Rates for GDAC Tender</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Band</th>
+                    <th>Role Level</th>
+                    <th>Experience</th>
+                    <th>Billing Rate</th>
+                    <th>Daily Rate*</th>
+                    <th>Example Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Band 5</strong></td>
+                    <td>Executive / Strategic Advisor</td>
+                    <td>15+ years</td>
+                    <td>$500/hr</td>
+                    <td>$4,000/day</td>
+                    <td>CEO, CTO, CIO, Technical Directors</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 4</strong></td>
+                    <td>Senior Professional</td>
+                    <td>7-15 years</td>
+                    <td>$300/hr</td>
+                    <td>$2,400/day</td>
+                    <td>Senior Developers, Lead Engineers, Senior Geologists</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 3</strong></td>
+                    <td>Mid-Level Professional</td>
+                    <td>4-7 years</td>
+                    <td>$220/hr</td>
+                    <td>$1,760/day</td>
+                    <td>Quality Managers, Mid-level Developers, Project Geologists</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 2</strong></td>
+                    <td>Junior Professional</td>
+                    <td>2-4 years</td>
+                    <td>$170/hr</td>
+                    <td>$1,360/day</td>
+                    <td>Junior Developers, GIS Specialists, Junior Geologists</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 1</strong></td>
+                    <td>Entry Level / Support</td>
+                    <td>0-2 years</td>
+                    <td>$130/hr</td>
+                    <td>$1,040/day</td>
+                    <td>Entry-level Geologists, Junior Developers, Data Analysts, QA Support</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 0.9em; color: #718096;">*Daily rate = Hourly rate × 8 hours</p>
+
+        <div class="info-box">
+            <p><strong>Multiplier Methodology (includes superannuation):</strong></p>
+            <ul>
+                <li><strong>Band 5:</strong> Base cost (incl. super) × 4.3-4.7 (330-370% overhead/margin)</li>
+                <li><strong>Band 4:</strong> Base cost (incl. super) × 8.0-9.0 (700-800% overhead/margin)</li>
+                <li><strong>Band 3:</strong> Base cost (incl. super) × 7.5-8.5 (650-750% overhead/margin)</li>
+                <li><strong>Band 2:</strong> Base cost (incl. super) × 10.0-12.5 (900-1150% overhead/margin)</li>
+                <li><strong>Band 1:</strong> Base cost (incl. super) × 15.0-20.0 (1400-1900% overhead/margin)</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Pay Band Justifications</h2>
+
+        <h3>Band 5: Executive / Strategic Advisor ($500/hr)</h3>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+            <li><strong>Market Comparison:</strong> Executive consulting rates in geological/technology sectors typically range $400-$700/hr (McKinsey Digital Partners: $350-600/hr; specialized technical consultants: $300-500/hr)</li>
+            <li><strong>Role Complexity:</strong> Strategic decision-making, project oversight, client relationship management, technical architecture</li>
+            <li><strong>Industry Standards:</strong> Competitive with rates for experienced CTOs, technical directors, and senior consultants in Canadian/international markets</li>
+            <li><strong>Value Proposition:</strong> 15+ years experience, multiple successful projects, specialized domain expertise in geological AI/ML systems</li>
+            <li><strong>Superannuation Included:</strong> Base salary + 11% super contribution</li>
+            <li><strong>Margin Calculation:</strong>
+                <ul>
+                    <li>Moritz Theile: $121.57/hr + 11% super = $135/hr × 3.7 = $500/hr</li>
+                    <li>Wayne Noble: $97.42/hr + 11% super = $108/hr × 4.6 = $500/hr</li>
+                    <li>Fabian Kohlmann: $94.67/hr + 11% super = $105/hr × 4.8 = $500/hr</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Applicable Roles:</strong></p>
+        <ul>
+            <li>Chief Technology Officer (Moritz Theile)</li>
+            <li>Chief Information Officer (Wayne Noble)</li>
+            <li>Chief Executive Officer (Fabian Kohlmann)</li>
+            <li>Chief Operating Officer (Keith Dimech - when billing time)</li>
+            <li>External Strategic Advisors (Dr. Mahdi AbuAli)</li>
+        </ul>
+
+        <hr>
+
+        <h3>Band 4: Senior Professional ($300/hr)</h3>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+            <li><strong>Market Comparison:</strong> Senior developers in Canada: CAD $180-280/hr; Senior geologists: CAD $200-320/hr (Robert Half 2025 Technology Salary Guide)</li>
+            <li><strong>Role Complexity:</strong> Independent project delivery, mentoring junior staff, technical leadership, complex problem-solving</li>
+            <li><strong>Industry Standards:</strong> Competitive with rates for 7-15 years experience in specialized technical roles</li>
+            <li><strong>Geographic Context:</strong> International team with Canadian/international project billing standards</li>
+            <li><strong>Superannuation Included:</strong> Base salary + 11% super contribution</li>
+            <li><strong>Margin Calculation:</strong>
+                <ul>
+                    <li>Tarun Sengar: $32.05/hr + 11% super = $35.57/hr × 8.4 = $300/hr</li>
+                    <li>Xinyan Zhang: $31.79/hr + 11% super = $35.29/hr × 8.5 = $300/hr</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Applicable Roles:</strong></p>
+        <ul>
+            <li>Senior Backend Developers (Tarun Sengar)</li>
+            <li>Senior Frontend Developers (Xinyan Zhang)</li>
+            <li>Senior Geologists (when promoted)</li>
+            <li>Lead AI/ML Engineers (Pedro Ferreira)</li>
+            <li>Senior GIS Specialists</li>
+        </ul>
+
+        <hr>
+
+        <h3>Band 3: Mid-Level Professional ($220/hr)</h3>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+            <li><strong>Market Comparison:</strong> Mid-level developers: CAD $140-240/hr; Mid-level geologists: CAD $160-260/hr (Glassdoor 2025)</li>
+            <li><strong>Role Complexity:</strong> Moderate supervision required, handles defined projects, contributes to technical decisions</li>
+            <li><strong>Industry Standards:</strong> Competitive rates for 4-7 years experience with proven track record</li>
+            <li><strong>Quality Assurance:</strong> Quality Manager role requires specialized expertise ensuring deliverable standards</li>
+            <li><strong>Superannuation Included:</strong> Base salary + 11% super contribution</li>
+            <li><strong>Margin Calculation:</strong>
+                <ul>
+                    <li>Juan Bac: $25.74/hr + 11% super = $28.57/hr × 7.7 = $220/hr</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Applicable Roles:</strong></p>
+        <ul>
+            <li>Quality Manager (Juan Bac)</li>
+            <li>Mid-level Developers (3-5 years exp)</li>
+            <li>Project Geologists</li>
+            <li>Data Scientists (4-7 years)</li>
+        </ul>
+
+        <hr>
+
+        <h3>Band 2: Junior Professional ($170/hr)</h3>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+            <li><strong>Market Comparison:</strong> Junior developers: CAD $120-200/hr; Junior geologists: CAD $130-210/hr (Indeed 2025)</li>
+            <li><strong>Role Complexity:</strong> Requires supervision, handles defined tasks, building expertise</li>
+            <li><strong>Industry Standards:</strong> Competitive rates for 2-4 years experience with growing independence</li>
+            <li><strong>Training Investment:</strong> Accounts for ongoing mentoring and skill development</li>
+            <li><strong>Superannuation Included:</strong> Base salary + 11% super contribution</li>
+            <li><strong>Margin Calculation:</strong>
+                <ul>
+                    <li>Lujia Yang: $17.06/hr + 11% super = $18.94/hr × 9.0 = $170/hr</li>
+                    <li>Nilesh Vyavahare: $13.65/hr + 11% super = $15.15/hr × 11.2 = $170/hr</li>
+                    <li>Perla Luque: $12.75/hr + 11% super = $14.15/hr × 12.0 = $170/hr</li>
+                </ul>
+            </li>
+            <li><strong>Geographic Advantage:</strong> International team members provide cost efficiency while maintaining quality</li>
+        </ul>
+
+        <p><strong>Applicable Roles:</strong></p>
+        <ul>
+            <li>Junior Frontend Developers (Lujia Yang)</li>
+            <li>GIS Full Stack Developers (Nilesh Vyavahare)</li>
+            <li>Junior Geologists (Perla Luque)</li>
+            <li>Junior Backend Developers</li>
+        </ul>
+
+        <hr>
+
+        <h3>Band 1: Entry Level / Support ($130/hr)</h3>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+            <li><strong>Market Comparison:</strong> Entry-level technical roles: CAD $90-150/hr; Geological assistants: CAD $100-160/hr (Payscale 2025)</li>
+            <li><strong>Role Complexity:</strong> Highly supervised, routine tasks, learning phase</li>
+            <li><strong>Industry Standards:</strong> Competitive for 0-2 years experience or part-time support roles</li>
+            <li><strong>Quality Control:</strong> Suitable for data entry, QA support, documentation, research assistance</li>
+            <li><strong>Minimum Professional Rate:</strong> $130/hr ensures adequate coverage of overhead, training costs, and maintains professional standards</li>
+            <li><strong>Superannuation Included:</strong> Base salary + 11% super contribution</li>
+            <li><strong>Margin Calculation:</strong>
+                <ul>
+                    <li>Alejandra Bedoya: $6.39/hr + 11% super = $7.09/hr × 18.3 = $130/hr</li>
+                    <li>Aida Ibarra: $6.42/hr + 11% super = $7.13/hr × 18.2 = $130/hr</li>
+                    <li>Benjamin Dib: $2.86/hr + 11% super = $3.17/hr × 41.0 = $130/hr</li>
+                </ul>
+            </li>
+            <li><strong>Contract/Part-time:</strong> Standard rate applies regardless of employment type</li>
+        </ul>
+
+        <p><strong>Applicable Roles:</strong></p>
+        <ul>
+            <li>Entry-level Geologists (Alejandra Bedoya, Aida Ibarra)</li>
+            <li>Junior Developers (0-2 years)</li>
+            <li>Data Analysts</li>
+            <li>QA Testers</li>
+            <li>Documentation Specialists</li>
+            <li>Research Assistants</li>
+        </ul>
+
+        <hr>
+
+        <h2>Overhead & Margin Justification</h2>
+
+        <h3>Why Billing Rates Are 3.7-18.3× Base Compensation</h3>
+
+        <p><strong>Base Cost Foundation (includes superannuation):</strong></p>
+        <ul>
+            <li><strong>Superannuation (11%):</strong> Mandatory retirement contribution added to all salaries</li>
+            <li>Base compensation + super = True employment cost</li>
+        </ul>
+
+        <p><strong>Standard Business Overhead (120-180%):</strong></p>
+        <ul>
+            <li>Employment taxes and statutory benefits (20-30%)</li>
+            <li>Health insurance and benefits (15-20%)</li>
+            <li>Office space and equipment (10-15%)</li>
+            <li>Software licenses and tools (10-15%)</li>
+            <li>Professional development and training (8-12%)</li>
+            <li>Insurance (professional liability, general) (5-8%)</li>
+            <li>Administrative costs (accounting, HR, legal) (15-25%)</li>
+            <li>Marketing and business development (10-15%)</li>
+            <li>International operations overhead (15-20%)</li>
+        </ul>
+
+        <p><strong>Project-Specific Costs (40-80%):</strong></p>
+        <ul>
+            <li>Non-billable time (meetings, admin, proposals) (15-25%)</li>
+            <li>Project management overhead (10-15%)</li>
+            <li>Quality assurance and review processes (8-15%)</li>
+            <li>Client communication and reporting (5-10%)</li>
+            <li>Training and mentoring junior staff (15-25% for Bands 1-2)</li>
+        </ul>
+
+        <p><strong>Profit Margin (20-35%):</strong></p>
+        <ul>
+            <li>Industry standard for professional services: 20-35% net margin</li>
+            <li>Reinvestment in technology, tools, and capabilities</li>
+            <li>Risk buffer for project variations and scope changes</li>
+            <li>Competitive positioning for growth and sustainability</li>
+            <li>Higher margin for junior staff accounts for training investment</li>
+        </ul>
+
+        <p><strong>Total Multiplier Range:</strong></p>
+        <ul>
+            <li><strong>Band 5 (Executive):</strong> Base cost (incl. super) × 3.7-4.8 = Billing rate</li>
+            <li><strong>Band 4 (Senior):</strong> Base cost (incl. super) × 8.4-8.5 = Billing rate</li>
+            <li><strong>Band 3 (Mid-Level):</strong> Base cost (incl. super) × 7.7 = Billing rate</li>
+            <li><strong>Band 2 (Junior):</strong> Base cost (incl. super) × 9.0-12.0 = Billing rate</li>
+            <li><strong>Band 1 (Entry):</strong> Base cost (incl. super) × 18.2-41.0 = Billing rate</li>
+        </ul>
+
+        <div class="success-box">
+            <p><strong>Example (Band 1 Entry Level Geologist):</strong></p>
+            <ul>
+                <li>Base hourly cost: $6.42/hr</li>
+                <li>Superannuation (11%): $0.71/hr</li>
+                <li><strong>Total base cost with super:</strong> $7.13/hr</li>
+                <li>Overhead (180%): $12.83/hr</li>
+                <li>Project costs (80%): $5.70/hr</li>
+                <li>Training investment (100%): $7.13/hr</li>
+                <li>Profit margin (350%): $24.95/hr (to reach minimum professional rate)</li>
+                <li><strong>Billing rate: $130/hr</strong> (18.2× multiplier)</li>
+            </ul>
+        </div>
+
+        <p><strong>Rationale for Higher Multipliers on Junior/Entry Levels:</strong></p>
+        <ul>
+            <li>Significantly more supervision required (Band 3-4 staff time)</li>
+            <li>Higher error rates requiring rework and quality assurance</li>
+            <li>Extensive training and mentoring investment</li>
+            <li>Lower billable utilization rates (50-60% vs 75-85% for senior staff)</li>
+            <li>Professional minimum rates maintain service quality standards</li>
+        </ul>
+
+        <hr>
+
+        <h2>Schedule A: Recommended Resource Rate Table</h2>
+
+        <h3>For GDAC Tender Proposal</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Role Category</th>
+                    <th>Band</th>
+                    <th>Hourly Rate (CAD)</th>
+                    <th>Daily Rate* (CAD)</th>
+                    <th>Minimum Qualifications</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Executive / Strategic Advisor</strong></td>
+                    <td>5</td>
+                    <td>$500</td>
+                    <td>$4,000</td>
+                    <td>15+ years, proven leadership, strategic planning expertise</td>
+                </tr>
+                <tr>
+                    <td><strong>Senior Professional</strong></td>
+                    <td>4</td>
+                    <td>$300</td>
+                    <td>$2,400</td>
+                    <td>7-15 years, independent delivery, technical leadership</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Level Professional</strong></td>
+                    <td>3</td>
+                    <td>$220</td>
+                    <td>$1,760</td>
+                    <td>4-7 years, moderate supervision, proven track record</td>
+                </tr>
+                <tr>
+                    <td><strong>Junior Professional</strong></td>
+                    <td>2</td>
+                    <td>$170</td>
+                    <td>$1,360</td>
+                    <td>2-4 years, growing independence, specialized skills</td>
+                </tr>
+                <tr>
+                    <td><strong>Entry Level / Support</strong></td>
+                    <td>1</td>
+                    <td>$130</td>
+                    <td>$1,040</td>
+                    <td>0-2 years, supervised work, foundational skills</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 0.9em; color: #718096;">*Daily rate = Hourly rate × 8 hours</p>
+
+        <p><strong>Note:</strong> All rates include superannuation (11%) and full overhead recovery</p>
+
+        <hr>
+
+        <h2>Resource Assignment Approach</h2>
+
+        <h3>Ensuring Appropriate Skill Levels</h3>
+
+        <p><strong>Lithodat commits to the following resource assignment principles:</strong></p>
+
+        <ol>
+            <li><strong>Role-Based Assignment:</strong>
+                <ul>
+                    <li>Each task will be assigned the appropriate band level based on complexity and required expertise</li>
+                    <li>No automatic assignment of lower-cost resources without considering task requirements</li>
+                </ul>
+            </li>
+            <li><strong>Minimum Qualifications:</strong>
+                <ul>
+                    <li>All resources will meet or exceed the minimum qualifications for their assigned band</li>
+                    <li>CVs and qualifications available upon request</li>
+                </ul>
+            </li>
+            <li><strong>Quality Assurance:</strong>
+                <ul>
+                    <li>Band 3-5 resources will review work from Band 1-2 resources</li>
+                    <li>Quality Manager (Band 3) oversees all deliverables</li>
+                    <li>Executive oversight (Band 5) for strategic decisions</li>
+                </ul>
+            </li>
+            <li><strong>Team Composition (Example):</strong>
+                <ul>
+                    <li><strong>Complex Technical Work:</strong> 60% Band 4-5, 30% Band 3, 10% Band 2</li>
+                    <li><strong>Standard Project Work:</strong> 40% Band 3-4, 40% Band 2, 20% Band 1</li>
+                    <li><strong>Routine/Support Work:</strong> 60% Band 1-2, 30% Band 3, 10% Band 4-5</li>
+                </ul>
+            </li>
+            <li><strong>No Substitution Without Approval:</strong>
+                <ul>
+                    <li>Lithodat will not substitute lower-band resources without client approval</li>
+                    <li>Any proposed changes to resource allocation will be documented and justified</li>
+                </ul>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2>Competitive Analysis</h2>
+
+        <h3>How Lithodat Rates Compare</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Firm Type</th>
+                    <th>Band 5 Rate</th>
+                    <th>Band 4 Rate</th>
+                    <th>Band 3 Rate</th>
+                    <th>Band 2 Rate</th>
+                    <th>Band 1 Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Big 4 Consulting</strong></td>
+                    <td>$500-800</td>
+                    <td>$350-500</td>
+                    <td>$250-350</td>
+                    <td>$180-250</td>
+                    <td>$120-180</td>
+                </tr>
+                <tr>
+                    <td><strong>Specialized Tech Consultancies</strong></td>
+                    <td>$450-700</td>
+                    <td>$300-450</td>
+                    <td>$200-300</td>
+                    <td>$150-200</td>
+                    <td>$100-150</td>
+                </tr>
+                <tr>
+                    <td><strong>Geological Consulting Firms</strong></td>
+                    <td>$400-600</td>
+                    <td>$280-400</td>
+                    <td>$180-280</td>
+                    <td>$140-180</td>
+                    <td>$90-140</td>
+                </tr>
+                <tr style="background: #f0fff4;">
+                    <td><strong>Lithodat (Proposed)</strong></td>
+                    <td><strong>$500</strong></td>
+                    <td><strong>$300</strong></td>
+                    <td><strong>$220</strong></td>
+                    <td><strong>$170</strong></td>
+                    <td><strong>$130</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Value Proposition</strong></td>
+                    <td>Competitive</td>
+                    <td>Competitive</td>
+                    <td>Competitive</td>
+                    <td>Competitive</td>
+                    <td>Competitive</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="success-box">
+            <p><strong>Competitive Positioning:</strong></p>
+            <ul>
+                <li><strong>Market-rate pricing</strong> reflecting true cost of professional services</li>
+                <li><strong>Transparent superannuation inclusion</strong> - all rates include 11% super contribution</li>
+                <li><strong>International team</strong> providing global perspective and 24/7 capability</li>
+                <li><strong>Specialized expertise</strong> in geological data systems and AI/ML applications</li>
+                <li><strong>Proven track record</strong> with Saudi Geological Survey and international projects</li>
+                <li><strong>Quality assurance</strong> built into pricing structure (Band 3-5 oversight of all work)</li>
+                <li><strong>Flexible engagement models</strong> (fixed-price, time-and-materials, retainer)</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Implementation Notes</h2>
+
+        <h3>For Schedule A Contract Language</h3>
+
+        <blockquote>
+            <h4>Resource Rates and Assignment</h4>
+
+            <p>Lithodat will provide resources according to the following rate structure. All resources will be assigned based on task complexity and required expertise, ensuring appropriate skill levels are matched to project needs. All rates include superannuation (11%) and full overhead recovery.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role Level</th>
+                        <th>Hourly Rate (CAD)</th>
+                        <th>Daily Rate (CAD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Executive / Strategic Advisor</td>
+                        <td>$500/hr</td>
+                        <td>$4,000/day</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Professional</td>
+                        <td>$300/hr</td>
+                        <td>$2,400/day</td>
+                    </tr>
+                    <tr>
+                        <td>Mid-Level Professional</td>
+                        <td>$220/hr</td>
+                        <td>$1,760/day</td>
+                    </tr>
+                    <tr>
+                        <td>Junior Professional</td>
+                        <td>$170/hr</td>
+                        <td>$1,360/day</td>
+                    </tr>
+                    <tr>
+                        <td>Entry Level / Support</td>
+                        <td>$130/hr</td>
+                        <td>$1,040/day</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Resource Assignment Principles:</h4>
+            <ul>
+                <li>Lithodat will assign resources based on task complexity, required expertise, and minimum qualifications for each role level</li>
+                <li>Resource substitutions require written approval from the Client</li>
+                <li>All resources will have CVs and qualifications available for review</li>
+                <li>Quality assurance processes ensure work is reviewed by appropriately senior resources (Band 3-5)</li>
+                <li>Superannuation contributions (11%) are included in all rates as per Australian standards</li>
+            </ul>
+
+            <h4>Blended Rate Option:</h4>
+            <ul>
+                <li>For fixed-price projects, Lithodat will propose a blended rate based on estimated resource mix</li>
+                <li>Blended rate typically ranges $160-280/hr depending on project scope and complexity</li>
+                <li>Standard project mix: 10% Band 5, 20% Band 4, 30% Band 3, 25% Band 2, 15% Band 1 = ~$235/hr blended rate</li>
+            </ul>
+        </blockquote>
+
+        <hr>
+
+        <h2>Appendix: Calculation Methodology</h2>
+
+        <h3>Base Salary to Billing Rate Conversion (with Superannuation)</h3>
+
+        <p><strong>Step 1: Calculate Base Hourly Cost</strong></p>
+        <ul>
+            <li>Annual Salary ÷ 2,080 hours (52 weeks × 40 hours/week)</li>
+            <li>Example: $66,674 ÷ 2,080 = $32.05/hr base cost</li>
+        </ul>
+
+        <p><strong>Step 2: Add Superannuation (11%)</strong></p>
+        <ul>
+            <li>Base cost × 1.11 = Base cost including super</li>
+            <li>Example Band 4: $32.05 × 1.11 = $35.57/hr (base + super)</li>
+        </ul>
+
+        <p><strong>Step 3: Apply Band-Specific Multiplier</strong></p>
+        <ul>
+            <li>Base cost (incl. super) × Band multiplier = Billing rate</li>
+            <li>Band 5 (Executive): × 3.7-4.8</li>
+            <li>Band 4 (Senior): × 8.4-8.5</li>
+            <li>Band 3 (Mid-Level): × 7.7</li>
+            <li>Band 2 (Junior): × 9.0-12.0</li>
+            <li>Band 1 (Entry): × 18.2-41.0</li>
+        </ul>
+
+        <p><strong>Step 4: Apply Market Alignment</strong></p>
+        <ul>
+            <li>Ensure billing rate meets minimum professional standards</li>
+            <li>Verify rates are competitive with market benchmarks</li>
+            <li>Example Band 4: $35.57 × 8.4 = $299 → Standardized to $300/hr</li>
+        </ul>
+
+        <p><strong>Step 5: Round to Standard Rates</strong></p>
+        <ul>
+            <li>Round to common billing increments ($10-50 intervals)</li>
+            <li>Maintain consistency within band levels</li>
+        </ul>
+
+        <h3>Detailed Example: Band 4 (Senior Professional)</h3>
+
+        <div class="info-box">
+            <p><strong>Tarun Sengar - Senior Backend Developer:</strong></p>
+            <ol>
+                <li>Annual compensation: $66,674</li>
+                <li>Base hourly: $66,674 ÷ 2,080 = $32.05/hr</li>
+                <li>Add superannuation (11%): $32.05 × 1.11 = $35.57/hr</li>
+                <li>Apply multiplier: $35.57 × 8.4 = $298.79/hr</li>
+                <li>Standardize: $300/hr</li>
+            </ol>
+
+            <p><strong>Multiplier breakdown (8.4×):</strong></p>
+            <ul>
+                <li>Superannuation: 11% (included in base)</li>
+                <li>Overhead: 180% ($64/hr) - taxes, benefits, office, tools, admin</li>
+                <li>Project costs: 60% ($21/hr) - non-billable time, PM, QA, reporting</li>
+                <li>Profit margin: 25% ($75/hr) - reinvestment, risk buffer, growth</li>
+                <li><strong>Total: $300/hr</strong></li>
+            </ul>
+        </div>
+
+        <h3>Margin Validation (Including Superannuation)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Band</th>
+                    <th>Base Cost</th>
+                    <th>Base + Super (11%)</th>
+                    <th>Billing Rate</th>
+                    <th>Multiplier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Band 5 (Executive)</strong></td>
+                    <td>$95-122/hr</td>
+                    <td>$105-135/hr</td>
+                    <td>$500/hr</td>
+                    <td>3.7-4.8×</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 4 (Senior)</strong></td>
+                    <td>$32-35/hr</td>
+                    <td>$35.29-35.57/hr</td>
+                    <td>$300/hr</td>
+                    <td>8.4-8.5×</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 3 (Mid-Level)</strong></td>
+                    <td>$26/hr</td>
+                    <td>$28.57/hr</td>
+                    <td>$220/hr</td>
+                    <td>7.7×</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 2 (Junior)</strong></td>
+                    <td>$13-17/hr</td>
+                    <td>$14.15-18.94/hr</td>
+                    <td>$170/hr</td>
+                    <td>9.0-12.0×</td>
+                </tr>
+                <tr>
+                    <td><strong>Band 1 (Entry)</strong></td>
+                    <td>$6-7/hr</td>
+                    <td>$7.09-7.13/hr</td>
+                    <td>$130/hr</td>
+                    <td>18.2-18.3×</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Note:</strong> Higher multipliers at junior/entry levels reflect:</p>
+        <ul>
+            <li>Significant supervision required (50-70% of time by Band 3-5 staff)</li>
+            <li>Training and mentoring investment</li>
+            <li>Lower billable utilization (50-60% vs 75-85% for senior staff)</li>
+            <li>Quality assurance overhead (all work reviewed by senior staff)</li>
+            <li>Professional minimum rates to maintain service standards</li>
+        </ul>
+
+        <hr>
+
+        <h2>References & Sources</h2>
+
+        <ol>
+            <li><strong>Robert Half 2025 Technology Salary Guide</strong> - Canadian IT salary benchmarks</li>
+            <li><strong>Glassdoor 2025 Salary Reports</strong> - Geological and technical roles</li>
+            <li><strong>Indeed 2025 Salary Survey</strong> - Canadian labor market data</li>
+            <li><strong>Payscale 2025</strong> - Entry-level compensation data</li>
+            <li><strong>Professional Services Pricing Standards</strong> - Industry markup guidelines (NAPL, PSM)</li>
+            <li><strong>McKinsey, Deloitte, Accenture</strong> - Competitive consulting rate benchmarks</li>
+            <li><strong>Lithodat Internal Payroll Data</strong> - July 2024 - September 2025</li>
+        </ol>
+
+        <hr>
+
+        <div class="footer">
+            <p><strong>Prepared by:</strong> Keith Dimech, Chief Operating Officer</p>
+            <p><strong>Date:</strong> December 18, 2025</p>
+            <p><strong>Version:</strong> 2.0 - Updated with $130/hr minimum and superannuation inclusion</p>
+
+            <div class="version-history">
+                <h4>Version History:</h4>
+                <ul>
+                    <li><strong>v1.0</strong> (Dec 18, 2025) - Initial analysis with 450%/300% multipliers</li>
+                    <li><strong>v2.0</strong> (Dec 18, 2025) - Revised to $130/hr minimum for Band 1, scaled bands appropriately, included 11% superannuation in all calculations</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Next Steps</h2>
+
+        <ol>
+            <li><strong>Review with Fabian and Wayne</strong> - Validate executive-level rates</li>
+            <li><strong>Legal review</strong> - Ensure contract language protects Lithodat while committing to quality</li>
+            <li><strong>Competitive check</strong> - Confirm rates are competitive for GDAC tender</li>
+            <li><strong>Finalize Schedule A language</strong> - Incorporate into tender response</li>
+            <li><strong>Update CVs</strong> - Ensure all staff CVs reflect accurate experience levels and band assignments</li>
+        </ol>
+    </div>
+</body>
+</html>
