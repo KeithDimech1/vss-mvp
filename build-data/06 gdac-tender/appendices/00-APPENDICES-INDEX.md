@@ -3,7 +3,7 @@
 
 **RFQ Reference:** 251140007625
 **Date Created:** December 2025
-**Total Appendices:** 11 (A-K)
+**Total Appendices:** 13 (A-M)
 
 ---
 
@@ -20,8 +20,10 @@
 | **G** | EarthBank Project Summary & Client Reference | Markdown | 6.0 KB | Form 9.5 - Similar Projects |
 | **H** | Isotopes.au Project Summary & Client Reference | Markdown | 6.0 KB | Form 9.5 - Similar Projects |
 | **I** | NRCan Project Summary & Client Reference | Markdown | 6.0 KB | Form 9.5 - Similar Projects |
-| **J** | Curriculum Vitae (7 Key Personnel) | HTML | ~570 KB | Form 9.3 - Administrative Staff |
-| **K** | Publications Summary (incl. Elsevier Book Reference) | Markdown | 22 KB | Form 9.2 - Innovation Excellence |
+| **J** | Curriculum Vitae (Combined) | Markdown | 42 KB | Form 9.3 - Administrative Staff |
+| **K** | Publications Summary | Markdown | 2.4 KB | Form 9.2 - Innovation Excellence |
+| **L** | Elsevier Book Reference - "Fractals and Multifractals in the Geosciences" | Markdown | 1.8 KB | Form 9.4 - Professional Staff |
+| **M** | Project Organizational Chart | Markdown | 5.9 KB | Form 9.1 - Company Structure |
 
 ---
 
@@ -50,12 +52,10 @@ Example: `A-ASIC-Company-Extract-02-Dec-2025.pdf`
 - **Total Size:** ~18 KB
 - **Format:** Markdown
 
-### Personnel & Publications (J-K)
-- **2 document sets**
-  - J: Curriculum Vitae (7 key personnel, HTML format in CV/ subfolder)
-  - K: Publications summary (incl. Elsevier book reference)
-- **Total Size:** ~590 KB
-- **Format:** HTML (CVs), Markdown (publications)
+### Personnel & Publications (J-M)
+- **4 documents** - CVs, publications, book reference, org chart
+- **Total Size:** ~52 KB
+- **Format:** Markdown
 
 ---
 
@@ -111,31 +111,40 @@ Example: `A-ASIC-Company-Extract-02-Dec-2025.pdf`
 - Client information
 - Deliverables and outcomes
 
-### Appendix J - Curriculum Vitae (7 Key Personnel)
-**Location:** `CV/` subfolder
-**Format:** Professional Word-compatible HTML files with photos
+### Appendix J - Curriculum Vitae (Combined)
 **Personnel Included:**
 1. Dr. Fabian Kohlmann - Managing Director & CEO
 2. Dr. Wayne Noble - Chief Information Officer
 3. Keith Dimech - Chief Operating Officer
-4. Dr. Mahdi AbuAli - GDAC Saudi Lead
-5. Dr. Qusay Abeed - GDAC Technical Director
-6. Gerd Moritz Theile - Chief Technology Officer
-7. Dr. Behnam Sadeghi - ML Technical Advisor
+4. Dr. Behnam Sadeghi - ML Technical Advisor
+5. Dr. Mahdi AbuAli - GDAC Saudi Lead
+6. Dr. Qusay Abeed - GDAC Technical Director
 
-**Files:**
-- Individual HTML CVs: `CV-01-Fabian-Kohlmann.html` through `CV-07-Behnam-Sadeghi.html`
-- CV Index: `00-CV-INDEX.md`
-- Photos: `photos/` subfolder
+**Total Pages:** ~40 pages combined
 
-### Appendix K - Publications Summary (incl. Book Reference)
+### Appendix K - Publications Summary
 **Content:**
-- 87 peer-reviewed publications across 13 research themes
-- Book Publication: "Fractals and Multifractals in the Geosciences" by Dr. B. Sadeghi (Elsevier, 2024, ISBN 978-0-323-90897-9)
+- Chemical Geology (2025) publication details
 - Dr. Behnam Sadeghi publication list (58+ articles)
 - Awards and recognition
 - Python packages developed (3)
 - Editorial positions
+
+### Appendix L - Elsevier Book Reference
+**Book:** "Fractals and Multifractals in the Geosciences"
+**Author:** Dr. Behnam Sadeghi
+**Publisher:** Elsevier (2024)
+**ISBN:** 978-0-323-90897-9
+**URL:** https://www.elsevier.com/books/fractals-and-multifractals-in-the-geosciences/sadeghi/978-0-323-90897-9
+
+### Appendix M - Organizational Chart
+**Content:**
+- Corporate shareholding structure
+- Management hierarchy
+- GDAC-SA project team structure
+- Department breakdown (19 total employees)
+- Location information
+- Saudization status
 
 ---
 
@@ -148,18 +157,13 @@ Example: `A-ASIC-Company-Extract-02-Dec-2025.pdf`
    - Already in required PDF format
    - No conversion needed
 
-2. **HTML Documents (J - CVs in CV/ folder):**
-   - Open in Microsoft Word → Save as PDF
-   - Or use Print to PDF from browser
-   - See `00-CV-INDEX.md` for detailed conversion instructions
-
-3. **Markdown Documents (E-I, K):**
+2. **Markdown Documents (E-M):**
    - Convert to PDF before uploading
    - Use Pandoc or similar tool
    - Or copy content into Word/PDF template
 
-4. **File Size:**
-   - Total size: ~1.9 MB
+3. **File Size:**
+   - Total size: ~1.3 MB
    - Well within Etimad portal limits
    - All files can be uploaded together
 
@@ -183,14 +187,15 @@ done
 
 ## Verification Checklist
 
-- ✅ All 11 appendices present (A-K)
+- ✅ All 13 appendices present (A-M)
 - ✅ File naming consistent
 - ✅ Financial statements cover 3 years (FY2023-2025)
 - ✅ ASIC document is most recent (02-Dec-2025)
 - ✅ All policy documents included
 - ✅ Project references complete
-- ✅ CV information comprehensive (7 key personnel)
+- ✅ CV information comprehensive
 - ✅ Publications documented
+- ✅ Organizational structure clear
 
 ---
 

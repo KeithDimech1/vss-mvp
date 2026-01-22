@@ -151,42 +151,8 @@ Dr. Fabian Kohlmann – Managing Director, Lithodat
 Geological Survey of Canada (NRCan)
 Dr. Jeremy Powell
 
-**11. Reference Email:**
+**11. Reference Email:**  
 jeremy.powell@nrcan-rncan.gc.ca
-
----
-
-## Project Performance Evaluation
-
-**Overall Performance Rating: Excellent (5/5)**
-
-### Performance Metrics
-
-| Performance Metric | Rating |
-|-------------------|--------|
-| On-Time Delivery | Excellent |
-| Technical Quality | Excellent |
-| Client Satisfaction | Excellent |
-| Budget Compliance | Excellent |
-
-### Key Performance Outcomes
-
-- ✅ **Project completed on time** (October 2021 - March 2023, 18-month delivery)
-- ✅ **National data model standardisation** delivered across entire country
-- ✅ **All provincial and historic datasets successfully harmonised** (complete data coverage)
-- ✅ **Automated QA/QC pipelines** operational and validated
-- ✅ **Client satisfaction led to continued engagement** (ongoing relationship)
-- ✅ **ML-compatible structure delivered** as specified for advanced analytics
-- ✅ **Harvesting of all published data** across Canada completed
-- ✅ **Cloud-ready infrastructure** with full LithoSurfer platform compatibility
-
-### Client Satisfaction Indicators
-
-- **On-Time Completion:** Delivered within 18-month timeline (Oct 2021 - Mar 2023)
-- **National Scope:** Successfully standardized thermochronology data across entire country
-- **Technical Innovation:** Created first-of-its-kind national thermal history model schema
-- **Continued Partnership:** Ongoing engagement demonstrates client satisfaction
-- **Reference Availability:** Dr. Jeremy Powell (NRCan) available to verify performance
 
 ---
 

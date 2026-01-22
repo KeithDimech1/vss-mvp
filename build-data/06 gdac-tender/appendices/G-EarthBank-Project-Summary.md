@@ -49,42 +49,8 @@ AuScope Earthbank Director
 Prof. Brent McInnes
 
 
-**11. Reference Email:**
+**11. Reference Email:**  
 b.mcinnes@curtin.edu.au
-
----
-
-## Project Performance Evaluation
-
-**Overall Performance Rating: Excellent (5/5)**
-
-### Performance Metrics
-
-| Performance Metric | Rating |
-|-------------------|--------|
-| On-Time Delivery | Excellent |
-| Technical Quality | Excellent |
-| Client Satisfaction | Excellent |
-| Budget Compliance | Excellent |
-
-### Key Performance Outcomes
-
-- ✅ **100% on-time delivery** of all milestones (2019-2025)
-- ✅ **Successfully integrated >12 million analytical results** across multiple data types
-- ✅ **Achieved CoreTrustSeal certification** (highest global data repository standard)
-- ✅ **FAIR compliance certification** (Findable, Accessible, Interoperable, Reusable)
-- ✅ **Ongoing contract renewals** demonstrate sustained client satisfaction
-- ✅ **Zero critical defects**, 100% system uptime SLA met
-- ✅ **Multi-agency data integration** (federal + state geological surveys)
-- ✅ **ISO security alignment** for secure data management
-
-### Client Satisfaction Indicators
-
-- **Contract Duration:** 6+ years of continuous engagement (2019-2025 ongoing)
-- **Contract Renewals:** Multiple renewals demonstrate exceptional satisfaction
-- **System Adoption:** Platform actively used by Australian geological community
-- **Certification Achievement:** CoreTrustSeal certification validates world-class quality
-- **Reference Availability:** Prof. Brent McInnes available to verify performance
 
 ---
 

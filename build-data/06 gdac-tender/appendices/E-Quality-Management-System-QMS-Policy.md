@@ -10,11 +10,11 @@ Lithodat follows internationally recognised frameworks for software quality, dat
 - Clear product lifecycle management  
 - Continuous improvement procedures  
 
-**Status:** Alignment
+**Status:** Alignment (not formally certified)
 
 ---
 
-### Information Security Management
+### • ISO 27001 – Information Security Management
 Lithodat’s platform and operational practices adhere to ISO 27001 principles through:
 
 - Role-based access control  
@@ -166,116 +166,13 @@ Lithodat’s platform therefore benefits from **enterprise-grade, internationall
 
 ---
 
----
-
-## 7. Organizational Structure
-
-Lithodat's organizational structure supports effective quality management through clear reporting lines and specialized teams:
-
-```mermaid
-graph TD
-    %% Client and Advisory
-    SGS[Saudi Geological Survey<br/>Client]
-    ADVISOR[Dr. Mahdi AbuAli<br/>GDAC Saudi Lead<br/>Advisory]
-
-    %% Executive
-    CEO[Dr. Fabian Kohlmann<br/>Chief Executive]
-
-    %% C-Level
-    COO[Keith Dimech<br/>Chief Operating Officer]
-    CIO[Dr. Wayne Peter Noble<br/>Chief Information Officer]
-    GEO[Dr. Qusay Abeed<br/>Geological Director]
-    CTO[Gerd Moritz Theile<br/>Chief Technology Officer]
-
-    %% Quality & External
-    QM[Juan Baca<br/>Quality Manager]
-    LEGAL[Legal - External]
-    ACCT[Accounting - External]
-
-    %% Teams
-    subgraph SECURITY[Data & Cyber Security]
-        SEC1[Vinko Novak - Head of Data Security]
-        SEC2[Annemarie Grass - Head of Cyber Defence]
-        SEC3[Mapbox - Data Sovereignty External]
-    end
-
-    subgraph BACKEND[Backend Development]
-        BE1[Nirali Dudharejiya]
-        BE2[Tarun Sengar]
-    end
-
-    subgraph FRONTEND[Frontend Development]
-        FE1[Lujia Yang]
-        FE2[Xinyan Zhang]
-    end
-
-    subgraph AI[AI Specialist Team]
-        AI1[Nilesh Vyavahare - GIS Full Stack]
-        AI2[Pedro Ferreira - AI Dev Lead]
-        AI3[Dr. Behnam Sadeghi - Geological ML Advisor]
-    end
-
-    subgraph GEOLOGY[Geological Quality Team]
-        GEO1[Dr. Alejandra Bedoya]
-        GEO2[Perla Luque]
-        GEO3[Cris Ibarra]
-    end
-
-    %% Reporting Lines
-    SGS --> CEO
-    ADVISOR -.Advisory.-> CEO
-    CEO --> COO
-    CEO --> CIO
-    CEO --> GEO
-
-    COO --> SECURITY
-    COO -.External.-> LEGAL
-    COO -.External.-> ACCT
-    COO <-.Collaboration.-> CTO
-
-    CIO --> CTO
-    CIO --> FRONTEND
-    CIO --> AI
-
-    CTO --> BACKEND
-
-    GEO --> QM
-    QM --> GEOLOGY
-
-    %% Styling
-    classDef client fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
-    classDef advisory fill:#ffc0cb,stroke:#ff69b4,stroke-width:2px,color:#000
-    classDef exec fill:#1e3a8a,stroke:#1e40af,stroke-width:2px,color:#fff
-    classDef clevel fill:#2563eb,stroke:#3b82f6,stroke-width:2px,color:#fff
-    classDef team fill:#60a5fa,stroke:#3b82f6,stroke-width:1px,color:#000
-    classDef external fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
-
-    class SGS client
-    class ADVISOR advisory
-    class CEO exec
-    class COO,CIO,GEO,CTO,QM clevel
-    class SEC1,SEC2,BE1,BE2,FE1,FE2,AI1,AI2,AI3,GEO1,GEO2,GEO3 team
-    class LEGAL,ACCT,SEC3 external
-```
-
-**Key Quality-Related Roles:**
-
-- **Quality Manager (Juan Baca):** Reports to Geological Director, oversees geological quality team and QA/QC processes
-- **Data & Cyber Security Team:** Ensures information security, data sovereignty, and cyber defence
-- **Geological Quality Team:** Three geologists ensuring scientific data accuracy and validation
-- **AI Specialist Team:** Includes geological ML technical advisor for algorithm quality assurance
-- **External Support:** Legal and accounting consultants for compliance oversight
-
----
-
 # Summary
 Lithodat maintains strong quality assurance, security and scientific data management processes, supported by:
 
-- ISO-aligned internal processes
-- CoreTrustSeal certification
-- World Data System recognition
-- AWS-certified infrastructure security
-- Robust QA/QC, testing, validation and development workflows
-- Clear organizational structure with dedicated quality management roles
+- ISO-aligned internal processes  
+- CoreTrustSeal certification  
+- World Data System recognition  
+- AWS-certified infrastructure security  
+- Robust QA/QC, testing, validation and development workflows  
 
 These combined systems ensure Lithodat can deliver a **secure, reliable, high-quality** geoscience AI platform to meet GDAC-SA requirements.

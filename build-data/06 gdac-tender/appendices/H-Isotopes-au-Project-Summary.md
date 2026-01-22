@@ -100,42 +100,8 @@ CSIRO – Environmental Isotopes Laboratory
 Dr. Nina Welti
 
 
-**11. Reference Email:**
-nina.welti@csiro.au
-
----
-
-## Project Performance Evaluation
-
-**Overall Performance Rating: Excellent (5/5)**
-
-### Performance Metrics
-
-| Performance Metric | Rating |
-|-------------------|--------|
-| On-Time Delivery | Excellent |
-| Technical Quality | Excellent |
-| Client Satisfaction | Excellent |
-| Budget Compliance | Excellent |
-
-### Key Performance Outcomes
-
-- ✅ **Multi-agency collaboration successfully managed** (CSIRO, Geoscience Australia, ANSTO, NMI, ARDC)
-- ✅ **All deliverables met on schedule** (2023-2025)
-- ✅ **FAIR-aligned metadata governance** successfully implemented
-- ✅ **Full AWS infrastructure deployment** completed to specification
-- ✅ **Client renewal for ongoing hosting and support** demonstrates satisfaction
-- ✅ **Cross-laboratory interoperability** achieved across multiple agencies
-- ✅ **Automated QA/QC pipelines** operational and validated
-- ✅ **Full compatibility with EarthBank** (national infrastructure integration)
-
-### Client Satisfaction Indicators
-
-- **Multi-Agency Success:** Harmonized data standards across 5 federal organizations
-- **Contract Extension:** Ongoing hosting and support contract (2023-2025)
-- **Technical Achievement:** Successfully unified inconsistent laboratory data formats
-- **Interoperability:** Seamless integration with existing national infrastructure
-- **Reference Availability:** Dr. Nina Welti (CSIRO) available to verify performance
+**11. Reference Email:**  
+nina.welti@csiro.au 
 
 ---
 

@@ -16,6 +16,14 @@ interface FeatureComments {
   };
 }
 
+interface FeatureMetadata {
+  [featureId: string]: {
+    description?: string;
+    deleted?: boolean;
+    phase2?: boolean;
+  };
+}
+
 export default function LithoSurferPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -23,17 +31,20 @@ export default function LithoSurferPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [assignments, setAssignments] = useState<TierAssignments>({});
   const [comments, setComments] = useState<FeatureComments>({});
+  const [metadata, setMetadata] = useState<FeatureMetadata>({});
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFutureFeatures, setShowFutureFeatures] = useState(true);
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
   const [showCommentsPanel, setShowCommentsPanel] = useState(true);
+  const [editingDescription, setEditingDescription] = useState<string | null>(null);
 
-  // Load existing assignments and comments from API
+  // Load existing assignments, comments, and metadata from API
   const loadData = useCallback(async () => {
     try {
-      const [assignmentsRes, commentsRes] = await Promise.all([
+      const [assignmentsRes, commentsRes, metadataRes] = await Promise.all([
         fetch('/api/product-tiers/feature-assignments?productType=lithosurfer'),
-        fetch('/api/product-tiers/feature-comments?productType=lithosurfer')
+        fetch('/api/product-tiers/feature-comments?productType=lithosurfer'),
+        fetch('/api/product-tiers/feature-metadata?productType=lithosurfer')
       ]);
 
       if (assignmentsRes.ok) {
@@ -44,6 +55,11 @@ export default function LithoSurferPage() {
       if (commentsRes.ok) {
         const data = await commentsRes.json();
         setComments(data.comments || {});
+      }
+
+      if (metadataRes.ok) {
+        const data = await metadataRes.json();
+        setMetadata(data.metadata || {});
       }
     } catch (error) {
       console.error('Error loading data:', error);
@@ -76,7 +92,7 @@ export default function LithoSurferPage() {
   const saveAll = async () => {
     setSaving(true);
     try {
-      const [assignmentsRes, commentsRes] = await Promise.all([
+      const [assignmentsRes, commentsRes, metadataRes] = await Promise.all([
         fetch('/api/product-tiers/feature-assignments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -86,10 +102,15 @@ export default function LithoSurferPage() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ productType: 'lithosurfer', comments }),
+        }),
+        fetch('/api/product-tiers/feature-metadata', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productType: 'lithosurfer', metadata }),
         })
       ]);
 
-      if (assignmentsRes.ok && commentsRes.ok) {
+      if (assignmentsRes.ok && commentsRes.ok && metadataRes.ok) {
         setLastSaved(new Date());
       } else {
         alert('Failed to save some data');
@@ -124,6 +145,46 @@ export default function LithoSurferPage() {
     }));
   };
 
+  // Update feature description
+  const updateDescription = (featureId: string, description: string) => {
+    setMetadata(prev => ({
+      ...prev,
+      [featureId]: {
+        ...prev[featureId],
+        description
+      }
+    }));
+  };
+
+  // Toggle deleted status
+  const toggleDeleted = (featureId: string) => {
+    setMetadata(prev => ({
+      ...prev,
+      [featureId]: {
+        ...prev[featureId],
+        deleted: !prev[featureId]?.deleted,
+        phase2: false // Clear phase2 when deleting
+      }
+    }));
+  };
+
+  // Toggle phase2 status
+  const togglePhase2 = (featureId: string) => {
+    setMetadata(prev => ({
+      ...prev,
+      [featureId]: {
+        ...prev[featureId],
+        phase2: !prev[featureId]?.phase2,
+        deleted: false // Clear deleted when marking phase2
+      }
+    }));
+  };
+
+  // Get feature description (custom or default)
+  const getDescription = (feature: LithoSurferFeature): string => {
+    return metadata[feature.id]?.description || feature.description;
+  };
+
   // Check if feature is available in tier (cumulative)
   const isInTier = (featureId: string, tier: TierName): boolean => {
     const assignment = assignments[featureId];
@@ -152,20 +213,62 @@ export default function LithoSurferPage() {
     });
   };
 
-  // Sort features by tier: Free first, then Pro, then Enterprise, then unassigned
+  // Sort features by tier and status: Free first, then Pro, then Enterprise, then Phase2, then Deleted
   const getFeaturesSortedByTier = (): LithoSurferFeature[] => {
     const filtered = getFilteredFeatures();
 
-    const tierOrder: Record<TierName | 'unassigned', number> = {
-      'free': 0,
-      'pro': 1,
-      'enterprise': 2,
-      'unassigned': 3
-    };
-
     return [...filtered].sort((a, b) => {
+      // Check deleted status
+      const aDeleted = metadata[a.id]?.deleted || false;
+      const bDeleted = metadata[b.id]?.deleted || false;
+
+      // Check phase2 status
+      const aPhase2 = metadata[a.id]?.phase2 || false;
+      const bPhase2 = metadata[b.id]?.phase2 || false;
+
+      // Deleted items always go to bottom
+      if (aDeleted && !bDeleted) return 1;
+      if (!aDeleted && bDeleted) return -1;
+
+      // Both deleted, maintain tier order within deleted
+      if (aDeleted && bDeleted) {
+        const tierA = assignments[a.id] || 'unassigned';
+        const tierB = assignments[b.id] || 'unassigned';
+        const tierOrder: Record<TierName | 'unassigned', number> = {
+          'free': 0,
+          'pro': 1,
+          'enterprise': 2,
+          'unassigned': 3
+        };
+        return tierOrder[tierA] - tierOrder[tierB];
+      }
+
+      // Phase2 items go after enterprise but before deleted
+      if (aPhase2 && !bPhase2) return 1;
+      if (!aPhase2 && bPhase2) return -1;
+
+      // Both phase2, maintain tier order within phase2
+      if (aPhase2 && bPhase2) {
+        const tierA = assignments[a.id] || 'unassigned';
+        const tierB = assignments[b.id] || 'unassigned';
+        const tierOrder: Record<TierName | 'unassigned', number> = {
+          'free': 0,
+          'pro': 1,
+          'enterprise': 2,
+          'unassigned': 3
+        };
+        return tierOrder[tierA] - tierOrder[tierB];
+      }
+
+      // Normal tier sorting
       const tierA = assignments[a.id] || 'unassigned';
       const tierB = assignments[b.id] || 'unassigned';
+      const tierOrder: Record<TierName | 'unassigned', number> = {
+        'free': 0,
+        'pro': 1,
+        'enterprise': 2,
+        'unassigned': 3
+      };
       return tierOrder[tierA] - tierOrder[tierB];
     });
   };
@@ -302,6 +405,7 @@ export default function LithoSurferPage() {
                   <th className="text-center px-3 py-3 font-medium text-blue-600 text-sm w-[80px]">PRO</th>
                   <th className="text-center px-3 py-3 font-medium text-purple-600 text-sm w-[80px]">ENTERPRISE</th>
                   <th className="text-center px-3 py-3 font-medium text-gray-500 text-sm w-[100px]">Comments</th>
+                  <th className="text-center px-3 py-3 font-medium text-gray-500 text-sm w-[120px]">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -309,20 +413,68 @@ export default function LithoSurferPage() {
                   const baseTier = getBaseTier(feature.id);
                   const hasComment = comments[feature.id]?.suggestion || comments[feature.id]?.development;
                   const isSelected = selectedFeature === feature.id;
+                  const isDeleted = metadata[feature.id]?.deleted || false;
+                  const isPhase2 = metadata[feature.id]?.phase2 || false;
+                  const description = getDescription(feature);
+                  const isEditingDesc = editingDescription === feature.id;
 
                   return (
                     <tr
                       key={feature.id}
                       className={`border-b border-gray-100 hover:bg-gray-50/50 transition-colors cursor-pointer ${
                         isSelected ? 'bg-blue-50' : ''
-                      }`}
+                      } ${isDeleted ? 'opacity-40 bg-gray-100' : ''}`}
                       onClick={() => setSelectedFeature(feature.id)}
                     >
                       <td className="px-4 py-2">
-                        <div className="text-sm text-gray-900">{feature.feature}</div>
-                        {feature.description && (
-                          <div className="text-xs text-gray-400">{feature.description}</div>
-                        )}
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1">
+                            <div className={`text-sm ${isDeleted ? 'text-gray-400 line-through' : 'text-gray-900'}`}>
+                              {feature.feature}
+                            </div>
+                            {isEditingDesc ? (
+                              <input
+                                type="text"
+                                value={description}
+                                onChange={(e) => {
+                                  e.stopPropagation();
+                                  updateDescription(feature.id, e.target.value);
+                                }}
+                                onBlur={() => setEditingDescription(null)}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') setEditingDescription(null);
+                                  if (e.key === 'Escape') setEditingDescription(null);
+                                }}
+                                onClick={(e) => e.stopPropagation()}
+                                autoFocus
+                                className="w-full text-xs border rounded px-2 py-1 mt-1"
+                                placeholder="Add description..."
+                              />
+                            ) : (
+                              <div
+                                className={`text-xs ${isDeleted ? 'text-gray-300' : 'text-gray-400'} ${!description && !isDeleted ? 'italic' : ''}`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setEditingDescription(feature.id);
+                                }}
+                              >
+                                {description || 'Click to add description...'}
+                              </div>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            {isPhase2 && (
+                              <span className="text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium">
+                                Phase 2
+                              </span>
+                            )}
+                            {isDeleted && (
+                              <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium">
+                                Deleted
+                              </span>
+                            )}
+                          </div>
+                        </div>
                       </td>
 
                       {/* FREE Column */}
@@ -412,6 +564,46 @@ export default function LithoSurferPage() {
                             <span>Add</span>
                           )}
                         </button>
+                      </td>
+
+                      {/* Actions */}
+                      <td className="px-3 py-2 text-center">
+                        <div className="flex items-center justify-center gap-1">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              togglePhase2(feature.id);
+                            }}
+                            className={`px-2 py-1 text-xs rounded font-medium transition-colors ${
+                              isPhase2
+                                ? 'bg-amber-500 text-white hover:bg-amber-600'
+                                : 'bg-gray-100 text-gray-600 hover:bg-amber-100 hover:text-amber-700'
+                            }`}
+                            title="Mark as Phase 2"
+                          >
+                            P2
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleDeleted(feature.id);
+                            }}
+                            className={`px-2 py-1 text-xs rounded font-medium transition-colors ${
+                              isDeleted
+                                ? 'bg-red-500 text-white hover:bg-red-600'
+                                : 'bg-gray-100 text-gray-600 hover:bg-red-100 hover:text-red-700'
+                            }`}
+                            title={isDeleted ? "Restore" : "Delete"}
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              {isDeleted ? (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                              ) : (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              )}
+                            </svg>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );

@@ -3,12 +3,6 @@
 
 ---
 
-## GDAC-SA Team Organizational Chart
-
-![GDAC-SA Team Organizational Chart](M-GDAC-SA-Organizational-Chart.svg)
-
----
-
 ## Corporate Structure
 
 **Company Name:** Lithodat Pty Ltd  
