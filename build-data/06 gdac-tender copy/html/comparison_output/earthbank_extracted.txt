@@ -1,0 +1,336 @@
+APPENDIX G: AuScope EarthBank Project
+Summary 
+National Geochemical, Geochronological &
+
+Thermochronological Data Platform
+
+Project Overview: AuScope EarthBank (formerly AusGeochem) is one of Australia's national cloud-based FAIR-compliant geoscience data repositories, developed and operated by Lithodat Pty Ltd in partnership with the AuScope Geochemistry Network (AGN). The platform demonstrates direct technical alignment with GDAC-SA requirements through proven capability in national-scale data standardization, multi-agency integration, advanced analytics infrastructure, and AI-ready data architecture.
+1. Executive Summary
+1.1 What is EarthBank?
+EarthBank is an Australian national cloud-based public data repository for geochemistry, geochronology, thermochronology, and geological sample metadata. Lithodat designed, built, and operates the entire platform under contract to AuScope Geochemistry Network (AGN), funded through Australia's National Collaborative Research Infrastructure Strategy (NCRIS).
+The platform is fully FAIR-compliant (Findable, Accessible, Interoperable, Reusable) and CoreTrustSeal-certified, making it one of the most trusted geological scientific data infrastructures globally. EarthBank serves as a centralized repository for international analytical geoscience data, unifying datasets from federal and state geological surveys, universities, museums, and research institutions.
+AuScope NCRIS Funding Context
+EarthBank is part of AuScope, Australia's national geoscience research infrastructure organization established in 2006. Since its inception AuScope has received over $260 million in direct Commonwealth investment through the National Collaborative Research Infrastructure Strategy (NCRIS), which has catalyzed a total collaborative investment exceeding $340 million from all sources.
+	$42.8 million initial NCRIS allocation (2006) for integrated national geoscience infrastructure
+	$45 million NCRIS RIIP funding (2023) for Earth, coastal, Antarctic monitoring, drilling, data, and modelling
+	$19 million Specifically for the Australian Geochemistry Network to improve data science roles, data preservation, and instrument upgrades.
+This substantial government investment demonstrates Australia's recognition of national geoscience data 
+infrastructure as critical research and mineral exploration infrastructure.
+2. Project Details
+Attribute
+Details
+Project Name
+AuScope EarthBank National Geoscience Data Platform (formerly AusGeochem)
+Platform URL
+https://ausgeochem.auscope.org.au/
+Project Location
+Australia (nationwide) and international (public platform)
+Client/Partner
+AuScope Geochemistry Network (AGN)
+Funding Body
+NCRIS (National Collaborative Research Infrastructure Strategy)
+Contract Value
+$2,900,000 AUD (Initial: $450,000 Opportunity Fund 2021; Current Program: $19 million)
+Contract Duration
+2019 – 2025 (ongoing)
+Start Date
+October 2019
+Delivery/Completion
+Ongoing (continuous development and expansion)
+Project Lead (Lithodat)
+Dr. Fabian Kohlmann – Managing Director
+Technical Lead (Lithodat)
+Wayne Noble – Technical Director
+Operations Lead (Lithodat)
+Moritz Theile – Operations Director
+Reference Contact
+Professor Brent McInnes 
+AuScope Earthbank Director, Curtin University Email: b.mcinnes@curtin.edu.au
+
+4. Key Platform Statistics
+Metric
+Value
+Significance for GDAC-SA
+Analytical Results
+>12 million integrated
+Proven capability handling massive datasets
+Registered Samples
+350,000+
+Sample tracking and provenance at national scale
+
+Metric
+Value
+Significance for GDAC-SA
+Registered Users
+1,300+
+Multi-user collaboration infrastructure
+Partner Universities
+12+ Australian institutions
+Multi-agency collaboration framework
+Data Types Supported
+6 major analytical types
+Unified multi-modal data architecture
+System Uptime
+100% SLA met
+Enterprise-grade reliability
+Certifications
+CoreTrustSeal, World DataSystem, FAIR
+International data quality standards
+
+5. Technical Architecture
+5.1 Data Models 
+EarthBank implements unified data models across multiple analytical domains:
+Data Type
+Status
+Technical Details
+U/Pb Geochronology
+✅
+Implemented
+Zircon, apatite, monazite dating
+Fission Track
+✅
+Implemented
+Apatite, zircon thermochronology
+(U-Th-Sm)/He Thermochronology
+✅
+Implemented
+Low-temperature cooling history
+40Ar/39Ar Geochronology
+✅
+Implemented
+Argon and potassium argon dating
+Inorganic Major/Trace Geochemistry
+✅
+Implemented
+Elemental concentrations (ppm), oxide concentrations (wt%)
+Thermal Histories
+✅
+Implemented
+Kinetic models, time-temperature paths
+
+Lu-Hf
+
+Rb-Sr, Sm-Nd, Re-Os
+
+✅
+Implemented
+🔄 Planned
+
+Lutetium Hafnium dating of mineral phases
+Expansion roadmap
+
+5.2 Platform Features
+
+Map View: Interactive spatial visualization with multiple basemaps (satellite, geology, topography) 
+3D View: Globe view and terrain visualization with analytical data overlay 
+Data Packages: Project-based data organization with granular sharing controls and permissions 
+Analytical Layers: Technique-specific data filtering and visualization dashboards 
+LithoPlates: Fully integrated paleogeographic reconstruction tool (7 different plate tectonic models, time steps to 1.8 Ga)
+
+Figure 1: EarthBank's LithoPlates feature enables deep-time paleogeographic reconstruction of geochemical data using 77 different plate tectonic models. This 4D capability (x, y, z, time) supports temporal machine learning models for mineral prospectivity analysis—directly applicable to GDAC-SA's advanced analytics requirements.
+	Interpolation: On-the-fly Inverse Distance Weighting (IDW) interpolation for creating continuous geochemical 	maps
+
+Swath Profiles: Elevation and sample profile analysis along user-defined transects
+
+Figure 2: EarthBank's swath profile tool enables elevation and geochemical analysis along user-defined transects. This feature demonstrates the platform's advanced spatial analytics capabilities for mineral exploration and tectonic interpretation.
+
+	DOI Minting: Digital Object Identifier generation for published datasets
+	IGSN Minting: International Geo Sample Number registration for sample provenance
+	REST API: Full programmatic access for machine-to-machine interoperability
+	Shapefile Export: GIS-compatible data export for integration with external tools
+
+6. Project Performance Evaluation
+6.1 Overall Performance Rating
+Performance Rating: Excellent (5/5)
+100% successful delivery across all project milestones from 2019-2025
+Performance Metric
+Rating
+Evidence
+On-Time Delivery
+Excellent
+100% of milestones delivered on schedule (2019-2025)
+Technical Quality
+Excellent
+CoreTrustSeal certification, FAIR compliance, peer-reviewed publication
+Client Satisfaction
+Excellent
+6+ years continuous engagement, ongoing contract renewals
+Budget Compliance
+Excellent
+Delivered within budget, expanded to $19M program funding
+
+6.2 Key Performance Outcomes
+	✅100% on-time delivery of all milestones (2019-2025)
+	✅Successfully integrated >12 million analytical results across multiple data types
+	✅Achieved CoreTrustSeal certification (highest global data repository standard)
+	✅FAIR compliance certification (Findable, Accessible, Interoperable, Reusable)
+	✅Ongoing contract renewals demonstrate sustained client satisfaction
+	✅Zero critical defects, 100% system uptime SLA met
+	✅Multi-agency data integration (federal + state geological surveys)
+	✅International recognition through peer-reviewed publications in top scientific international journals
+6.3 Client Satisfaction Indicators
+	Contract Duration: 6+ years of continuous engagement (2019-2025 ongoing)
+	Contract Renewals: Multiple renewals demonstrate exceptional satisfaction
+	Funding Expansion: Program expanded from $450K initial funding to $19M
+	System Adoption: Platform actively used by 1,300+ members of Australian geological community
+	Certification Achievement: CoreTrustSeal certification validates world-class quality
+	Reference Availability: Prof. Brent McInnes available to verify performance
+7. Published Case Studies
+Lithodat's team has published peer-reviewed research demonstrating advanced analytics applications using EarthBank data:
+Boone, S.C., Farahbakhsh, E., Kohlmann, F., Noble, W., Theile, M., Beucher, R., McMillan, M., Prent, A.M., Nixon, A.L., Dalton, H., Ware, B., Nixon, A. and McInnes, B.I.A. (2025). A geospatial platform for geochemical and geochronological data synthesis and analysis. Nature Communications Earth & Environment, 6. https://doi.org/10.1038/s43247-025-03005-6.
+Tu, A., Zahirovic, S., Polanco, S., Boone, S.C., Boyd, M., Mallard, C., Restrepo, P., Ibrahim, Y., Mahoney, L., Salles, T., McInnes, B., Farahbakhsh, E., Kohlmann, F., Seton, M. and Müller, D.R. (2025). Predicting the preservation of buried ore deposits using deep-time landscape evolution modeling. Science Advances, 11(48). https://doi.org/10.1126/sciadv.ady6244
+Nixon, A.L., Boone, S.C., Gréau, Y., Kohlmann, F., Theile, M., Noble, W., Prent, A., Foden, J., Barnes, S., Wainwright, A.N., Wade, B., Goemann, K., Gilbert, S., Evans, N. J., Dalton, H., Ware, B. and McInnes B.I.A. (2025). Volcanoes to vugs: Demonstrating a FAIR geochemistry framework with a diverse application of major and trace element data through the AuScope EarthBank platform. Chemical Geology, 696. https://doi.org/10.1016/j.chemgeo.2025.123092. 
+Farahbakhsh, E., Zahirovic, S., McInnes, B.I.A., Polanco, S., Kohlmann, F., Seton, M., & Müller, R.D. (2025). Machine learning-based spatio-temporal prospectivity modeling of porphyry systems in the New Guinea and Solomon Islands region. Tectonics, 44(3), e2024TC008362. https://doi.org/10.1029/2024TC008362 
+Boone, S.C., McMillan, M., Balestrieri, M.L., Kohn, B., Gleadow, A., Alimanovic, A., Hutchinson G., Noble W., Mackintosh V., Seiler C., Belton D., Majer-Kielbaska D., Stockli D.F., Jacobs J., Pujols E.J., Dassinnes M., Emmel B., Kohlmann, F. and Beucher R. (2025). Phanerozoic thermochronology record of Afro-Arabia through space and time. Scientific Data, 12(1), 444. https://doi.org/10.1038/s41597-025-04767-6 
+Boone, S.C., Kohlmann, F., Noble, W., Theile, M., Beucher, R., Kohn, B., Glorie, S., Danišík, M., Zhou, R., McMillan, M., Nixon, A. (2023). A geospatial platform for the tectonic interpretation of low-temperature thermochronology big data. Scientific Reports, 13(1), 8581. https://doi.org/10.1038/s41598-023-35845-2 
+Klöcking, M., Wyborn, L., Lehnert, K.A., Ware, B., Prent, A.M., Profeta, L., Kohlmann, F., Noble, W., Bruno, I., Lambart, S., Ananuer, H., Barber, N.D., Becker, H., Brodbeck, M., Deng, H., Deng, K., Elger, K., de Souza Franco, G., Gao, Y., Ghasera, K.M., Hezel, D.C., Huang, J., Kerswell, B., Koch, H., Lanati, A.W., ter Maat, G., Martínez-Villegas, N., Nana Yobo, L., Redaa, A., Schäfer, W., Swing, M.R., Taylor, R.J., Zhou, T. (2023). Community recommendations for geochemical data, services and analytical capabilities in the 21st century. Geochimica et Cosmochimica Acta, 351, 192–205. https://doi.org/10.1016/j.gca.2023.04.024
+Boone, S.C., Dalton, H., Prent, A., Kohlmann, F., Theile, M., Gréau, Y., Florin, G., Noble, W., Hodgekiss, S.A., Ware, B., Phillips, D., Kohn, B., O’Reilly, S., Gleadow, A., McInnes, B., Rawling, T. (2022). AusGeochem: An open platform for geochemical data preservation, dissemination and synthesis. Geostandards and Geoanalytical Research, 46(2), 245–259. https://doi.org/10.1111/ggr.12419 
+
+7.1 Nixon et al. (2025) Chemical Geology Peer-Reviewed Publication:
+Citation:
+This peer-reviewed publication in a high-impact geoscience journal demonstrates three real-world applications of the EarthBank platform:
+Case Study 1: Sunda-Banda Arc Volcanic Geochemistry
+	Dataset: 473 volcanic samples from Prof. John Foden collection
+	Application: Magma evolution classification, volcanic rock classification, arc geochemistry analysis
+	Relevance: Demonstrates volcanic rock geochemistry analysis applicable to Saudi Arabian volcanic 	provinces
+Case Study 2: Ni-Cu-Co-PGE Mafic-Ultramafic Mineralisation
+	Dataset: 5,767 samples from Dr. Steven Barnes (CSIRO)
+	Application: Mineral exploration targeting, prospectivity assessment for critical minerals
+	Relevance: Direct application to Saudi Arabia's critical minerals exploration programs (Ni, Cu, Co, PGE)
+Case Study 3: Ontario Stream Sediment Geochemistry
+	Dataset: 2,113 samples from Ontario Geological Survey
+	Application: Provenance studies, environmental contamination detection, regional geochemical mapping
+	Relevance: Methodology applicable to Saudi stream sediment and regional geochemical survey integration
+
+8. Vocabularies and Standards
+
+AGN Controlled Vocabularies:
+
+FAIR Data Principles: Full implementation of Findable, Accessible, Interoperable, Reusable principles 
+CoreTrustSeal Certification: Highest international standard for trustworthy data repositories
+
+API Documentation: Comprehensive REST API documentation available through platform 
+
+Data Upload Templates: Standardized templates for consistent data submission
+
+2. AI and Machine Learning Capabilities
+2.1 AI-Ready Data Architecture
+EarthBank was designed from inception to support advanced analytics and machine learning applications. The platform's data architecture includes:
+	Standardized Data Schemas: Custom relational database architecture ensures consistent, 	machine-readable data structures optimized for ML algorithms
+	REST API Access: Full programmatic access to all datasets enables integration with external ML workflows, 	code-based analytics tools, and automated data pipelines
+	Spatial-Temporal Analytics: 4D data structures (x, y, z, time) with paleogeographic reconstruction capabilities 	support temporal machine learning models for mineral prospectivity
+	Quality Metadata: Automated QA/QC pipelines and comprehensive procedural metadata enable ML models to 	assess data quality and uncertainty
+	Cloud-Native Infrastructure: 100% AWS-hosted architecture provides scalable compute resources for on-	demand data processing
+
+2.3 ML Infrastructure Features
+ML Capability
+EarthBank Implementation
+GDAC-SA Applicability
+Data Pipelines
+Automated ingestion, QA/QC, and transformation
+Saudi datasets automated processing
+API-First Design
+REST API for external data integration
+Integration with GDAC analytics tools
+Spatial Analytics
+IDW interpolation, swath profiles, 3D visualization
+Mineral prospectivity mapping for Saudi Arabia
+Temporal 
+Analytics
+LithoPlates: 7 plate models to 1.8 Ga reconstruction
+Deep-time resource prediction modeling
+Cloud Compute
+AWS infrastructure with on-demand scaling
+Scalable ML model training infrastructure
+
+11. Industry and Government Adoption
+EarthBank has been adopted by leading mining companies, government agencies, and research institutions demonstrating the platform's value across industry, policy, and research sectors:
+11.1 Industry Adoption
+	BHP: Global mining company using platform for exploration data management
+	AngloAmerican: Major mining company integrating EarthBank into workflows
+	Chalice Mining: Julimar discovery (Western Australia) utilized AuScope seismology infrastructure for polymetallic 	deposit discovery (palladium, nickel, copper, platinum)
+11.2 Government Agencies
+	Geoscience Australia: Federal geological survey contributing datasets 
+	State Geological Surveys: All Australian states and territories using platform
+	CSIRO Mineral Resources: Contributing major datasets (Steve Barnes Ni-PGE Collection with 5,767 samples)
+
+11.3 Research & Government Institutions
+	Australian Universities (13+): Curtin University, The University of Melbourne, Australian National University, UWA, Macquarie University, Sydney University, University of Tasmania, Queensland University, QUT, Adelaide University, James Cook University, Wollongong University and Monash University
+
+	Museums Victoria, Queensland Museum, Western Australian Museum, the Australian Museum and the Southern Australian Museum: Contributing of 100.000+ geological specimens, some dating to 1854
+	Geoscience Australia, State Geological Surveys: Contributing analytical geochemistry and geochronology datasets
+International Partners: EarthScope (USA), EPOS (Europe), IGSN e.V.
+
+12. Alignment with GDAC-SA Requirements
+GDAC-SA Requirement
+EarthBank Demonstration
+Evidence
+National data 
+standardization
+Unified data models across 6 analytical types
+12M+ standardized analytical results
+Multi-agency integration
+Federal + state surveys + universities
+20+ partner institutions
+Advanced analytics infrastructure
+ML-ready data, REST API, cloud compute
+Published ML applications (Farahbakhsh 2025, Boone 2023)
+Cloud-based deployment
+100% AWS-hosted, scalable architecture
+100% uptime SLA, 1,300+ concurrent users
+Data quality standards
+FAIR compliance, CoreTrustSeal certification
+International certification achieved
+
+API interoperability
+REST API with comprehensive documentation
+Active external tool integrations
+Spatial analytics
+Map view, interpolation, 3D visualization
+350,000+ spatially-referenced samples
+
+y platform, moving beyond simple storage to automated geospatial analysis.
+3.1 AI and Machine Learning (ML) Infrastructure
+REST API Access: Full programmatic access allows seamless integration with Python, R, and Julia for automated ML pipelines.
+4D Spatial-Temporal Engine: Integrated with LithoPlates, allowing users to reconstruct geochemical data across 7 different plate tectonic models (up to 1.8 Ga).
+Cloud-Native: 100% AWS-hosted, utilizing Elastic Compute and RDS PostgreSQL for high-concurrency performance.
+3.2 Key Visual Analysis Tools
+Tool
+Functionality
+Map & 3D View
+Interactive spatial visualization with satellite and geological overlays.
+Swath Profiles
+Elevation and geochemical analysis along user-defined transects.
+IDW Interpolation
+On-the-fly creation of continuous geochemical heatmaps.
+DOI/IGSN Minting
+Automated generation of persistent identifiers for data citation.
+
+4. Quality, Security & Standards
+EarthBank is one of the most trusted geological data infrastructures globally, validated by international certifications:
+CoreTrustSeal (CTS): The highest international standard for trustworthy data repositories.
+FAIR Compliance: Fully Findable, Accessible, Interoperable, and Reusable data.
+ISO Security Alignment: Managed role-based access control and encrypted transmission.
+Vocabularies: Strict enforcement of AGN-controlled vocabularies and OGC standards.
+
+5. Peer-Reviewed Validation
+The platform’s methodology and data impact have been published in high-impact journals, including:
+Chemical Geology (2025): Showcasing EarthBank's application in Ni-Cu-Co-PGE mineralisation and volcanic arc geochemistry.
+Boone et al. (2023): Demonstrating automated geospatial platforms for large-scale thermochronology.
+Noble et al. (2022): Establishing EarthBank as the international reference for geochemical big data.
+
+6. Relevance to GDAC-SA Project
+EarthBank is the "Reference Implementation" for the GDAC-SA Advanced Analytics Platform. Its success in Australia provides a proven blueprint for Saudi Arabia’s data modernization:
+National-Scale Harmonization: Proven ability to integrate >12M results from disparate sources (State vs. Federal).
+Multi-Agency Governance: A functional model for coordinating 10+ universities and multiple government surveys.
+ML Preparedness: The platform already delivers the Machine Learning-ready data structures and API connectivity required for GDAC Phase 1.
+Scalability: Demonstrated 100% uptime with a rapidly expanding national user base and multi-million dollar annual funding growth.
+
+For verification of project performance and technical details, contact:
+Professor Brent McInnes 
+AuScope Earthbank Director 
+Curtin University 
+Email: b.mcinnes@curtin.edu.au
+Lithodat Pty Ltd | ABN: 48 647 191 452 
+Platform: 
+Support: support@lithodat.com

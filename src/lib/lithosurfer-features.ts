@@ -21,19 +21,19 @@ export const lithosurferFeatures: LithoSurferFeature[] = [
 
   // Customization
   { id: 'skins-custom-branding', feature: 'Skins / Custom Branding', category: 'Customization', description: '', available: 'now' },
-  { id: 'virtual-custom-portal', feature: 'Virtual Custom Portal (CNAME)', category: 'Customization', description: '', available: 'now' },
-  { id: 'dedicated-domain-name', feature: 'Dedicated Domain Name', category: 'Customization', description: '', available: 'now' },
+  { id: 'custom-cname', feature: 'Custom CNAME', category: 'Customization', description: 'Subdomain hosting for your LithoSurfer portal (e.g., yourcompany.lithosurfer.com)', available: 'now' },
+  { id: 'custom-url', feature: 'Custom URL/Domain', category: 'Customization', description: 'Full custom domain for your organization (e.g., geo.yourcompany.com)', available: 'now' },
 
   // Collaboration (includes Community)
-  { id: 'share-data-publicly', feature: 'Share Data Publicly', category: 'Collaboration', description: '', available: 'now' },
+  { id: 'share-data-publicly', feature: 'Share Data Publicly', category: 'Collaboration', description: 'Contribute to the global EarthBank repository and scientific community', available: 'now' },
   { id: 'share-data-project-level', feature: 'Share Data Privately - Project Level', category: 'Collaboration', description: 'Add users to a project and share Private data within a project or a institute level', available: 'now' },
   { id: 'share-data-company-level', feature: 'Share Data Privately - Company Level', category: 'Collaboration', description: 'Share data between projects within a company (community level)', available: 'now' },
-  { id: 'team-workspaces', feature: 'Team workspaces', category: 'Collaboration', description: '', available: 'now' },
+  { id: 'team-workspaces', feature: 'Team workspaces', category: 'Collaboration', description: 'Collaborative workspace for your team (PRO: 1 project, ENTERPRISE: unlimited ring-fenced projects)', available: 'now' },
   { id: 'teams-functionality', feature: 'Teams functionality', category: 'Collaboration', description: '', available: 'now' },
   { id: 'public-community-forum', feature: 'Public community forum access', category: 'Collaboration', description: '', available: 'now' },
 
   // Tools (includes Publishing, Visuals, Core, Analysis)
-  { id: 'paleo-reconstruction-one', feature: 'Paleo Reconstruction (one)', category: 'Tools', description: 'Restricted to a single Paleo Reconstruction', available: 'now' },
+  { id: 'paleo-reconstruction-one', feature: 'Paleo Reconstruction (one)', category: 'Tools', description: 'Access to paleogeographic reconstruction models for geological analysis', available: 'now' },
   { id: 'paleo-reconstruction-all', feature: 'Paleo Reconstruction (all)', category: 'Tools', description: '', available: 'now' },
   { id: 'paleo-reconstruction-private', feature: 'Paleo Reconstruction (private)', category: 'Tools', description: 'LithoBuild Project in import lithoplate models from clients', available: 'now' },
   { id: 'grid-data', feature: 'Grid Data', category: 'Tools', description: '', available: 'now' },
@@ -53,13 +53,12 @@ export const lithosurferFeatures: LithoSurferFeature[] = [
   { id: 'wms-layer-feed', feature: 'WMS Layer Feed', category: 'Tools', description: '', available: 'now' },
   { id: 'multi-thermochronology', feature: 'Multi-thermochronology layer tool', category: 'Tools', description: '', available: 'now' },
   { id: 'movie-making', feature: 'Movie Making', category: 'Tools', description: '', available: 'now' },
-  { id: 'snapshots', feature: 'Snapshots', category: 'Tools', description: '', available: 'now' },
+  { id: 'snapshots', feature: 'Snapshots', category: 'Tools', description: 'Export videos and screenshots of your data visualizations for reports and presentations', available: 'now' },
   { id: 'exploration-work-program', feature: 'Exploration Work Program', category: 'Tools', description: 'Interactive tool to plan borehole location, sampling - integrated to accept future samples as they come in. Include costing and price estimates', available: 'future' },
   { id: 'doi-minting', feature: 'DOI Minting', category: 'Tools', description: '', available: 'now' },
   { id: 'custom-visualization', feature: 'Custom visualization templates', category: 'Tools', description: 'LithoBuild for enterprise customer to have bespoke analysis packages', available: 'now' },
   { id: 'basic-search', feature: 'Basic search functionality', category: 'Tools', description: '', available: 'now' },
-  { id: 'lithoai-tools', feature: 'LithoAI Tools', category: 'Tools', description: '', available: 'future' },
-  { id: 'project-reporting-tools', feature: 'Project Reporting Tools', category: 'Tools', description: '', available: 'future' },
+  { id: 'lithoai-tools', feature: 'LithoAI Tools', category: 'Tools', description: 'AI-powered analysis tools including machine learning models and intelligent data insights', available: 'future' },
 
   // Services (includes LithoBuild services)
   { id: 'lithoclean-service', feature: 'LithoClean Service', category: 'Services', description: '', available: 'now' },
@@ -67,7 +66,7 @@ export const lithosurferFeatures: LithoSurferFeature[] = [
   { id: 'bespoke-csv-ingestion', feature: 'Bespoke CSV Template Ingestion', category: 'Services', description: 'LithoBuild Project to have rapid import from client datasets', available: 'now' },
 
   // Support (includes Training)
-  { id: 'support-portal-access', feature: 'Support Portal Access (videos and how to guides)', category: 'Support', description: '', available: 'now' },
+  { id: 'support-portal-access', feature: 'Support Portal Access (videos and how to guides)', category: 'Support', description: 'Dedicated help center with documentation, tutorials, and PRO tool guides', available: 'now' },
   { id: 'lithosurfer-inhouse-training', feature: 'LithoSurfer Inhouse Training', category: 'Support', description: '', available: 'now' },
   { id: 'dedicated-account-manager', feature: 'Dedicated account manager', category: 'Support', description: '', available: 'now' },
   { id: 'priority-support-sla', feature: 'Priority support (SLA)', category: 'Support', description: '', available: 'now' },
@@ -77,26 +76,23 @@ export const lithosurferFeatures: LithoSurferFeature[] = [
   { id: 'onboarding-workshop', feature: 'Onboarding Workshop', category: 'Support', description: '', available: 'now' },
 
   // Admin (includes Security)
-  { id: 'admin-controls', feature: 'Admin controls & user management', category: 'Admin', description: '', available: 'now' },
+  { id: 'admin-controls', feature: 'Admin controls & user management', category: 'Admin', description: 'User management and access control - add/remove team members and set project permissions', available: 'now' },
   { id: 'academic-support', feature: 'Academic Support / Consultation', category: 'Admin', description: '', available: 'now' },
-  { id: 'project-company-management', feature: 'Project/Company management', category: 'Admin', description: '', available: 'now' },
-  { id: 'sso-saml', feature: 'SSO/SAML integration', category: 'Admin', description: '', available: 'now' },
+  { id: 'lithosurfer-project-interface', feature: 'LithoSurfer Project Interface', category: 'Admin', description: 'Complete project management suite for mining operations - track drilling, samples, lab results, and field data in real-time', available: 'future' },
+  { id: 'sso-saml', feature: 'SSO/SAML integration', category: 'Admin', description: 'Enterprise single sign-on with multi-factor authentication for enhanced security', available: 'now' },
 
   // Integration
   { id: 'public-lithodata-api', feature: 'Public Lithodata API', category: 'Integration', description: '', available: 'now' },
   { id: 'private-lithodata-api', feature: 'Private LithoData API - Based on User Access', category: 'Integration', description: '', available: 'now' },
   { id: 'api-documentation', feature: 'API documentation', category: 'Integration', description: '', available: 'now' },
-  { id: 'acquire-geobank-adaptors', feature: 'aQuire/GeoBank/Micromine adaptors', category: 'Integration', description: '', available: 'now' },
 
   // Projects
   { id: 'unlimited-projects', feature: 'Unlimited projects', category: 'Projects', description: '', available: 'now' },
   { id: 'single-project', feature: 'Single Project', category: 'Projects', description: '', available: 'now' },
-  { id: 'project-workspace', feature: 'LithoSurfer Project Workspace (community forum)', category: 'Projects', description: 'A team collaboration, project management and notes portal for field work', available: 'now' },
 
   // Pricing (includes Commerce, Features)
   { id: 'lithodata-discounts', feature: 'LithoData discounts', category: 'Pricing', description: '', available: 'now' },
   { id: 'lithomine-discounts', feature: 'LithoMine discounts', category: 'Pricing', description: '', available: 'now' },
-  { id: 'group-packages', feature: 'Group Packages', category: 'Pricing', description: '', available: 'now' },
   { id: 'purchase-commercial-data', feature: 'Purchase Commercial Data Instantly', category: 'Pricing', description: '', available: 'now' },
 ];
 

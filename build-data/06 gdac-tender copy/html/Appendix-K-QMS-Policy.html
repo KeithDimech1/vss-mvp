@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix K - Quality Management System (QMS) Policy</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        @media print {
+            body { margin: 0; }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #000;
+            background: white;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+        .appendix-header {
+            text-align: center;
+            margin-bottom: 20pt;
+            padding-bottom: 10pt;
+            border-bottom: 2px solid #1f4e78;
+        }
+        .appendix-header h1 {
+            font-size: 14pt;
+            color: #1f4e78;
+            margin-bottom: 4pt;
+        }
+        .appendix-header h2 {
+            font-size: 12pt;
+            color: #333;
+            font-weight: normal;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15pt;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8pt 10pt;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #1f4e78;
+            color: white;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .section-header {
+            background-color: #e8f0f7;
+            font-weight: bold;
+            color: #1f4e78;
+        }
+        .subsection {
+            padding-left: 20pt;
+        }
+        .signature-table {
+            margin-top: 20pt;
+        }
+        .signature-table td {
+            border: none;
+            padding: 4pt 10pt;
+        }
+        .signature-table .label {
+            font-weight: bold;
+            width: 120pt;
+        }
+    </style>
+</head>
+<body>
+
+<div class="appendix-header">
+    <h1>APPENDIX K</h1>
+    <h2>Quality Management System (QMS) Policy</h2>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width: 25%;">Section</th>
+            <th style="width: 75%;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="section-header">Policy Overview</td>
+            <td>Lithodat is committed to delivering scientifically accurate geoscience data platforms. Our "Geology First" approach ensures that data models and platform features are designed and validated by qualified geologists.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">1. "Geology First" Quality Principle</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">Scientifically Sound Data Models</td>
+            <td>Data structures are designed by geologists (not just developers) to ensure they reflect real-world geological relationships.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Expert Validation</td>
+            <td>Our team of geologists (led by Fr. Fun Meeuws and supported by Dr. Qusay Abeed, Dr. Romain Beucher, Dr. Alejandra Bedoya, Cris Ibarra and Perla Luque) manually and programmatically validates data to ensure scientific accuracy.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Geological AI</td>
+            <td>Machine Learning workflows are reviewed by Dr. Behnam Sadeghi and our AI team to ensure that automated outputs remain geologically plausible.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">2. Practical Data Quality & QA/QC</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">Schema Validation</td>
+            <td>Mandatory enforcement of controlled vocabularies (e.g., CGI/OGC standards, EarthBank and Isotopes.au ARDC ontologies) to prevent "dirty data" from entering the system.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Automated Logical Checks</td>
+            <td>We use scripts to identify scientific inconsistencies (e.g., an analytical age that is geologically impossible given the stratigraphic context).</td>
+        </tr>
+        <tr>
+            <td class="subsection">Provenance Tracking</td>
+            <td>Every record includes metadata that traces the data back to its original laboratory source or publication, ensuring scientific accountability.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">3. Software Testing & Development</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">Peer Review</td>
+            <td>No code is deployed to our platforms without being reviewed by a second developer to catch errors and security flaws.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Environment Separation</td>
+            <td>We test all new features in a "Staging" environment before they are released to users (e.g., on EarthBank or Isotopes.au).</td>
+        </tr>
+        <tr>
+            <td class="subsection">User Feedback Loops</td>
+            <td>We work directly with partners like AuScope, AngloAmerican and Geoscience Australia to test tools in real-world scenarios before full deployment.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">4. International Recognition & Certifications</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">CoreTrustSeal (CTS)</td>
+            <td>EarthBank is officially certified as a Trusted Scientific Repository. This independently validates our long-term data stewardship and QA/QC systems.</td>
+        </tr>
+        <tr>
+            <td class="subsection">World Data System (WDS)</td>
+            <td>As a Regular Member of the WDS (International Science Council), we comply with global standards for scientific data infrastructure.</td>
+        </tr>
+        <tr>
+            <td class="subsection">AWS Infrastructure</td>
+            <td>While Lithodat manages its own application security, we host our services on AWS to benefit from their world-class physical security and high-availability infrastructure.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">5. FAIR Data Commitment</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">Findable</td>
+            <td>Use of persistent identifiers (Litho-IDs) and rich geological metadata.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Accessible</td>
+            <td>Data is available via standard web protocols with secure, role-based access.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Interoperable</td>
+            <td>Use of standardized geological vocabularies and open formats (CSV, JSON).</td>
+        </tr>
+        <tr>
+            <td class="subsection">Reusable</td>
+            <td>Clear licensing (e.g., Creative Commons) and detailed laboratory provenance.</td>
+        </tr>
+
+        <tr>
+            <td class="section-header">6. Continuous Improvement</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="subsection">Technical Reviews</td>
+            <td>Conduct regular technical reviews after every major release.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Partner Feedback</td>
+            <td>Actively solicit and implement technical feedback from our national research and government partners.</td>
+        </tr>
+        <tr>
+            <td class="subsection">Automated Monitoring</td>
+            <td>Maintain an automated alerting system (AWS CloudWatch) to identify and fix performance issues immediately.</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="signature-table">
+    <tr>
+        <td class="label">Authorised By:</td>
+        <td>Dr. Fabian Kohlmann, Chief Executive Officer</td>
+    </tr>
+    <tr>
+        <td class="label">Date:</td>
+        <td>December 2024</td>
+    </tr>
+    <tr>
+        <td class="label">Organisation:</td>
+        <td>Lithodat Pty Ltd | ABN: 48 647 191 452</td>
+    </tr>
+</table>
+
+</body>
+</html>

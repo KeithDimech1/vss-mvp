@@ -1,0 +1,625 @@
+
+Lithodat Team Academic References
+Bibliography
+
+
+
+GDAC-SA Advanced Analytics Platform RFQ Lithodat Pty Ltd ABN: 63 627 008 904 
+
+
+1. Geochemistry Data Platforms (11 references)
+Cloud-based platforms for geochemical data management, preservation, and analysis
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+1
+Boone SC, Dalton H, Prent A, Kohlmann F, Theile M, et al.
+AusGeochem: An open platform for geochemical data preservation, dissemination and synthesis
+Geostandards and Geoanalytical Research 46(2):245-259
+2022
+10.1111/ggr.12419
+2
+Klöcking M, Wyborn L, Lehnert KA, Ware B, Prent AM, Profeta L, Kohlmann F, et al.
+Community recommendations for geochemical data, services and analytical capabilities in the 21st century
+Geochimica et Cosmochimica Acta 351:192-205
+2023
+10.1016/j.gca.2023.04.024
+3
+Kohlmann F, Noble W, Theile M
+LithoSurfer - a new community platform for storing, viewing, analysing, sharing and publishing thermochronology and geochronology data
+17th Intl. Conf. Thermochronology
+2021
+Thermo2021
+4
+Kohlmann F, Noble W, Qin X, Higton J, et al.
+Deep-Time Digital Twins: Integrating LithoPlates with the EarthBank Platform
+EGU General Assembly 2025
+2025
+EGU25
+5
+Kohlmann F, Noble W, Qin X, Beucher R, et al.
+LithoPlates: A New Cloud-based Tool for Deep-Time Reconstruction of Geochemistry Data
+Goldschmidt 2023
+2023
+Goldschmidt
+6
+Noble W, Kohlmann F, Prent AM, Boone S, et al.
+Opening the full Potential of Geochemical Big Data utilising AusGeochem
+Goldschmidt 2022
+2022
+Goldschmidt
+7
+Theile M, Noble W, Beucher R, et al.
+From Field Application to Publication: An end-to-end Solution for FAIR Geoscience Data
+EGU General Assembly 2022
+2022
+EGU22-13429
+8
+Theile M, Noble W, Beucher R, et al.
+From Fieldwork to Publication with AusGeochem: An Open end-to-end Solution for managing FAIR Sample Based Geoscience Data
+EGU General Assembly 2023
+2023
+EGU23
+9
+Prent AM, Boone S, Greau Y, Noble W, Kohlmann F, et al.
+The AuScope Geochemistry Laboratory Network Project and the Building of the AusGeochem Data Repository
+Goldschmidt 2022
+2022
+ResearchGate
+10
+Kohlmann F, Noble W, Boone S, Greau Y, et al.
+A Digital end-to-end solution for FAIR Geochemistry Data, from Field Collection to Publication
+Goldschmidt 2022
+2022
+Goldschmidt
+11
+Noble W, Kohlmann F, Theile M, et al.
+Empowering Geochemical Exploration and Research: Lithodat's Collaborative Data Platforms and Partnerships
+Goldschmidt 2024
+2024
+Goldschmidt
+2. Thermochronology & Geochronology (14 references)
+Low-temperature thermochronology, fission track analysis, and geochronological studies
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+12
+Ksienzyk AK, Dunkl I, Jacobs J, Fossen H, Kohlmann F
+From orogen to passive margin: constraints from fission track and (U-Th)/He analyses on Mesozoic uplift and fault reactivation in SW Norway
+Geol. Soc. London Spec. Pub. 390:679-720
+2014
+10.1144/sp390.27
+13
+Davids C, Wemmer K, Zwingmann H, Kohlmann F, Jacobs J, Bergh SG
+K-Ar illite and apatite fission track constraints on brittle faulting and the evolution of the northern Norwegian passive margin
+Tectonophysics 608:196-211
+2013
+10.1016/j.tecto.2013.09.024
+14
+Peternell M, Kohlmann F, Wilson CJL, Seiler C, Gleadow AJW
+A new approach to crystallographic orientation measurement for apatite fission track analysis: effects of crystal morphology and implications for automation
+Chemical Geology 265(3-4):527-539
+2009
+10.1016/j.chemgeo.2009.05.021
+15
+Kohn BP, Lorencak M, Gleadow AJW, Kohlmann F, Raza A, et al.
+A reappraisal of low-temperature thermochronology of the eastern Fennoscandia Shield and radiation-enhanced apatite fission-track annealing
+Geol. Soc. London Spec. Pub. 324:193-216
+2009
+10.1144/SP324.15
+16
+Boone SC, Kohlmann F, Noble W, Theile M, Beucher R, Kohn B, et al.
+A geospatial platform for the tectonic interpretation of low-temperature thermochronology Big Data
+Scientific Reports 13:8581
+2023
+10.1038/s41598-023-35776-3
+17
+Johannessen KC, Kohlmann F, Ksienzyk AK, Dunkl I, Jacobs J
+Tectonic evolution of the SW Norwegian passive margin based on low-temperature thermochronology from the innermost Hardangerfjord area
+Norwegian Journal of Geology 93:243-260
+2013
+Open Access PDF
+18
+Gleadow AJW, Gleadow SJ, Frei S, Kohlmann F, Kohn BP
+Automated analytical techniques for fission track thermochronology
+Geochim. Cosmochim. Acta Suppl. 73:A441
+2009
+Goldschmidt
+19
+Kohlmann F, Kohn BP, Gleadow AJW, Siegele R
+Scanning force microscopy of 129Iodine surface impact structures in muscovite, zircon and apatite as proxies for damage of simulated fission fragments in solids
+Radiation Measurements 51:83-91
+2013
+10.1016/j.radmeas.2013.01.016
+20
+Kohlmann F
+Insights Into the Nanoscale Formation of Fission Tracks in Solids and a Low Temperature Thermochronology Study of the Archaen Slave Province, NW Territories, Canada
+PhD Thesis, University of Melbourne
+2010
+Melbourne Uni
+21
+Kohn B, Gleadow A, Frei S, Kohlmann F
+Low-temperature thermochronology in ancient terranes: A progress report
+11th Intl. Conf. Thermochronometry
+2008
+Conference
+22
+Davids C, Kohlmann F, Hansen JA, Benowitz JA, Layer P, Jacobs J
+Post-Caledonian Onshore Exhumation History of Troms, Northern Norway
+Onshore-Offshore N. Atlantic Margin, Trondheim
+2012
+Conference
+23
+Ksienzyk AK, Kohlmann F, Dunkl I, Wemmer K, Jacobs J, Fossen H
+Late Caledonian orogenic collapse and Permian-Mesozoic rifting: dating onshore faults in SW Norway with low-temperature thermochronological methods
+Geol. Soc. Norway Abstracts 2:37
+2012
+Conference
+24
+Boone SC, McMillan M, Balestrieri ML, Kohn B, Gleadow A, et al.
+Phanerozoic thermochronology record of Afro-Arabia through space and time
+Scientific Data 12:444
+2025
+10.1038/s41597-025-04767-6
+25
+Kohn BP, Gleadow AJW, Raza A, Kohlmann F, Brown RW
+Re-evaluating low temperature apatite thermochronology in slowly cooled terranes
+Geochim. Cosmochim. Acta 70(18):A327
+2006
+Goldschmidt
+3. Machine Learning & Mineral Exploration (3 references)
+AI and machine learning applications in mineral prospectivity and exploration
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+26
+Farahbakhsh E, Zahirovic S, McInnes B, Polanco S, Kohlmann F, Seton M, et al.
+Machine learning-based spatio-temporal prospectivity modeling of porphyry systems in the New Guinea and Solomon Islands region
+Tectonics 44(3):e2024TC008362
+2025
+10.1029/2024TC008362
+27
+Esmaeiloghli S, Lima A, Sadeghi B
+Lithium exploration targeting through robust variable selection and deep anomaly detection: An integrated application of sparse PCA and stacked autoencoders
+Geochemistry 126111
+2024
+10.1016/j.chemer.2024.126111
+28
+Farhadi S, Afzal P, Boveiri Konari M, Daneshvar Saein L, Sadeghi B
+Combination of Machine Learning Algorithms with Concentration-area Fractal Method for Soil Geochemical Anomaly Detection in Sediment-Hosted Irankuh Pb-Zn Deposit, Central Iran
+Minerals 12(6):689
+2022
+10.3390/min12060689
+4. Fractal & Multifractal Geochemistry (10 references)
+Fractal and multifractal modeling for geochemical anomaly detection and mineral exploration
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+29
+Sadeghi B
+Simulated-multifractal models: a futuristic review of multifractal modeling in geochemical anomaly classification
+Ore Geology Reviews 139(B):104511
+2021
+10.1016/j.oregeorev.2021.104511
+30
+Sadeghi B, Cohen DR
+Concentration-distance from centroids (C-DC) multifractal modeling: A novel approach to characterizing geochemical patterns
+Ore Geology Reviews 137:104302
+2021
+10.1016/j.oregeorev.2021.104302
+31
+Sadeghi B, Cohen DR
+Category-based fractal modelling: A novel model to integrate the geology into the data for more effective processing and interpretation
+J. Geochem. Exploration 226:106783
+2021
+10.1016/j.gexplo.2021.106783
+32
+Sadeghi B
+Concentration-concentration fractal modelling: a novel insight for correlation between variables in response to changes in the underlying controlling geological-geochemical processes
+Ore Geology Reviews 128:103875
+2021
+10.1016/j.oregeorev.2020.103875
+33
+Madani N, Sadeghi B
+Capturing Hidden Geochemical Anomalies in Scarce Data by Fractal Analysis and Stochastic Modelling
+Natural Resources Research 28(3):833-847
+2019
+10.1007/s11053-018-9421-4
+34
+Sadeghi B, Madani N, Carranza EJM
+Combination of geostatistical simulation and fractal modelling for mineral resource classification
+J. Geochem. Exploration 149:59-73
+2015
+10.1016/j.gexplo.2014.11.007
+35
+Sadeghi B, Moarefvand P, Afzal P, Yasrebi AB, Daneshvar Saein L
+Application of fractal models to outline mineralized zones in the Zaghia iron ore deposit, Central Iran
+J. Geochem. Exploration 122:9-19
+2012
+10.1016/j.gexplo.2012.04.011
+36
+Yilmaz H, Sadeghi B, Cohen DR
+The efficiency of fractal techniques in geochemical anomaly delineation within BLEG and stream sediments in Western Turkey
+J. Geochem. Exploration 236:106974
+2022
+10.1016/j.gexplo.2022.106974
+37
+Wang H, Yuan Z, Cheng Q, Zhang S, Sadeghi B
+Geochemical anomaly definition using stream sediments landscape modeling
+Ore Geology Reviews 142:104715
+2022
+10.1016/j.oregeorev.2022.104715
+38
+Heidari SM, Afzal P, Ghaderi M, Sadeghi B
+Detection of mineralization stages using zonality and multifractal modeling based on geological and geochemical data in the Au-(Cu) intrusion-related Gouzal-Bolagh deposit, NW Iran
+Ore Geology Reviews 139:104563
+2021
+10.1016/j.oregeorev.2021.104563
+5. Geochemical Data Analysis (6 references)
+Statistical and computational methods for geochemical data interpretation
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+39
+Sadeghi B
+Clustering in Geo-Data Science: Navigating Uncertainty to Select the Most Reliable Method
+Ore Geology Reviews 181:106591
+2025
+10.1016/j.oregeorev.2025.106519
+40
+Sadeghi B, Eleish AM, Morrison SM, Klump J
+Inverse radius weighting and its python package 'IRWPy': A new topography-informed interpolation to enhance geological interpretations
+Ore Geology Reviews 172:106206
+2024
+10.1016/j.oregeorev.2024.106206
+41
+Sadeghi B, Cohen DR
+Decision-making within geochemical exploration data based on spatial uncertainty: A new insight and a futuristic review
+Ore Geology Reviews 161:105660
+2023
+10.1016/j.oregeorev.2023.105660
+42
+Sadeghi B, Molayemat H, Pawlowsky-Glahn V
+How to choose a proper representation of compositional data for mineral exploration?
+J. Geochem. Exploration 259:107425
+2024
+10.1016/j.gexplo.2024.107425
+43
+Sadeghi B
+Chatterjee Correlation Coefficient: A robust alternative for classic correlation methods in geochemical studies (including 'TripleCpy' Python package)
+Ore Geology Reviews 146:104954
+2022
+10.1016/j.oregeorev.2022.104954
+44
+Zissimos AM, Cohen DR, Christoforou IC, Sadeghi B, Rutherford NF
+Controls on soil geochemistry fractal characteristics in Lemesos (Limassol), Cyprus
+J. Geochem. Exploration 220:106682
+2021
+10.1016/j.gexplo.2020.106682
+6. Critical Minerals & Rare Earths (4 references)
+Research on critical minerals, rare earth elements, and strategic resources
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+45
+Sadeghi B, Jowitt S, Porwal A, Lucci F
+Critical Minerals: Current Perspectives (Preface)
+Geochemistry 84(2):126131
+2024
+10.1016/j.chemer.2024.126131
+46
+Bajadi A, Ouchchen M, El Azzab D, Achkouch L, Dadi B, Abia EH, Sadeghi B
+Targeting potential cobalt deposits through integration of helicopter-borne magnetic and stream sediment data: Insights from the Bou Azzer Inlier, Central Anti-Atlas, Morocco
+Ore Geology Reviews 185:106807
+2025
+10.1016/j.oregeorev.2024.106807
+47
+Bajadi A, El Azzab D, Ouchchen M, Mamouch Y, Achkouch L, et al.
+Assessment of potential Cobalt zones by modeling radiometric and ASTER data using the AHP method: Bou Azzer El Grara buttonhole, Central Anti-Atlas, Morocco
+Geochemistry 84(2):126105
+2024
+10.1016/j.chemer.2024.126105
+48
+Khalajmasoumi M, Sadeghi B, Carranza EJM, Sadeghi M
+Geochemical anomaly recognition of rare earth elements using multi-fractal modelling correlated with geological features, Central Iran
+J. Geochem. Exploration 181:318-332
+2017
+10.1016/j.gexplo.2016.11.018
+7. Petroleum Geology & Basin Modeling (13 references)
+Petroleum systems analysis, source rock characterization, and basin modeling
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+49
+Abu-Ali MA, Rudkiewicz JLL, McGillivray JG, Behar F
+Paleozoic petroleum system of central Saudi Arabia
+GeoArabia 4(3):321-336
+1999
+10.2113/geoarabia0403321
+50
+Cole GA, Abu-Ali MA, Aoudeh SM, Carrigan WJ, Chen HH, et al.
+Organic geochemistry of the Paleozoic petroleum system of Saudi Arabia
+Energy & Fuels 8(6):1425-1442
+1994
+10.1021/ef00048a034
+51
+Abeed Q, Alkhafaji A, Littke R
+Source rock potential of the upper Jurassic-Lower Cretaceous succession in the southern Mesopotamian basin, southern Iraq
+J. Petroleum Geology 34(2):117-134
+2011
+10.1111/j.1747-5457.2011.00497.x
+52
+Abu-Ali M, Littke R
+Paleozoic petroleum systems of Saudi Arabia: a basin modeling approach
+GeoArabia 10(3):131-168
+2005
+10.2113/geoarabia100313
+53
+Abu-Ali MA, Franz UA, Shen J, Monnier F, Mahmoud MD, Chambers TM
+Hydrocarbon generation and migration in the Paleozoic sequence of Saudi Arabia
+SPE Middle East Oil and Gas Show, SPE-21376-MS
+1991
+10.2118/21376-MS
+54
+Abeed Q, Leythaeuser D, Littke R
+Geochemistry, origin and correlation of crude oils in Lower Cretaceous sedimentary sequences of the southern Mesopotamian Basin, southern Iraq
+Organic Geochemistry 46:113-126
+2012
+10.1016/j.orggeochem.2012.02.007
+55
+Abeed Q, Littke R, Strozyk F, Uffmann AK
+The Upper Jurassic-Cretaceous petroleum system of southern Iraq: a 3-D basin modelling study
+GeoArabia 18(1):179-200
+2013
+10.2113/geoarabia1801179
+56
+Moldowan JM, Peters KE, Carlson RMK, Schoell M, Abuali MA
+Diverse applications of petroleum biomarker maturity parameters
+Arabian J. Sci. Eng. 19(2B):273-298
+1994
+AJSE
+57
+Cole GA, Abu-Ali MA, Coiling EL, Halpern HI, Carrigan WJ, et al.
+Petroleum geochemistry of the Midyan and Jaizan basins of the Red Sea, Saudi Arabia
+Marine and Petroleum Geology 12(6):597-614
+1995
+10.1016/0264-8172(95)91506-I
+58
+Baniasad A, Littke R, Abeed Q
+Petroleum systems analysis of the eastern Arabian Plate: chemometrics based on a review of the geochemical characteristics of oils in Jurassic-Cenozoic reservoirs
+J. Petroleum Geology 46(1):3-45
+2023
+10.1111/jpg.12829
+59
+Ducros M, Sassi W, Vially R, Euzen T, Crombez V
+2-D Basin modeling of the Western Canada Sedimentary Basin across the Montney-Doig System
+AAPG Special Volumes
+2017
+AAPG
+60
+El Atfy H, Abeed Q, Uhl D, Littke R
+Palynology, palynofacies analysis, depositional environments and source rock potential of Lower Cretaceous successions in southern Iraq
+Marine and Petroleum Geology 76:362-376
+2016
+10.1016/j.marpetgeo.2016.05.019
+61
+Calderón Y, Vela Y, Hurtado C, Bolaños R, Baby P, Eude A, Roddaz M, et al.
+Petroleum systems restoration of the Huallaga-Marañon Andean retroforeland basin, Peru
+AAPG Special Volumes
+2017
+AAPG
+8. Hydrothermal Alteration & Remote Sensing (5 references)
+Remote sensing and GIS methods for hydrothermal alteration mapping and mineral prospectivity
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+62
+Achkouch L, Attou A, Mezougane H, Ouchchen M, El Cheikh Y, et al.
+Integration of Multi-Method ASTER data Analysis and Geometric Average Modeling for Hydrothermal Alteration Mapping and Mineral Prospectivity Assessment of Copper Deposits, Anti-Atlas, Morocco
+Remote Sensing Applications 37:101467
+2025
+10.1016/j.rsase.2024.101467
+63
+Dadi B, Ouchchen M, Faik F, Boutaleb S, El Azzab D, et al.
+Hydrothermal Fluid Pathways and Mineralization Potential in the High Atlas Massif (Morocco) Using Fuzzy Logic and Multifractal Modeling
+Ore Geology Reviews 175:106401
+2024
+10.1016/j.oregeorev.2024.106401
+64
+Sadeghi B, Khalajmasoumi M, Afzal P, Moarefvand P, Yasrebi AB, et al.
+Using ETM+ and ASTER sensors to identify iron occurrences in the Esfordi 1:100000 mapping sheet of Central Iran
+J. African Earth Sciences 85:103-114
+2013
+10.1016/j.jafrearsci.2013.05.003
+65
+Rahimzadegan M, Sadeghi B, Masoumi M, Taghizadeh Ghalehjoghi S
+Application of target detection algorithms to identification of iron oxides using ASTER images: North of Semnan province, Iran
+Arabian J. Geosciences 8(9):7321-7331
+2015
+10.1007/s12517-014-1730-5
+66
+Sadeghi B, Khalajmasoumi M
+A Futuristic Review for Evaluation of Geothermal Potentials Using Fuzzy Logic and Binary Index Overlay in GIS Environment
+Renewable & Sustainable Energy Reviews 43:818-831
+2015
+10.1016/j.rser.2014.11.079
+9. Mineral Deposit Geology (6 references)
+Geology, mineralogy, and geochemistry of specific mineral deposits
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+67
+Heidari SM, Afzal P, Sadeghi B
+Molybdenum and gold distribution variances within Iranian copper porphyry deposits
+J. Geochem. Exploration 261:107471
+2024
+10.1016/j.gexplo.2024.107471
+68
+Akbarpour A, Ghalamghash J, Azizi H, Sadeghi B
+Mineralogy, geochemistry and mineralization of Maimoon-abad iron ore deposit, northwest of Sanandaj-Sirjan zone, Iran
+J. Geochem. Exploration 259:107427
+2024
+10.1016/j.gexplo.2024.107427
+69
+Akbarpour A, Vanaei M, Sadeghi B
+Geology, mineralogy, and alteration of the Cu-Pb veins, and their significance in mineral exploration: Khajeh-Nezam area, SE Iran
+Geochemistry 83(4):125944
+2023
+10.1016/j.chemer.2023.125944
+70
+Heidari M, Afzal P, Sadeghi B
+Miocene tectono-magmatic events and gold mineralization in the Takab-Delijan belt, Iran
+Geochemistry 83(1):125944
+2023
+10.1016/j.chemer.2022.125944
+71
+Afzal P, Gholami H, Madani N, Yasrebi AB, Sadeghi B
+Mineral resource classification using geostatistical and fractal simulation in the Masjed Daghi Cu-Mo porphyry deposit, NW Iran
+Minerals 13:370
+2023
+10.3390/min13030370
+72
+Afzal P, Heidari B, Alidaryan M, Sadeghi B, Daneshvar Saein L
+Enhancing core recovery and RQD analysis in porphyry Cu deposits through fractal modeling: Sungun mine (NW Iran)
+Intl. J. Mining and Geo-Engineering 59(1):69-74
+2025
+IJMGE
+10. Volcanology (2 references)
+Volcanic systems, hazard assessment, and magmatic processes
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+73
+Eskandari A, Amini S, Sadeghi B
+The dynamic of magmatic system and volcano hazard implications of the Damavand volcano (N. Iran) inferred from the textural data
+J. Volcanology and Geothermal Research 456:108220
+2024
+10.1016/j.jvolgeores.2024.108220
+74
+Eskandari A, Sadeghi B
+Deciphering Igneous Rock Crystals: Unveiling Multifractal Patterns in Crystal Size Dynamics
+Minerals 14(7):660
+2024
+10.3390/min14070660
+11. Environmental & Sustainability (2 references)
+Environmental monitoring, contamination reporting, and sustainability in geosciences
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+75
+Kohlmann F, Dimech K, Noble W, Boone S, et al.
+DERT (Diagnostic Environmental Reporting Tool): A Global Relational Data Platform Set to Transform Contamination Reporting and Environmental Data
+Goldschmidt 2025
+2025
+10.7185/gold2025.31458
+76
+Dimech K
+'PROJECT PATHWAY' TO NET ZERO: SCOPE 3 CARBON IN WATER CAPITAL PROJECTS FROM TENDER TO AS BUILT
+Ozwater 2025 Conference
+2025
+Ozwater25
+12. Geological Survey & Exploration (5 references)
+Regional geological surveys, stream sediment analysis, and exploration geochemistry
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+77
+Acosta-Gongora P, Andersson M, Bjerkgård T, Morris WM, et al.
+Multi-element geochemical mapping study
+J. Geochem. Exploration 280:107911
+2025
+10.1016/j.gexplo.2024.107911
+78
+Hosseini SA, Afzal P, Sadeghi B, Sharmad T, Shahrokhi SV, Farhadinejad T
+Prospection of Au mineralization based on stream sediments and lithogeochemical data using multifractal modelling in Alut 1:100,000 sheet, NW Iran
+Arabian J. Geosciences 8:3867-3879
+2015
+10.1007/s12517-014-1453-7
+79
+Afzal P, ZiaZarifi A, Sadeghi B
+Separation of geochemical anomalies using factor analysis and concentration-number (C-N) fractal modelling based on stream sediments data in Esfordi 1:100,000 sheet, Central Iran
+Iranian J. Earth Sciences 5:100-110
+2013
+IJES
+80
+Shamseddin Meigoony M, Afzal P, Gholinejad M, Yasrebi AB, Sadeghi B
+Delineation of geochemical anomalies using factor analysis and multifractal modelling based on stream sediments data in Sarajeh 1:100,000 sheet, Central Iran
+Arabian J. Geosciences 7:5333-5343
+2014
+10.1007/s12517-013-1152-4
+81
+Sadeghi B, Yilmaz H, Pirajno F
+Weighting of BLEG data with drainage and catchment properties to enhance Au anomalies
+Geochemistry 81(3):125791
+2021
+10.1016/j.chemer.2021.125791
+13. Petroleum Exploration Technology (4 references)
+Advanced technologies and methods for petroleum exploration
+#
+Authors
+Title
+Source
+Year
+DOI / Link
+82
+Mezghani MM, Najjar NF, AbuAli M, Zuhlke R, Inan S, Allen CK
+Iterative and repeatable workflow for comprehensive data and processes integration for petroleum exploration and production assessments
+US Patent 10,713,398
+2020
+US10713398B2
+83
+AbuAli M, Almarhoon MI, Arouri K
+Sampling techniques to detect hydrocarbon seepage
+US Patent 10,280,747
+2019
+US10280747B2
+84
+Klusman RW, Saeed MA, Abu-Ali MA
+The potential use of biogeochemistry in the detection of petroleum microseepage
+AAPG Bulletin 76(6):851-863
+1992
+AAPG
+85
+Zhang SH, Xu Y, Abu-Ali M
+Characterizing stratigraphic traps using improved waveform classification seismic facies analysis: central Saudi Arabia
+First Break 34(12)
+2016
+10.3997/1365-2397.fb2016098
+
+

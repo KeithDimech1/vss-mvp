@@ -20,6 +20,7 @@
 
 | ID | Title | Priority | Status | Date |
 |----|-------|----------|--------|------|
+| [IDEA-005](idea-details.md#idea-005) | ESRI Partnership for GDAC-SA Tender - LithoSurfer Migration from Mapbox to ArcGIS | P0 | 💡 idea | 2025-12-30 |
 | [IDEA-004](idea-details.md#idea-004) | Global Australian Legal AI Agents (Sovereign AI + Open Legal Corpus) | P1 | idea | 2025-12-17 |
 | [IDEA-003](idea-details.md#idea-003) | GDAC Tender Forms 9.1-9.6 Systematic Audit & Consistency Checker | P1 | 🚀 active | 2025-12-09 |
 | IDEA-002 | Lithodat HSE Policy & Procedures (ISO-Aligned for GDAC Tender) | P1 | ✅ implemented | 2025-12-09 |

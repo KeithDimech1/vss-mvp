@@ -12,7 +12,7 @@ export default function NewDocumentPage() {
     title: '',
     slug: '',
     description: '',
-    documentType: 'CUSTOM' as const,
+    documentType: 'CUSTOM',
   });
   const [variables, setVariables] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);

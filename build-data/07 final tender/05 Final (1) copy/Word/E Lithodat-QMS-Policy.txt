@@ -1,0 +1,45 @@
+
+Quality Management System (QMS) Policy
+Digital-First Workplace Standards
+
+Lithodat Pty Ltd ABN: 48 647 191 452 December 2024 
+
+Quality Management System (QMS)
+Policy Overview
+Lithodat is committed to delivering scientifically accurate geoscience data platforms. Our "Geology First" approach ensures that data models and platform features are designed and validated by qualified geologists. This policy outlines our practical approach to data integrity, software testing, and scientific stewardship. 
+1. The "Geology First" Quality Principle
+The core of our quality system is the integration of domain expertise into every stage of development. We ensure that: 
+	•	Scientifically Sound Data Models: Data structures are designed by geologists (not just developers) to ensure they reflect real-world geological relationships. 
+	•	Expert Validation: Our team of geologists manually and programmatically validates data to ensure scientific accuracy. 
+	•	Geological AI: Machine Learning workflows are reviewed by our AI team to ensure that automated outputs remain geologically plausible. 
+2. Practical Data Quality & QA/QC
+We apply rigorous checks to ensure the data hosted on our platforms is of the highest possible quality: 
+	•	Schema Validation: Mandatory enforcement of controlled vocabularies (e.g., CGI/OGC standards, EarthBank and Isotopes.au ARDC ontologies) to prevent "dirty data" from entering the system. 
+	•	Automated Logical Checks: We use scripts to identify scientific inconsistencies (e.g., an analytical age that is geologically impossible given the stratigraphic context). 
+	•	Provenance Tracking: Every record includes metadata that traces the data back to its original laboratory source or publication, ensuring scientific accountability. 
+3. Software Testing & Development
+To ensure platform reliability, we follow a consistent internal development process: 
+	•	Peer Review: No code is deployed to our platforms without being reviewed by a second developer to catch errors and security flaws. 
+	•	Environment Separation: We test all new features in a "Staging" environment before they are released to users (e.g., on EarthBank or Isotopes.au). 
+	•	User Feedback Loops: We work directly with acedmic partners to test tools in real-world scenarios before full deployment. 
+4. International Recognition & Certifications
+Lithodat maintains external validation for our data stewardship through: 
+	•	CoreTrustSeal (CTS) Certification: EarthBank is officially certified as a Trusted Scientific Repository. This independently validates our long-term data stewardship and QA/QC systems. 
+	•	World Data System (WDS) Membership: As a Regular Member of the WDS (International Science Council), we comply with global standards for scientific data infrastructure. 
+	•	AWS Infrastructure: While Lithodat manages its own application security, we host our services on AWS to benefit from their world-class physical security and high-availability infrastructure. 
+5. FAIR Data Commitment
+We ensure all data platforms managed by Lithodat follow the FAIR principles: 
+	•	Findable: Use of persistent identifiers (Litho-IDs) and rich geological metadata. 
+	•	Accessible: Data is available via standard web protocols with secure, role-based access. 
+	•	Interoperable: Use of standardized geological vocabularies and open formats (CSV, JSON). 
+	•	Reusable: Clear licensing (e.g., Creative Commons) and detailed laboratory provenance. 
+6. Continuous Improvement
+Our continuous improvement process is practical and responsive. We: 
+	•	Conduct regular technical reviews after every major release.
+	•	Actively solicit and implement technical feedback from our national research and government partners. 
+	•	Maintain an automated alerting system (AWS CloudWatch) to identify and fix performance issues immediately. 
+
+Dr. Fabian Kohlmann
+Chief Executive Officer
+December 2024
+Lithodat Pty Ltd | ABN: 48 647 191 452 Website: https://lithodat.com 

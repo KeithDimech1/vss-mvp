@@ -3,6 +3,7 @@
  * For use in Server Components, Server Actions, and API Routes
  */
 
+import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
 import { prisma } from './prisma';
@@ -16,6 +17,11 @@ export interface SessionUser {
   fullName: string;
   role: string;
   isManager: boolean;
+}
+
+export interface AuthResult {
+  isAuthenticated: boolean;
+  user?: { userId: string; role: string };
 }
 
 /**
@@ -101,4 +107,31 @@ export async function requireManager(): Promise<SessionUser> {
   }
 
   return user;
+}
+
+/**
+ * Verify authentication from a Next.js API route request
+ * Returns authentication status and user info
+ * Use this in API Route handlers that need to check auth
+ */
+export async function verifyAuth(request: NextRequest): Promise<AuthResult> {
+  try {
+    const cookieStore = await cookies();
+    const sessionCookie = cookieStore.get('session');
+
+    if (!sessionCookie) {
+      return { isAuthenticated: false };
+    }
+
+    const { payload } = await jwtVerify(sessionCookie.value, JWT_SECRET);
+    const session = payload as { userId: string; role: string };
+
+    return {
+      isAuthenticated: true,
+      user: session
+    };
+  } catch (error) {
+    console.error('[SERVER AUTH] Verify auth failed:', error);
+    return { isAuthenticated: false };
+  }
 }

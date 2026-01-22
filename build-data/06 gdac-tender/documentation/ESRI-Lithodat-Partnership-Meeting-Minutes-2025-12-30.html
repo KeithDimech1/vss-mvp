@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESRI SA - Lithodat Partnership Meeting Minutes</title>
+    <style>
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            font-size: 11pt;
+        }
+
+        .header {
+            border-bottom: 3px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 18pt;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 14pt;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 12pt;
+            margin: 15px 0 8px 0;
+            font-weight: bold;
+        }
+
+        .meeting-info {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .meeting-info strong {
+            font-weight: bold;
+        }
+
+        .agenda-item {
+            margin-bottom: 20px;
+            border-left: 3px solid #000;
+            padding-left: 15px;
+        }
+
+        .item-number {
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        .discussion {
+            background: #fff;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .discussion h4 {
+            margin: 0 0 8px 0;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .comments {
+            background: #fff;
+            border: 1px dashed #000;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 60px;
+        }
+
+        .comments h4 {
+            margin: 0 0 8px 0;
+            font-size: 10pt;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .action-items {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        .action-items h4 {
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        .action-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .action-table th {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+
+        .action-table td {
+            padding: 8px;
+            border: 1px solid #000;
+        }
+
+        .decision {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .decision-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        ul, ol {
+            margin: 8px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 4px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        table th {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+
+        table td {
+            padding: 8px;
+            border: 1px solid #000;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            border-top: 2px solid #000;
+            padding-top: 20px;
+        }
+
+        .signature-block {
+            margin: 30px 0;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #000;
+            width: 300px;
+            margin: 5px 0 20px 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MEETING MINUTES</h1>
+        <p style="margin: 5px 0; font-size: 13pt; font-weight: bold;">ESRI South Africa - Lithodat Partnership Discussion</p>
+        <p style="margin: 5px 0;">Saudi Geological Survey GDAC-SA RFQ Opportunity</p>
+    </div>
+
+    <div class="meeting-info">
+        <strong>Date:</strong> <span>30 December 2025</span>
+        <strong>Time:</strong> <span>[To be confirmed]</span>
+        <strong>Location:</strong> <span>[Virtual / In-person - TBC]</span>
+        <strong>Attendees:</strong> <span>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li><strong>ESRI South Africa:</strong> [Name, Title]</li>
+                <li><strong>Lithodat:</strong> Fabian Kohlmann (CEO), Keith Dimech (COO), [Others TBC]</li>
+            </ul>
+        </span>
+        <strong>Prepared By:</strong> <span>Keith Dimech (Lithodat COO)</span>
+    </div>
+
+    <h2>MEETING OBJECTIVE</h2>
+    <p>To finalize partnership structure and strategy for joint submission to the Saudi Geological Survey (SGS) Geological Data Analysis Center (GDAC-SA) Advanced Analytics Platform Request for Qualification (RFQ).</p>
+
+    <!-- AGENDA ITEM 1 -->
+    <div class="agenda-item">
+        <p class="item-number">1. PARTNERSHIP STRUCTURE OPTIONS</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+            <p>Three partnership models were presented for consideration:</p>
+
+            <p><strong>Option A: Prime-Subcontractor Model</strong></p>
+            <ul>
+                <li>ESRI SA = Prime Contractor (contract holder with SGS)</li>
+                <li>Lithodat = Subcontractor (technical delivery partner)</li>
+                <li><em>Pros:</em> Clean legal structure, ESRI handles Saudi compliance, clear client relationship</li>
+                <li><em>Cons:</em> Lithodat has indirect client relationship, less visibility with SGS</li>
+            </ul>
+
+            <p><strong>Option B: True Consortium / Joint Venture</strong></p>
+            <ul>
+                <li>Both parties = Equal partners (joint contract with SGS)</li>
+                <li><em>Pros:</em> Equal standing, shared risk/reward, direct client relationships</li>
+                <li><em>Cons:</em> Complex legal structure, joint liability, requires formal JV entity</li>
+            </ul>
+
+            <p><strong>Option C: Lead Partner Model</strong></p>
+            <ul>
+                <li>ESRI SA = Lead (contract holder), Lithodat = Named Partner (not subcontractor)</li>
+                <li><em>Pros:</em> Balance between visibility and simplicity</li>
+                <li><em>Cons:</em> May require more complex legal agreement than Prime-Sub</li>
+            </ul>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Space for meeting notes and participant comments]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Select preferred partnership model (A, B, or C)
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>1.1</td>
+                    <td>Draft Letter of Intent (LOI) reflecting agreed partnership structure</td>
+                    <td>ESRI SA Legal</td>
+                    <td>Within 3 business days</td>
+                </tr>
+                <tr>
+                    <td>1.2</td>
+                    <td>Review and provide feedback on LOI draft</td>
+                    <td>Lithodat (Fabian/Keith)</td>
+                    <td>Within 1 business day of receipt</td>
+                </tr>
+                <tr>
+                    <td>1.3</td>
+                    <td>Finalize and execute LOI</td>
+                    <td>Both parties</td>
+                    <td>Within 5 business days</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 2 -->
+    <div class="agenda-item">
+        <p class="item-number">2. REVENUE SHARING MODEL</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+            <p><strong>Proposed Model: Hours-Based Revenue Allocation</strong></p>
+            <p>Revenue split should be based on estimated work hours for each party, ensuring fairness and alignment with actual contribution.</p>
+
+            <table>
+                <tr>
+                    <th>Work Package</th>
+                    <th>Primary Responsibility</th>
+                    <th>Estimated Hours Split</th>
+                </tr>
+                <tr>
+                    <td>Tender Preparation</td>
+                    <td>ESRI SA (Lead), Lithodat (Support)</td>
+                    <td>To be estimated</td>
+                </tr>
+                <tr>
+                    <td>Saudi Legal & Compliance</td>
+                    <td>ESRI SA (100%)</td>
+                    <td>ESRI SA hours only</td>
+                </tr>
+                <tr>
+                    <td>ArcGIS Enterprise Platform</td>
+                    <td>ESRI SA (Lead)</td>
+                    <td>To be estimated</td>
+                </tr>
+                <tr>
+                    <td>AI/ML Development</td>
+                    <td>Lithodat (Lead)</td>
+                    <td>To be estimated</td>
+                </tr>
+                <tr>
+                    <td>Geological Data Management</td>
+                    <td>Lithodat (Lead)</td>
+                    <td>To be estimated</td>
+                </tr>
+                <tr>
+                    <td>Project Management</td>
+                    <td>ESRI SA (Lead), Lithodat (Support)</td>
+                    <td>To be estimated</td>
+                </tr>
+            </table>
+
+            <p><strong>Note:</strong> Detailed hours breakdown will be finalized after RFP release when full scope is known.</p>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Space for discussion on revenue split methodology and preferences]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Agree in principle to hours-based revenue model (detailed split to be finalized post-RFP)
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>2.1</td>
+                    <td>Prepare preliminary hours estimate for RFQ stage work</td>
+                    <td>Both parties</td>
+                    <td>Before RFQ submission</td>
+                </tr>
+                <tr>
+                    <td>2.2</td>
+                    <td>Include revenue sharing framework in LOI (high-level only)</td>
+                    <td>ESRI SA Legal</td>
+                    <td>In LOI draft</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 3 -->
+    <div class="agenda-item">
+        <p class="item-number">3. RACI MATRIX AND SCOPE ALLOCATION</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+            <p>Review and approve RACI (Responsible, Accountable, Consulted, Informed) matrix covering 11 work packages:</p>
+
+            <ol>
+                <li><strong>Tender Preparation</strong> – RFQ response, partnership agreement, Saudi compliance</li>
+                <li><strong>Requirements & Planning</strong> – Scope definition, workshops, validation</li>
+                <li><strong>ArcGIS Enterprise Platform</strong> – Infrastructure, configuration, deployment</li>
+                <li><strong>AI/ML Development</strong> – Mineral prospectivity, geochemical analytics, LLM assistant</li>
+                <li><strong>Data Management</strong> – Schema design, ETL, integration, quality control</li>
+                <li><strong>Geological Applications</strong> – 3D modeling, exploration targeting, geospatial analysis</li>
+                <li><strong>Training & Knowledge Transfer</strong> – Documentation, workshops, admin training</li>
+                <li><strong>Testing & Quality Assurance</strong> – UAT, performance testing, security testing</li>
+                <li><strong>Deployment & Go-Live</strong> – Production deployment, cutover, monitoring</li>
+                <li><strong>Post-Implementation Support</strong> – Helpdesk, maintenance, enhancements</li>
+                <li><strong>Project Management & Governance</strong> – PMO, reporting, change management</li>
+            </ol>
+
+            <p><strong>Key Accountability Split:</strong></p>
+            <ul>
+                <li><strong>ESRI SA:</strong> Saudi legal/compliance, ArcGIS platform, project management, contracts</li>
+                <li><strong>Lithodat:</strong> AI/ML development, geological data management, technical methodology, quality validation</li>
+            </ul>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Space for feedback on RACI assignments and work package allocation]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Approve RACI matrix or identify items requiring adjustment
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>3.1</td>
+                    <td>Review detailed RACI matrix (CSV file provided)</td>
+                    <td>ESRI SA team</td>
+                    <td>Within 2 business days</td>
+                </tr>
+                <tr>
+                    <td>3.2</td>
+                    <td>Propose any amendments to RACI assignments</td>
+                    <td>ESRI SA</td>
+                    <td>Within 2 business days</td>
+                </tr>
+                <tr>
+                    <td>3.3</td>
+                    <td>Finalize RACI matrix for LOI attachment</td>
+                    <td>Both parties</td>
+                    <td>Within 4 business days</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 4 -->
+    <div class="agenda-item">
+        <p class="item-number">4. ESRI PLATINUM PARTNER OPPORTUNITY</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+            <p><strong>Strategic Proposal:</strong> Lithodat to become ESRI Platinum Partner with $50,000 annual fee included as project pass-through cost (paid by SGS).</p>
+
+            <p><strong>Key Benefits:</strong></p>
+            <ol>
+                <li><strong>Technical Certifications</strong> – ArcGIS Enterprise, ArcGIS Pro, development training</li>
+                <li><strong>ESRI User Conferences</strong> – Annual invitations to global and regional ESRI events</li>
+                <li><strong>Priority Technical Support</strong> – Direct access to ESRI technical teams</li>
+                <li><strong>Marketing & Visibility</strong> – Listed on ESRI Partner Directory, co-marketing opportunities</li>
+                <li><strong>Early Access</strong> – Beta programs, new releases, emerging technologies</li>
+                <li><strong>Partner Resources</strong> – Sales tools, demo licenses, partner portal access</li>
+                <li><strong>Networking</strong> – Connection with global ESRI partner ecosystem</li>
+                <li><strong>Credibility Boost</strong> – Enhanced reputation when working with ESRI on future projects</li>
+            </ol>
+
+            <p><strong>Strategic Advantages for GDAC-SA Project:</strong></p>
+            <ul>
+                <li>Strengthens Lithodat-ESRI partnership credibility in RFQ submission</li>
+                <li>Provides formal training and certification for Lithodat team on ArcGIS stack</li>
+                <li>Demonstrates long-term commitment to ESRI ecosystem</li>
+                <li>No net cost (passed through to SGS as project expense)</li>
+            </ul>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Discussion on feasibility, approval process, and inclusion in project budget]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Agree to pursue Platinum Partnership with costs included in RFP budget
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>4.1</td>
+                    <td>Confirm ESRI Platinum Partner program details and requirements</td>
+                    <td>ESRI SA</td>
+                    <td>Within 3 business days</td>
+                </tr>
+                <tr>
+                    <td>4.2</td>
+                    <td>Obtain approval to include $50k partnership fee in RFP budget</td>
+                    <td>ESRI SA + Lithodat</td>
+                    <td>Before RFP submission</td>
+                </tr>
+                <tr>
+                    <td>4.3</td>
+                    <td>Initiate Platinum Partner application process</td>
+                    <td>Lithodat (Fabian)</td>
+                    <td>Upon mutual agreement</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 5 -->
+    <div class="agenda-item">
+        <p class="item-number">5. RFQ SUBMISSION REQUIREMENTS</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+
+            <p><strong>A. Required Documents for Consortium/Alliance RFQ:</strong></p>
+            <ol>
+                <li><strong>Alliance Agreement</strong> – Letter of Intent (LOI) or Memorandum of Understanding (MOU)</li>
+                <li><strong>Corporate Registration</strong> – Both ESRI SA and Lithodat company registrations</li>
+                <li><strong>Financial Statements</strong> – Last 3 years audited financials (both parties)</li>
+                <li><strong>Tax Compliance</strong> – Tax clearance certificates</li>
+                <li><strong>Technical Qualifications</strong> – CVs, certifications, reference projects</li>
+                <li><strong>Saudi Compliance</strong> – Saudi Ministry of Investment registration (ESRI SA to confirm status)</li>
+                <li><strong>Saudization Plan</strong> – Taqat/Nitaqat compliance strategy (ESRI SA lead)</li>
+            </ol>
+
+            <p><strong>B. Evaluation Criteria:</strong></p>
+            <ul>
+                <li>60% Technical and Administrative Evaluation</li>
+                <li>40% Financial Evaluation</li>
+                <li>Minimum 70% score required to qualify</li>
+            </ul>
+
+            <p><strong>C. Critical Timeline Items:</strong></p>
+            <ul>
+                <li><strong>RFQ Deadline (Etimad Platform):</strong> [To be confirmed by ESRI SA]</li>
+                <li><strong>LOI Signature Target:</strong> Within 5 business days of this meeting</li>
+                <li><strong>Document Collection:</strong> Immediate (parallel workstream)</li>
+            </ul>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Notes on document availability, timeline concerns, and any gaps]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Confirm both parties can provide required documents within timeline
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>5.1</td>
+                    <td>Confirm Etimad RFQ submission deadline</td>
+                    <td>ESRI SA</td>
+                    <td>Within 24 hours</td>
+                </tr>
+                <tr>
+                    <td>5.2</td>
+                    <td>Gather Lithodat qualification documents (financials, registration, tax clearance)</td>
+                    <td>Lithodat (Keith)</td>
+                    <td>Within 3 business days</td>
+                </tr>
+                <tr>
+                    <td>5.3</td>
+                    <td>Gather ESRI SA qualification documents + Saudi compliance certs</td>
+                    <td>ESRI SA</td>
+                    <td>Within 3 business days</td>
+                </tr>
+                <tr>
+                    <td>5.4</td>
+                    <td>Identify 3 comparable projects (each party)</td>
+                    <td>Both parties</td>
+                    <td>Within 3 business days</td>
+                </tr>
+                <tr>
+                    <td>5.5</td>
+                    <td>Prepare Saudization/local content compliance plan</td>
+                    <td>ESRI SA (lead), Lithodat (support)</td>
+                    <td>Before RFQ submission</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 6 -->
+    <div class="agenda-item">
+        <p class="item-number">6. LEGAL DOCUMENTATION RESPONSIBILITIES</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+
+            <p><strong>Question for Discussion:</strong> Who will draft the legal documents?</p>
+
+            <p><strong>Option A: ESRI SA Legal Team</strong></p>
+            <ul>
+                <li><em>Pros:</em> ESRI has Saudi legal expertise, familiar with local requirements</li>
+                <li><em>Cons:</em> May be ESRI-favorable, Lithodat should review with own legal counsel</li>
+            </ul>
+
+            <p><strong>Option B: Joint Legal Development</strong></p>
+            <ul>
+                <li><em>Pros:</em> Balanced approach, both parties contribute</li>
+                <li><em>Cons:</em> Slower, potential for conflicting legal advice</li>
+            </ul>
+
+            <p><strong>Option C: ESRI Drafts, Lithodat Reviews</strong></p>
+            <ul>
+                <li><em>Pros:</em> Fast, leverages ESRI Saudi expertise, Lithodat retains review rights</li>
+                <li><em>Cons:</em> Lithodat needs to allocate legal budget for review</li>
+            </ul>
+
+            <p><strong>Recommended Approach:</strong> ESRI SA drafts LOI, Lithodat reviews with legal counsel within 1 business day</p>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Agreement on drafting responsibility and review process]</p>
+        </div>
+
+        <div class="decision">
+            <span class="decision-label">DECISION REQUIRED:</span> Agree on legal documentation process (who drafts, who reviews, timeline)
+        </div>
+
+        <div class="action-items">
+            <h4>Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>6.1</td>
+                    <td>Confirm ESRI SA can draft LOI within 3 business days</td>
+                    <td>ESRI SA Legal</td>
+                    <td>At meeting</td>
+                </tr>
+                <tr>
+                    <td>6.2</td>
+                    <td>Engage legal counsel for LOI review</td>
+                    <td>Lithodat (Fabian)</td>
+                    <td>Within 24 hours</td>
+                </tr>
+                <tr>
+                    <td>6.3</td>
+                    <td>Provide LOI template reference (already prepared)</td>
+                    <td>Lithodat (Keith)</td>
+                    <td>Immediately</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AGENDA ITEM 7 -->
+    <div class="agenda-item">
+        <p class="item-number">7. NEXT STEPS AND IMMEDIATE ACTIONS</p>
+
+        <div class="discussion">
+            <h4>Discussion Points:</h4>
+
+            <p><strong>Immediate Priorities (Next 5 Business Days):</strong></p>
+            <ol>
+                <li><strong>Day 1:</strong> Meeting concludes, partnership model selected, LOI drafting begins</li>
+                <li><strong>Day 2-3:</strong> ESRI SA drafts LOI, both parties gather qualification documents</li>
+                <li><strong>Day 4:</strong> Lithodat reviews LOI, provides feedback</li>
+                <li><strong>Day 5:</strong> LOI finalized and executed</li>
+            </ol>
+
+            <p><strong>Parallel Workstreams:</strong></p>
+            <ul>
+                <li>Document collection (financials, registrations, CVs, references)</li>
+                <li>Saudi compliance verification (Ministry of Investment, Saudization plan)</li>
+                <li>ESRI Platinum Partner application (if approved)</li>
+                <li>RFQ forms preparation (Forms 1-11 per RFQ requirements)</li>
+            </ul>
+        </div>
+
+        <div class="comments">
+            <h4>Comments / Notes:</h4>
+            <p>[Any additional next steps, concerns, or dependencies identified]</p>
+        </div>
+
+        <div class="action-items">
+            <h4>Summary of All Action Items:</h4>
+            <table class="action-table">
+                <tr>
+                    <th style="width: 10%;">No.</th>
+                    <th style="width: 50%;">Action</th>
+                    <th style="width: 25%;">Responsible</th>
+                    <th style="width: 15%;">Deadline</th>
+                </tr>
+                <tr>
+                    <td>7.1</td>
+                    <td>Circulate meeting minutes for review and approval</td>
+                    <td>Lithodat (Keith)</td>
+                    <td>Within 24 hours of meeting</td>
+                </tr>
+                <tr>
+                    <td>7.2</td>
+                    <td>Schedule follow-up check-in call</td>
+                    <td>Both parties</td>
+                    <td>Day 3 post-meeting</td>
+                </tr>
+                <tr>
+                    <td>7.3</td>
+                    <td>Confirm all deadlines met and RFQ submission on track</td>
+                    <td>Both parties</td>
+                    <td>Day 5 post-meeting</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- SUMMARY OF KEY DECISIONS -->
+    <h2>SUMMARY OF KEY DECISIONS REQUIRED</h2>
+    <div style="border: 2px solid #000; padding: 15px; margin: 20px 0;">
+        <table>
+            <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 60%;">Decision Point</th>
+                <th style="width: 35%;">Status</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Select partnership model (Prime-Sub / Consortium / Lead Partner)</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Approve hours-based revenue sharing model (in principle)</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Approve RACI matrix or identify required changes</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pursue ESRI Platinum Partner with costs in RFP budget</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Confirm both parties can provide RFQ documents within timeline</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Agree on legal documentation process (ESRI drafts, Lithodat reviews)</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Commit to 5-day LOI execution timeline</td>
+                <td>[ ] Agreed  [ ] Pending</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SIGNATURE SECTION -->
+    <div class="signature-section">
+        <h2>MEETING MINUTES APPROVAL</h2>
+
+        <div class="signature-block">
+            <p><strong>ESRI South Africa (Pty) Ltd</strong></p>
+            <p>Signature: <span class="signature-line"></span></p>
+            <p>Name: _____________________________________</p>
+            <p>Title: _____________________________________</p>
+            <p>Date: _____________________________________</p>
+        </div>
+
+        <div class="signature-block">
+            <p><strong>Lithodat Pty Ltd</strong></p>
+            <p>Signature: <span class="signature-line"></span></p>
+            <p>Name: _____________________________________</p>
+            <p>Title: _____________________________________</p>
+            <p>Date: _____________________________________</p>
+        </div>
+    </div>
+
+    <hr style="border: 1px solid #000; margin: 30px 0;">
+
+    <p style="font-size: 9pt; text-align: center; margin: 20px 0;">
+        <strong>CONFIDENTIAL</strong><br>
+        This document contains confidential information shared between ESRI South Africa and Lithodat<br>
+        for the purpose of the SGS GDAC-SA RFQ opportunity. Not for external distribution.
+    </p>
+
+    <p style="font-size: 9pt; text-align: center; color: #666;">
+        Document prepared: 30 December 2025<br>
+        Reference: LOI-Template-ESRI-Lithodat.md, GDAC-ESRI-Lithodat-RACI-Matrix-SIMPLIFIED.csv
+    </p>
+</body>
+</html>

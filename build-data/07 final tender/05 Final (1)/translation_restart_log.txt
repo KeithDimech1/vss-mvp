@@ -1,0 +1,62 @@
+
+================================================================================
+PARALLEL HTML TO ARABIC TRANSLATION - RESTARTED
+Workers: 4 parallel processes
+Source: /Users/keithdimech/Pathway/Dev/Lithodat/Viable Systems Model/VSM-Platform-Project/build-data/07 final tender/05 Final (1)/../05 Final (1) copy/html
+Output: /Users/keithdimech/Pathway/Dev/Lithodat/Viable Systems Model/VSM-Platform-Project/build-data/07 final tender/05 Final (1)/Arabic
+================================================================================
+
+Found 9 files (Total: 48.2 MB)
+
+File list:
+  1. Appendix-K-QMS-Policy.html                             0.01 MB
+  2. Appendix-L-References-FINAL.html                       0.04 MB
+  3. Lithodat-HSE-Policy.html                               0.09 MB
+  4. Lithodat-QMS-Policy.html                               0.09 MB
+  5. I-NRCan-Project-Summary-Clean.html                     0.14 MB
+  6. Lithodat-EarthBank-Project-Summary-with-images.html     0.18 MB
+  7. Lithodat-EarthBank-Project-Summary.html                7.85 MB
+  8. H-Isotopes-au-Project-Summary-Clean.html              12.82 MB
+  9. GDAC-SA-Response-Final-Clean.html                     26.96 MB
+
+Starting 4 parallel workers...
+
+
+[Worker 1/9] START: Appendix-K-QMS-Policy.html (0.01 MB)
+
+[Worker 2/9] START: Appendix-L-References-FINAL.html (0.04 MB)
+
+[Worker 3/9] START: Lithodat-HSE-Policy.html (0.09 MB)
+
+[Worker 4/9] START: Lithodat-QMS-Policy.html (0.09 MB)
+[Worker 3] ✓ COMPLETE: Lithodat-HSE-Policy.html (55 translations)
+
+[Worker 5/9] START: I-NRCan-Project-Summary-Clean.html (0.14 MB)
+[Worker 1] ✓ COMPLETE: Appendix-K-QMS-Policy.html (57 translations)
+
+[Worker 6/9] START: Lithodat-EarthBank-Project-Summary-with-images.html (0.18 MB)
+[Worker 5] ✓ COMPLETE: I-NRCan-Project-Summary-Clean.html (1 translations)
+
+[Worker 7/9] START: Lithodat-EarthBank-Project-Summary.html (7.85 MB)
+[Worker 4] ✓ COMPLETE: Lithodat-QMS-Policy.html (71 translations)
+
+[Worker 8/9] START: H-Isotopes-au-Project-Summary-Clean.html (12.82 MB)
+[Worker 7] ✓ COMPLETE: Lithodat-EarthBank-Project-Summary.html (55 translations)
+
+[Worker 9/9] START: GDAC-SA-Response-Final-Clean.html (26.96 MB)
+[Worker 9] Replacing Executive Summary...
+[Worker 8] ✓ COMPLETE: H-Isotopes-au-Project-Summary-Clean.html (105 translations)
+[Worker 6] ✓ COMPLETE: Lithodat-EarthBank-Project-Summary-with-images.html (160 translations)
+[Worker 2] ✓ COMPLETE: Appendix-L-References-FINAL.html (559 translations)
+[Worker 9] ✓ COMPLETE: GDAC-SA-Response-Final-Clean.html (2428 translations)
+
+================================================================================
+TRANSLATION COMPLETE
+================================================================================
+Success: 9/9 files
+Total translations: 3,491
+Time elapsed: 56.3 minutes
+Average speed: 0.9 MB/min
+================================================================================
+
+Arabic files saved to: /Users/keithdimech/Pathway/Dev/Lithodat/Viable Systems Model/VSM-Platform-Project/build-data/07 final tender/05 Final (1)/Arabic

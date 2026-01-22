@@ -617,3 +617,4 @@ These MCP servers would be globally available to all Claude Code projects, provi
 **Detail Log:** [debug/IDEA-004-global-australian-legal-ai-agents-sovereign-ai-open-legal-corpus.md](debug/IDEA-004-global-australian-legal-ai-agents-sovereign-ai-open-legal-corpus.md)
 
 ---
+| IDEA-005 | ESRI Partnership for GDAC-SA Tender - LithoSurfer Migration from Mapbox to ArcGIS | P0 | 💡 idea | [debug/IDEA-005-esri-partnership-for-gdac-sa-tender-lithosurfer-migration-from-mapbox-to-arcgis.md](debug/IDEA-005-esri-partnership-for-gdac-sa-tender-lithosurfer-migration-from-mapbox-to-arcgis.md) |

@@ -1,0 +1,578 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRCan CATCH Database Project Summary - Lithodat Pty Ltd</title>
+    <style>
+
+/* ========================================
+   EarthBank Project Summary - Clean Styles
+   Word-Compatible, Print-Ready
+   ======================================== */
+
+/* Page Setup */
+@page {
+    size: A4;
+    margin: 25mm;
+}
+
+@media print {
+    body { margin: 0; }
+    .page-break { page-break-after: always; }
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000000;
+    background: white;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 25mm;
+}
+
+/* Headings */
+h1 {
+    font-size: 18pt;
+    color: #1f4e78;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 12pt;
+    border-bottom: 3px solid #1f4e78;
+    padding-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 14pt;
+    color: #1f4e78;
+    font-weight: bold;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+    border-bottom: 2px solid #1f4e78;
+    padding-bottom: 4pt;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 12pt;
+    color: #1f4e78;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+}
+
+/* Text */
+p {
+    margin-bottom: 10pt;
+    text-align: justify;
+    orphans: 3;
+    widows: 3;
+}
+
+strong, b {
+    font-weight: bold;
+    color: #1f4e78;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* Lists */
+ul, ol {
+    margin: 10pt 0 10pt 20pt;
+}
+
+li {
+    margin-bottom: 6pt;
+    text-align: justify;
+}
+
+/* Links */
+a {
+    color: #1f4e78;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+img {
+    max-width: 160mm;
+    height: auto;
+    display: block;
+    margin: 10pt auto;
+}
+
+/* Page Breaks */
+.page-break {
+    page-break-after: always;
+}
+
+section {
+    page-break-inside: avoid;
+}
+
+/* Title Page */
+.title-page {
+    page-break-after: always;
+    text-align: center;
+    padding-top: 80mm;
+}
+
+.title-page img {
+    max-width: 150mm;
+    margin-bottom: 40pt;
+}
+
+.title-page h1 {
+    font-size: 24pt;
+    color: #1f4e78;
+    margin: 20pt 0;
+    border: none;
+}
+
+.title-page .subtitle {
+    font-size: 14pt;
+    margin: 15pt 0;
+    color: #000;
+}
+
+.title-page .meta {
+    font-size: 12pt;
+    color: #666;
+    margin-top: 30pt;
+}
+
+/* Highlight Boxes */
+.highlight-box {
+    background-color: #e8f0f7;
+    border-left: 4px solid #1f4e78;
+    padding: 12pt;
+    margin: 16pt 0;
+    page-break-inside: avoid;
+}
+
+.highlight-box strong {
+    color: #1f4e78;
+}
+
+/* EarthBank Logo */
+.earthbank-logo {
+    max-width: 120mm;
+    margin: 20pt auto;
+}
+
+    </style>
+
+</head>
+
+<body lang=EN-AU style='tab-interval:36.0pt;word-wrap:break-word'>
+
+
+
+<div class=WordSection1>
+
+<div style='margin-bottom:20.0pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1027" type="#_x0000_t75" alt="Lithodat Logo"
+ style='width:448pt;height:87pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="I-NRCan-Project-Summary-Clean.fld/image001.png" o:title="Lithodat Logo"/>
+</v:shape><![endif]--><![if !vml]><img width=448 height=87
+src="I-NRCan-Project-Summary-Clean.fld/image001.png" alt="Lithodat Logo"
+v:shapes="_x0000_i1027"><![endif]></span><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+color:black;mso-ansi-language:EN'><o:p></o:p></span></p>
+
+</div>
+
+<div>
+
+<div>
+
+<div>
+
+<p class=MsoNormal align=center style='margin-top:20.0pt;margin-right:0cm;
+margin-bottom:20.0pt;margin-left:0cm;text-align:center;page-break-after:avoid;
+mso-outline-level:2'><span class=SpellE><b><span lang=EN style='font-size:24.0pt;
+font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+color:#1F4E78;mso-font-kerning:18.0pt;mso-ansi-language:EN'><!-- Main Content (All preserved from original, including images) -->NRCan</span></b></span><b><span
+lang=EN style='font-size:24.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:#1F4E78;mso-font-kerning:18.0pt;mso-ansi-language:EN'>
+CATCH Database<o:p></o:p></span></b></p>
+
+</div>
+
+<div>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'>Canadian Thermochronology
+National Data Platform<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+ o:spid="_x0000_i1026" type="#_x0000_t75" alt="Natural Resources of Canada (NRCan) | Refrigeration Upgrade Timelines"
+ style='width:257pt;height:75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="I-NRCan-Project-Summary-Clean.fld/image002.png" o:href="https://www.hillphoenix.com/wp-content/uploads/2022/04/nrcan-logo-500x145-1.png"/>
+</v:shape><![endif]--><![if !vml]><img width=257 height=75
+src="I-NRCan-Project-Summary-Clean.fld/image002.png"
+alt="Natural Resources of Canada (NRCan) | Refrigeration Upgrade Timelines"
+v:shapes="Picture_x0020_1"><![endif]></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-size:14.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</div>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN
+style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+color:#666666;mso-ansi-language:EN'>GDAC-SA Advanced Analytics Platform RFQ<br>
+Lithodat Pty Ltd<br>
+ABN: 63 627 008 904 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+<!-- MAIN CONTENT --><section><strong><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN;mso-fareast-language:EN-GB;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span></strong>
+
+<p class=MsoNormal><strong><span lang=EN style='font-size:11.0pt;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+EN'><o:p>&nbsp;</o:p></span></strong></p>
+
+<div>
+
+<div>
+
+<div>
+
+<p style='background:#E8F0F7'><b><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;color:#1F4E78;mso-ansi-language:EN'>Project
+Overview:</span></b><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'> The Canadian <span class=SpellE>ThermoCHronology</span>
+(CATCH) database is a $400,000 CAD national platform integrating 51 years of
+thermochronology data. Developed by Lithodat for Natural Resources Canada's
+Geological Survey, CATCH demonstrates direct alignment with GDAC-SA
+requirements through proven capability in multi-decade data integration, legacy
+data digitization, and FAIR-compliant national database architecture delivered
+on-time and on-budget. <o:p></o:p></span></p>
+
+</div>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>1. Overview<o:p></o:p></span></h2>
+
+</div>
+
+<p><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>The CATCH database is Canada's first unified
+national repository for <span class=GramE>low-temperature</span>
+thermochronology data, integrating 1,427 samples from 91 publications spanning
+1970-2021. Developed by Lithodat Pty Ltd (Fabian Kohlmann, Malcolm McMillan)
+with the Geological Survey of Canada (Dr. Jeremy Powell, Dr. Dawn Kellett),
+CATCH demonstrates national-scale data standardization directly applicable to
+GDAC-SA's multi-agency integration requirements.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Performance:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> $400,000 CAD, 18 months (October 2021 - March 2023), delivered on-time and
+on-budget. Platform scale: 996 fission-track datapoints, 762 (U-Th)/He
+datapoints, 16,277 single grain measurements, published via DOI
+10.4095/pdreqf905k and accessible through AusGeochem.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>2. History &amp; Funding<o:p></o:p></span></h2>
+
+</div>
+
+<p><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>Natural Resources Canada's Geological Survey
+(GSC) is Canada's national geoscience organization. Prior to CATCH, Canada had
+no central thermochronology database despite decades of published
+research—analogous to GDAC-SA's challenge of fragmented geological survey data.<o:p></o:p></span></p>
+
+<p><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>In October 2021, GSC awarded Lithodat a
+$400,000 CAD contract to design Canada's first national thermochronology data
+model, harvest all published research (1970-2021), and integrate with <span
+class=SpellE>AusGeochem's</span> FAIR platform. The project required systematic
+harmonization of legacy laboratory outputs from multiple provinces, automated
+QA/QC pipeline development, and extensive legacy data digitization from
+analogue paper reports and non-vectorized PDFs.<o:p></o:p></span></p>
+
+<p><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>Deliverables included national data schema
+accommodating four <span class=SpellE>thermochronometer</span> types
+(apatite/zircon fission-track, apatite/zircon (U-Th)/He), standardization of 51
+years of provincial data, complete harvesting from 91 publications, and
+integration with international reporting standards.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>3. Key Collaborators<o:p></o:p></span></h2>
+
+</div>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Client:</span></strong><span lang=EN style='font-size:
+11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'>
+Natural Resources Canada - Geological Survey of Canada (equivalent to Saudi
+Geological Survey).<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Project Leadership:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> Dr. Jeremy Powell (GSC project lead, first author), Dr. Dawn Kellett (GSC
+co-author), demonstrating government partnership excellence.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Provincial Integration:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> All Canadian provincial geological surveys contributed data requiring
+standardization across boundaries—demonstrating multi-agency harmonization
+applicable to GDAC-SA.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Platform:</span></strong><span lang=EN style='font-size:
+11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'>
+AusGeochem provides FAIR data access, enabling international research community
+access through open-source platform.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>4. Platform Capabilities<o:p></o:p></span></h2>
+
+</div>
+
+<p><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>CATCH employs purpose-built data structure
+accommodating four <span class=SpellE>thermochronometer</span> types
+(Apatite/Zircon Fission Track, Apatite/Zircon (U-Th)/He) plus thermal history
+modeling. Canada's first unified national thermochronology schema handles
+complex kinetic parameters, accommodates legacy laboratory outputs, and
+provides ML-compatible, cloud-ready structure.<o:p></o:p></span></p>
+
+<div>
+
+<p class=MsoNormal><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";color:black;mso-ansi-language:EN;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1025"
+ type="#_x0000_t75" alt="CATCH database northern Canada compilation map"
+ style='width:442pt;height:261pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="I-NRCan-Project-Summary-Clean.fld/image003.png" o:title="CATCH database northern Canada compilation map"/>
+</v:shape><![endif]--><![if !vml]><img width=442 height=261
+src="I-NRCan-Project-Summary-Clean.fld/image003.png"
+alt="CATCH database northern Canada compilation map" v:shapes="Picture_x0020_3"><![endif]></span><span
+lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";color:black;mso-ansi-language:EN'><o:p></o:p></span></p>
+
+<div>
+
+<p class=MsoNormal><strong><span lang=EN style='font-size:11.0pt;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+EN'>Figure 1:</span></strong><span lang=EN style='font-size:11.0pt;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";color:black;
+mso-ansi-language:EN'> CATCH database northern Canada compilation showing 1,427
+sample locations with <span class=GramE>low-temperature</span> thermochronology
+data (colored by geologic age: red = Precambrian, green = Paleozoic, blue =
+Mesozoic, yellow = Cenozoic). Demonstrates national-scale geospatial data
+integration with complete metadata capture for 51 years of published research.
+Data accessible via AusGeochem platform. <o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Advanced Features:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> Single grain data preservation (16,277 measurements), fission-track length
+capture (27,848 measurements) from digitized histograms, automated QA/QC
+pipelines validated by GSC scientists, comprehensive provenance tracking,
+georeferencing workflow, and thermal history modeling integration.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>5. FAIR Data &amp; Project Performance<o:p></o:p></span></h2>
+
+</div>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>FAIR Principles:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> Findable via DOI (10.4095/pdreqf905k) in GSC Open File series; Accessible
+through AusGeochem platform with no authentication barriers; Interoperable
+using community-agreed schemas; Reusable with complete metadata and
+ML-compatible structure.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>On-Time, On-Budget:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> 18-month timeline met (October 2021 - March 2023), $400,000 CAD managed
+with complete accountability, demonstrating reliable government partnership.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>National-Scale Achievement:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> Standardized data across entire Canadian territory, harmonized provincial
+inconsistencies, integrated 51 years of data (1970-2021), harvested all
+published research from 91 sources—demonstrating systematic multi-decade
+integration applicable to GDAC-SA.<o:p></o:p></span></p>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Technical Excellence:</span></strong><span lang=EN
+style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:
+EN'> Automated data ingestion for multiple formats (digital, analogue paper,
+non-vectorized PDFs), QA/QC validation by GSC staff, and cloud-ready
+infrastructure supporting advanced analytics.<o:p></o:p></span></p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #1F4E78 1.5pt;
+padding:0cm 0cm 4.0pt 0cm'>
+
+<h2><span lang=EN style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>6. Publications &amp; Recognition<o:p></o:p></span></h2>
+
+</div>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>Powell, J.W., Kellett, D.A., Kohlmann, F., and McMillan,
+M. (2025).</span></strong><span lang=EN style='font-size:11.0pt;font-family:
+"Arial",sans-serif;color:black;mso-ansi-language:EN'> Canadian <span
+class=SpellE>ThermoCHronology</span> (CATCH) database: northern Canada
+compilation. <em><span style='font-family:"Arial",sans-serif'>Geological Survey
+of Canada, Open File 9225</span></em>, 1 .zip file. DOI: <a
+href="https://doi.org/10.4095/pdreqf905k">10.4095/pdreqf905k</a><o:p></o:p></span></p>
+
+<p><em><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+color:black;mso-ansi-language:EN'>Official government publication documenting
+Lithodat's design of Canada's first unified thermochronology data model and
+curation of 51 years of legacy data. Demonstrates multi-format extraction
+pipelines, automated QA/QC frameworks, and FAIR data implementation at national
+scale. The project's scope and methodologies are directly transferable to
+GDAC-SA's requirements for integrating historical geological survey data with
+modern analytics infrastructure.</span></em><span lang=EN style='font-size:
+11.0pt;font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'><o:p></o:p></span></p>
+
+<div>
+
+<p><strong><span lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;
+mso-ansi-language:EN'>For verification of project performance and technical
+details, contact:</span></strong><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'><o:p></o:p></span></p>
+
+<p align=left style='text-align:left'><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'>Dr. Jeremy
+Powell<br>
+Geological Survey of Canada (Natural Resources Canada)<br>
+Email: <a href="mailto:jeremy.powell@nrcan-rncan.gc.ca">jeremy.powell@nrcan-rncan.gc.ca</a><o:p></o:p></span></p>
+
+<p align=left style='text-align:left'><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p align=left style='text-align:left'><span lang=EN style='font-size:11.0pt;
+font-family:"Arial",sans-serif;color:black;mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
+
+<p align=left style='text-align:left'><strong><span lang=EN style='font-size:
+11.0pt;font-family:"Arial",sans-serif;mso-ansi-language:EN'>Lithodat Pty Ltd</span></strong><span
+lang=EN style='font-size:11.0pt;font-family:"Arial",sans-serif;color:black;
+mso-ansi-language:EN'> | ABN: 48 647 191 452<br>
+Platform: <a href="https://ausgeochem.auscope.org.au/">https://ausgeochem.auscope.org.au/</a><br>
+Support: support@lithodat.com<o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</body>
+
+</html>

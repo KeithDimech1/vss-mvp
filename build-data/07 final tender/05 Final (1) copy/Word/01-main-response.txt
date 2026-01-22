@@ -1,0 +1,629 @@
+
+GDAC-SA PRE-QUALIFICATION RESPONSE
+Advanced Analytics Platform Saudi Center for Geoscience Data Analytics (GDAC-SA) 
+Lithodat Pty Ltd ABN: 63 627 008 904 Submitted: December 2024 
+
+
+
+
+
+
+
+
+
+
+Table of Contents
+	•	1. Executive Summary
+	•	2. Overview
+	•	3. Applicant Information
+	•	3.1 Application Information Form
+	•	3.2 Contact Information
+	•	3.3 Company Ownership Structure
+	•	3.4 Company Representative Information
+	•	4. Technical and Administrative Capabilities
+	•	4.1 Previous Work Experience
+	•	4.2 Key Performance Outcomes
+	•	4.3 Reference Contacts
+	•	4.4 Quality Management
+	•	4.5 Health, Safety, and Environment
+	•	4.6 Existing Contractual Obligations
+	•	4.7 Human Resources
+	•	5. Administrative Staff Experience
+	•	6. Professional Staff Experience
+	•	7. Project Organization Chart
+	•	8. Experience in Similar Projects
+	•	8.1 EarthBank - National Geochronology Archive
+	•	8.2 Isotopes.au - National Isotopic Data Platform
+	•	8.3 CATCH Database - Northern Canada
+	•	9. Financial Capacity Criteria
+	•	9.1 Balance Sheet Statement (Last 3 Years)
+	•	9.2 Financial Performance Indicators
+	•	10. Appendices
+	•	Appendix A: ASIC Company Extract
+	•	Appendix B: Financial Statement FY2024-2025
+	•	Appendix C: Financial Statement FY2023-2024
+	•	Appendix D: Financial Statement FY2022-2023
+	•	Appendix E: Quality Management Policy
+	•	Appendix F: Health, Safety & Environment Policy
+	•	Appendix G: EarthBank Project Summary
+	•	Appendix H: Isotopes.au Project Summary
+	•	Appendix I: NRCan CATCH Project Summary
+	•	Appendix J: Publications Summary
+	•	Appendix K: Team Curriculum Vitae
+EXECUTIVE SUMMARY
+Lithodat Pty Ltd is honoured to submit our pre-qualification response for the Geological Data Analysis Center (GDAC-SA) AI/Big Data Analytics Platform. We recognize that the Saudi Geological Survey has received approval to establish a transformational platform that will enable Saudi Arabia's Vision 2030 objective of developing the mining sector as the Kingdom's third economic pillar. This platform must integrate diverse geological data types, such as reports, geochemistry, geophysics, remote sensing, geology, and drilling records, from the National Geological Database (NGD), National Information Center (NIC), and new field campaigns, then apply advanced AI analytics to deliver mineral prospectivity predictions, target generation, and exploratory forecasting capabilities. The Saudi Geological Survey correctly identifies that much of this data exists with varying quality, incomplete metadata, inconsistent formats, and aggregations spanning decades of geological work.
+We are uniquely positioned to deliver this vision because we have already built exactly what GDAC-SA envisions. Over the past decade, Lithodat together with our government, industry and academic partners,has successfully delivered two national-scale data cleaning and standarding programs of work for federal government organizations across Australia and Canada:
+	•	EarthBank (national geochemistry platform for AuScope Geoscience Australia)
+	•	Isotopes.au (federal stable isotope platform developed with CSIRO and four other Australian government agencies)
+	•	CATCH Database (Canadian Thermochronology Database for Natural Resources Canada).
+These geological databases integrate the type of multi-agency, multi-decade geological data that GDAC-SA must harmonize, to power the AI-enabled analytics for mineral exploration, environmental assessment, and geoscientific research. Our track record demonstrates the capability, and proven operational delivery of the digital infrastructure GDAC-SA requires.
+The Critical Foundation: Clean Data First for AI Success
+The RFQ correctly identifies GDAC-SA's fundamental challenge: creating a unified geospatial analytics platform from data sources with "aggregations of data and gaps, including structured and unstructured data, some of which are without metadata." The Saudi Geological Survey recognizes that Phase 1 must create "the underlying data ecosystem" through data structure design, feature engineering, natural language processing, and new algorithm development. This understanding is precisely correct, and we must emphasize a critical principle that determines whether GDAC-SA succeeds or fails: the only pathway to AI-enabled mineral exploration workflows is through clean, standardized, FAIR (Finable, Accessible, Interoperable and Reusable)-compliant data. Machine learning models cannot overcome poor data quality. No amount of sophisticated AI algorithms can extract reliable mineral prospectivity predictions from inconsistent terminology, missing spatial coordinates, incompatible measurement units, or uncontrolled vocabularies. Attempts to "bolt on" AI to poorly structured data inevitably fail because poor data requires more effort from AI and subsequently produces poor predictions.
+Lithodat's "Clean Data First" methodology ensures that every data ingestion, transformation, and storage step creates AI-ready datasets from day one. Our proven five-stage pipeline has successfully powered three national and international data platforms, and this exact architecture will deliver GDAC-SA's requirements:
+
+Figure 1: Lithodat’s Clean First Data Pipeline
+Stage 1 (Data Ingestion) employs multi-format adapters that handle Excel and CSV datasets, legacy databases, and other unstructured data with automated validation against geoscience vocabularies and quality scoring at point of entry. For the CATCH Database, we digitized 50+ years of legacy data (1970-2021) from 91 disparate sources including analogue paper reports, non-vectorized PDFs, and published figures, georeferencing sample locations from maps without GPS coordinates, exactly the historical data challenge GDAC-SA faces with NGD and NIC archives.
+Stage 2 (Semantic Standardization) creates SKOS-based controlled vocabularies (ontologies) that map diverse terminology to standardized concepts, enabling AI feature engineering across heterogeneous sources. For Isotopes.au we developed 250+ standardized field mappings validated across six institutional data sources from three federal agencies, directly analogous to GDAC's challenge of harmonizing Saudi Geological Survey data across departments with different conventions. This semantic interoperability is essential for Phase 1's data ecosystem and Phase 2's AI-based mineral system modeling.
+Stage 3 (FAIR-Compliant Database Storage) implements our comprehensive metadata capture, full audit trail and provenance tracking, and RESTful APIs for programmatic access by AI workflows. Our EarthBank platform achieved CoreTrustSeal certification, the international standard for trustworthy digital repositories, demonstrating our implementation of FAIR (Findable, Accessible, Interoperable, Reusable) data principles. FAIR data is not merely a compliance requirement; it is the technical foundation that enables AI success. Findability through rich metadata allows algorithms to automatically discover relevant features (mineral associations, structural controls, geochemical signatures). Accessibility via RESTful APIs enables external machine learning frameworks (PyTorch, TensorFlow, scikit-learn) to programmatically access training datasets. Interoperability through controlled vocabularies creates the semantic standardization essential for feature engineering. Reusability with comprehensive provenance tracking allows Phase 2 models to be retrained as new data arrives in Phases 3-4 without quality degradation.
+Stage 4 (SGS Live Portal Development) creates dual-access systems: public-facing data portals for open geoscience access by researchers and industry, plus private secure areas for SGS internal workflows with role-based access control and user management. EarthBank and Isotopes.au are fully operational public platforms serving geoscientists globally while maintaining secure administrative features for government analytical requirements.
+Stage 5 (AI/ML Application Layer) delivers advanced analytics through feature engineering from clean structured data, machine learning model training for classification /regression/clustering, mineral prospectivity mapping and target generation, and time series analysis for trend detection.
+OVERVIEW
+Table 1: Company Overview
+RFQ Reference Number:
+251140007625
+Government Entity:
+Saudi Geological Survey (SGS)
+Applicant:
+Lithodat Pty Ltd
+ABN:
+63 627 008 904
+Submission Date:
+December 2025
+Submission Platform:
+Etimad Portal
+Prepared By:
+Keith Dimech, Chief Operating Officer
+Contact Email:
+keith.dimech@lithodat.com
+Contact Phone:
++61 428 971 396
+Currency Note: All financial values shown in Australian Dollars (AUD) and Saudi Riyals (SAR) at exchange rate: AUD 1.00 = SAR 2.45 (Monday 1st of December).
+
+APPLICANT INFORMATION
+Application Information Form
+Table 2: Advanced
+Name of Applicant
+Lithodat Pty Ltd
+Commercial Registration Number
+ABN 63 627 008 904 (Australian Business Number)
+Establishment Date
+25 June 2018
+Years in Operation
+7 years (2018-2025)
+Company Type
+Proprietary Limited Company (Pty Ltd)
+Function
+Geological Artificial Intelligence, Database and Software Services
+Person Responsible
+Fabian Kohlmann
+Capital Value1
+AUD $296,608 / SAR 726,690
+1 Capital Value = Net Assets as at 30 June 2025 per FY2025 Annual Report (Total Assets $430,819 - Total Liabilities $134,211 = $296,608)
+Contact Information
+Table 3: Address
+Street Address
+94 Stephensons Road
+City
+Mount Waverley, Victoria
+Zip Code
+3149
+Country
+Australia
+P.O. Box
+N/A
+Telephone
++61 481 977 499‬‬
+Email
+fabian.kohlmann@lithodat.com
+Website
+www.lithodat.com
+Site (Offices)
+Melbourne, Australia
+Dublin, Ireland
+Hermosillo, Mexico
+Company Ownership Structure
+Source: Appendix A - ASIC Company Extract (02-Dec-2025) Total Class A Shares: 1,000
+Table 4: Company Ownership
+#
+Owner/Partner Name
+Percentage
+Nationality
+1
+Dr. Fabian Kohlmann
+50.1% (501 shares)
+German / Australian
+2
+Gerd Moritz Theile
+24.0% (240 shares)
+German
+3
+Dr. Wayne Peter Noble
+14.9% (149 shares)
+Australian
+4
+Nilesh Ambadas Vyavahare
+8.0% (80 shares)
+British / Indian
+5
+Romain Beucher
+3.0% (30 shares)
+French / Australian
+Company Representative Information
+Table 5:Company Representative
+Name of Responsible Person
+Fabian Kohlmann
+Job Title
+Chief Executive Officer (CEO)
+Telephone
++61 481 977 499‬‬
+Mobile
++61 481 977 499‬‬
+Email
+fabian.kohlmann@lithodat.com
+
+TECHNICAL AND ADMINISTRATIVE CAPABILITIES
+Previous Work Experience
+Table 6: Previous Work Experience
+Number of years of experience in the field of project
+Lithodat - 7 years (since 2018)
+Number of similar projects executed in the last three years
+3 major projects
+Appendix G -Earthbank – Project Summary
+Appendix H - Isotopes.au – Project Summary
+Appendix I - NRCan – Project Summary
+Key Performance Outcomes
+Table 7: Performance Metrics
+Performance Metric
+EarthBank
+Isotopes-AU
+NRCan
+On-Time Delivery
+Excellent
+Excellent
+Excellent
+Technical Quality
+Excellent
+Excellent
+Excellent
+Client Satisfaction
+Excellent
+Excellent
+Excellent
+Budget Compliance
+Excellent
+Excellent
+Excellent
+Reference Contacts
+Table 8: Reference Contacts
+Project
+Reference Contact
+Title
+Email
+EarthBank
+Prof. Brent McInnes
+AuScope Earthbank Director
+b.mcinnes@curtin.edu.au
+Isotopes-AU
+Dr. Nina Welti
+CSIRO – Environmental Isotopes Laboratory
+nina.welti@csiro.au
+NRCan
+Dr. Jeremy Powell
+Geological Survey of Canada (NRCan)
+jeremy.powell@nrcan-rncan.gc.ca
+Quality 
+Table 9: Quality Assurance
+Quality Assurance Standards
+Quality Management System for Geological Data Services
+Evidence Provided
+Quality Policy (CEO-signed)
+Health Safety and Environment
+Table 10: HSE Assurance
+HSE Standards
+Lithodat HSE Policy
+Evidence Provided
+HSE Policy Document (CEO-signed)
+Existing Contractual Obligations
+Table 11: Existing Contractual Obligations
+Number of existing projects
+2 active projects, 1 in Negotiation (beginning 2026)
+Value of existing projects
+AUD $3,800,000 combined
+SAR $9,310,000 combined
+Status
+Both projects ongoing and in good standing
+Human Resources
+Table 12: Human Resources
+Total Number of Employees
+19 (3 Management + 10 Full-time + 6 Contractors)
+Number of Saudi Employees
+1 (Dr. Mahdi AbuAli - GDAC Saudi Lead)
+Percentage of Saudi Employees
+5.3%
+
+
+ADMINISTRATIVE STAFF EXPERIENCE
+Table 13: Project Administration and Leadership
+#
+Name
+Function
+Specialization / Area of Expertise
+Years
+1
+Dr. Fabian Kohlmann
+Managing Director and CEO
+Geoscience Leadership
+Strategic Planning, Business Development
+Former Halliburton Thermochronology Product Lead
+Geoscience Data Management
+FAIR Data Architecture
+15+ years
+2
+Dr. Mahdi AbuAli
+GDAC Saudi Lead
+Global Geology Leader
+Saudi Government Relations,
+Saudi Aramco (35+ years),
+Executive Leadership,
+Petroleum Systems
+35+ years
+3
+Keith Dimech
+Chief Operating Officer
+Project Management,
+Financial Operations,
+Human Relations
+Legal
+15+ years
+4
+Juan Baca
+Quality Manager
+Data Quality Management
+Geology Process Leadership
+Database Operations
+Training
+10+ years
+5
+Vinko Novak
+Head of Data Security
+Data Security
+Information Protection
+Compliance
+Security Architecture
+20+ years
+6
+Annemarie Grass
+Head of Cyber Security
+Cyber Security
+ISO 27001 Accreditation
+Incident Response
+15+ Years
+
+
+PROFESSIONAL STAFF EXPERIENCE
+Table 14: Senior Technical Team
+#
+Name
+Function
+Specialization / Area of Expertise
+Years
+1
+Dr. Wayne Peter Noble
+Chief Information Officer
+PhD – Thermochronology
+Software development:
+Enterprise Architecture,
+Cloud Systems,
+Agile Leadership,
+Software Development,
+Continuous Delivery Expert
+25+ years
+2
+Dr. Qusay Abeed
+GDAC Geological Technical Director
+Geology & Geochemistry,
+Basin Modelling,
+CO2 Storage,
+Native Arabic Speaker,
+C++ Development,
+Quality Assurance Expert,
+Delivery Lead
+18+ years
+3
+Gerd Moritz Theile
+Chief Technology Officer
+PostgreSQL Architecture,
+Database Design,
+LithoSurfer Platform,
+Java Development
+25+ years
+4
+Dr. Behnam Sadeghi
+ML Technical Advisor
+ML/AI, Geospatial AI,
+Python Package Developer
+2023 IAMG Vistelius Award
+CSIRO Research Fellow
+58+ Publications
+Author on Fractals/Multifractals
+Fulbright Scholar
+15+ years
+5
+Pedro Ferreira
+AI Software Development Lead
+Technology and AI/ML Strategy, Enterprise AI Implementation,
+Power Apps AI Builder
+10-15 years
+6
+Nilesh Vyavahare
+GIS Full Stack Developer
+Senior Full Stack Engineer (GIS) at
+Principal Software Developer at Neftex - 5+ years (geological applications)
+Earth Observation & satellite data processing
+Geospatial ETL workflows (FME, Apache Airflow)
+ArcGIS development & plugins
+18 + years
+Table 15: Junior Technical Team
+#
+Name
+Function
+Specialization / Area of Expertise
+Years
+1
+Xinyan Zhang
+Frontend Developer
+React, TypeScript, UI/UX Implementation, Responsive Design
+3+ years
+2
+Lujia Yang
+Frontend Developer
+React, TypeScript, UI/UX Implementation, Data Science (MSc)
+1+ years
+3
+Tarun Sengar
+Backend Developer
+Java, AWS, Backend Systems, API Development
+5+ years
+4
+Nirali Dudharejiya
+Backend Developer
+Java, Liquibase, Backend Systems, Database Management
+5+ years
+5
+Cris Ibarra
+Geology Data Quality Specialist
+Data Entry, Data Validation, Quality Control, Database Operations
+3+ years
+6
+Perla Luque
+Geology Quality Specialist
+Data Entry, Data Validation, Quality Control, Database Operations
+3+ years
+7
+Dr. Alejandra Bedoya
+Geology Quality Specialist
+Geochronology, Thermochronology, Tectonics, Data Validation
+10+ years
+
+PROJECT ORGANISATION CHART
+
+
+
+
+EXPERIENCE IN SIMILAR PROJECTS
+Project 1: EarthBank - National Geochronology Archive
+Table 16: Earthbank
+Project Name
+EarthBank – Global Geochemistry Data Platform
+Full Details
+Appendix G Earthbank – Project Summary
+Project Link
+https://app.ausgeochem.org/
+https://www.auscope.org.au
+Project Location
+Australia and Global
+Project Content
+Geological data platform integrating geochemistry and geochronology data from multiple universities, museums and research institutions across Australia. Advanced analytics for mineral exploration and tectonic history reconstruction. The platform manages over 350,000 academically verified and quality checked samples .
+The database serves national research infrastructure and mineral exploration initiatives internationally and across the Australian continent.
+Project Owner
+AuScope / NCRIS (National Collaborative Research Infrastructure Strategy)
+Contract Value
+AUD $2,900,000 / SAR 7,105,000
+Contract Duration
+5+ years (2020 - Present, ongoing)
+Start Date
+2020
+Delivery Date
+Phase 1 Delivered 2023; Ongoing enhancements
+Name of Person Responsible
+Dr. Fabian Kohlmann
+Contact Information
+Dr Brett McInnes
+Email
+b.mcinnes@curtin.edu.au
+Project 2: Isotopes.au - National Isotopic Data Platform
+Table 17: Isotopes.au
+Project Name
+Isotopes.au - National Isotopic Data Platform
+Full Details
+Appendix H - Isotopes.au – Project Summary
+Project Location
+Australia (National)
+Project Link
+https://isotopes.au/
+Project Content
+Platform for managing and analysing federal stable isotope data across geoscience disciplines. Integration of datasets from CSIRO, ANSTO, Geoscience Australia, and National Measurement Institute. The platform includes advanced data standardization, quality control workflows, and isotopic ratio visualization tools.
+Registered with AusIndustry R&D program (IISA0053835) demonstrating innovation excellence. Supporting critical minerals exploration and environmental geoscience research across Australia.
+Project Owner
+CSIRO / ANSTO / Geoscience Australia / NMI
+Contract Value
+AUD $400,000 / SAR 980,000
+Contract Duration
+4.5 years (July 2024 - December 2028)
+Start Date
+July 2024
+Delivery Date
+December 2028 (in progress, on schedule)
+Name of Person Responsible
+Dr. Wayne Noble
+Client Contact Information
+Dr Nina Welti - CSIRO
+Email
+nina.welti@csiro.au
+
+Project 3: Canadian ThermoCHronology (CATCH) Database - Northern Canada 
+Table 18: NRCan CATCH Database
+Project Name
+Natural Resources Canada Geological Data Project
+Project Location
+Canada (National)
+Full Details
+Appendix I - NRCan – Project Summary
+Project Site
+https://app.lithodat.com/
+Project Content
+Development and delivery of Canada's national low-temperature thermochronology database for Natural Resources Canada's Geological Survey of Canada (GSC). The CATCH (Canadian ThermoCHronology) database is a comprehensive, FAIR-compliant (Findable, Accessible, Interoperable, Reuseable) platform for accessing Canadian low-temperature thermochronology (LTT) data.
+All Data available through Lithosurfer.
+Project Owner
+Natural Resources Canada (NRCan) - Canadian Federal Government
+Contract Value
+AUD $400,000 / SAR 980,000
+Contract Duration
+1.5 years (October 2021 - March 2023)
+Start Date
+October 2021
+Delivery Date
+March 2023 (DELIVERED)
+Name of Person Responsible
+Dr. Fabian Kohlmann
+Client Contact Information
+Geological Survey of Canada (NRCan)
+Dr. Jeremy Powell
+Email
+jeremy.powell@nrcan-rncan.gc.ca
+FINANCIAL CAPACITY CRITERIA
+6.1 Balance Sheet Statement (Last 3 Financial Years)
+Table 19: Balance Sheet Statement
+Balance Sheet Line Item
+FY2025
+FY2024
+FY2023
+Total Assets
+AUD $430,819 SAR 1,055,506
+AUD $216,906 SAR 531,420
+AUD $130,477 SAR 319,669
+Current Assets
+AUD $364,840 SAR 893,858
+AUD $176,800 SAR 433,160
+AUD $93,690 SAR 229,541
+Cash and Cash Equivalents
+AUD $274,855 SAR 673,395
+AUD $100,406 SAR 245,995
+AUD $40,605 SAR 99,482
+Accounts Receivable
+AUD $17,487 SAR 42,843
+AUD $76,394 SAR 187,165
+AUD $53,001 SAR 129,852
+Total Liabilities
+AUD $134,211 SAR 328,817
+AUD $80,012 SAR 196,029
+AUD $73,574 SAR 180,256
+Current Liabilities
+AUD $60,404 SAR 147,990
+AUD $40,106 SAR 98,260
+AUD $36,787 SAR 90,128
+Net Assets (Total Equity)
+AUD $296,608 SAR 726,690
+AUD $136,894 SAR 335,390
+AUD $56,903 SAR 139,412
+6.2 Financial Performance Indicators
+Table 20: Financial Performance Indicators
+Financial Ratio
+Formula
+FY2025
+FY2024
+FY2023
+Cash Ratio
+Cash / Current Liabilities
+4.55
+2.50
+1.10
+Current Ratio
+Current Assets / Current Liabilities
+6.04
+4.41
+2.55
+Quick Liquidity Ratio
+(Cash + Receivables) / Current Liabilities
+4.84
+4.41
+2.54
+
+DECLARATION
+I, the undersigned, declare that:
+1. All information provided in this qualification application is true, accurate, and complete to the best of my knowledge.
+2. All attached documents and certificates are valid and authentic.
+3. Lithodat Pty Ltd agrees to comply with all applicable laws, regulations, and requirements of the Kingdom of Saudi Arabia.
+4. We understand that any false or misleading information may result in disqualification from this tender process.
+5. We agree to maintain confidentiality of any information obtained during the qualification process.
+6. We acknowledge that the Saudi Geological Survey reserves the right to modify dates, requirements, or cancel the RFQ process at any time.
+7. If selected, we commit to registering in the Kingdom of Saudi Arabia and complying with all in-Kingdom requirements including Saudization targets.
+
+
+Authorized Signatory: Dr. Fabian Kohlmann
+Position: Managing Director and CEO
+Company: Lithodat Pty Ltd
+Date:
+Signature:
+
+LITHODAT PTY LTD
+ABN 63 627 008 904
+94 Stephensons Road, Mount Waverley, Victoria 3149, Australia
+Email: fabian.kohlmann@lithodat.com | Website: www.lithodat.com
+Phone: +61 481 977 499‬‬
+
+
+Appendix A
+Australian Security and Investment Commission – Lithodat Pty Ltd
+
+Appendix B
+Financial Statement FY2024-2025
+
+Appendix C
+Financial Statement FY2023-2024
+
+Appendix D
+Financial Statement FY2023-2024
+
+Appendix E
+Quality Management Policy
+
+Appendix F
+Health Safety and Environment Policy
+
+
+Appendix G
+EarthBank
+
+Appendix H
+Isotopes.Au
+
+Appendix I
+NRcan CATCH Database
+
+Appendix J
+Publication Summary
+
+Appendix K
+Curriculum Vitae
+

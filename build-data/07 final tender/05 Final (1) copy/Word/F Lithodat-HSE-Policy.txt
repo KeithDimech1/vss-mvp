@@ -1,0 +1,31 @@
+
+Health, Safety & Environment Policy
+Digital-First Workplace Standards  Lithodat Pty Ltd ABN: 48 647 191 452 December 2024 
+
+Health, Safety & Environment Policy
+Digital-First Workplace Standards
+Policy Overview
+Lithodat is committed to providing a safe work environment and operating in an environmentally responsible manner. As a compact, digital-first company, our HSE focus is on maintaining healthy remote-work habits, ensuring the security of our digital tools, and minimizing our environmental footprint through cloud-based operations. 
+1. Workplace Health & Safety (WHS)
+Since Lithodat operates primarily as a remote and hybrid team, our health and safety focus is centered on the well-being of our staff in a digital environment: 
+	•	Ergonomic Awareness: We encourage all team members to maintain a safe and comfortable home-office setup, including proper chair support and monitor positioning to prevent strain. 
+	•	Mental Well-being & Work-Life Balance: We promote a culture of open communication. We manage fatigue by encouraging regular breaks and maintaining flexible working hours to prevent burnout. 
+	•	Safe Digital Practices: Safety at Lithodat includes digital safety. We ensure all team members use secure, encrypted connections and multi-factor authentication to protect both personal and company data. 
+	•	Inclusivity: We maintain a respectful workplace free from harassment. Any concerns can be raised directly with leadership for immediate and confidential resolution. 
+2. Environmental Sustainability
+Lithodat minimizes its environmental impact by leveraging digital infrastructure rather than physical assets: 
+	•	Cloud-First Infrastructure: By hosting our platforms exclusively on AWS, we benefit from high-efficiency data centers and their commitment to renewable energy, reducing the need for local, energy-heavy servers. 
+	•	Paperless Office: We operate a near 100% paperless environment. All invoicing, contracts, and internal documentation are handled through digital signatures and cloud storage. 
+	•	Reduced Travel: We prioritize virtual meetings for internal and external collaboration, significantly reducing carbon emissions associated with commuting and business travel. 
+	•	Equipment Responsibility: We aim to maximize the lifespan of our IT hardware and ensure that end-of-life electronics are disposed of through local e-waste recycling programs. 
+3. Simple Incident Reporting
+We maintain a straightforward process for reporting any health, safety, or environmental concerns: 
+	•	Report: Any issue (mental health strain, ergonomic injury, or digital security risk) should be reported directly to the CEO or COO. 
+	•	Resolve: Leadership will work directly with the affected individual to find a practical solution (e.g., adjusting workloads, providing equipment, or updating security protocols). 
+	•	Prevent: We review any incidents to see how our basic workflows can be improved to prevent a recurrence. 
+4. Summary of Commitment
+At Lithodat we put our health, wellbeing and culture first for our people. We commit to the practical, daily safety of our people and the sustainability of our digital operations. We focus on being a low-impact, high-wellbeing organization.
+Dr. Fabian Kohlmann
+Chief Executive Officer
+December 2024
+Lithodat Pty Ltd | ABN: 48 647 191 452 Website: https://lithodat.com

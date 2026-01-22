@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
           { isPublic: true },
           {
             sharedWith: {
-              path: '$',
+              path: ['$'],
               array_contains: auth.user!.userId,
             },
           },

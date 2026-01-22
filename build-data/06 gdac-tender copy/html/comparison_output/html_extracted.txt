@@ -1,0 +1,183 @@
+EarthBank Project Summary - Lithodat Pty Ltd
+APPENDIX G
+EarthBank Project Summary
+National Geoscience Data Platform for FAIR
+Geochemistry & Geochronology
+GDAC-SA Advanced Analytics Platform RFQ
+Lithodat Pty Ltd
+ABN: 63 627 008 904
+Project Overview:
+EarthBank is a $21 million national initiative
+ integrating over $100 million in analytical instrumentation across 10 Australian
+ university laboratories into a single FAIR-aligned digital platform. Co-developed
+ by Lithodat Pty Ltd and AuScope Geochemistry Network, the platform demonstrates
+ direct alignment with GDAC-SA requirements through proven capability in national-scale
+ data standardization, multi-agency collaboration, and advanced geospatial analytics.
+1. Overview
+EarthBank (
+https://ausgeochem.auscope.org.au
+)
+ is Australia's national cloud-based public repository for geochemistry, geochronology,
+ isotopes, and thermochronology data. Co-developed by Lithodat Pty Ltd and AuScope
+ Geochemistry Network, EarthBank represents a $21 million investment in national research
+ infrastructure funded by the Australian Research Council (ARC) and administered through
+ AuScope Ltd.
+The platform consolidates analytical data from over $100 million in laboratory
+ instrumentation across 10 Australian universities, making Australia's geoscience
+ research outputs Findable, Accessible, Interoperable, and Reusable (FAIR). This
+ directly mirrors GDAC-SA's mandate to centralize and standardize geoscience data
+ at a national scale.
+2. Technical Architecture
+2.1 Cloud Infrastructure
+Hosting:
+Amazon Web Services (AWS) - ensuring global availability and enterprise-grade security
+Database:
+PostgreSQL with PostGIS extensions for advanced spatial queries
+API Layer:
+RESTful API enabling programmatic data access and third-party integrations
+Frontend:
+React-based web application with interactive mapping and visualization tools
+2.2 Data Integration Pipeline
+EarthBank implements a sophisticated AI-assisted data pipeline that:
+Ingests raw analytical outputs from 10+ laboratory systems
+Validates data against CGI/OGC geochemical standards
+Applies machine learning for automated mineral classification and quality control
+Geocodes samples using Australian national stratigraphic databases
+Generates persistent identifiers (Litho-IDs) for data citation
+2.3 Analytical Capabilities
+The platform supports advanced geoscience workflows including:
+Geochemical Analysis:
+Multi-element whole-rock and mineral chemistry
+Geochronology:
+U-Pb, Ar-Ar, Lu-Hf, Sm-Nd isotopic dating
+Thermochronology:
+(U-Th)/He and fission-track low-temperature dating
+Spatial Analytics:
+Geospatial mapping, regional geochemical trends, proximity searches
+Statistical Tools:
+Multi-variate analysis, machine learning classification
+3. Scale and Performance
+3.1 Data Volume
+Sample Records:
+150,000+ geological samples
+Analytical Results:
+2.5+ million geochemical analyses
+Geochronology:
+25,000+ radiometric ages
+Geographic Coverage:
+Entire Australian continent + Antarctic territories
+Temporal Range:
+Archean to Modern (4 billion years of Earth history)
+3.2 User Engagement
+Active Users:
+500+ registered researchers from universities, government, and industry
+API Usage:
+10,000+ monthly API requests
+Data Downloads:
+50,000+ sample queries per month
+Institutional Partners:
+10 universities + Geoscience Australia + industry partners
+4. GDAC-SA Alignment
+4.1 Multi-Agency Data Integration
+EarthBank successfully integrates data from multiple autonomous institutions
+ (10 university laboratories), each with distinct:
+Analytical protocols and equipment
+Data management systems
+Quality assurance procedures
+Institutional policies and IP frameworks
+This directly parallels GDAC-SA's challenge of harmonizing data from multiple
+ Saudi geoscience agencies.
+4.2 Standards Compliance
+EarthBank enforces international geoscience standards:
+CGI GeoSciML:
+Commission for the Management and Application of Geoscience Information vocabularies
+OGC Standards:
+Open Geospatial Consortium protocols for spatial data
+IGSN:
+International Geo Sample Number persistent identifiers
+CoreTrustSeal:
+Certified Trusted Digital Repository (awarded 2024)
+4.3 Advanced Analytics
+The platform provides industry-grade analytical tools:
+Machine Learning:
+Automated mineral classification using geochemical fingerprints
+Geospatial Intelligence:
+Regional trend analysis, proximity searches, basin-scale visualizations
+Statistical Analysis:
+PCA, cluster analysis, geochemical discrimination diagrams
+API Integration:
+Python/R libraries for programmatic data access and custom workflows
+5. Lithodat's Role
+5.1 Technical Leadership
+Lithodat Pty Ltd serves as the technical architect and lead developer for EarthBank:
+Designed and implemented the entire cloud infrastructure
+Developed the AI-assisted data ingestion pipeline
+Created the geospatial mapping and visualization tools
+Implemented the CoreTrustSeal-certified data stewardship protocols
+Provides ongoing platform maintenance and feature development
+5.2 Scientific Governance
+Lithodat works collaboratively with AuScope's scientific governance committee:
+Dr. Fabian Kohlmann (Lithodat CEO):
+Technical Director and Chief Architect
+Prof. Sandra Occhipinti (Curtin University):
+Scientific Director, AuScope Geochemistry
+Laboratory Directors:
+Representatives from 10 partner universities
+Geoscience Australia:
+Government advisor and data contributor
+6. Recognition and Certification
+6.1 CoreTrustSeal Certification (2024)
+EarthBank is an officially certified Trusted Digital Repository, independently
+ validated for:
+Organizational infrastructure and governance
+Digital object management and data integrity
+Technology, security, and technical infrastructure
+Sustainable funding and long-term preservation
+6.2 World Data System Membership
+EarthBank is a Regular Member of the International Science Council's World Data
+ System, demonstrating compliance with global standards for scientific data infrastructure.
+6.3 Australian Research Data Commons (ARDC)
+The platform is formally recognized by ARDC as a national research data asset,
+ receiving ongoing operational support and strategic guidance.
+7. Relevance to GDAC-SA
+7.1 Proven Scalability
+EarthBank demonstrates Lithodat's capability to deliver enterprise-scale geoscience
+ platforms:
+150,000+ samples (comparable to expected GDAC-SA initial holdings)
+2.5+ million analytical records (demonstrating high-volume data management)
+10+ institutional data sources (proving multi-agency integration capability)
+Continent-scale geographic coverage (Saudi Arabia scale-appropriate)
+7.2 Technical Transferability
+Core EarthBank technologies can be adapted for GDAC-SA:
+Data Pipeline:
+AI-assisted ingestion and validation framework
+API Layer:
+RESTful architecture for third-party integrations
+Geospatial Tools:
+Advanced mapping and proximity search capabilities
+ML Classification:
+Automated mineral and lithology classification
+7.3 Institutional Expertise
+Lithodat's EarthBank experience directly addresses GDAC-SA requirements:
+Managing multi-agency data governance and IP frameworks
+Implementing international geoscience standards (CGI, OGC)
+Achieving formal certification as a Trusted Digital Repository
+Supporting 500+ active users across research, government, and industry sectors
+Maintaining 99.9% uptime for mission-critical research infrastructure
+8. Contact and Further Information
+EarthBank Platform:
+https://ausgeochem.auscope.org.au
+Technical Contact:
+Dr. Fabian Kohlmann (
+fabian.kohlmann@lithodat.com
+)
+Scientific Contact:
+Prof. Sandra Occhipinti (AuScope Geochemistry Director)
+Documentation:
+Full technical specifications and user guides available on request
+Key Takeaway:
+EarthBank demonstrates Lithodat's proven capability
+ to deliver national-scale, FAIR-aligned geoscience data platforms that integrate
+ multiple institutional data sources, implement international standards, and achieve
+ formal certification as trusted research infrastructure. This directly validates
+ our technical readiness to support GDAC-SA's mission.

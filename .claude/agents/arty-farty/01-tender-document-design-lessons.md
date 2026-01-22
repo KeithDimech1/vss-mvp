@@ -206,5 +206,120 @@ When user says:
 
 ---
 
-**Tasks Tested:** 5+ iterations
+## Word Compatibility (2026-01-12)
+
+### Problem: Callout Box Background Colors Don't Transfer to Word
+
+**Issue Discovered:**
+- HTML callout box with CSS `background-color: #f0f4f8` displays correctly in browser
+- When opened in Microsoft Word, the background color disappears
+- User screenshot showed only the blue left border, no gray background
+
+**Root Cause:**
+- Word doesn't reliably preserve CSS background colors from HTML
+- CSS classes and external stylesheets are often stripped
+- Word prefers inline styles and table-based layouts
+
+**Solution: Convert to Table-Based Layout**
+
+Before (CSS div - doesn't work in Word):
+```html
+<div class="callout-box">
+    <h3>Proven Delivery at National Scale</h3>
+    <ul>
+        <li><strong>1M+ samples</strong> processed...</li>
+    </ul>
+</div>
+```
+
+After (inline-styled table - works in Word):
+```html
+<table style="width: 100%; background-color: #f0f4f8; border-left: 5px solid #1f4e78; margin: 24pt 0; page-break-inside: avoid; border-collapse: collapse;">
+    <tr>
+        <td style="padding: 20pt; font-family: 'Source Sans Pro', sans-serif; font-size: 11pt; line-height: 1.65; color: #1a1a1a;">
+            <h3 style="margin-top: 0; margin-bottom: 12pt; font-size: 12pt; text-transform: uppercase; letter-spacing: 0.5pt; color: #1f4e78; font-weight: 700; font-family: 'Source Sans Pro', sans-serif;">Proven Delivery at National Scale</h3>
+            <ul style="margin-left: 24pt; margin-bottom: 0; padding-left: 0;">
+                <li style="margin-bottom: 8pt; line-height: 1.65;"><strong style="font-weight: 700; color: #1f4e78;">1M+ samples</strong> processed...</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+```
+
+**Key Changes for Word Compatibility:**
+1. **Use `<table>` instead of `<div>`** - Word handles tables better
+2. **Inline all styles** - Don't rely on CSS classes
+3. **Explicit font families** - Include full font stack in every element
+4. **Explicit colors** - Don't rely on inheritance
+5. **Page-break control** - Add `page-break-inside: avoid` to table
+6. **Border collapse** - Use `border-collapse: collapse` on table
+
+**When to Use Table-Based Layout:**
+- ✅ Document will be opened in Word
+- ✅ Need background colors or borders
+- ✅ Need consistent spacing/padding
+- ✅ Want formatting to survive copy/paste
+- ❌ PDF-only output (CSS divs work fine)
+- ❌ Browser-only viewing (CSS divs are cleaner)
+
+### Positive Framing in Technical Writing
+
+**Issue:** Negative statement about AI failure
+```
+"Attempts to 'bolt on' AI to poorly structured data inevitably fail
+because poor data requires more effort from AI and subsequently
+produces poor predictions."
+```
+
+**Problem:** Too negative, focuses on failure
+- Uses words: "fail", "poor" (3 times), "inevitably"
+- Focuses on what doesn't work
+- Sounds defensive
+
+**Solution:** Reframe positively - what DOES work
+```
+"Clean, standardized data enables AI algorithms to work efficiently
+and deliver accurate predictions—allowing computational power to
+focus on analysis rather than data interpretation."
+```
+
+**Or:**
+```
+"High-quality data maximizes AI performance: algorithms trained on
+well-structured datasets require less computational effort and
+produce superior mineral prospectivity predictions."
+```
+
+**Why This Works:**
+- Focuses on benefits of doing it right
+- Uses positive words: "enables", "efficient", "accurate", "maximizes"
+- Sounds confident and authoritative
+- More persuasive to decision-makers
+
+**Rule for Tender Writing:**
+- Lead with what you CAN do, not what others can't
+- Frame your approach as the solution, not as avoiding failure
+- Save warnings about risks for a specific "Risks" section
+
+---
+
+## Data Accuracy (2026-01-12)
+
+**Issue:** Sample count statistic
+- Original HTML: "1.2M+ samples processed"
+- User requested: Change to "1M+ samples"
+
+**Lesson:** Always verify statistics before publishing
+- Round down if unsure (1M is safer than 1.2M)
+- Consistency across documents matters
+- Easy to update if documented in one place
+
+**Best Practice:**
+- Keep statistics in a separate data file or spreadsheet
+- Reference single source of truth
+- Update HTML from source, don't hardcode
+
+---
+
+**Tasks Tested:** 7+ iterations (including Word compatibility fixes)
 **Ready for Promotion:** No - still in progress, need user approval when complete
